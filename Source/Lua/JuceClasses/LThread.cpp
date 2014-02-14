@@ -70,7 +70,9 @@ void LThread::notify() const
 
 int LThread::getThreadId() const noexcept
 {
-	return ((int)Thread::getThreadId());
+    int *id = static_cast<int*>(Thread::getThreadId());
+    
+	return (*id);
 }
 
 const String &LThread::getThreadName() const
