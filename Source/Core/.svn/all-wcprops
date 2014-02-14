@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/p/ctrlrv4/code/!svn/ver/1656/nightly/Source/Core
+END
+CtrlrIDManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/p/ctrlrv4/code/!svn/ver/1547/nightly/Source/Core/CtrlrIDManager.h
+END
+CtrlrProperties.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1322/nightly/Source/Core/CtrlrProperties.cpp
+END
+CtrlrFontManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1574/nightly/Source/Core/CtrlrFontManager.cpp
+END
+CtrlrMasterClock.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1454/nightly/Source/Core/CtrlrMasterClock.cpp
+END
+CtrlrUtilities.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1563/nightly/Source/Core/CtrlrUtilities.cpp
+END
+CtrlrSysexToken.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1557/nightly/Source/Core/CtrlrSysexToken.cpp
+END
+CtrlrSysexProcessorOwned.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/p/ctrlrv4/code/!svn/ver/1557/nightly/Source/Core/CtrlrSysexProcessorOwned.h
+END
+CtrlrInlineUtilities.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1645/nightly/Source/Core/CtrlrInlineUtilities.h
+END
+CtrlrUtilitiesGUI.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1608/nightly/Source/Core/CtrlrUtilitiesGUI.cpp
+END
+CtrlrSysexProcessor.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1557/nightly/Source/Core/CtrlrSysexProcessor.h
+END
+dxtrans.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Core/dxtrans.h
+END
+CtrlrUpdateManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1517/nightly/Source/Core/CtrlrUpdateManager.h
+END
+CtrlrIDs.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/p/ctrlrv4/code/!svn/ver/1650/nightly/Source/Core/CtrlrIDs.h
+END
+CtrlrLog.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/p/ctrlrv4/code/!svn/ver/1636/nightly/Source/Core/CtrlrLog.h
+END
+CtrlrRevision.template
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1330/nightly/Source/Core/CtrlrRevision.template
+END
+CtrlrIDManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1608/nightly/Source/Core/CtrlrIDManager.cpp
+END
+stdafx.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/p/ctrlrv4/code/!svn/ver/1525/nightly/Source/Core/stdafx.h
+END
+CtrlrMacros.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/p/ctrlrv4/code/!svn/ver/1622/nightly/Source/Core/CtrlrMacros.h
+END
+CtrlrProperties.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/p/ctrlrv4/code/!svn/ver/1166/nightly/Source/Core/CtrlrProperties.h
+END
+CtrlrRevision.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/p/ctrlrv4/code/!svn/ver/1656/nightly/Source/Core/CtrlrRevision.h
+END
+CtrlrFontManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1574/nightly/Source/Core/CtrlrFontManager.h
+END
+CtrlrSysexProcessorOwned.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/p/ctrlrv4/code/!svn/ver/1557/nightly/Source/Core/CtrlrSysexProcessorOwned.cpp
+END
+CtrlrSysexProcessor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/ctrlrv4/code/!svn/ver/1583/nightly/Source/Core/CtrlrSysexProcessor.cpp
+END
+CtrlrMasterClock.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1451/nightly/Source/Core/CtrlrMasterClock.h
+END
+CtrlrUpdateManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1573/nightly/Source/Core/CtrlrUpdateManager.cpp
+END
+CtrlrUtilities.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/p/ctrlrv4/code/!svn/ver/1544/nightly/Source/Core/CtrlrUtilities.h
+END
+CtrlrSysexToken.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/p/ctrlrv4/code/!svn/ver/1531/nightly/Source/Core/CtrlrSysexToken.h
+END
+CtrlrLog.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/p/ctrlrv4/code/!svn/ver/1636/nightly/Source/Core/CtrlrLog.cpp
+END
+stdafx.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/p/ctrlrv4/code/!svn/ver/1167/nightly/Source/Core/stdafx.cpp
+END
+CtrlrInlineUtilitiesGUI.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1525/nightly/Source/Core/CtrlrInlineUtilitiesGUI.h
+END
+CtrlrUtilitiesGUI.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1544/nightly/Source/Core/CtrlrUtilitiesGUI.h
+END
+CtrlrMainPage.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/p/ctrlrv4/code/!svn/ver/1166/nightly/Source/Core/CtrlrMainPage.h
+END

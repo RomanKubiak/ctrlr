@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<panel name="DEMO - Request Program" panelAuthorName="Roman Kubiak"
+       panelAuthorEmail="kubiak.roman@gmail.com" panelAuthorUrl="http://ctrlr.org"
+       panelAuthorDesc="" panelVersionMajor="1" panelVersionMinor="0"
+       panelVersionName="Buttcheek" panelVendor="" panelDevice="" panelMidiSnapshotAfterLoad="0"
+       panelMidiSnapshotAfterProgramChange="0" panelMidiSnapshotDelay="10"
+       panelMidiInputChannelDevice="1" panelMidiInputDevice="MIDIIN8 (ESI M8U XL)"
+       panelMidiControllerChannel="1" panelMidiControllerDevice="-- None"
+       panelMidiOutputChannelDevice="1" panelMidiOutputDevice="MIDIOUT8 (ESI M8U XL)"
+       panelMidiInputFromHost="0" panelMidiInputChannelHost="1" panelMidiOutputToHost="0"
+       panelMidiOutputChannelHost="1" panelMidiThruH2H="0" panelMidiThruH2HChannelize="0"
+       panelMidiThruH2D="0" panelMidiThruH2DChannelize="0" panelMidiThruD2D="0"
+       panelMidiThruD2DChannelize="0" panelMidiThruD2H="0" panelMidiThruD2HChannelize="0"
+       panelMidiInputThreadPriority="7" panelMidiProgram="0" panelMidiBankLsb="0"
+       panelMidiBankMsb="0" panelMidiSendProgramChangeOnLoad="0" panelMidiProgramCalloutOnprogramChange="0"
+       panelMidiMatchCacheSize="32" luaPanelMidiReceived="midiReceived"
+       luaPanelLoaded="" luaPanelBeforeLoad="" luaPanelSaved="" luaPanelProgramChanged=""
+       panelFilePath="C:\Users\atom\Documents\DEMO - Request Program_1_0_Buttcheek_201301170133.panel"
+       panelUID="8.yhm5viWYg0O" panelModulatorListColumns="" panelModulatorListCsvDelimiter=","
+       panelModulatorListXmlRoot="ctrlrModulatorList" panelModulatorListXmlModulator="ctrlrModulator"
+       panelModulatorListSortOption="1" panelGlobalVariables="-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1"
+       panelIndex="0" panelCtrlrRevision="1215" uiLuaConsoleSnips="l=panel:getComponent(&quot;status&quot;)&#10;b = BubbleMessageComponent(2500)&#10;b:addToDesktop(0,0)&#10;b:showAt(l,&quot;ZOSIA&quot;, 2500, true, false)&#10;">
+  <uiWindowManager>
+    <uiChildWindow uiChildWindowName="LuaMethodEditor" uiChildWindowState="54 30 1548 966">
+      <uiChildWindowContentState luaMethodEditor="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&#13;&#10;&lt;OPEN id=&quot;LUA Method&quot; scrollPos=&quot;0&quot;/&gt;&#13;&#10;;e62ed001fee52f077bb82990d1247f70:16755b849c19b738e57601b3b4bacfd8:6b692ecb0a50a24e33b5a10b9ef79b78"/>
+    </uiChildWindow>
+    <uiChildWindow uiChildWindowName="LuaConsole" uiChildWindowState="375 356 1083 556">
+      <uiChildWindowContentState/>
+    </uiChildWindow>
+  </uiWindowManager>
+  <midiLibrary luaDevUnitReq="-- None" luaDevUnitHandler="-- None" deviceHasEditBuffer="0"
+               deviceBankCount="4" deviceProgramCount="128" deviceRequestTimeout="5000"/>
+  <luaManager>
+    <luaManagerMethods>
+      <luaMethod luaMethodName="requestData" luaMethodCode="--&#13;-- Called when a modulator value changes&#13;-- @mod   http://ctrlr.org/api/class_ctrlr_modulator.html&#13;-- @value    new numeric value of the modulator&#13;--&#13;requestData = function(mod, value)&#13;&#10;&#13;&#10;&#9;if timer:isRegistered(3) == false then&#13;&#10;&#9;&#9;console (&quot;timer not registered, do it now&quot;)&#13;&#10;&#9;&#9;timer:setCallback(3, timerCallback)&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;if timer:isTimerRunning(3) then&#13;&#10;&#9;&#9;console (&quot;timer already running, stop it&quot;)&#13;&#10;&#9;&#9;timer:stopTimer(3)&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;l = panel:getLabelComponent(&quot;status&quot;)&#13;&#10;&#9;if l ~= nil then&#13;&#10;&#9;&#9;l:setText (&quot;&quot;)&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;if lastRequestSentTime ~= nil then&#13;&#10;&#9;&#9;if l ~= nil then&#13;&#10;&#9;&#9;&#9;lapse = String ((Time.getMillisecondCounterHiRes() - lastRequestSentTime)/1000, 4)&#13;&#10;&#9;&#9;&#9;l:append( J(&quot;------------------------\n&quot;) &#13;&#10;&#9;&#9;&#9;&#9;&#9;+ J(&quot;LAPSE:    &quot;) ):append(lapse&#13;&#10;&#9;&#9;&#9;&#9;&#9;+ J(&quot;\n------------------------\n&quot;) )&#13;&#10;&#9;&#9;end&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;requestData = panel:getLabelComponent(&quot;requestData&quot;)&#13;&#10;&#13;&#10;&#9;if requestData ~= nil then&#13;&#10;&#9;&#9;midi = CtrlrMidiMessage(requestData:getText())&#13;&#10;&#13;&#10;&#9;&#9;if not midi:getInitializationResult():wasOk() then&#13;&#10;&#9;&#9;&#9;label = panel:getLabelComponent(&quot;requestData&quot;)&#13;&#10;&#9;&#9;&#9;if label ~= nil then&#13;&#10;&#9;&#9;&#9;&#9;b = BubbleMessageComponent(500)&#13;&#10;&#9;&#9;&#9;&#9;b:showAt(label, &quot;Failed to parse input data as valid HEX, please correct&quot;, 2500, true, false)&#13;&#10;&#9;&#9;&#9;end&#13;&#10;&#13;&#10;&#9;&#9;&#9;return nil&#13;&#10;&#9;&#9;end&#13;&#10;&#13;&#10;&#9;else&#13;&#10;&#9;&#9;midi = CtrlrMidiMessage({0xf0, 0x01, 0x25, 0x05, 0x00, 0x00, 0xf7})&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;timer:startTimer (3, 5000) -- timeout of 5 seconds&#13;&#10;&#13;&#10;&#9;panel:sendMidiMessageNow (midi)&#13;&#10;&#13;&#10;&#9;lastRequestSentTime = Time.getMillisecondCounterHiRes()&#13;&#10;&#13;&#10;&#9;if l ~= nil then&#13;&#10;&#9;&#9;l:appendText(&quot;\nREQUEST:  &quot;)&#13;&#10;&#9;&#9;l:appendText(String(lastRequestSentTime,4));&#13;&#10;&#9;end&#13;end&#13;&#10;&#13;&#10;function timerCallback()&#10;&#9;-- Your method code here&#13;&#10;&#9;&#13;&#10;&#9;l = panel:getLabelComponent(&quot;status&quot;)&#13;&#10;&#13;&#10;&#9;if l ~= nil then&#13;&#10;&#9;&#9;l:appendText (&quot;\n\n----- TIMEOUT -----&quot;)&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;timer:stopTimer (3)&#10;end"
+                 luaMethodLinkedProperty="luaModulatorValueChange" luaMethodSource="0"
+                 uuid="e62ed001fee52f077bb82990d1247f70" luaMethodValid="1"/>
+      <luaMethod luaMethodName="midiReceived" luaMethodCode="--&#13;-- Called when a panel receives a midi message (does not need to match any modulator mask)&#13;-- @midi   http://ctrlr.org/api/class_ctrlr_midi_message.html&#13;--&#13;midiReceived = function(midi)&#13;&#10;&#9;lastResponseReceivedTime = Time.getMillisecondCounterHiRes()&#13;&#10;&#13;&#10;&#9;console (&quot;midiReceived()&quot;)&#13;&#10;&#13;&#10;&#9;l = panel:getLabelComponent(&quot;status&quot;)&#13;&#10;&#13;&#10;&#9;if l ~= nil then&#13;&#10;&#9;&#9;l:append (&quot;\nRESPONSE: &quot;):append (String(lastResponseReceivedTime,4)):append (&quot;\nCONSUMED:  &quot;):append (String(lastResponseReceivedTime - lastRequestSentTime,4)):append (&quot;\nDATA: &quot;):append (midi:toString())&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;timer:stopTimer (3)&#13;end"
+                 luaMethodLinkedProperty="luaPanelMidiReceived" luaMethodSource="0"
+                 uuid="16755b849c19b738e57601b3b4bacfd8" luaMethodValid="1"/>
+      <luaMethod luaMethodName="requestDataChanged" luaMethodCode="--&#13;-- Called when the contents of a Label are changed&#13;-- @label         &#13;-- @newContent    a string that the label now contains&#13;--&#13;requestDataChanged = function(label, newContent)&#13;&#10;&#9;requestData = panel:getLabelComponent(&quot;requestData&quot;)&#13;&#10;&#13;&#10;&#9;if requestData ~= nil then&#13;&#10;&#9;&#9;midi = CtrlrMidiMessage(requestData:getText())&#13;&#10;&#13;&#10;&#9;&#9;b = BubbleMessageComponent(500)&#13;&#10;&#13;&#10;&#9;&#9;if not midi:getInitializationResult():wasOk() then&#10;&#9;&#9;&#9;b:showAt(label, &quot;Failed to parse input data as valid HEX, please correct&quot;, 2500, true, false)&#13;&#10;&#9;&#9;else&#13;&#10;&#9;&#9;&#9;b:showAt(label, &quot;Request data is correct&quot;, 1500, true, false)&#13;&#10;&#9;&#9;end&#13;&#10;&#13;&#10;&#9;else&#13;&#10;&#9;&#9;midi = CtrlrMidiMessage({0xf0, 0x01, 0x25, 0x05, 0x00, 0x00, 0xf7})&#13;&#10;&#9;end&#13;end"
+                 luaMethodLinkedProperty="uiLabelChangedCbk" luaMethodSource="0"
+                 uuid="6b692ecb0a50a24e33b5a10b9ef79b78" luaMethodValid="1"/>
+    </luaManagerMethods>
+  </luaManager>
+  <uiPanelEditor uiPanelCanvasRectangle="0 0 636 404" uiPanelSnapSize="8" uiPanelBackgroundColour="0xffffffff"
+                 uiPanelBackgroundColour1="0xffffffff" uiPanelBackgroundColour2="0xffffffff"
+                 uiPanelBackgroundGradientType="1" uiPanelImageResource="" uiPanelEditMode="0"
+                 uiPanelViewPortSize="677" uiPanelPropertiesSize="605" uiPanelLock="0"
+                 uiPanelDisabledOnEdit="0" uiPanelWidth="400" uiPanelHeight="400"
+                 name="DEMO - Request Program" uiPanelImageAlpha="255" uiPanelImageLayout="64"
+                 uiPanelSnapActive="1" uiPanelPropertiesOnRight="0" luaPanelPaintBackground=""
+                 luaPanelResized="" uiPanelInvisibleComponentAlpha="0.499999989">
+    <uiPanelCanvasLayer uiPanelCanvasLayerName="New layer" uiPanelCanvasLayerUid="1d0595ba12000000a8f7a4099989c2ed"
+                        uiPanelCanvasLayerColour="0x000000" uiPanelCanvasLayerVisibility="1"
+                        uiPanelCanvasLayerIndex="0"/>
+  </uiPanelEditor>
+  <modulator modulatorVstExported="1" modulatorMax="0" vstIndex="0" modulatorIsStatic="0"
+             modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
+             modulatorValueExpression="modulatorValue" modulatorValueExpressionReverse="midiValue"
+             luaModulatorGetValueForMIDI="-- None" luaModulatorGetValueFromMIDI="-- None"
+             modulatorLinkedToPanelProperty="-- None" modulatorLinkedToModulatorProperty="-- None"
+             modulatorLinkedToModulator="-- None" modulatorLinkedToModulatorSource="1"
+             modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
+             modulatorCustomIndexGroup="0" luaModulatorValueChange="requestData"
+             name="modulator-1" modulatorMin="0" modulatorValue="0">
+    <midi midiMessageType="9" midiMessageChannelOverride="0" midiMessageChannel="1"
+          midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList=""
+          midiMessageSysExFormula=""/>
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="0"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1" componentVisibleName="modulator-1"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1.00000001"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiButtonTrueValue="1" uiButtonFalseValue="0" uiButtonIsToggle="0"
+               uiButtonColourOn="0xff0000ff" uiButtonColourOff="ff2e54ef" uiButtonTextColourOn="0xff000000"
+               uiButtonTextColourOff="ff000000" uiButtonContent="Request" uiButtonConnectedLeft="0"
+               uiButtonConnectedRight="0" uiButtonConnectedTop="0" uiButtonConnectedBottom="0"
+               componentRectangle="8 16 220 76" uiType="uiButton" componentLayerUid="1d0595ba12000000a8f7a4099989c2ed"/>
+  </modulator>
+  <modulator modulatorIsStatic="1" name="status" modulatorVstExported="0">
+    <component componentLabelPosition="bottom" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1" componentVisibleName="Response Information"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1.00000001"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiLabelBgColour="70ff4f4f" uiLabelTextColour="0xff000000" uiLabelOutlineColour="0x00000000"
+               uiLabelJustification="topLeft" uiLabelFitFont="0" uiLabelFont="Courier New;14;1;0;0;0;1"
+               uiLabelText="------------------------&#10;LAPSE:    7.3491&#10;------------------------&#10;"
+               uiLabelDisplaysAllValues="0" uiLabelDisplayFormat="%n(%N) = %v(%h)"
+               uiLabelEditOnSingleClick="0" uiLabelEditOnDoubleClick="0" uiLabelEditFocusDiscardsChanges="1"
+               uiLabelInputAllowedChars="" uiLabelInputMaxLength="1024" uiLabelChangedCbk="-- None"
+               componentRectangle="232 0 394 398" uiType="uiLabel" componentLayerUid="1d0595ba12000000a8f7a4099989c2ed"/>
+  </modulator>
+  <modulator modulatorIsStatic="1" name="requestData" modulatorVstExported="0"
+             modulatorValue="0">
+    <component componentLabelPosition="bottom" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="Arial;12;1;0;0;0;1" componentVisibleName="Request Data"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1.00000001"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiLabelBgColour="867dff53" uiLabelTextColour="0xff000000" uiLabelOutlineColour="ff000000"
+               uiLabelJustification="left" uiLabelFitFont="0" uiLabelFont="Courier New;16;1;0;0;0;1"
+               uiLabelText="wiosna" uiLabelDisplaysAllValues="0" uiLabelDisplayFormat="%n(%N) = %v(%h)"
+               uiLabelEditOnSingleClick="1" uiLabelEditOnDoubleClick="0" uiLabelEditFocusDiscardsChanges="1"
+               uiLabelInputAllowedChars="" uiLabelInputMaxLength="1024" uiLabelChangedCbk="requestDataChanged"
+               componentRectangle="8 104 219 47" uiType="uiLabel" componentLayerUid="1d0595ba12000000a8f7a4099989c2ed"/>
+  </modulator>
+</panel>

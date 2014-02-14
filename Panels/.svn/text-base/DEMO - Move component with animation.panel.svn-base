@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<panel name="Ctrlr Panel" panelAuthorName="" panelAuthorEmail="" panelAuthorUrl=""
+       panelAuthorDesc="" panelVersionMajor="1" panelVersionMinor="0"
+       panelVersionName="Buttcheek" panelVendor="" panelDevice="" panelMidiSnapshotAfterLoad="0"
+       panelMidiSnapshotAfterProgramChange="0" panelMidiSnapshotDelay="10"
+       panelMidiInputChannelDevice="1" panelMidiInputDevice="-- None"
+       panelMidiControllerChannel="1" panelMidiControllerDevice="-- None"
+       panelMidiOutputChannelDevice="1" panelMidiOutputDevice="-- None"
+       panelMidiInputFromHost="0" panelMidiInputChannelHost="1" panelMidiOutputToHost="0"
+       panelMidiOutputChannelHost="1" panelMidiThruH2H="0" panelMidiThruH2HChannelize="0"
+       panelMidiThruH2D="0" panelMidiThruH2DChannelize="0" panelMidiThruD2D="0"
+       panelMidiThruD2DChannelize="0" panelMidiThruD2H="0" panelMidiThruD2HChannelize="0"
+       panelMidiInputThreadPriority="7" panelMidiProgram="0" panelMidiBankLsb="0"
+       panelMidiBankMsb="0" panelMidiSendProgramChangeOnLoad="0" panelMidiProgramCalloutOnprogramChange="0"
+       panelMidiMatchCacheSize="32" luaPanelMidiReceived="" luaPanelLoaded=""
+       luaPanelBeforeLoad="" luaPanelSaved="" luaPanelProgramChanged=""
+       panelFilePath="" panelUID="8.mWiLm8W9sPD" panelModulatorListColumns=""
+       panelModulatorListCsvDelimiter="," panelModulatorListXmlRoot="ctrlrModulatorList"
+       panelModulatorListXmlModulator="ctrlrModulator" panelModulatorListSortOption="1"
+       panelGlobalVariables="-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1"
+       panelIndex="0" panelCtrlrRevision="1177">
+  <uiWindowManager>
+    <uiChildWindow uiChildWindowName="LuaMethodEditor" uiChildWindowState="1886 390 1026 587">
+      <uiChildWindowContentState luaMethodEditor="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&#13;&#10;&lt;CLOSED id=&quot;LUA Method&quot; scrollPos=&quot;0&quot;/&gt;&#13;&#10;;6e84c47077cf8fe97e0f647c575bc75c"/>
+    </uiChildWindow>
+  </uiWindowManager>
+  <ctrlrMidiLibrary program="-1" bank="-1" variation="-1"/>
+  <luaManager>
+    <luaManagerMethods>
+      <luaMethod luaMethodName="myMethod" luaMethodCode="--&#13;&#10;-- Called when a modulator value changes&#13;&#10;-- @mod   http://ctrlr.org/api/class_ctrlr_modulator.html&#13;&#10;-- @value    new numeric value of the modulator&#13;&#10;--&#13;&#10;myMethod = function(mod, value)&#13;&#10;&#9;console (&quot;animate&quot;)&#13;&#10;&#9;anim = CtrlrLuaComponentAnimator()&#13;&#10;&#13;&#10;&#9;if value == 1 then&#13;&#10;&#9;&#9;anim:animateComponent(&#13;&#10;&#9;&#9;&#9;panel:getComponent(&quot;modulator-1&quot;),&#13;&#10;&#9;&#9;&#9;panel:getComponent(&quot;pos1&quot;):getLuaBounds(),&#13;&#10;&#9;&#9;&#9;1.0,&#13;&#10;&#9;&#9;&#9;1000,&#13;&#10;&#9;&#9;&#9;false,&#13;&#10;&#9;&#9;&#9;1000,&#13;&#10;&#9;&#9;&#9;1000&#13;&#10;&#9;&#9;)&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;if value == 0 then&#13;&#10;&#9;&#9;anim:animateComponent(&#13;&#10;&#9;&#9;&#9;panel:getComponent(&quot;modulator-1&quot;),&#13;&#10;&#9;&#9;&#9;panel:getComponent(&quot;pos2&quot;):getLuaBounds(),&#13;&#10;&#9;&#9;&#9;1.0,&#13;&#10;&#9;&#9;&#9;1000,&#13;&#10;&#9;&#9;&#9;false,&#13;&#10;&#9;&#9;&#9;1000,&#13;&#10;&#9;&#9;&#9;1000&#13;&#10;&#9;&#9;)&#13;&#10;&#9;end&#13;&#10;end"
+                 luaMethodLinkedProperty="luaModulatorValueChange" luaMethodSource="0"
+                 uuid="6e84c47077cf8fe97e0f647c575bc75c" luaMethodValid="1"/>
+    </luaManagerMethods>
+  </luaManager>
+  <uiPanelEditor uiPanelCanvasRectangle="0 0 632 610" uiPanelSnapSize="8" uiPanelBackgroundColour="0xffffffff"
+                 uiPanelBackgroundColour1="0xffffffff" uiPanelBackgroundColour2="0xffffffff"
+                 uiPanelBackgroundGradientType="1" uiPanelImageResource="" uiPanelEditMode="0"
+                 uiPanelViewPortSize="654" uiPanelPropertiesSize="138" uiPanelLock="0"
+                 uiPanelDisabledOnEdit="0" uiPanelWidth="400" uiPanelHeight="400"
+                 name="Ctrlr Panel" uiPanelImageAlpha="255" uiPanelImageLayout="64"
+                 uiPanelSnapActive="1" uiPanelPropertiesOnRight="0" luaPanelPaintBackground=""
+                 luaPanelResized="" uiPanelInvisibleComponentAlpha="0.499999989">
+    <uiPanelCanvasLayer uiPanelCanvasLayerName="New layer" uiPanelCanvasLayerUid="540be79719000000a87c3508e96f90b0"
+                        uiPanelCanvasLayerColour="0x000000" uiPanelCanvasLayerVisibility="1"
+                        uiPanelCanvasLayerIndex="0"/>
+  </uiPanelEditor>
+  <modulator modulatorValueExpression="modulatorValue" modulatorValueExpressionReverse="midiValue"
+             modulatorIsStatic="0" modulatorGlobalVariable="-1" modulatorMuteOnStart="0"
+             modulatorExcludeFromSnapshot="0" modulatorLinkedToPanelProperty="-- None"
+             modulatorLinkedToModulatorProperty="-- None" modulatorLinkedToModulator="-- None"
+             modulatorLinkedToModulatorSource="1" modulatorLinkedToComponent="0"
+             modulatorBaseValue="0" modulatorCustomIndex="0" modulatorCustomIndexGroup="0"
+             modulatorVstExported="1" luaModulatorValueChange="" modulatorMax="127"
+             vstIndex="0" name="modulator-1" modulatorMin="0" modulatorValue="0">
+    <midi midiMessageType="9" midiMessageChannelOverride="0" midiMessageChannel="1"
+          midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList=""
+          midiMessageSysExFormula=""/>
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="0"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1" componentVisibleName="modulator-1"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiSliderStyle="RotaryVerticalDrag" uiSliderMin="0" uiSliderMax="127"
+               uiSliderInterval="1" uiSliderDoubleClickEnabled="1" uiSliderDoubleClickValue="0"
+               uiSliderValuePosition="4" uiSliderValueHeight="12" uiSliderValueWidth="64"
+               uiSliderTrackCornerSize="5" uiSliderThumbCornerSize="3" uiSliderThumbWidth="0"
+               uiSliderThumbHeight="0" uiSliderThumbFlatOnLeft="0" uiSliderThumbFlatOnRight="0"
+               uiSliderThumbFlatOnTop="0" uiSliderThumbFlatOnBottom="0" uiSliderValueTextColour="0xff000000"
+               uiSliderValueBgColour="0xffffffff" uiSliderRotaryOutlineColour="0xff0000ff"
+               uiSliderRotaryFillColour="0xff0000ff" uiSliderThumbColour="0xffff0000"
+               uiSliderValueHighlightColour="0xff0000ff" uiSliderValueOutlineColour="0xffffffff"
+               uiSliderTrackColour="0xff0f0f0f" uiSliderIncDecButtonColour="0xff0000ff"
+               uiSliderIncDecTextColour="0xffffffff" uiSliderValueFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1"
+               uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
+               uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
+               uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentRectangle="24 200 138 129"
+               uiType="uiSlider" componentLayerUid="540be79719000000a87c3508e96f90b0"/>
+  </modulator>
+  <modulator modulatorValueExpression="modulatorValue" modulatorValueExpressionReverse="midiValue"
+             modulatorIsStatic="0" modulatorGlobalVariable="-1" modulatorMuteOnStart="0"
+             modulatorExcludeFromSnapshot="0" modulatorLinkedToPanelProperty="-- None"
+             modulatorLinkedToModulatorProperty="-- None" modulatorLinkedToModulator="-- None"
+             modulatorLinkedToModulatorSource="1" modulatorLinkedToComponent="0"
+             modulatorBaseValue="0" modulatorCustomIndex="0" modulatorCustomIndexGroup="0"
+             modulatorVstExported="1" luaModulatorValueChange="myMethod" modulatorMax="1"
+             vstIndex="1" name="modulator-2" modulatorMin="0" modulatorValue="1">
+    <midi midiMessageType="9" midiMessageChannelOverride="0" midiMessageChannel="1"
+          midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList=""
+          midiMessageSysExFormula=""/>
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1" componentVisibleName="modulator-2"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiButtonTrueValue="1" uiButtonFalseValue="0" uiButtonIsToggle="0"
+               uiButtonColourOn="0xff0000ff" uiButtonColourOff="0xff4364ff"
+               uiButtonTextColourOn="0xff000000" uiButtonTextColourOff="0xff454545"
+               uiButtonContent="False&#10;True" uiButtonConnectedLeft="0" uiButtonConnectedRight="0"
+               uiButtonConnectedTop="0" uiButtonConnectedBottom="0" componentRectangle="55 140 88 32"
+               uiType="uiButton" componentLayerUid="540be79719000000a87c3508e96f90b0"/>
+  </modulator>
+  <modulator modulatorIsStatic="1" name="pos1" modulatorVstExported="0">
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="0"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1" componentVisibleName="modulator-3"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiGroupText="Position 1" uiGroupTextColour="0xff000000" uiGroupOutlineColour1="36a3a3a3"
+               uiGroupOutlineColour2="29ffffff" uiGroupBackgroundColour1="43a3a3a3"
+               uiGroupBackgroundColour2="23ffffff" uiGroupOutlineGradientType="Vertical"
+               uiGroupBackgroundGradientType="1" uiGroupBackgroundImage="" uiGroupBackgroundImageLayout="36"
+               uiGroupBackgroundImageAlpha="255" uiGroupTextPlacement="top"
+               uiGroupTextFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1" uiGroupOutlineThickness="2.00000003"
+               uiGroupOutlineRoundAngle="8.00000012" uiGroupTextMargin="0" componentRectangle="24 200 138 129"
+               uiType="uiGroup" componentLayerUid="540be79719000000a87c3508e96f90b0"/>
+  </modulator>
+  <modulator modulatorIsStatic="1" name="pos2" modulatorVstExported="0">
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="0"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1" componentVisibleName="modulator-3"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1.00000001"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiGroupText="Position 2" uiGroupTextColour="0xff000000" uiGroupOutlineColour1="38a3a3a3"
+               uiGroupOutlineColour2="32ffffff" uiGroupBackgroundColour1="3aa3a3a3"
+               uiGroupBackgroundColour2="45ffffff" uiGroupOutlineGradientType="Vertical"
+               uiGroupBackgroundGradientType="1" uiGroupBackgroundImage="" uiGroupBackgroundImageLayout="36"
+               uiGroupBackgroundImageAlpha="255" uiGroupTextPlacement="top"
+               uiGroupTextFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1" uiGroupOutlineThickness="2.00000003"
+               uiGroupOutlineRoundAngle="8.00000012" uiGroupTextMargin="0" componentRectangle="168 200 128 128"
+               uiType="uiGroup" componentLayerUid="540be79719000000a87c3508e96f90b0"/>
+  </modulator>
+</panel>

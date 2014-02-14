@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	04D2F790403E4A2B535A85B6 /* CtrlrCustomButtonInternal.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1199, 3484}}";
+			sepNavSelRange = "{7081, 0}";
+			sepNavVisRange = "{6640, 757}";
+		};
+	};
+	19B3931DCCCFC5808C8391A0 /* CtrlrNative.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1307, 481}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 516}";
+		};
+	};
+	2181FFB90E5DDBF32AF3575E /* CtrlrMac.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1307, 3432}}";
+			sepNavSelRange = "{6859, 0}";
+			sepNavVisRange = "{7001, 991}";
+		};
+	};
+	2698A93A70BBE53318973B76 /* CtrlrMac.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1307, 581}}";
+			sepNavSelRange = "{647, 0}";
+			sepNavVisRange = "{0, 778}";
+		};
+	};
+	540FE28982AE3F301BF550C0 /* CtrlrIDManager.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {953, 3523}}";
+			sepNavSelRange = "{4992, 0}";
+			sepNavVisRange = "{4788, 345}";
+		};
+	};
+	5C21E831145F54B900CED80B /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	5C21E832145F54B900CED80B /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	5C22A78114C6348500EFD543 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 540FE28982AE3F301BF550C0 /* CtrlrIDManager.cpp */;
+		name = "CtrlrIDManager.cpp: 202";
+		rLen = 0;
+		rLoc = 4992;
+		rType = 0;
+		vrLen = 345;
+		vrLoc = 4788;
+	};
+	5C22A78214C6348500EFD543 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 04D2F790403E4A2B535A85B6 /* CtrlrCustomButtonInternal.cpp */;
+		name = "CtrlrCustomButtonInternal.cpp: 237";
+		rLen = 0;
+		rLoc = 7081;
+		rType = 0;
+		vrLen = 757;
+		vrLoc = 6640;
+	};
+	5C2949CB158669280014F68D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A5CC1CFC2E7DDFD2AE87421F /* CtrlrSliderInternal.cpp */;
+		name = "CtrlrSliderInternal.cpp: 24";
+		rLen = 0;
+		rLoc = 711;
+		rType = 0;
+		vrLen = 804;
+		vrLoc = 269;
+	};
+	5C2949CC158669280014F68D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		name = "juce_VST_Wrapper.cpp: 351";
+		rLen = 15;
+		rLoc = 10760;
+		rType = 0;
+		vrLen = 1658;
+		vrLoc = 9811;
+	};
+	5C2949CD158669280014F68D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		name = "juce_AU_Wrapper.mm: 1112";
+		rLen = 0;
+		rLoc = 40354;
+		rType = 0;
+		vrLen = 1348;
+		vrLoc = 39904;
+	};
+	5C294A1015866C280014F68D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		name = "juce_AU_Resources.r: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1584;
+		vrLoc = 803;
+	};
+	5C2F690715CDDF4200EF7F1F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		name = "juce_mac_MainMenu.mm: 524";
+		rLen = 0;
+		rLoc = 20274;
+		rType = 0;
+		vrLen = 1475;
+		vrLoc = 19600;
+	};
+	5CC0EA9A15869CBB00979317 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2698A93A70BBE53318973B76 /* CtrlrMac.h */;
+		name = "CtrlrMac.h: 23";
+		rLen = 0;
+		rLoc = 647;
+		rType = 0;
+		vrLen = 778;
+		vrLoc = 0;
+	};
+	5CC0EAB415869D7B00979317 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		name = "juce_MidiMessageCollector.cpp: 41";
+		rLen = 0;
+		rLoc = 1500;
+		rType = 0;
+		vrLen = 562;
+		vrLoc = 1320;
+	};
+	5CEF470E1587A8CB0074C793 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2181FFB90E5DDBF32AF3575E /* CtrlrMac.cpp */;
+		name = "CtrlrMac.cpp: 229";
+		rLen = 0;
+		rLoc = 6859;
+		rType = 0;
+		vrLen = 991;
+		vrLoc = 7001;
+	};
+	5CFDF4691586850200CCCDCC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19B3931DCCCFC5808C8391A0 /* CtrlrNative.cpp */;
+		name = "CtrlrNative.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 516;
+		vrLoc = 0;
+	};
+	5CFDF479158687AC00CCCDCC /* Executable */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+			"PBXLSLaunchAction-0" = {
+				PBXLSLaunchAction = 0;
+				PBXLSLaunchStartAction = 1;
+				PBXLSLaunchStdioStyle = 2;
+				PBXLSLaunchStyle = 0;
+				class = PBXLSRunLaunchConfig;
+				commandLineArgs = (
+				);
+				displayName = "Executable Runner";
+				environment = {
+				};
+				identifier = com.apple.Xcode.launch.runConfig;
+				remoteHostInfo = "";
+				startActionInfo = "";
+			};
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		launchableReference = 5CFDF47A158687AC00CCCDCC /* Plugin Host.app */;
+		libgmallocEnabled = 0;
+		name = Executable;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	5CFDF47A158687AC00CCCDCC /* Plugin Host.app */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = wrapper.application;
+		name = "Plugin Host.app";
+		path = "/Users/atom/devel/juce/extras/audio plugin host/Builds/MacOSX/build/Release/Plugin Host.app";
+		sourceTree = "<absolute>";
+	};
+	A5CC1CFC2E7DDFD2AE87421F /* CtrlrSliderInternal.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1608, 2067}}";
+			sepNavSelRange = "{711, 0}";
+			sepNavVisRange = "{269, 804}";
+		};
+	};
+	BE74FFF7AB9A2D324B065E93 /* Ctrlr_Plugin_AU */ = {
+		activeExec = 0;
+	};
+	FC3CD091C9AC5E959965FBE4 /* Project object */ = {
+		activeArchitecturePreference = x86_64;
+		activeBuildConfigurationName = Release_Nightly;
+		activeExecutable = 5CFDF479158687AC00CCCDCC /* Executable */;
+		activeTarget = BE74FFF7AB9A2D324B065E93 /* Ctrlr_Plugin_AU */;
+		breakpoints = (
+		);
+		codeSenseManager = 5C21E832145F54B900CED80B /* Code sense */;
+		executables = (
+			5CFDF479158687AC00CCCDCC /* Executable */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					1005,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					1117,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 378769798;
+			PBXWorkspaceStateSaveDate = 378769798;
+		};
+		perUserProjectItems = {
+			5C22A78114C6348500EFD543 /* PBXTextBookmark */ = 5C22A78114C6348500EFD543 /* PBXTextBookmark */;
+			5C22A78214C6348500EFD543 /* PBXTextBookmark */ = 5C22A78214C6348500EFD543 /* PBXTextBookmark */;
+			5C2949CB158669280014F68D /* PBXTextBookmark */ = 5C2949CB158669280014F68D /* PBXTextBookmark */;
+			5C2949CC158669280014F68D /* PBXTextBookmark */ = 5C2949CC158669280014F68D /* PBXTextBookmark */;
+			5C2949CD158669280014F68D /* PBXTextBookmark */ = 5C2949CD158669280014F68D /* PBXTextBookmark */;
+			5C294A1015866C280014F68D /* PBXTextBookmark */ = 5C294A1015866C280014F68D /* PBXTextBookmark */;
+			5C2F690715CDDF4200EF7F1F /* PBXTextBookmark */ = 5C2F690715CDDF4200EF7F1F /* PBXTextBookmark */;
+			5CC0EA9A15869CBB00979317 /* PBXTextBookmark */ = 5CC0EA9A15869CBB00979317 /* PBXTextBookmark */;
+			5CC0EAB415869D7B00979317 /* PBXTextBookmark */ = 5CC0EAB415869D7B00979317 /* PBXTextBookmark */;
+			5CEF470E1587A8CB0074C793 /* PBXTextBookmark */ = 5CEF470E1587A8CB0074C793 /* PBXTextBookmark */;
+			5CFDF4691586850200CCCDCC /* PBXTextBookmark */ = 5CFDF4691586850200CCCDCC /* PBXTextBookmark */;
+		};
+		sourceControlManager = 5C21E831145F54B900CED80B /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+}

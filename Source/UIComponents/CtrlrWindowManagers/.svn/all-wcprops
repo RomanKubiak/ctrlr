@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/ctrlrv4/code/!svn/ver/1632/nightly/Source/UIComponents/CtrlrWindowManagers
+END
+CtrlrDialogWindow.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/p/ctrlrv4/code/!svn/ver/1525/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrDialogWindow.cpp
+END
+CtrlrPanelWindowManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/p/ctrlrv4/code/!svn/ver/1617/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.h
+END
+CtrlrChildWindow.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/p/ctrlrv4/code/!svn/ver/1573/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.cpp
+END
+CtrlrChildWindowContent.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/p/ctrlrv4/code/!svn/ver/1573/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContent.h
+END
+CtrlrDialogWindow.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/p/ctrlrv4/code/!svn/ver/1150/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrDialogWindow.h
+END
+CtrlrManagerWindowManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/p/ctrlrv4/code/!svn/ver/1585/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrManagerWindowManager.cpp
+END
+CtrlrChildWindowContainer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/p/ctrlrv4/code/!svn/ver/1168/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContainer.cpp
+END
+CtrlrChildWindow.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/p/ctrlrv4/code/!svn/ver/1573/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.h
+END
+CtrlrManagerWindowManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/p/ctrlrv4/code/!svn/ver/1585/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrManagerWindowManager.h
+END
+CtrlrPanelWindowManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/p/ctrlrv4/code/!svn/ver/1617/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.cpp
+END
+CtrlrChildWindowContainer.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/p/ctrlrv4/code/!svn/ver/1632/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContainer.h
+END
+CtrlrChildWindowContent.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/p/ctrlrv4/code/!svn/ver/1525/nightly/Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContent.cpp
+END

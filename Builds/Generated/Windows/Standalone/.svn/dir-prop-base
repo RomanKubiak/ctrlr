@@ -1,0 +1,5 @@
+K 16
+tsvn:logrevregex
+V 97
+\b(r\d+)|\b(revisions?(\(s\))?\s#?\d+([, ]+(and\s?)?\d+)*)|\b(revs?\.?\s?\d+([, ]+(and\s?)?\d+)*)
+END

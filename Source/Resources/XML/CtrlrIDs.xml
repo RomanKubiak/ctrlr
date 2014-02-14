@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ctrlrIds>
+  <!-- Modulator properties -->
+  <id name="modulatorValue" 					text="Current modulator value" type="ReadOnly"/>
+  <id name="modulatorIsStatic" 					text="Modulator does not react to value changes" type="Bool" defaults="Static/Dynamic"/>
+  <id name="modulatorGlobalVariable" 			text="Modulator attached to global variable" type="Numeric" min="-1" max="64"/>
+  <id name="modulatorValueExpression" 			text="Expression to evaluate when calculating the midi message value from the modulator value" type="Expression"/>
+  <id name="modulatorValueExpressionReverse" 	text="Expression to evaluate when calculating the modulator value from the midi message value" type="Expression"/>
+  <id name="modulatorMuteOnStart" 				text="Modulator does not output any MIDI during startup" type="Bool" defaults="Mute/UnMute"/>
+  <id name="modulatorLinkedToPanelProperty" 	text="Link to PANEL property" type="VarText"/>
+  <id name="modulatorLinkedToModulatorProperty" text="Link to MODULATOR property" type="VarText"/>
+  <id name="modulatorLinkedToModulatorSource" 	text="Link to MODULATOR modulation type" type="Bool" defaults="Numeric/Text"/>
+  <id name="modulatorLinkedToModulator" 		text="Link to MODULATOR" type="VarText"/>
+  <id name="modulatorLinkedToComponent" 		text="Link to what type of property" type="Bool" defaults="Component/Modulator"/>
+  <id name="modulatorMax" 						text="Maximum value the modulator can have, should be set from the UI component" type="ReadOnly" min="-65536" max="65536" int="0.0001" />
+  <id name="modulatorMin" 						text="Minimum value the modulator can have, should be set from the UI component" type="ReadOnly" min="-65536" max="65536" int="0.0001" />
+  <id name="modulatorExcludeFromSnapshot" 		text="Don't send this modulator during snapshots" type="Bool" defaults="Don't send/Send"/>
+  <id name="modulatorBaseValue" 				text="Base/fallback value" type="Numeric" min="-65536" max="65536"/>
+  <id name="modulatorCustomIndex" 				text="Custom modulator index" type="Text"/>
+  <id name="modulatorCustomIndexGroup" 			text="Custom modulator index group" type="Text"/>
+  <id name="modulatorVstExported" 				text="Export parameter to VST host" type="Bool" defaults="Export/Don't export"/>
+  <id name="modulatorVstNameFormat"             text="A format string (just like the label property for displaying changed modulators) that will report the name to the Host" type="Text" />
+  <id name="modulatorCustomNameGroup"           text="A custom group name"      type="Text" />
+  <id name="modulatorCustomName"                text="A custom modulator name"  type="Text" section="Modulator" />
+
+  <!-- Panel editor properties -->
+  <id name="uiPanelImageAlpha" 				text="Background image opacity" type="Numeric" max="255"/>
+  <id name="uiPanelImageLayout" 			text="Image layout" type="VarNumeric" defaults="@imageLayout"/>
+  <id name="uiPanelImageResource" 			text="Panel background image" type="VarText"/>
+  <id name="uiPanelBackgroundColour" 		text="Background colour" type="Colour"/>
+  <id name="uiPanelBackgroundColour1" 		text="Background colour [1]" type="Colour" />
+  <id name="uiPanelBackgroundColour2" 		text="Background colour [1]" type="Colour" />
+  <id name="uiPanelBackgroundGradientType" 	text="Background gradient type" type="VarNumeric" defaults="@gradient" />
+  <id name="uiPanelSnapSize" 				text="Snap size" type="Text"/>
+  <id name="uiPanelViewPortSize" 			text="Canvas size" type="Text"/>
+  <id name="uiPanelPropertiesSize" 			text="Properties panel size" type="Text"/>
+  <id name="uiPanelEditMode" 				text="Edit Mode" type="Bool"/>
+  <id name="uiPanelLock" 					text="Panel Lock" type="Bool"/>
+  <id name="uiPanelWidth" 					text="Panel Width" type="Text"/>
+  <id name="uiPanelHeight" 					text="Panel Height" type="Text"/>
+  <id name="uiPanelDisabledOnEdit" 			text="Components are disabled when editing" type="Bool" defaults="Enabled/Disabled" />
+  <id name="uiPanelSnapActive"	 			text="Snap component position" type="Bool"/>
+  <id name="uiPanelCanvasRectangle" 		text="Canvas bounds" type="Text"/>
+  <id name="uiPanelClipboardTree" 			text="uiPanelClipboardTree" type="Text"/>
+  <id name="uiPanelPropertiesOnRight" 		text="Properties panel on the right side" type="Bool"/>
+  <id name="uiPanelInvisibleComponentAlpha" text="Alpha for invisible components in edit mode" type="Numeric" max="1" int="0.01"/>
+  <id name="uiPanelMidiToolbarVisible"  	text="MIDI Toolbar visible" type="Bool" />
+  <id name="uiPanelDisableCombosOnEdit" 	text="Disable combos when editing panel" type="Bool" />
+
+  <id name="uiPanelTooltipBackgroundColour" text="Tooltip background colour" 		type="Colour" />
+  <id name="uiPanelTooltipOutlineColour" 	text="Tooltip outline colour" 			type="Colour" />
+  <id name="uiPanelTooltipCornerRound" 		text="Tooltip rectangle roundness" 		type="Numeric" min="0" max="255" int="0.1" />
+  <id name="uiPanelTooltipPlacement" 		text="Tooltip placement" 				type="VarNumeric" defaults="Above=1,Below=2,Left=4,Right=8"/>
+  <id name="uiPanelTooltipFont" 			text="Tooltip font"						type="Font" />
+  <id name="uiPanelTooltipColour" 			text="Tooltip font colour"				type="Colour" />
+
+  <!-- Panel properties -->
+
+  <!-- MIDI -->
+  <id name="panelMidiInputChannelDevice"                text="MIDI input channel (from device)"                 type="VarNumeric"  defaults="@midiInputChannel"/>
+  <id name="panelMidiInputDevice"                       text="MIDI input device"                                type="VarText" />
+  <id name="panelMidiOutputChannelDevice"               text="MIDI output channel (to device)"                  type="VarNumeric"  defaults="@midiOutputChannel"/>
+  <id name="panelMidiOutputDevice"                      text="MIDI output device"                               type="VarText" />
+  <id name="panelMidiControllerChannelDevice"           text="MIDI controller channel"                          type="VarNumeric"  defaults="@midiInputChannel"/>
+  <id name="panelMidiControllerDevice"                  text="MIDI controller device"                           type="VarText" />
+  <id name="panelMidiOutputDevicePanelThread"           text="Use panel thread for midi output (to device)"     type="Bool" />
+  <id name="panelMidiInputFromHost"                     text="MIDI input from host enabled"                     type="Bool" />
+  <id name="panelMidiInputFromHostCompare"              text="MIDI input from host compared to modulators"      type="Bool" />
+  <id name="panelMidiInputChannelHost"                  text="MIDI input from host channel"                     type="VarNumeric" defaults="@midiInputChannel"/>
+  <id name="panelMidiOutputToHost"                      text="MIDI output to host enabled"                      type="Bool" />
+  <id name="panelMidiOutputChannelHost"                 text="MIDI output to host channel"                      type="VarNumeric" defaults="@midiOutputChannel"/>
+  <id name="panelMidiThruH2H"                           text="MIDI THRU host->host"                             type="Bool" defaults="Enabled/Disabled" />
+  <id name="panelMidiThruH2HChannelize"                 text="MIDI THRU host->host (channelize)"                type="Bool" defaults="Enabled/Disabled" />
+  <id name="panelMidiThruH2D"                           text="MIDI THRU host->device"                           type="Bool" defaults="Enabled/Disabled" />
+  <id name="panelMidiThruH2DChannelize"                 text="MIDI THRU host->device (channelize)"              type="Bool" defaults="Enabled/Disabled" />
+  <id name="panelMidiThruD2D"                           text="MIDI THRU device->device"                         type="Bool" defaults="Enabled/Disabled" />
+  <id name="panelMidiThruD2DChannelize"                 text="MIDI THRU device->device (channelize)"            type="Bool" defaults="Enabled/Disabled" />
+  <id name="panelMidiThruD2H"                           text="MIDI THRU device->host"                           type="Bool" defaults="Enabled/Disabled" />
+  <id name="panelMidiThruD2HChannelize"                 text="MIDI THRU device->host (channelize)"              type="Bool" defaults="Enabled/Disabled" />
+  <id name="panelMidiInputThreadPriority"               text="MIDI Input Thread priority"                       type="Numeric" min="0" int="1" max="10"/>
+  <id name="panelMidiProgram"                           text="MIDI Program"                                     type="Numeric" min="0" max="127" int="1" />
+  <id name="panelMidiBankLsb"                           text="MIDI Bank LSB"                                    type="Numeric" min="0" max="127" int="1" />
+  <id name="panelMidiBankMsb"                           text="MIDI Bank MSB"                                    type="Numeric" min="0" max="127" int="1" />
+  <id name="panelMidiSendProgramChangeOnLoad"           text="Send MIDI program and bank change on panel load"  type="Bool" />
+  <id name="panelMidiSnapshotAfterLoad"                 text="Send MIDI snapshot after panel load"              type="Bool" />
+  <id name="panelMidiSnapshotAfterProgramChange"        text="Send MIDI snapshot after program change"          type="Bool" />
+  <id name="panelMidiSnapshotDelay"                     text="MIDI snapshot delay between messages"             type="Numeric" min="0" max="20000" int="1" />
+  <id name="panelMidiProgramChangeMethod"               text="Method for program change requests"               type="VarNumeric"/>
+  <id name="panelMidiProgramCalloutOnprogramChange"     text="Send program request on program change"           type="Bool" defaults="Yes/No"/>
+  <id name="panelMidiNumPrograms"                       text="Number of programs per bank"                      type="Numeric" min="1" max="128"/>
+  <id name="panelMidiNumBanks"                          text="Number of banks"                                  type="Numeric" min="1" max="128"/>
+  <id name="panelMidiMatchCacheSize"                    text="Matched input messages cached"                    type="Numeric" min="1" max="256"/>
+  <id name="panelMidiRealtimeIgnore"                    text="Ignore realtime MIDI messages on input"           type="Bool" />
+  <id name="panelMidiGlobalDelay"                       text="Global delay for MIDI messages [ms]"              type="Numeric"  min="0" max="5000" />
+
+  <!-- General -->
+  <id name="panelFilePath"                  text="Panel file path" type="ReadOnly"/>
+  <id name="panelIndex"                     text="Panel global index" type="ReadOnly"/>
+  <id name="panelUID"                       text="Unique panel identifier" type="ReadOnly"/>
+  <id name="panelMidiVstInput"              text="Panel receives MIDI from host" type="Bool"/>
+  <id name="panelMidiVstOutput"             text="Panel sends MIDI to host" type="Bool"/>
+  <id name="panelComponentGroupList"        text="Component groups" type="VarText"/>
+  <id name="panelGlobalVariables"           text="Global variables" type="ReadOnly"/>
+  <id name="panelAuthorName"                text="Panel author name" type="Text"/>
+  <id name="panelAuthorEmail"               text="Panel author email" type="Text"/>
+  <id name="panelAuthorUrl"                 text="Panel author url" type="Text"/>
+  <id name="panelAuthorDesc"                text="Panel author description" type="MultiLineSmall"/>
+  <id name="panelVersionMajor"              text="Version MAJOR" type="Numeric" min="0" max="2048" int="1" />
+  <id name="panelVersionMinor"              text="Version MINOR" type="Numeric" min="0" max="2048" int="1" />
+  <id name="panelVersionName"               text="Version Name" type="Text"/>
+  <id name="panelCtrlrRevision"             text="Ctrlr revision that this panel was saved with" type="Text"/>
+  <id name="panelVendor"                    text="Vendor that made the device that this panel controls" type="Text"/>
+  <id name="panelDevice"                    text="Device witch this panel controls" type="Text"/>
+  <id name="panelModulatorListColumns"      text="Modulator list column state" type="ReadOnly"/>
+  <id name="panelModulatorListCsvDelimiter" text="Modulator list CSV delimiter" type="Text"/>
+  <id name="panelModulatorListXmlRoot"      text="Modulator list XML root element name" type="Text"/>
+  <id name="panelModulatorListXmlModulator" text="Modulator list XML modulator element name" type="Text"/>
+  <id name="panelModulatorListSortOption"   text="Sort option" type="Numeric"/>
+  <id name="panelResources"                 text="Panel resources" type="ReadOnly" />
+  <id name="panelPropertyDisplayIDs"        text="Display property IDs instead of full descriptions" type="Bool" defaults="IDs/Descriptions" />
+  <id name="panelScheme"					text="Panel scheme" type="ReadOnly" />
+  <id name="panelShowDialogs"				text="Show dialogs during panel lifetime" type="Bool" />
+  <id name="panelMessageTime"               text="How long messages should appear on screen (ms)"  type="Numeric" min="0" max="100000" />
+
+  <!-- Generic component properties -->
+  <id name="componentRectangle"                   text="Component position and size" type="Text"/>
+  <id name="componentSentBack"                    text="Component is at the back" type="Bool"/>
+  <id name="componentVisibleName"                 text="Visible name" type="MultiLineSmall"/>
+  <id name="componentMouseCursor"                 text="Mouse cursor" type="VarNumeric" defaults="@mouseCursor"/>
+  <id name="componentGroupName"                   text="Group" type="Text"/>
+  <id name="componentTabName"                     text="Owner tabs name" type="Text"/>
+  <id name="componentTabId"                       text="Owner tab index" type="Numeric"/>
+  <id name="componentGroupped"					  text="Is component a member of a group" type="Bool" />
+  <id name="componentSnapSizeAllow"               text="Allow snap component size" type="Bool"/>
+  <id name="componentSnapSize"                    text="Snap component size" type="Numeric" min="0" max="256" int="1"/>
+  <id name="componentIsLocked"                    text="Component size and position is locked" type="Bool"/>
+  <id name="componentDisabled"                    text="Component is disabled" type="Bool" />
+  <id name="componentRadioGroupId"                text="Radio group" type="Numeric" min="0" max="8192" int="1" />
+  <id name="componentRadioGroupNotifyMidi"        text="Send MIDI from other members of the group" type="Bool"/>
+  <id name="componentVisibility"                  text="Is component visible" type="Bool"/>
+  <id name="componentLayerUid"                    text="Component layer ID" type="ReadOnly"/>
+  <id name="componentAlpha"                       text="Component Alpha" type="Numeric" max="255" min="0" int="1" />
+  <id name="componentEffect"                      text="Component effect" type="VarNumeric" defaults="@imageEffect"/>
+  <id name="componentEffectRadius"                text="Component effect radius" type="Numeric" min="0.5" max="255" int="0.1"/>
+  <id name="componentEffectColour"                text="Component effect colour" type="Colour"/>
+  <id name="componentEffectOffsetX"               text="Component effect offset X (shadow)" type="Numeric" max="255" int="0.1"/>
+  <id name="componentEffectOffsetY"               text="Component effect offset Y (shadow)" type="Numeric" max="255" int="0.1"/>
+  <id name="componentLabelPosition"               text="Name label position" type="VarText" defaults="@relativePosition"/>
+  <id name="componentLabelJustification"          text="Name label justification" type="VarText" defaults="@justification" />
+  <id name="componentLabelHeight"                 text="Name label height" type="Text"/>
+  <id name="componentLabelWidth"                  text="Name label width" type="Text"/>
+  <id name="componentLabelVisible"                text="Name label visible" type="Bool"/>
+  <id name="componentLabelAlwaysOnTop"            text="Name label always on top" type="Bool"/>
+  <id name="componentLabelColour"                 text="Name label colour" type="Colour"/>
+  <id name="componentLabelFont"                   text="Name label font" type="Font"/>
+  <id name="componentRotation"                    text="Component rotation" type="Numeric" min="0" max="2" int="0.01"/>
+  <id name="componentExcludedFromLabelDisplay"    text="Component changes will not appear in labels that display them"  type="Bool" />
+
+  <id name="componentBubbleRoundAngle"            text="Bubble: Rounded corner angle" type="Numeric" min="0" max="255" int="0.1" />
+  <id name="componentBubbleBackgroundColour1"     text="Bubble: Background colour1" type="Colour"/>
+  <id name="componentBubbleBackgroundColour2"     text="Bubble: Background colour2" type="Colour"/>
+  <id name="componentBubbleBackgroundGradientType"  text="Bubble: Background Gradient Style" type="VarNumeric" defaults="@gradient" />
+  <id name="componentBubbleValueColour"           text="Bubble: Value text colour" type="Colour" />
+  <id name="componentBubbleValueFont"             text="Bubble: Value text font" type="Font" />
+  <id name="componentBubbleValueJustification"    text="Bubble: Value text justification" type="VarText" defaults="@justification" />
+  <id name="componentBubbleNameColour"            text="Bubble: Name text colour" type="Colour" />
+  <id name="componentBubbleNameFont"              text="Bubble: Name text font" type="Font" />
+  <id name="componentBubbleNameJustification"     text="Bubble: Nam text justification" type="VarText" defaults="@justification" />
+  <id name="componentValueDecimalPlaces"          text="Decimcal places to print if using floating point numbers" type="Numeric" min="0" max="10" int="1" />
+
+  <!-- Slider -->
+  <id name="uiSliderStyle" 					text="Slider style" type="VarNumeric" defaults="LinearHorizontal,LinearVertical,LinearBar,Rotary,RotaryHorizontalDrag,RotaryVerticalDrag,IncDecButtons"/>
+  <id name="uiSliderMin" 					text="Minimum value" type="Numeric" min="-65536" max="65536" int="0.0001" />
+  <id name="uiSliderMax" 					text="Maximum value" type="Numeric" min="-65536" max="65536" int="0.0001" />
+  <id name="uiSliderInterval" 				text="Interval" type="Numeric" min="-65536" max="65536" int="0.0001" />
+  <id name="uiSliderDoubleClickValue" 		text="The value to set when double clicked" type="Numeric" min="-65536" max="65536" int="0.0001" />
+  <id name="uiSliderDoubleClickEnabled" 	text="Double clicked setting" type="Bool" defaults="Enabled/Disabled"/>
+  <id name="uiSliderValuePosition" 			text="Value position" type="VarNumeric" defaults="NoTextBox=0,TextBoxLeft=1,TextBoxRight=2,TextBoxAbove=3,TextBoxBelow=4"/>
+  <id name="uiSliderValueHeight" 			text="Value height" type="Text"/>
+  <id name="uiSliderValueWidth" 			text="Value width" type="Text"/>
+  <id name="uiSliderTrackCornerSize" 		text="Linear slider track corner size" type="Numeric" min="0" max="1024" int="1"/>
+  <id name="uiSliderThumbCornerSize"		text="Linear slider thumb coroner size(roundness)" type="Numeric"  min="0" max="1024" int="1"/>
+  <id name="uiSliderThumbWidth" 			text="Linear slider thumb width (0=default)" type="Numeric"  min="0" max="1024" int="1"/>
+  <id name="uiSliderThumbHeight" 			text="Linear slider thumb height (0=default)" type="Numeric"  min="0" max="1024" int="1"/>
+  <id name="uiSliderThumbFlatOnLeft" 		text="Thumb flat on left" type="Bool"/>
+  <id name="uiSliderThumbFlatOnRight" 		text="Thumb flat on right" type="Bool"/>
+  <id name="uiSliderThumbFlatOnTop" 		text="Thumb flat on top" type="Bool"/>
+  <id name="uiSliderThumbFlatOnBottom" 		text="Thumb flat on bottom" type="Bool"/>
+  <id name="uiSliderValueTextColour" 		text="Value text colour" type="Colour"/>
+  <id name="uiSliderValueBgColour" 			text="Value background colour" type="Colour"/>
+  <id name="uiSliderRotaryOutlineColour" 	text="Rotary outline colour" type="Colour"/>
+  <id name="uiSliderRotaryFillColour" 		text="Rotary fill colour" type="Colour"/>
+  <id name="uiSliderThumbColour" 			text="Thumb colour" type="Colour"/>
+  <id name="uiSliderValueHighlightColour" 	text="Value text colour highlited" type="Colour"/>
+  <id name="uiSliderValueOutlineColour" 	text="Value outline colour" type="Colour"/>
+  <id name="uiSliderTrackColour" 			text="Track colour (linear)" type="Colour"/>
+  <id name="uiSliderIncDecButtonColour" 	text="Inc/Dec buttons colour" type="Colour"/>
+  <id name="uiSliderIncDecTextColour" 		text="Inc/Dec buttons text ON colour" type="Colour"/>
+
+  <id name="uiSliderValueFont" 				text="Value font" type="Font"/>
+  <id name="uiSliderValueTextJustification" text="Value text justification" type="VarText" defaults="@justification"/>
+  <id name="uiSliderVelocityMode" 			text="Velocity Mode" type="Bool"/>
+  <id name="uiSliderVelocityModeKeyTrigger" text="Keyboard trigger - velocity Mode" type="Bool"/>
+  <id name="uiSliderVelocitySensitivity" 	text="Sensitivity - velocity Mode" type="Numeric" min="1" max="65536" int="0.0001"/>
+  <id name="uiSliderVelocityThreshold" 		text="Threshold - velocity Mode" type="Numeric" min="1" max="65536" int="0.0001" />
+  <id name="uiSliderVelocityOffset" 		text="Offset in pixels - velocity Mode" type="Numeric" max="127" int="0.5"/>
+  <id name="uiSliderSpringMode" 			text="Slider spring mode" type="Bool"/>
+  <id name="uiSliderSpringValue" 			text="Slider spring to value" type="Numeric" min="-65536" max="65536"  int="0.0001" />
+  <id name="uiSliderMouseWheelInterval" 	text="Interval for mouse wheel" type="Numeric" min="0" max="65536" int="0.0001" />
+  <id name="uiSliderPopupBubble" 			text="Display popup bubble wheb dragging" type="Bool"/>
+
+  <!-- Fixed slider -->
+  <id name="uiFixedSliderContent" text="Slider contents" type="MultiLine"/>
+
+  <!-- Image slider -->
+  <id name="uiImageSliderResource" text="Image resource" type="VarText"/>
+  <id name="uiImageSliderResourceFrameWidth" text="Image resource frame width" type="Text"/>
+  <id name="uiImageSliderResourceFrameHeight" text="Image resource frame height" type="Text"/>
+  <id name="uiImageResource" text="Image resource" type="VarText"/>
+
+  <!-- Combo box -->
+  <id name="uiComboArrowColour" text="Arrow colour" type="Colour"/>
+  <id name="uiComboOutlineColour" text="Outline colour" type="Colour"/>
+  <id name="uiComboTextColour" text="Text colour" type="Colour"/>
+  <id name="uiComboTextJustification" text="Text justification" type="VarText" defaults="@justification"/>
+  <id name="uiComboButtonColour" text="Button colour" type="Colour"/>
+  <id name="uiComboBgColour" text="Background colour" type="Colour"/>
+  <id name="uiComboContent" text="Combo contents" type="MultiLine"/>
+  <id name="uiComboFont" text="Combo font" type="Font"/>
+  <id name="uiComboMenuFont" text="Combo menu font" type="Font"/>
+  <id name="uiComboMenuBackgroundColour" text="Combo menu background colour" type="Colour"/>
+  <id name="uiComboMenuFontColour" text="Combo menu font colour" type="Colour"/>
+  <id name="uiComboMenuFontHighlightedColour" text="Combo menu highlited font colour" type="Colour"/>
+  <id name="uiComboMenuHighlightColour" text="Combo menu highlight colour" type="Colour"/>
+  <id name="uiComboMenuBackgroundRibbed" text="Combo menu background has ribs" type="Bool"/>
+  <id name="uiComboDynamicContent" text="Instead of contents display dynamic values" type="VarNumeric" defaults="@dynamicContent"/>
+  <id name="uiComboButtonGradient" text="Use a gradient for the button" type="Bool"/>
+  <id name="uiComboButtonGradientColour1" text="Combo button gradient colour1" type="Colour"/>
+  <id name="uiComboButtonGradientColour2" text="Combo button gradient colour2" type="Colour"/>
+  <id name="uiComboButtonWidthOverride" text="Override the default button width" type="Bool"/>
+  <id name="uiComboButtonWidth" text="Button width" type="Text"/>
+
+  <!-- List box -->
+  <id name="uiListBoxContent"             text="ListBox contents"                   type="MultiLine"/>
+  <id name="uiListBoxRowHeight"           text="ListBox row height"                 type="Numeric" min="4" max="4096" int="1" />
+  <id name="uiListBoxBackgroundColour"    text="ListBox background colour"          type="Colour"/>
+  <id name="uiListBoxHighlightBgColour"   text="ListBox selected background colour" type="Colour"/>
+  <id name="uiListBoxHighlightFgColour"   text="ListBox selected text colour"       type="Colour"/>
+  <id name="uiListBoxTextColour"          text="ListBox text colour"                type="Colour"/>
+  <id name="uiListBoxFont"                text="ListBox font"                       type="Font"/>
+  <id name="uiListBoxHighlightFont"       text="ListBox highlight font"             type="Font"/>
+  <id name="uiListBoxOutline"             text="ListBox outline thickness"          type="Numeric" min="0" max="4096" int="1"/>
+  <id name="uiListBoxOutlineColour"       text="ListBox outline colour"             type="Colour"/>
+  <id name="uiListBoxVScrollBgColour"     text="ListBox vertical scrollbar background colour"   type="Colour"/>
+  <id name="uiListBoxVScrollThumbColour"  text="ListBox vertical scrollbar thumb colour"        type="Colour"/>
+  <id name="uiListBoxVScrollTrackColour"  text="ListBox vertical scrollbar track colour"        type="Colour"/>
+  <id name="uiListBoxHScrollBgColour"     text="ListBox horizontal scrollbar background colour" type="Colour"/>
+  <id name="uiListBoxHScrollThumbColour"  text="ListBox horizontal scrollbar thumb colour"      type="Colour"/>
+  <id name="uiListBoxHScrollTrackColour"  text="ListBox horizontal scrollbar track colour"      type="Colour"/>
+  <id name="uiListBoxJustification"       text="ListBox text justification"                     type="VarText" defaults="@justification" />
+  <id name="uiListBoxMultipleSelection"   text="ListBox multiple selection"                     type="Bool" />
+  <id name="uiListBoxItemClicked"          text="Called when item is clicked"  type="LuaMethod" />
+  <id name="uiListBoxItemDoubleClicked"    text="Called when item is double clicked" type="LuaMethod" />
+  <id name="uiListBoxItemDeleteKeyPressed"          text="Called when item has Delete key pressed"  type="LuaMethod" />
+  <id name="uiListBoxItemReturnKeyPressed"    text="Called when item has Return key pressed" type="LuaMethod" />
+
+  <!-- File list box -->
+  <id name="uiFileListBoxBgColour"          text="FileListBox background colour"  type="Colour"/>
+  <id name="uiFileListLineColour"           text="FileListBox line colour"        type="Colour"/>
+  <id name="uiFileListIndentSize"           text="FileListBox indent size"        type="Numeric" min="1" max="4096" int="1" />
+  <id name="uiFileListFont"                 text="FileListBox font"               type="Font"/>
+  <id name="uiFileListTextColour"           text="FileListBox text colour"        type="Colour"/>
+  <id name="uiFileListHighlightTextColour"  text="FileListBox highlight colour"   type="Colour"/>
+  <id name="uiFileListHighlightBgColour"  text="FileListBox highlight background colour"   type="Colour"/>
+  <id name="uiFileListBoxHighlightFont"       text="FileListBox highlight font"             type="Font"/>
+  <id name="uiFileListBoxOutline"             text="FileListBox outline thickness"          type="Numeric" min="0" max="4096" int="1"/>
+  <id name="uiFileListBoxOutlineColour"       text="FileListBox outline colour"             type="Colour"/>
+  <id name="uiFileListBoxVScrollBgColour"     text="FileListBox vertical scrollbar background colour"   type="Colour"/>
+  <id name="uiFileListBoxVScrollThumbColour"  text="FileListBox vertical scrollbar thumb colour"        type="Colour"/>
+  <id name="uiFileListBoxVScrollTrackColour"  text="FileListBox vertical scrollbar track colour"        type="Colour"/>
+  <id name="uiFileListBoxHScrollBgColour"     text="FileListBox horizontal scrollbar background colour" type="Colour"/>
+  <id name="uiFileListBoxHScrollThumbColour"  text="FileListBox horizontal scrollbar thumb colour"      type="Colour"/>
+  <id name="uiFileListBoxHScrollTrackColour"  text="FileListBox horizontal scrollbar track colour"      type="Colour"/>
+  <id name="uiFileListOpenButtonVisible"    text="FileListBox is open button visible" type="Bool"/>
+  <id name="uiFileListFileClicked"          text="Called when a file is clicked"  type="LuaMethod" />
+  <id name="uiFileListFileDoubleClicked"    text="Called when a file is double clicked" type="LuaMethod" />
+<!--
+  <id name="uiFileListItemDeleteKeyPressed" text="Called when a file has Delete key pressed"  type="LuaMethod" />
+  <id name="uiFileListItemReturnKeyPressed" text="Called when a file has Return key pressed" type="LuaMethod" />
+  -->
+  <id name="uiFileListCurrentRoot"          text="Root directory browsing"        type="Text" />
+
+  <!-- Label -->
+  <id name="uiLabelBgColour"                  text="Background colour" type="Colour"/>
+  <id name="uiLabelTextColour"                text="Text colour" type="Colour"/>
+  <id name="uiLabelOutline"                   text="Label outline thickness"          type="Numeric" min="0" max="4096" int="1"/>
+  <id name="uiLabelOutlineColour"             text="Outline colour" type="Colour"/>
+  <id name="uiLabelFitFont"                   text="Fit font size to label size" type="Bool" defaults="Yes/No"/>
+  <id name="uiLabelFont"                      text="Label font" type="Font"/>
+  <id name="uiLabelText"                      text="Label text" type="MultiLine"/>
+  <id name="uiLabelDisplaysAllValues"         text="Label displays last changed modulator" type="Bool"/>
+  <id name="uiLabelDisplayFormat"             text="When displaying last changed modulator, use this format" type="MultiLineSmall"/>
+  <id name="uiLabelJustification"             text="Text justification" type="VarText" defaults="@justification"/>
+  <id name="uiLabelEditOnSingleClick"         text="Editing begins on one click" type="Bool"/>
+  <id name="uiLabelEditOnDoubleClick"         text="Editing begins on double click" type="Bool"/>
+  <id name="uiLabelEditFocusDiscardsChanges"  text="If true, click outside label discards changes" type="Bool"/>
+  <id name="uiLabelChangedCbk"                text="Called when the label contents changes" type="LuaMethod" />
+  <id name="uiLabelInputAllowedChars"         text="Allowed characters the user can input" type="Text" />
+  <id name="uiLabelInputMaxLength"            text="Maximum length of the string a user can input" type="Numeric" min="0" max="8192" int="1" />
+  <id name="uiLabelInputHighlightTextColour"  text="Editing: selected coulour text" type="Colour" />
+  <id name="uiLabelInputHighlightColour"      text="Editing: selection colour" type="Colour" />
+
+  <!-- LCD label -->
+  <id name="uiLCDLabelFont" text="LCD Font" type="VarNumeric" defaults="@lcdFonts"/>
+  <id name="uiLCDLabelFontHeight" text="LCD Font size" type="Numeric" min="1" max="512" int="1"/>
+
+  <!-- Group -->
+  <id name="uiGroupOutlineColour1" text="Outline colour [1]" type="Colour"/>
+  <id name="uiGroupOutlineColour2" text="Outline colour [2]" type="Colour"/>
+  <id name="uiGroupOutlineGradientType" text="Outline Gradient Style" type="VarNumeric" defaults="@gradient"/>
+  <id name="uiGroupOutlineThickness" text="Outline thickness" type="Numeric" min="0" max="255" int="0.1"/>
+  <id name="uiGroupOutlineRoundAngle" text="Rounded corener angle" type="Numeric" min="0" max="255" int="0.1"/>
+  <id name="uiGroupBackgroundColour1" text="Background colour [1]" type="Colour"/>
+  <id name="uiGroupBackgroundColour2" text="Background colour [2]" type="Colour"/>
+  <id name="uiGroupBackgroundGradientType" text="Background Gradient Style" type="VarNumeric" defaults="@gradient"/>
+  <id name="uiGroupTextColour" text="Text colour" type="Colour"/>
+  <id name="uiGroupTextPlacement" text="Text justification" type="VarText" defaults="@justification"/>
+  <id name="uiGroupTextFont" text="Text font" type="Font"/>
+  <id name="uiGroupText" text="Text" type="MultiLineSmall"/>
+  <id name="uiGroupTextMargin" text="Text Margin" type="Numeric" max="255"/>
+  <id name="uiGroupBackgroundImage" text="Background image" type="VarText"/>
+  <id name="uiGroupBackgroundImageLayout" text="Background image layout" type="VarNumeric" defaults="@imageLayout"/>
+  <id name="uiGroupBackgroundImageAlpha" text="Background image alpha" type="Numeric" max="255"/>
+
+  <!-- Toggle button -->
+  <id name="uiToggleButtonText"         text="Button text" type="Text"/>
+
+  <!-- Text button -->
+  <id name="uiButtonTextColourOff"      text="Button text colour [off]" type="Colour"/>
+  <id name="uiButtonTextColourOn"       text="Button text colour [on]" type="Colour"/>
+  <id name="uiButtonTextFont"           text="Button text font" type="Font"/>
+  <id name="uiButtonTextJustification"  text="Button text justification" type="VarText" defaults="@justification"/>
+  <id name="uiButtonColourOff"          text="Button background colour [off]" type="Colour"/>
+  <id name="uiButtonColourOn"           text="Button background colour [on]" type="Colour"/>
+  <id name="uiButtonContent"            text="Button values" type="MultiLine"/>
+  <id name="uiButtonIsToggle"           text="Button is toggle button" type="Bool"/>
+  <id name="uiButtonIsMomentary"        text="Button is a momentary buttom (springs back to 0)" type="Bool"/>
+  <id name="uiButtonTrueValue"          text="Value for ON state" type="Numeric" min="-65536" max="65536" int="1" />
+  <id name="uiButtonFalseValue"         text="Value for OFF state" type="Numeric" min="-65536" max="65536" int="1" />
+  <id name="uiButtonConnectedLeft"      text="Connected Left" type="Bool"/>
+  <id name="uiButtonConnectedRight"     text="Connected Right" type="Bool"/>
+  <id name="uiButtonConnectedTop"       text="Connected Top" type="Bool"/>
+  <id name="uiButtonConnectedBottom"    text="Connected Bottom" type="Bool"/>
+  <id name="uiButtonRepeat"             text="Keeping button ON will produce a continues stream of messages." type="Bool" />
+  <id name="uiButtonRepeatRate"         text="Rate at with the messages will be sent, in milliseconds" type="Numeric" min="0" max="10000" />
+  <id name="uiButtonTriggerOnMouseDown" text="Trigger button on mouse down events" type="Bool" />
+
+  <!-- Image button -->
+  <id name="uiImageButtonResource" text="Image resource" type="VarText" />
+  <id name="uiImageButtonTextColour" text="Button text colour" type="Colour"/>
+  <id name="uiImageButtonTextWidth" text="Button text width rectangle" type="Text"/>
+  <id name="uiImageButtonTextHeight" text="Button text height rectangle" type="Text"/>
+  <id name="uiImageButtonContent" text="Button values" type="MultiLine"/>
+  <id name="uiImageButtonImageWidth" text="Resource image width" type="Text"/>
+  <id name="uiImageButtonImageHeight" text="Resource image height" type="Text"/>
+  <id name="uiImageButtonTextPosition" text="Text position" type="VarNumeric" defaults="@relativePosition"/>
+  <id name="uiImageButtonMode" text="Button mode" type="VarNumeric" defaults="Normal=0,Momentary=1,Normal+MouseOver=2,Momentary+MouseOver=3"/>
+
+  <!-- MIDI Keyboard -->
+  <id name="uiMidiKeyboardOrientation"            text="Keyboard Orientation"         type="VarNumeric" defaults="horizontalKeyboard,verticalKeyboardFacingLeft,verticalKeyboardFacingRight"/>
+  <id name="uiMidiKeyboardWhiteButtonColour"      text="White button colour"          type="Colour"/>
+  <id name="uiMidiKeyboardBlackButtonColour"      text="Black button colour"          type="Colour"/>
+  <id name="uiMidiKeyboardSeparatorLineColour"    text="Separator line colour"        type="Colour"/>
+  <id name="uiMidiKeyboardMouseOverColour"        text="Mouse over colour"            type="Colour"/>
+  <id name="uiMidiKeyboardMouseDownColour"        text="Mouse down colour"            type="Colour"/>
+  <id name="uiMidiKeyboardTextLabelColour"        text="Text label colour"            type="Colour"/>
+  <id name="uiMidiKeyboardButtonBackgroundColour" text="Button background colour"     type="Colour"/>
+  <id name="uiMidiKeyboardButtonArrowColour"      text="Button arrow colour"          type="Colour"/>
+  <id name="uiMidiKeyboardLowestVisibleKey"       text="First key shown in component" type="Numeric"/>
+  <id name="uiMidiKeyboardBaseOctaveKeyPress"     text="Key press for middle octave"  type="Numeric"  min="0" max="10"  int="1" />
+  <id name="uiMidiKeyboardOctaveFroMiddleC"       text="Octave number for middle C"    type="Numeric"  min="-10" max="10"  int="1" />
+
+  <!-- Tabs -->
+  <id name="uiTabsNumberOfTabs" text="Number of tabs" type="Numeric" min="1" max="64" int="1"/>
+  <id name="uiTabsOrientation" text="Tabs orientation" type="VarNumeric" defaults="TabsAtTop=0,TabsAtBottom=1,TabsAtLef=2,TabsAtRight=3"/>
+  <id name="uiTabsDepth" text="Tabs depth" type="Numeric" min="0" max="1024" int="1" />
+  <id name="uiTabsOutlineThickness" text="Outline thickness component" type="Numeric" min="0" max="1024" int="1" />
+  <id name="uiTabsFrontTabOutline" text="Outline thickness (current tab)" type="Numeric" min="0" max="1024" int="1" />
+  <id name="uiTabsTabOutline" text="Outline thickness (other tab)" type="Numeric"  min="0" max="1024" int="1" />
+  <id name="uiTabsIndentThickness" text="Gap around the content component" type="Numeric" min="0" max="1024" int="1" />
+  <id name="uiTabsAddTab" text="Add tab" type="ActionButton"/>
+  <id name="uiTabsRemoveTab" text="Remove tab" type="ActionButton"/>
+  <id name="uiTabsCurrentTab" text="Current active tab" type="Numeric" max="256"/>
+  <id name="uiTabsOutlineGlobalColour" text="Outline colour for entire component" type="Colour"/>
+  <id name="uiTabsOutlineGlobalBackgroundColour" text="Background colour behind tabs" type="Colour"/>
+  <id name="uiTabsCurrentTabChanged" text="Called when the current tab changes" type="LuaMethod"/>
+  <id name="uiTabsFrontTabFont" text="Tab text font (current)" type="Font"/>
+  <id name="uiTabsTabFont" text="Tab text font (other)" type="Font"/>
+  <id name="uiTabsOutlineTabColour" text="Outline colour for tabs" type="Colour"/>
+  <id name="uiTabsTextTabColour" text="Text colour" type="Colour"/>
+  <id name="uiTabsFrontTabOutlineColour" text="Outline colour of the selected tab" type="Colour"/>
+  <id name="uiTabsFrontTabTextColour" text="Text colour of the selected tab" type="Colour"/>
+  <id name="uiTabsTab" text="uiTabsTab" type="Text"/>
+  <id name="uiTabsTabName" text="Tab name" type="Text"/>
+  <id name="uiTabsTabIndex" text="Tab index" type="Numeric" min="0" max="1024" int="1" />
+  <id name="uiTabsTabContentBackgroundColour" text="Content background Colour" type="Colour"/>
+  <id name="uiTabsTabBackgroundColour" text="Tab background colour" type="Colour"/>
+  <id name="uiTabsTabBackgroundImage" text="Background image" type="VarText"/>
+  <id name="uiTabsTabBackgroundImageLayout" text="Background image layout" type="VarNumeric" defaults="@imageLayout"/>
+  <id name="uiTabsTabBackgroundImageAlpha" text="Background image alpha" type="Numeric" min="0" int="1" max="255"/>
+
+  <!-- Arrow -->
+  <id name="uiArrowColour" text="Arrow colour" type="Colour"/>
+  <id name="uiArrowLineThickness" text="Arrow line thickness" type="Numeric" min="0" max="4096" int="1" />
+  <id name="uiArrowHeadWidth" text="Arrow head width" type="Numeric" min="0" max="4096" int="1" />
+  <id name="uiArrowHeadHeight" text="Arrow head height" type="Numeric" min="0" max="4096" int="1" />
+  <id name="uiArrowOrientation" text="Arrow orientation" type="VarNumeric" defaults="PointingTop=0,PointingBottom=1,PointingLeft=2,PointigRight=3"/>
+  <id name="uiArrowRotation" text="Arrow rotation" type="Numeric" min="0" max="360" int="1" />
+  <id name="uiArrowStokeThickness" text="Arrow stroke thickness" type="Numeric" min="1" max="255" int="1" />
+
+  <!-- Custom component -->
+  <id name="uiCustomResizedCallback" text="Resized callback" type="LuaMethod"/>
+  <id name="uiCustomPaintCallback" text="Paint callback" type="LuaMethod"/>
+  <id name="uiCustomPaintOverChildrenCallback" text="Paint over children callback" type="LuaMethod"/>
+  <id name="uiCustomMouseDownCallback" text="Mouse down callback" type="LuaMethod"/>
+  <id name="uiCustomMouseUpCallback" text="Mouse up callback" type="LuaMethod"/>
+  <id name="uiCustomMouseDoubleClickCallback" text="Mouse double click callback" type="LuaMethod"/>
+  <id name="uiCustomMouseEnterCallback" text="Mouse enter callback" type="LuaMethod"/>
+  <id name="uiCustomMouseExitCallback" text="Mouse exit callback" type="LuaMethod"/>
+  <id name="uiCustomMouseDragCallback" text="Mouse Drag" type="LuaMethod"/>
+  <id name="uiCustomMouseMoveCallback" text="Mouse move callback" type="LuaMethod"/>
+  <id name="uiCustomMouseWheelMoveCallback" text="Mouse wheel move callback" type="LuaMethod"/>
+  <id name="uiCustomKeyDownCallback" text="Key down callback" type="LuaMethod"/>
+
+  <!-- Waveform -->
+  <id name="uiWaveformColour"                           text="Waveform colour"                      type="Colour"/>
+  <id name="uiWaveformBackgroundColour1"                text="Background colour[1]"                 type="Colour"/>
+  <id name="uiWaveformBackgroundColour2"                text="Background colour[2]"                 type="Colour"/>
+  <id name="uiWaveformOutlineColour"                    text="Outline colour"                       type="Colour"/>
+  <id name="uiWaveformSourceSamplesPerThumbnailSample"  text="When creating a stored, low-res version of the audio data, this is the scale at which it should be done. (This number is the number of original samples that will be averaged for each low-res sample)" type="Numeric" max="4096" min="0" int="1" />
+  <id name="uiWaveFormSourceChangedCallback"            text="Called then the source of the audio data has changed, or reset() has been called" type="LuaMethod" />
+  <id name="uiWaveformOutlineThickness"                 text="Outline thickness"                    type="Numeric" min="0"  max="128"   int="0.5" />
+  <id name="uiWaveFormDrawSecondsStart"                 text="In seconds where to start drawing"    type="Numeric" min="0"  max="3600"  int="0.00001" />
+  <id name="uiWaveFormDrawSecondsEnd"                   text="In seconds where to end drawing"      type="Numeric" min="-1" max="3600"  int="0.00001" />
+  <id name="uiWaveFormVeritcalZoomFactor"               text="Verical zoom factor (1.0 == no zoom)" type="Numeric" min="0"  max="255.0" int="0.01" />
+  <id name="uiWaveFormThumbnailChangedCallback"         text="Called when the thumbnail changes"    type="LuaMethod" />
+  <id name="uiWaveFormFilesDroppedCallback"             text="Callback to indicate that the user has dropped the files onto this panel" type="LuaMethod" />
+
+  <!-- Hyperling -->
+  <id name="uiHyperlinkText"              text="Hyperlink text" type="Text"/>
+  <id name="uiHyperlinkUrl"               text="Hyperlink text" type="Text"/>
+  <id name="uiHyperlinkColour"            text="Hyperlink text colour" type="Colour"/>
+  <id name="uiHyperlinkFont"              text="Hyperlink text colour" type="Font"/>
+  <id name="uiHyperlinkFitTextToSize"     text="Fit text to size" type="Bool"/>
+  <id name="uiHyperlinkTextJustification" text="Text justification" type="VarText" defaults="@justification"/>
+
+  <!-- XY Surface -->
+  <id name="uiXYSurfaceBgGradientType"                text="Background gradient type"           type="VarNumeric" defaults="@gradient"/>
+  <id name="uiXYSurfaceBackgroundColour1"             text="Background colour1"                 type="Colour"/>
+  <id name="uiXYSurfaceBackgroundColour2"             text="Background colour1"                 type="Colour"/>
+  <id name="uiXYSurfaceOutlineGradientType"           text="Outline gradient type"              type="VarNumeric" defaults="@gradient"/>
+  <id name="uiXYSurfaceOutlineColour1"                text="Outline colour1"                    type="Colour"/>
+  <id name="uiXYSurfaceOutlineColour2"                text="Outline colour2"                    type="Colour"/>
+  <id name="uiXYSurfaceOutlineThickness"              text="Outline thickness"                  type="Numeric" max="255"/>
+  <id name="uiXYSurfaceCornerSize"                    text="Corner size"                        type="Numeric" max="255"/>
+  <id name="uiXYSurfaceBgImageResource"               text="Panel background image resource"    type="VarText"/>
+  <id name="uiXYSurfaceBgImageLayout"                 text="Image layout"                       type="VarNumeric" defaults="@imageLayout"/>
+  <id name="uiXYSurfaceBgImageAlpha"                  text="Image alpha"                        type="Numeric" max="255"/>
+  <id name="uiXYSurfaceXTrackEnabled"                 text="Modulator X/Y tracking enabled"     type="Bool"/>
+  <id name="uiXYSurfaceXTrackColour"                  text="X Tracking axis colour"             type="Colour"/>
+  <id name="uiXYSurfaceXTrackThickness"               text="X Tracking axis thickness"          type="Numeric" max="255"/>
+  <id name="uiXYSurfaceYTrackColour"                  text="Y Tracking axis colour"             type="Colour"/>
+  <id name="uiXYSurfaceYTrackThickness"               text="Y Tracking axis thickness"          type="Numeric" max="255"/>
+  <id name="uiXYSurfaceModSectionLocation"            text="Where to put the modulators combo top/bottom" type="Bool"/>
+  <id name="uiXYSurfaceModSectionHeight"              text="Modulators combo height"            type="Numeric" max="255"/>
+  <id name="uiXYSurfaceInfoLabelVisible"              text="Info label visible"                 type="Bool"/>
+  <id name="uiXYSurfaceInfoLabelLocation"             text="Info label justification"           type="VarText" defaults="@justification"/>
+  <id name="uiXYSurfaceInfoLabelColour"               text="Info label text colour"             type="Colour"/>
+  <id name="uiXYSurfaceInfoLabelFont"                 text="Info label font"                    type="Font"/>
+  <id name="uiXYSurfaceModulatorBgGradientType"       text="Modulator background gradient type" type="VarNumeric" defaults="@gradient"/>
+  <id name="uiXYSurfaceModulatorBgColour1"            text="Modulator background colour1"       type="Colour"/>
+  <id name="uiXYSurfaceModulatorBgColour2"            text="Modulator background colour2"       type="Colour"/>
+  <id name="uiXYSurfaceModulatorOutlineGradientType"  text="Modulator outline gradient type"    type="VarNumeric" defaults="@gradient"/>
+  <id name="uiXYSurfaceModulatorOutlineColour1"       text="Modulator outline colour1"          type="Colour"/>
+  <id name="uiXYSurfaceModulatorOutlineColour2"       text="Modulator outline colour2"          type="Colour"/>
+  <id name="uiXYSurfaceModulatorOutlineThickness"     text="Modulator outline thickness"        type="Numeric" max="255"/>
+  <id name="uiXYSurfaceModulatorWidth"                text="Modulator width"                    type="Numeric" max="255"/>
+  <id name="uiXYSurfaceModulatorHeight"               text="Modulator height"                   type="Numeric" max="255"/>
+  <id name="uiXYSurfaceMaxX"                          text="Max value for X"                    type="Numeric" min="-65536" max="65536"/>
+  <id name="uiXYSurfaceDestinationX"                  text="Destination modulator for X axis"   type="ModulatorList"/>
+  <id name="uiXYSurfaceMaxY"                          text="Max value for Y"                    type="Numeric" min="-65536" max="65536"/>
+  <id name="uiXYSurfaceDestinationY"                  text="Destination modulator for Y axis"   type="ModulatorList"/>
+  <id name="uiXYSurfaceGradientColour"                text="Rulers colour"                      type="Colour"/>
+  <id name="uiXYSurfaceGradientGrain"                 text="Rulers density"                     type="Numeric" max="255"/>
+  <id name="uiXYSuraceXFlip"                          text="Reverse the value propagation on X" type="Bool" />
+  <id name="uiXYSuraceYFlip"                          text="Reverse the value propagation on Y" type="Bool" />
+  <id name="uiXYSuraceShowRightClickMenu"             text="Show a modulator selection menu"    type="Bool" />
+  <id name="uiXYSurfaceDestinationXGroupFilter"       text="Use only modulators for X axis with this custom group name"   type="Text" />
+  <id name="uiXYSurfaceDestinationYGroupFilter"       text="Use only modulators for Y axis with this custom group name"   type="Text" />
+
+  <!-- Envelope properties -->
+  <id name="uiEnvelopeState"            text="Envelope state"                     type="Text" />
+  <id name="uiEnvelopeAddPoint"         text="Add point"                          type="ActionButton" />
+  <id name="uiEnvelopeRemovePoint"      text="Remove point"                       type="ActionButton" />
+  <id name="uiEnvelopeBgGradientType"   text="Gradient background type"           type="VarNumeric" defaults="@gradient" />
+  <id name="uiEnvelopeBgColour1"        text="Gradient background colour 1"       type="Colour" />
+  <id name="uiEnvelopeBgColour2"        text="Gradient background colour 2"       type="Colour" />
+  <id name="uiEnvelopeOutlineColour"    text="Outline colour"                     type="Colour" />
+  <id name="uiEnvelopeOutlineThickness" text="Outline thickness"                  type="Numeric" min="0" max="128" int="0.1" />
+  <id name="uiEnvelopeLineColour"       text="Line Colour"                        type="Colour" />
+  <id name="uiEnvelopeLineThickness"    text="Line thickness"                     type="Numeric" min="0" max="128" int="0.1" />
+  <id name="uiEnvelopeInvertY"          text="Invert Y axis when calculating value" type="Bool" defaults="Straight/Inverted" />
+  <id name="uiEnvelopeDrawPointBounds"  text="Draw point boundries"               type="Bool" />
+  <id name="uiEnvelopeLineFill"         text="Envelope area fill type"            type="VarNumeric" defaults="@gradient" />
+  <id name="uiEnvelopeLineFillColour1"  text="Envelope area fill colour1"         type="Colour" />
+  <id name="uiEnvelopeLineFillColour2"  text="Envelope area fill colour2"         type="Colour" />
+
+  <id name="uiEnvelopeLegendWidth"            text="Legend width (0==width of env)"     type="Numeric" min="0" max="65535" int="1" />
+  <id name="uiEnvelopeLegendHeight"           text="Legend height"                      type="Numeric" min="0" max="65535" int="1" />
+  <id name="uiEnvelopeLegendVisible"          text="Legend visible"                     type="Bool" />
+  <id name="uiEnvelopeLegendBgColour"         text="Legend background colour"           type="Colour" />
+  <id name="uiEnvelopeLegendColour"           text="Legend font colour"                 type="Colour" />
+  <id name="uiEnvelopeLegendFont"             text="Legend font"                        type="Font" />
+  <id name="uiEnvelopeLegendJustification"    text="Legend justification"         type="VarText" defaults="@justification" />
+  <id name="uiEnvelopeLegendOutlineColour"    text="Legend outline colour"        type="Colour" />
+  <id name="uiEnvelopeLegendOverlay"          text="Legend is over the env lines"       type="Bool" defaults="Over envelope lines/Under envelope lines" />
+  <id name="uiEnvelopeLegendFormat"           text="Legend format"                      type="MultiLine" />
+
+  <id name="uiEnvelopePointColour"              text="Point colour"                       type="Colour" />
+  <id name="uiEnvelopePointCorner"              text="Rounded corner size"                type="Numeric" min="0" max="65535" int="1" />
+  <id name="uiEnvelopePointIndex"               text="Point index"                   type="ReadOnly" />
+  <id name="uiEnvelopePointName"                text="Point name"                         type="Text" />
+  <id name="uiEnvelopePointPosition"            text="Point position"                     type="Text" />
+  <id name="uiEnvelopePointLabelFormat"         text="Point label format"             type="MultiLine" />
+  <id name="uiEnvelopePointLabelColour"         text="Point label colour"             type="Colour" />
+  <id name="uiEnvelopePointLabelFont"           text="Point label font"               type="Font"   />
+  <id name="uiEnvelopePointLabelBgColour"       text="Point label background colour"  type="Colour" />
+  <id name="uiEnvelopePointLabelOutlineColour"  text="Point label outline colour"     type="Colour" />
+  <id name="uiEnvelopePointLabelVisible"        text="Point label visible"            type="Bool" />
+  <id name="uiEnvelopePointSize"                text="Point size"                     type="Numeric" min="4" max="65535" int="1" />
+  <id name="uiEnvelopePointLockY"               text="Y axis is locked"               type="Bool" />
+  <id name="uiEnvelopePointLockX"               text="X axis is locked"               type="Bool" />
+  <id name="uiEnvelopePointMaxX"                text="Max X position"                 type="Numeric" min="0" max="65535" int="1" />
+  <id name="uiEnvelopePointMinX"                text="Min X position"                 type="Numeric" min="0" max="65535" int="1" />
+  <id name="uiEnvelopePointMaxXValue"           text="Max X value"                    type="Numeric" min="0" max="65535" int="1" />
+  <id name="uiEnvelopePointMaxYValue"           text="Max Y value"                    type="Numeric" min="0" max="65535" int="1" />
+  <id name="uiEnvelopePointLinkX"               text="X axis linked to modulator"     type="VarText"/>
+  <id name="uiEnvelopePointLinkY"               text="Y axis linked to modulator"     type="VarText"/>
+  <id name="uiEnvelopePointExpressionX"         text="Expression to calculate X coordinate when other points change"  type="Expression" />
+  <id name="uiEnvelopePointExpressionY"         text="Expression to calculate Y coordinate when other points change"  type="Expression" />
+
+  <id name="uiEnvelopePointExpressionValueX"    text="Expression to calculate X linked value"  type="Expression" />
+  <id name="uiEnvelopePointExpressionValueY"    text="Expression to calculate Y linked value"  type="Expression" />
+
+  <id name="uiEnvelopePointValueCalculationMethod"  text="How to calculate the X value based on the position" type="VarNumeric" defaults="Min/Max based=0,Neighbour points based=1,Override by expression=2" />
+
+  <!-- Component types -->
+  <id name="uiSlider" text="Normal slider, links to continues numeric values" type="Text"/>
+  <id name="uiFixedSlider" text="Slider that has a list of pre-defined values" type="Text"/>
+  <id name="uiImageSlider" text="Like normal Slider but with custom graphics" type="Text"/>
+  <id name="uiFixedImageSlider" text="Fixed slider with custom graphics" type="Text"/>
+  <id name="uiToggleButton" text="Simple toggle button with on/off states. State can be linked to custom numeric value." type="Text"/>
+  <id name="uiButton" text="Contains a list of values and cycles between them" type="Text"/>
+  <id name="uiImageButton" text="Like a Button but with custom graphics for on/off states" type="Text"/>
+  <id name="uiCombo" text="A combo box with a list of values" type="Text"/>
+  <id name="uiLabel" text="A static label for displaying some text" type="Text"/>
+  <id name="uiLCDLabel" text="A static LED like label" type="Text"/>
+  <id name="uiGroup" text="A grouping component. Has an outline and a background colour. " type="Text"/>
+  <id name="uiImage" text="Displays and image from a resource" type="Text"/>
+  <id name="uiCustomComponent" text="A custom component witch is drawn and handled within LUA" type="Text"/>
+  <id name="uiMidiKeyboard" text="A MIDI keyboard with custom orientation and colours" type="Text"/>
+  <id name="uiEnvelope" text="A multi-point envelope editor" type="Text"/>
+  <id name="uiTabs" text="Tabbed component" type="Text"/>
+  <id name="uiPanelEditor" text="uiPanelEditor" type="Text"/>
+  <id name="uiArrow" text="An arrow" type="Text"/>
+  <id name="uiWaveform" text="A simple waveform drawing component" type="Text"/>
+  <id name="uiHyperlink" text="A hyperlink button" type="Text"/>
+  <id name="uiXYSurface" text="A XY modulator surface" type="Text"/>
+
+  <!-- MIDI message properties -->
+  <id name="midiMessageCtrlrNumber" text="MIDI Controller number" type="Numeric" max="65536"/>
+  <id name="midiMessageChannel" text="MIDI Channel" type="Numeric" min="1" max="16"/>
+  <id name="midiMessageCtrlrValue" text="MIDI Controller value" type="Numeric" min="-65536" max="65536"/>
+  <id name="midiMessageType" text="MIDI message type" type="VarNumeric"  defaults="CC=0,Aftertouch=1,ChannelPressure=2,NoteOn=3,NoteOff=4,SysEx=5,Multi=6,ProgramChange=7,PitchWheel=8,None=9"/>
+  <id name="midiMessageSysExFormula" text="SysEx Formula" type="SysEx"/>
+  <id name="midiMessageChannelOverride" text="Override panel MIDI channel" type="Bool" defaults="Yes/No"/>
+  <id name="midiMessageMultiList" text="Multi Message list" type="MultiMidi"/>
+  <id name="midiInChannel" text="MIDI Input channel" type="Numeric" min="1" max="16"/>
+  <id name="midiOutChannel" text="MIDI Output channel" type="Numeric" min="1" max="16"/>
+
+  <id name="midiDevice" text="midiDevice" type="Text"/>
+  <id name="midiDeviceName" text="midiDeviceName" type="Text"/>
+  <id name="midiDeviceType" text="midiDeviceType" type="Bool"/>
+  <id name="midiDeviceIn" text="midiDeviceIn" type="Text"/>
+  <id name="midiDeviceOut" text="midiDeviceOut" type="Text"/>
+  <id name="midiDeviceOpened" text="midiDeviceOpened" type="Bool"/>
+  <id name="midiDeviceErrorState" text="midiDeviceErrorState" type="Bool"/>
+  <id name="midiDeviceManager" text="midiDeviceManager" type="Text"/>
+
+  <id name="invalid"              text="invalid"                                type="Text"/>
+  <id name="top"                  text="top"                                    type="Text"/>
+  <id name="bottom"               text="bottom"                                 type="Text"/>
+  <id name="left"                 text="left"                                   type="Text"/>
+  <id name="right"                text="right"                                  type="Text"/>
+  <id name="bottomRight"          text="bottomRight"                            type="Text"/>
+  <id name="bottomLeft"           text="bottomLeft"                             type="Text"/>
+  <id name="topRight"             text="topRight"                               type="Text"/>
+  <id name="topLeft"              text="topLeft"                                type="Text"/>
+  <id name="over"                 text="over"                                   type="Text"/>
+  <id name="under"                text="under"                                  type="Text"/>
+  <id name="description"          text="Description of an object"               type="MultiLineSmall"/>
+  <id name="lastBrowsedPanelDir"  text="Last directory used for opening panels" type="Text"/>
+  <id name="lastBrowsedSkinDir"   text="Last directory used for skinz"          type="Text"/>
+  <id name="luaTreeEditorState"   text="luaTreeEditorState"                     type="Text"/>
+  <id name="properties"           text="properties"                             type="Text"/>
+  <id name="timeout"			  text="Timeout"							    type="Numeric" min="0" max="60000" int="1" />
+  <id name="enabled"			  text="Enabled and active"						type="Bool" />
+  <id name="internal"			  text="Internal or built-in"					type="Bool" />
+
+  <!-- Resource -->
+  <id name="resourceSize" 				text="resourceSize" 			type="Text"/>
+  <id name="resourceImage" 				text="resourceImage" 			type="Text"/>
+  <id name="resourceImageWidth" 		text="Frame width" 				type="Text"/>
+  <id name="resourceImageHeight" 		text="Frame height" 			type="Text"/>
+  <id name="resourceImagePaintMode" 	text="Frame paint mode" 		type="VarNumeric" defaults="@imageLayout"/>
+  <id name="resourceImageOrientation" 	text="Image frame orientation" 	type="VarNumeric" defaults="Horizontal=0,Vertical=1"/>
+
+  <!-- Instance settings (when panel is exported as an instance) -->
+  <id name="ctrlrInstanceIsResiazble"         text="Exported instance will be resizable" type="Bool" defaults="Resiazble/Not Resizable" />
+
+  <!-- Global Ctrlr settings -->
+  <id name="ctrlrMaxExportedVstParameters"    text="Max exported VST params" type="Numeric" min="0" max="999999" int="1" />
+  <id name="ctrlrLogToFile"                   text="Log everything to file (for debugging)" type="Bool" />
+  <id name="ctrlrLuaDebug"                    text="Enable some LUA debugging" type="Bool" />
+  <id name="ctrlrShutdownDelay"               text="How to long to wait when deleting plugin" type="Numeric" min="0" max="10000" int="1" />
+  <id name="ctrlrUseEditorWrapper"            text="Use the Editor Wrapper for VST plugins" type="Bool"/>
+  <id name="ctrlrVersionSeparator"            text="Version field separator" type="Text"/>
+  <id name="ctrlrVersionCompressed"           text="Save versioned panels compressed" type="Bool"/>
+  <id name="ctrlrUpdateUrl"                   text="URL used to check for new Ctrlr versions" type="Text"/>
+  <id name="ctrlrCheckForUpdates"             text="Automatic updates check" type="Bool"/>
+  <id name="ctrlrVstFile"                     text="VST File" type="FileProperty" />
+  <id name="ctrlrAuFile"                      text="AU File"  type="FileProperty" />
+  <id name="ctrlrAppFile"                     text="APP File" type="FileProperty" />
+  <id name="ctrlrEditorBounds"                text="Editor bounds" type="Text"/>
+  <id name="ctrlrMidiDeviceNumPrograms"       text="Number of programs the device can store per bank" type="Numeric" min="0" max="8192" int="1"/>
+  <id name="ctrlrMidiDeviceNumBanks"          text="Number of banks the device has" type="Numeric" min="0" max="8192" int="1"/>
+  <id name="ctrlrKeyboardMapping"             text="Keyboard mappings" type="ReadOnly" />
+  <id name="vstIndex"                         text="VST Index" type="Text"/>
+  <id name="name"                             text="Name" type="Text"/>
+  <id name="uiType"                           text="Component Type" type="ReadOnly" />
+  <id name="inherit"                          text="Inherit from parent" type="Bool" />
+  <id name="program"                          text="Program"  min="0" max="127"   type="Numeric" />
+  <id name="bank"                             text="Bank"     min="0" max="65535" type="Numeric" />
+  <id name="lsb"                              text="Least significant part of a number" type="Numeric" min="0" max="65535" />
+  <id name="msb"                              text="Most  significant part of a number" type="Numeric" min="0" max="65535" />
+  <id name="value"                            text="Current value"  type="Numeric"  min="-65535" max="65535" />
+  <id name="time"                             text="Timestamp" type="Timestamp" />
+  <id name="number"                           text="Number" type="Numeric" min="-65535" max="65535" />
+  <id name="uuid"                             text="Unique identifier" type="ReadOnly" />
+
+  <!-- Logging settings  -->
+  <id name="ctrlrMidiMonInputBufferSize"    text="MIDI Mon input buffer size"       type="Numeric" min="512" max="65535"/>
+  <id name="ctrlrMidiMonOutputBufferSize"   text="MIDI Mon output buffer size"      type="Numeric" min="512" max="65535"/>
+  <id name="ctrlrLogMidiInput"              text="Toggle MIDI Input logging"        type="Bool" />
+  <id name="ctrlrLogMidiOutput"             text="Toggle MIDI output logging size"  type="Bool" />
+  <id name="ctrlrLogOptions"                text="MIDI Log options" type="Numeric" />
+  <id name="ctrlrLogToFile"                 text="Log debug messages to a file" type="Bool"/>
+
+  <id name="ctrlrMidiDeviceManagerSavedGlobaly" text="How the state of the device manager is remembered" type="Bool"/>
+  <id name="ctrlrLuaDisabled"               text="LUA is disabled" type="Bool"/>
+  <id name="ctrlrLuaBootstrapFile"          text="LUA script loaded on Ctrlr start" type="Text"/>
+  <id name="ctrlrLastBrowsedResourceDir"    text="Last directory browsed for resources" type="Text"/>
+
+  <id name="ctrlrOverwriteResources"        text="Overwrite imported resources" type="Bool"/>
+  <id name="ctrlrAutoSave"                  text="Autosave enabled" type="Bool"/>
+  <id name="ctrlrAutoSaveInterval"          text="Autosave interval in seconds" type="Numeric" min="1" max="999999" int="1"/>
+  <id name="ctrlrOpenWindowState"           text="Open panel dialog state" type="Text"/>
+  <id name="ctrlrPropertiesAreURLs"         text="When editing a panel the property names can be clickable URLs to relevant WIKI pages" type="Bool" />
+  <id name="ctrlrRecenetOpenedPanelFiles"   text="Recent opened Panel file" type="Text" />
+  <id name="ctrlrLastBrowsedFileDirectory"  text="Last browsed file directory" type="Text" />
+
+  <id name="ctrlrMenuItemBackgroundColour"  	text="Menu item background colour" type="Colour" />
+  <id name="ctrlrMenuItemTextColour" 			text="Menu item text colour" type="Colour" />
+  <id name="ctrlrMenuItemHighlightedTextColour" text="Menu item highlighted text colour" type="Colour" />
+  <id name="ctrlrMenuItemHighlightColour" 		text="Menu item highlight colour" type="Colour" />
+  <id name="ctrlrMenuItemFont" 					text="Menu item font" type="Font" />
+  <id name="ctrlrMenuItemSeparatorColour"		text="Menu separator colour" type="Colour" />
+  <id name="ctrlrMenuItemHeaderColour"			text="Menu header colour" type="Colour" />
+
+  <id name="ctrlrMenuBarBackgroundColour1" 		text="Menu bar background gradient colour top" type="Colour" />
+  <id name="ctrlrMenuBarBackgroundColour2" 		text="Menu bar background gradient colour bottom" type="Colour" />
+  <id name="ctrlrMenuBarTextColour" 			text="Menu bar text colour" type="Colour" />
+  <id name="ctrlrMenuBarHighlightedTextColour" 	text="Menu bar highlighted text colour" type="Colour" />
+  <id name="ctrlrMenuBarHighlightColour" 		text="Menu bar highlight colour" type="Colour" />
+  <id name="ctrlrMenuBarFont" 					text="Menu bar font" type="Font" />
+  <id name="ctrlrNativeAlerts"					text="Use OS native dialog windows" type="Bool" />
+
+  <!-- LUA callbacks -->
+  <id name="luaManagerMethods"                text="luaManagerMethods"                                    type="Text" />
+  <id name="luaMethodCode"                    text="luaMethodCode"                                        type="Text" />
+  <id name="luaMethodName"                    text="luaMethodName"                                        type="Text" />
+  <id name="luaMethod"                        text="luaMethod"                                            type="Text" />
+  <id name="luaManager"                       text="luaManager"                                           type="Text" />
+  <id name="luaMethodValid"                   text="luaMethodValid"                                       type="Text" />
+  <id name="luaModulatorValueChange"          text="Called when the modulator value changes"              type="LuaMethod" />
+  <id name="luaModulatorComponentChange"      text="Called when the UI changes"                           type="LuaMethod" />
+  <id name="luaModulatorPropertyChanged"      text="Called when a property changes"                       type="LuaMethod" />
+  <id name="luaModulatorGetValueForMIDI"      text="Called to calculate the MIDI value to send"           type="LuaMethod" />
+  <id name="luaModulatorGetValueFromMIDI"     text="Called to calculate new modulator value from a MIDI value"  type="LuaMethod" />
+  <id name="luaModulatorMidiPatternChanged"   text="Called if the MIDI pattern changes or needs updating" type="LuaMethod" />
+  <id name="luaPanelLoaded"                   text="Called when the panel has finished loading"           type="LuaMethod" />
+  <id name="luaPanelBeforeLoad"               text="Called before any modulators are created"             type="LuaMethod" />
+  <id name="luaPanelMidiReceived"             text="Called when panels receives a MIDI message"           type="LuaMethod" />
+  <id name="luaPanelPaintBackground"          text="Called to paint a custom panel background"            type="LuaMethod" />
+  <id name="luaPanelSaved"                    text="Called before a panel is saved"                       type="LuaMethod" />
+  <id name="luaPanelResized"                  text="Called when a panel is resized"                       type="LuaMethod" />
+  <id name="luaPanelProgramChanged"           text="Called after a program change"                        type="LuaMethod" />
+  <id name="luaPanelGlobalChanged"            text="Called when a global variable is changed"             type="LuaMethod" />
+  <id name="luaPanelMenubarCustom"            text="Called to get the menubar items for this panel"       type="LuaMethod" />
+  <id name="luaPanelMessageHandler"           text="Called when a message needs to be displayed"          type="LuaMethod" />
+  <id name="luaPanelFileDragDropHandler"      text="Callback to indicate that the user has dropped the files onto this panel" type="LuaMethod" />
+  <id name="luaPanelFileDragEnterHandler"     text="Callback to indicate that some files are being dragged over this panel"   type="LuaMethod" />
+  <id name="luaPanelFileDragExitHandler"      text="Callback to indicate that the mouse has moved away from this panel"       type="LuaMethod" />
+
+  <id name="luaTransProcess"		text="Transaction process" 					type="LuaMethod" />
+  <id name="luaTransDataUnpack"		text="Transaction data unpacking" 			type="LuaMethod" />
+  <id name="luaTransDataPack"		text="Transaction data packing" 			type="LuaMethod" />
+  <id name="luaTransRequest"		text="Transaction request" 					type="LuaMethod" />
+  <id name="luaTransNameData"		text="Transaction get name" 				type="LuaMethod" />
+  <id name="luaTransRequestData"	text="Transaction get request data" 		type="LuaMethod" />
+  <id name="luaTransResponseData"	text="Transaction get response data" 		type="LuaMethod" />
+  <id name="luaTransConfData"		text="Transaction get confirmation data" 	type="LuaMethod" />
+  <id name="luaTransTimeout"		text="Transaction timeout handler" 			type="LuaMethod" />
+  <id name="luaTransInfo"			text="Transaction information query"		type="LuaMethod" />
+
+  <id name="midiLibraryTreeState"     				text="Tree state"     												type="ReadOnly" />
+  <id name="midiLibraryCanGetItem"    				text="Can get item"   												type="Bool" />
+  <id name="midiLibraryCanSendItem"   				text="Can send item"  												type="Bool" />
+  <id name="midiLibraryAllProgramsSupport"  		text="Device supports sending all program data in one request"  	type="Bool" />
+  <id name="midiLibrarySendSnapAfterPChg"			text="Send MIDI snapshot after changing programs" 					type="Bool" />
+  <id name="midiLibraryParameterIndexProperty"		text="What property holds the parameter index in the dump data" 	type="Text" />
+  <id name="midiLibraryMidiProgramChangeControl"	text="Send MIDI program change event after changing the program" 	type="Bool" />
+  <id name="midiLibraryDefaultBankName"				text="Default bank name (This uses the C strftime)"					type="Text" />
+  <id name="midiLibraryDefaultProgramName"			text="Default bank name (This uses the C strftime)"					type="Text" />
+  <id name="midiLibraryDefaultSnapshotName"       	text="Default snapshot name (This uses the C strftime)"				type="Text" />
+  <id name="midiLibraryCustomRequests"  	        text="Custom request to add to the menu bar"                      	type="MultiLine" />
+
+	<!-- Transaction -->
+  <id name="trans"       			      text="Transaction"					                          type="ReadOnly" />
+  <id name="transCap"				        text="What library items can this transaction handle"	type="MultiLine" />
+  <id name="transModIdxProp"        text="Modulator property for indexing data"           type="Text" />
+  <id name="transReqFormulaPrefix" 	text="Request formula prefix"		                      type="SysEx" />
+  <id name="transReqFormulaSuffix" 	text="Request formula suffix"		                      type="SysEx" />
+  <id name="transReqDataLen"		    text="Request data length"			                      type="Numeric" min="0" max="65565" int="1" />
+  <id name="transRespFormulaPrefix"	text="Response formula prefix"		                    type="SysEx" />
+  <id name="transRespFormulaSuffix" text="Response formula suffix"		                    type="SysEx" />
+  <id name="transRespDataLen"       text="Response data length"			                      type="Numeric" min="0" max="65565" int="1" />
+  <id name="transRespDataCheck"     text="Response data check"			                      type="Bool" />
+  <id name="transRespSizeCheck"     text="Response size check"                            type="Bool" />
+  <id name="transConfFormulaPrefix" text="Confirmation formula prefix"	                  type="SysEx" />
+  <id name="transConfFormulaSuffix" text="Confirmation formula suffix"	                  type="SysEx" />
+  <id name="transConfDataLen" 		  text="Confirmation data length"		                    type="Numeric" min="0" max="65565" int="1" />
+  <id name="transReqExists"       	text="Request exists"				                          type="Bool" />
+  <id name="transRespExists"        text="Response exists"				                        type="Bool" />
+  <id name="transConfExists"	      text="Confirmation exists"			                      type="Bool" />
+  <id name="transRespNameLen"		    text="Response name length"			type="Numeric" min="0" max="65565" int="1" />
+  <id name="transRespNameOffset"	  text="Response name offset"			type="Numeric" min="0" max="65565" int="1" />
+  <id name="transReqNameLen"		    text="Request name length"			type="Numeric" min="0" max="65565" int="1" />
+  <id name="transReqNameOffset"		  text="Request name offset"			type="Numeric" min="0" max="65565" int="1" />
+
+  <!-- Constants used in properties -->
+  <constants>
+    <const name="justification"     value="left=1,right=2,horizontallyCentred=4,top=8,bottom=16,verticallyCentred=32,horizontallyJustified=64,centred=36,centredLeft=33,centredRight=34,centredTop=12,centredBottom=20,topLeft=9,topRight=10,bottomLeft=17,bottomRight=18" />
+    <const name="gradient"          value="None=0,Vertical=1,Horizontal=2,Radial=3" />
+    <const name="imageLayout"       value="tile=8192,xLeft=1,xRight=2,xMid=4,yTop=8,yBottom=16,yMid=32,stretchToFit=64,fillDestination=128,onlyReduceInSize=256,onlyIncreaseInSize=512,centred=36" />
+    <const name="relativePosition"  value="none,top,bottom,left,right" />
+    <const name="midiInputChannel"  value="All Channels=0,Channel 1=1,Channel 2=2,Channel 3=3,Channel 4=4,Channel 5=5,Channel 6=6,Channel 7=7,Channel 8=8,Channel 9=9,Channel 10=10,Channel 11=11,Channel 12=12,Channel 13=13,Channel 14=14,Channel 15=15,Channel 16=16" />
+    <const name="midiOutputChannel" value="Channel 1=1,Channel 2=2,Channel 3=3,Channel 4=4,Channel 5=5,Channel 6=6,Channel 7=7,Channel 8=8,Channel 9=9,Channel 10=10,Channel 11=11,Channel 12=12,Channel 13=13,Channel 14=14,Channel 15=15,Channel 16=16" />
+    <const name="mouseCursor"       value="ParentCursor=0,NoCursor=1,Normal=2,WaitCursor=3,IBeamCursor=4,CrosshairCursor=5,CopyingCursor=6,PointingHandCursor=7,DraggingHandCursor=8,LeftRightResizeCursor=9,UpDownResizeCursor=10" />
+    <const name="imageEffect"       value="No Effect,Glow,Shadow" />
+    <const name="dynamicContent"    value="None=0,Modulator List=1,Filesystem=2,Bank,Program=3" />
+    <const name="lcdFonts"          value="LCD=0,Digital-7=1,Dotty-Shadow=2,ZX81=3,Invasion2000=4,Digit=5,Computerfont=6,Electronic-Highway-Sign=7,Karmatic-Arcade=8,60sekuntia=9" />
+  </constants>
+
+</ctrlrIds>

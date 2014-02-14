@@ -1,0 +1,257 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1257/nightly/Source/Lua/luabind/luabind/detail
+END
+link_compatibility.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/link_compatibility.hpp
+END
+decorate_type.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/decorate_type.hpp
+END
+pcall.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/pcall.hpp
+END
+primitives.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/primitives.hpp
+END
+yes_no.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/yes_no.hpp
+END
+class_registry.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/class_registry.hpp
+END
+garbage_collector.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/garbage_collector.hpp
+END
+object_funs.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/object_funs.hpp
+END
+object_call.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/object_call.hpp
+END
+instance_holder.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/instance_holder.hpp
+END
+call_member.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1257/nightly/Source/Lua/luabind/luabind/detail/call_member.hpp
+END
+call_operator_iterate.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/call_operator_iterate.hpp
+END
+operator_id.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/operator_id.hpp
+END
+format_signature.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/format_signature.hpp
+END
+conversion_storage.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/conversion_storage.hpp
+END
+has_get_pointer.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/has_get_pointer.hpp
+END
+calc_arity.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/calc_arity.hpp
+END
+object_rep.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/object_rep.hpp
+END
+signature_match.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/signature_match.hpp
+END
+other.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/other.hpp
+END
+pointee_sizeof.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/pointee_sizeof.hpp
+END
+convert_to_lua.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/convert_to_lua.hpp
+END
+constructor.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/constructor.hpp
+END
+debug.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/debug.hpp
+END
+class_cache.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/class_cache.hpp
+END
+inheritance.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/inheritance.hpp
+END
+policy.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/policy.hpp
+END
+open.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/open.hpp
+END
+make_instance.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/make_instance.hpp
+END
+is_indirect_const.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/is_indirect_const.hpp
+END
+compute_score.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/compute_score.hpp
+END
+typetraits.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/typetraits.hpp
+END
+deduce_signature.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/deduce_signature.hpp
+END
+call.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/call.hpp
+END
+class_rep.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/p/ctrlrv4/code/!svn/ver/1236/nightly/Source/Lua/luabind/luabind/detail/class_rep.hpp
+END
+ref.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/ref.hpp
+END
+call_function.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/p/ctrlrv4/code/!svn/ver/1257/nightly/Source/Lua/luabind/luabind/detail/call_function.hpp
+END
+pointee_typeid.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/pointee_typeid.hpp
+END
+enum_maker.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/enum_maker.hpp
+END
+most_derived.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/most_derived.hpp
+END
+property.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/property.hpp
+END
+stack_utils.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Source/Lua/luabind/luabind/detail/stack_utils.hpp
+END

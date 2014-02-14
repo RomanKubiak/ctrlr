@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/p/ctrlrv4/code/!svn/ver/1599/nightly/Source/Core/CtrlrModulator
+END
+CtrlrModulator.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/p/ctrlrv4/code/!svn/ver/1544/nightly/Source/Core/CtrlrModulator/CtrlrModulator.cpp
+END
+CtrlrModulatorProcessor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/p/ctrlrv4/code/!svn/ver/1599/nightly/Source/Core/CtrlrModulator/CtrlrModulatorProcessor.cpp
+END
+CtrlrModulator.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1544/nightly/Source/Core/CtrlrModulator/CtrlrModulator.h
+END
+CtrlrModulatorProcessor.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/ctrlrv4/code/!svn/ver/1599/nightly/Source/Core/CtrlrModulator/CtrlrModulatorProcessor.h
+END
