@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<panel name="DEMO - Complex expressions" panelAuthorName="Roman Kubiak"
+       panelAuthorEmail="kubiak.roman@gmail.com" panelAuthorUrl="" panelAuthorDesc=""
+       panelVersionMajor="1" panelVersionMinor="0" panelVersionName="Buttcheek"
+       panelVendor="" panelDevice="" panelMidiSnapshotAfterLoad="0"
+       panelMidiSnapshotAfterProgramChange="0" panelMidiSnapshotDelay="10"
+       panelMidiInputChannelDevice="1" panelMidiInputDevice="-- None"
+       panelMidiControllerChannel="1" panelMidiControllerDevice="-- None"
+       panelMidiOutputChannelDevice="1" panelMidiOutputDevice="ESI M8U XL"
+       panelMidiInputFromHost="0" panelMidiInputChannelHost="1" panelMidiOutputToHost="0"
+       panelMidiOutputChannelHost="1" panelMidiThruH2H="0" panelMidiThruH2HChannelize="0"
+       panelMidiThruH2D="0" panelMidiThruH2DChannelize="0" panelMidiThruD2D="0"
+       panelMidiThruD2DChannelize="0" panelMidiThruD2H="0" panelMidiThruD2HChannelize="0"
+       panelMidiInputThreadPriority="7" panelMidiProgram="0" panelMidiBankLsb="0"
+       panelMidiBankMsb="0" panelMidiSendProgramChangeOnLoad="0" panelMidiProgramCalloutOnprogramChange="0"
+       panelMidiMatchCacheSize="32" luaPanelMidiReceived="" luaPanelLoaded=""
+       luaPanelBeforeLoad="" luaPanelSaved="" luaPanelProgramChanged=""
+       panelFilePath="C:\devel\ctrlrv4\nightly\Panels\DEMO - Complex expressions.panel"
+       panelUID="8.1XKw00P4xvJ" panelModulatorListColumns="" panelModulatorListCsvDelimiter=","
+       panelModulatorListXmlRoot="ctrlrModulatorList" panelModulatorListXmlModulator="ctrlrModulator"
+       panelModulatorListSortOption="1" panelGlobalVariables="0:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1"
+       panelIndex="0" panelCtrlrRevision="1209">
+  <uiWindowManager/>
+  <midiLibrary luaDevUnitReq="-- None" luaDevUnitHandler="-- None" deviceHasEditBuffer="0"
+               deviceBankCount="4" deviceProgramCount="128" deviceRequestTimeout="5000"/>
+  <luaManager>
+    <luaManagerMethods/>
+  </luaManager>
+  <uiPanelEditor uiPanelCanvasRectangle="0 0 255 207" uiPanelSnapSize="8" uiPanelBackgroundColour="0xffffffff"
+                 uiPanelBackgroundColour1="0xffffffff" uiPanelBackgroundColour2="ffd6d6d6"
+                 uiPanelBackgroundGradientType="1" uiPanelImageResource="" uiPanelEditMode="0"
+                 uiPanelViewPortSize="549" uiPanelPropertiesSize="581" uiPanelLock="0"
+                 uiPanelDisabledOnEdit="0" uiPanelWidth="400" uiPanelHeight="400"
+                 name="DEMO - Complex expressions" uiPanelImageAlpha="255" uiPanelImageLayout="64"
+                 uiPanelSnapActive="1" uiPanelPropertiesOnRight="0" luaPanelPaintBackground=""
+                 luaPanelResized="" uiPanelInvisibleComponentAlpha="0.499999989">
+    <uiPanelCanvasLayer uiPanelCanvasLayerName="New layer" uiPanelCanvasLayerUid="3270a11a18000000e372391c3c010000"
+                        uiPanelCanvasLayerColour="0x000000" uiPanelCanvasLayerVisibility="1"
+                        uiPanelCanvasLayerIndex="0"/>
+  </uiPanelEditor>
+  <modulator modulatorVstExported="1" modulatorMax="1" vstIndex="0" modulatorIsStatic="0"
+             modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
+             modulatorValueExpression="setGlobal (0, setBitRangeAsInt (global.k0, 4, 2, 0))"
+             modulatorValueExpressionReverse="midiValue" modulatorLinkedToPanelProperty="-- None"
+             modulatorLinkedToModulatorProperty="-- None" modulatorLinkedToModulator="-- None"
+             modulatorLinkedToModulatorSource="1" modulatorLinkedToComponent="0"
+             modulatorBaseValue="0" modulatorCustomIndex="0" modulatorCustomIndexGroup="0"
+             luaModulatorValueChange="" name="mod1" modulatorMin="0" modulatorValue="0">
+    <midi midiMessageType="5" midiMessageChannelOverride="0" midiMessageChannel="1"
+          midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList=""
+          midiMessageSysExFormula="F0 01 xx F7"/>
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1" componentVisibleName="mod1(All OFF)"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiButtonTrueValue="1" uiButtonFalseValue="0" uiButtonIsToggle="0"
+               uiButtonColourOn="0xff0000ff" uiButtonColourOff="0xff4364ff"
+               uiButtonTextColourOn="0xff000000" uiButtonTextColourOff="0xff454545"
+               uiButtonContent="DISABLE&#10;DISABLE" uiButtonConnectedLeft="0"
+               uiButtonConnectedRight="0" uiButtonConnectedTop="0" uiButtonConnectedBottom="0"
+               componentRectangle="32 24 88 113" uiType="uiButton" componentLayerUid="3270a11a18000000e372391c3c010000"/>
+  </modulator>
+  <modulator modulatorVstExported="1" modulatorMax="1" vstIndex="1" modulatorIsStatic="0"
+             modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
+             modulatorValueExpression="setGlobal (0, setBit (global.k0, 4, modulatorValue))"
+             modulatorValueExpressionReverse="midiValue" modulatorLinkedToPanelProperty="-- None"
+             modulatorLinkedToModulatorProperty="-- None" modulatorLinkedToModulator="-- None"
+             modulatorLinkedToModulatorSource="1" modulatorLinkedToComponent="0"
+             modulatorBaseValue="0" modulatorCustomIndex="0" modulatorCustomIndexGroup="0"
+             luaModulatorValueChange="" name="modulator-2" modulatorMin="0"
+             modulatorValue="0">
+    <midi midiMessageType="5" midiMessageChannelOverride="0" midiMessageChannel="1"
+          midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList=""
+          midiMessageSysExFormula="F0 01 xx F7"/>
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1" componentVisibleName="mod2 (On1)"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiButtonTrueValue="1" uiButtonFalseValue="0" uiButtonIsToggle="1"
+               uiButtonColourOn="ff00ff00" uiButtonColourOff="ffff0000" uiButtonTextColourOn="0xff000000"
+               uiButtonTextColourOff="0xff454545" uiButtonContent="OFF&#10;ON"
+               uiButtonConnectedLeft="0" uiButtonConnectedRight="0" uiButtonConnectedTop="0"
+               uiButtonConnectedBottom="0" componentRectangle="136 16 88 58"
+               uiType="uiButton" componentLayerUid="3270a11a18000000e372391c3c010000"/>
+  </modulator>
+  <modulator modulatorVstExported="1" modulatorMax="1" vstIndex="2" modulatorIsStatic="0"
+             modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
+             modulatorValueExpression="setGlobal (0, setBit (global.k0, 5, modulatorValue))"
+             modulatorValueExpressionReverse="midiValue" modulatorLinkedToPanelProperty="-- None"
+             modulatorLinkedToModulatorProperty="-- None" modulatorLinkedToModulator="-- None"
+             modulatorLinkedToModulatorSource="1" modulatorLinkedToComponent="0"
+             modulatorBaseValue="0" modulatorCustomIndex="0" modulatorCustomIndexGroup="0"
+             luaModulatorValueChange="" name="modulator-3" modulatorMin="0"
+             modulatorValue="0">
+    <midi midiMessageType="5" midiMessageChannelOverride="0" midiMessageChannel="1"
+          midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList=""
+          midiMessageSysExFormula="F0 01 xx F7"/>
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1" componentVisibleName="mod3 (On2)"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiButtonTrueValue="1" uiButtonFalseValue="0" uiButtonIsToggle="1"
+               uiButtonColourOn="ff00ff00" uiButtonColourOff="ffff0000" uiButtonTextColourOn="0xff000000"
+               uiButtonTextColourOff="0xff454545" uiButtonContent="OFF&#10;ON"
+               uiButtonConnectedLeft="0" uiButtonConnectedRight="0" uiButtonConnectedTop="0"
+               uiButtonConnectedBottom="0" componentRectangle="136 88 88 57"
+               uiType="uiButton" componentLayerUid="3270a11a18000000e372391c3c010000"/>
+  </modulator>
+  <modulator modulatorIsStatic="1" name="modulator-1" modulatorVstExported="0">
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="0"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1" componentVisibleName="modulator-1"
+               componentMouseCursor="2" componentGroupName="" componentSnapSize="0"
+               componentIsLocked="0" componentRadioGroupId="0" componentRadioGroupNotifyMidi="1"
+               componentVisibility="1" componentEffect="0" componentEffectRadius="1"
+               componentEffectColour="0xff000000" componentEffectOffsetX="0"
+               componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               uiLabelBgColour="0x00000000" uiLabelTextColour="0xff000000" uiLabelOutlineColour="0x00000000"
+               uiLabelJustification="centred" uiLabelFitFont="0" uiLabelFont="Courier New;14;1;0;0;0;1"
+               uiLabelText="-- INIT" uiLabelDisplaysAllValues="1" uiLabelDisplayFormat="OUT: %x"
+               uiLabelEditOnSingleClick="0" uiLabelEditOnDoubleClick="0" uiLabelEditFocusDiscardsChanges="1"
+               uiLabelInputAllowedChars="" uiLabelInputMaxLength="1024" uiLabelChangedCbk="-- None"
+               componentRectangle="32 160 194 39" uiType="uiLabel" componentLayerUid="3270a11a18000000e372391c3c010000"/>
+  </modulator>
+</panel>

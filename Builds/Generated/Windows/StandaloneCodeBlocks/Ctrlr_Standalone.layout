@@ -1,0 +1,1414 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExEditor.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1808" topLine="27" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Standalone\JuceLibraryCode\BinaryData.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3822721" topLine="17408" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\mouse\juce_ComponentDragger.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1115" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrManager\CtrlrManagerVst.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="599" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaObject.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="505" topLine="37" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrSysexProcessor.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3671" topLine="132" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1429" topLine="32" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrDocumentPanel.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1005" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditor.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3813" topLine="74" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\native\juce_linux_Threads.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="53" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_events\broadcasters\juce_ActionBroadcaster.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="726" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelMIDIToolbar.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12577" topLine="444" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExEditor.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1042" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Standalone\JuceLibraryCode\BinaryData.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5968" topLine="21" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="565" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrMasterClock.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="871" topLine="31" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrFilePropertyComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1451" topLine="14" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\XmlTokeniser.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="282" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Juce\modules\juce_audio_devices\juce_audio_devices.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8275" topLine="198" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrSysexProcessor.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="411" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2143" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="954" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\widgets\juce_ComboBox.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10291" topLine="232" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_events\broadcasters\juce_ActionBroadcaster.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelMIDIToolbar.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2399" topLine="47" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExFormulaEditor.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4721" topLine="87" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrLogViewer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1606" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvas.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1048" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\network\juce_NamedPipe.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrMasterClock.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="548" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaObjectWrapper.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="373" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2906" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\XmlTokeniser.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1950" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\time\juce_PerformanceCounter.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3302" topLine="69" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrSysexProcessorOwned.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="513" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindow.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1658" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\windows\juce_DialogWindow.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3541" topLine="93" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="188" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditor.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1491" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrIDManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="487" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\stdafx.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\luabind\src\class.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7530" topLine="241" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelModulatorList.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9327" topLine="228" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExFormulaEditor.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="612" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="307" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\widgets\juce_Toolbar.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2363" topLine="75" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrLogViewer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1274" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvas.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1154" topLine="22" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\network\juce_NamedPipe.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="68" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulator.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13842" topLine="451" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrFontPropertyComponent.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2213" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaPanel.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13810" topLine="494" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrBooleanPropertyComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="732" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\time\juce_PerformanceCounter.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2693" topLine="66" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrSysexProcessorOwned.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="277" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\memory\juce_MemoryBlock.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="985" topLine="93" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindow.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="808" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\windows\juce_DialogWindow.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="144" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditor.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1237" topLine="113" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Native\CtrlrMac.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3330" topLine="69" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrIDManager.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1221" topLine="24" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_audio_processors\format_types\juce_LADSPAPluginFormat.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="456" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8358" topLine="210" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\luabind\luabind\detail\make_instance.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2201" topLine="64" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1531" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResource.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3665" topLine="123" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExPropertyComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3178" topLine="69" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\widgets\juce_Toolbar.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2648" topLine="105" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LThread.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="240" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\CtrlrWrap.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2917" topLine="79" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3001" topLine="122" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrImageButton.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9151" topLine="309" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvasHandlers.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1005" topLine="28" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulator.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="782" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrFontPropertyComponent.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="457" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LRectangle.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3935" topLine="52" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaPanelCanvas.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="261" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Juce\modules\juce_audio_formats\juce_audio_formats.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4524" topLine="88" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrSysexToken.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="360" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindowContainer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2487" topLine="21" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1150" topLine="7" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditorApplicationCommands.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8999" topLine="221" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrIDs.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="28584" topLine="788" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrGroup.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10085" topLine="315" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelModulatorListTree.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="625" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResource.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="554" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExPropertyComponent.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="82" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\widgets\juce_ToolbarItemComponent.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="199" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="446" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="434" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="890" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Juce\modules\juce_events\juce_events.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1498" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\luabind\luabind\detail\constructor.hpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3745" topLine="105" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrImageButton.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3374" topLine="57" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvasLayer.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="746" topLine="37" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulatorProcessor.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7080" topLine="231" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="91" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSlider.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="509" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\memory\juce_OptionalScopedPointer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6473" topLine="137" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindowContainer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2570" topLine="43" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14529" topLine="520" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1965" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditorApplicationCommandsHandlers.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4439" topLine="135" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrInlineUtilities.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11037" topLine="337" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrGroup.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3111" topLine="65" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResourceManager.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3158" topLine="106" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTextPropertyComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2695" topLine="60" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="614" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5361" topLine="229" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniser.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="104" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrSysexToken.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="766" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LFile.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3605" topLine="62" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrToggleButton.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6287" topLine="210" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulatorProcessor.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6157" topLine="99" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="164" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSlider.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1521" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindowContent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="505" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1617" topLine="80" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="215" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditorApplicationCommandsMenus.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8658" topLine="179" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="144" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrTabsComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16448" topLine="482" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelProperties.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="505" topLine="114" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\widgets\juce_ToolbarItemFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1496" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="716" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniser.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="106" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Juce\modules\juce_graphics\juce_graphics.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2128" topLine="28" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrUpdateManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1983" topLine="57" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LFile.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="672" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\luabind\luabind\detail\convert_to_lua.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2115" topLine="55" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaUtils.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3547" topLine="94" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="18904" topLine="650" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7509" topLine="146" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrMidiKeyboard.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2071" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_graphics\images\juce_Image.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7405" topLine="170" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindowContent.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="408" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13102" topLine="624" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\windows\juce_ResizableWindow.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8054" topLine="226" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrLookAndFeel.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17022" topLine="479" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16874" topLine="228" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\native\juce_posix_NamedPipe.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6423" topLine="180" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrLog.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4096" topLine="176" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrTabsComponent.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1115" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelSchemeMigration.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="151" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="563" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\widgets\juce_ToolbarItemPalette.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="25" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorTypes.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1822" topLine="50" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniserFunctions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12755" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LFont.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="200" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17874" topLine="544" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelComponentProperties.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13911" topLine="461" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaUtils.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2792" topLine="31" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7485" topLine="150" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrMidiKeyboard.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3148" topLine="52" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_graphics\images\juce_Image.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7003" topLine="121" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrLookAndFeel.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3314" topLine="20" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6356" topLine="157" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\native\juce_posix_SharedCode.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23967" topLine="852" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrLog.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1862" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Labels\CtrlrImage.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3737" topLine="125" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelResourceEditor.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9072" topLine="118" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\threads\juce_SpinLock.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1170" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelSchemeMigration.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="133" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="321" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\widgets\juce_ToolbarItemPalette.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="40" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Resources\XML\CtrlrIDs.xml" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="73324" topLine="735" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMidiMessage.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13547" topLine="861" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LLabel.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="250" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrUtilities.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16615" topLine="702" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_events\interprocess\juce_InterprocessConnection.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8441" topLine="267" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2729" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelComponentProperties.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1652" topLine="24" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanel.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1569" topLine="34" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\layout\juce_ComponentAnimator.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8685" topLine="225" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrMultiMidiPropertyComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7952" topLine="213" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibraryRequest.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="856" topLine="22" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrWaveform.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3897" topLine="111" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\memory\juce_WeakReference.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8718" topLine="178" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\windows\juce_ThreadWithProgressWindow.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2593" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\menus\juce_PopupMenu.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="44845" topLine="411" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Plugin\CtrlrProcessor.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1940" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="904" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrMacros.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3397" topLine="99" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaManager.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2923" topLine="67" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelResourceEditor.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1685" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\threads\juce_Thread.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6225" topLine="178" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelUndoManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="238" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\maths\juce_MathsFunctions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12171" topLine="281" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrUnknownPropertyComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1026" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\widgets\juce_TreeView.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4107" topLine="97" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Resources\XML\CtrlrLuaMethodTemplates.xml" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="15220" topLine="525" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3530" topLine="101" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\files\juce_File.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16329" topLine="463" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrUtilities.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3153" topLine="22" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_events\interprocess\juce_InterprocessConnection.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7536" topLine="189" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\components\juce_Component.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="67203" topLine="2080" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelEditor.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4671" topLine="107" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanel.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10415" topLine="189" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\widgets\juce_Slider.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="47137" topLine="1259" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibraryRequest.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2705" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrWaveform.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="972" topLine="34" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrManagerWindowManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1905" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\windows\juce_ThreadWithProgressWindow.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2508" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Plugin\CtrlrProcessor.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1038" topLine="27" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1455" topLine="22" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\native\juce_win32_Files.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="25283" topLine="732" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrChoicePropertyComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="823" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaManager.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="230" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Labels\CtrlrLCDLabel.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10923" topLine="313" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelUtilities.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1600" topLine="21" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\threads\juce_Thread.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11132" topLine="253" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelUndoManager.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="264" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Resources\XML\CtrlrMIDITransactions.xml" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1937" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\files\juce_File.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="818" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LLine.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1288" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_events\interprocess\juce_InterprocessConnectionServer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="946" topLine="25" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="484" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelEditor.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="877" topLine="79" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrPropertyComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5908" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Juce\modules\juce_audio_basics\juce_audio_basics.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3168" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMIDITransaction.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14521" topLine="489" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrManagerWindowManager.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1355" topLine="24" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LComboBox.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="673" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrManager\CtrlrManager.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2742" topLine="52" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Labels\CtrlrLCDLabel.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2902" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelUtilities.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2148" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\threads\juce_ThreadLocalValue.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrProperties.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Resources\XML\CtrlrMIDIVendors.xml" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_core\system\juce_SystemStats.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3970" topLine="93" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentBubble.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5234" topLine="127" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelFileOperations.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10947" topLine="368" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\CtrlrMIDITransaction.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1636" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\lookandfeel\juce_LookAndFeel.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="96022" topLine="2441" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrPanelWindowManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4403" topLine="220" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\luabind\luabind\detail\call.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1062" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1478" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrManager\CtrlrManager.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10088" topLine="265" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrColourPropertyComponent.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1920" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Labels\CtrlrLabel.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11053" topLine="314" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelViewport.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="518" topLine="40" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2971" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Resources\XML\CtrlrMidiMultiTemplate.xml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="39" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\MIDI\MidiMessageEx.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2826" topLine="114" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneApplication.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3954" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelLayerList.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="948" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDIInputThread.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3538" topLine="113" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSliderPropertyComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="876" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrXYSurface.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="822" topLine="285" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\lookandfeel\juce_LookAndFeel.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3534" topLine="62" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrPanelWindowManager.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="337" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LComponent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1014" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2860" topLine="261" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6860" topLine="165" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrManager\CtrlrManagerInstance.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="543" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrColourPropertyComponent.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2348" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="496" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Labels\CtrlrLabel.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3103" topLine="55" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelViewport.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4500" topLine="128" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrAbout.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8690" topLine="158" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_data_structures\values\juce_ValueTree.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22598" topLine="667" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="611" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2910" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_gui_basics\components\juce_Desktop.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2727" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelLayerListItem.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6716" topLine="170" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDIInputThread.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="788" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSliderPropertyComponent.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="740" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\luabind\luabind\handle.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3096" topLine="69" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Juce\modules\juce_core\juce_core.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6852" topLine="153" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LGraphics.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5149" topLine="63" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2675" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="338" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Core\CtrlrManager\CtrlrManagerVst.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1434" topLine="38" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\CtrlrLuaObject.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="481" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="293" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditor.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1320" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\..\JUCE\modules\juce_data_structures\values\juce_ValueTree.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5450" topLine="103" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="719" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\..\Source\Lua\luabind\luabind\detail\inheritance.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3402" topLine="117" />
+		</Cursor>
+	</File>
+</CodeBlocks_layout_file>

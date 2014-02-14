@@ -1,0 +1,1229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.1.2"
+              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="3.1.0"
+              defines="" companyName="Instigator" includeBinaryInAppConfig="1">
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="../Generated/Mac/Standalone" objCExtraSuffix="CTRLRUNIQVST"
+               extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
+               documentExtensions="panel,bpanel,bpanelz,panelz" bigIcon="wPCbe6"
+               smallIcon="IfrBI6" extraDefs="__MACOSX_CORE__=1" vstFolder="/Users/atom/devel/vstsdk2.4"
+               postbuildCommand="if [ &quot;$CONFIGURATION&quot; == &quot;Debug&quot; ]; then&#10;    exit 0&#10;fi&#10;STANDALONE=&quot;$PROJECT_DIR/../../../../Bin/$FULL_PRODUCT_NAME&quot;&#10;echo &quot;[CTRLR]: CONFIGURATION - $CONFIGURATION&quot;&#10;echo &quot;[CTRLR]: PRODUCT PATH - $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME&quot;&#10;echo &quot;[CTRLR]: UPDATED PRODUCT PATH - $STANDALONE&quot;&#10;&#10;if [ -d $STANDALONE ]; then&#10;    echo &quot;[CTRLR]: $STANDALONE ALREADY EXISTS - DELETE&quot;&#10;    rm -rf $STANDALONE&#10;fi&#10;&#10;echo &quot;[CTRLR]: COPY PRODUCT&quot;&#10;if [ &quot;$CONFIGURATION&quot; == &quot;Release_Nightly&quot; ]; then&#10;    echo &quot;[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $STANDALONE&quot;&#10;    cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $STANDALONE&#10;fi&#10;&#10;if [ &quot;$CONFIGURATION&quot; == &quot;Release&quot; ]; then&#10;    echo &quot;[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $STANDALONE&quot;&#10;    cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $STANDALONE&#10;fi"
+               prebuildCommand="if [ &quot;$CONFIGURATION&quot; == &quot;Debug&quot; ]; then&#10;    exit 0&#10;fi&#10;which svn&#10;REVISION_H=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.h&#10;REVISION_TEMP=$TEMP_DIR/CtrlrRevision.template&#10;REVISION_T=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.template&#10;REVISION=&#96;/usr/bin/svn info | grep Revision | awk '{print $2}'&#96;&#10;REVISION_BUILD_T=&#96;/usr/bin/svn info | grep &quot;Last Changed Date&quot; | awk '{print $4&quot; &quot;$5}'&#96;&#10;&#10;rm -f $REVISION_TEMP&#10;cp $REVISION_T $REVISION_TEMP&#10;&#10;sed -i &quot;&quot; -e 's/\$WCREV\$/'$REVISION'/g' $REVISION_TEMP&#10;sed -i &quot;&quot; -e &quot;s/\\\$WCNOW\\\$/$REVISION_BUILD_T/g&quot; $REVISION_TEMP&#10;&#10;cat $REVISION_TEMP &gt; $REVISION_H"
+               customPList="">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
+                       osxSDK="10.7 SDK" osxCompatibility="10.6 SDK" osxArchitecture="default"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;../../../../../Juce"
+                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;LUA_USE_LINUX&#10;LUABIND_CPP0x"
+                       binaryPath="" customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
+                       cppLibType=""/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
+                       osxSDK="10.7 SDK" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_Standalone&#10;LUA_USE_LINUX"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;../../../../../Juce"
+                       binaryPath="" customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"/>
+        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
+                       osxSDK="10.7 SDK" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;LUA_USE_LINUX"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;../../../../../Juce"
+                       binaryPath="" customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2010 targetFolder="../Generated/Windows/Standalone" libraryType="1"
+            extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm512"
+            extraLinkerFlags="" bigIcon="wPCbe6" smallIcon="IfrBI6" extraDefs="_CRT_SECURE_NO_WARNINGS">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(Platform)$(NATIVE_ARCH)"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       defines="CTRLR_NIGHTLY=1 &#10;JucePlugin_Build_Standalone" binaryPath="../../Bin/Standalone/$(Platform)$(NATIVE_ARCH)"
+                       winWarningLevel="4" winArchitecture="32-bit" generateManifest="0"
+                       prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2010\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\Standalone\Ctrlr_Standalone.jucer"
+                       libraryPath="" wholeProgramOptimisation="1" userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_Standalone"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       binaryPath="" winWarningLevel="2" winArchitecture="32-bit" generateManifest="1"
+                       postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" libraryPath=""
+                       userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"/>
+        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       binaryPath="" winWarningLevel="2" winArchitecture="32-bit" generateManifest="1"
+                       postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" libraryPath=""
+                       wholeProgramOptimisation="1" userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"
+                       prebuildCommand="$(MSBuildProjectDirectory)\..\..\..\..\Scripts\pre-build-windows.bat $(MSBuildProjectDirectory) $(VisualStudioVersion) $(OSVersion) $(TargetedRuntimeVersion)"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+      </MODULEPATHS>
+    </VS2010>
+    <LINUX_MAKE targetFolder="../Generated/Linux/Standalone" extraDefs="LUA_USE_LINUX&#10;LINUX=1&#10;_LINUX=1"
+                bigIcon="QqMgrL" smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4"
+                extraCompilerFlags="-fpermissive -w -fPIC">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(ARCH)"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone" binaryPath="../../Bin"
+                       libraryPath="/usr/X11R6/lib/"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_Standalone"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       binaryPath="../../Bin" libraryPath="/usr/X11R6/lib/"/>
+        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-$(ARCH)"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       binaryPath="../../Bin" libraryPath="/usr/X11R6/lib/"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+    <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries="dl&#10;rt&#10;Xinerama&#10;X11&#10;freetype&#10;pthread&#10;asound&#10;jack"
+                extraLinkerFlags="" extraCompilerFlags="-w -fpermissive" smallIcon="xQ5dKQ"
+                bigIcon="ugOMDZ" extraDefs="LINUX=1&#10;_LINUX=1&#10;LUA_USE_LINUX"
+                userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2"
+                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;DEBUG=1&#10;_DEBUG=1&#10;JUCE_DEBUG=1"
+                       binaryPath="../../../../Bin"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_Standalone"
+                       binaryPath="../../../../Bin"/>
+        <CONFIGURATION name="Release_Nightly" headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       targetName="Ctrlr" binaryPath="../../../../Bin" optimisation="2"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;LINUX=1&#10;_LINUX=1"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+      </MODULEPATHS>
+    </CODEBLOCKS>
+  </EXPORTFORMATS>
+  <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
+    <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
+      <GROUP id="{F43FBFF2-7D6A-C5F7-3C57-3DC4E3DBEE35}" name="Fonts">
+        <FILE id="lECaM0" name="FONT_60sekuntia.bin" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_60sekuntia.bin"/>
+        <FILE id="yePNpm" name="FONT_Computerfont.bin" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Computerfont.bin"/>
+        <FILE id="kckqW2" name="FONT_Digit.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_Digit.bin"/>
+        <FILE id="js3Nx3" name="FONT_Digital-7.bin" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Digital-7.bin"/>
+        <FILE id="oXTSnu" name="FONT_DottyShadow.bin" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_DottyShadow.bin"/>
+        <FILE id="jJCzJA" name="FONT_Electronic Highway Sign.bin" compile="0"
+              resource="1" file="../../Source/Resources/Fonts/FONT_Electronic Highway Sign.bin"/>
+        <FILE id="nKiSop" name="FONT_Invasion2000.bin" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Invasion2000.bin"/>
+        <FILE id="SHfRIR" name="FONT_Karmatic Arcade.bin" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Karmatic Arcade.bin"/>
+        <FILE id="TLkJax" name="FONT_LCD.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_LCD.bin"/>
+        <FILE id="hl8E5o" name="FONT_Source Code Pro.bin" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Source Code Pro.bin"/>
+        <FILE id="vzKpxn" name="FONT_ZX81.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_ZX81.bin"/>
+      </GROUP>
+      <GROUP id="{2F493420-39C3-10F9-9A38-AC40F42455E5}" name="Icons">
+        <FILE id="BxUdiy" name="ico_transaction.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_transaction.png"/>
+        <FILE id="UY8zXf" name="ico_ctrlr_mac.icns" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_ctrlr_mac.icns"/>
+        <FILE id="ilF2D3" name="ico_receive.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_receive.png"/>
+        <FILE id="QzPWR0" name="ico_send.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_send.png"/>
+        <FILE id="LkClmK" name="ctrlr_black.ico" compile="0" resource="1" file="../../Source/Resources/Icons/ctrlr_black.ico"/>
+        <FILE id="YsX2Uq" name="ico_box.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_box.png"/>
+        <FILE id="wMxLHZ" name="ico_bug.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_bug.png"/>
+        <FILE id="Et8y8f" name="ico_copy.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_copy.png"/>
+        <FILE id="OQ07x8" name="ico_cut.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_cut.png"/>
+        <FILE id="rOEWf8" name="ico_delete.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_delete.png"/>
+        <FILE id="fEDmv6" name="ico_document.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_document.png"/>
+        <FILE id="jj8W6n" name="ico_document_new.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_document_new.png"/>
+        <FILE id="jnyjv1" name="ico_edit_document.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_edit_document.png"/>
+        <FILE id="U4hzry" name="ico_eye.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_eye.png"/>
+        <FILE id="MyFAQX" name="ico_file.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_file.png"/>
+        <FILE id="EZ0iQl" name="ico_firmware.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_firmware.png"/>
+        <FILE id="brHlvh" name="ico_folder.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_folder.png"/>
+        <FILE id="srQeuM" name="ico_folder_alt.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_folder_alt.png"/>
+        <FILE id="mavK56" name="ico_folder_new.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_folder_new.png"/>
+        <FILE id="Gsaj3M" name="ico_font_bold.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_font_bold.png"/>
+        <FILE id="cLezDP" name="ico_font_italic.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_font_italic.png"/>
+        <FILE id="znkHjJ" name="ico_font_underline.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_font_underline.png"/>
+        <FILE id="z9Euxu" name="ico_gui.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_gui.png"/>
+        <FILE id="wVKOSk" name="ico_happy.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_happy.png"/>
+        <FILE id="kzGruV" name="ico_import_document.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_import_document.png"/>
+        <FILE id="VzZm0J" name="ico_midi_plug_in.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_midi_plug_in.png"/>
+        <FILE id="YAWr08" name="ico_midi_plug_out.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_midi_plug_out.png"/>
+        <FILE id="wPCbe6" name="ico_midi.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_midi.png"/>
+        <FILE id="kDJB3A" name="ico_midi_plug.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_midi_plug.png"/>
+        <FILE id="IfrBI6" name="ico_midi_small.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_midi_small.png"/>
+        <FILE id="ZbHHds" name="ico_new_document.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_new_document.png"/>
+        <FILE id="kfm0tB" name="ico_next.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_next.png"/>
+        <FILE id="FwCgZh" name="ico_paste.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_paste.png"/>
+        <FILE id="lUGQev" name="ico_previous.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_previous.png"/>
+        <FILE id="u9vbM4" name="ico_sad.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_sad.png"/>
+        <FILE id="gSScZ8" name="ico_snapshot.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_snapshot.png"/>
+        <FILE id="B2s69v" name="ico_snapshot_new.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_snapshot_new.png"/>
+        <FILE id="XyjYIV" name="ico_unit.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_unit.png"/>
+        <FILE id="lXD6Z2" name="ico_unit_alt.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_unit_alt.png"/>
+        <FILE id="C9MLi9" name="ico_unknown.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_unknown.png"/>
+        <FILE id="WKeZ8H" name="ico_waveform.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_waveform.png"/>
+      </GROUP>
+      <GROUP id="{A15E6671-01FE-A38C-6FA3-480250E74C6B}" name="Images">
+        <FILE id="iMbRxk" name="tile.gif" compile="0" resource="1" file="../../Source/Resources/Images/tile.gif"/>
+      </GROUP>
+      <GROUP id="{7550D861-4E22-854A-C333-DAB29BB48047}" name="Misc">
+        <FILE id="DRlHtG" name="name_24.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_24.rsrc"/>
+        <FILE id="uZmNNi" name="name_34.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_34.rsrc"/>
+        <FILE id="eKJ6KW" name="name_42.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_42.rsrc"/>
+        <FILE id="s9UKqS" name="name_68.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_68.rsrc"/>
+      </GROUP>
+      <GROUP id="{C7BDEF86-BA53-19FE-8370-362589146B0A}" name="XML">
+        <FILE id="Bm5ved" name="CtrlrMIDITransactions.xml" compile="0" resource="1"
+              file="../../Source/Resources/XML/CtrlrMIDITransactions.xml"/>
+        <FILE id="JXJwCW" name="CtrlrMIDIVendors.xml" compile="0" resource="1"
+              file="../../Source/Resources/XML/CtrlrMIDIVendors.xml"/>
+        <FILE id="rl4xDq" name="CtrlrIDs.xml" compile="0" resource="1" file="../../Source/Resources/XML/CtrlrIDs.xml"/>
+        <FILE id="VbJBEU" name="CtrlrLuaMethodTemplates.xml" compile="0" resource="1"
+              file="../../Source/Resources/XML/CtrlrLuaMethodTemplates.xml"/>
+        <FILE id="vrX2fK" name="CtrlrMidiMultiTemplate.xml" compile="0" resource="1"
+              file="../../Source/Resources/XML/CtrlrMidiMultiTemplate.xml"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{10E7F410-8B6D-D0E5-3586-A8B60E222A7E}" name="Core">
+      <FILE id="pwNeqS" name="CtrlrInlineUtilitiesGUI.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrInlineUtilitiesGUI.h"/>
+      <FILE id="tz5mmG" name="CtrlrUtilitiesGUI.cpp" compile="1" resource="0"
+            file="../../Source/Core/CtrlrUtilitiesGUI.cpp"/>
+      <FILE id="LvmhqB" name="CtrlrUtilitiesGUI.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrUtilitiesGUI.h"/>
+      <FILE id="AAzmor" name="CtrlrSysexProcessorOwned.cpp" compile="1" resource="0"
+            file="../../Source/Core/CtrlrSysexProcessorOwned.cpp"/>
+      <FILE id="nlobyb" name="CtrlrSysexProcessorOwned.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrSysexProcessorOwned.h"/>
+      <FILE id="VWduzE" name="CtrlrFontManager.cpp" compile="1" resource="0"
+            file="../../Source/Core/CtrlrFontManager.cpp"/>
+      <FILE id="WZR9l3" name="CtrlrFontManager.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrFontManager.h"/>
+      <FILE id="uQjrsU" name="CtrlrIDManager.cpp" compile="1" resource="0"
+            file="../../Source/Core/CtrlrIDManager.cpp"/>
+      <FILE id="qNamob" name="CtrlrIDManager.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrIDManager.h"/>
+      <FILE id="H5b0f1" name="CtrlrIDs.h" compile="0" resource="0" file="../../Source/Core/CtrlrIDs.h"/>
+      <FILE id="T9dYY9" name="CtrlrInlineUtilities.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrInlineUtilities.h"/>
+      <FILE id="aCXzNw" name="CtrlrLog.cpp" compile="1" resource="0" file="../../Source/Core/CtrlrLog.cpp"/>
+      <FILE id="PMAlli" name="CtrlrLog.h" compile="0" resource="0" file="../../Source/Core/CtrlrLog.h"/>
+      <FILE id="P8xKx6" name="CtrlrMacros.h" compile="0" resource="0" file="../../Source/Core/CtrlrMacros.h"/>
+      <FILE id="kaOpR7" name="CtrlrMainPage.h" compile="0" resource="0" file="../../Source/Core/CtrlrMainPage.h"/>
+      <GROUP id="{F2B7E4DD-E827-A7FA-BF1B-FDA2C92C2709}" name="CtrlrManager">
+        <FILE id="h8beSf" name="CtrlrManager.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrManager/CtrlrManager.cpp"/>
+        <FILE id="Hn4yJk" name="CtrlrManager.h" compile="0" resource="0" file="../../Source/Core/CtrlrManager/CtrlrManager.h"/>
+        <FILE id="sAc0IP" name="CtrlrManagerInstance.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrManager/CtrlrManagerInstance.cpp"/>
+        <FILE id="mY4PBJ" name="CtrlrManagerVst.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrManager/CtrlrManagerVst.cpp"/>
+        <FILE id="Hx6Hpo" name="CtrlrManagerVst.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrManager/CtrlrManagerVst.h"/>
+      </GROUP>
+      <GROUP id="{4278185D-4542-F5DA-EAC3-0DE3E5A7DB0E}" name="CtrlrModulator">
+        <FILE id="AAB3Il" name="CtrlrModulator.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrModulator/CtrlrModulator.cpp"/>
+        <FILE id="wDdy3B" name="CtrlrModulator.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrModulator/CtrlrModulator.h"/>
+        <FILE id="YwTeTs" name="CtrlrModulatorProcessor.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.cpp"/>
+        <FILE id="lYUZfC" name="CtrlrModulatorProcessor.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.h"/>
+      </GROUP>
+      <GROUP id="{54F2B3F4-3185-4B50-C69B-02CB41839CFB}" name="CtrlrPanel">
+        <FILE id="C0WapQ" name="CtrlrPanelUndoManager.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.cpp"/>
+        <FILE id="hmg4Ca" name="CtrlrPanelUndoManager.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.h"/>
+        <FILE id="Wesgm4" name="CtrlrEvaluationScopes.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.cpp"/>
+        <FILE id="SIEjX7" name="CtrlrEvaluationScopes.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.h"/>
+        <FILE id="pxqH4C" name="CtrlrPanel.cpp" compile="1" resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanel.cpp"/>
+        <FILE id="SebmT5" name="CtrlrPanel.h" compile="0" resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanel.h"/>
+        <FILE id="FGhYR6" name="CtrlrPanelFileOperations.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelFileOperations.cpp"/>
+        <FILE id="tpm2ri" name="CtrlrPanelMIDIInputThread.cpp" compile="1"
+              resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.cpp"/>
+        <FILE id="qU0gy1" name="CtrlrPanelMIDIInputThread.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.h"/>
+        <FILE id="gb3Yhv" name="CtrlrPanelMIDISnapshot.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp"/>
+        <FILE id="Tve3nQ" name="CtrlrPanelMIDISnapshot.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.h"/>
+        <FILE id="aNcmzy" name="CtrlrPanelProcessor.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.cpp"/>
+        <FILE id="UeLVbr" name="CtrlrPanelProcessor.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.h"/>
+        <FILE id="ZNrbVI" name="CtrlrPanelResource.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelResource.cpp"/>
+        <FILE id="HlhxVV" name="CtrlrPanelResource.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelResource.h"/>
+        <FILE id="sx8mKs" name="CtrlrPanelResourceManager.cpp" compile="1"
+              resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanelResourceManager.cpp"/>
+        <FILE id="nVTOEF" name="CtrlrPanelResourceManager.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelResourceManager.h"/>
+      </GROUP>
+      <FILE id="QSAsFE" name="CtrlrProperties.cpp" compile="1" resource="0"
+            file="../../Source/Core/CtrlrProperties.cpp"/>
+      <FILE id="iJJKH7" name="CtrlrProperties.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrProperties.h"/>
+      <FILE id="wadEJH" name="CtrlrRevision.h" compile="0" resource="0" file="../../Source/Core/CtrlrRevision.h"/>
+      <FILE id="NCGP4S" name="CtrlrRevision.template" compile="0" resource="1"
+            file="../../Source/Core/CtrlrRevision.template"/>
+      <FILE id="tV8i4D" name="CtrlrSysexProcessor.cpp" compile="1" resource="0"
+            file="../../Source/Core/CtrlrSysexProcessor.cpp"/>
+      <FILE id="QW8h2i" name="CtrlrSysexProcessor.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrSysexProcessor.h"/>
+      <FILE id="OfdaP5" name="CtrlrSysexToken.cpp" compile="1" resource="0"
+            file="../../Source/Core/CtrlrSysexToken.cpp"/>
+      <FILE id="nSySi2" name="CtrlrSysexToken.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrSysexToken.h"/>
+      <FILE id="Nrc1i3" name="CtrlrUpdateManager.cpp" compile="1" resource="0"
+            file="../../Source/Core/CtrlrUpdateManager.cpp"/>
+      <FILE id="ctnHXh" name="CtrlrUpdateManager.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrUpdateManager.h"/>
+      <FILE id="GVrZrV" name="CtrlrUtilities.cpp" compile="1" resource="0"
+            file="../../Source/Core/CtrlrUtilities.cpp"/>
+      <FILE id="iqnEVT" name="CtrlrUtilities.h" compile="0" resource="0"
+            file="../../Source/Core/CtrlrUtilities.h"/>
+      <FILE id="gJu4cx" name="dxtrans.h" compile="0" resource="0" file="../../Source/Core/dxtrans.h"/>
+      <GROUP id="{3A30412C-1D97-84CF-545C-D514F3629C1F}" name="StandaloneWrapper">
+        <FILE id="EETuEm" name="CtrlrStandaloneApplication.cpp" compile="1"
+              resource="0" file="../../Source/Core/StandaloneWrapper/CtrlrStandaloneApplication.cpp"/>
+        <FILE id="mRHg4K" name="CtrlrStandaloneWindow.cpp" compile="1" resource="0"
+              file="../../Source/Core/StandaloneWrapper/CtrlrStandaloneWindow.cpp"/>
+        <FILE id="Bp5ZKT" name="CtrlrStandaloneWindow.h" compile="0" resource="0"
+              file="../../Source/Core/StandaloneWrapper/CtrlrStandaloneWindow.h"/>
+      </GROUP>
+      <FILE id="Lc2psl" name="stdafx.cpp" compile="1" resource="0" file="../../Source/Core/stdafx.cpp"/>
+      <FILE id="pKNw8c" name="stdafx.h" compile="0" resource="0" file="../../Source/Core/stdafx.h"/>
+    </GROUP>
+    <GROUP id="{BF1AE96C-84FC-3E33-914B-08E0062FCD5B}" name="Lua">
+      <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
+        <FILE id="kz9hTM" name="LThread.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LThread.cpp"/>
+        <FILE id="hHwNro" name="LThread.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LThread.h"/>
+        <FILE id="RyD4mx" name="LThreadWithProgressWindow.cpp" compile="1"
+              resource="0" file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.cpp"/>
+        <FILE id="Wtszh4" name="LThreadWithProgressWindow.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.h"/>
+        <FILE id="I89qPb" name="LAudioThumbnail.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LAudioThumbnail.cpp"/>
+        <FILE id="DjG9RE" name="LAudioThumbnail.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LAudioThumbnail.h"/>
+        <FILE id="uOs8rb" name="LSparseSet.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LSparseSet.cpp"/>
+        <FILE id="s0eIg2" name="LSparseSet.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LSparseSet.h"/>
+        <FILE id="ieqsGN" name="CtrlrWrap.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/CtrlrWrap.cpp"/>
+        <FILE id="WQ05qO" name="LAlertWindow.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LAlertWindow.cpp"/>
+        <FILE id="nc1BrN" name="LAlertWindow.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAlertWindow.h"/>
+        <FILE id="qHBFSD" name="LAffineTransform.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LAffineTransform.cpp"/>
+        <FILE id="ChtO9Z" name="LAffineTransform.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LAffineTransform.h"/>
+        <FILE id="lMGliN" name="LAttributedString.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LAttributedString.cpp"/>
+        <FILE id="DfTJXB" name="LAttributedString.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LAttributedString.h"/>
+        <FILE id="yEFLXB" name="LAudioFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LAudioFile.cpp"/>
+        <FILE id="UbHIDf" name="LAudioFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAudioFile.h"/>
+        <FILE id="ZDFwuJ" name="LAudioFormat.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LAudioFormat.cpp"/>
+        <FILE id="eVSJhy" name="LAudioFormat.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAudioFormat.h"/>
+        <FILE id="Ml6pYn" name="LAudioSampleBuffer.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LAudioSampleBuffer.cpp"/>
+        <FILE id="I7HB4O" name="LAudioSampleBuffer.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LAudioSampleBuffer.h"/>
+        <FILE id="V1HIlT" name="LBigInteger.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LBigInteger.cpp"/>
+        <FILE id="O0YmWZ" name="LBigInteger.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LBigInteger.h"/>
+        <FILE id="kG8lCB" name="LBubbleMessageComponent.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LBubbleMessageComponent.cpp"/>
+        <FILE id="Qawz4y" name="LBubbleMessageComponent.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LBubbleMessageComponent.h"/>
+        <FILE id="KROM22" name="LColour.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LColour.cpp"/>
+        <FILE id="t8NDxd" name="LColour.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LColour.h"/>
+        <FILE id="DmwWUf" name="LComboBox.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.cpp"/>
+        <FILE id="bFE4Q1" name="LComboBox.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.h"/>
+        <FILE id="pCco08" name="LColourGradient.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LColourGradient.cpp"/>
+        <FILE id="EG832w" name="LColourGradient.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LColourGradient.h"/>
+        <FILE id="Y3sJjp" name="LComponent.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComponent.cpp"/>
+        <FILE id="nIGzxA" name="LComponent.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LComponent.h"/>
+        <FILE id="f3hNpI" name="LComponentPeer.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LComponentPeer.cpp"/>
+        <FILE id="WY1N7F" name="LComponentPeer.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LComponentPeer.h"/>
+        <FILE id="gU3c9r" name="LDrawable.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LDrawable.cpp"/>
+        <FILE id="oqpVbv" name="LDrawable.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LDrawable.h"/>
+        <FILE id="P5Yjl6" name="LExpression.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LExpression.cpp"/>
+        <FILE id="wf64EE" name="LExpression.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LExpression.h"/>
+        <FILE id="gsnpcO" name="LFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LFile.cpp"/>
+        <FILE id="lhbIc4" name="LFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LFile.h"/>
+        <FILE id="dYyb7g" name="LFont.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LFont.cpp"/>
+        <FILE id="sk24iY" name="LFont.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LFont.h"/>
+        <FILE id="sWlcfB" name="LGlobalFunctions.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LGlobalFunctions.cpp"/>
+        <FILE id="da8PcX" name="LGlobalFunctions.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LGlobalFunctions.h"/>
+        <FILE id="N4jZTK" name="LGlyphArrangement.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LGlyphArrangement.cpp"/>
+        <FILE id="hw5x0O" name="LGlyphArrangement.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LGlyphArrangement.h"/>
+        <FILE id="Y8aggi" name="LGraphics.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LGraphics.cpp"/>
+        <FILE id="WOZ3bk" name="LGraphics.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LGraphics.h"/>
+        <FILE id="Vt1aAd" name="LImage.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LImage.cpp"/>
+        <FILE id="uFXvqc" name="LImage.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LImage.h"/>
+        <FILE id="KsFdiM" name="LInputStream.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LInputStream.cpp"/>
+        <FILE id="IlnOx7" name="LInputStream.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LInputStream.h"/>
+        <FILE id="HyBcBP" name="LKeyPress.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LKeyPress.cpp"/>
+        <FILE id="nyqsyF" name="LKeyPress.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LKeyPress.h"/>
+        <FILE id="I83YLf" name="LJustification.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LJustification.cpp"/>
+        <FILE id="dHNAjR" name="LJustification.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LJustification.h"/>
+        <FILE id="JSQ3mj" name="LLabel.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLabel.cpp"/>
+        <FILE id="E8X1eR" name="LLabel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLabel.h"/>
+        <FILE id="Rtwaug" name="LLine.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLine.cpp"/>
+        <FILE id="glbv0u" name="LLine.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLine.h"/>
+        <FILE id="u0mGw1" name="LLookAndFeel.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LLookAndFeel.cpp"/>
+        <FILE id="VEVZZ3" name="LLookAndFeel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLookAndFeel.h"/>
+        <FILE id="GxriXM" name="LMemoryBlock.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LMemoryBlock.cpp"/>
+        <FILE id="MtO58o" name="LMemoryBlock.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMemoryBlock.h"/>
+        <FILE id="q64Oie" name="LMemoryInputStream.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LMemoryInputStream.cpp"/>
+        <FILE id="YmDxke" name="LMemoryInputStream.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LMemoryInputStream.h"/>
+        <FILE id="FJfIs7" name="LMidiMessage.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LMidiMessage.cpp"/>
+        <FILE id="cdnSxP" name="LMidiMessage.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMidiMessage.h"/>
+        <FILE id="nSC3xd" name="LModifierKeys.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LModifierKeys.cpp"/>
+        <FILE id="P3IOGO" name="LModifierKeys.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LModifierKeys.h"/>
+        <FILE id="PG1ORL" name="LMouseEvent.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LMouseEvent.cpp"/>
+        <FILE id="tReZ9q" name="LMouseEvent.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseEvent.h"/>
+        <FILE id="vGKqNl" name="LPath.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPath.cpp"/>
+        <FILE id="X6nTuU" name="LPath.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPath.h"/>
+        <FILE id="hxVGHU" name="LPoint.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPoint.cpp"/>
+        <FILE id="WIIU4q" name="LPoint.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPoint.h"/>
+        <FILE id="X1309Y" name="LPopupMenu.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPopupMenu.cpp"/>
+        <FILE id="lkINUe" name="LPopupMenu.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPopupMenu.h"/>
+        <FILE id="pZjiu7" name="LRandom.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LRandom.cpp"/>
+        <FILE id="rm96Rs" name="LRandom.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LRandom.h"/>
+        <FILE id="sGeeSd" name="LRange.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LRange.cpp"/>
+        <FILE id="TeMCzu" name="LRange.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LRange.h"/>
+        <FILE id="y78pmA" name="LRectangle.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LRectangle.cpp"/>
+        <FILE id="oJJjQe" name="LRectangle.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LRectangle.h"/>
+        <FILE id="enePFg" name="LRelativeCoordinate.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LRelativeCoordinate.cpp"/>
+        <FILE id="SZusOl" name="LRelativeCoordinate.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LRelativeCoordinate.h"/>
+        <FILE id="EpB5Lq" name="LResult.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LResult.cpp"/>
+        <FILE id="WiK5PO" name="LResult.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LResult.h"/>
+        <FILE id="bHslTH" name="LSlider.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LSlider.cpp"/>
+        <FILE id="exsr7u" name="LSlider.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LSlider.h"/>
+        <FILE id="syNzGC" name="LString.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LString.cpp"/>
+        <FILE id="IcktbX" name="LString.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LString.h"/>
+        <FILE id="LhNvtn" name="LTextEditor.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTextEditor.cpp"/>
+        <FILE id="e8em8J" name="LTextEditor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTextEditor.h"/>
+        <FILE id="PdpkyS" name="LTime.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTime.cpp"/>
+        <FILE id="aVFNWl" name="LTime.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTime.h"/>
+        <FILE id="ViKYP8" name="LTimer.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTimer.cpp"/>
+        <FILE id="mzkNn9" name="LTimer.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTimer.h"/>
+        <FILE id="W87co4" name="LURL.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LURL.cpp"/>
+        <FILE id="ttVhGW" name="LURL.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LURL.h"/>
+        <FILE id="CGbt6N" name="LValue.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LValue.cpp"/>
+        <FILE id="Qg2FZQ" name="LValue.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValue.h"/>
+        <FILE id="O2wYjQ" name="LValueTree.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.cpp"/>
+        <FILE id="iGmE7s" name="LValueTree.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.h"/>
+        <FILE id="GmiF6h" name="LZipFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.cpp"/>
+        <FILE id="nhBBkX" name="LZipFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.h"/>
+      </GROUP>
+      <FILE id="wfCJUq" name="CtrlrLuaAudioConverter.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaAudioConverter.cpp"/>
+      <FILE id="qgK2PP" name="CtrlrLuaAudioConverter.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaAudioConverter.h"/>
+      <FILE id="gaysrP" name="CtrlrLuaConverters.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaConverters.h"/>
+      <FILE id="k7BcPD" name="CtrlrLuaCustomComponent.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaCustomComponent.cpp"/>
+      <FILE id="IlF30P" name="CtrlrLuaLookAndFeel.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaLookAndFeel.cpp"/>
+      <FILE id="ztsNiq" name="CtrlrLuaLookAndFeel.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaLookAndFeel.h"/>
+      <FILE id="RBkE0T" name="CtrlrLuaManager.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaManager.cpp"/>
+      <FILE id="n5jx6b" name="CtrlrLuaManager.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaManager.h"/>
+      <FILE id="eYKzKj" name="CtrlrLuaModulator.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaModulator.cpp"/>
+      <FILE id="PUpeOV" name="CtrlrLuaMultiTimer.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaMultiTimer.cpp"/>
+      <FILE id="OUKMdK" name="CtrlrLuaMultiTimer.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaMultiTimer.h"/>
+      <FILE id="au6AcG" name="CtrlrLuaObject.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaObject.cpp"/>
+      <FILE id="lkWsXl" name="CtrlrLuaObject.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaObject.h"/>
+      <FILE id="mIlzp7" name="CtrlrLuaObjectWrapper.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaObjectWrapper.cpp"/>
+      <FILE id="wT7122" name="CtrlrLuaObjectWrapper.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaObjectWrapper.h"/>
+      <FILE id="QvU9R6" name="CtrlrLuaPanel.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaPanel.cpp"/>
+      <FILE id="QEqhqH" name="CtrlrLuaPanelCanvas.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaPanelCanvas.cpp"/>
+      <FILE id="kqYP1m" name="CtrlrLuaPanelCanvasLayer.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaPanelCanvasLayer.cpp"/>
+      <FILE id="LFFMHb" name="CtrlrLuaPanelEditor.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaPanelEditor.cpp"/>
+      <FILE id="FOpwTO" name="CtrlrLuaUtils.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaUtils.cpp"/>
+      <FILE id="mE0Fil" name="CtrlrLuaUtils.h" compile="0" resource="0" file="../../Source/Lua/CtrlrLuaUtils.h"/>
+      <GROUP id="{4B846C82-C41B-BEDD-B045-DAE25865DF50}" name="Deprecated">
+        <FILE id="LL2c1h" name="CtrlrLuaBigInteger.cpp" compile="1" resource="0"
+              file="../../Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp"/>
+        <FILE id="HFx18C" name="CtrlrLuaBigInteger.h" compile="0" resource="0"
+              file="../../Source/Lua/Deprecated/CtrlrLuaBigInteger.h"/>
+        <FILE id="SnjfLm" name="CtrlrLuaComponentAnimator.cpp" compile="1"
+              resource="0" file="../../Source/Lua/Deprecated/CtrlrLuaComponentAnimator.cpp"/>
+        <FILE id="QIMBe7" name="CtrlrLuaComponentAnimator.h" compile="0" resource="0"
+              file="../../Source/Lua/Deprecated/CtrlrLuaComponentAnimator.h"/>
+        <FILE id="m8nZVG" name="CtrlrLuaFile.cpp" compile="1" resource="0"
+              file="../../Source/Lua/Deprecated/CtrlrLuaFile.cpp"/>
+        <FILE id="bkyD8g" name="CtrlrLuaFile.h" compile="0" resource="0" file="../../Source/Lua/Deprecated/CtrlrLuaFile.h"/>
+        <FILE id="C6KDis" name="CtrlrLuaMemoryBlock.cpp" compile="1" resource="0"
+              file="../../Source/Lua/Deprecated/CtrlrLuaMemoryBlock.cpp"/>
+        <FILE id="UrI9C6" name="CtrlrLuaMemoryBlock.h" compile="0" resource="0"
+              file="../../Source/Lua/Deprecated/CtrlrLuaMemoryBlock.h"/>
+        <FILE id="tLsSvP" name="CtrlrLuaRectangle.cpp" compile="1" resource="0"
+              file="../../Source/Lua/Deprecated/CtrlrLuaRectangle.cpp"/>
+        <FILE id="BALyn3" name="CtrlrLuaRectangle.h" compile="0" resource="0"
+              file="../../Source/Lua/Deprecated/CtrlrLuaRectangle.h"/>
+      </GROUP>
+      <GROUP id="{A9C46841-D99C-4084-D338-B234A49F183E}" name="luabind">
+        <GROUP id="{ECFB8DB2-6F69-A475-00A4-BE4A700E8E44}" name="luabind">
+          <FILE id="joD41s" name="adopt_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/adopt_policy.hpp"/>
+          <FILE id="kjORY0" name="back_reference.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/back_reference.hpp"/>
+          <FILE id="jGgbvV" name="back_reference_fwd.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/back_reference_fwd.hpp"/>
+          <FILE id="rogCtN" name="class.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class.hpp"/>
+          <FILE id="mqiYGQ" name="class_info.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class_info.hpp"/>
+          <FILE id="pctY1t" name="config.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/config.hpp"/>
+          <FILE id="YHHQqX" name="container_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/container_policy.hpp"/>
+          <FILE id="GlmkXg" name="copy_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/copy_policy.hpp"/>
+          <FILE id="Zndnar" name="dependency_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/dependency_policy.hpp"/>
+          <GROUP id="{82CC5605-99DD-BB08-2BA8-D4FE5629FC17}" name="detail">
+            <FILE id="ziPmfp" name="calc_arity.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/calc_arity.hpp"/>
+            <FILE id="SXsVoN" name="call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call.hpp"/>
+            <FILE id="IGalan" name="call_function.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/call_function.hpp"/>
+            <FILE id="F2WfMY" name="call_member.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call_member.hpp"/>
+            <FILE id="eRiB9Q" name="call_operator_iterate.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/call_operator_iterate.hpp"/>
+            <FILE id="o4FANO" name="class_cache.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_cache.hpp"/>
+            <FILE id="ENo2gC" name="class_registry.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/class_registry.hpp"/>
+            <FILE id="dY58CP" name="class_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_rep.hpp"/>
+            <FILE id="QeV5UZ" name="compute_score.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/compute_score.hpp"/>
+            <FILE id="JGfhg2" name="constructor.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/constructor.hpp"/>
+            <FILE id="wQHQ9n" name="conversion_storage.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/conversion_storage.hpp"/>
+            <FILE id="Kq1tx3" name="convert_to_lua.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/convert_to_lua.hpp"/>
+            <FILE id="HgprxI" name="debug.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/debug.hpp"/>
+            <FILE id="oJgfYa" name="decorate_type.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/decorate_type.hpp"/>
+            <FILE id="mvrh3n" name="deduce_signature.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/deduce_signature.hpp"/>
+            <FILE id="EkdttZ" name="enum_maker.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/enum_maker.hpp"/>
+            <FILE id="vY6oTQ" name="format_signature.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/format_signature.hpp"/>
+            <FILE id="Ui1C5B" name="garbage_collector.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/garbage_collector.hpp"/>
+            <FILE id="GWu1EP" name="has_get_pointer.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/has_get_pointer.hpp"/>
+            <FILE id="m9tg6n" name="inheritance.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/inheritance.hpp"/>
+            <FILE id="wPPxKt" name="instance_holder.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/instance_holder.hpp"/>
+            <FILE id="FXLRO5" name="is_indirect_const.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/is_indirect_const.hpp"/>
+            <FILE id="s9zIfu" name="link_compatibility.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/link_compatibility.hpp"/>
+            <FILE id="E0yz9s" name="make_instance.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/make_instance.hpp"/>
+            <FILE id="yjdXLN" name="most_derived.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/most_derived.hpp"/>
+            <FILE id="fTTiZM" name="object_call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_call.hpp"/>
+            <FILE id="GcAapo" name="object_funs.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_funs.hpp"/>
+            <FILE id="KxxCuQ" name="object_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_rep.hpp"/>
+            <FILE id="ZsO2qs" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/open.hpp"/>
+            <FILE id="xSQQ1s" name="operator_id.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/operator_id.hpp"/>
+            <FILE id="I00een" name="other.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/other.hpp"/>
+            <FILE id="UH3ypz" name="pcall.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/pcall.hpp"/>
+            <FILE id="BA3AZS" name="pointee_sizeof.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/pointee_sizeof.hpp"/>
+            <FILE id="sMerfg" name="pointee_typeid.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/pointee_typeid.hpp"/>
+            <FILE id="SJUcJa" name="policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/policy.hpp"/>
+            <FILE id="Zu8FUv" name="primitives.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/primitives.hpp"/>
+            <FILE id="RXDva0" name="property.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/property.hpp"/>
+            <FILE id="uhzy2T" name="ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/ref.hpp"/>
+            <FILE id="pPpmOW" name="signature_match.hpp" compile="0" resource="0"
+                  file="../../Source/Lua/luabind/luabind/detail/signature_match.hpp"/>
+            <FILE id="FSiZVd" name="stack_utils.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/stack_utils.hpp"/>
+            <FILE id="IUgS1v" name="typetraits.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/typetraits.hpp"/>
+            <FILE id="Ljlw9P" name="yes_no.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/yes_no.hpp"/>
+          </GROUP>
+          <FILE id="ercb8O" name="discard_result_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/discard_result_policy.hpp"/>
+          <FILE id="ZZiLjV" name="error.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/error.hpp"/>
+          <FILE id="sWX6JY" name="exception_handler.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/exception_handler.hpp"/>
+          <FILE id="xPz3aO" name="from_stack.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/from_stack.hpp"/>
+          <FILE id="pomDK8" name="function.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/function.hpp"/>
+          <FILE id="qT9HtM" name="get_main_thread.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/get_main_thread.hpp"/>
+          <FILE id="ubHblo" name="get_pointer.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/get_pointer.hpp"/>
+          <FILE id="rnbLi6" name="handle.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/handle.hpp"/>
+          <FILE id="OOAjiF" name="iterator_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/iterator_policy.hpp"/>
+          <FILE id="BtkYsr" name="lauxlib.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lauxlib.h"/>
+          <FILE id="R4krpK" name="lua.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua.h"/>
+          <FILE id="IXJGcW" name="lua.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua.hpp"/>
+          <FILE id="jlx91b" name="lua_include.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua_include.hpp"/>
+          <FILE id="fc6Hi4" name="luabind.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luabind.hpp"/>
+          <FILE id="t3gdwj" name="luaconf.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luaconf.h"/>
+          <FILE id="zVNRv7" name="lualib.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lualib.h"/>
+          <FILE id="MtY0Qk" name="make_function.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/make_function.hpp"/>
+          <FILE id="yboAjw" name="nil.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/nil.hpp"/>
+          <FILE id="SLVnwH" name="no_dependency.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/no_dependency.hpp"/>
+          <FILE id="BwxbsP" name="object.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/object.hpp"/>
+          <FILE id="G1mEfi" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/open.hpp"/>
+          <FILE id="ysD8F0" name="operator.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/operator.hpp"/>
+          <FILE id="vn76yz" name="out_value_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/out_value_policy.hpp"/>
+          <FILE id="uEAqPl" name="prefix.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/prefix.hpp"/>
+          <FILE id="lr3l6C" name="raw_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/raw_policy.hpp"/>
+          <FILE id="A9Fzpy" name="return_reference_to_policy.hpp" compile="0"
+                resource="0" file="../../Source/Lua/luabind/luabind/return_reference_to_policy.hpp"/>
+          <FILE id="AGk8YW" name="scope.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/scope.hpp"/>
+          <FILE id="kJuNZR" name="shared_ptr_converter.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/shared_ptr_converter.hpp"/>
+          <FILE id="GmlLD8" name="tag_function.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/tag_function.hpp"/>
+          <FILE id="fOr2bD" name="typeid.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/typeid.hpp"/>
+          <FILE id="F2XbaK" name="value_wrapper.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/value_wrapper.hpp"/>
+          <FILE id="JgPmOP" name="vector.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/vector.hpp"/>
+          <FILE id="lio0qs" name="version.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/version.hpp"/>
+          <FILE id="hjUkwh" name="weak_ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/weak_ref.hpp"/>
+          <FILE id="l2jgX2" name="wrapper_base.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/wrapper_base.hpp"/>
+          <FILE id="gIjvVP" name="yield_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/yield_policy.hpp"/>
+        </GROUP>
+        <GROUP id="{ADF83A40-B6B5-D49B-B96D-2CE472E00B89}" name="src">
+          <FILE id="aIT8X3" name="class.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class.cpp"/>
+          <FILE id="XgTdV3" name="class_info.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class_info.cpp"/>
+          <FILE id="FcxBmy" name="class_registry.cpp" compile="1" resource="0"
+                file="../../Source/Lua/luabind/src/class_registry.cpp"/>
+          <FILE id="vFUJTH" name="class_rep.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class_rep.cpp"/>
+          <FILE id="wjkdu1" name="create_class.cpp" compile="1" resource="0"
+                file="../../Source/Lua/luabind/src/create_class.cpp"/>
+          <FILE id="fxdzWT" name="error.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/error.cpp"/>
+          <FILE id="YzCssq" name="exception_handler.cpp" compile="1" resource="0"
+                file="../../Source/Lua/luabind/src/exception_handler.cpp"/>
+          <FILE id="Lr0EdY" name="function.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/function.cpp"/>
+          <FILE id="LOKy5w" name="inheritance.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/inheritance.cpp"/>
+          <FILE id="Z7jDuS" name="link_compatibility.cpp" compile="1" resource="0"
+                file="../../Source/Lua/luabind/src/link_compatibility.cpp"/>
+          <FILE id="s5CX6L" name="lua.c" compile="1" resource="0" file="../../Source/Lua/luabind/src/lua.c"/>
+          <FILE id="RHukn2" name="object_rep.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/object_rep.cpp"/>
+          <FILE id="BONDGk" name="open.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/open.cpp"/>
+          <FILE id="KJzvVi" name="pcall.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/pcall.cpp"/>
+          <FILE id="xLVWs9" name="scope.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/scope.cpp"/>
+          <FILE id="xQoYv0" name="stack_content_by_name.cpp" compile="1" resource="0"
+                file="../../Source/Lua/luabind/src/stack_content_by_name.cpp"/>
+          <FILE id="t1x0KF" name="weak_ref.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/weak_ref.cpp"/>
+          <FILE id="Q3TvX7" name="wrapper_base.cpp" compile="1" resource="0"
+                file="../../Source/Lua/luabind/src/wrapper_base.cpp"/>
+        </GROUP>
+      </GROUP>
+      <GROUP id="{F8744615-2BDF-B423-092B-019F8EFD32E5}" name="Methods">
+        <FILE id="o0dgSX" name="CtrlrLuaMethod.cpp" compile="1" resource="0"
+              file="../../Source/Lua/Methods/CtrlrLuaMethod.cpp"/>
+        <FILE id="rV6oTZ" name="CtrlrLuaMethod.h" compile="0" resource="0"
+              file="../../Source/Lua/Methods/CtrlrLuaMethod.h"/>
+        <FILE id="pAHShm" name="CtrlrLuaMethodManager.cpp" compile="1" resource="0"
+              file="../../Source/Lua/Methods/CtrlrLuaMethodManager.cpp"/>
+        <FILE id="IcKbT1" name="CtrlrLuaMethodManager.h" compile="0" resource="0"
+              file="../../Source/Lua/Methods/CtrlrLuaMethodManager.h"/>
+        <FILE id="Royp3u" name="CtrlrLuaMethodManagerCalls.cpp" compile="1"
+              resource="0" file="../../Source/Lua/Methods/CtrlrLuaMethodManagerCalls.cpp"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{3DE79CD7-D2AE-85FB-961F-A00A05230DE1}" name="MIDI">
+      <FILE id="kWf7cN" name="CtrlrMIDITransaction.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMIDITransaction.cpp"/>
+      <FILE id="R0bW1U" name="CtrlrMIDITransaction.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMIDITransaction.h"/>
+      <FILE id="n8DbR2" name="CtrlrMidiDevice.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiDevice.cpp"/>
+      <FILE id="tt8keI" name="CtrlrMidiDevice.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiDevice.h"/>
+      <FILE id="Qb4dmo" name="CtrlrMidiDeviceManager.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiDeviceManager.cpp"/>
+      <FILE id="QU7xWL" name="CtrlrMidiDeviceManager.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiDeviceManager.h"/>
+      <FILE id="DRAQmU" name="CtrlrMidiInputComparator.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiInputComparator.cpp"/>
+      <FILE id="WAkqLt" name="CtrlrMidiInputComparator.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiInputComparator.h"/>
+      <FILE id="AtHRfH" name="CtrlrMidiInputComparatorMulti.cpp" compile="1"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorMulti.cpp"/>
+      <FILE id="xKikDe" name="CtrlrMidiInputComparatorMulti.h" compile="0"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorMulti.h"/>
+      <FILE id="HI0CVW" name="CtrlrMidiInputComparatorSingle.cpp" compile="1"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorSingle.cpp"/>
+      <FILE id="GjWEQp" name="CtrlrMidiInputComparatorSingle.h" compile="0"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorSingle.h"/>
+      <FILE id="KNMPCK" name="CtrlrMidiInputComparatorTypes.h" compile="0"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorTypes.h"/>
+      <GROUP id="{9BFF7497-2A6D-9119-C8FA-92D38F0D9D5A}" name="CtrlrMIDILibrary">
+        <FILE id="fEEEK7" name="CtrlrMIDILibraryRequest.cpp" compile="1" resource="0"
+              file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibraryRequest.cpp"/>
+        <FILE id="IyZGmN" name="CtrlrMIDILibraryRequest.h" compile="0" resource="0"
+              file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibraryRequest.h"/>
+        <FILE id="NXr8Zi" name="CtrlrMIDILibrary.cpp" compile="1" resource="0"
+              file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp"/>
+        <FILE id="MyXRcU" name="CtrlrMIDILibrary.h" compile="0" resource="0"
+              file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"/>
+      </GROUP>
+      <FILE id="HKToE0" name="CtrlrMidiMessage.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessage.cpp"/>
+      <FILE id="iAiQXm" name="CtrlrMidiMessage.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessage.h"/>
+      <FILE id="qCjgt8" name="CtrlrOwnedMidiMessage.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrOwnedMidiMessage.cpp"/>
+      <FILE id="i1nahd" name="CtrlrOwnedMidiMessage.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
+      <FILE id="Zcrjcw" name="MidiMessageEx.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/MidiMessageEx.cpp"/>
+      <FILE id="STsDFK" name="MidiMessageEx.h" compile="0" resource="0" file="../../Source/MIDI/MidiMessageEx.h"/>
+    </GROUP>
+    <GROUP id="{15BCC855-3712-E6FF-7B07-0711370584D7}" name="Misc">
+      <FILE id="AU49Zx" name="juce_PluginHostType.h" compile="0" resource="0"
+            file="../../Source/Misc/juce_PluginHostType.h"/>
+    </GROUP>
+    <GROUP id="{138F8618-FDC8-A9D5-F382-2B2638854CB2}" name="Native">
+      <FILE id="mLj3rx" name="CtrlrGeneric.h" compile="0" resource="0" file="../../Source/Native/CtrlrGeneric.h"/>
+      <FILE id="VLQQbv" name="CtrlrLinux.cpp" compile="1" resource="0" file="../../Source/Native/CtrlrLinux.cpp"/>
+      <FILE id="Jjl7jm" name="CtrlrLinux.h" compile="0" resource="0" file="../../Source/Native/CtrlrLinux.h"/>
+      <FILE id="CKo3xp" name="CtrlrMac.cpp" compile="1" resource="0" file="../../Source/Native/CtrlrMac.cpp"/>
+      <FILE id="byRUAb" name="CtrlrMac.h" compile="0" resource="0" file="../../Source/Native/CtrlrMac.h"/>
+      <FILE id="fMemsk" name="CtrlrNative.cpp" compile="1" resource="0" file="../../Source/Native/CtrlrNative.cpp"/>
+      <FILE id="nSsh8b" name="CtrlrNative.h" compile="0" resource="0" file="../../Source/Native/CtrlrNative.h"/>
+      <FILE id="kPx3zS" name="CtrlrWindows.cpp" compile="1" resource="0"
+            file="../../Source/Native/CtrlrWindows.cpp"/>
+      <FILE id="oCipsr" name="CtrlrWindows.h" compile="0" resource="0" file="../../Source/Native/CtrlrWindows.h"/>
+    </GROUP>
+    <GROUP id="{53835110-4848-B663-3D70-6A051E333FC5}" name="Plugin">
+      <FILE id="jsjCPO" name="CtrlrProcessor.cpp" compile="1" resource="0"
+            file="../../Source/Plugin/CtrlrProcessor.cpp"/>
+      <FILE id="BUYCd8" name="CtrlrProcessor.h" compile="0" resource="0"
+            file="../../Source/Plugin/CtrlrProcessor.h"/>
+      <FILE id="uPsToh" name="CtrlrProcessorEditorForLive.cpp" compile="1"
+            resource="0" file="../../Source/Plugin/CtrlrProcessorEditorForLive.cpp"/>
+      <FILE id="tinwUG" name="CtrlrProcessorEditorForLive.h" compile="0"
+            resource="0" file="../../Source/Plugin/CtrlrProcessorEditorForLive.h"/>
+    </GROUP>
+    <GROUP id="{B63255FD-0CB0-E082-B85E-C264AC998918}" name="UIComponents">
+      <FILE id="CuaANE" name="CtrlrAbout.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrAbout.cpp"/>
+      <FILE id="xTiRiQ" name="CtrlrAbout.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrAbout.h"/>
+      <GROUP id="{09C198BC-B697-0098-4E6A-41E9445CD320}" name="CtrlrApplicationWindow">
+        <FILE id="srTjR0" name="CtrlrDocumentPanel.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrDocumentPanel.cpp"/>
+        <FILE id="PaRI2D" name="CtrlrDocumentPanel.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrDocumentPanel.h"/>
+        <FILE id="ztqjLO" name="CtrlrEditor.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditor.cpp"/>
+        <FILE id="wlCyAJ" name="CtrlrEditor.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditor.h"/>
+        <FILE id="hd8vE2" name="CtrlrEditorApplicationCommands.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommands.cpp"/>
+        <FILE id="ge9SZ8" name="CtrlrEditorApplicationCommandsHandlers.cpp"
+              compile="1" resource="0" file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsHandlers.cpp"/>
+        <FILE id="tEsgIk" name="CtrlrEditorApplicationCommandsMenus.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsMenus.cpp"/>
+        <FILE id="eI1SjH" name="CtrlrLookAndFeel.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.cpp"/>
+        <FILE id="dGmqND" name="CtrlrLookAndFeel.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.h"/>
+        <FILE id="wFnPdp" name="CtrlrSettings.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.cpp"/>
+        <FILE id="KDFcis" name="CtrlrSettings.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.h"/>
+      </GROUP>
+      <GROUP id="{2FA48EC9-C0BE-5AE0-4F78-E6BD03DC9ABC}" name="CtrlrComponents">
+        <GROUP id="{40DDD166-3CA6-B774-8804-EA3B1EB4E85F}" name="Buttons">
+          <FILE id="HJV3Zt" name="CtrlrButton.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.cpp"/>
+          <FILE id="Yhg86a" name="CtrlrButton.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.h"/>
+          <FILE id="yS8Z1u" name="CtrlrCustomButtonInternal.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrCustomButtonInternal.cpp"/>
+          <FILE id="W172JA" name="CtrlrCustomButtonInternal.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrCustomButtonInternal.h"/>
+          <FILE id="F6IpzB" name="CtrlrHyperlink.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.cpp"/>
+          <FILE id="SGZBIY" name="CtrlrHyperlink.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.h"/>
+          <FILE id="cLftDq" name="CtrlrImageButton.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrImageButton.cpp"/>
+          <FILE id="VZKARy" name="CtrlrImageButton.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrImageButton.h"/>
+          <FILE id="xzrqXF" name="CtrlrToggleButton.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrToggleButton.cpp"/>
+          <FILE id="WVFRH1" name="CtrlrToggleButton.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrToggleButton.h"/>
+        </GROUP>
+        <FILE id="MkQBWF" name="CtrlrCombo.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrCombo.cpp"/>
+        <FILE id="uP7L5A" name="CtrlrCombo.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrCombo.h"/>
+        <FILE id="XUi36V" name="CtrlrComponent.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp"/>
+        <FILE id="F6t2Jc" name="CtrlrComponent.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.h"/>
+        <FILE id="rLmsk2" name="CtrlrComponentBubble.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentBubble.cpp"/>
+        <FILE id="JpCGWB" name="CtrlrComponentBubble.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentBubble.h"/>
+        <FILE id="UtWn30" name="CtrlrComponentTypeManager.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp"/>
+        <FILE id="RZYUr7" name="CtrlrComponentTypeManager.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.h"/>
+        <FILE id="s11U0Z" name="CtrlrCustomComponent.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrComponents/CtrlrCustomComponent.cpp"/>
+        <FILE id="gQaBO3" name="CtrlrCustomComponent.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrComponents/CtrlrCustomComponent.h"/>
+        <FILE id="xae3M1" name="CtrlrFilmStripPainter.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrComponents/CtrlrFilmStripPainter.cpp"/>
+        <FILE id="FHdrZQ" name="CtrlrFilmStripPainter.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrComponents/CtrlrFilmStripPainter.h"/>
+        <GROUP id="{8996E408-DD87-CACB-02F1-6281EC28E2FE}" name="Groups">
+          <FILE id="QgrozS" name="CtrlrGroup.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrComponents/Groups/CtrlrGroup.cpp"/>
+          <FILE id="huBe5w" name="CtrlrGroup.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Groups/CtrlrGroup.h"/>
+          <FILE id="abdUQw" name="CtrlrTabsComponent.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Groups/CtrlrTabsComponent.cpp"/>
+          <FILE id="CYbJwU" name="CtrlrTabsComponent.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Groups/CtrlrTabsComponent.h"/>
+        </GROUP>
+        <GROUP id="{4BB6E7BF-832F-32B8-F28D-34110F8EF69B}" name="Labels">
+          <FILE id="XVqKuu" name="CtrlrImage.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrComponents/Labels/CtrlrImage.cpp"/>
+          <FILE id="e7DeVt" name="CtrlrImage.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Labels/CtrlrImage.h"/>
+          <FILE id="CE6Tas" name="CtrlrLabel.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrComponents/Labels/CtrlrLabel.cpp"/>
+          <FILE id="zlt2rN" name="CtrlrLabel.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Labels/CtrlrLabel.h"/>
+          <FILE id="mgLQrC" name="CtrlrLCDLabel.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Labels/CtrlrLCDLabel.cpp"/>
+          <FILE id="AlivkG" name="CtrlrLCDLabel.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Labels/CtrlrLCDLabel.h"/>
+        </GROUP>
+        <GROUP id="{72575178-ED85-A2E7-45B0-3F1C7C804537}" name="Sliders">
+          <FILE id="rBaEZE" name="CtrlrFixedImageSlider.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrFixedImageSlider.cpp"/>
+          <FILE id="jV9fQ2" name="CtrlrFixedImageSlider.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrFixedImageSlider.h"/>
+          <FILE id="OxyUfJ" name="CtrlrFixedSlider.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrFixedSlider.cpp"/>
+          <FILE id="nkns4v" name="CtrlrFixedSlider.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrFixedSlider.h"/>
+          <FILE id="C9iQHY" name="CtrlrImageSlider.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrImageSlider.cpp"/>
+          <FILE id="twlFxB" name="CtrlrImageSlider.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrImageSlider.h"/>
+          <FILE id="PtTFcd" name="CtrlrSlider.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSlider.cpp"/>
+          <FILE id="VJX663" name="CtrlrSlider.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSlider.h"/>
+          <FILE id="R14ykr" name="CtrlrSliderInternal.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.cpp"/>
+          <FILE id="yMJFeC" name="CtrlrSliderInternal.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.h"/>
+        </GROUP>
+        <GROUP id="{8684971A-9F46-158A-317A-B49CF2951E43}" name="Specials">
+          <FILE id="SnBd07" name="CtrlrFileListBox.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.cpp"/>
+          <FILE id="h5Y7Na" name="CtrlrFileListBox.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.h"/>
+          <FILE id="bORTtu" name="CtrlrListBox.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrListBox.cpp"/>
+          <FILE id="Xbsm7t" name="CtrlrListBox.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrListBox.h"/>
+          <FILE id="HauHat" name="CtrlrMidiKeyboard.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrMidiKeyboard.cpp"/>
+          <FILE id="gHKcp5" name="CtrlrMidiKeyboard.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrMidiKeyboard.h"/>
+          <FILE id="pFaTP8" name="CtrlrWaveform.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrWaveform.cpp"/>
+          <FILE id="a2LsN8" name="CtrlrWaveform.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrWaveform.h"/>
+          <FILE id="MqiYLy" name="CtrlrXYModulator.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYModulator.cpp"/>
+          <FILE id="D8uQRF" name="CtrlrXYModulator.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYModulator.h"/>
+          <FILE id="u4PO43" name="CtrlrXYSurface.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYSurface.cpp"/>
+          <FILE id="mOTUq0" name="CtrlrXYSurface.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYSurface.h"/>
+        </GROUP>
+        <GROUP id="{52AFA95C-5556-77AB-C064-162A1E7FDB99}" name="Statics">
+          <FILE id="UQhuyC" name="CtrlrArrow.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrComponents/Statics/CtrlrArrow.cpp"/>
+          <FILE id="tcDuZd" name="CtrlrArrow.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Statics/CtrlrArrow.h"/>
+        </GROUP>
+      </GROUP>
+      <FILE id="Ar6IBA" name="CtrlrComponentSelection.cpp" compile="1" resource="0"
+            file="../../Source/UIComponents/CtrlrComponentSelection.cpp"/>
+      <FILE id="tbSIBV" name="CtrlrComponentSelection.h" compile="0" resource="0"
+            file="../../Source/UIComponents/CtrlrComponentSelection.h"/>
+      <FILE id="wQvst8" name="CtrlrLogViewer.cpp" compile="1" resource="0"
+            file="../../Source/UIComponents/CtrlrLogViewer.cpp"/>
+      <FILE id="dkrsB9" name="CtrlrLogViewer.h" compile="0" resource="0"
+            file="../../Source/UIComponents/CtrlrLogViewer.h"/>
+      <GROUP id="{FA9E6A1C-3083-EBC2-A5A8-7ADA90B08E5D}" name="CtrlrLua">
+        <FILE id="ZVjLPQ" name="CtrlrLuaConsole.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp"/>
+        <FILE id="ruKwDH" name="CtrlrLuaConsole.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.h"/>
+        <GROUP id="{ED46B240-9D98-EDDA-E08B-6D5ED482C020}" name="MethodEditor">
+          <FILE id="cNF9m9" name="CtrlrLuaCodeTokeniser.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.cpp"/>
+          <FILE id="P7Hkou" name="CtrlrLuaCodeTokeniser.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.h"/>
+          <FILE id="zE0lC6" name="CtrlrLuaCodeTokeniserFunctions.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniserFunctions.h"/>
+          <FILE id="muZWuY" name="CtrlrLuaMethodCodeEditor.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditor.cpp"/>
+          <FILE id="hmoXie" name="CtrlrLuaMethodCodeEditor.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditor.h"/>
+          <FILE id="W4LMPs" name="CtrlrLuaMethodCodeEditorSettings.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.cpp"/>
+          <FILE id="ZTrVhf" name="CtrlrLuaMethodCodeEditorSettings.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.h"/>
+          <FILE id="sFmxwQ" name="CtrlrLuaMethodEditArea.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp"/>
+          <FILE id="jNG73b" name="CtrlrLuaMethodEditArea.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.h"/>
+          <FILE id="TH3yU9" name="CtrlrLuaMethodEditor.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp"/>
+          <FILE id="X7mUye" name="CtrlrLuaMethodEditor.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h"/>
+          <FILE id="jYql2i" name="CtrlrLuaMethodEditorTabs.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp"/>
+          <FILE id="RPGbeJ" name="CtrlrLuaMethodEditorTabs.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.h"/>
+          <FILE id="q5D3RC" name="CtrlrLuaMethodFind.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodFind.cpp"/>
+          <FILE id="sne6D4" name="CtrlrLuaMethodFind.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodFind.h"/>
+          <FILE id="WnQ2Rn" name="CtrlrMethodEditorTabCloseButton.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrMethodEditorTabCloseButton.cpp"/>
+          <FILE id="tgTwy6" name="CtrlrMethodEditorTabCloseButton.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrMethodEditorTabCloseButton.h"/>
+        </GROUP>
+      </GROUP>
+      <GROUP id="{E5B1CE63-5334-0AB5-2F3D-7652B433DE0C}" name="CtrlrMIDI">
+        <FILE id="Cx6hUr" name="CtrlrMIDIBuffer.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp"/>
+        <FILE id="vdQEZs" name="CtrlrMIDIBuffer.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.h"/>
+        <FILE id="AyxVnS" name="CtrlrMIDIBufferEditor.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.cpp"/>
+        <FILE id="XQi9QH" name="CtrlrMIDIBufferEditor.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.h"/>
+        <FILE id="QyEbZ8" name="CtrlrMIDILibraryEditor.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDILibraryEditor.cpp"/>
+        <FILE id="DF7OO3" name="CtrlrMIDILibraryEditor.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDILibraryEditor.h"/>
+        <FILE id="dsSXND" name="CtrlrMIDICalculator.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDICalculator.cpp"/>
+        <FILE id="rZ2kot" name="CtrlrMIDICalculator.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDICalculator.h"/>
+        <FILE id="wOwdIk" name="CtrlrMIDIMon.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIMon.cpp"/>
+        <FILE id="Dybrp8" name="CtrlrMIDIMon.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIMon.h"/>
+      </GROUP>
+      <GROUP id="{5F752446-C0A0-535E-B922-C982C5613533}" name="CtrlrPanel">
+        <FILE id="utnkf0" name="XmlTokeniser.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/XmlTokeniser.cpp"/>
+        <FILE id="lZe64m" name="XmlTokeniser.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/XmlTokeniser.h"/>
+        <FILE id="NWhCCn" name="CtrlrPanelMIDIToolbar.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.cpp"/>
+        <FILE id="mS4jyc" name="CtrlrPanelMIDIToolbar.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.h"/>
+        <FILE id="sAqwhg" name="CtrlrPanelCanvas.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvas.cpp"/>
+        <FILE id="uiUQFi" name="CtrlrPanelCanvas.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvas.h"/>
+        <FILE id="F6encY" name="CtrlrPanelCanvasHandlers.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp"/>
+        <FILE id="HRUQbE" name="CtrlrPanelCanvasLayer.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.cpp"/>
+        <FILE id="XjKas6" name="CtrlrPanelCanvasLayer.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.h"/>
+        <FILE id="mwLBr0" name="CtrlrPanelCanvasLayers.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayers.cpp"/>
+        <FILE id="K0SBLb" name="CtrlrPanelComponentProperties.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.cpp"/>
+        <FILE id="X0J767" name="CtrlrPanelComponentProperties.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h"/>
+        <FILE id="D545WL" name="CtrlrPanelEditor.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp"/>
+        <FILE id="vX3fpL" name="CtrlrPanelEditor.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h"/>
+        <FILE id="BtbZfP" name="CtrlrPanelLayerList.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.cpp"/>
+        <FILE id="gAI46P" name="CtrlrPanelLayerList.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.h"/>
+        <FILE id="T5VnZm" name="CtrlrPanelLayerListItem.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp"/>
+        <FILE id="vRKEUj" name="CtrlrPanelLayerListItem.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.h"/>
+        <FILE id="G2CNXd" name="CtrlrPanelModulatorList.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.cpp"/>
+        <FILE id="RutdZI" name="CtrlrPanelModulatorList.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.h"/>
+        <FILE id="xfZtxp" name="CtrlrPanelModulatorListTree.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorListTree.cpp"/>
+        <FILE id="TIQPjr" name="CtrlrPanelModulatorListTree.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorListTree.h"/>
+        <FILE id="p0u8kH" name="CtrlrPanelProperties.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.cpp"/>
+        <FILE id="zsewSd" name="CtrlrPanelProperties.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.h"/>
+        <FILE id="WlvMzW" name="CtrlrPanelResourceEditor.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelResourceEditor.cpp"/>
+        <FILE id="GYtLlS" name="CtrlrPanelResourceEditor.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelResourceEditor.h"/>
+        <FILE id="klUrGl" name="CtrlrPanelUtilities.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelUtilities.cpp"/>
+        <FILE id="GOLbbZ" name="CtrlrPanelUtilities.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelUtilities.h"/>
+        <FILE id="GiIq0i" name="CtrlrPanelViewport.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.cpp"/>
+        <FILE id="uvtvqn" name="CtrlrPanelViewport.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.h"/>
+        <FILE id="DNMbU3" name="ViewportExt.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrPanel/ViewportExt.cpp"/>
+        <FILE id="tF4nyp" name="ViewportExt.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/ViewportExt.h"/>
+      </GROUP>
+      <GROUP id="{BD7446F0-0299-4DDA-C7D0-44C67C088287}" name="CtrlrPropertyEditors">
+        <FILE id="EIHCCQ" name="CtrlrModulatorListProperty.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.cpp"/>
+        <FILE id="Sq8bMD" name="CtrlrModulatorListProperty.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.h"/>
+        <FILE id="O979wp" name="CtrlrTimestampProperty.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTimestampProperty.cpp"/>
+        <FILE id="mbTkqZ" name="CtrlrTimestampProperty.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTimestampProperty.h"/>
+        <FILE id="RIdNe1" name="CtrlrBooleanPropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.cpp"/>
+        <FILE id="oA3Ztn" name="CtrlrBooleanPropertyComponent.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.h"/>
+        <FILE id="npC4uG" name="CtrlrButtonPropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.cpp"/>
+        <FILE id="UAszt2" name="CtrlrButtonPropertyComponent.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.h"/>
+        <FILE id="iBlYnc" name="CtrlrChoicePropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrChoicePropertyComponent.cpp"/>
+        <FILE id="lqG6DJ" name="CtrlrChoicePropertyComponent.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrChoicePropertyComponent.h"/>
+        <FILE id="xwy58u" name="CtrlrColourPropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrColourPropertyComponent.cpp"/>
+        <FILE id="LNH3zy" name="CtrlrColourPropertyComponent.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrColourPropertyComponent.h"/>
+        <FILE id="NFWN1P" name="CtrlrExpressionProperty.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrExpressionProperty.cpp"/>
+        <FILE id="HrGXGr" name="CtrlrExpressionProperty.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrExpressionProperty.h"/>
+        <FILE id="rWObLI" name="CtrlrFilePropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFilePropertyComponent.cpp"/>
+        <FILE id="DHgx2H" name="CtrlrFilePropertyComponent.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFilePropertyComponent.h"/>
+        <FILE id="uJlCGN" name="CtrlrFontPropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFontPropertyComponent.cpp"/>
+        <FILE id="GAmMAG" name="CtrlrFontPropertyComponent.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFontPropertyComponent.h"/>
+        <FILE id="tcwIhh" name="CtrlrLuaMethodProperty.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrLuaMethodProperty.cpp"/>
+        <FILE id="GHm5FY" name="CtrlrLuaMethodProperty.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrLuaMethodProperty.h"/>
+        <FILE id="ywjshM" name="CtrlrMultiMidiPropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrMultiMidiPropertyComponent.cpp"/>
+        <FILE id="ADArNH" name="CtrlrMultiMidiPropertyComponent.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrMultiMidiPropertyComponent.h"/>
+        <FILE id="Q9hZHN" name="CtrlrPropertyComponent.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp"/>
+        <FILE id="M4VddR" name="CtrlrPropertyComponent.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.h"/>
+        <FILE id="imEITA" name="CtrlrSliderPropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSliderPropertyComponent.cpp"/>
+        <FILE id="t0dhQL" name="CtrlrSliderPropertyComponent.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSliderPropertyComponent.h"/>
+        <FILE id="ivgAIR" name="CtrlrSysExEditor.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.cpp"/>
+        <FILE id="ptmXAu" name="CtrlrSysExEditor.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.h"/>
+        <FILE id="yyzTle" name="CtrlrSysExFormulaEditor.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExFormulaEditor.cpp"/>
+        <FILE id="Lr8ACA" name="CtrlrSysExFormulaEditor.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExFormulaEditor.h"/>
+        <FILE id="KdafDw" name="CtrlrSysExPropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExPropertyComponent.cpp"/>
+        <FILE id="FeRGQr" name="CtrlrSysExPropertyComponent.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExPropertyComponent.h"/>
+        <FILE id="fXu7NL" name="CtrlrTextPropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTextPropertyComponent.cpp"/>
+        <FILE id="EPC8X5" name="CtrlrTextPropertyComponent.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTextPropertyComponent.h"/>
+        <FILE id="jjEy4O" name="CtrlrUnknownPropertyComponent.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.cpp"/>
+        <FILE id="cTeEWC" name="CtrlrUnknownPropertyComponent.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.h"/>
+      </GROUP>
+      <FILE id="WIWaPe" name="CtrlrTextEditor.cpp" compile="1" resource="0"
+            file="../../Source/UIComponents/CtrlrTextEditor.cpp"/>
+      <FILE id="l8rIG9" name="CtrlrTextEditor.h" compile="0" resource="0"
+            file="../../Source/UIComponents/CtrlrTextEditor.h"/>
+      <FILE id="k3zO0x" name="CtrlrValueMap.cpp" compile="1" resource="0"
+            file="../../Source/UIComponents/CtrlrValueMap.cpp"/>
+      <FILE id="B0oFwk" name="CtrlrValueMap.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrValueMap.h"/>
+      <FILE id="jZCjp7" name="CtrlrValueTreeEditor.cpp" compile="1" resource="0"
+            file="../../Source/UIComponents/CtrlrValueTreeEditor.cpp"/>
+      <FILE id="nczBP3" name="CtrlrValueTreeEditor.h" compile="0" resource="0"
+            file="../../Source/UIComponents/CtrlrValueTreeEditor.h"/>
+      <GROUP id="{6E57C02B-1598-2C26-7EB6-BD983DD12FD7}" name="CtrlrWindowManagers">
+        <FILE id="gqrwBM" name="CtrlrChildWindow.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.cpp"/>
+        <FILE id="TmAlrc" name="CtrlrChildWindow.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.h"/>
+        <FILE id="pZenCY" name="CtrlrChildWindowContainer.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContainer.cpp"/>
+        <FILE id="eXPINL" name="CtrlrChildWindowContainer.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContainer.h"/>
+        <FILE id="YP1AUH" name="CtrlrChildWindowContent.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContent.cpp"/>
+        <FILE id="uVbj6I" name="CtrlrChildWindowContent.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContent.h"/>
+        <FILE id="iG7vsr" name="CtrlrDialogWindow.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrDialogWindow.cpp"/>
+        <FILE id="ndNrSW" name="CtrlrDialogWindow.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrDialogWindow.h"/>
+        <FILE id="rNsXal" name="CtrlrManagerWindowManager.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrManagerWindowManager.cpp"/>
+        <FILE id="idNZNk" name="CtrlrManagerWindowManager.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrManagerWindowManager.h"/>
+        <FILE id="KvYwGO" name="CtrlrPanelWindowManager.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.cpp"/>
+        <FILE id="FQ1VbI" name="CtrlrPanelWindowManager.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.h"/>
+      </GROUP>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_USE_FLAC="enabled" JUCE_USE_OGGVORBIS="enabled" JUCE_WEB_BROWSER="disabled"
+               JUCE_PLUGINHOST_VST="disabled" JUCE_PLUGINHOST_AU="disabled"
+               JUCE_USE_CDREADER="disabled" JUCE_USE_CDBURNER="disabled" JUCE_ENABLE_REPAINT_DEBUGGING="disabled"
+               JUCE_USE_MP3AUDIOFORMAT="enabled" JUCE_JACK="enabled" JUCE_ASIO="disabled"
+               JUCE_WASAPI="disabled" JUCE_DIRECTSOUND="disabled" JUCE_ALSA="enabled"
+               JUCE_USE_XSHM="disabled" JUCE_USE_XRENDER="disabled" JUCE_USE_XCURSOR="disabled"
+               JUCE_LOG_ASSERTIONS="enabled" JUCE_CHECK_MEMORY_LEAKS="enabled"
+               JUCE_USE_COREIMAGE_LOADER="enabled" JUCE_USE_DIRECTWRITE="enabled"
+               JUCE_USE_WINDOWS_MEDIA_FORMAT="enabled" JUCE_USE_ANDROID_OPENSLES="disabled"
+               DROWAUDIO_USE_FFTREAL="disabled" DROWAUDIO_USE_SOUNDTOUCH="disabled"
+               DROWAUDIO_USE_CURL="disabled" JUCE_USE_LAME_AUDIO_FORMAT="disabled"/>
+</JUCERPROJECT>

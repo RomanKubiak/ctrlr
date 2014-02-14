@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/p/ctrlrv4/code/!svn/ver/1516/nightly/Source/Lua/Deprecated
+END
+CtrlrLuaMemoryBlock.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1179/nightly/Source/Lua/Deprecated/CtrlrLuaMemoryBlock.h
+END
+CtrlrLuaRectangle.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/p/ctrlrv4/code/!svn/ver/1179/nightly/Source/Lua/Deprecated/CtrlrLuaRectangle.h
+END
+CtrlrLuaComponentAnimator.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/p/ctrlrv4/code/!svn/ver/1175/nightly/Source/Lua/Deprecated/CtrlrLuaComponentAnimator.cpp
+END
+CtrlrLuaBigInteger.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/p/ctrlrv4/code/!svn/ver/1179/nightly/Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp
+END
+CtrlrLuaFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/p/ctrlrv4/code/!svn/ver/1179/nightly/Source/Lua/Deprecated/CtrlrLuaFile.cpp
+END
+CtrlrLuaComponentAnimator.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1152/nightly/Source/Lua/Deprecated/CtrlrLuaComponentAnimator.h
+END
+CtrlrLuaMemoryBlock.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/p/ctrlrv4/code/!svn/ver/1179/nightly/Source/Lua/Deprecated/CtrlrLuaMemoryBlock.cpp
+END
+CtrlrLuaBigInteger.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/p/ctrlrv4/code/!svn/ver/1179/nightly/Source/Lua/Deprecated/CtrlrLuaBigInteger.h
+END
+CtrlrLuaFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1179/nightly/Source/Lua/Deprecated/CtrlrLuaFile.h
+END
+CtrlrLuaRectangle.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1516/nightly/Source/Lua/Deprecated/CtrlrLuaRectangle.cpp
+END

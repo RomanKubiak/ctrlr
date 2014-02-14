@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vendors>
+		<vendor name="Ta Horng Musical Instrument" id="000074" />
+		<vendor name="e-Tek Labs (Forte Tech)" id="000075" />
+		<vendor name="Electro-Voice" id="000076" />
+		<vendor name="Midisoft Corporation" id="000077" />
+		<vendor name="QSound Labs" id="000078" />
+		<vendor name="Westrex" id="000079" />
+		<vendor name="Nvidia" id="00007A" />
+		<vendor name="ESS Technology" id="00007B" />
+		<vendor name="Media Trix Peripherals" id="00007C" />
+		<vendor name="Brooktree Corp" id="00007D" />
+		<vendor name="Otari Corp" id="00007E" />
+		<vendor name="Key Electronics" id="00007F" />
+		<vendor name="Shure incorporated" id="000100" />
+		<vendor name="AuraSound" id="000101" />
+		<vendor name="Crystal Semiconductor" id="000102" />
+		<vendor name="Conexant (Rockwell)" id="000103" />
+		<vendor name="Silicon Graphics" id="000104" />
+		<vendor name="M-Audio (Midiman)" id="000105" />
+		<vendor name="PreSonus" id="000106" />
+		<vendor name="Topaz Enterprises" id="000108" />
+		<vendor name="Cast Lighting" id="000109" />
+		<vendor name="Microsoft" id="00010A" />
+		<vendor name="Sonic Foundry" id="00010B" />
+		<vendor name="Line 6 (Fast Forward)" id="00010C" />
+		<vendor name="Beatnik Inc" id="00010D" />
+		<vendor name="Van Koevering Company" id="00010E" />
+		<vendor name="Altech Systems" id="00010F" />
+		<vendor name="S &amp; S Research" id="000110" />
+		<vendor name="VLSI Technology" id="000111" />
+		<vendor name="Chromatic Research" id="000112" />
+		<vendor name="Sapphire" id="000113" />
+		<vendor name="IDRC" id="000114" />
+		<vendor name="Justonic Tuning" id="000115" />
+		<vendor name="TorComp Research Inc." id="000116" />
+		<vendor name="Newtek Inc." id="000117" />
+		<vendor name="Sound Sculpture" id="000118" />
+		<vendor name="Walker Technical" id="000119" />
+		<vendor name="Digital Harmony (PAVO)" id="00011A" />
+		<vendor name="InVision Interactive" id="00011B" />
+		<vendor name="T-Square Design" id="00011C" />
+		<vendor name="Nemesys Music Technology" id="00011D" />
+		<vendor name="DBX Professional (Harman Intl)" id="00011E" />
+		<vendor name="Syndyne Corporation" id="00011F" />
+		<vendor name="Bitheadz" id="000120" />
+		<vendor name="Cakewalk Music Software" id="000121" />
+		<vendor name="Analog Devices" id="000122" />
+		<vendor name="National Semiconductor" id="000123" />
+		<vendor name="Boom Theory / Adinolfi Alternative Percussion" id="000124" />
+		<vendor name="Virtual DSP Corporation" id="000125" />
+		<vendor name="Antares Systems" id="000126" />
+		<vendor name="Angel Software" id="000127" />
+		<vendor name="St Louis Music" id="000128" />
+		<vendor name="Lyrrus dba G-VOX" id="000129" />
+		<vendor name="Ashley Audio Inc." id="00012A" />
+		<vendor name="Vari-Lite Inc." id="00012B" />
+		<vendor name="Summit Audio Inc." id="00012C" />
+		<vendor name="Aureal Semiconductor Inc." id="00012D" />
+		<vendor name="SeaSound LLC" id="00012E" />
+		<vendor name="U.S. Robotics" id="00012F" />
+		<vendor name="Aurisis Research" id="000130" />
+		<vendor name="Nearfield Research" id="000131" />
+		<vendor name="FM7 Inc" id="000132" />
+		<vendor name="Swivel Systems" id="000133" />
+		<vendor name="Hyperactive Audio Systems" id="000134" />
+		<vendor name="MidiLite (Castle Studios Productions)" id="000135" />
+		<vendor name="Radikal Technologies" id="000136" />
+		<vendor name="Roger Linn Design" id="000137" />
+		<vendor name="TC-Helicon Vocal Technologies" id="000138" />
+		<vendor name="Event Electronics" id="000139" />
+		<vendor name="Sonic Network Inc" id="00013A" />
+		<vendor name="Realtime Music Solutions" id="00013B" />
+		<vendor name="Apogee Digital" id="00013C" />
+		<vendor name="Classical Organs" id="00013D" />
+		<vendor name="Microtools Inc." id="00013E" />
+		<vendor name="Numark Industries" id="00013F" />
+		<vendor name="Frontier Design Group" id="000140" />
+		<vendor name="Recordare LLC" id="000141" />
+		<vendor name="Starr Labs" id="000142" />
+		<vendor name="Voyager Sound Inc." id="000143" />
+		<vendor name="Manifold Labs" id="000144" />
+		<vendor name="Aviom Inc." id="000145" />
+		<vendor name="Mixmeister Technology" id="000146" />
+		<vendor name="Notation Software" id="000147" />
+		<vendor name="Mercurial Communications" id="000148" />
+		<vendor name="Wave Arts" id="000149" />
+		<vendor name="Logic Sequencing Devices" id="00014A" />
+		<vendor name="Axess Electronics" id="00014B" />
+		<vendor name="Muse Research" id="00014C" />
+		<vendor name="Open Labs" id="00014D" />
+		<vendor name="Guillemot R&amp;D Inc" id="00014E" />
+		<vendor name="Samson Technologies" id="00014F" />
+		<vendor name="Electronic Theatre Controls" id="000150" />
+		<vendor name="Blackberry (RIM)" id="000151" />
+		<vendor name="Mobileer" id="000152" />
+		<vendor name="Synthogy" id="000153" />
+		<vendor name="Lynx Studio Technology Inc." id="000154" />
+		<vendor name="Damage Control Engineering LLC" id="000155" />
+		<vendor name="Yost Engineering" id="000156" />
+		<vendor name="Brooks &amp; Forsman Designs LLC / DrumLite" id="000157" />
+		<vendor name="Infinite Response" id="000158" />
+		<vendor name="Garritan Corp" id="000159" />
+		<vendor name="Plogue Art et Technologie" id="00015A" />
+		<vendor name="RJM Music Technology" id="00015B" />
+		<vendor name=" Custom Solutions Software" id="00015C" />
+		<vendor name="Sonarcana LLC" id="00015D" />
+		<vendor name="Centrance" id="00015E" />
+		<vendor name="Kesumo LLC" id="00015F" />
+		<vendor name="Stanton (Gibson)" id="000160" />
+		<vendor name="Livid Instruments" id="000161" />
+		<vendor name="First Act / 745 Media" id="000162" />
+		<vendor name="Pygraphics" id="000163" />
+		<vendor name="Panadigm Innovations Ltd" id="000164" />
+		<vendor name="Avedis Zildjian Co" id="000165" />
+		<vendor name="Auvital Music Corp" id="000166" />
+		<vendor name="Inspired Instruments Inc" id="000167" />
+		<vendor name="Chris Grigg Designs" id="000168" />
+		<vendor name="Slate Digital LLC" id="000169" />
+		<vendor name="Mixware" id="00016A" />
+		<vendor name="Social Entropy" id="00016B" />
+		<vendor name="Source Audio LLC" id="00016C" />
+		<vendor name="Ernie Ball / Music Man" id="00016D" />
+		<vendor name="Fishman Transducers" id="00016E" />
+		<vendor name="Custom Audio Electronics" id="00016F" />
+		<vendor name="American Audio/DJ" id="000170" />
+		<vendor name="Mega Control Systems" id="000171" />
+		<vendor name="Kilpatrick Audio" id="000172" />
+		<vendor name="iConnectivity" id="000173" />
+		<vendor name="Fractal Audio" id="000174" />
+		<vendor name="NetLogic Microsystems" id="000175" />
+		<vendor name="Music Computing" id="000176" />
+		<vendor name="Nektar Technology Inc" id="000177" />
+		<vendor name="Zenph Sound Innovations" id="000178" />
+		<vendor name="DJTechTools.com" id="000179" />
+		<vendor name="Rezonance Labs" id="00017A" />
+		<vendor name="Decibel Eleven" id="00017B" />
+		<vendor name="Focusrite/Novation" id="002029" />
+		<vendor name="Samkyung Mechatronics" id="00202A" />
+		<vendor name="Medeli Electronics Co." id="00202B" />
+		<vendor name="Charlie Lab SRL" id="00202C" />
+		<vendor name="Blue Chip Music Technology" id="00202D" />
+		<vendor name="BEE OH Corp" id="00202E" />
+		<vendor name="LG Semicon America" id="00202F" />
+		<vendor name="TESI" id="002030" />
+		<vendor name="EMAGIC" id="002031" />
+		<vendor name="Behringer GmbH" id="002032" />
+		<vendor name="Access Music Electronics" id="002033" />
+		<vendor name="Synoptic" id="002034" />
+		<vendor name="Hanmesoft" id="002035" />
+		<vendor name="Terratec Electronic GmbH" id="002036" />
+		<vendor name="Proel SpA" id="002037" />
+		<vendor name="IBK MIDI" id="002038" />
+		<vendor name="IRCAM" id="002039" />
+		<vendor name="Propellerhead Software" id="00203A" />
+		<vendor name="Red Sound Systems Ltd" id="00203B" />
+		<vendor name="Elektron ESI AB" id="00203C" />
+		<vendor name="Sintefex Audio" id="00203D" />
+		<vendor name="MAM (Music and More)" id="00203E" />
+		<vendor name="Amsaro GmbH" id="00203F" />
+		<vendor name="CDS Advanced Technology BV" id="002040" />
+		<vendor name="Touched By Sound GmbH" id="002041" />
+		<vendor name="DSP Arts" id="002042" />
+		<vendor name="Phil Rees Music Tech" id="002043" />
+		<vendor name="Stamer Musikanlagen GmbH" id="002044" />
+		<vendor name="Musical Muntaner S.A. dba Soundart" id="002045" />
+		<vendor name="C-Mexx Software" id="002046" />
+		<vendor name="Klavis Technologies" id="002047" />
+		<vendor name="Noteheads AB" id="002048" />
+		<vendor name="Algorithmix" id="002049" />
+		<vendor name="Skrydstrup R&amp;D" id="00204A" />
+		<vendor name="Professional Audio Company" id="00204B" />
+		<vendor name="NewWave Labs (MadWaves)" id="00204C" />
+		<vendor name="Vermona" id="00204D" />
+		<vendor name="Nokia" id="00204E" />
+		<vendor name="Wave Idea" id="00204F" />
+		<vendor name="Hartmann GmbH" id="002050" />
+		<vendor name="Lion's Tracs" id="002051" />
+		<vendor name="Analogue Systems" id="002052" />
+		<vendor name="Focal-JMlab" id="002053" />
+		<vendor name="Ringway Electronics (Chang-Zhou) Co Ltd" id="002054" />
+		<vendor name="Faith Technologies (Digiplug)" id="002055" />
+		<vendor name="Showworks" id="002056" />
+		<vendor name="Manikin Electronic" id="002057" />
+		<vendor name="1 Come Tech" id="002058" />
+		<vendor name="Phonic Corp" id="002059" />
+		<vendor name="Dolby Australia (Lake)" id="00205A" />
+		<vendor name="Silansys Technologies" id="00205B" />
+		<vendor name="Winbond Electronics" id="00205C" />
+		<vendor name="Cinetix Medien und Interface GmbH" id="00205D" />
+		<vendor name="A&amp;G Soluzioni Digitali" id="00205E" />
+		<vendor name="Sequentix Music Systems" id="00205F" />
+		<vendor name="Oram Pro Audio" id="002060" />
+		<vendor name="Be4 Ltd" id="002061" />
+		<vendor name="Infection Music" id="002062" />
+		<vendor name="Central Music Co. (CME)" id="002063" />
+		<vendor name="genoQs Machines GmbH" id="002064" />
+		<vendor name="Medialon" id="002065" />
+		<vendor name="Waves Audio Ltd" id="002066" />
+		<vendor name="Jerash Labs" id="002067" />
+		<vendor name="Da Fact" id="002068" />
+		<vendor name="Elby Designs" id="002069" />
+		<vendor name="Spectral Audio" id="00206A" />
+		<vendor name="Arturia" id="00206B" />
+		<vendor name="Vixid" id="00206C" />
+		<vendor name="C-Thru Music" id="00206D" />
+		<vendor name="Ya Horng Electronic Co LTD" id="00206E" />
+		<vendor name="SM Pro Audio" id="00206F" />
+		<vendor name="OTO MACHINES" id="002070" />
+		<vendor name="ELZAB S.A." id="002071" />
+		<vendor name="Blackstar Amplification Ltd" id="002072" />
+		<vendor name="M3i Technologies GmbH" id="002073" />
+		<vendor name="Gemalto (from Xiring)" id="002074" />
+		<vendor name="Prostage SL" id="002075" />
+		<vendor name="Teenage Engineering" id="002076" />
+		<vendor name="Tobias Erichsen Consulting" id="002077" />
+		<vendor name="Nixer Ltd" id="002078" />
+		<vendor name="Hanpin Electron Co Ltd" id="002079" />
+		<vendor name="MIDI-hardware R.Sowa" id="00207A" />
+		<vendor name="Beyond Music Industrial Ltd" id="00207B" />
+		<vendor name="Kiss Box B.V." id="00207C" />
+		<vendor name="Misa Digital Technologies Ltd" id="00207D" />
+		<vendor name="AI Musics Technology Inc" id="00207E" />
+		<vendor name="Serato Inc LP" id="00207F" />
+		<vendor name="Limex Music Handles GmbH" id="002100" />
+		<vendor name="Kyodday/Tokai" id="002101" />
+		<vendor name="Mutable Instruments" id="002102" />
+		<vendor name="PreSonus Software Ltd" id="002103" />
+		<vendor name="Xiring" id="002104" />
+		<vendor name="Fairlight Instruments Pty Ltd" id="002105" />
+		<vendor name="Musicom Lab" id="002106" />
+		<vendor name="VacoLoco" id="002107" />
+		<vendor name="RWA (Hong Kong) Limited" id="002108" />
+		<vendor name="Native Instruments" id="002109" />
+		<vendor name="Naonext" id="00210A" />
+		<vendor name="MFB" id="00210B" />
+		<vendor name="Teknel Research" id="00210C" />
+		<vendor name="Ploytec GmbH" id="00210D" />
+		<vendor name="Surfin Kangaroo Studio" id="00210E" />
+		<vendor name="Crimson Technology Inc." id="004000" />
+		<vendor name="Softbank Mobile Corp" id="004001" />
+		<vendor name="D&amp;M Holdings Inc." id="004003" />
+		<vendor name="Sequential Circuits"	id="01" />
+		<vendor name="Big Briar"	id="02" />
+		<vendor name="Octave / Plateau"	id="03" />
+		<vendor name="Moog"	id="04" />
+		<vendor name="Passport Designs"	id="05" />
+		<vendor name="Lexicon"	id="06" />
+		<vendor name="Kurzweil"	id="07" />
+		<vendor name="Fender"	id="08" />
+		<vendor name="Gulbransen"	id="09" />
+		<vendor name="Delta Labs"	id="0A" />
+		<vendor name="Sound Comp."	id="0B" />
+		<vendor name="General Electro"	id="0C" />
+		<vendor name="Techmar"	id="0D" />
+		<vendor name="Matthews Research"	id="0E" />
+		<vendor name="Oberheim"	id="10" />
+		<vendor name="PAIA"	id="11" />
+		<vendor name="Simmons"	id="12" />
+		<vendor name="DigiDesign"	id="13" />
+		<vendor name="Fairlight"	id="14" />
+		<vendor name="Peavey"	id="1B" />
+		<vendor name="JL Cooper"	id="15" />
+		<vendor name="Lowery"	id="16" />
+		<vendor name="Lin"	id="17" />
+		<vendor name="Emu"	id="18" />
+		<vendor name="Bon Tempi"	id="20" />
+		<vendor name="S.I.E.L."	id="21" />
+		<vendor name="SyntheAxe"	id="23" />
+		<vendor name="Hohner"	id="24" />
+		<vendor name="Crumar"	id="25" />
+		<vendor name="Solton"	id="26" />
+		<vendor name="Jellinghaus Ms"	id="27" />
+		<vendor name="CTS"	id="28" />
+		<vendor name="PPG"	id="29" />
+		<vendor name="Elka"	id="2F" />
+		<vendor name="Cheetah"	id="36" />
+		<vendor name="Waldorf"	id="3E" />
+		<vendor name="Kawai"	id="40" />
+		<vendor name="Roland"	id="41" />
+		<vendor name="Korg"	id="42" />
+		<vendor name="Yamaha"	id="43" />
+		<vendor name="Casio"	id="44" />
+		<vendor name="Akai"	id="45" />
+		<vendor name="Kawai Musical Instruments MFG. CO. Ltd"	id="40" />
+		<vendor name="Roland Corporation"	id="41" />
+		<vendor name="Korg Inc."	id="42" />
+		<vendor name="Yamaha Corporation"	id="43" />
+		<vendor name="Casio Computer Co. Ltd"	id="44" />
+		<vendor name="Kamiya Studio Co. Ltd"	id="46" />
+		<vendor name="Akai Electric Co. Ltd."	id="47" />
+		<vendor name="Victor Company of Japan, Ltd."	id="48" />
+		<vendor name="Fujitsu Limited"	id="4B" />
+		<vendor name="Sony Corporation"	id="4C" />
+		<vendor name="Teac Corporation"	id="4E" />
+		<vendor name="Matsushita Electric Industrial Co. , Ltd"	id="50" />
+		<vendor name="Fostex Corporation"	id="51" />
+		<vendor name="Zoom Corporation"	id="52" />
+		<vendor name="Matsushita Communication Industrial Co., Ltd."	id="54" />
+		<vendor name="Suzuki Musical Instruments MFG. Co., Ltd."	id="55" />
+		<vendor name="Fuji Sound Corporation Ltd."	id="56" />
+		<vendor name="Acoustic Technical Laboratory, Inc."	id="57" />
+		<vendor name="Faith, Inc."	id="59" />
+		<vendor name="Internet Corporation"	id="5A" />
+		<vendor name="Seekers Co. Ltd."	id="5C" />
+		<vendor name="SD Card Association"	id="5F" />
+</vendors>

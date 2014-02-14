@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/p/ctrlrv4/code/!svn/ver/1584/nightly/Scripts/installers
+END
+ctrlr.nsi
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/p/ctrlrv4/code/!svn/ver/1324/nightly/Scripts/installers/ctrlr.nsi
+END
+makeself.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1262/nightly/Scripts/installers/makeself.sh
+END
+icon.ico
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/p/ctrlrv4/code/!svn/ver/1178/nightly/Scripts/installers/icon.ico
+END
+Ctrlr_template.dmg.bz2
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/p/ctrlrv4/code/!svn/ver/1584/nightly/Scripts/installers/Ctrlr_template.dmg.bz2
+END
+makeself-header.sh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1262/nightly/Scripts/installers/makeself-header.sh
+END
+ctrlr_logo.png
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Scripts/installers/ctrlr_logo.png
+END
+ctrlr_header.bmp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/ctrlrv4/code/!svn/ver/1118/nightly/Scripts/installers/ctrlr_header.bmp
+END

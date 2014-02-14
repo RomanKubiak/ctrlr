@@ -1,0 +1,659 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/p/ctrlrv4/code/!svn/ver/1659/nightly/Source/Lua/JuceClasses
+END
+LAudioThumbnail.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/p/ctrlrv4/code/!svn/ver/1405/nightly/Source/Lua/JuceClasses/LAudioThumbnail.h
+END
+LAudioFormat.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/ctrlrv4/code/!svn/ver/1418/nightly/Source/Lua/JuceClasses/LAudioFormat.cpp
+END
+LString.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LString.h
+END
+LGlyphArrangement.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/p/ctrlrv4/code/!svn/ver/1223/nightly/Source/Lua/JuceClasses/LGlyphArrangement.h
+END
+LComboBox.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1304/nightly/Source/Lua/JuceClasses/LComboBox.h
+END
+LComponentPeer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/p/ctrlrv4/code/!svn/ver/1216/nightly/Source/Lua/JuceClasses/LComponentPeer.cpp
+END
+LSparseSet.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/ctrlrv4/code/!svn/ver/1280/nightly/Source/Lua/JuceClasses/LSparseSet.h
+END
+LInputStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LInputStream.h
+END
+LRandom.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1516/nightly/Source/Lua/JuceClasses/LRandom.cpp
+END
+LThreadWithProgressWindow.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/p/ctrlrv4/code/!svn/ver/1659/nightly/Source/Lua/JuceClasses/LThreadWithProgressWindow.cpp
+END
+LTimer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1168/nightly/Source/Lua/JuceClasses/LTimer.cpp
+END
+LSlider.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1304/nightly/Source/Lua/JuceClasses/LSlider.cpp
+END
+LLookAndFeel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/ctrlrv4/code/!svn/ver/1619/nightly/Source/Lua/JuceClasses/LLookAndFeel.cpp
+END
+LRelativeCoordinate.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LRelativeCoordinate.cpp
+END
+LResult.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LResult.h
+END
+LLabel.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1145/nightly/Source/Lua/JuceClasses/LLabel.h
+END
+LMidiKeyboardComponent.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/p/ctrlrv4/code/!svn/ver/1518/nightly/Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp
+END
+LPopupMenu.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1641/nightly/Source/Lua/JuceClasses/LPopupMenu.cpp
+END
+LPath.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1481/nightly/Source/Lua/JuceClasses/LPath.cpp
+END
+LGlobalFunctions.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/p/ctrlrv4/code/!svn/ver/1223/nightly/Source/Lua/JuceClasses/LGlobalFunctions.h
+END
+LMouseEvent.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LMouseEvent.h
+END
+LTextEditor.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1304/nightly/Source/Lua/JuceClasses/LTextEditor.h
+END
+LRange.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1216/nightly/Source/Lua/JuceClasses/LRange.h
+END
+LValueTree.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LValueTree.h
+END
+LComponent.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1407/nightly/Source/Lua/JuceClasses/LComponent.cpp
+END
+LZipFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LZipFile.cpp
+END
+LAlertWindow.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1304/nightly/Source/Lua/JuceClasses/LAlertWindow.h
+END
+LAudioThumbnail.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/p/ctrlrv4/code/!svn/ver/1405/nightly/Source/Lua/JuceClasses/LAudioThumbnail.cpp
+END
+LFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1223/nightly/Source/Lua/JuceClasses/LFont.cpp
+END
+LAudioFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LAudioFile.h
+END
+LGlyphArrangement.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/p/ctrlrv4/code/!svn/ver/1223/nightly/Source/Lua/JuceClasses/LGlyphArrangement.cpp
+END
+LMemoryInputStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LMemoryInputStream.h
+END
+LRectangle.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LRectangle.h
+END
+LSparseSet.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1280/nightly/Source/Lua/JuceClasses/LSparseSet.cpp
+END
+LInputStream.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LInputStream.cpp
+END
+LThread.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1658/nightly/Source/Lua/JuceClasses/LThread.h
+END
+LLabel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1340/nightly/Source/Lua/JuceClasses/LLabel.cpp
+END
+LAudioFormat.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1418/nightly/Source/Lua/JuceClasses/LAudioFormat.h
+END
+LJustification.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LJustification.h
+END
+LImage.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1188/nightly/Source/Lua/JuceClasses/LImage.cpp
+END
+LComponentPeer.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/ctrlrv4/code/!svn/ver/1216/nightly/Source/Lua/JuceClasses/LComponentPeer.h
+END
+LFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1479/nightly/Source/Lua/JuceClasses/LFile.h
+END
+LBigInteger.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1158/nightly/Source/Lua/JuceClasses/LBigInteger.h
+END
+LRandom.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LRandom.h
+END
+LThreadWithProgressWindow.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/p/ctrlrv4/code/!svn/ver/1659/nightly/Source/Lua/JuceClasses/LThreadWithProgressWindow.h
+END
+LTimer.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1152/nightly/Source/Lua/JuceClasses/LTimer.h
+END
+LColourGradient.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LColourGradient.h
+END
+LSlider.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1145/nightly/Source/Lua/JuceClasses/LSlider.h
+END
+LGlobalFunctions.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1235/nightly/Source/Lua/JuceClasses/LGlobalFunctions.cpp
+END
+LMidiKeyboardComponent.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/p/ctrlrv4/code/!svn/ver/1518/nightly/Source/Lua/JuceClasses/LMidiKeyboardComponent.h
+END
+LTextEditor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/p/ctrlrv4/code/!svn/ver/1304/nightly/Source/Lua/JuceClasses/LTextEditor.cpp
+END
+LLine.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LLine.h
+END
+LPopupMenu.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/ctrlrv4/code/!svn/ver/1288/nightly/Source/Lua/JuceClasses/LPopupMenu.h
+END
+LAttributedString.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/p/ctrlrv4/code/!svn/ver/1407/nightly/Source/Lua/JuceClasses/LAttributedString.cpp
+END
+LTime.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LTime.cpp
+END
+LAlertWindow.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/ctrlrv4/code/!svn/ver/1659/nightly/Source/Lua/JuceClasses/LAlertWindow.cpp
+END
+LAudioFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1406/nightly/Source/Lua/JuceClasses/LAudioFile.cpp
+END
+LPath.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1158/nightly/Source/Lua/JuceClasses/LPath.h
+END
+LAudioSampleBuffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LAudioSampleBuffer.h
+END
+LURL.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1179/nightly/Source/Lua/JuceClasses/LURL.cpp
+END
+LComponent.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/p/ctrlrv4/code/!svn/ver/1216/nightly/Source/Lua/JuceClasses/LComponent.h
+END
+LThread.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1658/nightly/Source/Lua/JuceClasses/LThread.cpp
+END
+LZipFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LZipFile.h
+END
+LKeyPress.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1304/nightly/Source/Lua/JuceClasses/LKeyPress.h
+END
+LJustification.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/p/ctrlrv4/code/!svn/ver/1289/nightly/Source/Lua/JuceClasses/LJustification.cpp
+END
+LFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1196/nightly/Source/Lua/JuceClasses/LFont.h
+END
+LValue.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1168/nightly/Source/Lua/JuceClasses/LValue.cpp
+END
+LFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1479/nightly/Source/Lua/JuceClasses/LFile.cpp
+END
+LBigInteger.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/p/ctrlrv4/code/!svn/ver/1174/nightly/Source/Lua/JuceClasses/LBigInteger.cpp
+END
+LColourGradient.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/p/ctrlrv4/code/!svn/ver/1223/nightly/Source/Lua/JuceClasses/LColourGradient.cpp
+END
+LAffineTransform.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/p/ctrlrv4/code/!svn/ver/1645/nightly/Source/Lua/JuceClasses/LAffineTransform.cpp
+END
+LDrawable.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LDrawable.h
+END
+LLine.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1637/nightly/Source/Lua/JuceClasses/LLine.cpp
+END
+LImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LImage.h
+END
+LMemoryBlock.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1626/nightly/Source/Lua/JuceClasses/LMemoryBlock.h
+END
+LBubbleMessageComponent.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/p/ctrlrv4/code/!svn/ver/1216/nightly/Source/Lua/JuceClasses/LBubbleMessageComponent.h
+END
+LModifierKeys.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/p/ctrlrv4/code/!svn/ver/1289/nightly/Source/Lua/JuceClasses/LModifierKeys.cpp
+END
+LMidiMessage.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LMidiMessage.h
+END
+LAudioSampleBuffer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/p/ctrlrv4/code/!svn/ver/1206/nightly/Source/Lua/JuceClasses/LAudioSampleBuffer.cpp
+END
+LPoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LPoint.h
+END
+LGraphics.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1619/nightly/Source/Lua/JuceClasses/LGraphics.cpp
+END
+LAttributedString.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/p/ctrlrv4/code/!svn/ver/1216/nightly/Source/Lua/JuceClasses/LAttributedString.h
+END
+LTime.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LTime.h
+END
+LExpression.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LExpression.h
+END
+CtrlrWrap.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1658/nightly/Source/Lua/JuceClasses/CtrlrWrap.cpp
+END
+LKeyPress.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1304/nightly/Source/Lua/JuceClasses/LKeyPress.cpp
+END
+LString.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1608/nightly/Source/Lua/JuceClasses/LString.cpp
+END
+LURL.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LURL.h
+END
+LColour.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LColour.h
+END
+LComboBox.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1488/nightly/Source/Lua/JuceClasses/LComboBox.cpp
+END
+LResult.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1216/nightly/Source/Lua/JuceClasses/LResult.cpp
+END
+LDrawable.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LDrawable.cpp
+END
+LValue.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/p/ctrlrv4/code/!svn/ver/1145/nightly/Source/Lua/JuceClasses/LValue.h
+END
+LMemoryBlock.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/ctrlrv4/code/!svn/ver/1626/nightly/Source/Lua/JuceClasses/LMemoryBlock.cpp
+END
+LBubbleMessageComponent.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/p/ctrlrv4/code/!svn/ver/1304/nightly/Source/Lua/JuceClasses/LBubbleMessageComponent.cpp
+END
+LMidiMessage.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/p/ctrlrv4/code/!svn/ver/1195/nightly/Source/Lua/JuceClasses/LMidiMessage.cpp
+END
+LLookAndFeel.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1145/nightly/Source/Lua/JuceClasses/LLookAndFeel.h
+END
+LRelativeCoordinate.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LRelativeCoordinate.h
+END
+LAffineTransform.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LAffineTransform.h
+END
+LPoint.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1195/nightly/Source/Lua/JuceClasses/LPoint.cpp
+END
+LMouseEvent.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/p/ctrlrv4/code/!svn/ver/1289/nightly/Source/Lua/JuceClasses/LMouseEvent.cpp
+END
+LRange.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/p/ctrlrv4/code/!svn/ver/1407/nightly/Source/Lua/JuceClasses/LRange.cpp
+END
+LValueTree.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1407/nightly/Source/Lua/JuceClasses/LValueTree.cpp
+END
+LExpression.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LExpression.cpp
+END
+LModifierKeys.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LModifierKeys.h
+END
+LColour.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1223/nightly/Source/Lua/JuceClasses/LColour.cpp
+END
+LMemoryInputStream.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/p/ctrlrv4/code/!svn/ver/1276/nightly/Source/Lua/JuceClasses/LMemoryInputStream.cpp
+END
+LRectangle.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/p/ctrlrv4/code/!svn/ver/1637/nightly/Source/Lua/JuceClasses/LRectangle.cpp
+END
+LGraphics.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/p/ctrlrv4/code/!svn/ver/1142/nightly/Source/Lua/JuceClasses/LGraphics.h
+END
