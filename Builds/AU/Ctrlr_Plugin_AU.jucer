@@ -10,7 +10,8 @@
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
               jucerVersion="3.1.0" defines="" aaxIdentifier="com.yourcompany.Ctrlr_Plugin_AU"
               companyName="Instigator" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
-              includeBinaryInAppConfig="1">
+              includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
+              pluginManufacturerEmail="support@yourcompany.com">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="../Generated/Mac/AU" vstFolder="~/devel/vstsdk2.4"
                rtasFolder="~/SDKs/PT_80_SDK" objCExtraSuffix="CTRLRUNIQAU" extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
@@ -20,7 +21,7 @@
                extraLinkerFlags="-L$PROJECT_DIR -L/usr/lib -L/usr/local/lib -lau_wrapper">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
-                       osxSDK="10.7 SDK" osxCompatibility="10.6 SDK" osxArchitecture="default"
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Lua&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Lua&#10;../../../../Source/Application"
                        binaryPath="" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_AU&#10;JUCE_DEBUG=1&#10;LUA_USE_LINUX"
                        customXcodeFlags="EXCLUDED_SOURCE_FILE_NAMES=&quot;*AU*.cpp Carbon*.cpp ComponentBase.cpp MusicDeviceBase.cpp&quot;,GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
@@ -243,6 +244,12 @@
               file="../../Source/Lua/Deprecated/CtrlrLuaRectangle.h"/>
       </GROUP>
       <GROUP id="{2F024239-B6C9-D070-182A-3FA0F87BDCCF}" name="JuceClasses">
+        <FILE id="uYhtsa" name="LThread.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LThread.cpp"/>
+        <FILE id="y8YiKv" name="LThread.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LThread.h"/>
+        <FILE id="OKpDTE" name="LThreadWithProgressWindow.cpp" compile="1"
+              resource="0" file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.cpp"/>
+        <FILE id="udKuw8" name="LThreadWithProgressWindow.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.h"/>
         <FILE id="re3UvL" name="CtrlrWrap.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/CtrlrWrap.cpp"/>
         <FILE id="xTbHEV" name="LAffineTransform.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAffineTransform.cpp"/>

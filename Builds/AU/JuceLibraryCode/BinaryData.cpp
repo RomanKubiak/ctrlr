@@ -17988,6 +17988,18 @@ static const unsigned char temp_binary_data_59[] =
 "end\r\n"
 "  </utility>\r\n"
 "\r\n"
+"  <utility name=\"transSYXRcvReq\" description=\"Request method for receiving a SYX file\" uuid=\"00000000000000000000000000000005\">\r\n"
+"function transSYXRcvReq(transaction)\r\n"
+"\tconsole(\"transSYXRcvReq\")\r\n"
+"end\r\n"
+"  </utility>\r\n"
+"\r\n"
+"  <utility name=\"transSYXRcvProc\" description=\"Process data for when receiving a SYX file\" uuid=\"00000000000000000000000000000006\">\r\n"
+"function transSYXRcvProc(transaction)\r\n"
+"\tconsole(\"transSYXRcvProc\")\r\n"
+"end\r\n"
+"  </utility>\r\n"
+"\r\n"
 "  </utilityMethods>\r\n"
 "</methods>\r\n";
 
@@ -18400,7 +18412,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0x556191db:  numBytes = 977; return name_68_rsrc;
         case 0xa5970535:  numBytes = 1963; return CtrlrMIDITransactions_xml;
         case 0xa32a74e9:  numBytes = 75767; return CtrlrIDs_xml;
-        case 0x75a28bbf:  numBytes = 15197; return CtrlrLuaMethodTemplates_xml;
+        case 0x75a28bbf:  numBytes = 15635; return CtrlrLuaMethodTemplates_xml;
         case 0xcfea1483:  numBytes = 662; return CtrlrMidiMultiTemplate_xml;
         case 0x37e081fb:  numBytes = 15061; return CtrlrMIDIVendors_xml;
         default: break;
@@ -18409,8 +18421,6 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
     numBytes = 0;
     return 0;
 }
-
-const int namedResourceListSize = 62;
 
 const char* namedResourceList[] =
 {
