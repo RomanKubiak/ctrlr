@@ -19258,8 +19258,6 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
     return 0;
 }
 
-const int namedResourceListSize = 63;
-
 const char* namedResourceList[] =
 {
     "FONT_60sekuntia_bin",
