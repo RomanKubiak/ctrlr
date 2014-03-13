@@ -515,3 +515,104 @@ void CtrlrLookAndFeel::setUsingNativeAlerts(const bool useNativeAlerts)
 {
 	setUsingNativeAlertWindows(useNativeAlerts);
 }
+
+void CtrlrLookAndFeel::drawScrollbar (Graphics& g, ScrollBar& scrollbar, int x, int y, int width, int height, bool isScrollbarVertical, int thumbStartPosition, int thumbSize, bool isMouseOver, bool isMouseDown)
+{
+    g.fillAll (scrollbar.findColour (ScrollBar::backgroundColourId));
+
+    Path slotPath, thumbPath;
+
+    const float slotIndent = jmin (width, height) > 15 ? 1.0f : 0.0f;
+    const float slotIndentx2 = slotIndent * 2.0f;
+    const float thumbIndent = slotIndent + 1.0f;
+    const float thumbIndentx2 = thumbIndent * 2.0f;
+
+    float gx1 = 0.0f, gy1 = 0.0f, gx2 = 0.0f, gy2 = 0.0f;
+
+    if (isScrollbarVertical)
+    {
+        slotPath.addRoundedRectangle (x + slotIndent,
+                                      y + slotIndent,
+                                      width - slotIndentx2,
+                                      height - slotIndentx2,
+                                      (width - slotIndentx2) * 0.5f);
+
+        if (thumbSize > 0)
+            thumbPath.addRoundedRectangle (x + thumbIndent,
+                                           thumbStartPosition + thumbIndent,
+                                           width - thumbIndentx2,
+                                           thumbSize - thumbIndentx2,
+                                           (width - thumbIndentx2) * 0.5f);
+        gx1 = (float) x;
+        gx2 = x + width * 0.7f;
+    }
+    else
+    {
+        slotPath.addRoundedRectangle (x + slotIndent,
+                                      y + slotIndent,
+                                      width - slotIndentx2,
+                                      height - slotIndentx2,
+                                      (height - slotIndentx2) * 0.5f);
+
+        if (thumbSize > 0)
+            thumbPath.addRoundedRectangle (thumbStartPosition + thumbIndent,
+                                           y + thumbIndent,
+                                           thumbSize - thumbIndentx2,
+                                           height - thumbIndentx2,
+                                           (height - thumbIndentx2) * 0.5f);
+        gy1 = (float) y;
+        gy2 = y + height * 0.7f;
+    }
+
+    const Colour thumbColour (scrollbar.findColour (ScrollBar::thumbColourId));
+    Colour trackColour1, trackColour2;
+
+    if (scrollbar.isColourSpecified (ScrollBar::trackColourId)
+         || isColourSpecified (ScrollBar::trackColourId))
+    {
+        trackColour1 = trackColour2 = scrollbar.findColour (ScrollBar::trackColourId);
+    }
+    else
+    {
+        trackColour1 = thumbColour.overlaidWith (Colour (0x44000000));
+        trackColour2 = thumbColour.overlaidWith (Colour (0x19000000));
+    }
+
+    g.setGradientFill (ColourGradient (trackColour1, gx1, gy1,
+                                       trackColour2, gx2, gy2, false));
+    g.fillPath (slotPath);
+
+    if (isScrollbarVertical)
+    {
+        gx1 = x + width * 0.6f;
+        gx2 = (float) x + width;
+    }
+    else
+    {
+        gy1 = y + height * 0.6f;
+        gy2 = (float) y + height;
+    }
+
+    g.setGradientFill (ColourGradient (Colours::transparentBlack,gx1, gy1,
+                       Colour (0x19000000), gx2, gy2, false));
+    g.fillPath (slotPath);
+
+    g.setColour (thumbColour);
+    g.fillPath (thumbPath);
+
+    g.setGradientFill (ColourGradient (Colour (0x10000000), gx1, gy1,
+                       Colours::transparentBlack, gx2, gy2, false));
+
+    g.saveState();
+
+    if (isScrollbarVertical)
+        g.reduceClipRegion (x + width / 2, y, width, height);
+    else
+        g.reduceClipRegion (x, y + height / 2, width, height);
+
+    g.fillPath (thumbPath);
+    g.restoreState();
+
+    g.setColour (Colour (0x4c000000));
+    g.strokePath (thumbPath, PathStrokeType (0.4f));
+}
