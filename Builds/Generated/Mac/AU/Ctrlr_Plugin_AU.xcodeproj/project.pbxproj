@@ -96,6 +96,7 @@
 		1F7B18657A91268FD698663F = {isa = PBXBuildFile; fileRef = 46B1E13AD5E6DC04EFDDB768; };
 		2B408DA50D0B2FDC9193B1F9 = {isa = PBXBuildFile; fileRef = 206F83A240F331CA75DE09A3; };
 		6BEFA2D6A4FE657B71166DD7 = {isa = PBXBuildFile; fileRef = 77F4746DD86B7264880E2181; };
+		FA3BE4B94F76E85A37EF389E = {isa = PBXBuildFile; fileRef = E1F1E545506999DDCDE32825; };
 		DAB4650B45A5AEF3AE417A4F = {isa = PBXBuildFile; fileRef = D2FBAA397A5E810A05A6094F; };
 		4A4F6C95F0B8ADCB92A2193A = {isa = PBXBuildFile; fileRef = C4F376A751BE5175D3F945FB; };
 		7B308963DB68C88C46ACACE4 = {isa = PBXBuildFile; fileRef = 6B554B8EAB76F236DA9B2321; };
@@ -1135,6 +1136,7 @@
 		912D5E76FFEC028D3229CB9D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrDocumentPanel.h; path = ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrDocumentPanel.h; sourceTree = "SOURCE_ROOT"; };
 		9144D021D9A89A1C3A366742 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "adopt_policy.hpp"; path = "../../../../Source/Lua/luabind/luabind/adopt_policy.hpp"; sourceTree = "SOURCE_ROOT"; };
 		914DE7C77BA8943B9517977F = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrEditorApplicationCommandsMenus.cpp; path = ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsMenus.cpp; sourceTree = "SOURCE_ROOT"; };
+		9186297FABE87D6D8C342742 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LMidiKeyboardComponent.h; path = ../../../../Source/Lua/JuceClasses/LMidiKeyboardComponent.h; sourceTree = "SOURCE_ROOT"; };
 		9187DBADF41341EED09ECCDF = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LDrawable.h; path = ../../../../Source/Lua/JuceClasses/LDrawable.h; sourceTree = "SOURCE_ROOT"; };
 		919215BE1A7F6453A514486B = {isa = PBXFileReference; lastKnownFileType = file.rsrc; name = "name_24.rsrc"; path = "../../../../Source/Resources/Misc/name_24.rsrc"; sourceTree = "SOURCE_ROOT"; };
 		91A2667CC68C2DB762EE0400 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LComponentPeer.cpp; path = ../../../../Source/Lua/JuceClasses/LComponentPeer.cpp; sourceTree = "SOURCE_ROOT"; };
@@ -1596,6 +1598,7 @@
 		E174E42DCC420B6477D073FD = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_OggVorbisAudioFormat.h"; path = "../../../../Juce/modules/juce_audio_formats/codecs/juce_OggVorbisAudioFormat.h"; sourceTree = "SOURCE_ROOT"; };
 		E1D672846A94ECB38C1FE69E = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_TargetPlatform.h"; path = "../../../../Juce/modules/juce_core/system/juce_TargetPlatform.h"; sourceTree = "SOURCE_ROOT"; };
 		E1E0FD084FDB8C318E58D016 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAVectorUnitTypes.h; path = Extras/CoreAudio/PublicUtility/CAVectorUnitTypes.h; sourceTree = "DEVELOPER_DIR"; };
+		E1F1E545506999DDCDE32825 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LMidiKeyboardComponent.cpp; path = ../../../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp; sourceTree = "SOURCE_ROOT"; };
 		E2043248E4957097C1556FFD = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "weak_ref.cpp"; path = "../../../../Source/Lua/luabind/src/weak_ref.cpp"; sourceTree = "SOURCE_ROOT"; };
 		E2340C87BDAB755D3CECA7CD = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ChoicePropertyComponent.h"; path = "../../../../Juce/modules/juce_gui_basics/properties/juce_ChoicePropertyComponent.h"; sourceTree = "SOURCE_ROOT"; };
 		E246897EDC11F208971845E5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrButtonPropertyComponent.cpp; path = ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.cpp; sourceTree = "SOURCE_ROOT"; };
@@ -1928,6 +1931,8 @@
 					E6A9482A9C7B71E16FBC539A,
 					77F4746DD86B7264880E2181,
 					C6EC6928D517CD7CC1AF41F5,
+					E1F1E545506999DDCDE32825,
+					9186297FABE87D6D8C342742,
 					D2FBAA397A5E810A05A6094F,
 					14CF659693D4DCBFCBD455C5,
 					C4F376A751BE5175D3F945FB,
@@ -3821,6 +3826,7 @@
 					1F7B18657A91268FD698663F,
 					2B408DA50D0B2FDC9193B1F9,
 					6BEFA2D6A4FE657B71166DD7,
+					FA3BE4B94F76E85A37EF389E,
 					DAB4650B45A5AEF3AE417A4F,
 					4A4F6C95F0B8ADCB92A2193A,
 					7B308963DB68C88C46ACACE4,
@@ -4035,7 +4041,7 @@
 					66D859D88A8EB3B73CA690F6,
 					C6BF64F1A23B4D7498FCF9E3,
 					515EDB07353B359FA7A86ADB, ); runOnlyForDeploymentPostprocessing = 0; };
-		DFE129C24D3A5CF6A041B440 = {isa = PBXShellScriptBuildPhase; buildActionMask = 2147483647; files = (  ); runOnlyForDeploymentPostprocessing = 0; name = "Post-build script"; shellPath = /bin/sh; shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    exit 0\nfi\n\nAU=\"$PROJECT_DIR/../../../../Bin/$FULL_PRODUCT_NAME\"\necho \"[CTRLR]: CONFIGURATION - $CONFIGURATION\"\necho \"[CTRLR]: PRODUCT PATH - $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME\"\necho \"[CTRLR]: UPDATED PRODUCT PATH - $AU\"\n\nif [ -d $AU ]; then\n    echo \"[CTRLR]: $AU ALREADY EXISTS - DELETE\"\n    rm -rf $AU\nfi\n\necho \"[CTRLR]: COPY PRODUCT\"\nif [ \"$CONFIGURATION\" == \"Release_Nightly\" ]; then\n    echo \"[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\"\n    cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\nfi\n\nif [ \"$CONFIGURATION\" == \"Release\" ]; then\n    echo \"[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\"\n    cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\nfi"; };
+		DFE129C24D3A5CF6A041B440 = {isa = PBXShellScriptBuildPhase; buildActionMask = 2147483647; files = (  ); runOnlyForDeploymentPostprocessing = 0; name = "Post-build script"; shellPath = /bin/sh; shellScript = "#if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n#    exit 0\n#fi\n\nAU=\"$PROJECT_DIR/../../../../Bin/$FULL_PRODUCT_NAME\"\necho \"[CTRLR]: CONFIGURATION - $CONFIGURATION\"\necho \"[CTRLR]: PRODUCT PATH - $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME\"\necho \"[CTRLR]: UPDATED PRODUCT PATH - $AU\"\n\nif [ -d $AU ]; then\n    echo \"[CTRLR]: $AU ALREADY EXISTS - DELETE\"\n    rm -rf $AU\nfi\n\necho \"[CTRLR]: COPY PRODUCT\"\necho \"[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\"\ncp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\necho $?"; };
 		BE74FFF7AB9A2D324B065E93 = {isa = PBXNativeTarget; buildConfigurationList = 810FE4EA0C23E5EB35D7895C; buildPhases = (
 					70DB430D0D05D8CE497AAEA8,
 					43550D7337BF38805293C25A,
