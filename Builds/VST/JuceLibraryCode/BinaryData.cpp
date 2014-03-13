@@ -12,9 +12,9 @@ static const unsigned char temp_binary_data_0[] =
 "#ifndef __CTRLR_REVISION__\r\n"
 "#define __CTRLR_REVISION__\r\n"
 "\r\n"
-"static const int ctrlrRevision              \t= $WCREV$;\r\n"
-"static const char *ctrlrRevisionDate        \t= \"$WCDATE$\";\r\n"
-"static const char *ctrlrRevisionBuildDate   \t= \"$WCNOW$\";\r\n"
+"static const char *ctrlrRevision              \t= \"%REVISION%\";\r\n"
+"static const char *ctrlrRevisionDate        \t= \"%REVISION_DATE%\";\r\n"
+"static const char *ctrlrRevisionBuildDate   \t= \"%REVISION_BUILD_DATE%\";\r\n"
 "\r\n"
 "#endif\r\n";
 
@@ -18300,6 +18300,18 @@ static const unsigned char temp_binary_data_60[] =
 "end\r\n"
 "  </utility>\r\n"
 "\r\n"
+"  <utility name=\"transSYXRcvReq\" description=\"Request method for receiving a SYX file\" uuid=\"00000000000000000000000000000005\">\r\n"
+"function transSYXRcvReq(transaction)\r\n"
+"\tconsole(\"transSYXRcvReq\")\r\n"
+"end\r\n"
+"  </utility>\r\n"
+"\r\n"
+"  <utility name=\"transSYXRcvProc\" description=\"Process data for when receiving a SYX file\" uuid=\"00000000000000000000000000000006\">\r\n"
+"function transSYXRcvProc(transaction)\r\n"
+"\tconsole(\"transSYXRcvProc\")\r\n"
+"end\r\n"
+"  </utility>\r\n"
+"\r\n"
 "  </utilityMethods>\r\n"
 "</methods>\r\n";
 
@@ -18341,7 +18353,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
     switch (hash)
     {
-        case 0xcb59a7d7:  numBytes = 244; return CtrlrRevision_template;
+        case 0xcb59a7d7:  numBytes = 272; return CtrlrRevision_template;
         case 0x5962379e:  numBytes = 3798; return ico_transaction_png;
         case 0xd22aef7d:  numBytes = 377150; return ctrlr_black_ico;
         case 0x64c45a0b:  numBytes = 3869; return ico_box_png;
@@ -18401,7 +18413,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0xa5970535:  numBytes = 1963; return CtrlrMIDITransactions_xml;
         case 0x37e081fb:  numBytes = 15061; return CtrlrMIDIVendors_xml;
         case 0xa32a74e9:  numBytes = 75767; return CtrlrIDs_xml;
-        case 0x75a28bbf:  numBytes = 15197; return CtrlrLuaMethodTemplates_xml;
+        case 0x75a28bbf:  numBytes = 15635; return CtrlrLuaMethodTemplates_xml;
         case 0xcfea1483:  numBytes = 662; return CtrlrMidiMultiTemplate_xml;
         default: break;
     }
@@ -18409,8 +18421,6 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
     numBytes = 0;
     return 0;
 }
-
-const int namedResourceListSize = 62;
 
 const char* namedResourceList[] =
 {

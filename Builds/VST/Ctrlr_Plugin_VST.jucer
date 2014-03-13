@@ -10,12 +10,13 @@
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
               jucerVersion="3.1.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
               aaxIdentifier="com.yourcompany.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
-              includeBinaryInAppConfig="1">
+              includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
+              pluginManufacturerEmail="support@yourcompany.com">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="../Generated/Mac/VST" vstFolder="../../VST" rtasFolder="~/SDKs/PT_80_SDK"
                objCExtraSuffix="CTRLRUNIQVST" extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
                bigIcon="fjU831" smallIcon="IDFLdV" postbuildCommand="VST=&quot;$PROJECT_DIR/../../../../Bin/$PRODUCT_NAME.vst&quot;&#10;echo &quot;[CTRLR]: CONFIGURATION - $CONFIGURATION&quot;&#10;echo &quot;[CTRLR]: PRODUCT PATH - $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME&quot;&#10;echo &quot;[CTRLR]: UPDATED PRODUCT PATH - $VST&quot;&#10;&#10;sed -i &quot;&quot; -e 's/TDMwPTul/BNDLPTul/g' &quot;$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/PkgInfo&quot;&#10;sed -i &quot;&quot; -e 's/TDMw/BNDL/g' &quot;$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/$INFOPLIST_FILE&quot;&#10;&#10;if [ &quot;$CONFIGURATION&quot; == &quot;Debug&quot; ]; then&#10;    echo &quot;[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME ~/Library/Audio/Plug-Ins/VST/&quot;&#10;    sed -i &quot;&quot; -e 's/TDMwPTul/BNDLPTul/g' &quot;$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/PkgInfo&quot;&#10;    sed -i &quot;&quot; -e 's/TDMw/BNDL/g' &quot;$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/$INFOPLIST_FILE&quot;&#10;    cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME ~/Library/Audio/Plug-Ins/VST/$PRODUCT_NAME.vst&#10;    exit 0&#10;fi&#10;&#10;if [ -d $VST ]; then&#10;    echo &quot;[CTRLR]: $VST ALREADY EXISTS - DELETE&quot;&#10;    rm -rf $VST&#10;fi&#10;&#10;echo &quot;[CTRLR]: COPY PRODUCT&quot;&#10;&#10;if [ &quot;$CONFIGURATION&quot; == &quot;Release_Nightly&quot; ]; then&#10;    echo &quot;[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $VST&quot;&#10;    cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $VST&#10;fi&#10;&#10;if [ &quot;$CONFIGURATION&quot; == &quot;Release&quot; ]; then&#10;    echo &quot;[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $VST&quot;&#10;    cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $VST&#10;fi"
-               extraDefs="__MACOSX_CORE__=1" prebuildCommand="if [ &quot;$CONFIGURATION&quot; == &quot;Debug&quot; ]; then&#10;    exit 0&#10;fi&#10;&#10;REVISION_H=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.h&#10;REVISION_TEMP=$TEMP_DIR/CtrlrRevision.template&#10;REVISION_T=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.template&#10;REVISION=&#96;/usr/bin/svn info | grep Revision | awk '{print $2}'&#96;&#10;REVISION_BUILD_T=&#96;/usr/bin/svn info | grep &quot;Last Changed Date&quot; | awk '{print $4&quot; &quot;$5}'&#96;&#10;&#10;rm -f $REVISION_TEMP&#10;cp $REVISION_T $REVISION_TEMP&#10;&#10;sed -i &quot;&quot; -e 's/__IDE_VERSION__/'$XCODE_VERSION_ACTUAL'/g' $REVISION_TEMP&#10;sed -i &quot;&quot; -e 's/__OS_VERSION__/'$MAC_OS_X_VERSION_ACTUAL'/g' $REVISION_TEMP&#10;sed -i &quot;&quot; -e 's/__SDK_COMPAT__/'$MACOSX_DEPLOYMENT_TARGET'/g' $REVISION_TEMP&#10;sed -i &quot;&quot; -e 's/__SDK_BASE__/'$SDK_NAME'/g' $REVISION_TEMP&#10;sed -i &quot;&quot; -e 's/\$WCREV\$/'$REVISION'/g' $REVISION_TEMP&#10;sed -i &quot;&quot; -e &quot;s/\\\$WCNOW\\\$/$REVISION_BUILD_T/g&quot; $REVISION_TEMP&#10;&#10;cat $REVISION_TEMP &gt; $REVISION_H"
+               extraDefs="__MACOSX_CORE__=1" prebuildCommand="if [ &quot;$CONFIGURATION&quot; == &quot;Debug&quot; ]; then&#10;    exit 0&#10;fi&#10;&#10;REVISION_H=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.h&#10;REVISION_TEMP=$TEMP_DIR/CtrlrRevision.template&#10;REVISION_T=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.template&#10;REVISION=&#96;git log -1 | grep commit | awk '{print $2}'&#96;&#10;REVISION_DATE=&#96;git log -1 | grep Date | awk -F&quot;Date:   &quot;  '{print $2}'&#96;&#10;REVISION_BUILD_DATE=&#96;date&#96;&#10;&#10;rm -f $REVISION_TEMP&#10;cp $REVISION_T $REVISION_TEMP&#10;&#10;sed -i &quot;&quot; -e 's/%REVISION%/'$REVISION'/g' $REVISION_TEMP&#10;sed -i &quot;&quot; -e &quot;s/%REVISION_DATE%/$REVISION_DATE/g&quot; $REVISION_TEMP&#10;sed -i &quot;&quot; -e &quot;s/%REVISION_BUILD_DATE%/$REVISION_BUILD_DATE/g&quot; $REVISION_TEMP&#10;&#10;cat $REVISION_TEMP &gt; $REVISION_H"
                userNotes="cp -r &quot;$original&quot; &quot;$VST&quot;&#10;sed -i &quot;&quot; -e 's/TDMwPTul/BNDLPTul/g' &quot;$VST/Contents/PkgInfo&quot;&#10;sed -i &quot;&quot; -e 's/TDMw/BNDL/g' &quot;$VST/Contents/$INFOPLIST_FILE&quot;">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
@@ -31,7 +32,7 @@
                        customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        userNotes="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
-                       osxSDK="10.7 SDK" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
+                       osxSDK="default" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST&#10;LUA_USE_LINUX"
                        binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua/lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Lua&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Lua&#10;../../../../Source/Application"
                        customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
@@ -382,6 +383,12 @@
     </GROUP>
     <GROUP id="{517FC7AC-6281-2CF2-641B-6E8F1713A044}" name="Lua">
       <GROUP id="{BAA2A20C-5102-AADE-1341-737006AFA17A}" name="JuceClasses">
+        <FILE id="yEXN5e" name="LThread.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LThread.cpp"/>
+        <FILE id="ZTvbkz" name="LThread.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LThread.h"/>
+        <FILE id="S7SRdI" name="LThreadWithProgressWindow.cpp" compile="1"
+              resource="0" file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.cpp"/>
+        <FILE id="bxAmpX" name="LThreadWithProgressWindow.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.h"/>
         <FILE id="vJk33h" name="LAudioThumbnail.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAudioThumbnail.cpp"/>
         <FILE id="vVXJIG" name="LAudioThumbnail.h" compile="0" resource="0"

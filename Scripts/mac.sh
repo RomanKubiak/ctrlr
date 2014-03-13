@@ -1,5 +1,5 @@
 #!/bin/bash
-REVISION=`svn info | grep Revision | awk '{print $2}'`
+REVISION=`git log -1 | grep commit | awk '{print $2}'`
 FILELIST="../Bin/Ctrlr.app ../Bin/Ctrlr.vst ../Bin/Ctrlr.component ../Panels ../Doc"
 TDMG_SRC="installers/Ctrlr_template.dmg"
 TDMG_MOUNT="/Volumes/Ctrlr"

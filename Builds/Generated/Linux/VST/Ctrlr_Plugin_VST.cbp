@@ -17,7 +17,6 @@
         <Compiler>
           <Add option="-O0"/>
           <Add option="-std=gnu++0x"/>
-          <Add option="-march=pentium4"/>
           <Add option="-mstackrealign"/>
           <Add option="-g"/>
           <Add option="-w"/>
@@ -35,6 +34,8 @@
           <Add option="-D_LINUX=1"/>
           <Add option="-DLUA_USE_LINUX="/>
           <Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1"/>
+          <Add option="-DJUCE_APP_VERSION=5.1.2"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=0x50102"/>
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -76,7 +77,6 @@
         <Compiler>
           <Add option="-Os"/>
           <Add option="-std=gnu++0x"/>
-          <Add option="-march=pentium4"/>
           <Add option="-mstackrealign"/>
           <Add option="-w"/>
           <Add option="-fpermissive"/>
@@ -91,6 +91,8 @@
           <Add option="-D_LINUX=1"/>
           <Add option="-DLUA_USE_LINUX="/>
           <Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1"/>
+          <Add option="-DJUCE_APP_VERSION=5.1.2"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=0x50102"/>
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -133,7 +135,6 @@
         <Compiler>
           <Add option="-Os"/>
           <Add option="-std=gnu++0x"/>
-          <Add option="-march=pentium4"/>
           <Add option="-mstackrealign"/>
           <Add option="-w"/>
           <Add option="-fpermissive"/>
@@ -148,6 +149,8 @@
           <Add option="-D_LINUX=1"/>
           <Add option="-DLUA_USE_LINUX="/>
           <Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1"/>
+          <Add option="-DJUCE_APP_VERSION=5.1.2"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=0x50102"/>
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -596,6 +599,16 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Source/Resources/XML/CtrlrMidiMultiTemplate.xml">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LThread.cpp"/>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LThread.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LThreadWithProgressWindow.cpp"/>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LThreadWithProgressWindow.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -3240,6 +3253,10 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/native/juce_BasicNativeHeaders.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_core/native/juce_linux_CommonFile.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

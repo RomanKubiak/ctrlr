@@ -196,7 +196,7 @@ namespace BinaryData
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
 
     extern const char*   CtrlrRevision_template;
-    const int            CtrlrRevision_templateSize = 244;
+    const int            CtrlrRevision_templateSize = 272;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
