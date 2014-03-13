@@ -1,8 +1,7 @@
-#ifndef __CTRLR_REVISION__
-#define __CTRLR_REVISION__
-
-static const char *ctrlrRevision              	= "be1672cef27f1dc145ad8ea5e5ccf1da7e8cb2e7";
-static const char *ctrlrRevisionDate        	= "Thu Mar 13 21:03:11 2014 +0100";
-static const char *ctrlrRevisionBuildDate   	= "Thu Mar 13 22:01:34 CET 2014";
-
-#endif
+#ifndef __CTRLR_REVISION__ 
+#define __CTRLR_REVISION__ 
+/* Generated */ 
+static const char *ctrlrRevision              	= "9a0db550f09788578bd0f9c6562b5ea3f603e9bd"; 
+static const char *ctrlrRevisionBuildDate   	= "Thu 03/13/2014"; 
+/* Generated */ 
+#endif 
