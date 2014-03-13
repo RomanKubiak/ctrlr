@@ -51,6 +51,8 @@ class CtrlrLookAndFeel : public LookAndFeel_V3
 		void drawStretchableLayoutResizerBar (Graphics &, int w, int h, bool isVerticalBar, bool isMouseOver, bool isMouseDragging);
 		const var getPanelProperty(const Identifier &identifier, const var defaultValue);
 		void setUsingNativeAlerts(const bool useNativeDialogs);
+		bool areScrollbarButtonsVisible()        { return true; }
+		void drawScrollbar (Graphics& g, ScrollBar& scrollbar, int x, int y, int width, int height, bool isScrollbarVertical, int thumbStartPosition, int thumbSize, bool isMouseOver, bool isMouseDown);
 	private:
 		bool mark;
 		WeakReference <CtrlrPanelEditor> editor;
