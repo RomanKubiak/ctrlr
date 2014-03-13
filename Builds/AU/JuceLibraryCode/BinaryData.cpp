@@ -12,9 +12,9 @@ static const unsigned char temp_binary_data_0[] =
 "#ifndef __CTRLR_REVISION__\r\n"
 "#define __CTRLR_REVISION__\r\n"
 "\r\n"
-"static const int ctrlrRevision              \t= $WCREV$;\r\n"
-"static const char *ctrlrRevisionDate        \t= \"$WCDATE$\";\r\n"
-"static const char *ctrlrRevisionBuildDate   \t= \"$WCNOW$\";\r\n"
+"static const char *ctrlrRevision              \t= \"%REVISION%\";\r\n"
+"static const char *ctrlrRevisionDate        \t= \"%REVISION_DATE%\";\r\n"
+"static const char *ctrlrRevisionBuildDate   \t= \"%REVISION_BUILD_DATE%\";\r\n"
 "\r\n"
 "#endif\r\n";
 
@@ -18353,7 +18353,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
     switch (hash)
     {
-        case 0xcb59a7d7:  numBytes = 244; return CtrlrRevision_template;
+        case 0xcb59a7d7:  numBytes = 272; return CtrlrRevision_template;
         case 0x5962379e:  numBytes = 3798; return ico_transaction_png;
         case 0xd22aef7d:  numBytes = 377150; return ctrlr_black_ico;
         case 0x64c45a0b:  numBytes = 3869; return ico_box_png;

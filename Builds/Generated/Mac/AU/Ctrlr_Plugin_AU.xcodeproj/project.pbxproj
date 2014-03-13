@@ -3686,7 +3686,6 @@
 				OTHER_CPLUSPLUSFLAGS = "-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder";
 				OTHER_LDFLAGS = "-bundle -L$PROJECT_DIR -L/usr/lib -L/usr/local/lib -lau_wrapper";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
-				SDKROOT = macosx10.7;
 				SDKROOT_ppc = macosx10.5;
 				WRAPPER_EXTENSION = component; }; name = "Release_Nightly"; };
 		179736FE7059AE24D32C4782 = {isa = XCBuildConfiguration; buildSettings = {
@@ -3742,7 +3741,7 @@
 					B158C28C7DCC8541EDCC2166,
 					29B1AF4C6C0E90C4531A2329,
 					82CFE9DE970F5E2E4FF121D1, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
-		70DB430D0D05D8CE497AAEA8 = {isa = PBXShellScriptBuildPhase; buildActionMask = 2147483647; files = (  ); runOnlyForDeploymentPostprocessing = 0; name = "Pre-build script"; shellPath = /bin/sh; shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    exit 0\nfi\n\nREVISION_H=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.h\nREVISION_TEMP=$TEMP_DIR/CtrlrRevision.template\nREVISION_T=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.template\nREVISION=`/usr/bin/svn info | grep Revision | awk '{print $2}'`\nREVISION_BUILD_T=`/usr/bin/svn info | grep \"Last Changed Date\" | awk '{print $4\" \"$5}'`\n\nrm -f $REVISION_TEMP\ncp $REVISION_T $REVISION_TEMP\n\nsed -i \"\" -e 's/__IDE_VERSION__/'$XCODE_VERSION_ACTUAL'/g' $REVISION_TEMP\nsed -i \"\" -e 's/__OS_VERSION__/'$MAC_OS_X_VERSION_ACTUAL'/g' $REVISION_TEMP\nsed -i \"\" -e 's/__SDK_COMPAT__/'$MACOSX_DEPLOYMENT_TARGET'/g' $REVISION_TEMP\nsed -i \"\" -e 's/__SDK_BASE__/'$SDK_NAME'/g' $REVISION_TEMP\nsed -i \"\" -e 's/\\$WCREV\\$/'$REVISION'/g' $REVISION_TEMP\nsed -i \"\" -e \"s/\\\\\\$WCNOW\\\\\\$/$REVISION_BUILD_T/g\" $REVISION_TEMP\n\ncat $REVISION_TEMP > $REVISION_H"; };
+		70DB430D0D05D8CE497AAEA8 = {isa = PBXShellScriptBuildPhase; buildActionMask = 2147483647; files = (  ); runOnlyForDeploymentPostprocessing = 0; name = "Pre-build script"; shellPath = /bin/sh; shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    exit 0\nfi\n\nREVISION_H=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.h\nREVISION_TEMP=$TEMP_DIR/CtrlrRevision.template\nREVISION_T=$PROJECT_DIR/../../../../Source/Core/CtrlrRevision.template\nREVISION=`git log -1 | grep commit | awk '{print $2}'`\nREVISION_DATE=`git log -1 | grep Date | awk -F\"Date:   \"  '{print $2}'`\nREVISION_BUILD_DATE=`date`\n\nrm -f $REVISION_TEMP\ncp $REVISION_T $REVISION_TEMP\n\nsed -i \"\" -e 's/%REVISION%/'$REVISION'/g' $REVISION_TEMP\nsed -i \"\" -e \"s/%REVISION_DATE%/$REVISION_DATE/g\" $REVISION_TEMP\nsed -i \"\" -e \"s/%REVISION_BUILD_DATE%/$REVISION_BUILD_DATE/g\" $REVISION_TEMP\n\ncat $REVISION_TEMP > $REVISION_H"; };
 		43550D7337BF38805293C25A = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (
 					3FB0AF683376A1F74BF75717, ); runOnlyForDeploymentPostprocessing = 0; };
 		C975AC67861361125F6C1BDB = {isa = PBXRezBuildPhase; buildActionMask = 2147483647; files = (

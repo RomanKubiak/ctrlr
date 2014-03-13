@@ -1,8 +1,8 @@
 #ifndef __CTRLR_REVISION__
 #define __CTRLR_REVISION__
 
-static const int ctrlrRevision              	= $WCREV$;
-static const char *ctrlrRevisionDate        	= "$WCDATE$";
-static const char *ctrlrRevisionBuildDate   	= "$WCNOW$";
+static const char *ctrlrRevision              	= "%REVISION%";
+static const char *ctrlrRevisionDate        	= "%REVISION_DATE%";
+static const char *ctrlrRevisionBuildDate   	= "%REVISION_BUILD_DATE%";
 
 #endif
