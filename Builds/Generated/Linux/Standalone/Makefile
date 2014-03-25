@@ -203,6 +203,8 @@ OBJECTS := \
   $(OBJDIR)/CtrlrMidiMessage_58a157ae.o \
   $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
   $(OBJDIR)/MidiMessageEx_abfc64b4.o \
+  $(OBJDIR)/libr-bfd_f5e18fb4.o \
+  $(OBJDIR)/libr_e9fa1d21.o \
   $(OBJDIR)/CtrlrLinux_891d1366.o \
   $(OBJDIR)/CtrlrMac_55cf0d81.o \
   $(OBJDIR)/CtrlrNative_d4f61d2f.o \
@@ -989,6 +991,16 @@ $(OBJDIR)/MidiMessageEx_abfc64b4.o: ../../../../Source/MIDI/MidiMessageEx.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling MidiMessageEx.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/libr-bfd_f5e18fb4.o: ../../../../Source/Native/Linux/libr-bfd.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling libr-bfd.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/libr_e9fa1d21.o: ../../../../Source/Native/Linux/libr.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling libr.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLinux_891d1366.o: ../../../../Source/Native/CtrlrLinux.cpp
 	-@mkdir -p $(OBJDIR)

@@ -46,6 +46,8 @@ Result CtrlrManager::initEmbeddedInstance()
 
 		if (ctrlrNativeObject->getDefaultPanel (defaultPanelData))
 		{
+			_DBG("CtrlrManager::initEmbeddedInstance got default panel data size ["+STR((int32)defaultPanelData.getSize())+"]");
+
 			ctrlrPlayerInstanceTree = ValueTree::readFromGZIPData (defaultPanelData.getData(), defaultPanelData.getSize());
 
 			if (ctrlrPlayerInstanceTree.isValid())

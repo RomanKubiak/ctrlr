@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REVISION=`svn info | grep Revision | awk '{print $2}'`
+REVISION=`git log -1 | grep commit | awk '{print $2}' | tail -c 8`
 ARCH=`uname -m`
 PACKAGE="installers/Ctrlr_"$REVISION".sh"
 

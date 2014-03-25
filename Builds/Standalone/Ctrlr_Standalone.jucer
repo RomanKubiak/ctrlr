@@ -115,10 +115,9 @@
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries="dl&#10;rt&#10;Xinerama&#10;X11&#10;freetype&#10;pthread&#10;asound&#10;jack"
+    <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries="dl&#10;rt&#10;Xinerama&#10;X11&#10;freetype&#10;pthread&#10;asound&#10;z&#10;bfd"
                 extraLinkerFlags="" extraCompilerFlags="-w -fpermissive" smallIcon="xQ5dKQ"
-                bigIcon="ugOMDZ" extraDefs="LINUX=1&#10;_LINUX=1&#10;LUA_USE_LINUX"
-                userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
+                bigIcon="ugOMDZ" extraDefs="LINUX=1&#10;_LINUX=1" userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2"
@@ -130,7 +129,7 @@
                        binaryPath="../../../../Bin"/>
         <CONFIGURATION name="Release_Nightly" headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
                        targetName="Ctrlr" binaryPath="../../../../Bin" optimisation="2"
-                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;LINUX=1&#10;_LINUX=1"/>
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
@@ -801,6 +800,11 @@
             file="../../Source/Misc/juce_PluginHostType.h"/>
     </GROUP>
     <GROUP id="{138F8618-FDC8-A9D5-F382-2B2638854CB2}" name="Native">
+      <GROUP id="{275586DE-1F37-F513-3CED-DB238019C97B}" name="Linux">
+        <FILE id="PxzrK9" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Native/Linux/libr-bfd.c"/>
+        <FILE id="NE7eF8" name="libr.c" compile="1" resource="0" file="../../Source/Native/Linux/libr.c"/>
+        <FILE id="oZeqQB" name="libr.h" compile="0" resource="0" file="../../Source/Native/Linux/libr.h"/>
+      </GROUP>
       <FILE id="mLj3rx" name="CtrlrGeneric.h" compile="0" resource="0" file="../../Source/Native/CtrlrGeneric.h"/>
       <FILE id="VLQQbv" name="CtrlrLinux.cpp" compile="1" resource="0" file="../../Source/Native/CtrlrLinux.cpp"/>
       <FILE id="Jjl7jm" name="CtrlrLinux.h" compile="0" resource="0" file="../../Source/Native/CtrlrLinux.h"/>

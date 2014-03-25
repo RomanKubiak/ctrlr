@@ -111,7 +111,7 @@ typedef lu_int32 Instruction;
 
 
 #ifndef lua_lock
-#define lua_lock(L)     ((void) 0) 
+#define lua_lock(L)     ((void) 0)
 #define lua_unlock(L)   ((void) 0)
 #endif
 
@@ -122,7 +122,7 @@ typedef lu_int32 Instruction;
 
 /*
 ** macro to control inclusion of some hard tests on stack reallocation
-*/ 
+*/
 #ifndef HARDSTACKTESTS
 #define condhardstacktests(x)	((void)0)
 #else
@@ -469,7 +469,7 @@ TKey i_key;
 
 typedef struct Table {
 CommonHeader;
-lu_byte flags;  /* 1<<p means tagmethod(p) is not present */ 
+lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
 lu_byte lsizenode;  /* log2 of size of `node' array */
 struct Table *metatable;
 TValue *array;  /* array part */
@@ -542,7 +542,7 @@ LUAI_FUNC void luaA_pushobject (lua_State *L, const TValue *o);
 
 #define pcRel(pc, p)	(cast(int, (pc) - (p)->code) - 1)
 
-#define getline(f,pc)	(((f)->lineinfo) ? (f)->lineinfo[pc] : 0)
+#define lua_getline(f,pc)	(((f)->lineinfo) ? (f)->lineinfo[pc] : 0)
 
 #define resethookcount(L)	(L->hookcount = L->basehookcount)
 
@@ -1439,7 +1439,7 @@ TKey i_key;
 
 typedef struct Table {
 CommonHeader;
-lu_byte flags;  /* 1<<p means tagmethod(p) is not present */ 
+lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
 lu_byte lsizenode;  /* log2 of size of `node' array */
 struct Table *metatable;
 TValue *array;  /* array part */
@@ -2060,7 +2060,7 @@ o = index2adr(L, idx);
 api_checkvalidindex(L, o);
 if (idx == LUA_ENVIRONINDEX) {
 Closure *func = curr_func(L);
-api_check(L, ttistable(L->top - 1)); 
+api_check(L, ttistable(L->top - 1));
 func->c.env = hvalue(L->top - 1);
 luaC_barrier(L, func, L->top - 1);
 }
@@ -2620,7 +2620,7 @@ return res;
 
 #define checkresults(L,na,nr) \
 api_check(L, (nr) == LUA_MULTRET || (L->ci->top - L->top >= (nr) - (na)))
-	
+
 
 LUA_API void lua_call (lua_State *L, int nargs, int nresults) {
 StkId func;
@@ -3203,8 +3203,8 @@ OP_EQ,/*	A B C	if ((RK(B) == RK(C)) ~= A) then pc++		*/
 OP_LT,/*	A B C	if ((RK(B) <  RK(C)) ~= A) then pc++  		*/
 OP_LE,/*	A B C	if ((RK(B) <= RK(C)) ~= A) then pc++  		*/
 
-OP_TEST,/*	A C	if not (R(A) <=> C) then pc++			*/ 
-OP_TESTSET,/*	A B C	if (R(B) <=> C) then R(A) := R(B) else pc++	*/ 
+OP_TEST,/*	A C	if not (R(A) <=> C) then pc++			*/
+OP_TESTSET,/*	A B C	if (R(B) <=> C) then R(A) := R(B) else pc++	*/
 
 OP_CALL,/*	A B C	R(A), ... ,R(A+C-2) := R(A)(R(A+1), ... ,R(A+B-1)) */
 OP_TAILCALL,/*	A B C	return R(A)(R(A+1), ... ,R(A+B-1))		*/
@@ -3214,8 +3214,8 @@ OP_FORLOOP,/*	A sBx	R(A)+=R(A+2);
 			if R(A) <?= R(A+1) then { pc+=sBx; R(A+3)=R(A) }*/
 OP_FORPREP,/*	A sBx	R(A)-=R(A+2); pc+=sBx				*/
 
-OP_TFORLOOP,/*	A C	R(A+3), ... ,R(A+2+C) := R(A)(R(A+1), R(A+2)); 
-if R(A+3) ~= nil then R(A+2)=R(A+3) else pc++	*/ 
+OP_TFORLOOP,/*	A C	R(A+3), ... ,R(A+2+C) := R(A)(R(A+1), R(A+2));
+if R(A+3) ~= nil then R(A+2)=R(A+3) else pc++	*/
 OP_SETLIST,/*	A B C	R(A)[(C-1)*FPF+i] := R(A+i), 1 <= i <= B	*/
 
 OP_CLOSE,/*	A 	close all variables in the stack up to (>=) R(A)*/
@@ -3257,7 +3257,7 @@ if (C == 0) then next `instruction' is real C
 ** bits 4-5: B arg mode
 ** bit 6: instruction set register A
 ** bit 7: operator is a test
-*/  
+*/
 
 enum OpArgMask {
 OpArgN,  /* argument is not used */
@@ -3658,7 +3658,7 @@ LUALIB_API int (luaopen_package) (lua_State *L);
 
 
 /* open all previous libraries */
-LUALIB_API void (luaL_openlibs) (lua_State *L); 
+LUALIB_API void (luaL_openlibs) (lua_State *L);
 
 
 
@@ -4555,7 +4555,7 @@ int pc = currentpc(L, ci);
 if (pc < 0)
 return -1;  /* only active lua functions have current-line information */
 else
-return getline(ci_func(ci)->l.p, pc);
+return lua_getline(ci_func(ci)->l.p, pc);
 }
 
 
@@ -4693,7 +4693,7 @@ int *lineinfo = f->l.p->lineinfo;
 int i;
 for (i=0; i<f->l.p->sizelineinfo; i++)
 setbvalue(luaH_setnum(L, t, lineinfo[i]), 1);
-sethvalue(L, L->top, t); 
+sethvalue(L, L->top, t);
 }
 incr_top(L);
 }
@@ -5512,7 +5512,7 @@ return (wanted - LUA_MULTRET);  /* 0 iff wanted == LUA_MULTRET */
 ** The arguments are on the stack, right after the function.
 ** When returns, all the results are on the stack, starting at the original
 ** function position.
-*/ 
+*/
 void luaD_call (lua_State *L, StkId func, int nResults) {
 if (++L->nCcalls >= LUAI_MAXCCALLS) {
 if (L->nCcalls == LUAI_MAXCCALLS)
@@ -6313,7 +6313,7 @@ g->gray = p->gclist;
 traverseproto(g, p);
 return sizeof(Proto) + sizeof(Instruction) * p->sizecode +
 sizeof(Proto *) * p->sizep +
-sizeof(TValue) * p->sizek + 
+sizeof(TValue) * p->sizek +
 sizeof(int) * p->sizelineinfo +
 sizeof(LocVar) * p->sizelocvars +
 sizeof(TString *) * p->sizeupvalues;
@@ -6700,7 +6700,7 @@ global_State *g = G(L);
 GCObject *o = obj2gco(uv);
 o->gch.next = g->rootgc;  /* link upvalue into `rootgc' list */
 g->rootgc = o;
-if (isgray(o)) { 
+if (isgray(o)) {
 if (g->gcstate == GCSpropagate) {
 gray2black(o);  /* closed upvalues need barrier */
 luaC_barrier(L, uv, uv->v);
@@ -9543,7 +9543,7 @@ Node *nold = t->node;  /* save old hash ... */
 if (nasize > oldasize)  /* array part must grow? */
 setarrayvector(L, t, nasize);
 /* create new hash part with appropriate size */
-setnodevector(L, t, nhsize);  
+setnodevector(L, t, nhsize);
 if (nasize < oldasize) {  /* array part must shrink? */
 t->sizearray = nasize;
 /* re-insert elements from vanishing slice */
@@ -9631,11 +9631,11 @@ return NULL;  /* could not find a free place */
 
 
 /*
-** inserts a new key into a hash table; first, check whether key's main 
-** position is free. If not, check whether colliding node is in its main 
-** position or not: if it is not, move colliding node to an empty place and 
-** put new key in its main position; otherwise (colliding node is in its main 
-** position), new key goes to an empty position. 
+** inserts a new key into a hash table; first, check whether key's main
+** position is free. If not, check whether colliding node is in its main
+** position or not: if it is not, move colliding node to an empty place and
+** put new key in its main position; otherwise (colliding node is in its main
+** position), new key goes to an empty position.
 */
 static TValue *newkey (lua_State *L, Table *t, const TValue *key) {
 Node *mp = mainposition(t, key);
@@ -13401,7 +13401,7 @@ lua_pushcfunction(L, gctm);
 lua_setfield(L, -2, "__gc");
 /* create `package' table */
 luaL_register(L, LUA_LOADLIBNAME, pk_funcs);
-#if defined(LUA_COMPAT_LOADLIB) 
+#if defined(LUA_COMPAT_LOADLIB)
 lua_getfield(L, -1, "loadlib");
 lua_setfield(L, LUA_GLOBALSINDEX, "loadlib");
 #endif
@@ -14314,7 +14314,7 @@ lua_pop(L, 1);
 lua_pushlstring(L, s, e - s);  /* keep original text */
 }
 else if (!lua_isstring(L, -1))
-luaL_error(L, "invalid replacement value (a %s)", luaL_typename(L, -1)); 
+luaL_error(L, "invalid replacement value (a %s)", luaL_typename(L, -1));
 luaL_addvalue(b);  /* add result to accumulator */
 }
 
@@ -14902,10 +14902,10 @@ luaD_callhook(L, LUA_HOOKCOUNT, -1);
 if (mask & LUA_MASKLINE) {
 Proto *p = ci_func(L->ci)->l.p;
 int npc = pcRel(pc, p);
-int newline = getline(p, npc);
+int newline = lua_getline(p, npc);
 /* call linehook when enter a new function, when jump back (loop),
 or when enter a new line */
-if (npc == 0 || pc <= oldpc || newline != getline(p, pcRel(oldpc, p)))
+if (npc == 0 || pc <= oldpc || newline != lua_getline(p, pcRel(oldpc, p)))
 luaD_callhook(L, LUA_HOOKLINE, newline);
 }
 }
@@ -14959,7 +14959,7 @@ if (ttisfunction(tm)) {
 callTMres(L, val, tm, t, key);
 return;
 }
-t = tm;  /* else repeat with `tm' */ 
+t = tm;  /* else repeat with `tm' */
 }
 luaG_runerror(L, "loop in gettable");
 }
@@ -14986,7 +14986,7 @@ if (ttisfunction(tm)) {
 callTM(L, tm, t, key, val);
 return;
 }
-t = tm;  /* else repeat with `tm' */ 
+t = tm;  /* else repeat with `tm' */
 }
 luaG_runerror(L, "loop in settable");
 }
