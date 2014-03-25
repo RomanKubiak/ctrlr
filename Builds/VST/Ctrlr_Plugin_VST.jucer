@@ -124,21 +124,22 @@
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <CODEBLOCKS targetFolder="../Generated/Linux/VST/" vstFolder="/home/atom/devel/vstsdk2.4"
-                extraLinkerFlags="" externalLibraries="dl&#10;rt&#10;Xinerama&#10;X11&#10;freetype&#10;pthread&#10;asound&#10;jack"
-                extraDefs="LINUX=1&#10;_LINUX=1&#10;LUA_USE_LINUX" extraCompilerFlags="-w -fpermissive -fPIC">
+    <CODEBLOCKS targetFolder="../Generated/Linux/VST/" vstFolder="/home/atom/devel/ctrlr/VST"
+                extraLinkerFlags="" externalLibraries="dl&#10;rt&#10;Xinerama&#10;X11&#10;freetype&#10;pthread&#10;asound&#10;z&#10;bfd"
+                extraDefs="LINUX=1&#10;_LINUX=1" extraCompilerFlags="-w -fpermissive -fPIC -I/home/atom/devel/ctrlr/VST"
+                userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-VST"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2&#10;/home/atom/devel/vstsdk2.4"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1&#10;DEBUG=1&#10;_DEBUG=1&#10;JUCE_DEBUG=1"
                        binaryPath="../../../../Bin"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2&#10;/home/atom/devel/vstsdk2.4"
-                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1&#10;LINUX=1&#10;_LINUX=1"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_VST=1"
                        binaryPath="../../../../Bin"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
-                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1&#10;LINUX=1&#10;_LINUX=1"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2&#10;/home/atom/devel/vstsdk2.4"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2&#10;"
                        binaryPath="../../../../Bin"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -809,6 +810,11 @@
             file="../../Source/Misc/juce_PluginHostType.h"/>
     </GROUP>
     <GROUP id="{995C6819-A727-73F2-56A2-0FB72F896193}" name="Native">
+      <GROUP id="{B20CB0E0-C360-2292-B6BA-60F5F1CC7DB6}" name="Linux">
+        <FILE id="bUevkn" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Native/Linux/libr-bfd.c"/>
+        <FILE id="LPaA5B" name="libr.c" compile="1" resource="0" file="../../Source/Native/Linux/libr.c"/>
+        <FILE id="Mg5dTr" name="libr.h" compile="0" resource="0" file="../../Source/Native/Linux/libr.h"/>
+      </GROUP>
       <FILE id="iREL8I" name="CtrlrGeneric.h" compile="0" resource="0" file="../../Source/Native/CtrlrGeneric.h"/>
       <FILE id="OLKq3b" name="CtrlrLinux.cpp" compile="1" resource="0" file="../../Source/Native/CtrlrLinux.cpp"/>
       <FILE id="C4DxXw" name="CtrlrLinux.h" compile="0" resource="0" file="../../Source/Native/CtrlrLinux.h"/>
