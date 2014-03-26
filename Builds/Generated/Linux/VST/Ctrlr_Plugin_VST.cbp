@@ -11,6 +11,8 @@
 				<Option object_output="obj/Debug" />
 				<Option type="3" />
 				<Option compiler="gcc" />
+				<Option host_application="/home/r.kubiak/devel/JUCE/extras/audio plugin host/Builds/Linux/build/Plugin Host" />
+				<Option run_host_application_in_terminal="1" />
 				<Compiler>
 					<Add option="-w" />
 					<Add option="-g" />
@@ -19,15 +21,12 @@
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
 					<Add option="-fPIC" />
-					<Add option="-I/home/atom/devel/ctrlr/VST" />
 					<Add option="-D__MINGW__=1" />
 					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-D_CRT_SECURE_NO_WARNINGS=" />
+					<Add option="-DJUCE_FORCE_DEBUG=1" />
 					<Add option="-DCTRLR_NIGHTLY=1" />
 					<Add option="-DJucePlugin_Build_VST=1" />
-					<Add option="-DDEBUG=1" />
-					<Add option="-D_DEBUG=1" />
-					<Add option="-DJUCE_DEBUG=1" />
 					<Add option="-DLINUX=1" />
 					<Add option="-D_LINUX=1" />
 					<Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1" />
@@ -46,6 +45,7 @@
 					<Add directory="../../../../Source/Application" />
 					<Add directory="../../../../Source/Lua" />
 					<Add directory="../../../../Source/Lua/lua" />
+					<Add directory="../../../../VST" />
 					<Add directory="/usr/include/freetype2" />
 				</Compiler>
 			</Target>
@@ -61,11 +61,9 @@
 					<Add option="-w" />
 					<Add option="-fpermissive" />
 					<Add option="-fPIC" />
-					<Add option="-I/home/atom/devel/ctrlr/VST" />
 					<Add option="-D__MINGW__=1" />
 					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-D_CRT_SECURE_NO_WARNINGS=" />
-					<Add option="-DJUCE_FORCE_DEBUG=0" />
 					<Add option="-DCTRLR_NIGHTLY=0" />
 					<Add option="-DJucePlugin_Build_VST=1" />
 					<Add option="-DLINUX=1" />
@@ -86,6 +84,7 @@
 					<Add directory="../../../../Source/Application" />
 					<Add directory="../../../../Source/Lua" />
 					<Add directory="../../../../Source/Lua/lua" />
+					<Add directory="../../../../VST" />
 					<Add directory="/usr/include/freetype2" />
 				</Compiler>
 				<Linker>
@@ -116,11 +115,9 @@
 					<Add option="-w" />
 					<Add option="-fpermissive" />
 					<Add option="-fPIC" />
-					<Add option="-I/home/atom/devel/ctrlr/VST" />
 					<Add option="-D__MINGW__=1" />
 					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-D_CRT_SECURE_NO_WARNINGS=" />
-					<Add option="-DJUCE_FORCE_DEBUG=0" />
 					<Add option="-DCTRLR_NIGHTLY=1" />
 					<Add option="-DJucePlugin_Build_VST=1" />
 					<Add option="-DLINUX=1" />
@@ -141,6 +138,7 @@
 					<Add directory="../../../../Source/Application" />
 					<Add directory="../../../../Source/Lua" />
 					<Add directory="../../../../Source/Lua/lua" />
+					<Add directory="../../../../VST" />
 					<Add directory="/usr/include/freetype2" />
 				</Compiler>
 				<Linker>
@@ -2650,10 +2648,10 @@
 		<Unit filename="../../../VST/JuceLibraryCode/BinaryData.h" />
 		<Unit filename="../../../VST/JuceLibraryCode/JuceHeader.h" />
 		<Extensions>
-			<code_completion />
 			<envvars />
-			<lib_finder disable_auto="1" />
+			<code_completion />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

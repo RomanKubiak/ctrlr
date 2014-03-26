@@ -4,9 +4,12 @@
 #include "CtrlrLinux.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrManager/CtrlrManager.h"
+#include <sys/types.h>
+#include <sys/stat.h>
+
 extern "C"
 {
-#include "Linux/libr.h"
+    #include "Linux/libr.h"
 }
 
 CtrlrLinux::CtrlrLinux()

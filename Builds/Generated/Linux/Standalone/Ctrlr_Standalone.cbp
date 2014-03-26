@@ -18,13 +18,12 @@
 					<Add option="-std=gnu++0x" />
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
-					<Add option="-D__MINGW__=1" />
-					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-DCTRLR_NIGHTLY=1" />
-					<Add option="-DJucePlugin_Build_Standalone=" />
+					<Add option="-DJucePlugin_Build_Standalone=1" />
 					<Add option="-DDEBUG=1" />
 					<Add option="-D_DEBUG=1" />
 					<Add option="-DJUCE_DEBUG=1" />
+					<Add option="-DJUCE_FORCE_DEBUG=1" />
 					<Add option="-DLINUX=1" />
 					<Add option="-D_LINUX=1" />
 					<Add option="-DJUCER_CODEBLOCKS_C6428F40=1" />
@@ -2619,8 +2618,10 @@
 		<Unit filename="../../../Standalone/JuceLibraryCode/BinaryData.h" />
 		<Unit filename="../../../Standalone/JuceLibraryCode/JuceHeader.h" />
 		<Extensions>
+			<envvars />
 			<code_completion />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

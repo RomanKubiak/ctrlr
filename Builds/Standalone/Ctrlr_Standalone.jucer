@@ -83,9 +83,9 @@
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
       </MODULEPATHS>
     </VS2010>
-    <LINUX_MAKE targetFolder="../Generated/Linux/Standalone" extraDefs="LUA_USE_LINUX&#10;LINUX=1&#10;_LINUX=1"
-                bigIcon="QqMgrL" smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4"
-                extraCompilerFlags="-fpermissive -w -fPIC">
+    <LINUX_MAKE targetFolder="../Generated/Linux/Standalone" extraDefs="" bigIcon="QqMgrL"
+                smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -w -fPIC"
+                extraLinkerFlags="-lz&#10;-lbfd">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(ARCH)"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
@@ -1222,7 +1222,7 @@
   <JUCEOPTIONS JUCE_USE_FLAC="enabled" JUCE_USE_OGGVORBIS="enabled" JUCE_WEB_BROWSER="disabled"
                JUCE_PLUGINHOST_VST="disabled" JUCE_PLUGINHOST_AU="disabled"
                JUCE_USE_CDREADER="disabled" JUCE_USE_CDBURNER="disabled" JUCE_ENABLE_REPAINT_DEBUGGING="disabled"
-               JUCE_USE_MP3AUDIOFORMAT="enabled" JUCE_JACK="enabled" JUCE_ASIO="disabled"
+               JUCE_USE_MP3AUDIOFORMAT="enabled" JUCE_JACK="disabled" JUCE_ASIO="disabled"
                JUCE_WASAPI="disabled" JUCE_DIRECTSOUND="disabled" JUCE_ALSA="enabled"
                JUCE_USE_XSHM="disabled" JUCE_USE_XRENDER="disabled" JUCE_USE_XCURSOR="disabled"
                JUCE_LOG_ASSERTIONS="enabled" JUCE_CHECK_MEMORY_LEAKS="enabled"
