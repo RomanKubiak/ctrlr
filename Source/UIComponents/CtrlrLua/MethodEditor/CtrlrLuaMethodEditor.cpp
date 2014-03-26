@@ -819,6 +819,7 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 	{
 		menu.addItem (2, "Save");
 		menu.addItem (3, "Save and compile");
+		menu.addItem (4, "Save and compile all");
 		menu.addSeparator ();
 		menu.addItem (1, "Close");
 	}
@@ -845,6 +846,18 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 		if (getCurrentEditor())
 		{
 			getCurrentEditor()->saveAndCompileDocument();
+		}
+	}
+	else if (menuItemID == 4 && topLevelMenuIndex == 0)
+	{
+		for (int i=0; i<getTabs()->getNumTabs(); i++)
+		{
+			CtrlrLuaMethodCodeEditor *ed = dynamic_cast<CtrlrLuaMethodCodeEditor*> (getTabs()->getTabContentComponent (i));
+
+			if (ed)
+			{
+				ed->saveAndCompileDocument();
+			}
 		}
 	}
 	else if (menuItemID == 4 && topLevelMenuIndex == 1)

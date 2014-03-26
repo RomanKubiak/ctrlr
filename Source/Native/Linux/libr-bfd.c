@@ -24,7 +24,7 @@
  * ehoover at mines dot edu
  *
  */
-
+#ifdef JUCE_LINUX
 #include "libr.h"
 /* File access */
 #include <fcntl.h>
@@ -509,3 +509,4 @@ void initialize_backend(void)
 	bfd_init();
 }
 
+#endif

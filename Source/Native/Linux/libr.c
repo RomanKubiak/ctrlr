@@ -22,7 +22,7 @@
  * ehoover at mines dot edu
  *
  */
-
+#ifdef JUCE_LINUX
 #include "libr.h"
 
 /* Obtain file information */
@@ -750,3 +750,5 @@ failed:
 	free(temp_mask);
 	return temp_folder;
 }
+
+#endif
