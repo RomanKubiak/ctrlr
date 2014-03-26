@@ -516,7 +516,7 @@ void CtrlrLookAndFeel::setUsingNativeAlerts(const bool useNativeAlerts)
 	setUsingNativeAlertWindows(useNativeAlerts);
 }
 
-void CtrlrLookAndFeel::drawScrollbar (Graphics& g, ScrollBar& scrollbar, int x, int y, int width, int height, bool isScrollbarVertical, int thumbStartPosition, int thumbSize, bool isMouseOver, bool isMouseDown)
+/*void CtrlrLookAndFeel::drawScrollbar (Graphics& g, ScrollBar& scrollbar, int x, int y, int width, int height, bool isScrollbarVertical, int thumbStartPosition, int thumbSize, bool isMouseOver, bool isMouseDown)
 {
     g.fillAll (scrollbar.findColour (ScrollBar::backgroundColourId));
 
@@ -616,3 +616,4 @@ void CtrlrLookAndFeel::drawScrollbar (Graphics& g, ScrollBar& scrollbar, int x, 
     g.setColour (Colour (0x4c000000));
     g.strokePath (thumbPath, PathStrokeType (0.4f));
 }
+*/

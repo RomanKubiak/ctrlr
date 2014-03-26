@@ -100,6 +100,7 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		PopupMenu getMenuForIndex(int topLevelMenuIndex, const String &menuName);
 		void menuItemSelected(int menuItemID, int topLevelMenuIndex);
 		void searchResultClicked (const String &methodName, const int lineNumber, const int resultPositionStart, const int resultPositionEnd);
+
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethodEditor)
 
 	private:
