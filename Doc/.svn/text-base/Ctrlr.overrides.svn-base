@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ctrlrOverrides 	ctrlrMaxExportedVstParameters="255" 
-			ctrlrShutdownDelay="256" 
-			ctrlrUseEditorWrapper="1" 
-			ctrlrLuaDisabled="1"
-			ctrlrLogToFile="1"
-			/>

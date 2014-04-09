@@ -22,7 +22,7 @@
  * ehoover at mines dot edu
  *
  */
-#ifdef JUCE_LINUX
+#ifdef LINUX
 #include "libr.h"
 
 /* Obtain file information */
