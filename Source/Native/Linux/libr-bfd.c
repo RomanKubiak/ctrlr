@@ -24,7 +24,7 @@
  * ehoover at mines dot edu
  *
  */
-#ifdef JUCE_LINUX
+#ifdef LINUX
 #include "libr.h"
 /* File access */
 #include <fcntl.h>
