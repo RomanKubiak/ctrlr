@@ -81,7 +81,7 @@ void LString::wrapForLua (lua_State *L)
 			.def("swapWith", &String::swapWith)
 			.def("toUTF8", &String::toUTF8)
 		,
-		
+
 		class_<CharPointer_UTF8>("CharPointer_UTF8")
 			.def("getAddress", &CharPointer_UTF8::getAddress)
 		,
@@ -102,7 +102,11 @@ void LString::wrapForLua (lua_State *L)
 			.def("minimiseStorageOverheads", &StringPairArray::minimiseStorageOverheads)
 
 		,
-
+        class_<StringRef>("StringRef")
+            .def(constructor<>())
+            .def(constructor<const char *>())
+            .def(constructor<const String &>())
+        ,
 		class_<StringArray>("StringArray")
 			.def(constructor<>())
 			.def(constructor<const String &>())
