@@ -538,7 +538,7 @@ const bool CtrlrMIDITransaction::sendRequest()
 
 	if (requestToSend.getSize() <= 0)
 	{
-		WARN("Transaction \""+getName()+"\" invalid request data");
+		WARN("Transaction \""+getName()+"\" invalid request data (lua returned 0 bytes for request)");
 		return (false);
 	}
 	else

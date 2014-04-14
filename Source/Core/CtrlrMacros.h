@@ -51,6 +51,7 @@
 #define WARN(x)													AlertWindow::showMessageBox (AlertWindow::WarningIcon, "WARNING", x, "OK", nullptr)
 #define INFO(x,y)													AlertWindow::showMessageBox (AlertWindow::InfoIcon, x, y, "OK", nullptr)
 #define SURE(x,y)												AlertWindow::showOkCancelBox (AlertWindow::QuestionIcon, "Are you sure?", x, "Yes", "No", y, nullptr)
+#define _STR(x)													String(x)
 #define STR(x)													String(x)
 #define IMAGE(x)												ImageCache::getFromMemory(BinaryData::x, BinaryData::x ## Size)
 #define STR2RECT(x)												Rectangle<int>::fromString(x)
