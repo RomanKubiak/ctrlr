@@ -9,9 +9,11 @@ rm -rf installers/Ctrlr
 rm -f $PACKAGE
 mkdir -p installers/Ctrlr
 
+echo Strip binaries
+strip ../Bin/Ctrlr-*
+
 echo Copy binaries
-cp ../Bin/Ctrlr-$ARCH installers/Ctrlr/
-cp ../Bin/Ctrlr-VST-$ARCH.so installers/Ctrlr/
+cp ../Bin/Ctrlr-* installers/Ctrlr/
 
 echo Copy Panels
 cp -r ../Panels installers/Ctrlr/
