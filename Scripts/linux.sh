@@ -2,7 +2,7 @@
 
 REVISION=`git log -1 | grep commit | awk '{print $2}' | tail -c 8`
 ARCH=`uname -m`
-PACKAGE="installers/Ctrlr_"$REVISION".sh"
+PACKAGE="installers/Ctrlr_"$ARCH"_"$REVISION".sh"
 
 echo Create the package
 rm -rf installers/Ctrlr
@@ -10,7 +10,8 @@ rm -f $PACKAGE
 mkdir -p installers/Ctrlr
 
 echo Copy binaries
-cp ../Bin/Ctrlr* installers/Ctrlr/
+cp ../Bin/Ctrlr-$ARCH installers/Ctrlr/
+cp ../Bin/Ctrlr-VST-$ARCH.so installers/Ctrlr/
 
 echo Copy Panels
 cp -r ../Panels installers/Ctrlr/
