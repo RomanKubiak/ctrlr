@@ -13,7 +13,7 @@ const String midiMessageTypeToString (const CtrlrMidiMessageType messageType);
 const CtrlrMidiMessageType midiMessageStringToType (const String &messageType);
 const CtrlrMidiMessageType midiMessageToType (const MidiMessage &midiMessage);
 const CtrlrSysExFormulaToken indirectFromString (const String &str);
-const MidiMessageEx	midiMessageExfromString (const String &str, const int ch, const int number, const int value);
+const CtrlrMidiMessageEx midiMessageExfromString (const String &str, const int ch, const int number, const int value);
 const MidiMessage createFromHexData (const String &hexData);
 void addCtrlrMidiMessageToBuffer (MidiBuffer &bufferToAddTo, CtrlrMidiMessage &m);
 const CtrlrMidiMessageType getMidiTypeFromModulator(CtrlrModulator *m, const int index=-1);

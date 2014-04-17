@@ -1,13 +1,13 @@
 #include "stdafx.h"
 #include "CtrlrUtilities.h"
-#include "MidiMessageEx.h"
+#include "CtrlrMidiMessageEx.h"
 #include "CtrlrLog.h"
 
-/** MidiMessageEx container implementation
+/** CtrlrMidiMessageEx container implementation
 
 */
 
-MidiMessageEx::MidiMessageEx()
+CtrlrMidiMessageEx::CtrlrMidiMessageEx()
 	:	indirectValueFlag(ByteValue),
 		indirectNumberFlag(ByteValue),
 		overrideValue(-1),
@@ -17,7 +17,7 @@ MidiMessageEx::MidiMessageEx()
 	m.setTimeStamp(1);
 }
 
-MidiMessageEx::MidiMessageEx(const MidiMessage &other)
+CtrlrMidiMessageEx::CtrlrMidiMessageEx(const MidiMessage &other)
 	:	m(other),
 		indirectValueFlag(ByteValue),
 		indirectNumberFlag(ByteValue),
@@ -28,12 +28,12 @@ MidiMessageEx::MidiMessageEx(const MidiMessage &other)
 	m.setTimeStamp(1);
 }
 
-bool MidiMessageEx::operator== (const MidiMessageEx &other) const
+bool CtrlrMidiMessageEx::operator== (const CtrlrMidiMessageEx &other) const
 {
 	return (false);
 }
 
-const int MidiMessageEx::getValueInternal(const int value) const
+const int CtrlrMidiMessageEx::getValueInternal(const int value) const
 {
 	if (overrideValue >= 0)
 	{
@@ -42,7 +42,7 @@ const int MidiMessageEx::getValueInternal(const int value) const
 	return (indirectOperation (jmax<int>(0,value), indirectValueFlag));
 }
 
-const BigInteger MidiMessageEx::getBitValue()
+const BigInteger CtrlrMidiMessageEx::getBitValue()
 {
 	if (m.isNoteOff() || m.isNoteOn())
 	{
@@ -71,7 +71,7 @@ const BigInteger MidiMessageEx::getBitValue()
 	return (BigInteger(0));
 }
 
-const int MidiMessageEx::getNumberInternal(const int number) const
+const int CtrlrMidiMessageEx::getNumberInternal(const int number) const
 {
 	if (overrideNumber >= 0)
 	{
@@ -81,7 +81,7 @@ const int MidiMessageEx::getNumberInternal(const int number) const
 	return (indirectOperation (number, indirectNumberFlag));
 }
 
-void MidiMessageEx::setChannel (const int channel)
+void CtrlrMidiMessageEx::setChannel (const int channel)
 {
 	if (!m.isSysEx())
 	{
@@ -89,7 +89,7 @@ void MidiMessageEx::setChannel (const int channel)
 	}
 }
 
-const int MidiMessageEx::getValue() const
+const int CtrlrMidiMessageEx::getValue() const
 {
 	if (m.isNoteOff() || m.isNoteOn())
 	{
@@ -118,7 +118,7 @@ const int MidiMessageEx::getValue() const
 	return (-1);
 }
 
-void MidiMessageEx::setValue (const int value)
+void CtrlrMidiMessageEx::setValue (const int value)
 {
 	const int ch	= m.getChannel();
 
@@ -148,7 +148,7 @@ void MidiMessageEx::setValue (const int value)
 	}
 }
 
-const int MidiMessageEx::getNumber() const
+const int CtrlrMidiMessageEx::getNumber() const
 {
 	if (m.isNoteOff() || m.isNoteOn() || m.isAftertouch())
 	{
@@ -166,7 +166,7 @@ const int MidiMessageEx::getNumber() const
 	return (-1);
 }
 
-void MidiMessageEx::setNumber (const int number)
+void CtrlrMidiMessageEx::setNumber (const int number)
 {
 	const int ch	= m.getChannel();
 

@@ -18,12 +18,13 @@
 					<Add option="-std=gnu++0x" />
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
+					<Add option="-D__MINGW__=1" />
+					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-DCTRLR_NIGHTLY=1" />
-					<Add option="-DJucePlugin_Build_Standalone=1" />
+					<Add option="-DJucePlugin_Build_Standalone=" />
 					<Add option="-DDEBUG=1" />
 					<Add option="-D_DEBUG=1" />
 					<Add option="-DJUCE_DEBUG=1" />
-					<Add option="-DJUCE_FORCE_DEBUG=1" />
 					<Add option="-DLINUX=1" />
 					<Add option="-D_LINUX=1" />
 					<Add option="-DJUCER_CODEBLOCKS_C6428F40=1" />
@@ -481,6 +482,8 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_audio_processors/format_types/juce_LADSPAPluginFormat.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/format_types/juce_VST3Common.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/format_types/juce_VST3Headers.h" />
 		<Unit filename="../../../../Juce/modules/juce_audio_processors/format_types/juce_VST3PluginFormat.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -612,6 +615,11 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_core/files/juce_File.h" />
+		<Unit filename="../../../../Juce/modules/juce_core/files/juce_FileFilter.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_core/files/juce_FileFilter.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/files/juce_FileInputStream.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -633,6 +641,11 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_core/files/juce_TemporaryFile.h" />
+		<Unit filename="../../../../Juce/modules/juce_core/files/juce_WildcardFileFilter.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_core/files/juce_WildcardFileFilter.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/javascript/juce_JSON.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -687,6 +700,7 @@
 		<Unit filename="../../../../Juce/modules/juce_core/memory/juce_OptionalScopedPointer.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/memory/juce_ReferenceCountedObject.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/memory/juce_ScopedPointer.h" />
+		<Unit filename="../../../../Juce/modules/juce_core/memory/juce_SharedResourcePointer.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/memory/juce_Singleton.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/memory/juce_WeakReference.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/misc/juce_Result.cpp">
@@ -1021,6 +1035,11 @@
 		<Unit filename="../../../../Juce/modules/juce_events/broadcasters/juce_ChangeBroadcaster.h" />
 		<Unit filename="../../../../Juce/modules/juce_events/broadcasters/juce_ChangeListener.h" />
 		<Unit filename="../../../../Juce/modules/juce_events/broadcasters/juce_ListenerList.h" />
+		<Unit filename="../../../../Juce/modules/juce_events/interprocess/juce_ConnectedChildProcess.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_events/interprocess/juce_ConnectedChildProcess.h" />
 		<Unit filename="../../../../Juce/modules/juce_events/interprocess/juce_InterprocessConnection.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -1921,6 +1940,16 @@
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CodeEditorComponent.h" />
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CodeTokeniser.h" />
+		<Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_LuaCodeTokeniser.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_LuaCodeTokeniser.h" />
+		<Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_XMLCodeTokeniser.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_XMLCodeTokeniser.h" />
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/documents/juce_FileBasedDocument.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -1953,6 +1982,11 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_KeyMappingEditorComponent.h" />
+		<Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_LiveConstantEditor.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_LiveConstantEditor.h" />
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_PreferencesPanel.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -2338,10 +2372,10 @@
 		<Unit filename="../../../../Source/MIDI/CtrlrMidiInputComparatorTypes.h" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMidiMessage.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMidiMessage.h" />
+		<Unit filename="../../../../Source/MIDI/CtrlrMidiMessageEx.cpp" />
+		<Unit filename="../../../../Source/MIDI/CtrlrMidiMessageEx.h" />
 		<Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.h" />
-		<Unit filename="../../../../Source/MIDI/MidiMessageEx.cpp" />
-		<Unit filename="../../../../Source/MIDI/MidiMessageEx.h" />
 		<Unit filename="../../../../Source/Misc/juce_PluginHostType.h" />
 		<Unit filename="../../../../Source/Native/CtrlrGeneric.h" />
 		<Unit filename="../../../../Source/Native/CtrlrLinux.cpp" />
@@ -2555,10 +2589,8 @@
 		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelUtilities.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.h" />
-		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/ViewportExt.cpp" />
-		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/ViewportExt.h" />
-		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/XmlTokeniser.cpp" />
-		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/XmlTokeniser.h" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrViewport.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.cpp" />

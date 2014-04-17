@@ -24,7 +24,6 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "CtrlrMacros.h"
-#include "XmlTokeniser.h"
 class CtrlrPanelEditor;
 //[/Headers]
 

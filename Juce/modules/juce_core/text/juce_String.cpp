@@ -259,6 +259,12 @@ void String::swapWith (String& other) noexcept
     std::swap (text, other.text);
 }
 
+void String::clear() noexcept
+{
+    StringHolder::release (text);
+    text = &(emptyString.text);
+}
+
 String& String::operator= (const String& other) noexcept
 {
     StringHolder::retain (other.text);
@@ -307,6 +313,10 @@ String::String (const char* const t)
         you use UTF-8 with escape characters in your source code to represent extended characters,
         because there's no other way to represent these strings in a way that isn't dependent on
         the compiler, source code editor and platform.
+
+        Note that the Introjucer has a handy string literal generator utility that will convert
+        any unicode string to a valid C++ string literal, creating ascii escape sequences that will
+        work in any compiler.
     */
     jassert (t == nullptr || CharPointer_ASCII::isValidString (t, std::numeric_limits<int>::max()));
 }
@@ -326,6 +336,10 @@ String::String (const char* const t, const size_t maxChars)
         you use UTF-8 with escape characters in your source code to represent extended characters,
         because there's no other way to represent these strings in a way that isn't dependent on
         the compiler, source code editor and platform.
+
+        Note that the Introjucer has a handy string literal generator utility that will convert
+        any unicode string to a valid C++ string literal, creating ascii escape sequences that will
+        work in any compiler.
     */
     jassert (t == nullptr || CharPointer_ASCII::isValidString (t, (int) maxChars));
 }
@@ -419,7 +433,8 @@ namespace NumberToStringConverters
     {
         explicit StackArrayStream (char* d)
         {
-            imbue (std::locale::classic());
+            static const std::locale classicLocale (std::locale::classic());
+            imbue (classicLocale);
             setp (d, d + charsNeededForDouble);
         }
 

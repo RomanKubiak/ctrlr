@@ -1,34 +1,9 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-   This file is part of the JUCE library - "Jules' Utility Class Extensions"
-   Copyright 2004-11 by Raw Material Software Ltd.
-
-  ------------------------------------------------------------------------------
-
-   JUCE can be redistributed and/or modified under the terms of the GNU General
-   Public License (Version 2), as published by the Free Software Foundation.
-   A copy of the license is included in the JUCE distribution, or can be found
-   online at www.gnu.org/licenses.
-
-   JUCE is distributed in the hope that it will be useful, but WITHOUT ANY
-   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
-   A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-  ------------------------------------------------------------------------------
-
-   To release a closed-source product which uses JUCE, commercial licenses are
-   available: visit www.rawmaterialsoftware.com/juce for more information.
-
-  ==============================================================================
-*/
-
-#include "ViewportExt.h"
+#include "CtrlrViewport.h"
 
 
 //==============================================================================
-ViewportExt::ViewportExt (const String& componentName)
+CtrlrViewport::CtrlrViewport (const String& componentName)
   : Component (componentName),
     scrollBarThickness (0),
     singleStepX (16),
@@ -53,18 +28,18 @@ ViewportExt::ViewportExt (const String& componentName)
     setWantsKeyboardFocus (true);
 }
 
-ViewportExt::~ViewportExt()
+CtrlrViewport::~CtrlrViewport()
 {
     deleteContentComp();
 }
 
 //==============================================================================
-void ViewportExt::visibleAreaChanged (const Rectangle<int>&)
+void CtrlrViewport::visibleAreaChanged (const Rectangle<int>&)
 {
 }
 
 //==============================================================================
-void ViewportExt::deleteContentComp()
+void CtrlrViewport::deleteContentComp()
 {
     if (deleteContent)
     {
@@ -79,7 +54,7 @@ void ViewportExt::deleteContentComp()
     }
 }
 
-void ViewportExt::setViewedComponent (Component* const newViewedComponent, const bool deleteComponentWhenNoLongerNeeded)
+void CtrlrViewport::setViewedComponent (Component* const newViewedComponent, const bool deleteComponentWhenNoLongerNeeded)
 {
     if (contentComp.get() != newViewedComponent)
     {
@@ -98,29 +73,29 @@ void ViewportExt::setViewedComponent (Component* const newViewedComponent, const
     }
 }
 
-int ViewportExt::getMaximumVisibleWidth() const    { return contentHolder.getWidth(); }
-int ViewportExt::getMaximumVisibleHeight() const   { return contentHolder.getHeight(); }
+int CtrlrViewport::getMaximumVisibleWidth() const    { return contentHolder.getWidth(); }
+int CtrlrViewport::getMaximumVisibleHeight() const   { return contentHolder.getHeight(); }
 
-void ViewportExt::setViewPosition (const int xPixelsOffset, const int yPixelsOffset)
+void CtrlrViewport::setViewPosition (const int xPixelsOffset, const int yPixelsOffset)
 {
     if (contentComp != nullptr)
         contentComp->setTopLeftPosition (jmax (jmin (0, contentHolder.getWidth() - contentComp->getWidth()), jmin (0, -xPixelsOffset)),
                                          jmax (jmin (0, contentHolder.getHeight() - contentComp->getHeight()), jmin (0, -yPixelsOffset)));
 }
 
-void ViewportExt::setViewPosition (const Point<int>& newPosition)
+void CtrlrViewport::setViewPosition (const Point<int>& newPosition)
 {
     setViewPosition (newPosition.getX(), newPosition.getY());
 }
 
-void ViewportExt::setViewPositionProportionately (const double x, const double y)
+void CtrlrViewport::setViewPositionProportionately (const double x, const double y)
 {
     if (contentComp != nullptr)
         setViewPosition (jmax (0, roundToInt (x * (contentComp->getWidth() - getWidth()))),
                          jmax (0, roundToInt (y * (contentComp->getHeight() - getHeight()))));
 }
 
-bool ViewportExt::autoScroll (const int mouseX, const int mouseY, const int activeBorderThickness, const int maximumSpeed)
+bool CtrlrViewport::autoScroll (const int mouseX, const int mouseY, const int activeBorderThickness, const int maximumSpeed)
 {
     if (contentComp != nullptr)
     {
@@ -164,18 +139,18 @@ bool ViewportExt::autoScroll (const int mouseX, const int mouseY, const int acti
     return false;
 }
 
-void ViewportExt::componentMovedOrResized (Component&, bool, bool)
+void CtrlrViewport::componentMovedOrResized (Component&, bool, bool)
 {
     updateVisibleArea();
 }
 
-void ViewportExt::resized()
+void CtrlrViewport::resized()
 {
     updateVisibleArea();
 }
 
 //==============================================================================
-void ViewportExt::updateVisibleArea()
+void CtrlrViewport::updateVisibleArea()
 {
     const int scrollbarWidth = getScrollBarThickness();
     const bool canShowAnyBars = getWidth() > scrollbarWidth && getHeight() > scrollbarWidth;
@@ -266,7 +241,7 @@ void ViewportExt::updateVisibleArea()
 }
 
 //==============================================================================
-void ViewportExt::setSingleStepSizes (const int stepX, const int stepY)
+void CtrlrViewport::setSingleStepSizes (const int stepX, const int stepY)
 {
     if (singleStepX != stepX || singleStepY != stepY)
     {
@@ -276,7 +251,7 @@ void ViewportExt::setSingleStepSizes (const int stepX, const int stepY)
     }
 }
 
-void ViewportExt::setScrollBarsShown (const bool showVerticalScrollbarIfNeeded,
+void CtrlrViewport::setScrollBarsShown (const bool showVerticalScrollbarIfNeeded,
                                    const bool showHorizontalScrollbarIfNeeded)
 {
     if (showVScrollbar != showVerticalScrollbarIfNeeded
@@ -288,7 +263,7 @@ void ViewportExt::setScrollBarsShown (const bool showVerticalScrollbarIfNeeded,
     }
 }
 
-void ViewportExt::setScrollBarThickness (const int thickness)
+void CtrlrViewport::setScrollBarThickness (const int thickness)
 {
     if (scrollBarThickness != thickness)
     {
@@ -297,19 +272,19 @@ void ViewportExt::setScrollBarThickness (const int thickness)
     }
 }
 
-int ViewportExt::getScrollBarThickness() const
+int CtrlrViewport::getScrollBarThickness() const
 {
     return scrollBarThickness > 0 ? scrollBarThickness
                                   : getLookAndFeel().getDefaultScrollbarWidth();
 }
 
-void ViewportExt::setScrollBarButtonVisibility (const bool /* buttonsVisible */)
+void CtrlrViewport::setScrollBarButtonVisibility (const bool /* buttonsVisible */)
 {
     // verticalScrollBar.setButtonVisibility (buttonsVisible);
     // horizontalScrollBar.setButtonVisibility (buttonsVisible);
 }
 
-void ViewportExt::scrollBarMoved (ScrollBar* scrollBarThatHasMoved, double newRangeStart)
+void CtrlrViewport::scrollBarMoved (ScrollBar* scrollBarThatHasMoved, double newRangeStart)
 {
     const int newRangeStartInt = roundToInt (newRangeStart);
 
@@ -323,13 +298,13 @@ void ViewportExt::scrollBarMoved (ScrollBar* scrollBarThatHasMoved, double newRa
     }
 }
 
-void ViewportExt::mouseWheelMove (const MouseEvent& e, const MouseWheelDetails &wheel)
+void CtrlrViewport::mouseWheelMove (const MouseEvent& e, const MouseWheelDetails &wheel)
 {
 	if (! useMouseWheelMoveIfNeeded (e, wheel.deltaX, wheel.deltaY))
         Component::mouseWheelMove (e, wheel);
 }
 
-bool ViewportExt::useMouseWheelMoveIfNeeded (const MouseEvent& e, float wheelIncrementX, float wheelIncrementY)
+bool CtrlrViewport::useMouseWheelMoveIfNeeded (const MouseEvent& e, float wheelIncrementX, float wheelIncrementY)
 {
     if (! (e.mods.isAltDown() || e.mods.isCtrlDown()))
     {
@@ -382,7 +357,7 @@ bool ViewportExt::useMouseWheelMoveIfNeeded (const MouseEvent& e, float wheelInc
     return false;
 }
 
-bool ViewportExt::keyPressed (const KeyPress&)
+bool CtrlrViewport::keyPressed (const KeyPress&)
 {
 	return false;
 	/*

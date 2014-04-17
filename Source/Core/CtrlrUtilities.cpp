@@ -195,9 +195,9 @@ const CtrlrSysExFormulaToken indirectFromString (const String &str)
 	return (ByteValue);
 }
 
-const MidiMessageEx midiMessageExfromString (const String &str, const int ch, const int number, const int value)
+const CtrlrMidiMessageEx midiMessageExfromString (const String &str, const int ch, const int number, const int value)
 {
-	MidiMessageEx ret;
+	CtrlrMidiMessageEx ret;
 	StringArray tokens;
 
 	tokens.addTokens (str, ",", "\"\'");
@@ -233,7 +233,8 @@ const MidiMessageEx midiMessageExfromString (const String &str, const int ch, co
 	}
 	else
 	{
-		return (MidiMessageEx());
+	    jassertfalse; // Looks like there is not enough tokens to create a CtrlrMidiMessageEx object
+		return (CtrlrMidiMessageEx());
 	}
 }
 

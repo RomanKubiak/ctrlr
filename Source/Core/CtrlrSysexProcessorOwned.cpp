@@ -15,7 +15,7 @@ Array <int,CriticalSection> &CtrlrSysexProcessorOwned::getGlobalVariables()
 	return (owner.getGlobalVariables());
 }
 
-const double CtrlrSysexProcessorOwned::getValueFromSysExData (const Array<CtrlrSysexToken> &tokens, const MidiMessageEx &message)
+const double CtrlrSysexProcessorOwned::getValueFromSysExData (const Array<CtrlrSysexToken> &tokens, const CtrlrMidiMessageEx &message)
 {
 	double v = 0;
 

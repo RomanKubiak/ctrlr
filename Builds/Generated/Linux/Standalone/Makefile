@@ -192,6 +192,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaMethod_e854dc6f.o \
   $(OBJDIR)/CtrlrLuaMethodManager_3a1a8cc8.o \
   $(OBJDIR)/CtrlrLuaMethodManagerCalls_c7bf9bb7.o \
+  $(OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o \
   $(OBJDIR)/CtrlrMIDITransaction_54a29e25.o \
   $(OBJDIR)/CtrlrMidiDevice_859d4f59.o \
   $(OBJDIR)/CtrlrMidiDeviceManager_d5a0de9e.o \
@@ -202,7 +203,6 @@ OBJECTS := \
   $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
   $(OBJDIR)/CtrlrMidiMessage_58a157ae.o \
   $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
-  $(OBJDIR)/MidiMessageEx_abfc64b4.o \
   $(OBJDIR)/libr-bfd_f5e18fb4.o \
   $(OBJDIR)/libr_e9fa1d21.o \
   $(OBJDIR)/CtrlrLinux_891d1366.o \
@@ -263,7 +263,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrMIDILibraryEditor_837e6cd.o \
   $(OBJDIR)/CtrlrMIDICalculator_ebca78a7.o \
   $(OBJDIR)/CtrlrMIDIMon_e8a545d1.o \
-  $(OBJDIR)/XmlTokeniser_71d875ef.o \
+  $(OBJDIR)/CtrlrViewport_7e02dc41.o \
   $(OBJDIR)/CtrlrPanelMIDIToolbar_2522e231.o \
   $(OBJDIR)/CtrlrPanelCanvas_248178b.o \
   $(OBJDIR)/CtrlrPanelCanvasHandlers_1eaa6b94.o \
@@ -279,7 +279,6 @@ OBJECTS := \
   $(OBJDIR)/CtrlrPanelResourceEditor_6fc1b9ce.o \
   $(OBJDIR)/CtrlrPanelUtilities_a6075081.o \
   $(OBJDIR)/CtrlrPanelViewport_7f185c59.o \
-  $(OBJDIR)/ViewportExt_e2c21f6f.o \
   $(OBJDIR)/CtrlrModulatorListProperty_417f3f84.o \
   $(OBJDIR)/CtrlrTimestampProperty_5aa7a6d.o \
   $(OBJDIR)/CtrlrBooleanPropertyComponent_696ccd48.o \
@@ -937,6 +936,11 @@ $(OBJDIR)/CtrlrLuaMethodManagerCalls_c7bf9bb7.o: ../../../../Source/Lua/Methods/
 	@echo "Compiling CtrlrLuaMethodManagerCalls.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o: ../../../../Source/MIDI/CtrlrMidiMessageEx.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrMidiMessageEx.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/CtrlrMIDITransaction_54a29e25.o: ../../../../Source/MIDI/CtrlrMIDITransaction.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrMIDITransaction.cpp"
@@ -985,11 +989,6 @@ $(OBJDIR)/CtrlrMidiMessage_58a157ae.o: ../../../../Source/MIDI/CtrlrMidiMessage.
 $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o: ../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrOwnedMidiMessage.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/MidiMessageEx_abfc64b4.o: ../../../../Source/MIDI/MidiMessageEx.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling MidiMessageEx.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/libr-bfd_f5e18fb4.o: ../../../../Source/Native/Linux/libr-bfd.c
@@ -1292,9 +1291,9 @@ $(OBJDIR)/CtrlrMIDIMon_e8a545d1.o: ../../../../Source/UIComponents/CtrlrMIDI/Ctr
 	@echo "Compiling CtrlrMIDIMon.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/XmlTokeniser_71d875ef.o: ../../../../Source/UIComponents/CtrlrPanel/XmlTokeniser.cpp
+$(OBJDIR)/CtrlrViewport_7e02dc41.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling XmlTokeniser.cpp"
+	@echo "Compiling CtrlrViewport.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrPanelMIDIToolbar_2522e231.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.cpp
@@ -1370,11 +1369,6 @@ $(OBJDIR)/CtrlrPanelUtilities_a6075081.o: ../../../../Source/UIComponents/CtrlrP
 $(OBJDIR)/CtrlrPanelViewport_7f185c59.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrPanelViewport.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/ViewportExt_e2c21f6f.o: ../../../../Source/UIComponents/CtrlrPanel/ViewportExt.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling ViewportExt.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrModulatorListProperty_417f3f84.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.cpp

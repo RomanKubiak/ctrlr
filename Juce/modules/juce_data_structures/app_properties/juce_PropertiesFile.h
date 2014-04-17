@@ -57,7 +57,7 @@ public:
     struct JUCE_API  Options
     {
         /** Creates an empty Options structure.
-            You'll need to fill-in the data memebers appropriately before using this structure.
+            You'll need to fill-in the data members appropriately before using this structure.
         */
         Options();
 
@@ -144,7 +144,7 @@ public:
             C:\\Documents and Settings\\username\\Application Data\\[folderName]\\[applicationName].[filenameSuffix]
 
             On Linux it'll return
-            ~/.[folderName]/[applicationName].[filenameSuffix]
+            ~/[folderName]/[applicationName].[filenameSuffix]
 
             If the folderName variable is empty, it'll use the app name for this (or omit the
             folder name on the Mac).

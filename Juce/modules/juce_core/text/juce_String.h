@@ -84,7 +84,7 @@ public:
         because there's no other way to represent unicode strings in a way that isn't dependent
         on the compiler, source code editor and platform.
 
-        This will use up the the first maxChars characters of the string (or less if the string
+        This will use up to the first maxChars characters of the string (or less if the string
         is actually shorter).
     */
     String (const char* text, size_t maxChars);
@@ -306,6 +306,9 @@ public:
         @see containsNonWhitespaceChars()
     */
     inline bool isNotEmpty() const noexcept                 { return text[0] != 0; }
+
+    /** Resets this string to be empty. */
+    void clear() noexcept;
 
     /** Case-insensitive comparison with another string. */
     bool equalsIgnoreCase (const String& other) const noexcept;
@@ -1290,6 +1293,8 @@ JUCE_API String& JUCE_CALLTYPE operator<< (String& string1, int number);
 JUCE_API String& JUCE_CALLTYPE operator<< (String& string1, long number);
 /** Appends a decimal number at the end of a string. */
 JUCE_API String& JUCE_CALLTYPE operator<< (String& string1, int64 number);
+/** Appends a decimal number at the end of a string. */
+JUCE_API String& JUCE_CALLTYPE operator<< (String& string1, uint64 number);
 /** Appends a decimal number at the end of a string. */
 JUCE_API String& JUCE_CALLTYPE operator<< (String& string1, float number);
 /** Appends a decimal number at the end of a string. */

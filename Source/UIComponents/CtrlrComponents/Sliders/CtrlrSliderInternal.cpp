@@ -26,9 +26,9 @@ void CtrlrSliderInternal::mouseWheelMove (const MouseEvent &e, const MouseWheelD
 		return;
 
 	if (wheel.deltaY < 0)
-		setValue (snapValue (getValue() - (double)owner.getProperty(::Ids::uiSliderMouseWheelInterval), false));
+		setValue ( snapValue (getValue() - (double)owner.getProperty(::Ids::uiSliderMouseWheelInterval), Slider::absoluteDrag) );
 	else
-		setValue (snapValue (getValue() + (double)owner.getProperty(::Ids::uiSliderMouseWheelInterval), false));
+		setValue ( snapValue (getValue() + (double)owner.getProperty(::Ids::uiSliderMouseWheelInterval), Slider::absoluteDrag) );
 }
 
 /** */

@@ -34,7 +34,7 @@ LookAndFeel_V3::LookAndFeel_V3()
     setColour (TabbedComponent::outlineColourId, Colour (0xff999999));
     setColour (Slider::trackColourId, Colour (0xbbffffff));
     setColour (Slider::thumbColourId, Colour (0xffddddff));
-
+    setColour (BubbleComponent::backgroundColourId, Colour (0xeeeeeedd));
     setColour (ScrollBar::thumbColourId, Colour::greyLevel (0.8f).contrasting().withAlpha (0.13f));
 }
 
@@ -190,7 +190,6 @@ void LookAndFeel_V3::drawTabButton (TabBarButton& button, Graphics& g, bool isMo
     if (button.getToggleState())
     {
         g.setColour (bkg);
-        g.fillRect (activeArea);
     }
     else
     {
@@ -207,8 +206,9 @@ void LookAndFeel_V3::drawTabButton (TabBarButton& button, Graphics& g, bool isMo
 
         g.setGradientFill (ColourGradient (bkg.brighter (0.2f), (float) p1.x, (float) p1.y,
                                            bkg.darker (0.1f),   (float) p2.x, (float) p2.y, false));
-        g.fillRect (activeArea);
     }
+
+    g.fillRect (activeArea);
 
     g.setColour (button.findColour (TabbedButtonBar::tabOutlineColourId));
 
@@ -225,10 +225,13 @@ void LookAndFeel_V3::drawTabButton (TabBarButton& button, Graphics& g, bool isMo
 
     if (TabbedButtonBar* bar = button.findParentComponentOfClass<TabbedButtonBar>())
     {
-        if (button.isFrontTab() && bar->isColourSpecified (TabbedButtonBar::frontTextColourId))
-            col = bar->findColour (TabbedButtonBar::frontTextColourId);
-        else if (bar->isColourSpecified (TabbedButtonBar::tabTextColourId))
-            col = bar->findColour (TabbedButtonBar::tabTextColourId);
+        TabbedButtonBar::ColourIds colID = button.isFrontTab() ? TabbedButtonBar::frontTextColourId
+                                                               : TabbedButtonBar::tabTextColourId;
+
+        if (bar->isColourSpecified (colID))
+            col = bar->findColour (colID);
+        else if (isColourSpecified (colID))
+            col = findColour (colID);
     }
 
     const Rectangle<float> area (button.getTextArea().toFloat());

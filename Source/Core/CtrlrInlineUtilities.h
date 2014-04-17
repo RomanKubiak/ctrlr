@@ -150,7 +150,7 @@ static const inline BigInteger getValueAsBigInteger (const int inValue, const Ct
 	}
 }
 
-static const inline MemoryBlock midiMessagePattern (const MidiMessageEx &mEx, const Array<CtrlrSysexToken> tokens, const Array <int,CriticalSection> &globalVariables)
+static const inline MemoryBlock midiMessagePattern (const CtrlrMidiMessageEx &mEx, const Array<CtrlrSysexToken> tokens, const Array <int,CriticalSection> &globalVariables)
 {
 	if (mEx.m.isNoteOff() || mEx.m.isNoteOn())
 	{

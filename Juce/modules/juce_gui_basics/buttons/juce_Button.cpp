@@ -186,7 +186,7 @@ void Button::setToggleState (const bool shouldBeOn, const NotificationType notif
             // async callbacks aren't possible here
             jassert (notification != sendNotificationAsync);
 
-            sendClickMessage (ModifierKeys());
+            sendClickMessage (ModifierKeys::getCurrentModifiers());
 
             if (deletionWatcher == nullptr)
                 return;
@@ -572,7 +572,7 @@ void Button::clearShortcuts()
 
 bool Button::isShortcutPressed() const
 {
-    if (! isCurrentlyBlockedByAnotherModalComponent())
+    if (isShowing() && ! isCurrentlyBlockedByAnotherModalComponent())
         for (int i = shortcuts.size(); --i >= 0;)
             if (shortcuts.getReference(i).isCurrentlyDown())
                 return true;

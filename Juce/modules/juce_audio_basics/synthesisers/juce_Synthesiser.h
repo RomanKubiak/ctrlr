@@ -116,7 +116,6 @@ public:
     virtual bool canPlaySound (SynthesiserSound*) = 0;
 
     /** Called to start a new note.
-
         This will be called during the rendering callback, so must be fast and thread-safe.
     */
     virtual void startNote (int midiNoteNumber,
@@ -142,12 +141,17 @@ public:
     /** Called to let the voice know that the pitch wheel has been moved.
         This will be called during the rendering callback, so must be fast and thread-safe.
     */
-    virtual void pitchWheelMoved (int newValue) = 0;
+    virtual void pitchWheelMoved (int newPitchWheelValue) = 0;
 
     /** Called to let the voice know that a midi controller has been moved.
         This will be called during the rendering callback, so must be fast and thread-safe.
     */
-    virtual void controllerMoved (int controllerNumber, int newValue) = 0;
+    virtual void controllerMoved (int controllerNumber, int newControllerValue) = 0;
+
+    /** Called to let the voice know that the aftertouch has changed.
+        This will be called during the rendering callback, so must be fast and thread-safe.
+    */
+    virtual void aftertouchChanged (int newAftertouchValue);
 
     //==============================================================================
     /** Renders the next block of data for this voice.
@@ -186,6 +190,17 @@ public:
     */
     void setCurrentPlaybackSampleRate (double newRate);
 
+    /** Returns true if the key that triggered this voice is still held down.
+        Note that the voice may still be playing after the key was released (e.g because the
+        sostenuto pedal is down).
+    */
+    bool isKeyDown() const noexcept                             { return keyIsDown; }
+
+    /** Returns true if the sostenuto pedal is currently active for this voice. */
+    bool isSostenutoPedalDown() const noexcept                  { return sostenutoPedalDown; }
+
+    /** Returns true if this voice started playing its current note before the other voice did. */
+    bool wasStartedBefore (const SynthesiserVoice& other) const noexcept;
 
 protected:
     //==============================================================================
@@ -218,8 +233,7 @@ private:
     int currentlyPlayingNote;
     uint32 noteOnTime;
     SynthesiserSound::Ptr currentlyPlayingSound;
-    bool keyIsDown; // the voice may still be playing when the key is not down (i.e. sustain pedal)
-    bool sostenutoPedalDown;
+    bool keyIsDown, sostenutoPedalDown;
 
     JUCE_LEAK_DETECTOR (SynthesiserVoice)
 };
@@ -280,7 +294,7 @@ public:
         it later on when no longer needed. The caller should not retain a pointer to the
         voice.
     */
-    void addVoice (SynthesiserVoice* newVoice);
+    SynthesiserVoice* addVoice (SynthesiserVoice* newVoice);
 
     /** Deletes one of the voices. */
     void removeVoice (int index);
@@ -297,10 +311,10 @@ public:
 
     /** Adds a new sound to the synthesiser.
 
-        The object passed in is reference counted, so will be deleted when it is removed
-        from the synthesiser, and when no voices are still using it.
+        The object passed in is reference counted, so will be deleted when the
+        synthesiser and all voices are no longer using it.
     */
-    void addSound (const SynthesiserSound::Ptr& newSound);
+    SynthesiserSound* addSound (const SynthesiserSound::Ptr& newSound);
 
     /** Removes and deletes one of the sounds. */
     void removeSound (int index);
@@ -400,6 +414,21 @@ public:
                                    int controllerNumber,
                                    int controllerValue);
 
+    /** Sends an aftertouch message.
+
+        This will send an aftertouch message to any voices that are playing sounds on
+        the given midi channel and note number.
+
+        This method will be called automatically according to the midi data passed into
+        renderNextBlock(), but may be called explicitly too.
+
+        @param midiChannel          the midi channel, from 1 to 16 inclusive
+        @param midiNoteNumber       the midi note number, 0 to 127
+        @param aftertouchValue      the aftertouch value, between 0 and 127,
+                                    as returned by MidiMessage::getAftertouchValue()
+    */
+    virtual void handleAftertouch (int midiChannel, int midiNoteNumber, int aftertouchValue);
+
     /** Handles a sustain pedal event. */
     virtual void handleSustainPedal (int midiChannel, bool isDown);
 
@@ -454,6 +483,12 @@ protected:
     */
     virtual SynthesiserVoice* findFreeVoice (SynthesiserSound* soundToPlay,
                                              const bool stealIfNoneAvailable) const;
+
+    /** Chooses a voice that is most suitable for being re-used.
+        The default method returns the one that has been playing for the longest, but
+        you may want to override this and do something more cunning instead.
+    */
+    virtual SynthesiserVoice* findVoiceToSteal (SynthesiserSound* soundToPlay) const;
 
     /** Starts a specified voice playing a particular sound.
 
