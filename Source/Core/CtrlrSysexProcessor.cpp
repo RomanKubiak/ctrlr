@@ -131,7 +131,7 @@ void CtrlrSysexProcessor::sysexProcessPrograms(const Array<CtrlrSysexToken> &tok
 }
 
 
-const MidiMessageEx CtrlrSysexProcessor::sysexMessageFromString (const String &formula, const int value, const int channel)
+const CtrlrMidiMessageEx CtrlrSysexProcessor::sysexMessageFromString (const String &formula, const int value, const int channel)
 {
 	MidiMessage m;
 	MemoryBlock bl(0,true);
@@ -146,13 +146,13 @@ const MidiMessageEx CtrlrSysexProcessor::sysexMessageFromString (const String &f
 
 	Array <CtrlrSysexToken> tokenArray = sysExToTokenArray(formula);
 
-	MidiMessageEx mex;
+	CtrlrMidiMessageEx mex;
 	mex.m  = MidiMessage (bl.getData(), bl.getSize());
 	mex.setTokenArray(tokenArray);
 	return (mex);
 }
 
-const double CtrlrSysexProcessor::getValueFromSysExData (const Array<CtrlrSysexToken> &tokens, const MidiMessageEx &message)
+const double CtrlrSysexProcessor::getValueFromSysExData (const Array<CtrlrSysexToken> &tokens, const CtrlrMidiMessageEx &message)
 {
 	double v = 0;
 
@@ -209,7 +209,7 @@ const StringArray CtrlrSysexProcessor::templatesPrepare()
 /** Static functions
 */
 
-double CtrlrSysexProcessor::getValue(const Array<CtrlrSysexToken> &tokens, const MidiMessageEx &message)
+double CtrlrSysexProcessor::getValue(const Array<CtrlrSysexToken> &tokens, const CtrlrMidiMessageEx &message)
 {
 	double v = -1;
 

@@ -56,6 +56,13 @@ void SynthesiserVoice::clearCurrentNote()
     currentlyPlayingSound = nullptr;
 }
 
+void SynthesiserVoice::aftertouchChanged (int) {}
+
+bool SynthesiserVoice::wasStartedBefore (const SynthesiserVoice& other) const noexcept
+{
+    return noteOnTime < other.noteOnTime;
+}
+
 //==============================================================================
 Synthesiser::Synthesiser()
     : sampleRate (0),
@@ -83,10 +90,10 @@ void Synthesiser::clearVoices()
     voices.clear();
 }
 
-void Synthesiser::addVoice (SynthesiserVoice* const newVoice)
+SynthesiserVoice* Synthesiser::addVoice (SynthesiserVoice* const newVoice)
 {
     const ScopedLock sl (lock);
-    voices.add (newVoice);
+    return voices.add (newVoice);
 }
 
 void Synthesiser::removeVoice (const int index)
@@ -101,10 +108,10 @@ void Synthesiser::clearSounds()
     sounds.clear();
 }
 
-void Synthesiser::addSound (const SynthesiserSound::Ptr& newSound)
+SynthesiserSound* Synthesiser::addSound (const SynthesiserSound::Ptr& newSound)
 {
     const ScopedLock sl (lock);
-    sounds.add (newSound);
+    return sounds.add (newSound);
 }
 
 void Synthesiser::removeSound (const int index)
@@ -190,6 +197,10 @@ void Synthesiser::handleMidiEvent (const MidiMessage& m)
         lastPitchWheelValues [channel - 1] = wheelPos;
 
         handlePitchWheel (channel, wheelPos);
+    }
+    else if (m.isAftertouch())
+    {
+        handleAftertouch (m.getChannel(), m.getNoteNumber(), m.getAfterTouchValue());
     }
     else if (m.isController())
     {
@@ -338,6 +349,20 @@ void Synthesiser::handleController (const int midiChannel,
     }
 }
 
+void Synthesiser::handleAftertouch (int midiChannel, int midiNoteNumber, int aftertouchValue)
+{
+    const ScopedLock sl (lock);
+
+    for (int i = voices.size(); --i >= 0;)
+    {
+        SynthesiserVoice* const voice = voices.getUnchecked (i);
+
+        if (voice->getCurrentlyPlayingNote() == midiNoteNumber
+              && (midiChannel <= 0 || voice->isPlayingChannel (midiChannel)))
+            voice->aftertouchChanged (aftertouchValue);
+    }
+}
+
 void Synthesiser::handleSustainPedal (int midiChannel, bool isDown)
 {
     jassert (midiChannel > 0 && midiChannel <= 16);
@@ -387,12 +412,11 @@ void Synthesiser::handleSoftPedal (int midiChannel, bool /*isDown*/)
 }
 
 //==============================================================================
-SynthesiserVoice* Synthesiser::findFreeVoice (SynthesiserSound* soundToPlay,
-                                              const bool stealIfNoneAvailable) const
+SynthesiserVoice* Synthesiser::findFreeVoice (SynthesiserSound* soundToPlay, const bool stealIfNoneAvailable) const
 {
     const ScopedLock sl (lock);
 
-    for (int i = voices.size(); --i >= 0;)
+    for (int i = 0; i < voices.size(); ++i)
     {
         SynthesiserVoice* const voice = voices.getUnchecked (i);
 
@@ -401,22 +425,25 @@ SynthesiserVoice* Synthesiser::findFreeVoice (SynthesiserSound* soundToPlay,
     }
 
     if (stealIfNoneAvailable)
-    {
-        // currently this just steals the one that's been playing the longest, but could be made a bit smarter..
-        SynthesiserVoice* oldest = nullptr;
-
-        for (int i = voices.size(); --i >= 0;)
-        {
-            SynthesiserVoice* const voice = voices.getUnchecked (i);
-
-            if (voice->canPlaySound (soundToPlay)
-                 && (oldest == nullptr || oldest->noteOnTime > voice->noteOnTime))
-                oldest = voice;
-        }
-
-        jassert (oldest != nullptr);
-        return oldest;
-    }
+        return findVoiceToSteal (soundToPlay);
 
     return nullptr;
+}
+
+SynthesiserVoice* Synthesiser::findVoiceToSteal (SynthesiserSound* soundToPlay) const
+{
+    // currently this just steals the one that's been playing the longest, but could be made a bit smarter..
+    SynthesiserVoice* oldest = nullptr;
+
+    for (int i = 0; i < voices.size(); ++i)
+    {
+        SynthesiserVoice* const voice = voices.getUnchecked (i);
+
+        if (voice->canPlaySound (soundToPlay)
+             && (oldest == nullptr || voice->wasStartedBefore (*oldest)))
+            oldest = voice;
+    }
+
+    jassert (oldest != nullptr);
+    return oldest;
 }

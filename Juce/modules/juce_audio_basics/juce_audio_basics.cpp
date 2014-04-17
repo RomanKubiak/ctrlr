@@ -36,6 +36,10 @@
 #include "AppConfig.h"
 #include "juce_audio_basics.h"
 
+#if JUCE_MINGW && ! defined (__SSE2__)
+ #define JUCE_USE_SSE_INTRINSICS 0
+#endif
+
 #ifndef JUCE_USE_SSE_INTRINSICS
  #define JUCE_USE_SSE_INTRINSICS 1
 #endif
@@ -56,6 +60,11 @@
  #include <Accelerate/Accelerate.h>
 #else
  #undef JUCE_USE_VDSP_FRAMEWORK
+#endif
+
+#if __ARM_NEON__ && ! (JUCE_USE_VDSP_FRAMEWORK || defined (JUCE_USE_ARM_NEON))
+ #define JUCE_USE_ARM_NEON 1
+ #include <arm_neon.h>
 #endif
 
 namespace juce

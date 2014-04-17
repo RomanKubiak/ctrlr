@@ -3,7 +3,7 @@
 
 #include "CtrlrLuaObject.h"
 #include "CtrlrMacros.h"
-#include "MidiMessageEx.h"
+#include "CtrlrMidiMessageEx.h"
 
 class CtrlrLuaObjectWrapper;
 
@@ -38,7 +38,7 @@ enum CtrlrMidiMessageType
 class TimestampComparator
 {
 	public:
-		int compareElements (MidiMessageEx first, MidiMessageEx second)
+		int compareElements (CtrlrMidiMessageEx first, CtrlrMidiMessageEx second)
 		{
 			return (first.m.getTimeStamp() < second.m.getTimeStamp()) ? -1 : ((second.m.getTimeStamp() < first.m.getTimeStamp()) ? 1 : 0);
 		}
@@ -57,7 +57,7 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 		CtrlrMidiMessage (const String& hexData);
 		CtrlrMidiMessage (const CtrlrLuaObjectWrapper& other);
 		CtrlrMidiMessage (const luabind::object &hexData);
-		
+
 		virtual ~CtrlrMidiMessage();
 
 
@@ -72,7 +72,7 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 			@return the number of the MIDI message
 		*/
 		int getNumber() const;
-		
+
 		/** @brief Set the value of the MIDI message
 
 			@param value	 the value to set
@@ -109,7 +109,7 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 		*/
 		void setSysExFormula (const String &formula);
 
-		const MidiMessageEx &getMidiMessageEx(const int index) const									{ return (messageArray.getReference(index)); }
+		const CtrlrMidiMessageEx &getMidiMessageEx(const int index) const									{ return (messageArray.getReference(index)); }
 		const String toString() const;
 		const CtrlrMidiMessageType getMidiMessageType() const;
 		virtual void setMidiMessageType (const CtrlrMidiMessageType newType);
@@ -140,19 +140,19 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 		const MemoryBlock &getMidiPattern()	const;
 		const LMemoryBlock getData() const;
 		const int getSize() const;
-		MidiMessageEx &getReference(const int messageIndex) const;
+		CtrlrMidiMessageEx &getReference(const int messageIndex) const;
 		Result fillMessagePropertiesFromData();
 		Result fillMessagePropertiesFromData(const MemoryBlock &data);
 		Result fillMessagePropertiesFromJuceMidi(const MidiMessage &m);
 		Result getInitializationResult() { return (initializationResult); }
 		void initializeEmptyMessage();
-		Array <MidiMessageEx> &getMidiMessageArray();
-		
-		virtual const Array<int,CriticalSection> &getGlobalVariables()													
+		Array <CtrlrMidiMessageEx> &getMidiMessageArray();
+
+		virtual const Array<int,CriticalSection> &getGlobalVariables()
 		{
-			return (emptyGlobals); 
+			return (emptyGlobals);
 		}
-		
+
 		virtual CtrlrSysexProcessor *getSysexProcessor() { return (nullptr); }
 		ValueTree &getObjectTree() { return (midiTree); }
 
@@ -162,7 +162,7 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 
 	protected:
 		ValueTree midiTree;
-		Array <MidiMessageEx> messageArray;
+		Array <CtrlrMidiMessageEx> messageArray;
 
 	private:
 		Result initializationResult;

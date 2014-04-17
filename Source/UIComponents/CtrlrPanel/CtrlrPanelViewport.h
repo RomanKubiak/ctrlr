@@ -1,8 +1,8 @@
-#ifndef __JUCER_HEADER_CTRLRPANELVIEWPORT_CTRLRPANELVIEWPORT_E4D6072C__
-#define __JUCER_HEADER_CTRLRPANELVIEWPORT_CTRLRPANELVIEWPORT_E4D6072C__
+#ifndef CTRLRPANELVIEWPORT_H
+#define CTRLRPANELVIEWPORT_H
 
 #include "CtrlrPanelCanvas.h"
-#include "ViewportExt.h"
+#include "CtrlrViewport.h"
 
 class CtrlrPanelEditor;
 class CtrlrPanelViewport;
@@ -51,16 +51,16 @@ class CtrlrMagnifierComponent  : public Component
 		ScopedPointer<Component> content;
 };
 
-class CtrlrViewport : public ViewportExt, public KeyListener
+class CtrlrViewportImpl : public CtrlrViewport, public KeyListener
 {
 	public:
-		CtrlrViewport(CtrlrPanelViewport *_panelViewport);
-		~CtrlrViewport();
+		CtrlrViewportImpl(CtrlrPanelViewport *_panelViewport);
+		~CtrlrViewportImpl();
 		bool keyPressed (const KeyPress &key, Component *originatingComponent);
 		bool keyStateChanged (bool isKeyDown, Component *originatingComponent);
 		void mouseWheelMove (const MouseEvent& e, const MouseWheelDetails& wheel);
 
-		JUCE_LEAK_DETECTOR(CtrlrViewport)
+		JUCE_LEAK_DETECTOR(CtrlrViewportImpl)
 
 	private:
 		CtrlrPanelViewport *panelViewport;
@@ -69,7 +69,7 @@ class CtrlrViewport : public ViewportExt, public KeyListener
 class CtrlrDraggerOverlayComp    : public Component
 {
 	public:
-		CtrlrDraggerOverlayComp(CtrlrViewport *_viewport) : viewport(_viewport)
+		CtrlrDraggerOverlayComp(CtrlrViewportImpl *_viewport) : viewport(_viewport)
 		{
 			setMouseCursor (MouseCursor::DraggingHandCursor);
 			setAlwaysOnTop (true);
@@ -103,7 +103,7 @@ class CtrlrDraggerOverlayComp    : public Component
 
 		private:
 			int startX, startY;
-			CtrlrViewport *viewport;
+			CtrlrViewportImpl *viewport;
 };
 
 class CtrlrPanelViewport  : public Component
@@ -128,7 +128,7 @@ public:
 		void resized();
 		bool keyStateChanged (bool isKeyDown);
 		void lookAndFeelChanged();
-		
+
 		JUCE_LEAK_DETECTOR(CtrlrPanelViewport)
 
 	private:

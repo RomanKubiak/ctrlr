@@ -79,13 +79,13 @@ public:
                                        : columnId == nameCol ? Colours::black
                                                              : Colours::grey);
             g.setFont (Font (height * 0.7f, Font::bold));
-            g.drawFittedText (text, 4.0f, 0.0f, width - 6.0f, height, Justification::centredLeft, 1, 0.9f);
+            g.drawFittedText (text, 4, 0, width - 6, height, Justification::centredLeft, 1, 0.9f);
         }
     }
 
-    void deleteKeyPressed (int lastRowSelected) override
+    void deleteKeyPressed (int) override
     {
-        removePluginItem (list, lastRowSelected);
+        owner.removeSelected();
     }
 
     void sortOrderChanged (int newSortColumnId, bool isForwards) override
@@ -125,6 +125,8 @@ public:
 
     PluginListComponent& owner;
     KnownPluginList& list;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TableModel)
 };
 
 //==============================================================================
@@ -150,15 +152,17 @@ PluginListComponent::PluginListComponent (AudioPluginFormatManager& manager, Kno
     table.setHeaderHeight (22);
     table.setRowHeight (20);
     table.setModel (tableModel);
-    addAndMakeVisible (&table);
+    table.setMultipleSelectionEnabled (true);
+    addAndMakeVisible (table);
 
-    addAndMakeVisible (&optionsButton);
+    addAndMakeVisible (optionsButton);
     optionsButton.addListener (this);
     optionsButton.setTriggeredOnMouseDown (true);
 
     setSize (400, 600);
     list.addChangeListener (this);
     updateList();
+    table.getHeader().reSortTable();
 
     PluginDirectoryScanner::applyBlacklistingsFromDeadMansPedal (list, deadMansPedalFile);
     deadMansPedalFile.deleteFile();
@@ -193,6 +197,7 @@ void PluginListComponent::resized()
 
 void PluginListComponent::changeListenerCallback (ChangeBroadcaster*)
 {
+    table.getHeader().reSortTable();
     updateList();
 }
 
@@ -206,7 +211,7 @@ void PluginListComponent::removeSelected()
 {
     const SparseSet<int> selected (table.getSelectedRows());
 
-    for (int i = list.getNumTypes(); --i >= 0;)
+    for (int i = table.getNumRows(); --i >= 0;)
         if (selected.contains (i))
             TableModel::removePluginItem (list, i);
 }

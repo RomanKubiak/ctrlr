@@ -102,17 +102,38 @@ bool Desktop::canUseSemiTransparentWindows() noexcept
 
 #endif
 
+#ifndef MONITOR_DPI_TYPE
+  enum Monitor_DPI_Type
+  {
+    MDT_Effective_DPI  = 0,
+    MDT_Angular_DPI    = 1,
+    MDT_Raw_DPI        = 2,
+    MDT_Default        = MDT_Effective_DPI
+  };
+
+  enum Process_DPI_Awareness
+  {
+    Process_DPI_Unaware            = 0,
+    Process_System_DPI_Aware       = 1,
+    Process_Per_Monitor_DPI_Aware  = 2
+  };
+#endif
+
 typedef BOOL (WINAPI* RegisterTouchWindowFunc) (HWND, ULONG);
 typedef BOOL (WINAPI* GetTouchInputInfoFunc) (HTOUCHINPUT, UINT, TOUCHINPUT*, int);
 typedef BOOL (WINAPI* CloseTouchInputHandleFunc) (HTOUCHINPUT);
 typedef BOOL (WINAPI* GetGestureInfoFunc) (HGESTUREINFO, GESTUREINFO*);
 typedef BOOL (WINAPI* SetProcessDPIAwareFunc)();
+typedef BOOL (WINAPI* SetProcessDPIAwarenessFunc) (Process_DPI_Awareness);
+typedef HRESULT (WINAPI* GetDPIForMonitorFunc) (HMONITOR, Monitor_DPI_Type, UINT*, UINT*);
 
-static RegisterTouchWindowFunc   registerTouchWindow = nullptr;
-static GetTouchInputInfoFunc     getTouchInputInfo = nullptr;
-static CloseTouchInputHandleFunc closeTouchInputHandle = nullptr;
-static GetGestureInfoFunc        getGestureInfo = nullptr;
-static SetProcessDPIAwareFunc    setProcessDPIAware = nullptr;
+static RegisterTouchWindowFunc    registerTouchWindow = nullptr;
+static GetTouchInputInfoFunc      getTouchInputInfo = nullptr;
+static CloseTouchInputHandleFunc  closeTouchInputHandle = nullptr;
+static GetGestureInfoFunc         getGestureInfo = nullptr;
+static SetProcessDPIAwareFunc     setProcessDPIAware = nullptr;
+static SetProcessDPIAwarenessFunc setProcessDPIAwareness = nullptr;
+static GetDPIForMonitorFunc       getDPIForMonitor = nullptr;
 
 static bool hasCheckedForMultiTouch = false;
 
@@ -158,17 +179,33 @@ static void setDPIAwareness()
 {
     if (JUCEApplicationBase::isStandaloneApp())
     {
-        if (setProcessDPIAware == nullptr)
+        if (setProcessDPIAwareness == nullptr)
         {
-            setProcessDPIAware = (SetProcessDPIAwareFunc) getUser32Function ("SetProcessDPIAware");
+            HMODULE shcoreModule = GetModuleHandleA ("SHCore.dll");
 
-            if (setProcessDPIAware != nullptr)
-                setProcessDPIAware();
+            if (shcoreModule != 0)
+            {
+                setProcessDPIAwareness = (SetProcessDPIAwarenessFunc) GetProcAddress (shcoreModule, "SetProcessDpiAwareness");
+                getDPIForMonitor = (GetDPIForMonitorFunc) GetProcAddress (shcoreModule, "GetDpiForMonitor");
+
+                if (setProcessDPIAwareness != nullptr && getDPIForMonitor != nullptr
+//                     && SUCCEEDED (setProcessDPIAwareness (Process_Per_Monitor_DPI_Aware)))
+                     && SUCCEEDED (setProcessDPIAwareness (Process_System_DPI_Aware))) // (keep using this mode temporarily..)
+                    return;
+            }
+
+            if (setProcessDPIAware == nullptr)
+            {
+                setProcessDPIAware = (SetProcessDPIAwareFunc) getUser32Function ("SetProcessDPIAware");
+
+                if (setProcessDPIAware != nullptr)
+                    setProcessDPIAware();
+            }
         }
     }
 }
 
-static double getDPI()
+static double getGlobalDPI()
 {
     setDPIAwareness();
 
@@ -181,7 +218,7 @@ static double getDPI()
 
 double Desktop::getDefaultMasterScale()
 {
-    return JUCEApplicationBase::isStandaloneApp() ? getDPI() / 96.0
+    return JUCEApplicationBase::isStandaloneApp() ? getGlobalDPI() / 96.0
                                                   : 1.0;
 }
 
@@ -328,15 +365,19 @@ public:
 
     LowLevelGraphicsContext* createLowLevelContext() override
     {
+        sendDataChangeMessage();
         return new LowLevelGraphicsSoftwareRenderer (Image (this));
     }
 
-    void initialiseBitmapData (Image::BitmapData& bitmap, int x, int y, Image::BitmapData::ReadWriteMode) override
+    void initialiseBitmapData (Image::BitmapData& bitmap, int x, int y, Image::BitmapData::ReadWriteMode mode) override
     {
         bitmap.data = imageData + x * pixelStride + y * lineStride;
         bitmap.pixelFormat = pixelFormat;
         bitmap.lineStride = lineStride;
         bitmap.pixelStride = pixelStride;
+
+        if (mode != Image::BitmapData::readOnly)
+            sendDataChangeMessage();
     }
 
     ImagePixelData* clone() override
@@ -1071,6 +1112,20 @@ public:
 
         JUCE_DECLARE_NON_COPYABLE (JuceDropTarget)
     };
+
+   #if JUCE_MODULE_AVAILABLE_juce_audio_plugin_client
+    static bool offerKeyMessageToJUCEWindow (MSG& m)
+    {
+        if (m.message == WM_KEYDOWN || m.message == WM_KEYUP)
+            if (Component::getCurrentlyFocusedComponent() != nullptr)
+                if (HWNDComponentPeer* h = getOwnerOfWindow (m.hwnd))
+                    if (m.message == WM_KEYDOWN ? h->doKeyDown (m.wParam)
+                                                : h->doKeyUp (m.wParam))
+                        return true;
+
+        return false;
+    }
+   #endif
 
 private:
     HWND hwnd, parentToAddTo;
@@ -1969,28 +2024,25 @@ private:
                 used = handleKeyPress (extendedKeyModifier | (int) key, 0) || used;
                 break;
 
-            case VK_ADD:
-            case VK_SUBTRACT:
-            case VK_MULTIPLY:
-            case VK_DIVIDE:
-            case VK_SEPARATOR:
-            case VK_DECIMAL:
-                used = handleKeyUpOrDown (true);
-                break;
-
             default:
                 used = handleKeyUpOrDown (true);
 
                 {
                     MSG msg;
-
                     if (! PeekMessage (&msg, hwnd, WM_CHAR, WM_DEADCHAR, PM_NOREMOVE))
                     {
                         // if there isn't a WM_CHAR or WM_DEADCHAR message pending, we need to
                         // manually generate the key-press event that matches this key-down.
+                        const UINT keyChar  = MapVirtualKey ((UINT) key, 2);
+                        const UINT scanCode = MapVirtualKey ((UINT) key, 0);
+                        BYTE keyState[256];
+                        GetKeyboardState (keyState);
 
-                        const UINT keyChar = MapVirtualKey ((UINT) key, 2);
-                        used = handleKeyPress ((int) LOWORD (keyChar), 0) || used;
+                        WCHAR text[16] = { 0 };
+                        if (ToUnicode ((UINT) key, scanCode, keyState, text, 8, 0) != 1)
+                            text[0] = 0;
+
+                        used = handleKeyPress ((int) LOWORD (keyChar), (juce_wchar) text[0]) || used;
                     }
                 }
 
@@ -2083,7 +2135,8 @@ private:
     bool isConstrainedNativeWindow() const
     {
         return constrainer != nullptr
-                && (styleFlags & (windowHasTitleBar | windowIsResizable)) == (windowHasTitleBar | windowIsResizable);
+                && (styleFlags & (windowHasTitleBar | windowIsResizable)) == (windowHasTitleBar | windowIsResizable)
+                && ! isKioskMode();
     }
 
     Rectangle<int> getCurrentScaledBounds (float scale) const
@@ -2240,6 +2293,10 @@ private:
             setWindowPos (hwnd, display.userArea * display.scale,
                           SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOZORDER | SWP_NOSENDCHANGING);
         }
+    }
+
+    void handleDPIChange() // happens when a window moves to a screen with a different DPI.
+    {
     }
 
     //==============================================================================
@@ -2482,6 +2539,10 @@ private:
                 // intentional fall-through...
             case WM_SETTINGCHANGE:  // note the fall-through in the previous case!
                 doSettingChange();
+                break;
+
+            case 0x2e0: // WM_DPICHANGED
+                handleDPIChange();
                 break;
 
             case WM_INITMENU:
@@ -2886,6 +2947,10 @@ bool KeyPress::isKeyCurrentlyDown (const int keyCode)
     return HWNDComponentPeer::isKeyDown (k);
 }
 
+#if JUCE_MODULE_AVAILABLE_juce_audio_plugin_client
+bool offerKeyMessageToJUCEWindow (MSG& m)   { return HWNDComponentPeer::offerKeyMessageToJUCEWindow (m); }
+#endif
+
 //==============================================================================
 bool JUCE_CALLTYPE Process::isForegroundProcess()
 {
@@ -3169,15 +3234,42 @@ String SystemClipboard::getTextFromClipboard()
 //==============================================================================
 void Desktop::setKioskComponent (Component* kioskModeComponent, bool enableOrDisable, bool /*allowMenusAndBars*/)
 {
+    if (TopLevelWindow* tlw = dynamic_cast<TopLevelWindow*> (kioskModeComponent))
+        tlw->setUsingNativeTitleBar (! enableOrDisable);
+
     if (enableOrDisable)
         kioskModeComponent->setBounds (getDisplays().getMainDisplay().totalArea);
 }
 
 //==============================================================================
-static BOOL CALLBACK enumMonitorsProc (HMONITOR, HDC, LPRECT r, LPARAM userInfo)
+struct MonitorInfo
 {
-    Array <Rectangle<int> >* const monitorCoords = (Array <Rectangle<int> >*) userInfo;
-    monitorCoords->add (rectangleFromRECT (*r));
+    MonitorInfo (Rectangle<int> rect, bool main, double d) noexcept
+        : bounds (rect), dpi (d), isMain (main) {}
+
+    Rectangle<int> bounds;
+    double dpi;
+    bool isMain;
+};
+
+static BOOL CALLBACK enumMonitorsProc (HMONITOR hm, HDC, LPRECT r, LPARAM userInfo)
+{
+    MONITORINFO info = { 0 };
+    info.cbSize = sizeof (info);
+    GetMonitorInfo (hm, &info);
+    const bool isMain = (info.dwFlags & 1 /* MONITORINFOF_PRIMARY */) != 0;
+    double dpi = 0;
+
+    if (getDPIForMonitor != nullptr)
+    {
+        UINT dpiX = 0, dpiY = 0;
+
+        if (SUCCEEDED (getDPIForMonitor (hm, MDT_Default, &dpiX, &dpiY)))
+            dpi = (dpiX + dpiY) / 2.0;
+    }
+
+    ((Array<MonitorInfo>*) userInfo)->add (MonitorInfo (rectangleFromRECT (*r), isMain, dpi));
+
     return TRUE;
 }
 
@@ -3185,31 +3277,40 @@ void Desktop::Displays::findDisplays (float masterScale)
 {
     setDPIAwareness();
 
-    Array <Rectangle<int> > monitors;
+    Array<MonitorInfo> monitors;
     EnumDisplayMonitors (0, 0, &enumMonitorsProc, (LPARAM) &monitors);
+
+    const double globalDPI = getGlobalDPI();
+
+    if (monitors.size() == 0)
+        monitors.add (MonitorInfo (rectangleFromRECT (getWindowRect (GetDesktopWindow())), true, globalDPI));
 
     // make sure the first in the list is the main monitor
     for (int i = 1; i < monitors.size(); ++i)
-        if (monitors.getReference(i).getPosition().isOrigin())
+        if (monitors.getReference(i).isMain)
             monitors.swap (i, 0);
-
-    if (monitors.size() == 0)
-        monitors.add (rectangleFromRECT (getWindowRect (GetDesktopWindow())));
 
     RECT workArea;
     SystemParametersInfo (SPI_GETWORKAREA, 0, &workArea, 0);
 
-    const double dpi = getDPI(); // (this has only one value for all monitors)
-
     for (int i = 0; i < monitors.size(); ++i)
     {
         Display d;
-        d.userArea = d.totalArea = monitors.getReference(i) / masterScale;
-        d.isMain = (i == 0);
-        d.scale = masterScale;
-        d.dpi = dpi;
+        d.userArea  = d.totalArea = monitors.getReference(i).bounds / masterScale;
+        d.isMain    = monitors.getReference(i).isMain;
+        d.dpi       = monitors.getReference(i).dpi;
 
-        if (i == 0)
+        if (d.dpi == 0)
+        {
+            d.scale = masterScale;
+            d.dpi = globalDPI;
+        }
+        else
+        {
+            d.scale = d.dpi / 96.0;
+        }
+
+        if (d.isMain)
             d.userArea = d.userArea.getIntersection (rectangleFromRECT (workArea) / masterScale);
 
         displays.add (d);

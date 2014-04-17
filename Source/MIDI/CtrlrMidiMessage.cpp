@@ -281,7 +281,7 @@ Result CtrlrMidiMessage::fillMessagePropertiesFromJuceMidi(const MidiMessage &m)
 
 Result CtrlrMidiMessage::fillMessagePropertiesFromData(const MemoryBlock &data)
 {
-	MidiMessageEx mex(MidiMessage(data.getData(), data.getSize()));
+	CtrlrMidiMessageEx mex(MidiMessage(data.getData(), data.getSize()));
 
 	if (mex.m.isController())
 	{
@@ -831,7 +831,7 @@ void CtrlrMidiMessage::clear()
 	patternChanged();
 }
 
-MidiMessageEx &CtrlrMidiMessage::getReference(const int messageIndex) const
+CtrlrMidiMessageEx &CtrlrMidiMessage::getReference(const int messageIndex) const
 {
 	return (messageArray.getReference(messageIndex));
 }
@@ -852,7 +852,7 @@ const MemoryBlock &CtrlrMidiMessage::getMidiPattern() const
 	return (messagePattern);
 }
 
-Array <MidiMessageEx> &CtrlrMidiMessage::getMidiMessageArray()
+Array <CtrlrMidiMessageEx> &CtrlrMidiMessage::getMidiMessageArray()
 {
 	return (messageArray);
 }

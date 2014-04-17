@@ -107,15 +107,9 @@ public:
         systemFonts = nullptr;
     }
 
-    static const Direct2DFactories& getInstance()
-    {
-        static Direct2DFactories instance;
-        return instance;
-    }
-
-    ComSmartPtr <ID2D1Factory> d2dFactory;
-    ComSmartPtr <IDWriteFactory> directWriteFactory;
-    ComSmartPtr <IDWriteFontCollection> systemFonts;
+    ComSmartPtr<ID2D1Factory> d2dFactory;
+    ComSmartPtr<IDWriteFactory> directWriteFactory;
+    ComSmartPtr<IDWriteFontCollection> systemFonts;
 
 private:
     DynamicLibrary direct2dDll, directWriteDll;
@@ -163,29 +157,36 @@ public:
                 break;
         }
 
+        jassert (dwFont != nullptr);
         hr = dwFont->CreateFontFace (dwFontFace.resetAndGetPointerAddress());
 
-        DWRITE_FONT_METRICS dwFontMetrics;
-        dwFontFace->GetMetrics (&dwFontMetrics);
+        if (dwFontFace != nullptr)
+        {
+            DWRITE_FONT_METRICS dwFontMetrics;
+            dwFontFace->GetMetrics (&dwFontMetrics);
 
-        // All Font Metrics are in design units so we need to get designUnitsPerEm value
-        // to get the metrics into Em/Design Independent Pixels
-        designUnitsPerEm = dwFontMetrics.designUnitsPerEm;
+            // All Font Metrics are in design units so we need to get designUnitsPerEm value
+            // to get the metrics into Em/Design Independent Pixels
+            designUnitsPerEm = dwFontMetrics.designUnitsPerEm;
 
-        ascent = std::abs ((float) dwFontMetrics.ascent);
-        const float totalSize = ascent + std::abs ((float) dwFontMetrics.descent);
-        ascent /= totalSize;
-        unitsToHeightScaleFactor = designUnitsPerEm / totalSize;
+            ascent = std::abs ((float) dwFontMetrics.ascent);
+            const float totalSize = ascent + std::abs ((float) dwFontMetrics.descent);
+            ascent /= totalSize;
+            unitsToHeightScaleFactor = designUnitsPerEm / totalSize;
 
-        HDC tempDC = GetDC (0);
-        heightToPointsFactor = (72.0f / GetDeviceCaps (tempDC, LOGPIXELSY)) * unitsToHeightScaleFactor;
-        ReleaseDC (0, tempDC);
+            HDC tempDC = GetDC (0);
+            float dpi = (GetDeviceCaps (tempDC, LOGPIXELSX) + GetDeviceCaps (tempDC, LOGPIXELSY)) / 2.0f;
+            heightToPointsFactor = (dpi / GetDeviceCaps (tempDC, LOGPIXELSY)) * unitsToHeightScaleFactor;
+            ReleaseDC (0, tempDC);
 
-        const float pathAscent  = (1024.0f * dwFontMetrics.ascent)  / designUnitsPerEm;
-        const float pathDescent = (1024.0f * dwFontMetrics.descent) / designUnitsPerEm;
-        const float pathScale   = 1.0f / (std::abs (pathAscent) + std::abs (pathDescent));
-        pathTransform = AffineTransform::scale (pathScale);
+            const float pathAscent  = (1024.0f * dwFontMetrics.ascent)  / designUnitsPerEm;
+            const float pathDescent = (1024.0f * dwFontMetrics.descent) / designUnitsPerEm;
+            const float pathScale   = 1.0f / (std::abs (pathAscent) + std::abs (pathDescent));
+            pathTransform = AffineTransform::scale (pathScale);
+        }
     }
+
+    bool loadedOk() const noexcept          { return dwFontFace != nullptr; }
 
     float getAscent() const                 { return ascent; }
     float getDescent() const                { return 1.0f - ascent; }
@@ -230,17 +231,6 @@ public:
         }
     }
 
-    EdgeTable* getEdgeTableForGlyph (int glyphNumber, const AffineTransform& transform)
-    {
-        Path path;
-
-        if (getOutlineForGlyph (glyphNumber, path) && ! path.isEmpty())
-            return new EdgeTable (path.getBoundsTransformed (transform).getSmallestIntegerContainer().expanded (1, 0),
-                                  path, transform);
-
-        return nullptr;
-    }
-
     bool getOutlineForGlyph (int glyphNumber, Path& path)
     {
         jassert (path.isEmpty());  // we might need to apply a transform to the path, so this must be empty
@@ -259,6 +249,7 @@ public:
     IDWriteFontFace* getIDWriteFontFace() const noexcept    { return dwFontFace; }
 
 private:
+    SharedResourcePointer<Direct2DFactories> factories;
     ComSmartPtr<IDWriteFontFace> dwFontFace;
     float unitsToHeightScaleFactor, heightToPointsFactor, ascent;
     int designUnitsPerEm;

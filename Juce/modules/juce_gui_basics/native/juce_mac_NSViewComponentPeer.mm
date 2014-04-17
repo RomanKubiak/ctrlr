@@ -141,7 +141,7 @@ public:
             [window setHasShadow: ((windowStyleFlags & windowHasDropShadow) != 0)];
 
             if (component.isAlwaysOnTop())
-                [window setLevel: NSFloatingWindowLevel];
+                setAlwaysOnTop (true);
 
             [window setContentView: view];
             [window setAutodisplay: YES];
@@ -202,7 +202,9 @@ public:
         {
             if (shouldBeVisible)
             {
+                ++insideToFrontCall;
                 [window orderFront: nil];
+                --insideToFrontCall;
                 handleBroughtToFront();
             }
             else
@@ -378,6 +380,16 @@ public:
         return fullScreen;
     }
 
+    bool isKioskMode() const override
+    {
+       #if defined (MAC_OS_X_VERSION_10_7) && MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_7
+        if (hasNativeTitleBar() && ([window styleMask] & NSFullScreenWindowMask) != 0)
+            return true;
+       #endif
+
+        return ComponentPeer::isKioskMode();
+    }
+
     bool contains (Point<int> localPos, bool trueIfInAChildWindow) const override
     {
         NSRect frameRect = [view frame];
@@ -429,8 +441,10 @@ public:
     bool setAlwaysOnTop (bool alwaysOnTop) override
     {
         if (! isSharedWindow)
-            [window setLevel: alwaysOnTop ? NSFloatingWindowLevel
+            [window setLevel: alwaysOnTop ? ((getStyleFlags() & windowIsTemporary) != 0 ? NSPopUpMenuWindowLevel
+                                                                                        : NSFloatingWindowLevel)
                                           : NSNormalWindowLevel];
+
         return true;
     }
 
@@ -462,7 +476,7 @@ public:
 
     void toBehind (ComponentPeer* other) override
     {
-        NSViewComponentPeer* const otherPeer = dynamic_cast <NSViewComponentPeer*> (other);
+        NSViewComponentPeer* const otherPeer = dynamic_cast<NSViewComponentPeer*> (other);
         jassert (otherPeer != nullptr); // wrong type of window?
 
         if (otherPeer != nullptr)
@@ -473,7 +487,7 @@ public:
                                   positioned: NSWindowBelow
                                   relativeTo: otherPeer->view];
             }
-            else
+            else if (component.isVisible())
             {
                 [window orderWindow: NSWindowBelow
                          relativeTo: [otherPeer->window windowNumber]];
@@ -884,11 +898,7 @@ public:
 
     NSRect constrainRect (NSRect r)
     {
-        if (constrainer != nullptr
-            #if defined (MAC_OS_X_VERSION_10_7) && (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_7)
-             && ([window styleMask] & NSFullScreenWindowMask) == 0
-            #endif
-            )
+        if (constrainer != nullptr && ! isKioskMode())
         {
             Rectangle<int> pos      (convertToRectInt (flippedScreenRect (r)));
             Rectangle<int> original (convertToRectInt (flippedScreenRect ([window frame])));
@@ -1452,7 +1462,7 @@ private:
             if (target != nullptr)
                 [(NSView*) self interpretKeyEvents: [NSArray arrayWithObject: ev]];
             else
-                owner->stringBeingComposed = String::empty;
+                owner->stringBeingComposed.clear();
 
             if ((! owner->textWasInserted) && (owner == nullptr || ! owner->redirectKeyDown (ev)))
             {
@@ -1490,7 +1500,7 @@ private:
                 }
             }
 
-            owner->stringBeingComposed = String::empty;
+            owner->stringBeingComposed.clear();
         }
     }
 
@@ -1525,7 +1535,7 @@ private:
                     owner->textWasInserted = true;
                 }
 
-                owner->stringBeingComposed = String::empty;
+                owner->stringBeingComposed.clear();
             }
         }
     }
@@ -1586,7 +1596,7 @@ private:
     static NSRect firstRectForCharacterRange (id self, SEL, NSRange)
     {
         if (NSViewComponentPeer* const owner = getOwner (self))
-            if (Component* const comp = dynamic_cast <Component*> (owner->findCurrentTextInputTarget()))
+            if (Component* const comp = dynamic_cast<Component*> (owner->findCurrentTextInputTarget()))
                 return flippedScreenRect (makeNSRect (comp->getScreenBounds()));
 
         return NSZeroRect;

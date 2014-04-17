@@ -15,7 +15,7 @@ CtrlrPanelViewport::CtrlrPanelViewport (CtrlrPanelEditor &_owner)
 	canvasList.add (new CtrlrPanelCanvas (owner));
 
 	magnifier = new CtrlrMagnifierComponent (canvasList[0]);
-	addAndMakeVisible (viewport = new CtrlrViewport(this));
+	addAndMakeVisible (viewport = new CtrlrViewportImpl(this));
 	viewport->setViewedComponent (magnifier);
 
     setSize (512, 512);
@@ -100,15 +100,15 @@ void CtrlrPanelViewport::dragKeyHeldDown (const bool isKeyDown)
 	}
 }
 
-CtrlrViewport::CtrlrViewport(CtrlrPanelViewport *_panelViewport) : panelViewport(_panelViewport)
+CtrlrViewportImpl::CtrlrViewportImpl(CtrlrPanelViewport *_panelViewport) : panelViewport(_panelViewport)
 {
 }
 
-CtrlrViewport::~CtrlrViewport()
+CtrlrViewportImpl::~CtrlrViewportImpl()
 {
 }
 
-void CtrlrViewport::mouseWheelMove (const MouseEvent& e, const MouseWheelDetails& wheel)
+void CtrlrViewportImpl::mouseWheelMove (const MouseEvent& e, const MouseWheelDetails& wheel)
 {
     if (e.mods.isCtrlDown() || e.mods.isAltDown())
 	{
@@ -118,16 +118,16 @@ void CtrlrViewport::mouseWheelMove (const MouseEvent& e, const MouseWheelDetails
     }
     else
     {
-		ViewportExt::mouseWheelMove (e, wheel);
+		CtrlrViewport::mouseWheelMove (e, wheel);
 	}
 }
 
-bool CtrlrViewport::keyPressed (const KeyPress &key, Component *originatingComponent)
+bool CtrlrViewportImpl::keyPressed (const KeyPress &key, Component *originatingComponent)
 {
 	return (false);
 }
 
-bool CtrlrViewport::keyStateChanged (bool isKeyDown, Component *originatingComponent)
+bool CtrlrViewportImpl::keyStateChanged (bool isKeyDown, Component *originatingComponent)
 {
 	return (false);
 }

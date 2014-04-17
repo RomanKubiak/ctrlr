@@ -46,6 +46,7 @@ public:
 
     void drawButtonText (Graphics&, TextButton& button,
                          bool isMouseOverButton, bool isButtonDown) override;
+    void changeTextButtonWidthToFitText (TextButton&, int newHeight) override;
 
     void drawToggleButton (Graphics&, ToggleButton& button, bool isMouseOverButton, bool isButtonDown) override;
 
@@ -344,4 +345,4 @@ private:
 };
 
 
-#endif   // JUCE_LOOKANDFEEL_H_INCLUDED
+#endif   // JUCE_LOOKANDFEEL_V2_H_INCLUDED

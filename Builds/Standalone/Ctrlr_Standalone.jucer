@@ -747,6 +747,10 @@
       </GROUP>
     </GROUP>
     <GROUP id="{3DE79CD7-D2AE-85FB-961F-A00A05230DE1}" name="MIDI">
+      <FILE id="g4BUXq" name="CtrlrMidiMessageEx.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessageEx.cpp"/>
+      <FILE id="lXkGwG" name="CtrlrMidiMessageEx.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessageEx.h"/>
       <FILE id="kWf7cN" name="CtrlrMIDITransaction.cpp" compile="1" resource="0"
             file="../../Source/MIDI/CtrlrMIDITransaction.cpp"/>
       <FILE id="R0bW1U" name="CtrlrMIDITransaction.h" compile="0" resource="0"
@@ -791,9 +795,6 @@
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.cpp"/>
       <FILE id="i1nahd" name="CtrlrOwnedMidiMessage.h" compile="0" resource="0"
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
-      <FILE id="Zcrjcw" name="MidiMessageEx.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/MidiMessageEx.cpp"/>
-      <FILE id="STsDFK" name="MidiMessageEx.h" compile="0" resource="0" file="../../Source/MIDI/MidiMessageEx.h"/>
     </GROUP>
     <GROUP id="{15BCC855-3712-E6FF-7B07-0711370584D7}" name="Misc">
       <FILE id="AU49Zx" name="juce_PluginHostType.h" compile="0" resource="0"
@@ -1031,9 +1032,9 @@
         <FILE id="Dybrp8" name="CtrlrMIDIMon.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIMon.h"/>
       </GROUP>
       <GROUP id="{5F752446-C0A0-535E-B922-C982C5613533}" name="CtrlrPanel">
-        <FILE id="utnkf0" name="XmlTokeniser.cpp" compile="1" resource="0"
-              file="../../Source/UIComponents/CtrlrPanel/XmlTokeniser.cpp"/>
-        <FILE id="lZe64m" name="XmlTokeniser.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/XmlTokeniser.h"/>
+        <FILE id="lYtsBd" name="CtrlrViewport.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp"/>
+        <FILE id="O8D1Ll" name="CtrlrViewport.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.h"/>
         <FILE id="NWhCCn" name="CtrlrPanelMIDIToolbar.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.cpp"/>
         <FILE id="mS4jyc" name="CtrlrPanelMIDIToolbar.h" compile="0" resource="0"
@@ -1090,8 +1091,6 @@
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.cpp"/>
         <FILE id="uvtvqn" name="CtrlrPanelViewport.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.h"/>
-        <FILE id="DNMbU3" name="ViewportExt.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrPanel/ViewportExt.cpp"/>
-        <FILE id="tF4nyp" name="ViewportExt.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/ViewportExt.h"/>
       </GROUP>
       <GROUP id="{BD7446F0-0299-4DDA-C7D0-44C67C088287}" name="CtrlrPropertyEditors">
         <FILE id="EIHCCQ" name="CtrlrModulatorListProperty.cpp" compile="1"

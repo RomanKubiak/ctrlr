@@ -461,15 +461,20 @@ private:
                 if (sample >= 0)
                 {
                     if (sample >= levelData->lengthInSamples)
-                        break;
+                    {
+                        for (int chan = 0; chan < numChannelsCached; ++chan)
+                            *getData (chan, i) = MinMaxValue();
+                    }
+                    else
+                    {
+                        levelData->getLevels (sample, jmax (1, nextSample - sample), levels);
 
-                    levelData->getLevels (sample, jmax (1, nextSample - sample), levels);
+                        const int totalChans = jmin (levels.size() / 2, numChannelsCached);
 
-                    const int totalChans = jmin (levels.size() / 2, numChannelsCached);
-
-                    for (int chan = 0; chan < totalChans; ++chan)
-                        getData (chan, i)->setFloat (levels.getUnchecked (chan * 2),
-                                                     levels.getUnchecked (chan * 2 + 1));
+                        for (int chan = 0; chan < totalChans; ++chan)
+                            getData (chan, i)->setFloat (levels.getUnchecked (chan * 2),
+                                                         levels.getUnchecked (chan * 2 + 1));
+                    }
                 }
 
                 startTime += timePerPixel;
@@ -701,16 +706,15 @@ void AudioThumbnail::addBlock (const int64 startSample, const AudioSampleBuffer&
 
         for (int chan = 0; chan < numChans; ++chan)
         {
-            const float* const sourceData = incoming.getSampleData (chan, startOffsetInBuffer);
+            const float* const sourceData = incoming.getReadPointer (chan, startOffsetInBuffer);
             MinMaxValue* const dest = thumbData + numToDo * chan;
             thumbChannels [chan] = dest;
 
             for (int i = 0; i < numToDo; ++i)
             {
-                float low, high;
                 const int start = i * samplesPerThumbSample;
-                FloatVectorOperations::findMinAndMax (sourceData + start, jmin (samplesPerThumbSample, numSamples - start), low, high);
-                dest[i].setFloat (low, high);
+                Range<float> range (FloatVectorOperations::findMinAndMax (sourceData + start, jmin (samplesPerThumbSample, numSamples - start)));
+                dest[i].setFloat (range.getStart(), range.getEnd());
             }
         }
 

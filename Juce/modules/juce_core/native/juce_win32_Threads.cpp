@@ -482,12 +482,12 @@ public:
             CloseHandle (writePipe);
     }
 
-    bool isRunning() const
+    bool isRunning() const noexcept
     {
         return WaitForSingleObject (processInfo.hProcess, 0) != WAIT_OBJECT_0;
     }
 
-    int read (void* dest, int numNeeded) const
+    int read (void* dest, int numNeeded) const noexcept
     {
         int total = 0;
 
@@ -522,9 +522,16 @@ public:
         return total;
     }
 
-    bool killProcess() const
+    bool killProcess() const noexcept
     {
         return TerminateProcess (processInfo.hProcess, 0) != FALSE;
+    }
+
+    uint32 getExitCode() const noexcept
+    {
+        DWORD exitCode = 0;
+        GetExitCodeProcess (processInfo.hProcess, &exitCode);
+        return (uint32) exitCode;
     }
 
     bool ok;
@@ -548,22 +555,21 @@ bool ChildProcess::start (const String& command, int streamFlags)
 
 bool ChildProcess::start (const StringArray& args, int streamFlags)
 {
-    return start (args.joinIntoString (" "), streamFlags);
-}
+    String escaped;
 
-bool ChildProcess::isRunning() const
-{
-    return activeProcess != nullptr && activeProcess->isRunning();
-}
+    for (int i = 0; i < args.size(); ++i)
+    {
+        String arg (args[i]);
 
-int ChildProcess::readProcessOutput (void* dest, int numBytes)
-{
-    return activeProcess != nullptr ? activeProcess->read (dest, numBytes) : 0;
-}
+        // If there are spaces, surround it with quotes. If there are quotes,
+        // replace them with \" so that CommandLineToArgv will correctly parse them.
+        if (arg.containsAnyOf ("\" "))
+            arg = arg.replace ("\"", "\\\"").quoted();
 
-bool ChildProcess::kill()
-{
-    return activeProcess == nullptr || activeProcess->killProcess();
+        escaped << arg << ' ';
+    }
+
+    return start (escaped.trim(), streamFlags);
 }
 
 //==============================================================================
