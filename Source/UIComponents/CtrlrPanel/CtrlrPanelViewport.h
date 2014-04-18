@@ -69,7 +69,7 @@ class CtrlrViewportImpl : public CtrlrViewport, public KeyListener
 class CtrlrDraggerOverlayComp    : public Component
 {
 	public:
-		CtrlrDraggerOverlayComp(CtrlrViewportImpl *_viewport) : viewport(_viewport)
+		CtrlrDraggerOverlayComp(CtrlrViewport *_viewport) : viewport(_viewport)
 		{
 			setMouseCursor (MouseCursor::DraggingHandCursor);
 			setAlwaysOnTop (true);
@@ -103,7 +103,7 @@ class CtrlrDraggerOverlayComp    : public Component
 
 		private:
 			int startX, startY;
-			CtrlrViewportImpl *viewport;
+			CtrlrViewport *viewport;
 };
 
 class CtrlrPanelViewport  : public Component
