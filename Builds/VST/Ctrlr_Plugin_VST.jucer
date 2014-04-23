@@ -62,7 +62,7 @@
                        binaryPath="../../Bin/VST/$(Platform)$(NATIVE_ARCH)" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST"
                        winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        postbuildCommand="" wholeProgramOptimisation="1" prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2010\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\VST\Ctrlr_Plugin_VST.jucer"
-                       userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"/>
+                       userNotes=""/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr-VST-$(Platform)$(NATIVE_ARCH)"
                        defines="CTRLR_NIGHTLY=0 JucePlugin_Build_VST" binaryPath=""
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
@@ -156,6 +156,36 @@
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
       </MODULEPATHS>
     </CODEBLOCKS>
+    <VS2013 targetFolder="../Generated/Windows/VST_2013" vstFolder="../../VST"
+            extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm512">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="2" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Ctrlr_Plugin_VST" prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2013\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\VST\Ctrlr_Plugin_VST.jucer"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST" wholeProgramOptimisation="1"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="Ctrlr_Plugin_VST"/>
+        <CONFIGURATION name="Release_Nightly" winWarningLevel="2" generateManifest="1"
+                       winArchitecture="32-bit" isDebug="0" optimisation="2" targetName="Ctrlr-VST-$(Platform)$(NATIVE_ARCH)"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST" wholeProgramOptimisation="1"
+                       prebuildCommand="$(MSBuildProjectDirectory)\..\..\..\..\Scripts\pre-build-windows.bat $(MSBuildProjectDirectory) $(VisualStudioVersion) $(OSVersion) $(TargetedRuntimeVersion)"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2013>
   </EXPORTFORMATS>
   <MAINGROUP id="wm289X" name="Ctrlr_Plugin_VST">
     <GROUP id="{ECD6AAB8-662A-C993-F81E-8E140F62602F}" name="Core">
@@ -755,6 +785,10 @@
       </GROUP>
     </GROUP>
     <GROUP id="{50E4F3DE-9270-01A9-C70A-9D6AF07E8EEA}" name="MIDI">
+      <FILE id="QZuRmE" name="CtrlrMidiMessageEx.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessageEx.cpp"/>
+      <FILE id="HMTHDZ" name="CtrlrMidiMessageEx.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessageEx.h"/>
       <FILE id="h2wTG6" name="CtrlrMIDITransaction.cpp" compile="1" resource="0"
             file="../../Source/MIDI/CtrlrMIDITransaction.cpp"/>
       <FILE id="K8ZYmf" name="CtrlrMIDITransaction.h" compile="0" resource="0"
@@ -799,9 +833,6 @@
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.cpp"/>
       <FILE id="sp7wmY" name="CtrlrOwnedMidiMessage.h" compile="0" resource="0"
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
-      <FILE id="aKqwHQ" name="MidiMessageEx.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/MidiMessageEx.cpp"/>
-      <FILE id="XiFDn1" name="MidiMessageEx.h" compile="0" resource="0" file="../../Source/MIDI/MidiMessageEx.h"/>
     </GROUP>
     <GROUP id="{8F9534D2-5A89-AD92-71CE-F1DFAB3F48BC}" name="Misc">
       <FILE id="zvlimU" name="juce_PluginHostType.h" compile="0" resource="0"
@@ -1039,13 +1070,13 @@
         <FILE id="QYoO69" name="CtrlrMIDIMon.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIMon.h"/>
       </GROUP>
       <GROUP id="{3BD2D29D-3C59-3475-8680-C402E8E4321A}" name="CtrlrPanel">
-        <FILE id="oSzTGr" name="XmlTokeniser.cpp" compile="1" resource="0"
-              file="../../Source/UIComponents/CtrlrPanel/XmlTokeniser.cpp"/>
-        <FILE id="oTN98a" name="XmlTokeniser.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/XmlTokeniser.h"/>
         <FILE id="JpP9su" name="CtrlrPanelMIDIToolbar.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.cpp"/>
         <FILE id="IuhnRD" name="CtrlrPanelMIDIToolbar.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.h"/>
+        <FILE id="i6sFBs" name="CtrlrViewport.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp"/>
+        <FILE id="nJqYrW" name="CtrlrViewport.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.h"/>
         <FILE id="pvyrn6" name="CtrlrPanelCanvas.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvas.cpp"/>
         <FILE id="J5Fdhs" name="CtrlrPanelCanvas.h" compile="0" resource="0"
@@ -1098,8 +1129,6 @@
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.cpp"/>
         <FILE id="QrXaRH" name="CtrlrPanelViewport.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.h"/>
-        <FILE id="S06rQL" name="ViewportExt.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrPanel/ViewportExt.cpp"/>
-        <FILE id="wjCxlN" name="ViewportExt.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/ViewportExt.h"/>
       </GROUP>
       <GROUP id="{9F6629D6-BD14-4107-BC85-638C8ED43EF5}" name="CtrlrPropertyEditors">
         <FILE id="kLQPtq" name="CtrlrModulatorListProperty.cpp" compile="1"

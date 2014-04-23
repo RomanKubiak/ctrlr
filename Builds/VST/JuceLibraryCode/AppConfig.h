@@ -168,6 +168,10 @@
  #define   JUCE_WEB_BROWSER 0
 #endif
 
+#ifndef    JUCE_ENABLE_LIVE_CONSTANT_EDITOR
+ //#define JUCE_ENABLE_LIVE_CONSTANT_EDITOR
+#endif
+
 
 //==============================================================================
 // Audio plugin settings..
@@ -200,7 +204,7 @@
  #define JucePlugin_ManufacturerWebsite    ""
 #endif
 #ifndef  JucePlugin_ManufacturerEmail
- #define JucePlugin_ManufacturerEmail      "support@yourcompany.com"
+ #define JucePlugin_ManufacturerEmail      ""
 #endif
 #ifndef  JucePlugin_ManufacturerCode
  #define JucePlugin_ManufacturerCode       'INST'
