@@ -169,7 +169,8 @@
                        winArchitecture="32-bit" isDebug="0" optimisation="2" targetName="Ctrlr-VST-$(Platform)$(NATIVE_ARCH)"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST" wholeProgramOptimisation="1"
-                       prebuildCommand="$(MSBuildProjectDirectory)\..\..\..\..\Scripts\pre-build-windows.bat $(MSBuildProjectDirectory) $(VisualStudioVersion) $(OSVersion) $(TargetedRuntimeVersion)"/>
+                       prebuildCommand="$(MSBuildProjectDirectory)\..\..\..\..\Scripts\pre-build-windows.bat $(MSBuildProjectDirectory) $(VisualStudioVersion) $(OSVersion) $(TargetedRuntimeVersion)"
+                       postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
