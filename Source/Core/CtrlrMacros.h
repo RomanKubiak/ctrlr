@@ -146,7 +146,8 @@ enum CtrlrFontProperties
 	fontItalic,
 	fontUnderline,
 	fontKerning,
-	fontHorizontalScale
+	fontHorizontalScale,
+	fontSet
 };
 
 enum CtrlrMIDIDeviceHandler
