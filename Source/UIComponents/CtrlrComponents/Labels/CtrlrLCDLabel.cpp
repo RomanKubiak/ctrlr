@@ -205,49 +205,7 @@ void CtrlrLCDLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 
 	else if (property == Ids::uiLCDLabelFont)
 	{
-		Font f;
-
-		if ((int)getProperty(property) == 0)
-		{
-			f = INTERNAL_FONT (FONT_LCD_bin);
-		}
-		if ((int)getProperty(property) == 1)
-		{
-			f = INTERNAL_FONT (FONT_Digital7_bin);
-		}
-		if ((int)getProperty(property) == 2)
-		{
-			f = INTERNAL_FONT (FONT_DottyShadow_bin);
-		}
-		if ((int)getProperty(property) == 3)
-		{
-			f = INTERNAL_FONT (FONT_ZX81_bin);
-		}
-		if ((int)getProperty(property) == 4)
-		{
-			f = INTERNAL_FONT (FONT_Invasion2000_bin);
-		}
-		if ((int)getProperty(property) == 5)
-		{
-			f = INTERNAL_FONT (FONT_Digit_bin);
-		}
-		if ((int)getProperty(property) == 6)
-		{
-			f = INTERNAL_FONT (FONT_Computerfont_bin);
-		}
-		if ((int)getProperty(property) == 7)
-		{
-			f = INTERNAL_FONT (FONT_Electronic_Highway_Sign_bin);
-		}
-		if ((int)getProperty(property) == 8)
-		{
-			f = INTERNAL_FONT (FONT_Karmatic_Arcade_bin);
-		}
-		if ((int)getProperty(property) == 9)
-		{
-			f = INTERNAL_FONT (FONT_60sekuntia_bin);
-		}
-
+		Font f = CtrlrFontManager::getBuilInFont ((int)getProperty(property));
 		f.setHeight ((float)getProperty(Ids::uiLCDLabelFontHeight));
 		ctrlrLabel->setFont (f);
 	}

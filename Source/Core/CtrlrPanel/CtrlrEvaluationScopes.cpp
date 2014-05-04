@@ -283,7 +283,6 @@ double evaluateFormulaFunction (CtrlrPanel &panel, const String& functionName, c
 		if (numParameters == 2)
 		{
 			const double value		= *parameters;
-			const double pre		= value;
 			const int bitToClear	= (int)*(parameters+1);
 
 			BigInteger bi((uint32)value);

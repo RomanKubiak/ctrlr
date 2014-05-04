@@ -325,11 +325,6 @@ String CtrlrPanelMIDIToolbar::getItemName(const int itemId)
 
 Image CtrlrPanelMIDIToolbar::getItemIcon(const int itemId)
 {
-	switch (itemId)
-	{
-		default:
-			break;
-	}
 	return (Image::null);
 }
 

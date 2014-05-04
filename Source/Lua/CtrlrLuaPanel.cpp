@@ -458,7 +458,7 @@ LMemoryBlock CtrlrPanel::getModulatorValuesAsData(const ValueTree &programTree, 
 
 void CtrlrPanel::setModulatorValuesFromData (const MemoryBlock &dataSource, const String &propertyToIndexBy, const CtrlrByteEncoding byteEncoding, int propertyOffset, int bytesPerValue, const bool useMappedValues)
 {
-    for (int index=0; index<dataSource.getSize() / bytesPerValue; index++)
+    for (unsigned int index=0; index<dataSource.getSize() / bytesPerValue; index++)
 	{
         CtrlrModulator *m = getModulatorWithProperty (propertyToIndexBy, propertyOffset + index);
         if (m)

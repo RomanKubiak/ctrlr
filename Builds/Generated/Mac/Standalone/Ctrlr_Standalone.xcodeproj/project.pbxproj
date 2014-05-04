@@ -3499,7 +3499,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PRODUCT_NAME = "Ctrlr-Debug";
-				WARNING_CFLAGS = -Wreorder;
+				WARNING_CFLAGS = "-Wreorder -Wno-deprecated-register";
 				ZERO_LINK = NO; }; name = Debug; };
 		F93EA6A73846DFFD2431A479 = {isa = XCBuildConfiguration; buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -3514,7 +3514,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PRODUCT_NAME = "Ctrlr";
-				WARNING_CFLAGS = -Wreorder;
+				WARNING_CFLAGS = "-Wreorder -Wno-deprecated-register";
 				ZERO_LINK = NO; }; name = Release; };
 		4F2519AD4917E49CE9991491 = {isa = XCBuildConfiguration; buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -3529,7 +3529,7 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PRODUCT_NAME = "Ctrlr";
-				WARNING_CFLAGS = -Wreorder;
+				WARNING_CFLAGS = "-Wreorder -Wno-deprecated-register";
 				ZERO_LINK = NO; }; name = "Release_Nightly"; };
 		4AF5A5DA34C5918BE1BA8FBD = {isa = XCConfigurationList; buildConfigurations = (
 					B2DC424E514676A409757BB3,

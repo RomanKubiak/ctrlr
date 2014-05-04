@@ -1,31 +1,20 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ctrlr_Standalone", "Ctrlr_Standalone.vcxproj", "{AE5BFF94-9212-18D5-D78C-303C614D5D47}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2013
+Project("{60A75465-D3F0-3223-8223-A39FA0DFDF34}") = "Ctrlr_Standalone", "Ctrlr_Standalone.vcxproj", "{AE5BFF94-9212-18D5-D78C-303C614D5D47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
-		Debug|x64 = Debug|x64
-		Release_Nightly|Win32 = Release_Nightly|Win32
-		Release_Nightly|x64 = Release_Nightly|x64
 		Release|Win32 = Release|Win32
-		Release|x64 = Release|x64
+		Release_Nightly|Win32 = Release_Nightly|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Debug|Win32.ActiveCfg = Debug|Win32
 		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Debug|Win32.Build.0 = Debug|Win32
-		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Debug|x64.ActiveCfg = Debug|x64
-		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Debug|x64.Build.0 = Debug|x64
-		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release_Nightly|Win32.ActiveCfg = Release_Nightly|Win32
-		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release_Nightly|Win32.Build.0 = Release_Nightly|Win32
-		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release_Nightly|x64.ActiveCfg = Release_Nightly|x64
-		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release_Nightly|x64.Build.0 = Release_Nightly|x64
 		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release|Win32.ActiveCfg = Release|Win32
 		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release|Win32.Build.0 = Release|Win32
-		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release|x64.ActiveCfg = Release|x64
-		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release|x64.Build.0 = Release|x64
+		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release_Nightly|Win32.ActiveCfg = Release_Nightly|Win32
+		{AE5BFF94-9212-18D5-D78C-303C614D5D47}.Release_Nightly|Win32.Build.0 = Release_Nightly|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
