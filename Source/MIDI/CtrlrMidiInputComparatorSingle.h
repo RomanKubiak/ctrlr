@@ -15,7 +15,7 @@ class CtrlrMidiInputComparatorSingle
 		void clear();
 		void match (const MidiMessage &m);
 		void matchSysEx(const MidiMessage &m);
-		const bool cacheMatch(CtrlrMidiMessageType type, const int number);
+		const bool cacheMatch(CtrlrMidiMessageType type, const int number, const int channel);
 		const bool cacheMatchSysEx ();
 		void addMatchTarget (CtrlrModulator *m);
 		void addMatchTargetSysEx (CtrlrModulator *m);
