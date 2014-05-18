@@ -24,32 +24,20 @@ void CtrlrOwnedMidiMessage::setMidiMessageType (const CtrlrMidiMessageType newTy
 	CtrlrMidiMessage::setMidiMessageType (newType);
 }
 
+void CtrlrOwnedMidiMessage::setChannel(const int midiChannel)
+{
+	if ((bool)getProperty(Ids::midiMessageChannelOverride) == true)
+	{
+		CtrlrMidiMessage::setChannel (getProperty(Ids::midiMessageChannel));
+	}
+	else
+	{
+		CtrlrMidiMessage::setChannel (jlimit(1,16,owner.getMidiChannelForOwnedMidiMessages()));
+	}
+}
+
 void CtrlrOwnedMidiMessage::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
 {
-	if (property == Ids::midiMessageChannel)
-	{
-		if ((bool)getProperty(Ids::midiMessageChannelOverride) == true)
-		{
-			setChannel (getProperty(Ids::midiMessageChannel));
-		}
-		else
-		{
-			setChannel (jlimit(1,16,owner.getMidiChannelForOwnedMidiMessages()));
-		}
-	}
-
-	if (property == Ids::midiMessageChannelOverride)
-	{
-		if ((bool)getProperty(Ids::midiMessageChannelOverride) == true)
-		{
-			setChannel (getProperty(Ids::midiMessageChannel));
-		}
-		else
-		{
-			setChannel (owner.getMidiChannelForOwnedMidiMessages());
-		}
-	}
-
 	CtrlrMidiMessage::valueTreePropertyChanged (treeWhosePropertyHasChanged, property);
 }
 

@@ -666,7 +666,7 @@ void CtrlrPanel::setMidiChannelToAllModulators (const int newChannel)
 	{
 		if (ctrlrModulators[i]->getMidiMessagePtr())
 		{
-			ctrlrModulators[i]->getMidiMessage().setProperty (Ids::midiMessageChannel, newChannel);
+			ctrlrModulators[i]->getMidiMessage().setChannel (newChannel);
 		}
 	}
 }

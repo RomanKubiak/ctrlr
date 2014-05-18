@@ -89,7 +89,7 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 
 			@param midiChannel	 the MIDI channel to set
 		*/
-		void setChannel(const int midiChannel);
+		virtual void setChannel(const int midiChannel);
 
 		/** @brief Get the MIDI channel of the message
 

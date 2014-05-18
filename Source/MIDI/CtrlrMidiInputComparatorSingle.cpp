@@ -127,9 +127,10 @@ void CtrlrMidiInputComparatorSingle::match (const MidiMessage &m)
 {
 	messageContainer			= m;
 	CtrlrMidiMessageType type	= midiMessageToType(m);
+	int channel					= m.getChannel();
 	int number					= getMidiNumberFromMidiMessage(m);
 
-	if (cacheMatch(type, number))
+	if (cacheMatch(type, number, channel))
 	{
 		return;
 	}
@@ -150,10 +151,13 @@ void CtrlrMidiInputComparatorSingle::match (const MidiMessage &m)
 		{
 			for (int i=0; i < (*it).second.targets.size(); i++)
 			{
-				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer);
-			}
+				if (m.getChannel() == (*it).second.targets[i]->getMidiMessage().getChannel())
+				{
+					(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer);
 
-			updateCache (type, it);
+					updateCache (type, it);
+				}
+			}
 		}
 	}
 }
@@ -219,7 +223,7 @@ void CtrlrMidiInputComparatorSingle::updateCacheSysEx (CtrlrMultiMidiMapIterator
 	}
 }
 
-const bool CtrlrMidiInputComparatorSingle::cacheMatch(CtrlrMidiMessageType type, const int number)
+const bool CtrlrMidiInputComparatorSingle::cacheMatch(CtrlrMidiMessageType type, const int number, const int channel)
 {
 	if (type == SysEx)
 	{
@@ -234,10 +238,20 @@ const bool CtrlrMidiInputComparatorSingle::cacheMatch(CtrlrMidiMessageType type,
 		{
 			for (int j=0; j<cache[i].mapData.targets.size(); j++)
 			{
-				cache[i].mapData.targets[j]->getProcessor().setValueFromMIDI (messageContainer);
+				if (cache[i].mapData.targets[j]->getMidiMessage().getChannel() == channel)
+				{
+					cache[i].mapData.targets[j]->getProcessor().setValueFromMIDI (messageContainer);
+					return (true);
+				}
+				else
+				{
+					return (false);
+				}
 			}
-
-			return (true);
+		}
+		else
+		{
+			return (false);
 		}
 	}
 	return (false);

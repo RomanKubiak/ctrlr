@@ -22,6 +22,7 @@ class CtrlrOwnedMidiMessage : public CtrlrMidiMessage
 		void setMidiMessageType (const CtrlrMidiMessageType newType);		
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void patternChanged();
+		void setChannel(const int midiChannel);
 		void compilePattern(); /* same as above but does not trigger owner rehash */
 		const Array<int,CriticalSection> &getGlobalVariables();
 		CtrlrSysexProcessor *getSysexProcessor();
