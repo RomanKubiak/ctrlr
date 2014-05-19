@@ -51,7 +51,7 @@ void CtrlrFontManager::reloadBuiltInFonts()
 
 	for (int i=0; i<getNumBuiltInFonts(); i++)
 	{
-		builtInFonts.add (CtrlrFontManager::getBuilInFont (i));
+		builtInFonts.add (CtrlrFontManager::getBuiltInFont (i));
 	}
 }
 
@@ -60,7 +60,7 @@ void CtrlrFontManager::reloadImportedFonts()
 	importedFonts.clear();
 }
 
-const Array<Font> &CtrlrFontManager::getFontArray()
+const Array<Font> &CtrlrFontManager::getOsFontArray()
 {
 	return (osFonts);
 }
@@ -119,17 +119,17 @@ Font CtrlrFontManager::getFont(const int fontIndex)
 {
 	if (fontIndex >= 0 && fontIndex < builtInFonts.size())
 	{
-		//_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is a builtIn font");
+		_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is a builtIn font");
 		/* This is a built-in font */
 	}
 	else if (fontIndex >= builtInFonts.size() && fontIndex < (importedFonts.size()+builtInFonts.size()))
 	{
 		/* This is a imported font */
-		//_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an imported font");
+		_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an imported font");
 	}
 	else if (fontIndex >= (importedFonts.size()+builtInFonts.size()) && fontIndex < (importedFonts.size()+builtInFonts.size()+osFonts.size()))
 	{
-		//_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an os font");
+		_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an os font");
 	}
 
 	return (builtInFonts[0]);
@@ -170,8 +170,8 @@ Font CtrlrFontManager::getFont(const File &fontFile)
 
 const Font CtrlrFontManager::getFontFromString (const String &string)
 {
-	//_DBG ("CtrlrFontManager::getFontFromString: ["+string+"]");
-	string.replace ("<Monospaced>", getDefaultMonoFontName(), false);
+	_DBG ("CtrlrFontManager::getFontFromString: ["+string+"]");
+	// string.replace ("<Monospaced>", getDefaultMonoFontName(), false);
 
 	if (!string.contains (";"))
 	{
@@ -187,6 +187,15 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 		if (fontProps[fontSet] != String::empty && fontProps[fontSet].getIntValue() >= 0)
 		{
 			/* We need to fetch the typeface for the font from the correct font set */
+			Array<Font> &fontSetToUse = getFontSet((const FontSet)fontProps[fontSet].getIntValue());
+
+			for (int i=0; i<fontSetToUse.size(); i++)
+			{
+				if (fontSetToUse[i].getTypefaceName() == fontProps[fontTypefaceName])
+				{
+					font = fontSetToUse[i];
+				}
+			}
 		}
 		else
 		{
@@ -221,10 +230,10 @@ const String CtrlrFontManager::getStringFromFont (const Font &_font)
 	Font font(_font);
 	StringArray fontProps;
 
-	if (font.getTypefaceName() == "<Monospaced>")
+	/*if (font.getTypefaceName() == "<Monospaced>")
 	{
 		font.setTypefaceName (getDefaultMonoFontName());
-	}
+	}*/
 
 	fontProps.add (font.getTypefaceName());
 	fontProps.add (String(font.getHeight()));
@@ -233,8 +242,8 @@ const String CtrlrFontManager::getStringFromFont (const Font &_font)
 	fontProps.add (String(font.isUnderlined()));
 	fontProps.add (String(font.getExtraKerningFactor()));
 	fontProps.add (String(font.getHorizontalScale()));
-	fontProps.add (String((uint8)getFontSet (font)));
-	//_DBG("CtrlrFontManager::getStringFromFont: ["+fontProps.joinIntoString(";")+"]");
+	fontProps.add (String((uint8)getFontSetEnum (font)));
+
 	return (fontProps.joinIntoString(";"));
 }
 
@@ -276,7 +285,7 @@ const String CtrlrFontManager::fontToBase64 (const Font &font)
 	return (fontData.toBase64Encoding());
 }
 
-const Font CtrlrFontManager::getBuilInFont(const int fontIndex)
+const Font CtrlrFontManager::getBuiltInFont(const int fontIndex)
 {
 	Font f;
 
@@ -319,31 +328,49 @@ const Font CtrlrFontManager::getBuilInFont(const int fontIndex)
 	return (f);
 }
 
-const CtrlrFontManager::FontSet CtrlrFontManager::getFontSet (const Font &font)
+const CtrlrFontManager::FontSet CtrlrFontManager::getFontSetEnum (const Font &font)
 {
 	for (int i=0; i<osFonts.size(); i++)
 	{
 		if (osFonts[i].getTypefaceName() == font.getTypefaceName())
-			return (osFont);
+			return (osFontSet);
 	}
 
 	for (int i=0; i<builtInFonts.size(); i++)
 	{
 		if (builtInFonts[i].getTypefaceName() == font.getTypefaceName())
-			return (builtInFont);
+			return (builtInFontSet);
 	}
 
 	for (int i=0; i<importedFonts.size(); i++)
 	{
 		if (importedFonts[i].getTypefaceName() == font.getTypefaceName())
-			return (importedFont);
+			return (importedFontSet);
 	}
 
 	for (int i=0; i<juceFonts.size(); i++)
 	{
 		if (juceFonts[i].getTypefaceName() == font.getTypefaceName())
-			return (juceFont);
+			return (juceFontSet);
 	}
 
-	return (osFont);
+	return (unknownFontSet);
+}
+
+Array<Font> &CtrlrFontManager::getFontSet (const FontSet fontSetToFetch)
+{
+	switch (fontSetToFetch)
+	{
+		case osFontSet:
+			return (osFonts);
+		case builtInFontSet:
+			return (builtInFonts);
+		case importedFontSet:
+			return (importedFonts);
+		case juceFontSet:
+		case unknownFontSet:
+		default:
+			return (juceFonts);
+			break;
+	}
 }
