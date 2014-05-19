@@ -10,10 +10,11 @@ class CtrlrFontManager
 	public:
 		enum FontSet
 		{
-			osFont,
-			importedFont,
-			builtInFont,
-			juceFont
+			osFontSet,
+			importedFontSet,
+			builtInFontSet,
+			juceFontSet,
+			unknownFontSet
 		};
 
 		CtrlrFontManager();
@@ -23,7 +24,7 @@ class CtrlrFontManager
 		void reloadImportedFonts();
 		void reloadJuceFonts();
 		void reloadFonts();
-		const Array<Font> &getFontArray();
+		const Array<Font> &getOsFontArray();
 		void fillCombo (ComboBox &comboToFill, const bool showOsFonts=true, const bool showBuiltInFonts=true, const bool showImportedFonts=true, const bool showJuceFonts=true);
 		Font getFont(const int fontIndex);
 		Font getFont(const File &fontFile);
@@ -33,10 +34,11 @@ class CtrlrFontManager
 		static const String fontToBase64 (const Font &font);
 		static const Font getFont (const char *fontData, const int fontDataSize);
 		const Font getFontFromString (const String &string);
-		static const Font getBuilInFont(const int fontIndex);
+		static const Font getBuiltInFont(const int fontIndex);
 		const String getStringFromFont (const Font &font);
 		const int getNumBuiltInFonts();
-		const FontSet getFontSet (const Font &font);
+		const FontSet getFontSetEnum (const Font &font);
+		Array<Font> &getFontSet (const FontSet fontSetToFetch);
 		static const bool isFontFile(const File &fontFile) { return (fontFile.hasFileExtension("jfont")); }
 		JUCE_LEAK_DETECTOR(CtrlrFontManager);
 

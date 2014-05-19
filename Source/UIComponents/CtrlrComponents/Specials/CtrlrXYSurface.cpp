@@ -176,8 +176,8 @@ void CtrlrXYSurface::paint (Graphics& g)
 	
 	if ((bool)getProperty(Ids::uiXYSurfaceInfoLabelVisible))
 	{
-		const int xScale = (int)getProperty(Ids::uiXYSurfaceMaxX);
-		const int yScale = (int)getProperty(Ids::uiXYSurfaceMaxY);
+		// const int xScale = (int)getProperty(Ids::uiXYSurfaceMaxX);
+		// const int yScale = (int)getProperty(Ids::uiXYSurfaceMaxY);
 
 		const Point<int> c = surfaceModulator->getBounds().getCentre();
 		g.setColour (VAR2COLOUR(getProperty (Ids::uiXYSurfaceInfoLabelColour)));
@@ -412,7 +412,7 @@ const int CtrlrXYSurface::getValueForPosition(const int position, const bool for
 
 const int CtrlrXYSurface::getPositionForValue(const int value, const bool forX)
 {
-	const bool flip		= forX ? (bool)getProperty(Ids::uiXYSuraceXFlip) : (bool)getProperty(Ids::uiXYSuraceYFlip);
+	// const bool flip		= forX ? (bool)getProperty(Ids::uiXYSuraceXFlip) : (bool)getProperty(Ids::uiXYSuraceYFlip);
 	const float scale	= forX ? (float)getProperty(Ids::uiXYSurfaceMaxX) : (float)getProperty(Ids::uiXYSurfaceMaxY);
 	const float dim		= forX ? (float)usableRectangle.getWidth() : (float)usableRectangle.getHeight();
 

@@ -205,7 +205,7 @@ void CtrlrLCDLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 
 	else if (property == Ids::uiLCDLabelFont)
 	{
-		Font f = CtrlrFontManager::getBuilInFont ((int)getProperty(property));
+		Font f = CtrlrFontManager::getBuiltInFont ((int)getProperty(property));
 		f.setHeight ((float)getProperty(Ids::uiLCDLabelFontHeight));
 		ctrlrLabel->setFont (f);
 	}
