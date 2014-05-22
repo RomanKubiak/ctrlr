@@ -119,17 +119,17 @@ Font CtrlrFontManager::getFont(const int fontIndex)
 {
 	if (fontIndex >= 0 && fontIndex < builtInFonts.size())
 	{
-		_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is a builtIn font");
+		//_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is a builtIn font");
 		/* This is a built-in font */
 	}
 	else if (fontIndex >= builtInFonts.size() && fontIndex < (importedFonts.size()+builtInFonts.size()))
 	{
 		/* This is a imported font */
-		_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an imported font");
+		//_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an imported font");
 	}
 	else if (fontIndex >= (importedFonts.size()+builtInFonts.size()) && fontIndex < (importedFonts.size()+builtInFonts.size()+osFonts.size()))
 	{
-		_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an os font");
+		//_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an os font");
 	}
 
 	return (builtInFonts[0]);
@@ -170,7 +170,7 @@ Font CtrlrFontManager::getFont(const File &fontFile)
 
 const Font CtrlrFontManager::getFontFromString (const String &string)
 {
-	_DBG ("CtrlrFontManager::getFontFromString: ["+string+"]");
+	//_DBG ("CtrlrFontManager::getFontFromString: ["+string+"]");
 	// string.replace ("<Monospaced>", getDefaultMonoFontName(), false);
 
 	if (!string.contains (";"))
@@ -207,10 +207,10 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 
 		if (fontProps[fontBold] != String::empty)
 			font.setBold (fontProps[fontBold].getIntValue() ? true : false);
-		
+
 		if (fontProps[fontItalic] != String::empty)
 			font.setItalic (fontProps[fontItalic].getIntValue() ? true : false);
-		
+
 		if (fontProps[fontUnderline] != String::empty)
 			font.setUnderline (fontProps[fontUnderline].getIntValue() ? true : false);
 
@@ -291,7 +291,7 @@ const Font CtrlrFontManager::getBuiltInFont(const int fontIndex)
 
 	switch (fontIndex)
 	{
-		case 0:	
+		case 0:
 			f = FONT_FROM_DATA (FONT_LCD_bin);
 			break;
 		case 1:
@@ -324,7 +324,7 @@ const Font CtrlrFontManager::getBuiltInFont(const int fontIndex)
 		default:
 			break;
 	}
-	
+
 	return (f);
 }
 

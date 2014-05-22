@@ -263,7 +263,7 @@ libr_intstatus remove_section(libr_file *file_handle, libr_section *scn);
 char *section_name(libr_file *file_handle, libr_section *scn);
 libr_intstatus set_data(libr_file *file_handle, libr_section *scn, libr_data *data, off_t offset, char *buffer, size_t size);
 libr_intstatus open_handles(libr_file *file_handle, char *filename, libr_access_t access);
-void write_output(libr_file *file_handle);
+int write_output(libr_file *file_handle);
 
 void cleanup_folder(char *temp_folder);
 void register_handle_cleanup(libr_file *handle);

@@ -109,6 +109,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::panelMidiMatchCacheSize, 32);
 	setProperty (Ids::panelMidiGlobalDelay, 0);
 
+    setProperty (Ids::luaPanelMidiChannelChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelMidiReceived, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelLoaded, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelBeforeLoad, COMBO_ITEM_NONE);
@@ -240,23 +241,18 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 			getCtrlrLuaManager().getMethodManager().call (luaPanelBeforeLoadCbk);
 		}
 	}
-
 	if (savedState.getChildWithName(Ids::panelResources).isValid())
 	{
 		getResourceManager().restoreSavedState(savedState.getChildWithName(Ids::panelResources));
 	}
-
 	if (savedState.getChildWithName(Ids::uiPanelEditor).isValid())
 	{
 		getEditor(true)->restoreState(savedState);
 	}
-
 	if (savedState.getChildWithName(Ids::midiLibrary).isValid())
 	{
 		getCtrlrMIDILibrary().restoreState(savedState.getChildWithName(Ids::midiLibrary));
 	}
-
-
 	if (savedState.getChildWithName(Ids::uiWindowManager).isValid())
 	{
 		panelWindowManager.restoreState (savedState.getChildWithName(Ids::uiWindowManager));
@@ -282,6 +278,7 @@ void CtrlrPanel::sendSnapshotOnLoad()
 
 void CtrlrPanel::bootstrapPanel(const bool setInitialProgram)
 {
+    _DBG("CtrlrPanel::bootstrapPanel");
 	if (getRestoreState())
 		return;
 
@@ -427,6 +424,13 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 			return;
 
 		luaPanelMidiReceivedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::luaPanelMidiChannelChanged)
+	{
+		if (getProperty(property) == String::empty)
+			return;
+
+		luaPanelMidiChannelChangedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelMessageHandler)
 	{
@@ -1005,6 +1009,14 @@ void CtrlrPanel::setMidiChannel(const CtrlrPanelMidiChannel optionToSet, const u
 
 	processor.midiChannelChaned(optionToSet);
 	midiInputThread.midiChannelChaned(optionToSet);
+
+	if (luaPanelMidiChannelChangedCbk && !luaPanelMidiChannelChangedCbk.wasObjectDeleted())
+	{
+		if (luaPanelMidiChannelChangedCbk->isValid())
+		{
+			getCtrlrLuaManager().getMethodManager().call (luaPanelMidiChannelChangedCbk, (int)optionToSet, (int)value);
+		}
+    }
 }
 
 const CtrlrPanelMidiChannel CtrlrPanel::midiChannelFromString(const Identifier &i)

@@ -324,7 +324,7 @@ int safe_rename(const char *old, const char *new)
 /*
  * Write the output file using the libbfd method
  */
-void write_output(libr_file *file_handle)
+int write_output(libr_file *file_handle)
 {
 	int write_ok = false;
 
@@ -333,36 +333,81 @@ void write_output(libr_file *file_handle)
 		write_ok = true;
 		if(!build_output(file_handle))
 		{
-			printf("failed to build output file.\n");
+			printf("BFD::write_output failed to build output file.\n");
 			write_ok = false;
 		}
+		else
+        {
+            printf("BFD::write_output built output file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
+        }
+
 		if(!bfd_close(file_handle->bfd_write))
 		{
-			printf("failed to close write handle.\n");
+			printf("BFD::write_output failed to close write handle.\n");
 			write_ok = false;
 		}
+		else
+        {
+            printf ("BFD::write_output closed file handle: file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
+        }
+
 		if(file_handle->fd_handle != 0 && close(file_handle->fd_handle))
 		{
 			write_ok = false;
-			printf("failed to close write file descriptor.\n");
+			printf("BFD::write_output failed to close write file descriptor file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
 		}
+		else
+        {
+            printf ("BFD::write_output closed file descriptor: file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
+        }
 	}
 	/* The read handle must be closed last since it is used in the write process */
 	if(!bfd_close(file_handle->bfd_read))
-		printf("failed to close read handle.\n");
-	/* Copy the temporary output over the input */
+    {
+		printf("BFD::write_output failed to close read handle file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
+    }
+    else
+    {
+        printf ("BFD::write_output  closed read handle: file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
+    }
+
+    return (write_ok);
+
+	// Copy the temporary output over the input
+	/*
 	if(write_ok)
 	{
 		if(rename(file_handle->tempfile, file_handle->filename) < 0)
 		{
 			if(errno != EXDEV || safe_rename(file_handle->tempfile, file_handle->filename) < 0)
-				printf("failed to rename output file: %m\n");
+            {
+				printf("BFD::write_output failed to rename output file: %m (temp:%s->file:%s)\n", file_handle->tempfile, file_handle->filename);
+            }
+            else
+            {
+                printf("BFD::write_output renamed (%s->%s)\n", file_handle->filename, file_handle->tempfile);
+            }
 		}
+
 		if(chmod(file_handle->filename, file_handle->filemode) < 0)
-			printf("failed to set file mode.\n");
+        {
+			printf("BFD::write_output failed to set file mode file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
+        }
+        else
+        {
+            printf("BFD::write_output chmod success file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
+        }
+
 		if(chown(file_handle->filename, file_handle->fileowner, file_handle->filegroup) < 0)
-			printf("failed to set file ownership.\n");
+        {
+			printf("BFD::write_output failed to set file ownership file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
+        }
+        else
+        {
+            printf("BFD::write_output chown success file: %s temp: %s\n", file_handle->filename, file_handle->tempfile);
+        }
 	}
+	*/
 }
 
 /*
