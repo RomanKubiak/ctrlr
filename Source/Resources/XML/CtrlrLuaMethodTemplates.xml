@@ -326,6 +326,14 @@
     end
   </luaMethod>
 
+  <luaMethod name="luaPanelMidiChannelChanged">
+    --
+    -- Called when a MIDI channel property for the panel changes
+    --
+    __method_name = function(channelType, newChannel)
+    end
+  </luaMethod>
+
   <luaMethod name="luaModulatorGetValueForMIDI">
     --
     --

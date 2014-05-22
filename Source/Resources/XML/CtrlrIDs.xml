@@ -711,6 +711,7 @@
   <id name="luaModulatorMidiPatternChanged"   text="Called if the MIDI pattern changes or needs updating" type="LuaMethod" />
   <id name="luaPanelLoaded"                   text="Called when the panel has finished loading"           type="LuaMethod" />
   <id name="luaPanelBeforeLoad"               text="Called before any modulators are created"             type="LuaMethod" />
+  <id name="luaPanelMidiChannelChanged"       text="Called when a MIDI channel changes for a panel"       type="LuaMethod" />
   <id name="luaPanelMidiReceived"             text="Called when panels receives a MIDI message"           type="LuaMethod" />
   <id name="luaPanelPaintBackground"          text="Called to paint a custom panel background"            type="LuaMethod" />
   <id name="luaPanelSaved"                    text="Called before a panel is saved"                       type="LuaMethod" />

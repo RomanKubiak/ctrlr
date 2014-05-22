@@ -43,6 +43,8 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const
 
 	if (fc.browseForFileToSave (true))
 	{
+	    _DBG("CtrlrLinux::exportWithDefaultPanel chosen file: "+fc.getResult().getFullPathName());
+
 		newMe = fc.getResult();
 		if (!me.copyFileTo (newMe))
 		{
@@ -67,11 +69,13 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const
 	{
 		return (Result::fail ("Linux native, can't open output binary ["+newMe.getFullPathName()+"] using libr_open()"));
 	}
+	else
+    {
+        _DBG("CtrlrLinux::exportWithDefaultPanel libr_open success on: "+newMe.getFullPathName());
+    }
 
 	if ( (error = CtrlrPanel::exportPanel (panelToWrite, File::nonexistent, newMe, &panelExportData, &panelResourcesData, isRestricted)) == String::empty)
 	{
-		//CTRLR_INTERNAL_RESOURCES_RESID;
-
 		if (!libr_write (outputHandle, CTRLR_INTERNAL_PANEL_SECTION, panelExportData.getData(), panelExportData.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
 		{
 			return (Result::fail ("Linux native, failed to write panel data to binary ["+newMe.getFullPathName()+"], size ["+STR((int32)panelExportData.getSize())+"]"));
@@ -87,9 +91,14 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const
 				return (Result::fail ("Linux native, failed to write panel resource data to binary ["+newMe.getFullPathName()+"], size ["+STR((int32)panelResourcesData.getSize())+"]"));
 				libr_close (outputHandle);
 			}
+			else
+            {
+                _DBG("CtrlrLinux::exportWithDefaultPanel wrote resources, size: "+_STR((int)panelResourcesData.getSize()));
+            }
 		}
 	}
 
+    /* We need to move the temporary file to the new destination, libr won't do that for us */
 	libr_close (outputHandle);
 
 	return (Result::ok());
@@ -97,6 +106,11 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const
 
 const Result CtrlrLinux::getDefaultPanel(MemoryBlock& dataToWrite)
 {
+#ifdef DEBUG_INSTANCE
+    File temp("/tmp/debug.bpanelz");
+	temp.loadFileAsData (dataToWrite);
+	return (Result::ok());
+#endif
 	libr_file *handle = libr_open (nullptr, LIBR_READ);
 
 	if (handle == nullptr)
@@ -130,6 +144,36 @@ const Result CtrlrLinux::getDefaultPanel(MemoryBlock& dataToWrite)
 
 const Result CtrlrLinux::getDefaultResources(MemoryBlock& dataToWrite)
 {
+#ifdef DEBUG_INSTANCE
+	File temp("/tmp/debug.bpanelz");
+	MemoryBlock data;
+	{
+		ScopedPointer <FileInputStream> fis (temp.createInputStream());
+		fis->readIntoMemoryBlock (data);
+	}
+
+	ValueTree t = ValueTree::readFromGZIPData(data.getData(), data.getSize());
+
+	if (t.isValid())
+	{
+		ValueTree r = t.getChildWithName (Ids::resourceExportList);
+		if (r.isValid())
+		{
+			MemoryOutputStream mos (dataToWrite, false);
+			{
+				GZIPCompressorOutputStream gzipOutputStream (&mos);
+				r.writeToStream(gzipOutputStream);
+				gzipOutputStream.flush();
+			}
+			return (Result::ok());
+		}
+	}
+	else
+	{
+		return (Result::fail("Linux Native: getDefaultResources got data but couldn't parse it as a compressed ValueTree"));
+	}
+#endif
+
     libr_file *handle = libr_open (nullptr, LIBR_READ);
 
 	if (handle == nullptr)

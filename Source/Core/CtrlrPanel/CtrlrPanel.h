@@ -253,7 +253,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 
 		WeakReference<CtrlrPanel>::Master masterReference;
 		friend class WeakReference<CtrlrPanel>;
-		
+
 		int getMidiChannelForOwnedMidiMessages();
 		CtrlrSysexProcessor *getSysexProcessor();
 		Array<int,CriticalSection> &getGlobalVariables();
@@ -287,7 +287,8 @@ class CtrlrPanel:	public ValueTree::Listener,
 			luaPanelSavedCbk,
 			luaPanelProgramChangedCbk,
 			luaPanelGlobalChangedCbk,
-			luaPanelMessageHandlerCbk;
+			luaPanelMessageHandlerCbk,
+			luaPanelMidiChannelChangedCbk;
 		CtrlrPanelWindowManager panelWindowManager;
 		CtrlrSysexProcessorOwned ctrlrSysexProcessor;
 		CtrlrPanelMIDIInputThread midiInputThread;
