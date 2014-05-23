@@ -50,13 +50,6 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const
 		{
 			return (Result::fail("Linux native, copyFileTo from \""+me.getFullPathName()+"\" to \""+newMe.getFullPathName()+"\" failed"));
 		}
-		else
-		{
-			if (chmod (newMe.getFullPathName().toUTF8().getAddress(), S_IRUSR|S_IWUSR|S_IXUSR|S_IRGRP|S_IXGRP|S_IROTH))
-			{
-				return (Result::fail ("Linux native, chmod failed on destination binary ["+newMe.getFullPathName()+"]"));
-			}
-		}
 	}
 	else
 	{
@@ -100,6 +93,23 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const
 
     /* We need to move the temporary file to the new destination, libr won't do that for us */
 	libr_close (outputHandle);
+
+    if (File (outputHandle->tempfile).moveFileTo (newMe))
+    {
+        _DBG("CtrlrLinux::exportWithDefaultPanel file: "+_STR(outputHandle->tempfile)+" move to: "+newMe.getFullPathName());
+        if (chmod (newMe.getFullPathName().toUTF8().getAddress(), S_IRUSR|S_IWUSR|S_IXUSR|S_IRGRP|S_IXGRP|S_IROTH))
+        {
+			return (Result::fail ("Linux native, chmod failed on destination binary ["+newMe.getFullPathName()+"]"));
+		}
+		else
+		{
+		    _DBG("CtrlrLinux::exportWithDefaultPanel file: "+_STR(newMe.getFullPathName())+" made executable");
+		}
+    }
+    else
+    {
+        return (Result::fail("Can't move file: "+_STR(outputHandle->tempfile)+" move to: "+newMe.getFullPathName()));
+    }
 
 	return (Result::ok());
 }
