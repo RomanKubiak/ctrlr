@@ -37,7 +37,8 @@ void LPath::wrapForLua (lua_State *L)
 			.def("addRoundedRectangle", (void (Path::*)(float, float, float, float, float, float, bool, bool, bool, bool)) &Path::addRoundedRectangle)
 			.def("addTriangle", &Path::addTriangle)
 			.def("addQuadrilateral", &Path::addQuadrilateral)
-			.def("addEllipse", &Path::addEllipse)
+			.def("addEllipse", (void(Path::*)(float, float, float, float))&Path::addEllipse)
+			.def("addEllipse", (void(Path::*)(Rectangle<float>))&Path::addEllipse)
 			.def("addArc", &Path::addArc)
 			.def("addCentredArc", &Path::addCentredArc)
 			.def("addPieSegment", &Path::addPieSegment)
@@ -62,7 +63,7 @@ void LPath::wrapForLua (lua_State *L)
 			.def("toString", &Path::toString)
 			.def("restoreFromString", &Path::restoreFromString)
 		,
-		
+
 		class_<PathStrokeType>("PathStrokeType")
 			.def(constructor<float, PathStrokeType::JointStyle, PathStrokeType::EndCapStyle>())
 			.def(constructor<const PathStrokeType &>())

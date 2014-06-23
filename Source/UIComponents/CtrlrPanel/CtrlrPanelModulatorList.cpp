@@ -289,7 +289,7 @@ int CtrlrModulatorListSorter::compareElements (CtrlrModulator *first, CtrlrModul
 
 	if ((bool)owner.getProperty (Ids::panelModulatorListSortOption))
 	{
-		result = CtrlrPanelModulatorList::getValueStringForColumn (first, attributeToSort.toString()).compareLexicographically (CtrlrPanelModulatorList::getValueStringForColumn (second, attributeToSort.toString()));
+		result = CtrlrPanelModulatorList::getValueStringForColumn (first, attributeToSort.toString()).compareNatural (CtrlrPanelModulatorList::getValueStringForColumn (second, attributeToSort.toString()));
 	}
 	else
 	{

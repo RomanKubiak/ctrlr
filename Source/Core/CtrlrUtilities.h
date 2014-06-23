@@ -26,6 +26,7 @@ ValueTree valueTreeFromXml (const String &dumpedXmlAsString);
 /** Generic utilites **/
 void setComboContentFromString (ComboBox *box, const String &content);
 const String generateRandomUnique(const String &additionalRandomData="");
+const String generateRandomUniquePluginId();
 void uniqueIntArray (Array <int> &arrayToModify);
 void uniqueFontArray (Array <Font> &arrayToModify);
 const String dataPrefix (const MemoryBlock &data, const int prefixLength);

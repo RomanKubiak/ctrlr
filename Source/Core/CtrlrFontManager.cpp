@@ -170,11 +170,12 @@ Font CtrlrFontManager::getFont(const File &fontFile)
 
 const Font CtrlrFontManager::getFontFromString (const String &string)
 {
-	//_DBG ("CtrlrFontManager::getFontFromString: ["+string+"]");
-	// string.replace ("<Monospaced>", getDefaultMonoFontName(), false);
-
 	if (!string.contains (";"))
 	{
+	    if (string == String::empty)
+        {
+            return (Font (18.0f));
+        }
 		return (Font::fromString(string));
 	}
 
@@ -203,7 +204,12 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 				this will actualy be the OS set */
 			font.setTypefaceName (fontProps[fontTypefaceName]);
 		}
+
 		font.setHeight (fontProps[fontHeight].getFloatValue());
+
+		font.setBold (false);
+        font.setUnderline (false);
+        font.setItalic (false);
 
 		if (fontProps[fontBold] != String::empty)
 			font.setBold (fontProps[fontBold].getIntValue() ? true : false);
@@ -220,21 +226,13 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 		if (fontProps[fontHorizontalScale] != String::empty)
 			font.setHorizontalScale (fontProps[fontHorizontalScale].getFloatValue());
 	}
-
 	return (font);
 }
 
 const String CtrlrFontManager::getStringFromFont (const Font &_font)
 {
-	//_DBG("CtrlrFontManager::getStringFromFont");
 	Font font(_font);
 	StringArray fontProps;
-
-	/*if (font.getTypefaceName() == "<Monospaced>")
-	{
-		font.setTypefaceName (getDefaultMonoFontName());
-	}*/
-
 	fontProps.add (font.getTypefaceName());
 	fontProps.add (String(font.getHeight()));
 	fontProps.add (String(font.isBold()));

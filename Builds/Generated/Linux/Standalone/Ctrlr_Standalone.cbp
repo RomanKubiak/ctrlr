@@ -45,9 +45,17 @@
 					<Add directory="../../../../Source/Lua/lua" />
 					<Add directory="/usr/include/freetype2" />
 				</Compiler>
-				<ExtraCommands>
-					<Add before="~/bin/Introjucer --resave-resources ~/devel/ctrlr/Builds/Standalone/Ctrlr_Standalone.jucer" />
-				</ExtraCommands>
+				<Linker>
+					<Add option="-ldl" />
+					<Add option="-lrt" />
+					<Add option="-lXinerama" />
+					<Add option="-lX11" />
+					<Add option="-lfreetype" />
+					<Add option="-lpthread" />
+					<Add option="-lasound" />
+					<Add option="-lz" />
+					<Add option="-lbfd" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="../../../../Bin/Ctrlr" prefix_auto="1" extension_auto="1" />
@@ -87,6 +95,15 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-ldl" />
+					<Add option="-lrt" />
+					<Add option="-lXinerama" />
+					<Add option="-lX11" />
+					<Add option="-lfreetype" />
+					<Add option="-lpthread" />
+					<Add option="-lasound" />
+					<Add option="-lz" />
+					<Add option="-lbfd" />
 					<Add library="comdlg32" />
 					<Add library="imm32" />
 					<Add library="ole32" />
@@ -138,6 +155,15 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-ldl" />
+					<Add option="-lrt" />
+					<Add option="-lXinerama" />
+					<Add option="-lX11" />
+					<Add option="-lfreetype" />
+					<Add option="-lpthread" />
+					<Add option="-lasound" />
+					<Add option="-lz" />
+					<Add option="-lbfd" />
 					<Add library="comdlg32" />
 					<Add library="imm32" />
 					<Add library="ole32" />
@@ -158,17 +184,6 @@
 			<Add option="-Wno-strict-aliasing" />
 			<Add option="-Wno-strict-overflow" />
 		</Compiler>
-		<Linker>
-			<Add library="dl" />
-			<Add library="rt" />
-			<Add library="Xinerama" />
-			<Add library="X11" />
-			<Add library="freetype" />
-			<Add library="pthread" />
-			<Add library="asound" />
-			<Add library="z" />
-			<Add library="bfd" />
-		</Linker>
 		<Unit filename="../../../../Juce/modules/juce_audio_basics/buffers/juce_AudioDataConverters.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -2242,6 +2257,8 @@
 		<Unit filename="../../../../Source/Lua/JuceClasses/LValue.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LValueTree.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LValueTree.h" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LXmlElement.cpp" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LXmlElement.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LZipFile.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LZipFile.h" />
 		<Unit filename="../../../../Source/Lua/Methods/CtrlrLuaMethod.cpp" />
@@ -2409,6 +2426,10 @@
 		<Unit filename="../../../../Source/Resources/Fonts/FONT_Invasion2000.bin" />
 		<Unit filename="../../../../Source/Resources/Fonts/FONT_Karmatic Arcade.bin" />
 		<Unit filename="../../../../Source/Resources/Fonts/FONT_LCD.bin" />
+		<Unit filename="../../../../Source/Resources/Fonts/FONT_OpenSans-Bold.ttf" />
+		<Unit filename="../../../../Source/Resources/Fonts/FONT_OpenSans-BoldItalic.ttf" />
+		<Unit filename="../../../../Source/Resources/Fonts/FONT_OpenSans-Italic.ttf" />
+		<Unit filename="../../../../Source/Resources/Fonts/FONT_OpenSans-Regular.ttf" />
 		<Unit filename="../../../../Source/Resources/Fonts/FONT_Source Code Pro.bin" />
 		<Unit filename="../../../../Source/Resources/Fonts/FONT_ZX81.bin" />
 		<Unit filename="../../../../Source/Resources/Icons/ctrlr_black.ico" />
@@ -2656,7 +2677,6 @@
 			<envvars />
 			<code_completion />
 			<debugger />
-			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

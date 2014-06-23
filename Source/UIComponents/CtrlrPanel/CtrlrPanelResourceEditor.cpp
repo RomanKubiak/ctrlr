@@ -29,7 +29,7 @@ CtrlrPanelResourceEditor::CtrlrPanelResourceEditor (CtrlrPanelEditor &_owner)
     remove->setButtonText (L"Remove");
     remove->addListener (this);
     remove->setColour (TextButton::buttonColourId, Colour (0xffb2b2b2));
-	
+
 	addAndMakeVisible (reload = new TextButton (String::empty));
     reload->setTooltip (L"Reload all resources");
     reload->setButtonText (L"Reload");
@@ -261,7 +261,7 @@ void CtrlrPanelResourceEditor::showResourceInfo(const int resourceIndex)
 		message << "Metadata:\n";
 		message << "\t" << afr->metadataValues.getDescription();
 	}
-	
+
 
 	if (!res->asImage().isNull())
 	{
@@ -302,7 +302,7 @@ int CtrlrPanelResourceEditor::compareElements(CtrlrPanelResource *first, CtrlrPa
 	switch (sortByColumnId)
 	{
 		case 1:
-			ret = first->getName().compareLexicographically(second->getName());
+			ret = first->getName().compareNatural(second->getName());
 			break;
 
 		case 2:
@@ -351,7 +351,7 @@ void CtrlrPanelResourceEditor::reloadAllResourcesFromSourceFiles()
 	owner.reloadResources (resourcesReloaded);
 }
 
-void CtrlrPanelResourceEditor::backgroundClicked ()
+void CtrlrPanelResourceEditor::backgroundClicked (const MouseEvent &e)
 {
 	resourceList->deselectAllRows();
 }

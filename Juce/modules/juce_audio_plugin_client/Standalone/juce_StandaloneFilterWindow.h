@@ -44,8 +44,8 @@ public:
         store its settings - the object that is passed-in will be owned by this
         class and deleted automatically when no longer needed. (It can also be null)
     */
-    StandalonePluginHolder (PropertySet* settingsToUse)
-        : settings (settingsToUse)
+    StandalonePluginHolder (PropertySet* settingsToUse, bool takeOwnershipOfSettings)
+        : settings (settingsToUse, takeOwnershipOfSettings)
     {
         createPlugin();
         setupAudioDevices();
@@ -78,13 +78,23 @@ public:
         processor = nullptr;
     }
 
+    static String getFilePatterns (const String& fileSuffix)
+    {
+        if (fileSuffix.isEmpty())
+            return String();
+
+        return (fileSuffix.startsWithChar ('.') ? "*" : "*.") + fileSuffix;
+    }
+
+
     //==============================================================================
     /** Pops up a dialog letting the user save the processor's state to a file. */
-    void askUserToSaveState()
+    void askUserToSaveState (const String& fileSuffix = String())
     {
         FileChooser fc (TRANS("Save current state"),
                         settings != nullptr ? File (settings->getValue ("lastStateFile"))
-                                            : File::nonexistent);
+                                            : File::getSpecialLocation (File::userDocumentsDirectory),
+                        getFilePatterns (fileSuffix));
 
         if (fc.browseForFileToSave (true))
         {
@@ -101,11 +111,12 @@ public:
     }
 
     /** Pops up a dialog letting the user re-load the processor's state from a file. */
-    void askUserToLoadState()
+    void askUserToLoadState (const String& fileSuffix = String())
     {
         FileChooser fc (TRANS("Load a saved state"),
                         settings != nullptr ? File (settings->getValue ("lastStateFile"))
-                                            : File::nonexistent);
+                                            : File::getSpecialLocation (File::userDocumentsDirectory),
+                        getFilePatterns (fileSuffix));
 
         if (fc.browseForFileToOpen())
         {
@@ -204,7 +215,7 @@ public:
     }
 
     //==============================================================================
-    ScopedPointer<PropertySet> settings;
+    OptionalScopedPointer<PropertySet> settings;
     ScopedPointer<AudioProcessor> processor;
     AudioDeviceManager deviceManager;
     AudioProcessorPlayer player;
@@ -260,7 +271,7 @@ public:
         optionsButton.addListener (this);
         optionsButton.setTriggeredOnMouseDown (true);
 
-        pluginHolder = new StandalonePluginHolder (settingsToUse);
+        pluginHolder = new StandalonePluginHolder (settingsToUse, false);
 
         createEditorComp();
 

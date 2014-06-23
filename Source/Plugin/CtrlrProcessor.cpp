@@ -139,12 +139,33 @@ const String CtrlrProcessor::getParameterText (int index)
 
 const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
 {
-    return String ("Audio Input " + String(channelIndex + 1));
+    if (channelIndex >= 1024)
+    {
+        /* used internally */
+        switch (channelIndex)
+        {
+            case 1024:
+                if (ctrlrManager) if (ctrlrManager->getActivePanel()) return (ctrlrManager->getActivePanel()->getProperty(Ids::panelInstanceUID));
+
+            case 1025:
+                if (ctrlrManager) if (ctrlrManager->getActivePanel()) return (ctrlrManager->getActivePanel()->getProperty(Ids::panelAuthorName));
+
+            case 1026:
+                if (ctrlrManager) if (ctrlrManager->getActivePanel()) return (ctrlrManager->getActivePanel()->getProperty(Ids::name));
+
+            case 1027:
+                if (ctrlrManager) if (ctrlrManager->getActivePanel()) return (ctrlrManager->getActivePanel()->getProperty(Ids::panelVersionMajor));
+
+            default:
+                break;
+        }
+    }
+    return ("AI"+_STR(channelIndex));
 }
 
 const String CtrlrProcessor::getOutputChannelName (const int channelIndex) const
 {
-    return String ("Audio Output " + String(channelIndex + 1));
+    return ("AO"+_STR(channelIndex));
 }
 
 bool CtrlrProcessor::isInputChannelStereoPair (int index) const
@@ -278,12 +299,12 @@ const bool CtrlrProcessor::useWrapper()
 	{
 		return (false);
 	}
-	
+
 	if (((SystemStats::getOperatingSystemType() & SystemStats::Windows) != 0) && host.isAbletonLive())
 	{
 		if (hasProperty(Ids::ctrlrUseEditorWrapper))
 		{
-			return ((bool)getProperty(Ids::ctrlrUseEditorWrapper));	
+			return ((bool)getProperty(Ids::ctrlrUseEditorWrapper));
 		}
 		else
 		{

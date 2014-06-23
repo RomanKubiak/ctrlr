@@ -351,6 +351,23 @@ const String generateRandomUnique(const String &additionalRandomData)
 	return (bi.toMemoryBlock().toBase64Encoding());
 }
 
+const String generateRandomUniquePluginId()
+{
+    String ret;
+
+    static const char alphanum[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+
+    for (int i = 0; i < 4; ++i)
+    {
+        ret << alphanum[rand() % (sizeof(alphanum) - 1)];
+    }
+
+    return (ret);
+}
+
 void uniqueIntArray (Array <int> &arrayToModify)
 {
 	Array<int> temp;

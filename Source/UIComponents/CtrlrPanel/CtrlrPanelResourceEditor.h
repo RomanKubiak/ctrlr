@@ -28,7 +28,7 @@ class CtrlrPanelResourceEditor  : public Component,
 		void buttonClicked (Button* buttonThatWasClicked);
 		void updateTable();
 		void reloadAllResourcesFromSourceFiles();
-		void backgroundClicked ();
+		void backgroundClicked (const MouseEvent &e);
 		void showResourceInfo(const int resourceIndex);
 	private:
 		Array <CtrlrPanelResource*> resources;

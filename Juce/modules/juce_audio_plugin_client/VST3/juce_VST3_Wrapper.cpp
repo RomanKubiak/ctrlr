@@ -61,23 +61,6 @@ namespace juce
 using namespace Steinberg;
 
 //==============================================================================
-class JuceLibraryRefCount
-{
-public:
-    JuceLibraryRefCount()   { if ((getCount()++) == 0) initialiseJuce_GUI(); }
-    ~JuceLibraryRefCount()  { if ((--getCount()) == 0) shutdownJuce_GUI(); }
-
-private:
-    int& getCount() noexcept
-    {
-        static int count = 0;
-        return count;
-    }
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JuceLibraryRefCount)
-};
-
-//==============================================================================
 #if JUCE_MAC
  extern void initialiseMac();
  extern void* attachComponentToWindowRef (Component*, void* parent, bool isNSView);
@@ -104,6 +87,7 @@ public:
 private:
     Atomic<int> refCount;
     ScopedPointer<AudioProcessor> audioProcessor;
+    ScopedJuceInitialiser_GUI libraryInitialiser;
 
     JuceAudioProcessor() JUCE_DELETED_FUNCTION;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JuceAudioProcessor)
@@ -279,9 +263,9 @@ public:
     }
 
     //==============================================================================
-    void audioProcessorParameterChangeGestureBegin (AudioProcessor*, int index) override        { beginEdit ((Steinberg::uint32) index); }
-    void audioProcessorParameterChanged (AudioProcessor*, int index, float newValue) override   { performEdit ((Steinberg::uint32) index, (double) newValue); }
-    void audioProcessorParameterChangeGestureEnd (AudioProcessor*, int index) override          { endEdit ((Steinberg::uint32) index); }
+    void audioProcessorParameterChangeGestureBegin (AudioProcessor*, int index) override        { beginEdit ((Vst::ParamID) index); }
+    void audioProcessorParameterChanged (AudioProcessor*, int index, float newValue) override   { performEdit ((Vst::ParamID) index, (double) newValue); }
+    void audioProcessorParameterChangeGestureEnd (AudioProcessor*, int index) override          { endEdit ((Vst::ParamID) index); }
 
     void audioProcessorChanged (AudioProcessor*) override
     {
@@ -301,7 +285,7 @@ public:
 private:
     //==============================================================================
     ComSmartPtr<JuceAudioProcessor> audioProcessor;
-    const JuceLibraryRefCount juceCount;
+    ScopedJuceInitialiser_GUI libraryInitialiser;
 
     //==============================================================================
     void setupParameters()
@@ -538,6 +522,8 @@ private:
        #if JUCE_WINDOWS
         WindowsHooks hooks;
        #endif
+
+        ScopedJuceInitialiser_GUI libraryInitialiser;
 
         //==============================================================================
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JuceVST3Editor)
@@ -891,14 +877,12 @@ public:
             for (;;)
             {
                 Steinberg::int32 bytesRead = 0;
+                const Steinberg::tresult status = state->read (buffer, (Steinberg::int32) bytesPerBlock, &bytesRead);
 
-                if (state->read (buffer, (Steinberg::int32) bytesPerBlock, &bytesRead) == kResultTrue && bytesRead > 0)
-                {
-                    allData.write (buffer, bytesRead);
-                    continue;
-                }
+                if (bytesRead <= 0 || (status != kResultTrue && ! getHostType().isWavelab()))
+                    break;
 
-                break;
+                allData.write (buffer, bytesRead);
             }
         }
 
@@ -1105,10 +1089,12 @@ public:
             Steinberg::int32 counter = 0;
 
             FOREACH_CAST (IPtr<Vst::Bus>, Vst::AudioBus, bus, list)
+            {
                 if (counter < numBusses)
                     bus->setArrangement (arrangement[counter]);
 
                 counter++;
+            }
             ENDFOR
 
             return kResultTrue;
@@ -1120,6 +1106,8 @@ public:
     tresult PLUGIN_API setBusArrangements (Vst::SpeakerArrangement* inputs, Steinberg::int32 numIns,
                                            Vst::SpeakerArrangement* outputs, Steinberg::int32 numOuts) override
     {
+        (void) inputs; (void) outputs;
+
        #if JucePlugin_MaxNumInputChannels > 0
         if (setBusArrangementFor (audioInputs, inputs, numIns) != kResultTrue)
             return kResultFalse;
@@ -1244,8 +1232,8 @@ public:
         const int numMidiEventsComingIn = midiBuffer.getNumEvents();
        #endif
 
-        const int numInputChans  = data.inputs  != nullptr ? (int) data.inputs[0].numChannels : 0;
-        const int numOutputChans = data.outputs != nullptr ? (int) data.outputs[0].numChannels : 0;
+        const int numInputChans  = (data.inputs  != nullptr && data.inputs[0].channelBuffers32 != nullptr)  ? (int) data.inputs[0].numChannels  : 0;
+        const int numOutputChans = (data.outputs != nullptr && data.outputs[0].channelBuffers32 != nullptr) ? (int) data.outputs[0].numChannels : 0;
 
         int totalChans = 0;
 
@@ -1261,7 +1249,13 @@ public:
             ++totalChans;
         }
 
-        AudioSampleBuffer buffer (channelList.getRawDataPointer(), totalChans, (int) data.numSamples);
+        AudioSampleBuffer buffer;
+
+        if (totalChans != 0)
+            buffer.setDataToReferTo (channelList.getRawDataPointer(), totalChans, (int) data.numSamples);
+        else if (getHostType().isWavelab()
+                  && pluginInstance->getNumInputChannels() + pluginInstance->getNumOutputChannels() > 0)
+            return kResultFalse;
 
         {
             const ScopedLock sl (pluginInstance->getCallbackLock());
@@ -1330,7 +1324,7 @@ private:
     MidiBuffer midiBuffer;
     Array<float*> channelList;
 
-    const JuceLibraryRefCount juceCount;
+    ScopedJuceInitialiser_GUI libraryInitialiser;
 
     //==============================================================================
     void addBusTo (Vst::BusList& busList, Vst::Bus* newBus)
@@ -1688,7 +1682,7 @@ public:
 
 private:
     //==============================================================================
-    const JuceLibraryRefCount juceCount;
+    ScopedJuceInitialiser_GUI libraryInitialiser;
     Atomic<int> refCount;
     const PFactoryInfo factoryInfo;
     ComSmartPtr<Vst::IHostApplication> host;
