@@ -36,12 +36,14 @@ class CtrlrLookAndFeel : public LookAndFeel_V3
 {
 	public:
 		CtrlrLookAndFeel(CtrlrManager &_owner);
-		void drawPopupMenuBackground (Graphics &g, int width, int height);
+		//void drawPopupMenuBackground (Graphics &g, int width, int height);
+
+		//Font getMenuBarFont (MenuBarComponent &menuBar, int itemIndex, const String &itemText);
+		//Font getPopupMenuFont();
+		//void drawMenuBarItem (Graphics &g, int width, int height, int itemIndex, const String &itemText, bool isMouseOverItem, bool isMenuOpen, bool isMouseOverBar, MenuBarComponent &menuBar);
+		//void drawPopupMenuItem (Graphics& g, int width, int height, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String& text, const String& shortcutKeyText, Image* image, const Colour *textColourToUses);
+
 		void drawMenuBarBackground (Graphics &g, int width, int height, bool isMouseOverBar, MenuBarComponent &menuBar);
-		Font getMenuBarFont (MenuBarComponent &menuBar, int itemIndex, const String &itemText);
-		Font getPopupMenuFont();
-		void drawMenuBarItem (Graphics &g, int width, int height, int itemIndex, const String &itemText, bool isMouseOverItem, bool isMenuOpen, bool isMouseOverBar, MenuBarComponent &menuBar);
-		void drawPopupMenuItem (Graphics& g, int width, int height, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String& text, const String& shortcutKeyText, Image* image, const Colour *textColourToUses);
 		CtrlrFontManager &getFontManager();
 		void setActivePanelEditor(CtrlrPanelEditor *_editor);
 		void drawBubble (Graphics &g, BubbleComponent&, const Point<float>& tip, const juce::Rectangle<float>& body);
@@ -53,6 +55,7 @@ class CtrlrLookAndFeel : public LookAndFeel_V3
 		void setUsingNativeAlerts(const bool useNativeDialogs);
 		bool areScrollbarButtonsVisible()        { return true; }
 		//void drawScrollbar (Graphics& g, ScrollBar& scrollbar, int x, int y, int width, int height, bool isScrollbarVertical, int thumbStartPosition, int thumbSize, bool isMouseOver, bool isMouseDown);
+		Typeface::Ptr getTypefaceForFont(const Font &font);
 	private:
 		bool mark;
 		WeakReference <CtrlrPanelEditor> editor;

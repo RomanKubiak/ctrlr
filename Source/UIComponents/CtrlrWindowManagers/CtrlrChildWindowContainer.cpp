@@ -77,11 +77,11 @@ void CtrlrChildWindowContainer::paint (Graphics& g)
 
 void CtrlrChildWindowContainer::resized()
 {
-    menuBar->setBounds (0, 0, getWidth() - 0, 20);
+    menuBar->setBounds (0, 0, getWidth() - 0, CTRLR_MENUBAR_HEIGHT);
     //[UserResized] Add your own custom resize handling here..
 	if (content)
 	{
-		content->setBounds (0, 20, getWidth(), getHeight() - 20);
+		content->setBounds (0, CTRLR_MENUBAR_HEIGHT, getWidth(), getHeight() - CTRLR_MENUBAR_HEIGHT);
 	}
     //[/UserResized]
 }

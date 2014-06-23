@@ -222,7 +222,7 @@ void CtrlrLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	}
 	else if (property == Ids::uiLabelOutline)
 	{
-		ctrlrLabel->setBorderSize (getProperty (property),getProperty (property));
+		ctrlrLabel->setBorderSize (BorderSize <int> (getProperty (property)));
 		repaint();
 	}
 	else if (property == Ids::uiLabelOutlineColour)

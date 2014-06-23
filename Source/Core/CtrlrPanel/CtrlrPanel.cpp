@@ -120,6 +120,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 
 	setProperty (Ids::panelFilePath, COMBO_ITEM_NONE);
 	setProperty (Ids::panelUID, generateRandomUnique());
+	setProperty (Ids::panelInstanceUID, generateRandomUniquePluginId());
 	setProperty (Ids::panelModulatorListColumns, COMBO_ITEM_NONE);
 	setProperty (Ids::panelModulatorListCsvDelimiter, ",");
 	setProperty (Ids::panelModulatorListXmlRoot, "ctrlrModulatorList");
@@ -133,7 +134,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::ctrlrMenuItemTextColour, 				Colours::black.toString());
 	setProperty (Ids::ctrlrMenuItemHighlightedTextColour, 	Colours::white.toString());
 	setProperty (Ids::ctrlrMenuItemHighlightColour, 		Colour(HIGHLIGHT_COLOUR).toString());
-	setProperty (Ids::ctrlrMenuItemFont, 					owner.getFontManager().getStringFromFont (Font(13.0f, Font::plain)));
+	setProperty (Ids::ctrlrMenuItemFont, 					String::empty);
 	setProperty (Ids::ctrlrMenuItemSeparatorColour,			Colour (0x44000000).toString());
 	setProperty (Ids::ctrlrMenuItemHeaderColour,			Colours::black.toString());
 
@@ -142,7 +143,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::ctrlrMenuBarTextColour, 				Colours::black.toString());
 	setProperty (Ids::ctrlrMenuBarHighlightedTextColour, 	Colours::white.toString());
 	setProperty (Ids::ctrlrMenuBarHighlightColour, 			Colour(HIGHLIGHT_COLOUR).toString());
-	setProperty (Ids::ctrlrMenuBarFont, 					owner.getFontManager().getStringFromFont (Font(13.0f, Font::plain)));
+	setProperty (Ids::ctrlrMenuBarFont, 					String::empty);
 	setProperty (Ids::ctrlrUseEditorWrapper, false);
 
 	owner.addChangeListener (this);

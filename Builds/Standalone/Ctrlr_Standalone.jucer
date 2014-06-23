@@ -115,9 +115,10 @@
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries="dl&#10;rt&#10;Xinerama&#10;X11&#10;freetype&#10;pthread&#10;asound&#10;z&#10;bfd"
-                extraLinkerFlags="" extraCompilerFlags="-w -fpermissive" smallIcon="xQ5dKQ"
-                bigIcon="ugOMDZ" extraDefs="LINUX=1&#10;_LINUX=1" userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
+    <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries=""
+                extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lfreetype -lpthread -lasound -lz -lbfd"
+                extraCompilerFlags="-w -fpermissive" smallIcon="xQ5dKQ" bigIcon="ugOMDZ"
+                extraDefs="LINUX=1&#10;_LINUX=1" userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2"
@@ -199,6 +200,14 @@
         <FILE id="SHfRIR" name="FONT_Karmatic Arcade.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_Karmatic Arcade.bin"/>
         <FILE id="TLkJax" name="FONT_LCD.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_LCD.bin"/>
+        <FILE id="FbBPwU" name="FONT_OpenSans-Bold.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_OpenSans-Bold.ttf"/>
+        <FILE id="OpROV1" name="FONT_OpenSans-BoldItalic.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_OpenSans-BoldItalic.ttf"/>
+        <FILE id="ezU1n6" name="FONT_OpenSans-Italic.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_OpenSans-Italic.ttf"/>
+        <FILE id="dDHyJM" name="FONT_OpenSans-Regular.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_OpenSans-Regular.ttf"/>
         <FILE id="hl8E5o" name="FONT_Source Code Pro.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_Source Code Pro.bin"/>
         <FILE id="vzKpxn" name="FONT_ZX81.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_ZX81.bin"/>
@@ -407,6 +416,8 @@
     </GROUP>
     <GROUP id="{BF1AE96C-84FC-3E33-914B-08E0062FCD5B}" name="Lua">
       <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
+        <FILE id="lbR2oN" name="LXmlElement.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.cpp"/>
+        <FILE id="rTvtUS" name="LXmlElement.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.h"/>
         <FILE id="kz9hTM" name="LThread.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LThread.cpp"/>
         <FILE id="hHwNro" name="LThread.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LThread.h"/>
         <FILE id="RyD4mx" name="LThreadWithProgressWindow.cpp" compile="1"

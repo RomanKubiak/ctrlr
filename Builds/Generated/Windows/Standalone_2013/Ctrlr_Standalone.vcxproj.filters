@@ -475,6 +475,9 @@
     <ClCompile Include="..\..\..\..\Source\Core\stdafx.cpp">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClCompile>
@@ -2354,6 +2357,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThread.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
@@ -4446,6 +4452,18 @@
       <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.bin">
+      <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Bold.ttf">
+      <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-BoldItalic.ttf">
+      <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Italic.ttf">
+      <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Regular.ttf">
       <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Source Code Pro.bin">

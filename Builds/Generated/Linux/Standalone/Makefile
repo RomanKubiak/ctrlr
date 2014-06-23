@@ -99,6 +99,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
+  $(OBJDIR)/LXmlElement_f51e885.o \
   $(OBJDIR)/LThread_5c655aaa.o \
   $(OBJDIR)/LThreadWithProgressWindow_a962c8ed.o \
   $(OBJDIR)/LAudioThumbnail_55fa4156.o \
@@ -469,6 +470,11 @@ $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o: ../../../../Source/Core/StandaloneWr
 $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling stdafx.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LXmlElement_f51e885.o: ../../../../Source/Lua/JuceClasses/LXmlElement.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LXmlElement.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LThread_5c655aaa.o: ../../../../Source/Lua/JuceClasses/LThread.cpp

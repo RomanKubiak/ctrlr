@@ -19,10 +19,12 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 	owner.getCommandManager().registerAllCommandsForTarget (this);
 	owner.getCommandManager().registerAllCommandsForTarget (JUCEApplication::getInstance());
 	ScopedPointer <XmlElement> xml(XmlDocument::parse(owner.getProperty(Ids::ctrlrKeyboardMapping)));
+
 	if (xml)
 	{
 		owner.getCommandManager().getKeyMappings()->restoreFromXml (*xml);
 	}
+
 	owner.setEditor (this);
 
 	addAndMakeVisible (&owner.getCtrlrDocumentPanel());

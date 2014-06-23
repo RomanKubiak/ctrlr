@@ -159,6 +159,18 @@ namespace BinaryData
     extern const char*   FONT_LCD_bin;
     const int            FONT_LCD_binSize = 5454;
 
+    extern const char*   FONT_OpenSansBold_ttf;
+    const int            FONT_OpenSansBold_ttfSize = 224592;
+
+    extern const char*   FONT_OpenSansBoldItalic_ttf;
+    const int            FONT_OpenSansBoldItalic_ttfSize = 213292;
+
+    extern const char*   FONT_OpenSansItalic_ttf;
+    const int            FONT_OpenSansItalic_ttfSize = 212896;
+
+    extern const char*   FONT_OpenSansRegular_ttf;
+    const int            FONT_OpenSansRegular_ttfSize = 217360;
+
     extern const char*   FONT_Source_Code_Pro_bin;
     const int            FONT_Source_Code_Pro_binSize = 28981;
 
@@ -187,10 +199,10 @@ namespace BinaryData
     const int            CtrlrMIDIVendors_xmlSize = 15061;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 75767;
+    const int            CtrlrIDs_xmlSize = 75995;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 15635;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 15840;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
@@ -199,7 +211,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 62;
+    const int namedResourceListSize = 66;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

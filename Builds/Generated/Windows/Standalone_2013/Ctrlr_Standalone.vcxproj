@@ -225,6 +225,7 @@
     <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneApplication.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\stdafx.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.cpp"/>
@@ -1536,6 +1537,7 @@
     <ClInclude Include="..\..\..\..\Source\Core\dxtrans.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThread.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.h"/>
@@ -2235,6 +2237,10 @@
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Invasion2000.bin"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Karmatic Arcade.bin"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.bin"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Bold.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-BoldItalic.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Italic.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Regular.ttf"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Source Code Pro.bin"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.bin"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png"/>

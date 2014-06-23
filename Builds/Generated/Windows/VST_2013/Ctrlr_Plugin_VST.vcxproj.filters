@@ -589,6 +589,9 @@
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLine.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
@@ -653,6 +656,9 @@
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.cpp">
@@ -2508,6 +2514,9 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLine.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
@@ -2572,6 +2581,9 @@
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.h">
@@ -4659,6 +4671,18 @@
       <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.bin">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Bold.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-BoldItalic.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Italic.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Regular.ttf">
       <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Source Code Pro.bin">

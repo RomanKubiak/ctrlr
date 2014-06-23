@@ -125,8 +125,8 @@
       </MODULEPATHS>
     </LINUX_MAKE>
     <CODEBLOCKS targetFolder="../Generated/Linux/VST/" vstFolder="/home/atom/devel/ctrlr/VST"
-                extraLinkerFlags="" externalLibraries="dl&#10;rt&#10;Xinerama&#10;X11&#10;freetype&#10;pthread&#10;asound&#10;z&#10;bfd"
-                extraDefs="LINUX=1&#10;_LINUX=1" extraCompilerFlags="-w -fpermissive -fPIC"
+                extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lfreetype -lpthread -lasound -lz -lbfd"
+                externalLibraries="" extraDefs="LINUX=1&#10;_LINUX=1" extraCompilerFlags="-w -fpermissive -fPIC"
                 userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-VST"
@@ -386,6 +386,14 @@
         <FILE id="m5gzxe" name="FONT_Karmatic Arcade.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_Karmatic Arcade.bin"/>
         <FILE id="bUJLzA" name="FONT_LCD.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_LCD.bin"/>
+        <FILE id="hyxcWK" name="FONT_OpenSans-Bold.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_OpenSans-Bold.ttf"/>
+        <FILE id="XDnBq5" name="FONT_OpenSans-BoldItalic.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_OpenSans-BoldItalic.ttf"/>
+        <FILE id="otMcro" name="FONT_OpenSans-Italic.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_OpenSans-Italic.ttf"/>
+        <FILE id="MW2EWC" name="FONT_OpenSans-Regular.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_OpenSans-Regular.ttf"/>
         <FILE id="HMuanW" name="FONT_Source Code Pro.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_Source Code Pro.bin"/>
         <FILE id="RheoVI" name="FONT_ZX81.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_ZX81.bin"/>
@@ -499,6 +507,10 @@
         <FILE id="kZP1En" name="LLabel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLabel.h"/>
         <FILE id="IBPDCU" name="LLine.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLine.cpp"/>
         <FILE id="ykPocP" name="LLine.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLine.h"/>
+        <FILE id="Ix4LbI" name="LMidiKeyboardComponent.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp"/>
+        <FILE id="GClP5c" name="LMidiKeyboardComponent.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LMidiKeyboardComponent.h"/>
         <FILE id="b4EcEl" name="LLookAndFeel.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LLookAndFeel.cpp"/>
         <FILE id="Mz7Fyg" name="LLookAndFeel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLookAndFeel.h"/>
@@ -551,6 +563,8 @@
         <FILE id="caiGAQ" name="LValue.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValue.h"/>
         <FILE id="JMtL1g" name="LValueTree.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.cpp"/>
         <FILE id="piFxA6" name="LValueTree.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.h"/>
+        <FILE id="dTlVbU" name="LXmlElement.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.cpp"/>
+        <FILE id="regmVd" name="LXmlElement.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.h"/>
         <FILE id="QCChmS" name="LZipFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.cpp"/>
         <FILE id="p4o6Yj" name="LZipFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.h"/>
       </GROUP>
@@ -1249,7 +1263,7 @@
                JUCE_USE_CAMERA="disabled" JUCE_ENABLE_REPAINT_DEBUGGING="disabled"
                JUCE_USE_XINERAMA="disabled" JUCE_USE_XSHM="disabled" JUCE_USE_XRENDER="disabled"
                JUCE_USE_XCURSOR="disabled" JUCE_SUPPORT_CARBON="enabled" JUCE_ALSA="enabled"
-               JUCE_JACK="enabled" JUCE_WASAPI="disabled" JUCE_DIRECTSOUND="disabled"
+               JUCE_JACK="disabled" JUCE_WASAPI="disabled" JUCE_DIRECTSOUND="disabled"
                JUCE_USE_ANDROID_OPENSLES="disabled" JUCE_USE_MP3AUDIOFORMAT="enabled"
                JUCE_WEB_BROWSER="disabled" JUCE_ASIO="disabled" JUCE_USE_COREIMAGE_LOADER="enabled"
                JUCE_USE_DIRECTWRITE="enabled" JUCE_PLUGINHOST_VST="enabled"

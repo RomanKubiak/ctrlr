@@ -52,11 +52,13 @@
 #include "LKeyPress.h"
 #include "LThread.h"
 #include "LThreadWithProgressWindow.h"
+#include "LXmlElement.h""
 
 void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 {
 	LGlobalFunctions::wrapForLua(L);
 	LBigInteger::wrapForLua(L);
+	LXmlElement::wrapForLua(L);
 	LFile::wrapForLua(L);
 	LMemoryBlock::wrapForLua(L);
 	LMidiMessage::wrapForLua(L);

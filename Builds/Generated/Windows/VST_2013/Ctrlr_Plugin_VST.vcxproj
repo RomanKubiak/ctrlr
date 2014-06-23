@@ -104,9 +104,6 @@
     <PreBuildEvent>
       <Command>C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2013\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\VST\Ctrlr_Plugin_VST.jucer</Command>
     </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>copy /Y &quot;$(OutDir)\$(TargetFileName)&quot; &quot;$(OutDir)\$(TargetName).vst3&quot;</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -151,9 +148,6 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(IntDir)\Ctrlr_Plugin_VST.bsc</OutputFile>
     </Bscmake>
-    <PostBuildEvent>
-      <Command>copy /Y &quot;$(OutDir)\$(TargetFileName)&quot; &quot;$(OutDir)\$(TargetName).vst3&quot;</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
     <Midl>
@@ -264,6 +258,7 @@
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLine.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.cpp"/>
@@ -286,6 +281,7 @@
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LURL.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValue.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaCustomComponent.cpp"/>
@@ -1593,6 +1589,7 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLine.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.h"/>
@@ -1615,6 +1612,7 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LURL.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LValue.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaConverters.h"/>
@@ -2312,6 +2310,10 @@
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Invasion2000.bin"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Karmatic Arcade.bin"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.bin"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Bold.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-BoldItalic.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Italic.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_OpenSans-Regular.ttf"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Source Code Pro.bin"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.bin"/>
     <None Include="..\..\..\..\Source\Resources\Images\tile.gif"/>

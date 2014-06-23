@@ -269,7 +269,8 @@ public:
         cEffect.flags |= effFlagsHasEditor;
         cEffect.version = convertHexVersionToDecimal (JucePlugin_VersionCode);
 
-        setUniqueID ((int) (JucePlugin_VSTUniqueID));
+        // setUniqueID ((int) (JucePlugin_VSTUniqueID));
+        setUniqueID (filter->getInputChannelName(1024).getIntValue());
 
         setNumInputs (numInChans);
         setNumOutputs (numOutChans);
@@ -280,6 +281,10 @@ public:
         noTail (filter->getTailLengthSeconds() <= 0);
         setInitialDelay (filter->getLatencySamples());
         programsAreChunks (true);
+
+        // NB: For reasons best known to themselves, some hosts fail to load/save plugin
+        // state correctly if the plugin doesn't report that it has at least 1 program.
+        jassert (af->getNumPrograms() > 0);
 
         activePlugins.add (this);
     }
@@ -344,19 +349,35 @@ public:
     //==============================================================================
     bool getEffectName (char* name) override
     {
-        String (JucePlugin_Name).copyToUTF8 (name, 64);
+        //String (JucePlugin_Name).copyToUTF8 (name, 64);
+        filter->getInputChannelName(1026).copyToUTF8 (name, 64);
         return true;
     }
 
     bool getVendorString (char* text) override
     {
-        String (JucePlugin_Manufacturer).copyToUTF8 (text, 64);
+        //String (JucePlugin_Manufacturer).copyToUTF8 (text, 64);
+        filter->getInputChannelName(1025).copyToUTF8 (text, 64);
         return true;
     }
 
-    bool getProductString (char* text) override  { return getEffectName (text); }
-    VstInt32 getVendorVersion() override         { return convertHexVersionToDecimal (JucePlugin_VersionCode); }
-    VstPlugCategory getPlugCategory() override   { return JucePlugin_VSTCategory; }
+    bool getProductString (char* text) override
+    {
+        filter->getInputChannelName(1026).copyToUTF8 (text, 64);
+        return true;
+    }
+
+    VstInt32 getVendorVersion() override
+    {
+        return (filter->getInputChannelName(1027).getIntValue());
+        //return convertHexVersionToDecimal (JucePlugin_VersionCode);
+    }
+
+    VstPlugCategory getPlugCategory() override
+    {
+        return JucePlugin_VSTCategory;
+    }
+
     bool keysRequired()                          { return (JucePlugin_EditorRequiresKeyboardFocus) != 0; }
 
     VstInt32 canDo (char* text) override
@@ -1051,7 +1072,8 @@ public:
                 Timer::callPendingTimersSynchronously();
 
                 for (int i = ComponentPeer::getNumPeers(); --i >= 0;)
-                    ComponentPeer::getPeer (i)->performAnyPendingRepaintsNow();
+                    if (ComponentPeer* p = ComponentPeer::getPeer(i))
+                        p->performAnyPendingRepaintsNow();
 
                 recursionCheck = false;
             }
@@ -1160,10 +1182,8 @@ public:
                 editorComp->addToDesktop (0, ptr);
                 hostWindow = (HWND) ptr;
               #elif JUCE_LINUX
-                editorComp->addToDesktop (0);
+                editorComp->addToDesktop (0, ptr);
                 hostWindow = (Window) ptr;
-                Window editorWnd = (Window) editorComp->getWindowHandle();
-                XReparentWindow (display, editorWnd, hostWindow, 0, 0);
               #else
                 hostWindow = attachComponentToWindowRef (editorComp, ptr, useNSView);
               #endif
@@ -1372,8 +1392,9 @@ public:
         {
             // for hosts like nuendo, need to also pop the MDI container to the
             // front when our comp is clicked on.
-            if (HWND parent = findMDIParentOf ((HWND) getWindowHandle()))
-                SetWindowPos (parent, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+            if (! isCurrentlyBlockedByAnotherModalComponent())
+                if (HWND parent = findMDIParentOf ((HWND) getWindowHandle()))
+                    SetWindowPos (parent, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
         }
        #endif
 

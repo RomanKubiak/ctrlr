@@ -771,7 +771,7 @@ int ChildSorter::compareElements (ValueTree first, ValueTree second)
 {
 	if (sortByName)
 	{
-		return (first.getProperty(Ids::luaMethodName).toString().compareLexicographically (second.getProperty(Ids::luaMethodName).toString()));
+		return (first.getProperty(Ids::luaMethodName).toString().compareNatural (second.getProperty(Ids::luaMethodName).toString()));
 	}
 	else
 	{

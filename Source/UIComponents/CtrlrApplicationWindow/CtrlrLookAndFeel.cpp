@@ -10,6 +10,88 @@ CtrlrLookAndFeel::CtrlrLookAndFeel(CtrlrManager &_owner) : owner(_owner)
 {
 }
 
+void CtrlrLookAndFeel::setActivePanelEditor(CtrlrPanelEditor *_editor)
+{
+	editor = _editor;
+}
+
+Typeface::Ptr CtrlrLookAndFeel::getTypefaceForFont(const Font &font)
+{
+   /* if (font.getTypefaceName() == "<Sans-Serif>")
+    {
+        if (font.isBold() && font.isItalic())
+            return (Typeface::createSystemTypefaceFor (BinaryData::FONT_OpenSansBoldItalic_ttf, BinaryData::FONT_OpenSansBoldItalic_ttfSize));
+        else if (font.isBold() && !font.isItalic())
+            return (Typeface::createSystemTypefaceFor (BinaryData::FONT_OpenSansBold_ttf, BinaryData::FONT_OpenSansBold_ttf));
+        else
+            return (Typeface::createSystemTypefaceFor (BinaryData::FONT_OpenSansRegular_ttf, BinaryData::FONT_OpenSansRegular_ttfSize));
+    }
+*/
+
+    return Font::getDefaultTypefaceForFont (font);
+}
+
+const var CtrlrLookAndFeel::getPanelProperty(const Identifier &identifier, const var defaultValue)
+{
+	if (editor)
+		return (editor->getProperty(identifier));
+	else
+		return (defaultValue);
+}
+
+void CtrlrLookAndFeel::drawBubble (Graphics &g, BubbleComponent&, const Point<float>& tip, const Rectangle<float>& body)
+{
+    Path p;
+    p.addBubble (body, body.getUnion (Rectangle<float> (tip.x, tip.y, 1.0f, 1.0f)),
+                 tip, getPanelProperty(Ids::uiPanelTooltipCornerRound, 5.0f), jmin (15.0f, body.getWidth() * 0.2f, body.getHeight() * 0.2f));
+
+	g.setColour (VAR2COLOUR(getPanelProperty(Ids::uiPanelTooltipBackgroundColour, "0xffeeeebb")));
+    g.fillPath (p);
+
+    g.setColour (VAR2COLOUR(getPanelProperty(Ids::uiPanelTooltipOutlineColour, "0xff000000")));
+    g.strokePath (p, PathStrokeType (1.33f));
+}
+
+Font CtrlrLookAndFeel::getSliderPopupFont(Slider &)
+{
+	return (owner.getFontManager().getFontFromString(getPanelProperty(Ids::uiPanelTooltipFont, Font(15.0f, Font::bold).toString())));
+}
+
+int CtrlrLookAndFeel::getSliderPopupPlacement(Slider &)
+{
+    return (getPanelProperty(Ids::uiPanelTooltipPlacement, 0));
+}
+
+void CtrlrLookAndFeel::drawStretchableLayoutResizerBar (Graphics &g, int w, int h, bool isVerticalBar, bool isMouseOver, bool isMouseDragging)
+{
+	if (isMouseOver)
+		g.fillAll (Colours::black.withAlpha(0.2f));
+	else
+		g.fillAll (Colours::black.withAlpha(0.1f));
+
+	g.setColour (Colours::black.withAlpha(0.3f));
+	if (isVerticalBar)
+		g.fillRoundedRectangle (0.0f, (float)(h/2) - w, w, w, w * 0.75f);
+	else
+		g.fillRoundedRectangle ((float)(w/2)-h, 0.0f, h, h, h * 0.75f);
+}
+
+void CtrlrLookAndFeel::setUsingNativeAlerts(const bool useNativeAlerts)
+{
+	setUsingNativeAlertWindows(useNativeAlerts);
+}
+
+void CtrlrLookAndFeel::drawMenuBarBackground (Graphics &g, int width, int height, bool isMouseOverBar, MenuBarComponent &menuBar)
+{
+	ColourGradient cg(Colour(0xfff7f7f7), 0.0f, 1.0f, Colour(0xffcccccc), 0.0f, (float)height-2.0f, false);
+	g.setGradientFill (cg);
+	g.fillRect (0.0f, 1.0f, (float)width, (float)height - 2.0f);
+
+	g.setColour (Colour(0xff454545));
+	g.drawLine (0.0f, (float)height, (float)width, (float)height, 1.0f);
+}
+
+/*
 void CtrlrLookAndFeel::drawPopupMenuBackground (Graphics &g, int width, int height)
 {
 	const Colour background (findColour (PopupMenu::backgroundColourId));
@@ -26,23 +108,11 @@ void CtrlrLookAndFeel::drawPopupMenuBackground (Graphics &g, int width, int heig
 #endif
 }
 
-void CtrlrLookAndFeel::drawMenuBarBackground (Graphics &g, int width, int height, bool isMouseOverBar, MenuBarComponent &menuBar)
-{
-	ColourGradient cg(Colour(0xfff7f7f7), 0.0f, 1.0f, Colour(0xffcccccc), 0.0f, (float)height-2.0f, false);
-	g.setGradientFill (cg);
-	g.fillRect (0.0f, 1.0f, (float)width, (float)height - 2.0f);
-
-	g.setColour (Colour(0xff0c0f15));
-	g.drawLine (0.0f, (float)height, (float)width, (float)height, 1.0f);
-
-	g.setColour (Colour(0xfffafafa));
-	g.drawLine (0.0f, 0.0f, (float)width, 0.0f, 1.0f);
-}
-
 Font CtrlrLookAndFeel::getPopupMenuFont()
 {
 	return (Font(13.5f, Font::plain));
 }
+
 
 Font CtrlrLookAndFeel::getMenuBarFont (MenuBarComponent &menuBar, int itemIndex, const String &itemText)
 {
@@ -175,7 +245,7 @@ void CtrlrLookAndFeel::drawPopupMenuItem (Graphics& g,
         }
     }
 }
-
+*/
 CtrlrFontManager &CtrlrLookAndFeel::getFontManager()
 {
 	return (owner.getFontManager());
@@ -248,14 +318,7 @@ Colour CtrlrMenuBarLookAndFeel::getColour (const Identifier &property)
 
 Font CtrlrMenuBarLookAndFeel::getFont(const Identifier &property)
 {
-	if (panel)
-	{
-		return (owner.getOwner().getFontManager().getFontFromString (panel->getProperty(property)));
-	}
-	else
-	{
-		return (Font(13.5f));
-	}
+	return (Font(18.0f));
 }
 
 void CtrlrMenuBarLookAndFeel::drawPopupMenuBackground (Graphics &g, int width, int height)
@@ -460,160 +523,3 @@ void CtrlrMenuBarLookAndFeel::drawMenuBarItem (Graphics &g, int width, int heigh
 	g.setFont (textFont);
 	g.drawFittedText (itemText, 0, 0, width, height, Justification::centred, 1);
 }
-
-void CtrlrLookAndFeel::setActivePanelEditor(CtrlrPanelEditor *_editor)
-{
-	editor = _editor;
-}
-
-const var CtrlrLookAndFeel::getPanelProperty(const Identifier &identifier, const var defaultValue)
-{
-	if (editor)
-		return (editor->getProperty(identifier));
-	else
-		return (defaultValue);
-}
-
-void CtrlrLookAndFeel::drawBubble (Graphics &g, BubbleComponent&, const Point<float>& tip, const Rectangle<float>& body)
-{
-    Path p;
-    p.addBubble (body, body.getUnion (Rectangle<float> (tip.x, tip.y, 1.0f, 1.0f)),
-                 tip, getPanelProperty(Ids::uiPanelTooltipCornerRound, 5.0f), jmin (15.0f, body.getWidth() * 0.2f, body.getHeight() * 0.2f));
-
-	g.setColour (VAR2COLOUR(getPanelProperty(Ids::uiPanelTooltipBackgroundColour, "0xffeeeebb")));
-    g.fillPath (p);
-
-    g.setColour (VAR2COLOUR(getPanelProperty(Ids::uiPanelTooltipOutlineColour, "0xff000000")));
-    g.strokePath (p, PathStrokeType (1.33f));
-}
-
-Font CtrlrLookAndFeel::getSliderPopupFont(Slider &)
-{
-	return (owner.getFontManager().getFontFromString(getPanelProperty(Ids::uiPanelTooltipFont, Font(15.0f, Font::bold).toString())));
-}
-
-int CtrlrLookAndFeel::getSliderPopupPlacement(Slider &)
-{
-    return (getPanelProperty(Ids::uiPanelTooltipPlacement, 0));
-}
-
-void CtrlrLookAndFeel::drawStretchableLayoutResizerBar (Graphics &g, int w, int h, bool isVerticalBar, bool isMouseOver, bool isMouseDragging)
-{
-	if (isMouseOver)
-		g.fillAll (Colours::black.withAlpha(0.2f));
-	else
-		g.fillAll (Colours::black.withAlpha(0.1f));
-
-	g.setColour (Colours::black.withAlpha(0.3f));
-	if (isVerticalBar)
-		g.fillRoundedRectangle (0.0f, (float)(h/2) - w, w, w, w * 0.75f);
-	else
-		g.fillRoundedRectangle ((float)(w/2)-h, 0.0f, h, h, h * 0.75f);
-}
-
-void CtrlrLookAndFeel::setUsingNativeAlerts(const bool useNativeAlerts)
-{
-	setUsingNativeAlertWindows(useNativeAlerts);
-}
-
-/*void CtrlrLookAndFeel::drawScrollbar (Graphics& g, ScrollBar& scrollbar, int x, int y, int width, int height, bool isScrollbarVertical, int thumbStartPosition, int thumbSize, bool isMouseOver, bool isMouseDown)
-{
-    g.fillAll (scrollbar.findColour (ScrollBar::backgroundColourId));
-
-    Path slotPath, thumbPath;
-
-    const float slotIndent = jmin (width, height) > 15 ? 1.0f : 0.0f;
-    const float slotIndentx2 = slotIndent * 2.0f;
-    const float thumbIndent = slotIndent + 1.0f;
-    const float thumbIndentx2 = thumbIndent * 2.0f;
-
-    float gx1 = 0.0f, gy1 = 0.0f, gx2 = 0.0f, gy2 = 0.0f;
-
-    if (isScrollbarVertical)
-    {
-        slotPath.addRoundedRectangle (x + slotIndent,
-                                      y + slotIndent,
-                                      width - slotIndentx2,
-                                      height - slotIndentx2,
-                                      (width - slotIndentx2) * 0.5f);
-
-        if (thumbSize > 0)
-            thumbPath.addRoundedRectangle (x + thumbIndent,
-                                           thumbStartPosition + thumbIndent,
-                                           width - thumbIndentx2,
-                                           thumbSize - thumbIndentx2,
-                                           (width - thumbIndentx2) * 0.5f);
-        gx1 = (float) x;
-        gx2 = x + width * 0.7f;
-    }
-    else
-    {
-        slotPath.addRoundedRectangle (x + slotIndent,
-                                      y + slotIndent,
-                                      width - slotIndentx2,
-                                      height - slotIndentx2,
-                                      (height - slotIndentx2) * 0.5f);
-
-        if (thumbSize > 0)
-            thumbPath.addRoundedRectangle (thumbStartPosition + thumbIndent,
-                                           y + thumbIndent,
-                                           thumbSize - thumbIndentx2,
-                                           height - thumbIndentx2,
-                                           (height - thumbIndentx2) * 0.5f);
-        gy1 = (float) y;
-        gy2 = y + height * 0.7f;
-    }
-
-    const Colour thumbColour (scrollbar.findColour (ScrollBar::thumbColourId));
-    Colour trackColour1, trackColour2;
-
-    if (scrollbar.isColourSpecified (ScrollBar::trackColourId)
-         || isColourSpecified (ScrollBar::trackColourId))
-    {
-        trackColour1 = trackColour2 = scrollbar.findColour (ScrollBar::trackColourId);
-    }
-    else
-    {
-        trackColour1 = thumbColour.overlaidWith (Colour (0x44000000));
-        trackColour2 = thumbColour.overlaidWith (Colour (0x19000000));
-    }
-
-    g.setGradientFill (ColourGradient (trackColour1, gx1, gy1,
-                                       trackColour2, gx2, gy2, false));
-    g.fillPath (slotPath);
-
-    if (isScrollbarVertical)
-    {
-        gx1 = x + width * 0.6f;
-        gx2 = (float) x + width;
-    }
-    else
-    {
-        gy1 = y + height * 0.6f;
-        gy2 = (float) y + height;
-    }
-
-    g.setGradientFill (ColourGradient (Colours::transparentBlack,gx1, gy1,
-                       Colour (0x19000000), gx2, gy2, false));
-    g.fillPath (slotPath);
-
-    g.setColour (thumbColour);
-    g.fillPath (thumbPath);
-
-    g.setGradientFill (ColourGradient (Colour (0x10000000), gx1, gy1,
-                       Colours::transparentBlack, gx2, gy2, false));
-
-    g.saveState();
-
-    if (isScrollbarVertical)
-        g.reduceClipRegion (x + width / 2, y, width, height);
-    else
-        g.reduceClipRegion (x, y + height / 2, width, height);
-
-    g.fillPath (thumbPath);
-    g.restoreState();
-
-    g.setColour (Colour (0x4c000000));
-    g.strokePath (thumbPath, PathStrokeType (0.4f));
-}
-*/

@@ -130,6 +130,7 @@ OBJECTS := \
   $(OBJDIR)/LJustification_1a98a75c.o \
   $(OBJDIR)/LLabel_759d4f5e.o \
   $(OBJDIR)/LLine_2ab6b654.o \
+  $(OBJDIR)/LMidiKeyboardComponent_c4245d9f.o \
   $(OBJDIR)/LLookAndFeel_2f64a028.o \
   $(OBJDIR)/LMemoryBlock_bf2138b6.o \
   $(OBJDIR)/LMemoryInputStream_656eca93.o \
@@ -152,6 +153,7 @@ OBJECTS := \
   $(OBJDIR)/LURL_d54a4599.o \
   $(OBJDIR)/LValue_6c32db5b.o \
   $(OBJDIR)/LValueTree_87eff119.o \
+  $(OBJDIR)/LXmlElement_f51e885.o \
   $(OBJDIR)/LZipFile_9ce5b2e7.o \
   $(OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o \
   $(OBJDIR)/CtrlrLuaCustomComponent_32c93605.o \
@@ -629,6 +631,11 @@ $(OBJDIR)/LLine_2ab6b654.o: ../../../../Source/Lua/JuceClasses/LLine.cpp
 	@echo "Compiling LLine.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/LMidiKeyboardComponent_c4245d9f.o: ../../../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LMidiKeyboardComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/LLookAndFeel_2f64a028.o: ../../../../Source/Lua/JuceClasses/LLookAndFeel.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LLookAndFeel.cpp"
@@ -737,6 +744,11 @@ $(OBJDIR)/LValue_6c32db5b.o: ../../../../Source/Lua/JuceClasses/LValue.cpp
 $(OBJDIR)/LValueTree_87eff119.o: ../../../../Source/Lua/JuceClasses/LValueTree.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LValueTree.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LXmlElement_f51e885.o: ../../../../Source/Lua/JuceClasses/LXmlElement.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LXmlElement.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LZipFile_9ce5b2e7.o: ../../../../Source/Lua/JuceClasses/LZipFile.cpp
