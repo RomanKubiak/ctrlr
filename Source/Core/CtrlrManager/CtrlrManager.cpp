@@ -22,7 +22,8 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 		ctrlrManagerRestoring(false),
 		updateManager(*this),
 		invalidModulator(nullptr),
-		nullPanel(nullptr)
+		nullPanel(nullptr),
+		ctrlrFontManager(nullptr)
 {
 	commandManager.addListener (this);
 
@@ -34,6 +35,7 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 	ctrlrDocumentPanel		= new CtrlrDocumentPanel(*this);
 	nullPanel				= new CtrlrPanel(*this);
 	nullModulator			= new CtrlrModulator (*nullPanel);
+    ctrlrFontManager        = new CtrlrFontManager (*this);
 
 	if (!initEmbeddedInstance())
 	{

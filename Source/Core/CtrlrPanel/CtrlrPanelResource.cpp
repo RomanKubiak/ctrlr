@@ -83,11 +83,11 @@ const String CtrlrPanelResource::getName()
 const Image CtrlrPanelResource::asImage()
 {
 	Image image;
-	
+
 	image = ImageCache::getFromHashCode(getHashCode());
 
 	if (!image.isValid())
-	{	
+	{
 		image = ImageFileFormat::loadFrom (resourceDataFile);
 		ImageCache::addImageToCache (image, getHashCode());
 	}
@@ -102,7 +102,9 @@ const String CtrlrPanelResource::asText()
 
 const Font CtrlrPanelResource::asFont()
 {
-	return (owner.getOwner().getOwner().getFontManager().getFont(resourceDataFile));
+    MemoryBlock tempData;
+    resourceDataFile.loadFileAsData (tempData);
+    return (Font (Typeface::createSystemTypefaceFor (tempData.getData(), tempData.getSize())));
 }
 
 const XmlElement *CtrlrPanelResource::asXml()

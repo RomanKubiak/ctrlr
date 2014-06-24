@@ -8,8 +8,8 @@
 #include "CtrlrLuaManager.h"
 #include "CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditor.h"
 
-CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner) 
-	:	methodIsValid(false), 
+CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner)
+	:	methodIsValid(false),
 		methodTree(Ids::luaMethod),
 		owner(_owner),
 		methodCodeEditor(nullptr),
@@ -21,15 +21,15 @@ CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner)
 	out = Font(owner.getOwner().getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 10.0f, Font::plain);
 }
 
-CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner, ValueTree &_methodTree) 
-	:	methodIsValid(false), 
+CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner, ValueTree &_methodTree)
+	:	methodIsValid(false),
 		methodTree(_methodTree),
 		owner(_owner),
 		methodCodeEditor(nullptr),
 		audioThreadMethod(false)
 {
 	luaObject = new CtrlrLuaObjectWrapper();
-	
+
 	setCodeInternal (getCode());
 
 	methodTree.addListener (this);
@@ -148,7 +148,7 @@ const bool CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
 	bool compileRet			= owner.getOwner().runCode (newMethodCode);
 	errorString.clear();
 	errorString.append ("Compile: "+getName()+" - ", out, Colours::black);
-	
+
 	String error;
 
 	if (compileRet && getName() != String::empty)

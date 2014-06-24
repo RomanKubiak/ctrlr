@@ -1,10 +1,14 @@
 #include "stdafx.h"
 #include "CtrlrFontManager.h"
 #include "CtrlrLog.h"
+#include "CtrlrManager/CtrlrManager.h"
+#include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrPanel/CtrlrPanelResourceManager.h"
+#include "CtrlrPanel/CtrlrPanelResource.h"
 
 #define FONT_FROM_DATA(x)		getFont (BinaryData::x, BinaryData::x ## Size)
 
-CtrlrFontManager::CtrlrFontManager()
+CtrlrFontManager::CtrlrFontManager(CtrlrManager &_owner) : owner(_owner)
 {
 	reloadFonts();
 }
@@ -55,9 +59,32 @@ void CtrlrFontManager::reloadBuiltInFonts()
 	}
 }
 
-void CtrlrFontManager::reloadImportedFonts()
+void CtrlrFontManager::reloadImportedFonts(CtrlrPanel *panelToLoadFrom)
 {
 	importedFonts.clear();
+	CtrlrPanel *panel = nullptr;
+
+    if (panelToLoadFrom)
+    {
+        panel = panelToLoadFrom;
+    }
+    else
+    {
+        panel = owner.getActivePanel();
+    }
+
+	if (panel)
+    {
+        CtrlrPanelResourceManager &manager = panel->getResourceManager();
+
+        for (int i=0; i<manager.getNumResources(); i++)
+        {
+            if (manager.getResource(i)->getType() == CtrlrPanelResourceManager::FontRes)
+            {
+                importedFonts.add (manager.getResource(i)->asFont());
+            }
+        }
+    }
 }
 
 const Array<Font> &CtrlrFontManager::getOsFontArray()
@@ -94,6 +121,8 @@ void CtrlrFontManager::fillCombo (ComboBox &comboToFill, const bool showOsFonts,
 
 	if (showImportedFonts)
 	{
+	    reloadImportedFonts();
+
 		comboToFill.addSectionHeading ("Imported fonts (from resources)");
 		for (i=0; i<importedFonts.size(); i++)
 		{
@@ -188,8 +217,9 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 		if (fontProps[fontSet] != String::empty && fontProps[fontSet].getIntValue() >= 0)
 		{
 			/* We need to fetch the typeface for the font from the correct font set */
+			_DBG("\tfetching font from set: "+_STR(fontProps[fontSet].getIntValue()));
 			Array<Font> &fontSetToUse = getFontSet((const FontSet)fontProps[fontSet].getIntValue());
-
+            _DBG("\t\tfont set size: "+_STR(fontSetToUse.size()));
 			for (int i=0; i<fontSetToUse.size(); i++)
 			{
 				if (fontSetToUse[i].getTypefaceName() == fontProps[fontTypefaceName])
@@ -255,32 +285,6 @@ const String CtrlrFontManager::getDefaultMonoFontName()
 	{
 		return (Font::getDefaultMonospacedFontName());
 	}
-}
-
-const String CtrlrFontManager::fontToBase64 (const Font &font)
-{
-	/** taken from Zamrate's [http://www.rawmaterialsoftware.com/memberlist.php?mode=viewprofile&u=558] font serializer utility
-
-		to restore a saved font:
-
-		MemoryInputStream is(str.getData(), str.getDataSize(), false);
-		CustomTypeface *newTypeface = new CustomTypeface(is);
-		Font myFont(newTypeface);
-		myFont.setHeight(16.0f);
-		label3->setFont(myFont);
-	*/
-
-	// copy the font-properties to a CustomTypeface
-    CustomTypeface customTypeface;
-	customTypeface.setCharacteristics(font.getTypefaceName(), font.getAscent(), font.isBold(), font.isItalic(), ' ');
-
-    // Here's the important part: copy all glyphs to a new instance of CustomTypeface
-	customTypeface.addGlyphsFromOtherTypeface( *font.getTypeface(), 0, 256);
-	MemoryBlock fontData;
-	MemoryOutputStream str (fontData, true);
-	customTypeface.writeToStream(str);
-
-	return (fontData.toBase64Encoding());
 }
 
 const Font CtrlrFontManager::getBuiltInFont(const int fontIndex)
