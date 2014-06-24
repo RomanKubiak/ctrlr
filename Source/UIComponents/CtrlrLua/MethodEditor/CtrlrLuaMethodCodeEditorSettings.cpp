@@ -142,7 +142,6 @@ void CtrlrLuaMethodCodeEditorSettings::comboBoxChanged (ComboBox* comboBoxThatHa
     if (comboBoxThatHasChanged == fontTypeface)
     {
         //[UserComboBoxCode_fontTypeface] -- add your combo box handling code here..
-		codeFont.setTypefaceName (fontTypeface->getText());
         //[/UserComboBoxCode_fontTypeface]
     }
 
@@ -159,19 +158,16 @@ void CtrlrLuaMethodCodeEditorSettings::buttonClicked (Button* buttonThatWasClick
     if (buttonThatWasClicked == fontBold)
     {
         //[UserButtonCode_fontBold] -- add your button handler code here..
-		codeFont.setBold (fontBold->getToggleState());
         //[/UserButtonCode_fontBold]
     }
     else if (buttonThatWasClicked == fontUnderline)
     {
         //[UserButtonCode_fontUnderline] -- add your button handler code here..
-		codeFont.setUnderline (fontUnderline->getToggleState());
         //[/UserButtonCode_fontUnderline]
     }
     else if (buttonThatWasClicked == fontItalic)
     {
         //[UserButtonCode_fontItalic] -- add your button handler code here..
-		codeFont.setItalic (fontItalic->getToggleState());
         //[/UserButtonCode_fontItalic]
     }
 
@@ -188,7 +184,6 @@ void CtrlrLuaMethodCodeEditorSettings::sliderValueChanged (Slider* sliderThatWas
     if (sliderThatWasMoved == fontSize)
     {
         //[UserSliderCode_fontSize] -- add your slider handling code here..
-		codeFont.setHeight (fontSize->getValue());
         //[/UserSliderCode_fontSize]
     }
 
@@ -203,13 +198,24 @@ void CtrlrLuaMethodCodeEditorSettings::sliderValueChanged (Slider* sliderThatWas
 void CtrlrLuaMethodCodeEditorSettings::changeListenerCallback (ChangeBroadcaster* source)
 {
 	fontTest->setColour (CodeEditorComponent::backgroundColourId, bgColour->getColour());
-	fontTest->setFont (codeFont);
+	fontTest->setFont (getFont());
 	repaint();
 }
 
 const Font CtrlrLuaMethodCodeEditorSettings::getFont()
 {
-	return (codeFont);
+	Font font = owner.getOwner().getOwner().getFontManager().getFont (fontTypeface->getSelectedItemIndex());
+
+	if (fontTypeface)
+		font.setTypefaceName (fontTypeface->getText());
+	else
+		return (font);
+
+	font.setHeight (fontSize->getValue());
+	font.setBold (fontBold->getToggleState());
+	font.setItalic (fontItalic->getToggleState());
+	font.setUnderline (fontUnderline->getToggleState());
+	return (font);
 }
 
 const Colour CtrlrLuaMethodCodeEditorSettings::getColour()

@@ -36,8 +36,8 @@
 namespace ProjectInfo
 {
     const char* const  projectName    = "Ctrlr_Standalone";
-    const char* const  versionString  = "5.1.2";
-    const int          versionNumber  = 0x50102;
+    const char* const  versionString  = "5.2.0";
+    const int          versionNumber  = 0x50200;
 }
 
 #endif   // __APPHEADERFILE_ZB9E8M__

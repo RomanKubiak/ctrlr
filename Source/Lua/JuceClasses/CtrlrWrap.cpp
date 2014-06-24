@@ -52,7 +52,7 @@
 #include "LKeyPress.h"
 #include "LThread.h"
 #include "LThreadWithProgressWindow.h"
-#include "LXmlElement.h""
+#include "LXmlElement.h"
 
 void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 {

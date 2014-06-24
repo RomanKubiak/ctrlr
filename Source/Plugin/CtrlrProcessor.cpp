@@ -316,14 +316,16 @@ const bool CtrlrProcessor::useWrapper()
 
 AudioProcessorEditor* CtrlrProcessor::createEditor()
 {
-	if (useWrapper())
+	/*if (useWrapper())
 	{
 		return new CtrlrProcessorEditorForLive (this, *ctrlrManager);
 	}
 	else
 	{
 		return new CtrlrEditor (this, *ctrlrManager);
-	}
+	}*/
+
+	return new CtrlrEditor (this, *ctrlrManager);
 }
 
 void CtrlrProcessor::getStateInformation (MemoryBlock& destData)

@@ -386,26 +386,10 @@
         <FILE id="m5gzxe" name="FONT_Karmatic Arcade.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_Karmatic Arcade.bin"/>
         <FILE id="bUJLzA" name="FONT_LCD.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_LCD.bin"/>
-        <FILE id="hyxcWK" name="FONT_OpenSans-Bold.ttf" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_OpenSans-Bold.ttf"/>
-        <FILE id="XDnBq5" name="FONT_OpenSans-BoldItalic.ttf" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_OpenSans-BoldItalic.ttf"/>
-        <FILE id="otMcro" name="FONT_OpenSans-Italic.ttf" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_OpenSans-Italic.ttf"/>
-        <FILE id="MW2EWC" name="FONT_OpenSans-Regular.ttf" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_OpenSans-Regular.ttf"/>
-        <FILE id="HMuanW" name="FONT_Source Code Pro.bin" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_Source Code Pro.bin"/>
         <FILE id="RheoVI" name="FONT_ZX81.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_ZX81.bin"/>
       </GROUP>
       <GROUP id="{5FAC550A-4FC3-BAF2-39EF-176F752E8594}" name="Images">
         <FILE id="pTrmZW" name="tile.gif" compile="0" resource="1" file="../../Source/Resources/Images/tile.gif"/>
-      </GROUP>
-      <GROUP id="{4B3A1249-196E-A588-28D9-6A22EB40FD22}" name="Misc">
-        <FILE id="nePF6M" name="name_24.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_24.rsrc"/>
-        <FILE id="LG9InF" name="name_34.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_34.rsrc"/>
-        <FILE id="QCIGd7" name="name_42.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_42.rsrc"/>
-        <FILE id="APDh6q" name="name_68.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_68.rsrc"/>
       </GROUP>
       <GROUP id="{BD345A8F-B418-2110-EB31-51E5CB2CF268}" name="XML">
         <FILE id="Y56Aah" name="CtrlrMIDITransactions.xml" compile="0" resource="1"
