@@ -17,11 +17,11 @@ class CtrlrFontManager
 			unknownFontSet
 		};
 
-		CtrlrFontManager();
+		CtrlrFontManager(CtrlrManager &_owner);
 		~CtrlrFontManager();
 		void reloadOSFonts();
 		void reloadBuiltInFonts();
-		void reloadImportedFonts();
+		void reloadImportedFonts(CtrlrPanel *panelToLoadFrom=nullptr);
 		void reloadJuceFonts();
 		void reloadFonts();
 		const Array<Font> &getOsFontArray();
@@ -31,7 +31,6 @@ class CtrlrFontManager
 		Font getBuiltInFont(const char *fontData, const int fontDataSize);
 		Font getBuiltInFont(const String &fontResourceName);
 		const String getDefaultMonoFontName();
-		static const String fontToBase64 (const Font &font);
 		static const Font getFont (const char *fontData, const int fontDataSize);
 		const Font getFontFromString (const String &string);
 		static const Font getBuiltInFont(const int fontIndex);
@@ -40,9 +39,11 @@ class CtrlrFontManager
 		const FontSet getFontSetEnum (const Font &font);
 		Array<Font> &getFontSet (const FontSet fontSetToFetch);
 		static const bool isFontFile(const File &fontFile) { return (fontFile.hasFileExtension("jfont")); }
+
 		JUCE_LEAK_DETECTOR(CtrlrFontManager);
 
 	private:
+	    CtrlrManager &owner;
 		Array<Font> osFonts;
 		Array<Font> builtInFonts;
 		Array<Font> juceFonts;

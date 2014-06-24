@@ -361,7 +361,7 @@ const String CtrlrPanelResourceManager::getTypeDescription(const CtrlrPanelResou
 		case AudioRes:
 			return ("Audio");
 		case FontRes:
-			return ("Image");
+			return ("Font");
 		case TextRes:
 			return ("Text");
 		case XmlRes:
@@ -391,7 +391,7 @@ const CtrlrPanelResourceManager::CtrlrPanelResourceType CtrlrPanelResourceManage
 	}
 
 	// Font ?
-	if (owner.getOwner().getFontManager().isFontFile (resourceFile))
+	if (resourceFile.hasFileExtension("ttf") || resourceFile.hasFileExtension("otf"))
 	{
 		return (FontRes);
 	}

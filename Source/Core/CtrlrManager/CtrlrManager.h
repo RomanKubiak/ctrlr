@@ -272,13 +272,13 @@ class CtrlrManager : public ValueTree::Listener, public ChangeBroadcaster, publi
 		AudioFormatManager &getAudioFormatManager()																{ return (audioFormatManager); }
 		AudioThumbnailCache &getAudioThumbnailCache()															{ return (audioThumbnailCache); }
 		CtrlrIDManager &getIDManager()																			{ return (ctrlrIDManager); }
-		CtrlrIDManager &getCtrlrIDManager()																			{ return (ctrlrIDManager); }
+		CtrlrIDManager &getCtrlrIDManager()																		{ return (ctrlrIDManager); }
 		const bool isRestoring()																				{ return (ctrlrManagerRestoring); }
 		void saveStateToDisk();
 		void timerCallback (int timerId);
 		CtrlrIDManager &getIdManager()																			{ return (ctrlrIDManager); }
 		const File getCtrlrPropertiesDirectory();
-		CtrlrFontManager &getFontManager()																		{ return (ctrlrFontManager); }
+		CtrlrFontManager &getFontManager()																		{ return (*ctrlrFontManager); }
 		ApplicationCommandManager &getCommandManager()															{ return (commandManager); }
 		void panelFileOpened(const File &panelFile);
 		CtrlrLookAndFeel *getCtrlrLookAndFeel()																	{ return (ctrlrLookAndFeel); }
@@ -302,7 +302,7 @@ class CtrlrManager : public ValueTree::Listener, public ChangeBroadcaster, publi
 		void setEmbeddedDefaults();
 		Result addInstancePanel();
 		void restoreInstanceState(const ValueTree &instanceState);
-		
+
 		void openPanelInternal(const ValueTree &panelTree);
 		ApplicationCommandManager commandManager;
 		bool ctrlrManagerRestoring;
@@ -323,7 +323,7 @@ class CtrlrManager : public ValueTree::Listener, public ChangeBroadcaster, publi
 		AudioFormatManager audioFormatManager;
 		AudioThumbnailCache audioThumbnailCache;
 		CtrlrIDManager ctrlrIDManager;
-		CtrlrFontManager ctrlrFontManager;
+		ScopedPointer <CtrlrFontManager> ctrlrFontManager;
 		ValueTree ctrlrPlayerInstanceTree;
 		ValueTree ctrlrPlayerInstanceResources;
 		CtrlrLookAndFeel *ctrlrLookAndFeel;

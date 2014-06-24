@@ -80,7 +80,9 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
 	fontItalic->setMouseCursor (MouseCursor::PointingHandCursor);
 	fontUnderline->setClickingTogglesState (true);
 	fontUnderline->setMouseCursor (MouseCursor::PointingHandCursor);
-	owner->getOwner().getFontManager().fillCombo (*typeface);
+
+    owner->getOwner().getFontManager().fillCombo (*typeface, true, true, true, true);
+
     setSize (300, 32);
 }
 
@@ -98,7 +100,7 @@ CtrlrFontPropertyComponent::~CtrlrFontPropertyComponent()
 void CtrlrFontPropertyComponent::resized()
 {
     typeface->setBounds (0, 0, getWidth() * 0.4f, getHeight());
-    
+
 	fontBold->setBounds (getWidth() * 0.4f,									0, getWidth() * 0.05f,	getHeight());
     fontItalic->setBounds ((getWidth() * 0.4f) + (getWidth() * 0.05f),		0, getWidth() * 0.05f,	getHeight());
 	fontUnderline->setBounds ((getWidth() * 0.4f) + 2*(getWidth() * 0.05f), 0, getWidth() * 0.05f,	getHeight());
@@ -110,7 +112,6 @@ void CtrlrFontPropertyComponent::resized()
 
 void CtrlrFontPropertyComponent::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 {
-
 	valueToControl = owner->getOwner().getFontManager().getStringFromFont(getFont());
 }
 
