@@ -47,6 +47,7 @@ void CtrlrColourEditorComponent::mouseDown (const MouseEvent &e)
 {
 	if (e.mods.isPopupMenu())
 	{
+		/*
 		DialogWindow::LaunchOptions o;
 
     	CtrlrColourSelectorComp *editor 		= new CtrlrColourSelectorComp (this, canResetToDefault);
@@ -58,6 +59,8 @@ void CtrlrColourEditorComponent::mouseDown (const MouseEvent &e)
 		o.escapeKeyTriggersCloseButton	= true;
 		o.componentToCentreAround		= this;
 		o.launchAsync();
+		*/
+		 CallOutBox& myBox = CallOutBox::launchAsynchronously (new CtrlrColourSelectorComp (this, canResetToDefault), getScreenBounds(), nullptr);
 	}
 }
 

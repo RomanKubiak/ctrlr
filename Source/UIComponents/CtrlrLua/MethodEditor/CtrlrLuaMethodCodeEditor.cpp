@@ -22,12 +22,8 @@ CtrlrLuaMethodCodeEditor::CtrlrLuaMethodCodeEditor(CtrlrLuaMethodEditor &_owner,
 	if (method != nullptr)
 		method->setCodeEditor (this);
 
-	setFontAndColour (owner.getOwner().getOwner().getFontManager().getFontFromString (
-																						owner.getComponentTree().getProperty (	Ids::luaMethodEditorFont, 
-																						owner.getOwner().getOwner().getFontManager().getStringFromFont (Font(owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 14.0f, Font::plain))
-																																)
-																					)
-																					,VAR2COLOUR(owner.getComponentTree().getProperty (Ids::luaMethodEditorBgColour, Colours::white.toString())));
+	setFontAndColour (owner.getOwner().getOwner().getFontManager().getFontFromString (owner.getComponentTree().getProperty (Ids::luaMethodEditorFont))
+					,VAR2COLOUR(owner.getComponentTree().getProperty (Ids::luaMethodEditorBgColour, Colours::white.toString())));
 }
 
 CtrlrLuaMethodCodeEditor::~CtrlrLuaMethodCodeEditor()

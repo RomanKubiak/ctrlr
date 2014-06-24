@@ -146,19 +146,21 @@ void CtrlrFontManager::fillCombo (ComboBox &comboToFill, const bool showOsFonts,
 
 Font CtrlrFontManager::getFont(const int fontIndex)
 {
-	if (fontIndex >= 0 && fontIndex < builtInFonts.size())
+	if (fontIndex >= 0 && fontIndex < juceFonts.size())
 	{
-		//_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is a builtIn font");
-		/* This is a built-in font */
+		return (juceFonts[fontIndex]);
 	}
-	else if (fontIndex >= builtInFonts.size() && fontIndex < (importedFonts.size()+builtInFonts.size()))
+	if (fontIndex >= juceFonts.size() && fontIndex < (builtInFonts.size() + juceFonts.size()))
 	{
-		/* This is a imported font */
-		//_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an imported font");
+		return (builtInFonts [fontIndex - juceFonts.size()]);
 	}
-	else if (fontIndex >= (importedFonts.size()+builtInFonts.size()) && fontIndex < (importedFonts.size()+builtInFonts.size()+osFonts.size()))
+	else if (fontIndex >= builtInFonts.size() && fontIndex < (importedFonts.size() + builtInFonts.size() + juceFonts.size()))
 	{
-		//_DBG ("CtrlrFontManager::getFont fontIndex="+STR(fontIndex)+" is an os font");
+		return (importedFonts [fontIndex - juceFonts.size() - builtInFonts.size()]);
+	}
+	else if (fontIndex >= (importedFonts.size()+builtInFonts.size()) && fontIndex < (importedFonts.size() + juceFonts.size() + builtInFonts.size() + osFonts.size()))
+	{
+		return (osFonts [fontIndex - juceFonts.size() - builtInFonts.size() - importedFonts.size()]);
 	}
 
 	return (builtInFonts[0]);
@@ -217,9 +219,9 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 		if (fontProps[fontSet] != String::empty && fontProps[fontSet].getIntValue() >= 0)
 		{
 			/* We need to fetch the typeface for the font from the correct font set */
-			_DBG("\tfetching font from set: "+_STR(fontProps[fontSet].getIntValue()));
+			
 			Array<Font> &fontSetToUse = getFontSet((const FontSet)fontProps[fontSet].getIntValue());
-            _DBG("\t\tfont set size: "+_STR(fontSetToUse.size()));
+            
 			for (int i=0; i<fontSetToUse.size(); i++)
 			{
 				if (fontSetToUse[i].getTypefaceName() == fontProps[fontTypefaceName])

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.1.2"
+<JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.2.0"
               bundleIdentifier="com.instigator.Ctrlr" jucerVersion="3.1.0"
-              defines="" companyName="Instigator" includeBinaryInAppConfig="1">
+              defines="" companyName="Instigator" includeBinaryInAppConfig="1"
+              companyWebsite="http://ctrlr.org" companyEmail="ctrlr@ctrlr.org">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="../Generated/Mac/Standalone" objCExtraSuffix="CTRLRUNIQVST"
                extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
@@ -200,14 +201,6 @@
         <FILE id="SHfRIR" name="FONT_Karmatic Arcade.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_Karmatic Arcade.bin"/>
         <FILE id="TLkJax" name="FONT_LCD.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_LCD.bin"/>
-        <FILE id="FbBPwU" name="FONT_OpenSans-Bold.ttf" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_OpenSans-Bold.ttf"/>
-        <FILE id="OpROV1" name="FONT_OpenSans-BoldItalic.ttf" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_OpenSans-BoldItalic.ttf"/>
-        <FILE id="ezU1n6" name="FONT_OpenSans-Italic.ttf" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_OpenSans-Italic.ttf"/>
-        <FILE id="dDHyJM" name="FONT_OpenSans-Regular.ttf" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_OpenSans-Regular.ttf"/>
         <FILE id="hl8E5o" name="FONT_Source Code Pro.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_Source Code Pro.bin"/>
         <FILE id="vzKpxn" name="FONT_ZX81.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_ZX81.bin"/>
@@ -279,12 +272,6 @@
       </GROUP>
       <GROUP id="{A15E6671-01FE-A38C-6FA3-480250E74C6B}" name="Images">
         <FILE id="iMbRxk" name="tile.gif" compile="0" resource="1" file="../../Source/Resources/Images/tile.gif"/>
-      </GROUP>
-      <GROUP id="{7550D861-4E22-854A-C333-DAB29BB48047}" name="Misc">
-        <FILE id="DRlHtG" name="name_24.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_24.rsrc"/>
-        <FILE id="uZmNNi" name="name_34.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_34.rsrc"/>
-        <FILE id="eKJ6KW" name="name_42.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_42.rsrc"/>
-        <FILE id="s9UKqS" name="name_68.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_68.rsrc"/>
       </GROUP>
       <GROUP id="{C7BDEF86-BA53-19FE-8370-362589146B0A}" name="XML">
         <FILE id="Bm5ved" name="CtrlrMIDITransactions.xml" compile="0" resource="1"

@@ -1,20 +1,18 @@
 /*
   ==============================================================================
 
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  7 Mar 2013 10:38:15pm
+  This is an automatically generated GUI class created by the Introjucer!
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Jucer version: 1.12
+  Created with Introjucer version: 3.1.0
 
   ------------------------------------------------------------------------------
 
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
+  The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
+  Copyright 2004-13 by Raw Material Software Ltd.
 
   ==============================================================================
 */
@@ -35,36 +33,24 @@
 
 //==============================================================================
 CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
-    : owner(_owner),
-      ctrlrName (0),
-      ctrlrLogo (0),
-      versionInfoLabel (0),
-      label (0),
-      label2 (0),
-      label3 (0),
-      label4 (0),
-      instanceUrl (0),
-      instanceVersion (0),
-      instanceAuthor (0),
-      instanceName (0),
-      instanceDescription (0)
+    : owner(_owner)
 {
     addAndMakeVisible (ctrlrName = new Label (String::empty,
-                                              "Ctrlr"));
-    ctrlrName->setFont (Font (48.0000f, Font::plain));
+                                              TRANS("Ctrlr")));
+    ctrlrName->setFont (Font (48.00f, Font::plain));
     ctrlrName->setJustificationType (Justification::centredLeft);
     ctrlrName->setEditable (false, false, false);
     ctrlrName->setColour (Label::textColourId, Colour (0xd6000000));
     ctrlrName->setColour (TextEditor::textColourId, Colours::black);
-    ctrlrName->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    ctrlrName->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (ctrlrLogo = new ImageButton (String::empty));
     ctrlrLogo->addListener (this);
 
     ctrlrLogo->setImages (false, true, true,
-                          Image(), 0.7500f, Colour (0x0),
-                          Image(), 0.8500f, Colour (0x0),
-                          Image(), 0.9900f, Colour (0x0));
+                          Image(), 0.750f, Colour (0x00000000),
+                          Image(), 0.850f, Colour (0x00000000),
+                          Image(), 0.990f, Colour (0x00000000));
     addAndMakeVisible (versionInfoLabel = new TextEditor (String::empty));
     versionInfoLabel->setMultiLine (true);
     versionInfoLabel->setReturnKeyStartsNewLine (true);
@@ -72,69 +58,69 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     versionInfoLabel->setScrollbarsShown (true);
     versionInfoLabel->setCaretVisible (false);
     versionInfoLabel->setPopupMenuEnabled (true);
-    versionInfoLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
-    versionInfoLabel->setColour (TextEditor::shadowColourId, Colour (0x0));
+    versionInfoLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    versionInfoLabel->setColour (TextEditor::shadowColourId, Colour (0x00000000));
     versionInfoLabel->setText (String::empty);
 
     addAndMakeVisible (label = new Label ("new label",
-                                          "Instance name"));
-    label->setFont (Font (24.0000f, Font::bold));
+                                          TRANS("Instance name")));
+    label->setFont (Font (24.00f, Font::bold));
     label->setJustificationType (Justification::topRight);
     label->setEditable (false, false, false);
     label->setColour (TextEditor::textColourId, Colours::black);
-    label->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (label2 = new Label ("new label",
-                                           "Author"));
-    label2->setFont (Font (24.0000f, Font::plain));
+                                           TRANS("Author")));
+    label2->setFont (Font (24.00f, Font::plain));
     label2->setJustificationType (Justification::topRight);
     label2->setEditable (false, false, false);
     label2->setColour (TextEditor::textColourId, Colours::black);
-    label2->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (label3 = new Label ("new label",
-                                           "Version"));
-    label3->setFont (Font (24.0000f, Font::plain));
+                                           TRANS("Version")));
+    label3->setFont (Font (24.00f, Font::plain));
     label3->setJustificationType (Justification::topRight);
     label3->setEditable (false, false, false);
     label3->setColour (TextEditor::textColourId, Colours::black);
-    label3->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (label4 = new Label ("new label",
-                                           "URL"));
-    label4->setFont (Font (24.0000f, Font::plain));
+                                           TRANS("URL")));
+    label4->setFont (Font (24.00f, Font::plain));
     label4->setJustificationType (Justification::topRight);
     label4->setEditable (false, false, false);
     label4->setColour (TextEditor::textColourId, Colours::black);
-    label4->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (instanceUrl = new HyperlinkButton (String::empty,
                                                           URL ("http://www.rawmaterialsoftware.com/juce")));
-    instanceUrl->setTooltip ("http://www.rawmaterialsoftware.com/juce");
+    instanceUrl->setTooltip (TRANS("http://www.rawmaterialsoftware.com/juce"));
 
     addAndMakeVisible (instanceVersion = new Label (String::empty,
                                                     String::empty));
-    instanceVersion->setFont (Font (22.0000f, Font::bold));
+    instanceVersion->setFont (Font (22.00f, Font::bold));
     instanceVersion->setJustificationType (Justification::topLeft);
     instanceVersion->setEditable (false, false, false);
     instanceVersion->setColour (TextEditor::textColourId, Colours::black);
-    instanceVersion->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    instanceVersion->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (instanceAuthor = new Label (String::empty,
                                                    String::empty));
-    instanceAuthor->setFont (Font (22.0000f, Font::bold));
+    instanceAuthor->setFont (Font (22.00f, Font::bold));
     instanceAuthor->setJustificationType (Justification::topLeft);
     instanceAuthor->setEditable (false, false, false);
     instanceAuthor->setColour (TextEditor::textColourId, Colours::black);
-    instanceAuthor->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    instanceAuthor->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (instanceName = new Label (String::empty,
                                                  String::empty));
-    instanceName->setFont (Font (24.0000f, Font::bold));
+    instanceName->setFont (Font (24.00f, Font::bold));
     instanceName->setJustificationType (Justification::topLeft);
     instanceName->setEditable (false, false, false);
     instanceName->setColour (TextEditor::textColourId, Colours::black);
-    instanceName->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    instanceName->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (instanceDescription = new TextEditor (String::empty));
     instanceDescription->setMultiLine (true);
@@ -144,7 +130,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     instanceDescription->setCaretVisible (false);
     instanceDescription->setPopupMenuEnabled (false);
     instanceDescription->setColour (TextEditor::outlineColourId, Colours::black);
-    instanceDescription->setColour (TextEditor::shadowColourId, Colour (0x0));
+    instanceDescription->setColour (TextEditor::shadowColourId, Colour (0x00000000));
     instanceDescription->setText (String::empty);
 
 
@@ -196,18 +182,18 @@ CtrlrAbout::~CtrlrAbout()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    deleteAndZero (ctrlrName);
-    deleteAndZero (ctrlrLogo);
-    deleteAndZero (versionInfoLabel);
-    deleteAndZero (label);
-    deleteAndZero (label2);
-    deleteAndZero (label3);
-    deleteAndZero (label4);
-    deleteAndZero (instanceUrl);
-    deleteAndZero (instanceVersion);
-    deleteAndZero (instanceAuthor);
-    deleteAndZero (instanceName);
-    deleteAndZero (instanceDescription);
+    ctrlrName = nullptr;
+    ctrlrLogo = nullptr;
+    versionInfoLabel = nullptr;
+    label = nullptr;
+    label2 = nullptr;
+    label3 = nullptr;
+    label4 = nullptr;
+    instanceUrl = nullptr;
+    instanceVersion = nullptr;
+    instanceAuthor = nullptr;
+    instanceName = nullptr;
+    instanceDescription = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -220,6 +206,24 @@ void CtrlrAbout::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
 	drawDefaultWindowBackground(g,getWidth(),getHeight());
     //[/UserPrePaint]
+
+    g.setGradientFill (ColourGradient (Colour (0xa6ffffff),
+                                       static_cast<float> ((getWidth() / 2)), 48.0f,
+                                       Colour (0x8cc1c1c1),
+                                       static_cast<float> ((getWidth() / 2)), 64.0f,
+                                       false));
+    g.fillRect (0, 0, getWidth() - 0, 64);
+
+    g.setGradientFill (ColourGradient (Colour (0x8cc1c1c1),
+                                       static_cast<float> ((getWidth() / 2)), 64.0f,
+                                       Colour (0xa6ffffff),
+                                       static_cast<float> ((getWidth() / 2)), 80.0f,
+                                       false));
+    g.fillRect (0, 64, getWidth() - 0, getHeight() - 64);
+
+    g.setColour (Colour (0xff4c4c4c));
+    g.fillRect (proportionOfWidth (0.0200f), 163, proportionOfWidth (0.9600f), 2);
+
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
 }
@@ -276,16 +280,17 @@ void CtrlrAbout::updateVersionLabel()
 
 //==============================================================================
 #if 0
-/*  -- Jucer information section --
+/*  -- Introjucer information section --
 
-    This is where the Jucer puts all of its metadata, so don't change anything in here!
+    This is where the Introjucer stores the metadata that describe this GUI layout, so
+    make changes in here at your peril!
 
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="CtrlrAbout" componentName=""
                  parentClasses="public Component" constructorParams="CtrlrManager &amp;_owner"
                  variableInitialisers="owner(_owner)" snapPixels="8" snapActive="1"
-                 snapShown="1" overlayOpacity="0.330000013" fixedSize="1" initialWidth="600"
+                 snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="600"
                  initialHeight="380">
   <BACKGROUND backgroundColour="ffffff">
     <RECT pos="0 0 0M 64" fill="linear: 0C 48, 0C 64, 0=a6ffffff, 1=8cc1c1c1"
@@ -302,8 +307,9 @@ BEGIN_JUCER_METADATA
   <IMAGEBUTTON name="" id="a6024ea6965f7c56" memberName="ctrlrLogo" virtualName=""
                explicitFocusOrder="0" pos="2% 8 8% 48" buttonText="" connectedEdges="0"
                needsCallback="1" radioGroupId="0" keepProportions="1" resourceNormal=""
-               opacityNormal="0.75" colourNormal="0" resourceOver="" opacityOver="0.850000024"
-               colourOver="0" resourceDown="" opacityDown="0.99000001" colourDown="0"/>
+               opacityNormal="0.75" colourNormal="0" resourceOver="" opacityOver="0.85000002384185791"
+               colourOver="0" resourceDown="" opacityDown="0.99000000953674316"
+               colourDown="0"/>
   <TEXTEDITOR name="" id="f62f729d279478eb" memberName="versionInfoLabel" virtualName=""
               explicitFocusOrder="0" pos="-8R 8 66% 48" posRelativeX="cb1b7e33d5cdf245"
               bkgcol="0" shadowcol="0" initialText="" multiline="1" retKeyStartsLine="1"
@@ -356,7 +362,6 @@ BEGIN_JUCER_METADATA
 END_JUCER_METADATA
 */
 #endif
-
 
 
 //[EndFile] You can add extra defines here...

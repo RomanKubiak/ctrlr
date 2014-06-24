@@ -1,26 +1,24 @@
 /*
   ==============================================================================
 
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  7 Mar 2013 10:38:15pm
+  This is an automatically generated GUI class created by the Introjucer!
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Jucer version: 1.12
+  Created with Introjucer version: 3.1.0
 
   ------------------------------------------------------------------------------
 
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
+  The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
+  Copyright 2004-13 by Raw Material Software Ltd.
 
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_CTRLRABOUT_CTRLRABOUT_41C9DE20__
-#define __JUCER_HEADER_CTRLRABOUT_CTRLRABOUT_41C9DE20__
+#ifndef __JUCE_HEADER_38C6DBC920B693D4__
+#define __JUCE_HEADER_38C6DBC920B693D4__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "CtrlrManager/CtrlrManager.h"
@@ -65,18 +63,18 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    Label* ctrlrName;
-    ImageButton* ctrlrLogo;
-    TextEditor* versionInfoLabel;
-    Label* label;
-    Label* label2;
-    Label* label3;
-    Label* label4;
-    HyperlinkButton* instanceUrl;
-    Label* instanceVersion;
-    Label* instanceAuthor;
-    Label* instanceName;
-    TextEditor* instanceDescription;
+    ScopedPointer<Label> ctrlrName;
+    ScopedPointer<ImageButton> ctrlrLogo;
+    ScopedPointer<TextEditor> versionInfoLabel;
+    ScopedPointer<Label> label;
+    ScopedPointer<Label> label2;
+    ScopedPointer<Label> label3;
+    ScopedPointer<Label> label4;
+    ScopedPointer<HyperlinkButton> instanceUrl;
+    ScopedPointer<Label> instanceVersion;
+    ScopedPointer<Label> instanceAuthor;
+    ScopedPointer<Label> instanceName;
+    ScopedPointer<TextEditor> instanceDescription;
 
 
     //==============================================================================
@@ -86,4 +84,4 @@ private:
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCER_HEADER_CTRLRABOUT_CTRLRABOUT_41C9DE20__
+#endif   // __JUCE_HEADER_38C6DBC920B693D4__
