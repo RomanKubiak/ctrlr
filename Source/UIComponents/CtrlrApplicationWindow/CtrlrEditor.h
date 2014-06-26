@@ -94,7 +94,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 			doCrash						= 0x20,
 			doDumpVstTables				= 0x21,
 			doRegisterExtension			= 0x22,
-			doQuit						= 0xfffffffe
+			doQuit						= 0x00fffffe
 		};
 
 		void activeCtrlrChanged();

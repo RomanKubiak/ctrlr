@@ -201,10 +201,10 @@
  #define JucePlugin_Manufacturer           "Instigator"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
- #define JucePlugin_ManufacturerWebsite    ""
+ #define JucePlugin_ManufacturerWebsite    "http://ctrlr.org"
 #endif
 #ifndef  JucePlugin_ManufacturerEmail
- #define JucePlugin_ManufacturerEmail      ""
+ #define JucePlugin_ManufacturerEmail      "ctrlr@ctrlr.org"
 #endif
 #ifndef  JucePlugin_ManufacturerCode
  #define JucePlugin_ManufacturerCode       'INST'
@@ -237,13 +237,13 @@
  #define JucePlugin_EditorRequiresKeyboardFocus  1
 #endif
 #ifndef  JucePlugin_Version
- #define JucePlugin_Version                5.1.2
+ #define JucePlugin_Version                5.2.0
 #endif
 #ifndef  JucePlugin_VersionCode
- #define JucePlugin_VersionCode            0x50102
+ #define JucePlugin_VersionCode            0x50200
 #endif
 #ifndef  JucePlugin_VersionString
- #define JucePlugin_VersionString          "5.1.2"
+ #define JucePlugin_VersionString          "5.2.0"
 #endif
 #ifndef  JucePlugin_VSTUniqueID
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode

@@ -46,7 +46,7 @@
  #include <X11/Xatom.h>
  #undef KeyPress
 #else
- #include <Carbon/Carbon.h>
+ //#include <Carbon/Carbon.h>
 #endif
 
 #ifdef PRAGMA_ALIGN_SUPPORTED
@@ -228,6 +228,8 @@ juce_ImplementSingleton (SharedMessageThread)
 
 #endif
 
+#include "../../juce_audio_processors/format_types/juce_VSTMidiEventList.h"
+
 static Array<void*> activePlugins;
 
 //==============================================================================
@@ -269,8 +271,7 @@ public:
         cEffect.flags |= effFlagsHasEditor;
         cEffect.version = convertHexVersionToDecimal (JucePlugin_VersionCode);
 
-        // setUniqueID ((int) (JucePlugin_VSTUniqueID));
-        setUniqueID (filter->getInputChannelName(1024).getIntValue());
+        setUniqueID ((int) (JucePlugin_VSTUniqueID));
 
         setNumInputs (numInChans);
         setNumOutputs (numOutChans);
@@ -349,35 +350,19 @@ public:
     //==============================================================================
     bool getEffectName (char* name) override
     {
-        //String (JucePlugin_Name).copyToUTF8 (name, 64);
-        filter->getInputChannelName(1026).copyToUTF8 (name, 64);
+        String (JucePlugin_Name).copyToUTF8 (name, 64);
         return true;
     }
 
     bool getVendorString (char* text) override
     {
-        //String (JucePlugin_Manufacturer).copyToUTF8 (text, 64);
-        filter->getInputChannelName(1025).copyToUTF8 (text, 64);
+        String (JucePlugin_Manufacturer).copyToUTF8 (text, 64);
         return true;
     }
 
-    bool getProductString (char* text) override
-    {
-        filter->getInputChannelName(1026).copyToUTF8 (text, 64);
-        return true;
-    }
-
-    VstInt32 getVendorVersion() override
-    {
-        return (filter->getInputChannelName(1027).getIntValue());
-        //return convertHexVersionToDecimal (JucePlugin_VersionCode);
-    }
-
-    VstPlugCategory getPlugCategory() override
-    {
-        return JucePlugin_VSTCategory;
-    }
-
+    bool getProductString (char* text) override  { return getEffectName (text); }
+    VstInt32 getVendorVersion() override         { return convertHexVersionToDecimal (JucePlugin_VersionCode); }
+    VstPlugCategory getPlugCategory() override   { return JucePlugin_VSTCategory; }
     bool keysRequired()                          { return (JucePlugin_EditorRequiresKeyboardFocus) != 0; }
 
     VstInt32 canDo (char* text) override

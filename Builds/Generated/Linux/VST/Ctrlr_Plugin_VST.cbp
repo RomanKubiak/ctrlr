@@ -31,8 +31,8 @@
           <Add option="-DLINUX=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1"/>
-          <Add option="-DJUCE_APP_VERSION=5.1.2"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=0x50102"/>
+          <Add option="-DJUCE_APP_VERSION=5.2.0"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=0x50200"/>
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -95,8 +95,8 @@
           <Add option="-DLINUX=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1"/>
-          <Add option="-DJUCE_APP_VERSION=5.1.2"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=0x50102"/>
+          <Add option="-DJUCE_APP_VERSION=5.2.0"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=0x50200"/>
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -160,8 +160,8 @@
           <Add option="-DLINUX=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1"/>
-          <Add option="-DJUCE_APP_VERSION=5.1.2"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=0x50102"/>
+          <Add option="-DJUCE_APP_VERSION=5.2.0"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=0x50200"/>
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -3759,15 +3759,7 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_graphics/geometry/juce_RectangleList.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_graphics/geometry/juce_RectangleList.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_graphics/placement/juce_Justification.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -4343,14 +4335,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/layout/juce_MouseInactivityDetector.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/layout/juce_MouseInactivityDetector.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/layout/juce_MultiDocumentPanel.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -4759,14 +4743,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FileFilter.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FileFilter.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FileListComponent.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -4808,14 +4784,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_ImagePreviewComponent.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_WildcardFileFilter.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_WildcardFileFilter.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -4876,10 +4844,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/application/juce_Application.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/application/juce_Initialisation.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -5020,14 +4984,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_extra/embedding/juce_UIViewComponent.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_extra/lookandfeel/juce_OldSchoolLookAndFeel.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_extra/lookandfeel/juce_OldSchoolLookAndFeel.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
