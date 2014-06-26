@@ -398,9 +398,6 @@
     <Filter Include="Juce Modules\juce_gui_extra\embedding">
       <UniqueIdentifier>{61B2920C-494D-D8CB-C0C7-5DBF3D76D164}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Juce Modules\juce_gui_extra\lookandfeel">
-      <UniqueIdentifier>{4980B18D-FEDE-B773-F254-E3B5207D81F0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Juce Modules\juce_gui_extra\misc">
       <UniqueIdentifier>{66C9B809-8739-A217-C78D-A15D6089B8E3}</UniqueIdentifier>
     </Filter>
@@ -1738,12 +1735,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\geometry\juce_PathStrokeType.cpp">
       <Filter>Juce Modules\juce_graphics\geometry</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\geometry\juce_RectangleList.cpp">
-      <Filter>Juce Modules\juce_graphics\geometry</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\placement\juce_Justification.cpp">
-      <Filter>Juce Modules\juce_graphics\placement</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\placement\juce_RectanglePlacement.cpp">
       <Filter>Juce Modules\juce_graphics\placement</Filter>
     </ClCompile>
@@ -1942,9 +1933,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_GroupComponent.cpp">
       <Filter>Juce Modules\juce_gui_basics\layout</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_MouseInactivityDetector.cpp">
-      <Filter>Juce Modules\juce_gui_basics\layout</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_MultiDocumentPanel.cpp">
       <Filter>Juce Modules\juce_gui_basics\layout</Filter>
     </ClCompile>
@@ -2098,9 +2086,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileChooserDialogBox.cpp">
       <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileFilter.cpp">
-      <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileListComponent.cpp">
       <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
     </ClCompile>
@@ -2114,9 +2099,6 @@
       <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_ImagePreviewComponent.cpp">
-      <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_WildcardFileFilter.cpp">
       <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\commands\juce_ApplicationCommandInfo.cpp">
@@ -2202,9 +2184,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\documents\juce_FileBasedDocument.cpp">
       <Filter>Juce Modules\juce_gui_extra\documents</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\lookandfeel\juce_OldSchoolLookAndFeel.cpp">
-      <Filter>Juce Modules\juce_gui_extra\lookandfeel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\misc\juce_BubbleMessageComponent.cpp">
       <Filter>Juce Modules\juce_gui_extra\misc</Filter>
@@ -4224,9 +4203,6 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_GroupComponent.h">
       <Filter>Juce Modules\juce_gui_basics\layout</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_MouseInactivityDetector.h">
-      <Filter>Juce Modules\juce_gui_basics\layout</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_MultiDocumentPanel.h">
       <Filter>Juce Modules\juce_gui_basics\layout</Filter>
     </ClInclude>
@@ -4380,9 +4356,6 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileChooserDialogBox.h">
       <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileFilter.h">
-      <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileListComponent.h">
       <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
     </ClInclude>
@@ -4399,9 +4372,6 @@
       <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_ImagePreviewComponent.h">
-      <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_WildcardFileFilter.h">
       <Filter>Juce Modules\juce_gui_basics\filebrowser</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\commands\juce_ApplicationCommandID.h">
@@ -4426,9 +4396,6 @@
       <Filter>Juce Modules\juce_gui_basics\misc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\application\juce_Application.h">
-      <Filter>Juce Modules\juce_gui_basics\application</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\application\juce_Initialisation.h">
       <Filter>Juce Modules\juce_gui_basics\application</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_MultiTouchMapper.h">
@@ -4469,9 +4436,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\embedding\juce_UIViewComponent.h">
       <Filter>Juce Modules\juce_gui_extra\embedding</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\lookandfeel\juce_OldSchoolLookAndFeel.h">
-      <Filter>Juce Modules\juce_gui_extra\lookandfeel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\misc\juce_AppleRemote.h">
       <Filter>Juce Modules\juce_gui_extra\misc</Filter>
