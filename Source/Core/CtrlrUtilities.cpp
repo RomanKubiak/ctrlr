@@ -376,7 +376,7 @@ void uniqueIntArray (Array <int> &arrayToModify)
 		temp.addIfNotAlreadyThere(arrayToModify[i]);
 	}
 
-	arrayToModify.swapWithArray (temp);
+	arrayToModify.swapWith (temp);
 }
 
 const String fileToBase64 (const File &file)

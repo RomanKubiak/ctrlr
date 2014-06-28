@@ -145,27 +145,55 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
         switch (channelIndex)
         {
             case 1024:
-                if (ctrlrManager) if (ctrlrManager->getActivePanel()) return (ctrlrManager->getActivePanel()->getProperty(Ids::panelInstanceUID));
+                if (ctrlrManager)
+                {
+                    if (ctrlrManager->getActivePanel())
+                    {
+                        return (ctrlrManager->getActivePanel()->getProperty(Ids::panelInstanceUID));
+                    }
+                }
+                return ("CTRL");
 
             case 1025:
-                if (ctrlrManager) if (ctrlrManager->getActivePanel()) return (ctrlrManager->getActivePanel()->getProperty(Ids::panelAuthorName));
+                if (ctrlrManager)
+                {
+                    if (ctrlrManager->getActivePanel())
+                    {
+                        return (ctrlrManager->getActivePanel()->getProperty(Ids::panelAuthorName));
+                    }
+                }
+                return ("Instigator");
 
             case 1026:
-                if (ctrlrManager) if (ctrlrManager->getActivePanel()) return (ctrlrManager->getActivePanel()->getProperty(Ids::name));
+                if (ctrlrManager)
+                {
+                    if (ctrlrManager->getActivePanel())
+                    {
+                        return (ctrlrManager->getActivePanel()->getProperty(Ids::name));
+                    }
+                }
+                return ("Ctrlr");
 
             case 1027:
-                if (ctrlrManager) if (ctrlrManager->getActivePanel()) return (ctrlrManager->getActivePanel()->getProperty(Ids::panelVersionMajor));
+                if (ctrlrManager)
+                {
+                    if (ctrlrManager->getActivePanel())
+                    {
+                        return (ctrlrManager->getActivePanel()->getProperty(Ids::panelVersionMajor));
+                    }
+                }
+                return (JucePlugin_VersionString);
 
             default:
                 break;
         }
     }
-    return ("AI"+_STR(channelIndex));
+    return ("Audio Input: "+_STR(channelIndex));
 }
 
 const String CtrlrProcessor::getOutputChannelName (const int channelIndex) const
 {
-    return ("AO"+_STR(channelIndex));
+    return ("Audio Output: "+_STR(channelIndex));
 }
 
 bool CtrlrProcessor::isInputChannelStereoPair (int index) const

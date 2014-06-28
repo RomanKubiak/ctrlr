@@ -1403,7 +1403,7 @@ void CtrlrPanelCanvas::itemDropped (const SourceDetails &dragSourceDetails)
 			if ( (bool)child->getProperty (Ids::componentGroupped) == true)
 			{
 				child->setProperty (Ids::componentGroupped, false, true);
-				owner.getSelection()->getSelectedItem(i)->setBounds (owner.getSelection()->getSelectedItem(i)->getBounds().transformed(trans));
+				owner.getSelection()->getSelectedItem(i)->setBounds (owner.getSelection()->getSelectedItem(i)->getBounds().transformedBy(trans));
 			}
 		}
 	}

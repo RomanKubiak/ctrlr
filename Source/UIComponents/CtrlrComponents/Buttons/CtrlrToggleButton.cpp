@@ -121,7 +121,7 @@ void CtrlrToggleButton::setComponentValue (const double newValue, const bool sen
 
 	if (ctrlrButton->getClickingTogglesState())
 	{
-		ctrlrButton->setToggleState (newValue ? true : false, false);
+		ctrlrButton->setToggleState (newValue ? true : false, dontSendNotification);
 	}
 
 	if (sendChangeMessage)
@@ -137,7 +137,7 @@ void CtrlrToggleButton::setComponentMidiValue (const int newValue, const bool se
 
 	if (ctrlrButton->getClickingTogglesState())
 	{
-		ctrlrButton->setToggleState (valueMap.getIndexForValue(newValue) ? true : false, false);
+		ctrlrButton->setToggleState (valueMap.getIndexForValue(newValue) ? true : false, dontSendNotification);
 	}
 
 	if (sendChangeMessage)
@@ -177,7 +177,7 @@ void CtrlrToggleButton::valueTreePropertyChanged (ValueTree &treeWhosePropertyHa
 {
 	if (property == Ids::componentRadioGroupId)
 	{
-		ctrlrButton->setToggleState (false, false);
+		ctrlrButton->setToggleState (false, dontSendNotification);
 	}
 
 	if (property == Ids::uiButtonTextColourOn
@@ -219,7 +219,7 @@ const bool CtrlrToggleButton::isToggleButton()
 
 void CtrlrToggleButton::setToggleState(const bool toggleState, const bool sendChangeMessage)
 {
-	ctrlrButton->setToggleState (toggleState, sendChangeMessage);
+	ctrlrButton->setToggleState (toggleState, sendChangeMessage ? sendNotification : dontSendNotification);
 }
 
 void CtrlrToggleButton::wrapForLua(lua_State *L)

@@ -12,7 +12,6 @@ class LMemoryBlock : public MemoryBlock
 		{}
 		LMemoryBlock(const MemoryBlock &other) : MemoryBlock(other)
 		{}
-		operator MemoryBlock() const noexcept;
 		LMemoryBlock (const void *dataToInitialiseFrom, size_t sizeInBytes);
 		LMemoryBlock(const String &hexData);
 		LMemoryBlock(luabind::object const& table);

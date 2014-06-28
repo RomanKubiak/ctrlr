@@ -153,7 +153,77 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 						nsCopyright->deleteAllTextElements();
 						nsCopyright->addTextElement(sourceInfo->getProperty(Ids::panelAuthorName).toString());
 					}
-				}
+                }
+                
+                if (e1->hasTagName ("key") && (e1->getAllSubText() == "AudioComponents"))
+                {
+                    _DBG("INSTANCE: AudioComponents found");
+                    
+                    /* resource section */
+                    XmlElement *dict = nullptr;
+                    XmlElement *array = e1->getNextElement();
+                    if (array)
+                    {
+                        _DBG("INSTANCE: array is valid");
+                        dict = array->getChildByName("dict");
+                    }
+                    
+                    if (dict != nullptr)
+                    {
+                        _DBG("INSTANCE: dist is valid");
+                        
+                        forEachXmlChildElement (*dict, e2)
+                        {
+                            _DBG("INSTANCE: enum element: "+e2->getTagName());
+                            _DBG("INSTANCE: enum subtext: "+e2->getAllSubText());
+                            if (e2->hasTagName("key") && (e2->getAllSubText() == "description"))
+                            {
+                                XmlElement *description = e2->getNextElementWithTagName("string");
+                                if (description != nullptr)
+                                {
+                                }
+                            }
+                        
+                            if (e2->hasTagName("key") && (e2->getAllSubText() == "manufacturer"))
+                            {
+                                XmlElement *manufacturer = e2->getNextElementWithTagName("string");
+                                if (manufacturer != nullptr)
+                                {
+                                    manufacturer->deleteAllTextElements();
+                                    manufacturer->addTextElement(sourceInfo->getProperty(Ids::panelAuthorName).toString());
+                                }
+                            }
+                        
+                            if (e2->hasTagName("key") && (e2->getAllSubText() == "name"))
+                            {
+                                XmlElement *name = e2->getNextElementWithTagName("string");
+                                if (name != nullptr)
+                                {
+                                    name->deleteAllTextElements();
+                                    name->addTextElement(sourceInfo->getProperty(Ids::panelAuthorName).toString() + ": " + sourceInfo->getProperty(Ids::name).toString());
+                                }
+                            }
+                        
+                            if (e2->hasTagName("key") && (e2->getAllSubText() == "subtype"))
+                            {
+                                XmlElement *subtype = e2->getNextElementWithTagName("string");
+                                if (subtype != nullptr)
+                                {
+                                    subtype->deleteAllTextElements();
+                                    subtype->addTextElement(sourceInfo->getProperty(Ids::panelInstanceUID).toString());
+                                }
+                            }
+                        
+                            if (e2->hasTagName("key") && (e2->getAllSubText() == "version"))
+                            {
+                                XmlElement *subtype = e2->getNextElementWithTagName("string");
+                                if (subtype != nullptr)
+                                {
+                                }
+                            }
+                        }
+                    }
+                }
 			}
 		}
 		else
