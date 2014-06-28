@@ -271,8 +271,8 @@ public:
         cEffect.flags |= effFlagsHasEditor;
         cEffect.version = convertHexVersionToDecimal (JucePlugin_VersionCode);
 
-        setUniqueID ((int) (JucePlugin_VSTUniqueID));
-
+        //setUniqueID ((int) (JucePlugin_VSTUniqueID));
+		setUniqueID (filter->getInputChannelName(1024).getIntValue());
         setNumInputs (numInChans);
         setNumOutputs (numOutChans);
 
@@ -350,18 +350,29 @@ public:
     //==============================================================================
     bool getEffectName (char* name) override
     {
-        String (JucePlugin_Name).copyToUTF8 (name, 64);
+        //String (JucePlugin_Name).copyToUTF8 (name, 64);
+		filter->getInputChannelName(1026).copyToUTF8 (name, 64);
         return true;
     }
 
     bool getVendorString (char* text) override
     {
-        String (JucePlugin_Manufacturer).copyToUTF8 (text, 64);
+        //String (JucePlugin_Manufacturer).copyToUTF8 (text, 64);
+		filter->getInputChannelName(1025).copyToUTF8 (text, 64);
         return true;
     }
 
-    bool getProductString (char* text) override  { return getEffectName (text); }
-    VstInt32 getVendorVersion() override         { return convertHexVersionToDecimal (JucePlugin_VersionCode); }
+    bool getProductString (char* text) override  
+	{ 
+		filter->getInputChannelName(1026).copyToUTF8 (text, 64); 
+		return (true);
+	}
+
+    VstInt32 getVendorVersion() override         
+	{ 
+		return (filter->getInputChannelName(1027).getIntValue());
+	}
+
     VstPlugCategory getPlugCategory() override   { return JucePlugin_VSTCategory; }
     bool keysRequired()                          { return (JucePlugin_EditorRequiresKeyboardFocus) != 0; }
 
