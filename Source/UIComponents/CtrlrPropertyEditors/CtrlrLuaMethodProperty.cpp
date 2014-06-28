@@ -148,5 +148,5 @@ void CtrlrLuaMethodProperty::refresh()
 	methodSelectorCombo->clear();
 	methodSelectorCombo->addItem (COMBO_NONE_ITEM, 1);
 	methodSelectorCombo->addItemList (owner->getCtrlrLuaManager().getMethodManager().getMethodList(), 2);
-	methodSelectorCombo->setText (valeToControl.toString(), true);
+	methodSelectorCombo->setText (valeToControl.toString(), sendNotification);
 }

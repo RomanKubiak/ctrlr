@@ -384,7 +384,7 @@ void CtrlrGroup::itemDropped (const SourceDetails &dragSourceDetails)
 
 				setOwned (c, 0, true);
 
-				c->setBounds (c->getBounds().transformed(trans));
+				c->setBounds (c->getBounds().transformedBy(trans));
 			}
 		}
 	}

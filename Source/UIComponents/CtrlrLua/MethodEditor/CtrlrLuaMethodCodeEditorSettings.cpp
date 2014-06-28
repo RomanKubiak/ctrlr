@@ -78,11 +78,11 @@ CtrlrLuaMethodCodeEditorSettings::CtrlrLuaMethodCodeEditorSettings (CtrlrLuaMeth
 	bgColour->setColour (VAR2COLOUR(owner.getComponentTree().getProperty(Ids::luaMethodEditorBgColour, Colours::white.toString())));
 
 	fontSize->setValue (codeFont.getHeight(), dontSendNotification);
-	fontUnderline->setToggleState (codeFont.isUnderlined(), false);
-	fontBold->setToggleState (codeFont.isBold(), false);
-	fontItalic->setToggleState (codeFont.isItalic(), false);
+	fontUnderline->setToggleState (codeFont.isUnderlined(), dontSendNotification);
+	fontBold->setToggleState (codeFont.isBold(), dontSendNotification);
+	fontItalic->setToggleState (codeFont.isItalic(), dontSendNotification);
 	owner.getOwner().getOwner().getFontManager().fillCombo (*fontTypeface);
-	fontTypeface->setText (codeFont.getTypefaceName(), true);
+	fontTypeface->setText (codeFont.getTypefaceName(), sendNotification);
 	codeDocument.replaceAllContent ("-- This is a comment\nfunction myFunction(argument)\n\tcall(\"string\")\nend");
     //[/UserPreSize]
 

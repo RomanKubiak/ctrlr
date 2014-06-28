@@ -26,11 +26,6 @@ char LMemoryBlock::operator [] (const int offset) const noexcept
 	return (*((uint8 *)getData()+offset));
 }
 
-LMemoryBlock::operator MemoryBlock() const noexcept
-{
-	return (*this);
-}
-
 void LMemoryBlock::insertIntoTable(luabind::object const& table)
 {
 	if (luabind::type(table) == LUA_TTABLE)

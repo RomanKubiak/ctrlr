@@ -22,21 +22,21 @@
                extraLinkerFlags="-L$PROJECT_DIR -L/usr/lib -L/usr/local/lib -lau_wrapper">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
-                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       osxSDK="10.8 SDK" osxCompatibility="10.8 SDK" osxArchitecture="64BitUniversal"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Lua&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Lua&#10;../../../../Source/Application"
                        binaryPath="" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_AU&#10;JUCE_DEBUG=1&#10;LUA_USE_LINUX"
                        customXcodeFlags="EXCLUDED_SOURCE_FILE_NAMES=&quot;*AU*.cpp Carbon*.cpp ComponentBase.cpp MusicDeviceBase.cpp&quot;,GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        userNotes="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        libraryPath="/usr/lib&#10;/usr/local/lib"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
-                       osxSDK="10.7 SDK" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
+                       osxSDK="10.8 SDK" osxCompatibility="10.8 SDK" osxArchitecture="64BitUniversal"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_AU&#10;LUA_USE_LINUX"
                        binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua/lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Lua&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Lua&#10;../../../../Source/Application"
                        customXcodeFlags="EXCLUDED_SOURCE_FILE_NAMES=&quot;*AU*.cpp Carbon*.cpp ComponentBase.cpp MusicDeviceBase.cpp&quot;,GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        userNotes="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES"
                        libraryPath="/usr/lib&#10;/usr/local/lib"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
-                       osxSDK="default" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
+                       osxSDK="10.8 SDK" osxCompatibility="10.8 SDK" osxArchitecture="64BitUniversal"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_AU&#10;LUA_USE_LINUX"
                        binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua/lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Lua&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Lua&#10;../../../../Source/Application"
                        customXcodeFlags="EXCLUDED_SOURCE_FILE_NAMES=&quot;*AU*.cpp Carbon*.cpp ComponentBase.cpp MusicDeviceBase.cpp&quot;,GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
@@ -387,6 +387,8 @@
         <FILE id="UMKZEV" name="LValue.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValue.h"/>
         <FILE id="OX4CQR" name="LValueTree.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.cpp"/>
         <FILE id="lNla0Q" name="LValueTree.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.h"/>
+        <FILE id="XxdoAR" name="LXmlElement.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.cpp"/>
+        <FILE id="FuSvYr" name="LXmlElement.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.h"/>
         <FILE id="zWi5Xj" name="LZipFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.cpp"/>
         <FILE id="mI7fAB" name="LZipFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.h"/>
       </GROUP>
@@ -560,6 +562,10 @@
       </GROUP>
     </GROUP>
     <GROUP id="{50E4F3DE-9270-01A9-C70A-9D6AF07E8EEA}" name="MIDI">
+      <FILE id="Ub4NeY" name="CtrlrMidiMessageEx.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessageEx.cpp"/>
+      <FILE id="M4j9pn" name="CtrlrMidiMessageEx.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessageEx.h"/>
       <FILE id="XIrruM" name="CtrlrMIDITransaction.cpp" compile="1" resource="0"
             file="../../Source/MIDI/CtrlrMIDITransaction.cpp"/>
       <FILE id="oxu4UB" name="CtrlrMIDITransaction.h" compile="0" resource="0"
@@ -604,9 +610,6 @@
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.cpp"/>
       <FILE id="lw0Fa5" name="CtrlrOwnedMidiMessage.h" compile="0" resource="0"
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
-      <FILE id="UuN1H2" name="MidiMessageEx.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/MidiMessageEx.cpp"/>
-      <FILE id="wddM3E" name="MidiMessageEx.h" compile="0" resource="0" file="../../Source/MIDI/MidiMessageEx.h"/>
     </GROUP>
     <GROUP id="{8F9534D2-5A89-AD92-71CE-F1DFAB3F48BC}" name="Misc">
       <FILE id="CWe6aC" name="juce_PluginHostType.h" compile="0" resource="0"
@@ -721,12 +724,6 @@
       </GROUP>
       <GROUP id="{E110B256-4B5C-4807-5183-AC75511C240C}" name="Images">
         <FILE id="G5w91x" name="tile.gif" compile="0" resource="1" file="../../Source/Resources/Images/tile.gif"/>
-      </GROUP>
-      <GROUP id="{89EE92CC-F49E-666C-DAB3-9C2291FE06C3}" name="Misc">
-        <FILE id="AsUVNn" name="name_24.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_24.rsrc"/>
-        <FILE id="N25X6r" name="name_34.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_34.rsrc"/>
-        <FILE id="nwdYGd" name="name_42.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_42.rsrc"/>
-        <FILE id="GTtjiW" name="name_68.rsrc" compile="0" resource="1" file="../../Source/Resources/Misc/name_68.rsrc"/>
       </GROUP>
       <GROUP id="{C6D890F4-5F98-639D-7615-4F38AE14AF45}" name="XML">
         <FILE id="A3zdBQ" name="CtrlrMIDITransactions.xml" compile="0" resource="1"
@@ -945,9 +942,6 @@
         <FILE id="wvzgiL" name="CtrlrMIDIMon.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIMon.h"/>
       </GROUP>
       <GROUP id="{3BD2D29D-3C59-3475-8680-C402E8E4321A}" name="CtrlrPanel">
-        <FILE id="Z7uqv1" name="XmlTokeniser.cpp" compile="1" resource="0"
-              file="../../Source/UIComponents/CtrlrPanel/XmlTokeniser.cpp"/>
-        <FILE id="nHhzUJ" name="XmlTokeniser.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/XmlTokeniser.h"/>
         <FILE id="nMO7kv" name="CtrlrPanelMIDIToolbar.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.cpp"/>
         <FILE id="biNOUa" name="CtrlrPanelMIDIToolbar.h" compile="0" resource="0"
@@ -1004,8 +998,9 @@
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.cpp"/>
         <FILE id="L2nZSq" name="CtrlrPanelViewport.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.h"/>
-        <FILE id="w9i9dR" name="ViewportExt.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrPanel/ViewportExt.cpp"/>
-        <FILE id="v3UamF" name="ViewportExt.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/ViewportExt.h"/>
+        <FILE id="xIcPw5" name="CtrlrViewport.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp"/>
+        <FILE id="rUo1P2" name="CtrlrViewport.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.h"/>
       </GROUP>
       <GROUP id="{9F6629D6-BD14-4107-BC85-638C8ED43EF5}" name="CtrlrPropertyEditors">
         <FILE id="PWinDI" name="CtrlrModulatorListProperty.cpp" compile="1"

@@ -627,7 +627,7 @@ void CtrlrTabsComponent::itemDropped (const SourceDetails &dragSourceDetails)
 
 					setOwned (c, ctrlrTabs->getCurrentTabIndex(), true);
 
-					c->setBounds (c->getBounds().transformed(trans));
+					c->setBounds (c->getBounds().transformedBy(trans));
 				}
 			}
 		}

@@ -27,7 +27,7 @@ void CtrlrLuaAudioConverter::convertInt8 (MemoryBlock &sourceData, AudioSampleBu
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), sourceData.getData(), numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), sourceData.getData(), numSamples);
 		}
 	}
 	else
@@ -43,7 +43,7 @@ void CtrlrLuaAudioConverter::convertInt8 (MemoryBlock &sourceData, AudioSampleBu
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), ch, sourceData.getData(), ch, numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), ch, sourceData.getData(), ch, numSamples);
 		}
 	}
 }
@@ -63,7 +63,7 @@ void CtrlrLuaAudioConverter::convertUInt8 (MemoryBlock &sourceData, AudioSampleB
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), sourceData.getData(), numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), sourceData.getData(), numSamples);
 		}
 	}
 	else
@@ -79,7 +79,7 @@ void CtrlrLuaAudioConverter::convertUInt8 (MemoryBlock &sourceData, AudioSampleB
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), ch, sourceData.getData(), ch, numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), ch, sourceData.getData(), ch, numSamples);
 		}
 	}
 }
@@ -99,7 +99,7 @@ void CtrlrLuaAudioConverter::convertInt16 (MemoryBlock &sourceData, AudioSampleB
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), sourceData.getData(), numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), sourceData.getData(), numSamples);
 		}
 	}
 	else
@@ -115,7 +115,7 @@ void CtrlrLuaAudioConverter::convertInt16 (MemoryBlock &sourceData, AudioSampleB
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), ch, sourceData.getData(), ch, numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), ch, sourceData.getData(), ch, numSamples);
 		}
 	}
 }
@@ -135,7 +135,7 @@ void CtrlrLuaAudioConverter::convertUInt16 (MemoryBlock &sourceData, AudioSample
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), sourceData.getData(), numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), sourceData.getData(), numSamples);
 		}
 	}
 	else
@@ -151,7 +151,7 @@ void CtrlrLuaAudioConverter::convertUInt16 (MemoryBlock &sourceData, AudioSample
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), ch, sourceData.getData(), ch, numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), ch, sourceData.getData(), ch, numSamples);
 		}
 	}
 }
@@ -171,7 +171,7 @@ void CtrlrLuaAudioConverter::convertInt24 (MemoryBlock &sourceData, AudioSampleB
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), sourceData.getData(), numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), sourceData.getData(), numSamples);
 		}
 	}
 	else
@@ -187,7 +187,7 @@ void CtrlrLuaAudioConverter::convertInt24 (MemoryBlock &sourceData, AudioSampleB
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), ch, sourceData.getData(), ch, numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), ch, sourceData.getData(), ch, numSamples);
 		}
 	}
 }
@@ -207,7 +207,7 @@ void CtrlrLuaAudioConverter::convertInt32 (MemoryBlock &sourceData, AudioSampleB
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), sourceData.getData(), numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), sourceData.getData(), numSamples);
 		}
 	}
 	else
@@ -223,7 +223,7 @@ void CtrlrLuaAudioConverter::convertInt32 (MemoryBlock &sourceData, AudioSampleB
 									> converter;
 		for (int ch=0; ch<numChannels; ch++)
 		{
-			converter.convertSamples (destination.getSampleData(ch), ch, sourceData.getData(), ch, numSamples);
+			converter.convertSamples ((void *)destination.getReadPointer(ch), ch, sourceData.getData(), ch, numSamples);
 		}
 	}
 }
@@ -249,7 +249,7 @@ LMemoryBlock CtrlrLuaAudioConverter::convertToUInt8 (AudioFormatReader *sourceFo
 											AudioData::NonConst>
 									> converter;
 
-			converter.convertSamples (mb.getData(), tempBuffer.getSampleData (sourceChannel, 0), numSamples);
+			converter.convertSamples (mb.getData(), tempBuffer.getReadPointer (sourceChannel, 0), numSamples);
 		}
 		else
 		{
@@ -263,7 +263,7 @@ LMemoryBlock CtrlrLuaAudioConverter::convertToUInt8 (AudioFormatReader *sourceFo
 											AudioData::NonConst>
 									> converter;
 
-			converter.convertSamples (mb.getData(), tempBuffer.getSampleData (sourceChannel, 0), numSamples);
+			converter.convertSamples (mb.getData(), tempBuffer.getReadPointer (sourceChannel, 0), numSamples);
 		}
 	}
 
