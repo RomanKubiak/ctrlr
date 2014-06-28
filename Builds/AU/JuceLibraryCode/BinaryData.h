@@ -168,26 +168,14 @@ namespace BinaryData
     extern const char*   tile_gif;
     const int            tile_gifSize = 326;
 
-    extern const char*   name_24_rsrc;
-    const int            name_24_rsrcSize = 757;
-
-    extern const char*   name_34_rsrc;
-    const int            name_34_rsrcSize = 807;
-
-    extern const char*   name_42_rsrc;
-    const int            name_42_rsrcSize = 847;
-
-    extern const char*   name_68_rsrc;
-    const int            name_68_rsrcSize = 977;
-
     extern const char*   CtrlrMIDITransactions_xml;
     const int            CtrlrMIDITransactions_xmlSize = 1963;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 75767;
+    const int            CtrlrIDs_xmlSize = 75995;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 15635;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 15840;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;

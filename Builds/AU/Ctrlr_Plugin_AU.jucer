@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="JUwYqy" name="Ctrlr_Plugin_AU" projectType="audioplug" version="5.1.2"
+<JUCERPROJECT id="JUwYqy" name="Ctrlr_Plugin_AU" projectType="audioplug" version="5.2.0"
               juceLinkage="amalg_multi" buildVST="0" buildRTAS="0" buildAU="1"
               pluginName="Ctrlr-AU" pluginDesc="Ctrlr-AU" pluginManufacturer="Intigator"
               pluginManufacturerCode="INST" pluginCode="CTRL" pluginChannelConfigs="{1, 1}, {2, 2}"
@@ -8,10 +8,11 @@
               pluginSilenceInIsSilenceOut="0" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="3.1.0" defines="" aaxIdentifier="com.yourcompany.Ctrlr_Plugin_AU"
+              jucerVersion="3.1.0" defines="" aaxIdentifier="com.instigator.Ctrlr_Plugin_AU"
               companyName="Instigator" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
-              pluginManufacturerEmail="support@yourcompany.com">
+              pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
+              companyEmail="ctrlr@ctrlr.org">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="../Generated/Mac/AU" vstFolder="~/devel/vstsdk2.4"
                rtasFolder="~/SDKs/PT_80_SDK" objCExtraSuffix="CTRLRUNIQAU" extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
