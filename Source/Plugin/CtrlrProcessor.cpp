@@ -17,8 +17,6 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 
 CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrManager(nullptr)
 {
-	Logger::writeToLog ("CtrlrProcessor::ctor");
-
 	midiCollector.reset (SAMPLERATE);
 
 	currentExec		= File::getSpecialLocation(File::currentApplicationFile);
@@ -50,7 +48,6 @@ CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrMana
 
 CtrlrProcessor::~CtrlrProcessor()
 {
-	_DBG("CtrlrProcessor::dtor");
 	deleteAndZero (ctrlrLog);
 	MessageManager::getInstance()->runDispatchLoopUntil((int)overridesTree.getProperty(Ids::ctrlrShutdownDelay));
 }
@@ -182,7 +179,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                         return (ctrlrManager->getActivePanel()->getProperty(Ids::panelVersionMajor));
                     }
                 }
-                return (JucePlugin_VersionString);
+                return (ProjectInfo::versionString);
 
             default:
                 break;

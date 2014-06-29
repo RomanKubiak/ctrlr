@@ -545,7 +545,6 @@ const bool CtrlrLuaMethodManager::attachDefaultGroups()
 
 void CtrlrLuaMethodManager::wrapUtilities()
 {
-	_DBG("CtrlrLuaMethodManager::wrapUtilities");
 	if (getNumUtilities() > 0)
 	{
 		if (attachDefaultGroups())

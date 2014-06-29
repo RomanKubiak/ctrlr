@@ -848,12 +848,10 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp" />
     <ClCompile Include="..\..\..\..\Source\Native\Linux\libr-bfd.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -861,6 +859,8 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
+      </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalOptions>
@@ -868,12 +868,10 @@
       </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Native\Linux\libr.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -881,6 +879,8 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
+      </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalOptions>
@@ -1561,12 +1561,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\geometry\juce_PathStrokeType.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\geometry\juce_RectangleList.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\placement\juce_Justification.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\placement\juce_RectanglePlacement.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1759,9 +1753,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_GroupComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_MouseInactivityDetector.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_MultiDocumentPanel.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1915,9 +1906,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileChooserDialogBox.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileFilter.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileListComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1931,9 +1919,6 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_ImagePreviewComponent.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_WildcardFileFilter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\commands\juce_ApplicationCommandInfo.cpp">
@@ -1997,9 +1982,6 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\documents\juce_FileBasedDocument.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\lookandfeel\juce_OldSchoolLookAndFeel.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\misc\juce_BubbleMessageComponent.cpp">
@@ -2911,7 +2893,6 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_ComponentMovementWatcher.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_ConcertinaPanel.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_GroupComponent.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_MouseInactivityDetector.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_MultiDocumentPanel.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_ResizableBorderComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\layout\juce_ResizableCornerComponent.h" />
@@ -2963,14 +2944,12 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileBrowserListener.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileChooser.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileChooserDialogBox.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileFilter.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileListComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FilePreviewComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileSearchPathListComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FileTreeComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_FilenameComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_ImagePreviewComponent.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\filebrowser\juce_WildcardFileFilter.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\commands\juce_ApplicationCommandID.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\commands\juce_ApplicationCommandInfo.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\commands\juce_ApplicationCommandManager.h" />
@@ -2979,7 +2958,6 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\misc\juce_BubbleComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\misc\juce_DropShadower.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\application\juce_Application.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\application\juce_Initialisation.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_MultiTouchMapper.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\juce_gui_basics.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\code_editor\juce_CPlusPlusCodeTokeniser.h" />
@@ -2993,7 +2971,6 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\embedding\juce_ActiveXControlComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\embedding\juce_NSViewComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\embedding\juce_UIViewComponent.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\lookandfeel\juce_OldSchoolLookAndFeel.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\misc\juce_AppleRemote.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\misc\juce_BubbleMessageComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\misc\juce_ColourSelector.h" />
@@ -3022,14 +2999,10 @@
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.bin" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Source Code Pro.bin" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.bin" />
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png" />
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_ctrlr_mac.icns" />
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_receive.png" />
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_send.png" />
-    <None Include="..\..\..\..\Source\Resources\Icons\ctrlr_black.ico" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_box.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_bug.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_copy.png" />
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_ctrlr_mac.icns" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_cut.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_delete.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_document.png" />
@@ -3047,18 +3020,21 @@
     <None Include="..\..\..\..\Source\Resources\Icons\ico_gui.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_happy.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_import_document.png" />
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_midi_plug_in.png" />
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_midi_plug_out.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_midi.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_midi_plug.png" />
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_midi_plug_in.png" />
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_midi_plug_out.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_midi_small.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_new_document.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_next.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_paste.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_previous.png" />
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_receive.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_sad.png" />
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_send.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_snapshot.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_snapshot_new.png" />
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_unit.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_unit_alt.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_unknown.png" />

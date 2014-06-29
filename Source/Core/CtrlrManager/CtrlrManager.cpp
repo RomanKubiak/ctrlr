@@ -190,7 +190,6 @@ void CtrlrManager::addPanel (CtrlrPanelEditor *panelToAdd)
 
 void CtrlrManager::restoreState (const ValueTree &savedTree)
 {
-	_DBG("CtrlrManager::restoreState ValueTree");
 	if (savedTree.isValid())
 	{
 		ctrlrManagerRestoring = true;
@@ -244,7 +243,6 @@ void CtrlrManager::restoreState (const ValueTree &savedTree)
 
 void CtrlrManager::restoreState (const XmlElement &savedState)
 {
-	_DBG("CtrlrManager::restoreState XML");
 	restoreState (ValueTree::fromXml(savedState));
 }
 

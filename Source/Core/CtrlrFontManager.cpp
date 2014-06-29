@@ -201,6 +201,8 @@ Font CtrlrFontManager::getFont(const File &fontFile)
 
 const Font CtrlrFontManager::getFontFromString (const String &string)
 {
+	_DBG("CtrlrFontManager::getFontFromString \""+string+"\"");
+
 	if (!string.contains (";"))
 	{
 	    if (string == String::empty)
