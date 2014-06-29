@@ -45,7 +45,6 @@ CtrlrPanelComponentProperties::CtrlrPanelComponentProperties (CtrlrPanelEditor &
 	refreshDynamicData();
     if (owner.getSelection())
 	{
-		_DBG("CtrlrPanelComponentProperties::ctor selection is valid");
         owner.getSelection()->addChangeListener (this);
 	}
     //[/UserPreSize]

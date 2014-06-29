@@ -253,26 +253,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/Resources/Icons/ico_transaction.png">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Icons/ico_ctrlr_mac.icns">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Icons/ico_receive.png">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Icons/ico_send.png">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Icons/ctrlr_black.ico">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_box.png">
       <Option compile="0"/>
       <Option link="0"/>
@@ -282,6 +262,10 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_copy.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/ico_ctrlr_mac.icns">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -353,19 +337,19 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/Resources/Icons/ico_midi_plug_in.png">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Icons/ico_midi_plug_out.png">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_midi.png">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_midi_plug.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/ico_midi_plug_in.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/ico_midi_plug_out.png">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -389,7 +373,15 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/ico_receive.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_sad.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/ico_send.png">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -398,6 +390,10 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_snapshot_new.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/ico_transaction.png">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -3696,15 +3692,7 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_graphics/geometry/juce_RectangleList.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_graphics/geometry/juce_RectangleList.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_graphics/placement/juce_Justification.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -4280,14 +4268,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/layout/juce_MouseInactivityDetector.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/layout/juce_MouseInactivityDetector.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/layout/juce_MultiDocumentPanel.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -4696,14 +4676,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FileFilter.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FileFilter.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FileListComponent.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -4745,14 +4717,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_ImagePreviewComponent.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_WildcardFileFilter.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_WildcardFileFilter.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -4813,10 +4777,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/application/juce_Application.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/application/juce_Initialisation.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -4957,14 +4917,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_extra/embedding/juce_UIViewComponent.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_extra/lookandfeel/juce_OldSchoolLookAndFeel.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_extra/lookandfeel/juce_OldSchoolLookAndFeel.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

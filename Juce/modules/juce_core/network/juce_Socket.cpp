@@ -547,7 +547,9 @@ DatagramSocket* DatagramSocket::waitForNextConnection() const
         juce_socklen_t len = sizeof (address);
         char buf[1];
 
-        if (recvfrom (handle, buf, 0, 0, (struct sockaddr*) &address, &len) > 0)
+		const int receivedData = recvfrom (handle, buf, 0, MSG_PEEK, (struct sockaddr*) &address, &len);
+
+        if (receivedData >= 0)
             return new DatagramSocket (inet_ntoa (((struct sockaddr_in*) &address)->sin_addr),
                                        ntohs (((struct sockaddr_in*) &address)->sin_port),
                                        -1, -1);

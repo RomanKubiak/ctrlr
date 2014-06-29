@@ -36,7 +36,6 @@ bool CtrlrDocumentPanel::tryToCloseDocument (Component* component)
 
 void CtrlrDocumentPanel::activeDocumentChanged()
 {
-	_DBG("CtrlrDocumentPanel::activeDocumentChanged");
 	CtrlrEditor *ed = dynamic_cast <CtrlrEditor*> (getParentComponent());
 	if (ed)
 		ed->activeCtrlrChanged();

@@ -36,8 +36,6 @@ void CtrlrManager::setEmbeddedDefaults()
 
 Result CtrlrManager::initEmbeddedInstance()
 {
-	_DBG("CtrlrManager::initEmbeddedInstance");
-
 	ctrlrNativeObject	= CtrlrNative::getNativeObject();
 
 	if (ctrlrNativeObject)
@@ -46,8 +44,6 @@ Result CtrlrManager::initEmbeddedInstance()
 
 		if (ctrlrNativeObject->getDefaultPanel (defaultPanelData))
 		{
-			_DBG("CtrlrManager::initEmbeddedInstance got default panel data size ["+STR((int32)defaultPanelData.getSize())+"]");
-
 			ctrlrPlayerInstanceTree = ValueTree::readFromGZIPData (defaultPanelData.getData(), defaultPanelData.getSize());
 
 			if (ctrlrPlayerInstanceTree.isValid())
@@ -112,8 +108,6 @@ const String CtrlrManager::getInstanceName() const
 
 Result CtrlrManager::addInstancePanel()
 {
-	_DBG("CtrlrManager::addInstancePanel");
-
 	if (ctrlrPlayerInstanceTree.isValid())
 	{
 		CtrlrPanel *panel = new CtrlrPanel(*this, getInstanceName(), ctrlrPanels.size());
@@ -143,12 +137,10 @@ Result CtrlrManager::addInstancePanel()
 
 Result CtrlrManager::importInstanceResources(CtrlrNative *native)
 {
-	_DBG("CtrlrManager::importInstanceResources");
 	if (getCtrlrProperties().getProperties().getUserSettings())
 	{
 		if (getCtrlrProperties().getProperties().getUserSettings()->getFile().getParentDirectory().getChildFile(".delete_me_to_reload_resources").existsAsFile())
 		{
-			_DBG("\t.delete_me_to_reload_resources exists");
 			return (Result::ok());
 		}
 		else
@@ -179,8 +171,6 @@ Result CtrlrManager::importInstanceResources(CtrlrNative *native)
 
 void CtrlrManager::restoreInstanceState(const ValueTree &instanceState)
 {
-	_DBG("CtrlrManager::restoreInstanceState");
-
 	if (ctrlrEditor)
 	{
 		restoreEditorState();

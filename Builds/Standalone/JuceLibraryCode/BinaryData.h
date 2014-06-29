@@ -42,21 +42,6 @@ namespace BinaryData
     extern const char*   FONT_ZX81_bin;
     const int            FONT_ZX81_binSize = 2837;
 
-    extern const char*   ico_transaction_png;
-    const int            ico_transaction_pngSize = 3798;
-
-    extern const char*   ico_ctrlr_mac_icns;
-    const int            ico_ctrlr_mac_icnsSize = 64064;
-
-    extern const char*   ico_receive_png;
-    const int            ico_receive_pngSize = 3359;
-
-    extern const char*   ico_send_png;
-    const int            ico_send_pngSize = 3420;
-
-    extern const char*   ctrlr_black_ico;
-    const int            ctrlr_black_icoSize = 377150;
-
     extern const char*   ico_box_png;
     const int            ico_box_pngSize = 3869;
 
@@ -65,6 +50,9 @@ namespace BinaryData
 
     extern const char*   ico_copy_png;
     const int            ico_copy_pngSize = 3721;
+
+    extern const char*   ico_ctrlr_mac_icns;
+    const int            ico_ctrlr_mac_icnsSize = 64064;
 
     extern const char*   ico_cut_png;
     const int            ico_cut_pngSize = 4206;
@@ -117,20 +105,20 @@ namespace BinaryData
     extern const char*   ico_import_document_png;
     const int            ico_import_document_pngSize = 3600;
 
+    extern const char*   ico_midi_png;
+    const int            ico_midi_pngSize = 16903;
+
+    extern const char*   ico_midi_plug_png;
+    const int            ico_midi_plug_pngSize = 1401;
+
     extern const char*   ico_midi_plug_in_png;
     const int            ico_midi_plug_in_pngSize = 1172;
 
     extern const char*   ico_midi_plug_out_png;
     const int            ico_midi_plug_out_pngSize = 1208;
 
-    extern const char*   ico_midi_png;
-    const int            ico_midi_pngSize = 7653;
-
-    extern const char*   ico_midi_plug_png;
-    const int            ico_midi_plug_pngSize = 1401;
-
     extern const char*   ico_midi_small_png;
-    const int            ico_midi_small_pngSize = 3768;
+    const int            ico_midi_small_pngSize = 6920;
 
     extern const char*   ico_new_document_png;
     const int            ico_new_document_pngSize = 3493;
@@ -144,14 +132,23 @@ namespace BinaryData
     extern const char*   ico_previous_png;
     const int            ico_previous_pngSize = 4163;
 
+    extern const char*   ico_receive_png;
+    const int            ico_receive_pngSize = 3359;
+
     extern const char*   ico_sad_png;
     const int            ico_sad_pngSize = 4314;
+
+    extern const char*   ico_send_png;
+    const int            ico_send_pngSize = 3420;
 
     extern const char*   ico_snapshot_png;
     const int            ico_snapshot_pngSize = 1108;
 
     extern const char*   ico_snapshot_new_png;
     const int            ico_snapshot_new_pngSize = 1897;
+
+    extern const char*   ico_transaction_png;
+    const int            ico_transaction_pngSize = 3798;
 
     extern const char*   ico_unit_png;
     const int            ico_unit_pngSize = 4223;
@@ -190,7 +187,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 59;
+    const int namedResourceListSize = 58;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

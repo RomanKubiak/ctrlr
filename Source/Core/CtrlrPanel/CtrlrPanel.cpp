@@ -224,7 +224,7 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 	}
 	else if (owner.getInstanceResourcesTree().isValid())
 	{
-		Result resourceImport = resourceManager.restoreState(owner.getInstanceResourcesTree());
+		Result resourceImport = getResourceManager().restoreState(owner.getInstanceResourcesTree());
 
 		if (!resourceImport.wasOk())
 		{
@@ -246,6 +246,9 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 	{
 		getResourceManager().restoreSavedState(savedState.getChildWithName(Ids::panelResources));
 	}
+
+	resourceImportFinished();
+
 	if (savedState.getChildWithName(Ids::uiPanelEditor).isValid())
 	{
 		getEditor(true)->restoreState(savedState);
@@ -1455,7 +1458,6 @@ bool CtrlrPanel::getDialogStatus()
 
 void CtrlrPanel::upgradeScheme()
 {
-	_DBG("CtrlrPanel::upgradeScheme");
 }
 
 void CtrlrPanel::hashName(CtrlrModulator *modulator)
@@ -1532,4 +1534,9 @@ CtrlrSysexProcessor *CtrlrPanel::getSysexProcessor()
 Array<int,CriticalSection> &CtrlrPanel::getGlobalVariables()
 {
 	return (globalVariables);
+}
+
+void CtrlrPanel::resourceImportFinished()
+{
+	owner.getFontManager().reloadImportedFonts(this);
 }

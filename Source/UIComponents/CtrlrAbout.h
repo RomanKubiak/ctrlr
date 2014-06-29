@@ -60,6 +60,7 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 	CtrlrManager &owner;
 	StringPairArray versionInformationArray;
+	DropShadowEffect shadow;
     //[/UserVariables]
 
     //==============================================================================

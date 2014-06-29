@@ -191,6 +191,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		void setRestoreState(const bool _restoreState);
 		void setProgramState(const bool _programState);
 		const String getName();
+		void resourceImportFinished();
 		void sendSnapshot();
 		void modulatorValueChanged(CtrlrModulator *m);
 		const bool getMidiOptionBool(const CtrlrPanelMidiOption optionToCheck);

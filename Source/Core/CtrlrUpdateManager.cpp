@@ -90,7 +90,6 @@ void CtrlrUpdateManager::timerCallback()
 
 	if ((bool)owner.getProperty(Ids::ctrlrCheckForUpdates) == false)
 	{
-		_INF("\tUpdate check disabled");
 		return;
 	}
 

@@ -37,7 +37,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 {
     addAndMakeVisible (ctrlrName = new Label (String::empty,
                                               TRANS("Ctrlr")));
-    ctrlrName->setFont (Font (48.00f, Font::plain));
+    ctrlrName->setFont (Font (48.00f, Font::bold));
     ctrlrName->setJustificationType (Justification::centredLeft);
     ctrlrName->setEditable (false, false, false);
     ctrlrName->setColour (Label::textColourId, Colour (0xd6000000));
@@ -129,7 +129,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     instanceDescription->setScrollbarsShown (true);
     instanceDescription->setCaretVisible (false);
     instanceDescription->setPopupMenuEnabled (false);
-    instanceDescription->setColour (TextEditor::outlineColourId, Colours::black);
+    instanceDescription->setColour (TextEditor::outlineColourId, Colour (0x00000000));
     instanceDescription->setColour (TextEditor::shadowColourId, Colour (0x00000000));
     instanceDescription->setText (String::empty);
 
@@ -137,10 +137,10 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     //[UserPreSize]
 	ctrlrLogo->setMouseCursor(MouseCursor::PointingHandCursor);
 	ctrlrLogo->setImages (false, true, true,
-                          IMAGE(ico_midi_png), 0.7500f, Colour (0x0),
-                          IMAGE(ico_midi_png), 0.8500f, Colour (0x0),
-                          IMAGE(ico_midi_png), 0.9900f, Colour (0x0));
-	addVersionInfo ("Revision", STR(ctrlrRevision));
+                          IMAGE(ico_midi_small_png), 0.8500f, Colour (0x0),
+                          IMAGE(ico_midi_small_png), 0.9500f, Colour (0x0),
+                          IMAGE(ico_midi_small_png), 1.0000f, Colour (0x0));
+	addVersionInfo ("Version", ProjectInfo::versionString);
 	addVersionInfo ("Build date", STR(ctrlrRevisionBuildDate));
 #if CTRLR_NIGHTLY == 1
 	addVersionInfo ("Branch", "Nightly");
@@ -148,9 +148,16 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 	addVersionInfo ("Branch", "Stable");
 #endif
 	addVersionInfo ("Juce", SystemStats::getJUCEVersion().fromLastOccurrenceOf("JUCE v", false, true));
-	addVersionInfo ("Boost", versionNumberToString(BOOST_VERSION));
-	addVersionInfo ("Lua", STR(LUA_RELEASE).fromLastOccurrenceOf("Lua ", false, true));
-	versionInfoLabel->setFont (Font (Font::getDefaultMonospacedFontName(), 10.0f, Font::plain));
+
+	shadow.setShadowProperties (DropShadow (Colours::white, 5, Point <int> (2,2)));
+	ctrlrName->setComponentEffect (&shadow);
+	ctrlrName->setColour (Label::textColourId, Colours::white);
+
+	versionInfoLabel->setFont (Font (14.0f, Font::bold));
+	versionInfoLabel->setColour (TextEditor::backgroundColourId, Colours::transparentBlack);
+	versionInfoLabel->setColour (TextEditor::textColourId, Colours::white);
+	versionInfoLabel->setComponentEffect (&shadow);
+
 	if (owner.getInstanceMode() == InstanceSingle || owner.getInstanceMode() == InstanceSingleRestriced)
 	{
     //[/UserPreSize]
@@ -204,27 +211,13 @@ CtrlrAbout::~CtrlrAbout()
 void CtrlrAbout::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
-	drawDefaultWindowBackground(g,getWidth(),getHeight());
     //[/UserPrePaint]
-
-    g.setGradientFill (ColourGradient (Colour (0xa6ffffff),
-                                       static_cast<float> ((getWidth() / 2)), 48.0f,
-                                       Colour (0x8cc1c1c1),
-                                       static_cast<float> ((getWidth() / 2)), 64.0f,
-                                       false));
-    g.fillRect (0, 0, getWidth() - 0, 64);
-
-    g.setGradientFill (ColourGradient (Colour (0x8cc1c1c1),
-                                       static_cast<float> ((getWidth() / 2)), 64.0f,
-                                       Colour (0xa6ffffff),
-                                       static_cast<float> ((getWidth() / 2)), 80.0f,
-                                       false));
-    g.fillRect (0, 64, getWidth() - 0, getHeight() - 64);
 
     g.setColour (Colour (0xff4c4c4c));
     g.fillRect (proportionOfWidth (0.0200f), 163, proportionOfWidth (0.9600f), 2);
 
     //[UserPaint] Add your own custom painting code here..
+	g.fillAll (Colours::black.withAlpha(0.55f));
     //[/UserPaint]
 }
 
@@ -271,8 +264,6 @@ void CtrlrAbout::addVersionInfo (const String &componentName, const String &comp
 
 void CtrlrAbout::updateVersionLabel()
 {
-	const StringArray keys = versionInformationArray.getAllKeys();
-
 	versionInfoLabel->setText (versionInformationArray.getDescription());
 }
 //[/MiscUserCode]
@@ -293,17 +284,13 @@ BEGIN_JUCER_METADATA
                  snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="600"
                  initialHeight="380">
   <BACKGROUND backgroundColour="ffffff">
-    <RECT pos="0 0 0M 64" fill="linear: 0C 48, 0C 64, 0=a6ffffff, 1=8cc1c1c1"
-          hasStroke="0"/>
-    <RECT pos="0 64 0M 64M" fill="linear: 0C 64, 0C 80, 0=8cc1c1c1, 1=a6ffffff"
-          hasStroke="0"/>
     <RECT pos="2% 163 96% 2" fill="solid: ff4c4c4c" hasStroke="0"/>
   </BACKGROUND>
   <LABEL name="" id="cb1b7e33d5cdf245" memberName="ctrlrName" virtualName=""
          explicitFocusOrder="0" pos="-8R 8 20% 48" posRelativeX="a6024ea6965f7c56"
          textCol="d6000000" edTextCol="ff000000" edBkgCol="0" labelText="Ctrlr"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="48" bold="0" italic="0" justification="33"/>
+         fontname="Default font" fontsize="48" bold="1" italic="0" justification="33"/>
   <IMAGEBUTTON name="" id="a6024ea6965f7c56" memberName="ctrlrLogo" virtualName=""
                explicitFocusOrder="0" pos="2% 8 8% 48" buttonText="" connectedEdges="0"
                needsCallback="1" radioGroupId="0" keepProportions="1" resourceNormal=""
@@ -354,7 +341,7 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="24"
          bold="1" italic="0" justification="9"/>
   <TEXTEDITOR name="" id="b4e0855b38c272a2" memberName="instanceDescription"
-              virtualName="" explicitFocusOrder="0" pos="2% 288 96% 80" outlinecol="ff000000"
+              virtualName="" explicitFocusOrder="0" pos="2% 288 96% 80" outlinecol="0"
               shadowcol="0" initialText="" multiline="1" retKeyStartsLine="1"
               readonly="1" scrollbars="1" caret="0" popupmenu="0"/>
 </JUCER_COMPONENT>

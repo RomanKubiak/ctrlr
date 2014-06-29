@@ -155,18 +155,6 @@ void CtrlrLuaManager::wrapUtilities(lua_State* L)
 	if (methodManager)
 	{
 		methodManager->wrapUtilities();
-		/*for (int i=0; i<methodManager->getNumUtilities(); i++)
-		{
-			const String u = methodManager->getUtility(i);
-
-			if (!u.isEmpty())
-			{
-				if (!runCode(u))
-				{
-					_WRN ("CtrlrLuaManager::wrapUtilities failed to compile utility: \"" + methodManager->getUtilityName(i) + "\"" );
-				}
-			}
-		}*/
 	}
 }
 
