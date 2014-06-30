@@ -201,8 +201,6 @@ Font CtrlrFontManager::getFont(const File &fontFile)
 
 const Font CtrlrFontManager::getFontFromString (const String &string)
 {
-	_DBG("CtrlrFontManager::getFontFromString \""+string+"\"");
-
 	if (!string.contains (";"))
 	{
 	    if (string == String::empty)
@@ -221,9 +219,9 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 		if (fontProps[fontSet] != String::empty && fontProps[fontSet].getIntValue() >= 0)
 		{
 			/* We need to fetch the typeface for the font from the correct font set */
-			
+
 			Array<Font> &fontSetToUse = getFontSet((const FontSet)fontProps[fontSet].getIntValue());
-            
+
 			for (int i=0; i<fontSetToUse.size(); i++)
 			{
 				if (fontSetToUse[i].getTypefaceName() == fontProps[fontTypefaceName])

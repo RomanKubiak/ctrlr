@@ -289,7 +289,8 @@ class CtrlrPanel:	public ValueTree::Listener,
 			luaPanelProgramChangedCbk,
 			luaPanelGlobalChangedCbk,
 			luaPanelMessageHandlerCbk,
-			luaPanelMidiChannelChangedCbk;
+			luaPanelMidiChannelChangedCbk,
+			luaPanelResourcesLoadedCbk;
 		CtrlrPanelWindowManager panelWindowManager;
 		CtrlrSysexProcessorOwned ctrlrSysexProcessor;
 		CtrlrPanelMIDIInputThread midiInputThread;

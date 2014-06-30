@@ -724,6 +724,7 @@
   <id name="luaPanelFileDragDropHandler"      text="Callback to indicate that the user has dropped the files onto this panel" type="LuaMethod" />
   <id name="luaPanelFileDragEnterHandler"     text="Callback to indicate that some files are being dragged over this panel"   type="LuaMethod" />
   <id name="luaPanelFileDragExitHandler"      text="Callback to indicate that the mouse has moved away from this panel"       type="LuaMethod" />
+  <id name="luaPanelResourcesLoaded"          text="Callback to indicate that all resources are ready for a panel"            type="LuaMethod" />
 
   <id name="luaTransProcess"		text="Transaction process" 					type="LuaMethod" />
   <id name="luaTransDataUnpack"		text="Transaction data unpacking" 			type="LuaMethod" />

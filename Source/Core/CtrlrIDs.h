@@ -754,6 +754,7 @@ namespace Ids
 	DECLARE_ID (luaPanelFileDragDropHandler);
 	DECLARE_ID (luaPanelFileDragEnterHandler);
 	DECLARE_ID (luaPanelFileDragExitHandler);
+    DECLARE_ID (luaPanelResourcesLoaded);
 
 	DECLARE_ID (luaMidiLibrarySend);
 	DECLARE_ID (luaMidiLibraryRequest);

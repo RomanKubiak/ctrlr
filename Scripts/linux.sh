@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REVISION=`git log -1 | grep commit | awk '{print $2}' | tail -c 8`
+REVISION=`git describe --tags`
 ARCH=`uname -m`
 PACKAGE="installers/Ctrlr_"$ARCH"_"$REVISION".sh"
 
@@ -24,5 +24,5 @@ cp -r ../Doc installers/Ctrlr/
 echo Makeself
 ./installers/makeself.sh --bzip2 --notemp installers/Ctrlr $PACKAGE "Ctrlr"
 
-echo "Copy to Ctrlr"
-scp $PACKAGE ctrlrorg@ctrlr.org:/home/ctrlrorg/public_html/nightly/
+#echo "Copy to Ctrlr"
+#Ascp $PACKAGE ctrlrorg@ctrlr.org:/home/ctrlrorg/public_html/nightly/
