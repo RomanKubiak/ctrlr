@@ -129,7 +129,8 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     instanceDescription->setScrollbarsShown (true);
     instanceDescription->setCaretVisible (false);
     instanceDescription->setPopupMenuEnabled (false);
-    instanceDescription->setColour (TextEditor::outlineColourId, Colour (0x00000000));
+    instanceDescription->setColour (TextEditor::backgroundColourId, Colour (0x00ffffff));
+    instanceDescription->setColour (TextEditor::outlineColourId, Colour (0x59000000));
     instanceDescription->setColour (TextEditor::shadowColourId, Colour (0x00000000));
     instanceDescription->setText (String::empty);
 
@@ -149,13 +150,14 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 #endif
 	addVersionInfo ("Juce", SystemStats::getJUCEVersion().fromLastOccurrenceOf("JUCE v", false, true));
 
-	shadow.setShadowProperties (DropShadow (Colours::white, 5, Point <int> (2,2)));
+	shadow.setShadowProperties (DropShadow (Colours::black, 5, Point <int> (2,2)));
 	ctrlrName->setComponentEffect (&shadow);
-	ctrlrName->setColour (Label::textColourId, Colours::white);
+    instanceName->setComponentEffect (&shadow);
+    instanceAuthor->setComponentEffect (&shadow);
+    instanceVersion->setComponentEffect (&shadow);
 
 	versionInfoLabel->setFont (Font (14.0f, Font::bold));
 	versionInfoLabel->setColour (TextEditor::backgroundColourId, Colours::transparentBlack);
-	versionInfoLabel->setColour (TextEditor::textColourId, Colours::white);
 	versionInfoLabel->setComponentEffect (&shadow);
 
 	if (owner.getInstanceMode() == InstanceSingle || owner.getInstanceMode() == InstanceSingleRestriced)
@@ -217,7 +219,6 @@ void CtrlrAbout::paint (Graphics& g)
     g.fillRect (proportionOfWidth (0.0200f), 163, proportionOfWidth (0.9600f), 2);
 
     //[UserPaint] Add your own custom painting code here..
-	g.fillAll (Colours::black.withAlpha(0.55f));
     //[/UserPaint]
 }
 
@@ -294,8 +295,8 @@ BEGIN_JUCER_METADATA
   <IMAGEBUTTON name="" id="a6024ea6965f7c56" memberName="ctrlrLogo" virtualName=""
                explicitFocusOrder="0" pos="2% 8 8% 48" buttonText="" connectedEdges="0"
                needsCallback="1" radioGroupId="0" keepProportions="1" resourceNormal=""
-               opacityNormal="0.75" colourNormal="0" resourceOver="" opacityOver="0.85000002384185791"
-               colourOver="0" resourceDown="" opacityDown="0.99000000953674316"
+               opacityNormal="0.75" colourNormal="0" resourceOver="" opacityOver="0.85000002384185791016"
+               colourOver="0" resourceDown="" opacityDown="0.99000000953674316406"
                colourDown="0"/>
   <TEXTEDITOR name="" id="f62f729d279478eb" memberName="versionInfoLabel" virtualName=""
               explicitFocusOrder="0" pos="-8R 8 66% 48" posRelativeX="cb1b7e33d5cdf245"
@@ -341,9 +342,9 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="24"
          bold="1" italic="0" justification="9"/>
   <TEXTEDITOR name="" id="b4e0855b38c272a2" memberName="instanceDescription"
-              virtualName="" explicitFocusOrder="0" pos="2% 288 96% 80" outlinecol="0"
-              shadowcol="0" initialText="" multiline="1" retKeyStartsLine="1"
-              readonly="1" scrollbars="1" caret="0" popupmenu="0"/>
+              virtualName="" explicitFocusOrder="0" pos="2% 288 96% 80" bkgcol="ffffff"
+              outlinecol="59000000" shadowcol="0" initialText="" multiline="1"
+              retKeyStartsLine="1" readonly="1" scrollbars="1" caret="0" popupmenu="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

@@ -117,7 +117,7 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const
 const Result CtrlrLinux::getDefaultPanel(MemoryBlock& dataToWrite)
 {
 #ifdef DEBUG_INSTANCE
-    File temp("/tmp/debug.bpanelz");
+    File temp("/home/r.kubiak/devel/debug.bpanelz");
 	temp.loadFileAsData (dataToWrite);
 	return (Result::ok());
 #endif
@@ -155,7 +155,7 @@ const Result CtrlrLinux::getDefaultPanel(MemoryBlock& dataToWrite)
 const Result CtrlrLinux::getDefaultResources(MemoryBlock& dataToWrite)
 {
 #ifdef DEBUG_INSTANCE
-	File temp("/tmp/debug.bpanelz");
+	File temp("/home/r.kubiak/devel/debug.bpanelz");
 	MemoryBlock data;
 	{
 		ScopedPointer <FileInputStream> fis (temp.createInputStream());

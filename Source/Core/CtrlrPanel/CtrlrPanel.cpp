@@ -114,6 +114,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::luaPanelLoaded, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelBeforeLoad, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelSaved, COMBO_ITEM_NONE);
+	setProperty (Ids::luaPanelResourcesLoaded, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelProgramChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelGlobalChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelMessageHandler, COMBO_ITEM_NONE);
@@ -477,6 +478,13 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 			return;
 
 		luaPanelProgramChangedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::luaPanelResourcesLoaded)
+	{
+		if (getProperty(property) == String::empty)
+			return;
+
+		luaPanelResourcesLoadedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::panelGlobalVariables)
 	{
@@ -1349,7 +1357,7 @@ const int CtrlrPanel::getModulatorIndex (const String &modulatorToFind) const
 
 void CtrlrPanel::setInstanceProperties(const ValueTree &instanceState)
 {
-	_DBG("CtrlrPanel::setInstanceProperties "+instanceState.getType().toString());
+	// _DBG("CtrlrPanel::setInstanceProperties "+instanceState.getType().toString());
 	/* here we need to set all the MIDI properties for the instance */
 	if (instanceState.hasType (Ids::panelState))
 	{
@@ -1357,7 +1365,7 @@ void CtrlrPanel::setInstanceProperties(const ValueTree &instanceState)
 		{
 			if (instanceState.getPropertyName(i).toString().startsWith ("panelMidi"))
 			{
-				_DBG("\t"+instanceState.getPropertyName(i).toString());
+				// _DBG("\t"+instanceState.getPropertyName(i).toString());
 				setProperty (instanceState.getPropertyName(i), instanceState.getProperty(instanceState.getPropertyName(i)));
 			}
 		}
@@ -1539,4 +1547,12 @@ Array<int,CriticalSection> &CtrlrPanel::getGlobalVariables()
 void CtrlrPanel::resourceImportFinished()
 {
 	owner.getFontManager().reloadImportedFonts(this);
+
+    if (luaPanelResourcesLoadedCbk && !luaPanelResourcesLoadedCbk.wasObjectDeleted())
+	{
+		if (luaPanelResourcesLoadedCbk->isValid())
+		{
+			getCtrlrLuaManager().getMethodManager().call (luaPanelResourcesLoadedCbk);
+		}
+	}
 }

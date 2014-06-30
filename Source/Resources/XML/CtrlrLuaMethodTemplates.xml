@@ -468,6 +468,14 @@
     end
   </luaMethod>
 
+  <luaMethod name="luaPanelResourcesLoaded">
+      --
+      -- Callback to indicate that all resources are ready for a panel
+      --
+      __method_name = function()
+      end
+  </luaMethod>
+
   <utilityMethods>
   	<utility name="table_dump" description="Dump information about a table" uuid="00000000000000000000000000000001">
 --
