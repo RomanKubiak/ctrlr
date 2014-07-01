@@ -11,11 +11,11 @@ echo Create installer using nsis in: "%NSISDIR%\makensis.exe"
 "%NSISDIR%\makensis.exe" installers/ctrlr.nsi /V4
 
 echo "Copy output to ctrlr.org"
-ren installers\Ctrlr.exe Ctrlr_%revision%.exe
-pscp.exe -i private.ppk installers\Ctrlr_%revision%.exe ctrlrorg@ctrlr.org:/home/ctrlrorg/public_html/nightly/
+ren installers\Ctrlr.exe Ctrlr-%revision%.exe
+pscp.exe -i private.ppk installers\Ctrlr-%revision%.exe ctrlrorg@ctrlr.org:/home/ctrlrorg/public_html/nightly/
 
 echo "Update changelog and revisions"
-REM plink.exe -v -i private.ppk ctrlrorg@ctrlr.org "nohup /home/ctrlrorg/crons/update_changelog.sh &"
-REM plink.exe -v -i private.ppk ctrlrorg@ctrlr.org "nohup /home/ctrlrorg/crons/update_revisions.sh &"
+plink.exe -v -i private.ppk ctrlrorg@ctrlr.org "nohup /home/ctrlrorg/crons/update_changelog.sh &"
+plink.exe -v -i private.ppk ctrlrorg@ctrlr.org "nohup /home/ctrlrorg/crons/update_revisions.sh &"
 
 del REVISION

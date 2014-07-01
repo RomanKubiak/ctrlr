@@ -4490,9 +4490,6 @@
     <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Icons\ctrlr_black.ico">
-      <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
-    </None>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_box.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>

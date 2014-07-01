@@ -2239,7 +2239,6 @@
   <ItemGroup>
     <None Include="..\..\..\..\Source\Core\CtrlrRevision.template"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png"/>
-    <None Include="..\..\..\..\Source\Resources\Icons\ctrlr_black.ico"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_box.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_bug.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_copy.png"/>

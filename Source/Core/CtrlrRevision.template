@@ -3,6 +3,5 @@
 
 static const char *ctrlrRevision              	= "%REVISION%";
 static const char *ctrlrRevisionDate        	= "%REVISION_DATE%";
-static const char *ctrlrRevisionBuildDate   	= "%REVISION_BUILD_DATE%";
 
 #endif
