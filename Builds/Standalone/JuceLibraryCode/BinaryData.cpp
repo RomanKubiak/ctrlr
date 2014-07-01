@@ -15393,7 +15393,6 @@ static const unsigned char temp_binary_data_57[] =
 "\r\n"
 "static const char *ctrlrRevision              \t= \"%REVISION%\";\r\n"
 "static const char *ctrlrRevisionDate        \t= \"%REVISION_DATE%\";\r\n"
-"static const char *ctrlrRevisionBuildDate   \t= \"%REVISION_BUILD_DATE%\";\r\n"
 "\r\n"
 "#endif\r\n";
 
@@ -15467,7 +15466,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0xa32a74e9:  numBytes = 76141; return CtrlrIDs_xml;
         case 0x75a28bbf:  numBytes = 16033; return CtrlrLuaMethodTemplates_xml;
         case 0xcfea1483:  numBytes = 662; return CtrlrMidiMultiTemplate_xml;
-        case 0xcb59a7d7:  numBytes = 272; return CtrlrRevision_template;
+        case 0xcb59a7d7:  numBytes = 199; return CtrlrRevision_template;
         default: break;
     }
 

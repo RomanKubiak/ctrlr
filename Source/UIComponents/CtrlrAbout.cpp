@@ -141,8 +141,8 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
                           IMAGE(ico_midi_small_png), 0.8500f, Colour (0x0),
                           IMAGE(ico_midi_small_png), 0.9500f, Colour (0x0),
                           IMAGE(ico_midi_small_png), 1.0000f, Colour (0x0));
-	addVersionInfo ("Version", ProjectInfo::versionString);
-	addVersionInfo ("Build date", STR(ctrlrRevisionBuildDate));
+	addVersionInfo ("Version", STR(ctrlrRevision));
+	addVersionInfo ("Build date", STR(ctrlrRevisionDate));
 #if CTRLR_NIGHTLY == 1
 	addVersionInfo ("Branch", "Nightly");
 #else

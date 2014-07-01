@@ -374,10 +374,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/Resources/Icons/ctrlr_black.ico">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_box.png">
       <Option compile="0"/>
       <Option link="0"/>

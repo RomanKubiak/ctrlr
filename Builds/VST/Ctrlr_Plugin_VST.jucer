@@ -311,7 +311,6 @@
       <GROUP id="{D36DF736-203E-4694-9E23-E7107A73D2FE}" name="Icons">
         <FILE id="qNvTKP" name="ico_transaction.png" compile="0" resource="1"
               file="../../Source/Resources/Icons/ico_transaction.png"/>
-        <FILE id="ev3u5d" name="ctrlr_black.ico" compile="0" resource="1" file="../../Source/Resources/Icons/ctrlr_black.ico"/>
         <FILE id="quL6iv" name="ico_box.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_box.png"/>
         <FILE id="dYirVf" name="ico_bug.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_bug.png"/>
         <FILE id="IlMvLa" name="ico_copy.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_copy.png"/>

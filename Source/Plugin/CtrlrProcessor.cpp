@@ -215,12 +215,12 @@ bool CtrlrProcessor::producesMidi() const
 
 int CtrlrProcessor::getNumPrograms()
 {
-    return (0);
+    return (1);
 }
 
 int CtrlrProcessor::getCurrentProgram()
 {
-    return (0);
+    return (1);
 }
 
 void CtrlrProcessor::setCurrentProgram (int index)
@@ -229,7 +229,7 @@ void CtrlrProcessor::setCurrentProgram (int index)
 
 const String CtrlrProcessor::getProgramName (int index)
 {
-    return String::empty;
+    return ("Default CTRLR program");
 }
 
 void CtrlrProcessor::changeProgramName (int index, const String& newName)
