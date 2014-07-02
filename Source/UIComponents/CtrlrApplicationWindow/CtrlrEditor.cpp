@@ -11,6 +11,9 @@
 CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 	: AudioProcessorEditor (_ownerFilter), ownerFilter(_ownerFilter), owner(_owner), resizer(this, 0), tempResult(Result::ok()), menuHandlerCalled(false)
 {
+    // http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
+    owner.getCommandManager().setFirstCommandTarget (this);
+
 	addAndMakeVisible (menuBar = new MenuBarComponent (this));
 	menuBarLookAndFeel = new CtrlrMenuBarLookAndFeel (*this);
 
@@ -32,7 +35,9 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 	if (!JUCEApplication::isStandaloneApp())
 	{
 		addAndMakeVisible (&resizer);
-		resizer.setAlwaysOnTop (true);
+		resizer.setAlwaysOnTop (false);
+		resizer.grabKeyboardFocus();
+		resizer.toFront (true);
 	}
 
 	if (owner.getProperty (Ids::ctrlrEditorBounds).toString() != String::empty)

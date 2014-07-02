@@ -480,5 +480,6 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 
 ApplicationCommandTarget* CtrlrEditor::getNextCommandTarget()
 {
+	_DBG ("CtrlrEditor::getNextCommandTarget");
 	return findFirstTargetParentComponent();
 }
