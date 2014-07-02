@@ -283,6 +283,7 @@ class CtrlrManager : public ValueTree::Listener, public ChangeBroadcaster, publi
 		void panelFileOpened(const File &panelFile);
 		CtrlrLookAndFeel *getCtrlrLookAndFeel()																	{ return (ctrlrLookAndFeel); }
 		CtrlrModulator *getInvalidModulator()																	{ return (nullModulator); }
+
 		/** Instance handlers **/
 		const String getInstanceName() const;
         const String getInstanceNameForHost() const;
