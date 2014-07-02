@@ -1,0 +1,88 @@
+#!/bin/sh
+OSNAME=""
+DATE=`date`
+CTRLR_ROOT=""
+PACKAGE=""
+BUILD_LOG_WIN32=""
+BUILD_LOG_WIN64=""
+OUTPUT="ctrlrorg@ctrlr.org:/home/ctrlrorg/public_html/nightly/"
+VERSION=""
+
+echo "CTRLR pre-commit HOOK"
+
+function detect_os {
+	if [ "$OS" == "Windows_NT" ]; then
+		OSNAME="WINDOWS"
+		CTRLR_ROOT="/c/devel/ctrlr"
+		VERSION=`c:/devel/ctrlr/Scripts/git-revision.sh`
+		PACKAGE=$CTRLR_ROOT/Packaging/Windows/Ctrlr-$VERSION.exe
+		BUILD_LOG_WIN32=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win32.build.log
+		BUILD_LOG_WIN64=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win64.build.log
+	fi
+}
+
+function build_now {
+	if [ "$OSNAME" == "WINDOWS" ]; then		
+		build_now_windows
+	fi
+}
+
+function build_now_windows {
+	DOTNET="/c/Windows/Microsoft.NET/Framework/v4.0.30319"
+	NSIS="/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
+	REVISION_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.h"
+	TEMPLATE_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.template"
+
+	echo "Version: $VERSION"
+	echo "CtrlrRevision.template: $TEMPLATE_H"
+	echo "CtrlrRevision.h: $REVISION_H"
+	echo "Date: $DATE"
+	echo
+	sed -e "s/%REVISION%/$VERSION/g" -e "s/%REVISION_DATE%/$DATE/g" $TEMPLATE_H > $REVISION_H
+	
+	if [ -x "$DOTNET/MSBuild.exe" ]; then
+		echo "CTRLR: MSBuild.exe found"
+		cd $CTRLR_ROOT/Builds
+		echo "CTRLR: Build Win32"
+		echo $DOTNET/MSBuild.exe $CTRLR_ROOT/Builds/Ctrlr_Release.sln /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:Platform=Win32 /maxcpucount:6
+		if [ $? -ne 0 ]; then
+			echo "CTRLR: Win32 build failed"
+			exit 1
+		fi
+		echo "CTRLR: Build x64"
+		echo $DOTNET/MSBuild.exe $CTRLR_ROOT/Builds/Ctrlr_Release.sln /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:Platform=x64 /maxcpucount:6
+		if [ $? -ne 0 ]; then
+			echo "CTRLR: x64 build failed"
+			exit 1
+		fi
+		
+		echo "CTRLR: Build success, create installer"
+		eval $NSIS $CTRLR_ROOT/Packaging/Windows/ctrlr.nsi
+		if [ $? -ne 0 ]; then
+			echo "CTRLR: failed to create installer package"
+			exit 1
+		fi
+		echo "CTRLR: rename $CTRLR_ROOT/Packaging/Windows/Ctrlr.exe -> $PACKAGE"
+		mv $CTRLR_ROOT/Packaging/Windows/Ctrlr.exe $PACKAGE
+		if [ $? -ne 0 ]; then
+			echo "CTRLR: failed to rename installer package"
+			exit 1
+		fi
+		scp -v -i $CTRLR_ROOT/Packaging/ctrlr.key $PACKAGE $BUILD_LOG_WIN32 $BUILD_LOG_WIN64 $OUTPUT
+		if [ $? -ne 0 ]; then
+			echo "CTRLR: failed to transfer package files to remote site"
+			exit 1
+		fi
+	fi
+}
+
+function build_now_osx {
+	echo "CTRLR: build_now_osx"
+}
+
+function build_now_linux {
+	echo "CTRLR: build_now_linux"
+}
+
+detect_os
+build_now_windows
