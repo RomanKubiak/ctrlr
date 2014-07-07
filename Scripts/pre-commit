@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 OSNAME=""
 DATE=`date`
 CTRLR_ROOT=""
@@ -111,10 +111,51 @@ function build_now_osx {
 	echo -e "\tDate: $DATE"
 	echo "----------------------------------------"
 	sed -e "s/%REVISION%/$VERSION/g" -e "s/%REVISION_DATE%/$DATE/g" $TEMPLATE_H > $REVISION_H
-	TEMPLATE_DMG_SOURCE="../Packaging/Ctrlr_template.dmg.bz2"
-	TEMPLATE_DMG_TEMP="../Packaging/Ctrlr_template.dmg"
+	TEMPLATE_DMG_SOURCE="$CTRLR_ROOT/Packaging/Mac/Ctrlr_template.dmg.bz2"
+	TEMPLATE_DMG_TEMP="$CTRLR_ROOT/Packaging/Mac/Ctrlr_template.dmg"
 	TEMPLATE_DMG_MOUNT="/Volumes/Ctrlr"
-	TEMPLATE_FILE_LIST="../Bin/Ctrlr.app ../Bin/Ctrlr.vst ../Bin/Ctrlr.component ../Panels ../Doc"
+	TEMPLATE_FILE_LIST="$CTRLR_ROOT/Bin/Ctrlr.app $CTRLR_ROOT/Bin/Ctrlr.vst $CTRLR_ROOT/Bin/Ctrlr.component $CTRLR_ROOT/Panels $CTRLR_ROOT/Doc"
+	
+	echo "[CTRLR]: Empty build log $BUILD_LOG"
+	echo -n > $BUILD_LOG
+	
+	echo "[CTRLR]: Build Standalone"
+	cd $CTRLR_ROOT/Builds/Generated/Mac/Standalone
+	xcodebuild -configuration Release_Nightly | tee -ia $BUILD_LOG
+	
+	if [ $? -ne 0 ]; then
+		echo "[CTRLR]: Build failed"
+		exit 1
+	fi
+
+	echo "[CTRLR]: Build VST"
+	cd $CTRLR_ROOT/Builds/Generated/Mac/VST
+	xcodebuild -configuration Release_Nightly | tee -ia $BUILD_LOG
+	
+	if [ $? -ne 0 ]; then
+		echo "[CTRLR]: Build failed"
+		exit 1
+	fi
+	
+	echo "[CTRLR]: Build AU Wrapper"
+	cd $CTRLR_ROOT/Builds/Generated/Mac/AU_Wrapper
+	xcodebuild -configuration Release_Nightly | tee -ia $BUILD_LOG
+	
+	if [ $? -ne 0 ]; then
+		echo "[CTRLR]: Build failed"
+		exit 1
+	fi
+	
+	echo "[CTRLR]: Build AU"
+	cd $CTRLR_ROOT/Builds/Generated/Mac/AU
+	xcodebuild -configuration Release_Nightly | tee -ia $BUILD_LOG
+	
+	if [ $? -ne 0 ]; then
+		echo "[CTRLR]: Build failed"
+		exit 1
+	fi
+	
+	cd $CTRLR_ROOT
 	
 	if [ -e $TEMPLATE_DMG_TEMP ]; then
 		echo "CTRLR: Umount $TEMPLATE_DMG_MOUNT"
@@ -140,7 +181,8 @@ function build_now_osx {
 	fi
 	
 	echo "CTRLR: Mount $TEMPLATE_DMG_TEMP"
-	DEV=`hdiutil attach -readwrite -noverify -noautoopen $TEMPLATE_DMG_TEMP | tail -n 1 | grep "/dev/disk" | awk '{print $1}'`
+	TEMPLATE_DMG_DEVICE=`hdiutil attach -readwrite -noverify -noautoopen $TEMPLATE_DMG_TEMP | tail -n 1 | grep "/dev/disk" | awk '{print $1}'`
+	echo "CTRLR: mounted on device $TEMPLATE_DMG_DEVICE"
 	
 	if [ $? -ne 0 ]; then
 		echo "CTRLR: hdiutil attach -readwrite -noverify -noautoopen $TEMPLATE_DMG_TEMP [failed]"
@@ -148,22 +190,22 @@ function build_now_osx {
 	fi
 
 	for file in $TEMPLATE_FILE_LIST; do
-		echo -ne "CTRLR: cp -r $file $TEMPLATE_DMG_MOUNT ["
+		echo -ne "CTRLR: cp -r $file $TEMPLATE_DMG_MOUNT "
 		cp -r $file $TEMPLATE_DMG_MOUNT/
 		if [ $? -ne 0 ]; then
-			echo "failed]"
+			echo "[failed]"
 			exit 1
 		else
-			echo -ne "ok] "
+			echo " [ok] "
 		fi
 	done
 	echo
 	
-	echo "CTRLR: Unmount $TEMPLATE_DMG_TEMP"
-	umount $TEMPLATE_DMG_TEMP
+	echo "CTRLR: Unmount $TEMPLATE_DMG_DEVICE"
+	umount $TEMPLATE_DMG_DEVICE
 	
 	if [ $? -ne 0 ]; then
-		echo "CTRLR: umount $TEMPLATE_DMG_TEMP [failed]"
+		echo "CTRLR: umount $TEMPLATE_DMG_DEVICE [failed]"
 		exit 1
 	fi
 	
@@ -186,6 +228,12 @@ function build_now_osx {
 		echo "CTRLR: hdiutil convert $TEMPLATE_DMG_TEMP -format UDBZ -o $PACKAGE [failed]"
 		exit 1
 	fi
+	
+	echo "[CTRLR]: Remove template"
+	rm -f $TEMPLATE_DMG_TEMP
+	
+	echo "[CTRLR]: Copy to release server"
+	scp -v -i $CTRLR_ROOT/Packaging/ctrlr.key $PACKAGE $BUILD_LOG $OUTPUT
 }
 
 function build_now_linux {

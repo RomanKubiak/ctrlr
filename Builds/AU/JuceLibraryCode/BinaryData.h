@@ -10,13 +10,10 @@
 namespace BinaryData
 {
     extern const char*   CtrlrRevision_template;
-    const int            CtrlrRevision_templateSize = 272;
+    const int            CtrlrRevision_templateSize = 199;
 
     extern const char*   ico_transaction_png;
     const int            ico_transaction_pngSize = 3798;
-
-    extern const char*   ctrlr_black_ico;
-    const int            ctrlr_black_icoSize = 377150;
 
     extern const char*   ico_box_png;
     const int            ico_box_pngSize = 3869;
@@ -79,7 +76,7 @@ namespace BinaryData
     const int            ico_import_document_pngSize = 3600;
 
     extern const char*   ico_midi_png;
-    const int            ico_midi_pngSize = 7653;
+    const int            ico_midi_pngSize = 16903;
 
     extern const char*   ico_midi_plug_png;
     const int            ico_midi_plug_pngSize = 1401;
@@ -91,7 +88,7 @@ namespace BinaryData
     const int            ico_midi_plug_out_pngSize = 1208;
 
     extern const char*   ico_midi_small_png;
-    const int            ico_midi_small_pngSize = 3768;
+    const int            ico_midi_small_pngSize = 6920;
 
     extern const char*   ico_new_document_png;
     const int            ico_new_document_pngSize = 3493;
@@ -172,10 +169,10 @@ namespace BinaryData
     const int            CtrlrMIDITransactions_xmlSize = 1963;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 75995;
+    const int            CtrlrIDs_xmlSize = 76141;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 15840;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 16033;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
@@ -187,7 +184,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 58;
+    const int namedResourceListSize = 57;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
