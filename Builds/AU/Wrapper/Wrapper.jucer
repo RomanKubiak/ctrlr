@@ -302,13 +302,18 @@
     <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
   </MODULES>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX" postbuildCommand="cp $BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH /usr/local/lib">
+    <XCODE_MAC targetFolder="../../Generated/Mac/AU_Wrapper" postbuildCommand="cp $BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH /usr/local/lib"
+               extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
+               extraDefs="__MACOSX_CORE__=1">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxSDK="10.8 SDK" osxCompatibility="10.8 SDK" osxArchitecture="64BitUniversal"
                        isDebug="1" optimisation="1" targetName="au_wrapper" binaryPath=""/>
         <CONFIGURATION name="Release" osxSDK="10.8 SDK" osxCompatibility="10.8 SDK"
                        osxArchitecture="64BitUniversal" isDebug="0" optimisation="2"
                        targetName="au_wrapper" binaryPath="/usr/local/lib"/>
+        <CONFIGURATION name="Release_Nightly" osxSDK="10.8 SDK" osxCompatibility="10.8 SDK"
+                       osxArchitecture="64BitUniversal" isDebug="0" optimisation="2"
+                       targetName="au_wrapper" binaryPath="/usr/local/lib" defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_AU&#10;LUA_USE_LINUX"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
