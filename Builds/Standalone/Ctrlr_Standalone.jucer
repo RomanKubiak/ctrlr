@@ -88,7 +88,7 @@
                 smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -w -fPIC"
                 extraLinkerFlags="-lz&#10;-lbfd">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(ARCH)"
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone" binaryPath="../../Bin"
                        libraryPath="/usr/X11R6/lib/"/>
@@ -99,7 +99,7 @@
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-$(ARCH)"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
-                       binaryPath="../../Bin" libraryPath="/usr/X11R6/lib/"/>
+                       binaryPath="../../Bin" libraryPath="/usr/X11R6/lib/" linuxArchitecture=""/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>

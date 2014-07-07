@@ -227,11 +227,11 @@ void libr_close_internal(struct _libr_file *file_handle);
 
 #if BFD_HOST_64BIT_LONG
 	#if defined(__i386)
-		#error "Using incorrect binutils header file for architecture."
+		#warning "Using incorrect binutils header file for architecture."
 	#endif
 #else
 	#if defined(__amd64)
-		#error "Using incorrect binutils header file for architecture."
+		#warning "Using incorrect binutils header file for architecture."
 	#endif
 #endif
 
