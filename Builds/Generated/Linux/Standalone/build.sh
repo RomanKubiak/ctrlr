@@ -11,5 +11,9 @@ else
 	echo "PCH not rebuilt, use -f to force"
 fi
 
+echo "Remove the shared source, for main() compatibility"
+rm -f ../build/$HOSTTYPE/CtrlrStandaloneApplication*
+
 echo "Build now"
-time make -j$JOBS CONFIG=Release_Nightly ARCH=$HOSTTYPE BINDIR=$BUILDDIR LIBDIR=$BUILDDIR OBJDIR=$BUILDDIR
+make -j$JOBS CONFIG=Release_Nightly ARCH=$HOSTTYPE BINDIR=$BUILDDIR LIBDIR=$BUILDDIR OBJDIR=$BUILDDIR
+exit $?

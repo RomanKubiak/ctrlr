@@ -97,16 +97,16 @@
                 extraDefs="LUA_USE_LINUX" vstFolder="../../VST" bigIcon="PsrMEo"
                 smallIcon="QFDZIE">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-VST-Debug-$(ARCH)"
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="libCtrlr-VST-Debug-$(ARCH)"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
-                       binaryPath="../../Bin/" defines="CTRLR_NIGHTLY=1 JucePlugin_Build_VST JUCE_DEBUG=1"
+                       binaryPath="../../Bin/" defines="CTRLR_NIGHTLY=1 &#10;JucePlugin_Build_VST=1&#10;JUCE_DEBUG=1"
                        libraryPath="/usr/X11R6/lib/"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr-VST-$(ARCH)"
-                       defines="CTRLR_NIGHTLY=0 JucePlugin_Build_VST" binaryPath="../../Bin/"
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="libCtrlr-VST-$(ARCH)"
+                       defines="CTRLR_NIGHTLY=0&#10;JucePlugin_Build_VST=1" binaryPath="../../Bin/"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
                        libraryPath="/usr/X11R6/lib/"/>
-        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-VST-$(ARCH)"
-                       defines="CTRLR_NIGHTLY=1 JucePlugin_Build_VST" binaryPath="../../Bin/"
+        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="libCtrlr-VST-$(ARCH)"
+                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1" binaryPath="../../Bin/"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
                        libraryPath="/usr/X11R6/lib/"/>
       </CONFIGURATIONS>

@@ -11,6 +11,7 @@ VERSION=""
 echo "CTRLR pre-commit HOOK"
 
 function detect_os {
+	UNAME=`uname 2>/dev/null`
 	if [ "$OS" == "Windows_NT" ]; then
 		OSNAME="WINDOWS"
 		CTRLR_ROOT="/c/devel/ctrlr"
@@ -18,12 +19,24 @@ function detect_os {
 		PACKAGE=$CTRLR_ROOT/Packaging/Windows/Ctrlr-$VERSION.exe
 		BUILD_LOG_WIN32=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win32.build.log
 		BUILD_LOG_WIN64=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win64.build.log
+		return
+	fi
+		
+	if [ "$UNAME" == "Linux" ]; then
+		OSNAME="LINUX"
+		CTRLR_ROOT="$HOME/devel/ctrlr"
+		VERSION=`$CTRLR_ROOT/Scripts/git-revision.sh`
+		PACKAGE=$CTRLR_ROOT/Packaging/Linux/Ctrlr-$VERSION.sh
+		BUILD_LOG=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.linux.build.log
+		return
 	fi
 }
 
 function build_now {
 	if [ "$OSNAME" == "WINDOWS" ]; then		
 		build_now_windows
+	elif [ "$OSNAME" == "LINUX" ]; then
+		build_now_linux
 	fi
 }
 
@@ -78,11 +91,72 @@ function build_now_windows {
 
 function build_now_osx {
 	echo "CTRLR: build_now_osx"
+	
 }
 
 function build_now_linux {
 	echo "CTRLR: build_now_linux"
+	REVISION_H="$CTRLR_ROOT/Source/Core/CtrlrRevision.h"
+	TEMPLATE_H="$CTRLR_ROOT/Source/Core/CtrlrRevision.template"
+
+	echo "Version: $VERSION"
+	echo "CtrlrRevision.template: $TEMPLATE_H"
+	echo "CtrlrRevision.h: $REVISION_H"
+	echo "Date: $DATE"
+	echo
+	sed -e "s/%REVISION%/$VERSION/g" -e "s/%REVISION_DATE%/$DATE/g" $TEMPLATE_H > $REVISION_H
+	
+	echo "CTRLR: Delete binaries"
+	rm -f $CTRLR_ROOT/Bin/libCtrlr-*.so
+	rm -f $CTRLR_ROOT/Bin/Ctrlr-*
+	
+	echo "CTRLR: Build Standalone"
+	echo -n > $BUILD_LOG
+	
+	cd $CTRLR_ROOT/Builds/Generated/Linux/Standalone
+	./build.sh -f | tee -ia $BUILD_LOG
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: build for Standalone failed"
+		exit 1
+	fi
+	
+	cd $CTRLR_ROOT/Builds/Generated/Linux/VST
+	./build.sh -f | tee -ia $BUILD_LOG
+	
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: build for VST dailed"
+		exit 1
+	fi
+	
+	echo "CTRLR: strip binaries"
+	if [ -e $CTRLR_ROOT/Bin/Ctrlr ]; then
+		strip $CTRLR_ROOT/bin/Ctrlr-*
+	fi
+	
+	if [ -e $CTRLR_ROOT/Bin/Ctrlr-VST.so ]; then
+		strip $CTRLR_ROOT/Bin/libCtrlr-*.so
+	fi
+	
+	echo "CTRLR: Clean old package files"
+	rm -rf $CTRLR_ROOT/Packaging/Linux/Ctrlr
+	
+	echo "CTRLR: copy files for package"
+	mkdir -p $CTRLR_ROOT/Packaging/Linux/Ctrlr
+	
+	cp -r $CTRLR_ROOT/Bin/Ctrlr-* $CTRLR_ROOT/Packaging/Linux/Ctrlr/
+	cp -r $CTRLR_ROOT/Bin/libCtrlr-* $CTRLR_ROOT/Packaging/Linux/Ctrlr/
+	cp -r $CTRLR_ROOT/Panels $CTRLR_ROOT/Packaging/Linux/Ctrlr/
+	cp -r $CTRLR_ROOT/Doc $CTRLR_ROOT/Packaging/Linux/Ctrlr/
+	
+	echo "CTRLR: create self extracting package"
+	$CTRLR_ROOT/Packaging/Linux/makeself.sh --bzip2 --notemp $CTRLR_ROOT/Packaging/Linux/Ctrlr $PACKAGE Ctrlr-$VERSION
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: Creating self extractring package failed"
+		exit 1
+	fi
+	
+	scp -v -i $CTRLR_ROOT/Packaging/ctrlr.key $PACKAGE $BUILD_LOG $OUTPUT
 }
 
 detect_os
-build_now_windows
+build_now

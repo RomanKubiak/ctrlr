@@ -10,7 +10,7 @@
 namespace BinaryData
 {
     extern const char*   CtrlrRevision_template;
-    const int            CtrlrRevision_templateSize = 272;
+    const int            CtrlrRevision_templateSize = 199;
 
     extern const char*   ico_transaction_png;
     const int            ico_transaction_pngSize = 3798;
