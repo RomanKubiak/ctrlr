@@ -30,6 +30,15 @@ function detect_os {
 		BUILD_LOG=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.linux.build.log
 		return
 	fi
+	
+	if [ "$UNAME" == "Darwin" ]; then
+		OSNAME="OSX"
+		CTRLR_ROOT="$HOME/devel/ctrlr"
+		VERSION=`$CTRLR_ROOT/Scripts/git-revision.sh`
+		PACKAGE=$CTRLR_ROOT/Packaging/Mac/Ctrlr-$VERSION.dmg
+		BUILD_LOG=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.mac.build.log
+		return
+	fi
 }
 
 function build_now {
@@ -37,6 +46,8 @@ function build_now {
 		build_now_windows
 	elif [ "$OSNAME" == "LINUX" ]; then
 		build_now_linux
+	elif [ "$OSNAME" == "OSX" ]; then
+		build_now_osx
 	fi
 }
 
@@ -91,19 +102,102 @@ function build_now_windows {
 
 function build_now_osx {
 	echo "CTRLR: build_now_osx"
+	echo "----------------------------------------"
+	REVISION_H="$CTRLR_ROOT/Source/Core/CtrlrRevision.h"
+	TEMPLATE_H="$CTRLR_ROOT/Source/Core/CtrlrRevision.template"
+	echo -e "\tVersion: $VERSION"
+	echo -e "\tCtrlrRevision.template: $TEMPLATE_H"
+	echo -e "\tCtrlrRevision.h: $REVISION_H"
+	echo -e "\tDate: $DATE"
+	echo "----------------------------------------"
+	sed -e "s/%REVISION%/$VERSION/g" -e "s/%REVISION_DATE%/$DATE/g" $TEMPLATE_H > $REVISION_H
+	TEMPLATE_DMG_SOURCE="../Packaging/Ctrlr_template.dmg.bz2"
+	TEMPLATE_DMG_TEMP="../Packaging/Ctrlr_template.dmg"
+	TEMPLATE_DMG_MOUNT="/Volumes/Ctrlr"
+	TEMPLATE_FILE_LIST="../Bin/Ctrlr.app ../Bin/Ctrlr.vst ../Bin/Ctrlr.component ../Panels ../Doc"
 	
+	if [ -e $TEMPLATE_DMG_TEMP ]; then
+		echo "CTRLR: Umount $TEMPLATE_DMG_MOUNT"
+		umount $TEMPLATE_DMG_MOUNT 2>/dev/null
+		echo "CTRLR: $TEMPLATE_DMG_TEMP exists, remove it"
+		rm -f $TEMPLATE_DMG_TEMP
+	fi
+	
+	echo "CTRLR: unpack $TEMPLATE_DMG_SOURCE > $TEMPLATE_DMG_TEMP"
+	bzip2 -c -d $TEMPLATE_DMG_SOURCE > $TEMPLATE_DMG_TEMP
+	
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: bzip2 -c -d $TEMPLATE_DMG_SOURCE > $TEMPLATE_DMG_TEMP [failed]"
+		exit 1
+	fi
+	
+	echo "CTRLR: resize $TEMPLATE_DMG_TEMP"
+	hdiutil resize -size 300m $TEMPLATE_DMG_TEMP
+	
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: hdiutil resize -size 300m $TEMPLATE_DMG_TEMP [failed]"
+		exit 1
+	fi
+	
+	echo "CTRLR: Mount $TEMPLATE_DMG_TEMP"
+	DEV=`hdiutil attach -readwrite -noverify -noautoopen $TEMPLATE_DMG_TEMP | tail -n 1 | grep "/dev/disk" | awk '{print $1}'`
+	
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: hdiutil attach -readwrite -noverify -noautoopen $TEMPLATE_DMG_TEMP [failed]"
+		exit 1
+	fi
+
+	for file in $TEMPLATE_FILE_LIST; do
+		echo -ne "CTRLR: cp -r $file $TEMPLATE_DMG_MOUNT ["
+		cp -r $file $TEMPLATE_DMG_MOUNT/
+		if [ $? -ne 0 ]; then
+			echo "failed]"
+			exit 1
+		else
+			echo -ne "ok] "
+		fi
+	done
+	echo
+	
+	echo "CTRLR: Unmount $TEMPLATE_DMG_TEMP"
+	umount $TEMPLATE_DMG_TEMP
+	
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: umount $TEMPLATE_DMG_TEMP [failed]"
+		exit 1
+	fi
+	
+	echo "CTRLR: kill any processes that might be using $TEMPLATE_DMG_TEMP"
+	PID=`lsof $TEMPLATE_DMG_TEMP | tail -n 1 | awk '{print $2}'`
+	if [ $PID != "" ]; then
+		kill -9 $PID
+		echo "CTRLR: killed $PID"
+	fi
+	
+	echo "CTRLR: compact $TEMPLATE_DMG_TEMP to $PACKAGE"
+	rm -f $PACKAGE	
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: can't delete $PACKAGE"
+		exit 1
+	fi
+	
+	hdiutil convert $TEMPLATE_DMG_TEMP -format UDBZ -o $PACKAGE
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: hdiutil convert $TEMPLATE_DMG_TEMP -format UDBZ -o $PACKAGE [failed]"
+		exit 1
+	fi
 }
 
 function build_now_linux {
 	echo "CTRLR: build_now_linux"
 	REVISION_H="$CTRLR_ROOT/Source/Core/CtrlrRevision.h"
 	TEMPLATE_H="$CTRLR_ROOT/Source/Core/CtrlrRevision.template"
-
-	echo "Version: $VERSION"
-	echo "CtrlrRevision.template: $TEMPLATE_H"
-	echo "CtrlrRevision.h: $REVISION_H"
-	echo "Date: $DATE"
-	echo
+	echo "----------------------------------------"
+	echo -e "\tVersion: $VERSION"
+	echo -e "\tCtrlrRevision.template: $TEMPLATE_H"
+	echo -e "\tCtrlrRevision.h: $REVISION_H"
+	echo -e "\tDate: $DATE"
+	echo "----------------------------------------"
 	sed -e "s/%REVISION%/$VERSION/g" -e "s/%REVISION_DATE%/$DATE/g" $TEMPLATE_H > $REVISION_H
 	
 	echo "CTRLR: Delete binaries"
