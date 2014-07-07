@@ -107,10 +107,6 @@ luabind::object CtrlrPanel::getModulatorsWithPropertyLua (const String &property
 		{
 			table[i+1] = ctrlrModulators[i];
 		}
-		else
-		{
-			table[i+1] = 0;
-		}
 	}
 
 	return (table);
