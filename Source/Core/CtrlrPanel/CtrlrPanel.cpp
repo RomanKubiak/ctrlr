@@ -122,6 +122,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::panelFilePath, COMBO_ITEM_NONE);
 	setProperty (Ids::panelUID, generateRandomUnique());
 	setProperty (Ids::panelInstanceUID, generateRandomUniquePluginId());
+    setProperty (Ids::panelInstanceManufacturerID, generateRandomUniquePluginId());
 	setProperty (Ids::panelModulatorListColumns, COMBO_ITEM_NONE);
 	setProperty (Ids::panelModulatorListCsvDelimiter, ",");
 	setProperty (Ids::panelModulatorListXmlRoot, "ctrlrModulatorList");
