@@ -2119,6 +2119,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_devices/native/juce_MidiDataConcatenator.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_devices/native/juce_android_Audio.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -2164,10 +2168,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_devices/native/juce_mac_CoreMidi.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_audio_devices/native/juce_MidiDataConcatenator.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -2607,15 +2607,11 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharacterFunctions.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharacterFunctions.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_ASCII.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_UTF8.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -2627,7 +2623,11 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_UTF8.h">
+    <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharacterFunctions.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharacterFunctions.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -3195,19 +3195,19 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_core/javascript/juce_Javascript.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_core/javascript/juce_Javascript.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/javascript/juce_JSON.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/javascript/juce_JSON.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_core/javascript/juce_Javascript.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_core/javascript/juce_Javascript.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -3263,6 +3263,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_core/native/juce_BasicNativeHeaders.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/native/juce_android_Files.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -3284,10 +3288,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/native/juce_android_Threads.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_core/native/juce_BasicNativeHeaders.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -3391,15 +3391,15 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_data_structures/undomanager/juce_UndoableAction.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_data_structures/undomanager/juce_UndoManager.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_data_structures/undomanager/juce_UndoManager.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_data_structures/undomanager/juce_UndoableAction.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -3551,6 +3551,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_events/native/juce_ScopedXLock.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_events/native/juce_android_Messaging.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -3568,10 +3572,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_events/native/juce_osx_MessageQueue.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_events/native/juce_ScopedXLock.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -3839,6 +3839,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_graphics/native/juce_RenderingHelpers.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_graphics/native/juce_android_Fonts.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -3871,19 +3875,15 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_graphics/native/juce_RenderingHelpers.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_graphics/native/juce_win32_Direct2DGraphicsContext.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_graphics/native/juce_win32_DirectWriteTypeface.cpp">
+    <Unit filename="../../../../Juce/modules/juce_graphics/native/juce_win32_DirectWriteTypeLayout.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_graphics/native/juce_win32_DirectWriteTypeLayout.cpp">
+    <Unit filename="../../../../Juce/modules/juce_graphics/native/juce_win32_DirectWriteTypeface.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -4023,14 +4023,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/keyboard/juce_KeyboardFocusTraverser.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/keyboard/juce_KeyboardFocusTraverser.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/keyboard/juce_KeyListener.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -4044,6 +4036,14 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/keyboard/juce_KeyPress.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_basics/keyboard/juce_KeyboardFocusTraverser.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_basics/keyboard/juce_KeyboardFocusTraverser.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -4747,14 +4747,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FilenameComponent.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FilenameComponent.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FilePreviewComponent.h">
       <Option compile="0"/>
       <Option link="0"/>
@@ -4772,6 +4764,14 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FileTreeComponent.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FilenameComponent.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_basics/filebrowser/juce_FilenameComponent.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -4843,6 +4843,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_basics/native/juce_MultiTouchMapper.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/native/juce_android_FileChooser.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -4891,10 +4895,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_basics/native/juce_MultiTouchMapper.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/native/juce_win32_DragAndDrop.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -4915,6 +4915,18 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CPlusPlusCodeTokeniser.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CPlusPlusCodeTokeniser.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CPlusPlusCodeTokeniserFunctions.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CodeDocument.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -4932,18 +4944,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CodeTokeniser.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CPlusPlusCodeTokeniser.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CPlusPlusCodeTokeniser.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_gui_extra/code_editor/juce_CPlusPlusCodeTokeniserFunctions.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -5121,6 +5121,18 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/AAX/juce_AAX_Wrapper.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/utility/juce_PluginUtilities.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode1.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode2.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode3.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinResources.rsr">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinUtilities.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_Wrapper.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST/juce_VST_Wrapper.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST3/juce_VST3_Wrapper.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_basics/juce_audio_basics.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_devices/juce_audio_devices.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_formats/juce_audio_formats.cpp"/>
@@ -5132,18 +5144,6 @@
     <Unit filename="../../../../Juce/modules/juce_graphics/juce_graphics.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/juce_gui_basics.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_gui_extra/juce_gui_extra.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/utility/juce_PluginUtilities.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode1.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode2.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode3.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinResources.rsr">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinUtilities.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_Wrapper.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST3/juce_VST3_Wrapper.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST/juce_VST_Wrapper.cpp"/>
     <Unit filename="../../../VST/JuceLibraryCode/JuceHeader.h">
       <Option compile="0"/>
       <Option link="0"/>

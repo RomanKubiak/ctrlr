@@ -98,7 +98,8 @@
   <id name="panelFilePath"                  text="Panel file path" type="ReadOnly"/>
   <id name="panelIndex"                     text="Panel global index" type="ReadOnly"/>
   <id name="panelUID"                       text="Unique panel identifier" type="ReadOnly"/>
-  <id name="panelInstanceUID"               text="Unique panel ID for plugin instances" type="Text" />
+  <id name="panelInstanceUID"               text="Unique panel ID for plugin instances (4 characters)" type="Text" />
+  <id name="panelInstanceManufacturerID"    text="Unique panel manufacturer ID (4 characters)" type="Text" />
   <id name="panelMidiVstInput"              text="Panel receives MIDI from host" type="Bool"/>
   <id name="panelMidiVstOutput"             text="Panel sends MIDI to host" type="Bool"/>
   <id name="panelComponentGroupList"        text="Component groups" type="VarText"/>

@@ -170,7 +170,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                     
                     if (dict != nullptr)
                     {
-                        _DBG("INSTANCE: dist is valid");
+                        _DBG("INSTANCE: dict is valid");
                         
                         forEachXmlChildElement (*dict, e2)
                         {
@@ -181,6 +181,8 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                                 XmlElement *description = e2->getNextElementWithTagName("string");
                                 if (description != nullptr)
                                 {
+                                    description->deleteAllTextElements();
+                                    description->addTextElement (sourceInfo->getProperty(Ids::name).toString());
                                 }
                             }
                         
@@ -190,7 +192,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                                 if (manufacturer != nullptr)
                                 {
                                     manufacturer->deleteAllTextElements();
-                                    manufacturer->addTextElement(sourceInfo->getProperty(Ids::panelAuthorName).toString());
+                                    manufacturer->addTextElement(sourceInfo->getProperty(Ids::panelInstanceManufacturerID).toString().isEmpty() ? generateRandomUniquePluginId() : sourceInfo->getProperty(Ids::panelInstanceManufacturerID).toString());
                                 }
                             }
                         
@@ -210,15 +212,17 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                                 if (subtype != nullptr)
                                 {
                                     subtype->deleteAllTextElements();
-                                    subtype->addTextElement(sourceInfo->getProperty(Ids::panelInstanceUID).toString());
+                                    subtype->addTextElement(sourceInfo->getProperty(Ids::panelInstanceUID).toString().isEmpty() ? generateRandomUniquePluginId() : sourceInfo->getProperty(Ids::panelInstanceUID).toString());
                                 }
                             }
                         
                             if (e2->hasTagName("key") && (e2->getAllSubText() == "version"))
                             {
-                                XmlElement *subtype = e2->getNextElementWithTagName("string");
-                                if (subtype != nullptr)
+                                XmlElement *version = e2->getNextElementWithTagName("integer");
+                                if (version != nullptr)
                                 {
+                                    version->deleteAllTextElements();
+                                    version->addTextElement (_STR(getVersionAsHexInteger (sourceInfo->getVersionString(false,false,"."))));
                                 }
                             }
                         }
@@ -240,4 +244,17 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 	 }
 }
 
+int CtrlrMac::getVersionAsHexInteger(const String version) const
+{
+    const StringArray segments = StringArray::fromTokens (version, ".", "\"'");
+    
+    int value = (segments[0].getIntValue() << 16)
+    + (segments[1].getIntValue() << 8)
+    + segments[2].getIntValue();
+    
+    if (segments.size() >= 4)
+        value = (value << 8) + segments[3].getIntValue();
+    
+    return value;
+}
 #endif
