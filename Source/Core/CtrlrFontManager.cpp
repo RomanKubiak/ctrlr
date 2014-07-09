@@ -201,11 +201,15 @@ Font CtrlrFontManager::getFont(const File &fontFile)
 
 const Font CtrlrFontManager::getFontFromString (const String &string)
 {
+    _DBG(string);
+
 	if (!string.contains (";"))
 	{
+	    _DBG("\tno ; in string");
 	    if (string == String::empty)
         {
-            return (Font (18.0f));
+            _DBG("\tstring is empty, return default font");
+            return (Font (15.0f));
         }
 		return (Font::fromString(string));
 	}
@@ -216,8 +220,12 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 
 	if (fontProps[fontTypefaceName] != String::empty)
 	{
+	    _DBG("\tfont name not empty: "+fontProps[fontTypefaceName]);
+
 		if (fontProps[fontSet] != String::empty && fontProps[fontSet].getIntValue() >= 0)
 		{
+		    _DBG("\tfont set is not empty and >= 0: "+_STR(fontProps[fontSet]));
+
 			/* We need to fetch the typeface for the font from the correct font set */
 
 			Array<Font> &fontSetToUse = getFontSet((const FontSet)fontProps[fontSet].getIntValue());
@@ -226,7 +234,10 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 			{
 				if (fontSetToUse[i].getTypefaceName() == fontProps[fontTypefaceName])
 				{
+				    _DBG("\tgot font from set, index: "+_STR(i));
+
 					font = fontSetToUse[i];
+					break;
 				}
 			}
 		}
@@ -334,22 +345,22 @@ const Font CtrlrFontManager::getBuiltInFont(const int fontIndex)
 
 const CtrlrFontManager::FontSet CtrlrFontManager::getFontSetEnum (const Font &font)
 {
-	for (int i=0; i<osFonts.size(); i++)
+    for (int i=0; i<importedFonts.size(); i++)
 	{
-		if (osFonts[i].getTypefaceName() == font.getTypefaceName())
-			return (osFontSet);
+		if (importedFonts[i].getTypefaceName() == font.getTypefaceName())
+			return (importedFontSet);
 	}
 
-	for (int i=0; i<builtInFonts.size(); i++)
+    for (int i=0; i<builtInFonts.size(); i++)
 	{
 		if (builtInFonts[i].getTypefaceName() == font.getTypefaceName())
 			return (builtInFontSet);
 	}
 
-	for (int i=0; i<importedFonts.size(); i++)
+	for (int i=0; i<osFonts.size(); i++)
 	{
-		if (importedFonts[i].getTypefaceName() == font.getTypefaceName())
-			return (importedFontSet);
+		if (osFonts[i].getTypefaceName() == font.getTypefaceName())
+			return (osFontSet);
 	}
 
 	for (int i=0; i<juceFonts.size(); i++)
