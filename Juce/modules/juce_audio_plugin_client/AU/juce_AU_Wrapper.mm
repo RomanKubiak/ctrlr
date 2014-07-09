@@ -1216,7 +1216,7 @@ public:
         JuceUICreationClass()  : ObjCClass <NSObject> ("JUCE_AUCocoaViewClass_")
         {
             addMethod (@selector (interfaceVersion),             interfaceVersion,    @encode (unsigned int), "@:");
-            addMethod (@selector (description),                  description,         @encode (NSString*),    "@:");
+            addMethod (@selector (description),                  description,         @encode (NSString*),    "@:", @encode (AudioUnit), @encode (NSSize));
             addMethod (@selector (uiViewForAudioUnit:withSize:), uiViewForAudioUnit,  @encode (NSView*),      "@:", @encode (AudioUnit), @encode (NSSize));
 
             addProtocol (@protocol (AUCocoaUIBase));
@@ -1227,8 +1227,18 @@ public:
     private:
         static unsigned int interfaceVersion (id, SEL)   { return 0; }
 
-        static NSString* description (id, SEL)
+        static NSString* description (id, SEL, AudioUnit inAudioUnit, NSSize)
         {
+            void* pointers[2];
+            UInt32 propertySize = sizeof (pointers);
+            
+            if (AudioUnitGetProperty (inAudioUnit, juceFilterObjectPropertyID,
+                                      kAudioUnitScope_Global, 0, pointers, &propertySize) == noErr)
+            {
+                if (AudioProcessor* filter = static_cast <AudioProcessor*> (pointers[0]))
+                    return [NSString stringWithString: nsStringLiteral (filter->getInputChannelName(1026).toUTF8())];
+            }
+            
             return [NSString stringWithString: nsStringLiteral (JucePlugin_Name)];
         }
 

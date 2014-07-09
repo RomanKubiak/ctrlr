@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="JUwYqy" name="Ctrlr_Plugin_AU" projectType="audioplug" version="5.2.0"
               juceLinkage="amalg_multi" buildVST="0" buildRTAS="0" buildAU="1"
-              pluginName="Ctrlr-AU" pluginDesc="Ctrlr-AU" pluginManufacturer="Intigator"
+              pluginName="Ctrlr-AU" pluginDesc="Ctrlr-AU" pluginManufacturer="Instigator"
               pluginManufacturerCode="INST" pluginCode="CTRL" pluginChannelConfigs="{1, 1}, {2, 2}"
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
               pluginSilenceInIsSilenceOut="0" pluginTailLength="0" pluginEditorRequiresKeys="1"
