@@ -198,7 +198,7 @@
  #define JucePlugin_Desc                   "Ctrlr-AU"
 #endif
 #ifndef  JucePlugin_Manufacturer
- #define JucePlugin_Manufacturer           "Intigator"
+ #define JucePlugin_Manufacturer           "Instigator"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
  #define JucePlugin_ManufacturerWebsite    "http://ctrlr.org"
