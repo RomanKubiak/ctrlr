@@ -1006,6 +1006,34 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_core/zip/juce_ZipFile.h" />
+		<Unit filename="../../../../Juce/modules/juce_cryptography/encryption/juce_BlowFish.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_cryptography/encryption/juce_BlowFish.h" />
+		<Unit filename="../../../../Juce/modules/juce_cryptography/encryption/juce_Primes.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_cryptography/encryption/juce_Primes.h" />
+		<Unit filename="../../../../Juce/modules/juce_cryptography/encryption/juce_RSAKey.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_cryptography/encryption/juce_RSAKey.h" />
+		<Unit filename="../../../../Juce/modules/juce_cryptography/hashing/juce_MD5.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_cryptography/hashing/juce_MD5.h" />
+		<Unit filename="../../../../Juce/modules/juce_cryptography/hashing/juce_SHA256.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_cryptography/hashing/juce_SHA256.h" />
+		<Unit filename="../../../../Juce/modules/juce_cryptography/juce_cryptography.cpp" />
+		<Unit filename="../../../../Juce/modules/juce_cryptography/juce_cryptography.h" />
+		<Unit filename="../../../../Juce/modules/juce_cryptography/juce_module_info" />
 		<Unit filename="../../../../Juce/modules/juce_data_structures/app_properties/juce_ApplicationProperties.cpp">
 			<Option compile="0" />
 			<Option link="0" />

@@ -79,7 +79,7 @@ const Result CtrlrWindows::readResource (void *handle, const LPSTR resourceId, c
 	}
 }
 
-const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const bool isRestricted)
+const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted, const bool signPanel, RSAKey privateKey)
 {
 	if (panelToWrite == nullptr)
 	{

@@ -16,10 +16,17 @@ class CtrlrNative
 {
 	public:
 		static CtrlrNative *getNativeObject();
-		virtual const Result exportWithDefaultPanel(CtrlrPanel*  /* panelToWrite */, const bool isRestricted=false)		{ return (Result::fail("Native, implement me")); }
+		virtual const Result exportWithDefaultPanel (CtrlrPanel *panelToWrite,
+                                                        const bool isRestricted=false,
+                                                        const bool signPanel=false,
+                                                        RSAKey privateKey = RSAKey())
+		{
+		    return (Result::fail("Native, implement me"));
+        }
 		virtual const Result getDefaultPanel(MemoryBlock& /*dataToWrite*/)												{ return (Result::fail("Native, implement me")); }
 		virtual const Result getDefaultResources(MemoryBlock& /*dataToWrite*/)											{ return (Result::fail("Native, implement me")); }
 		virtual const Result registerFileHandler()																		{ return (Result::fail("Native, implement me")); }
+		virtual const Result getSignature(MemoryBlock &)                                                                  { return (Result::fail("Native, implement me")); }
 };
 
 #endif

@@ -56,6 +56,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
@@ -1127,6 +1128,7 @@
     <MODULE id="juce_audio_processors" showAllCode="1"/>
     <MODULE id="juce_audio_utils" showAllCode="1"/>
     <MODULE id="juce_core" showAllCode="1"/>
+    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_data_structures" showAllCode="1"/>
     <MODULE id="juce_events" showAllCode="1"/>
     <MODULE id="juce_graphics" showAllCode="1"/>
