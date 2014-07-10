@@ -17,7 +17,7 @@ CtrlrMac::~CtrlrMac()
 {
 }
 
-const Result CtrlrMac::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const bool isRestricted)
+const Result CtrlrMac::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted, const bool signPanel, RSAKey privateKey)
 {
 	if (panelToWrite == nullptr)
 	{
@@ -154,11 +154,11 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 						nsCopyright->addTextElement(sourceInfo->getProperty(Ids::panelAuthorName).toString());
 					}
                 }
-                
+
                 if (e1->hasTagName ("key") && (e1->getAllSubText() == "AudioComponents"))
                 {
                     _DBG("INSTANCE: AudioComponents found");
-                    
+
                     /* resource section */
                     XmlElement *dict = nullptr;
                     XmlElement *array = e1->getNextElement();
@@ -167,11 +167,11 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                         _DBG("INSTANCE: array is valid");
                         dict = array->getChildByName("dict");
                     }
-                    
+
                     if (dict != nullptr)
                     {
                         _DBG("INSTANCE: dict is valid");
-                        
+
                         forEachXmlChildElement (*dict, e2)
                         {
                             _DBG("INSTANCE: enum element: "+e2->getTagName());
@@ -185,7 +185,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                                     description->addTextElement (sourceInfo->getProperty(Ids::name).toString());
                                 }
                             }
-                        
+
                             if (e2->hasTagName("key") && (e2->getAllSubText() == "manufacturer"))
                             {
                                 XmlElement *manufacturer = e2->getNextElementWithTagName("string");
@@ -195,7 +195,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                                     manufacturer->addTextElement(sourceInfo->getProperty(Ids::panelInstanceManufacturerID).toString().isEmpty() ? generateRandomUniquePluginId() : sourceInfo->getProperty(Ids::panelInstanceManufacturerID).toString());
                                 }
                             }
-                        
+
                             if (e2->hasTagName("key") && (e2->getAllSubText() == "name"))
                             {
                                 XmlElement *name = e2->getNextElementWithTagName("string");
@@ -205,7 +205,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                                     name->addTextElement(sourceInfo->getProperty(Ids::panelAuthorName).toString() + ": " + sourceInfo->getProperty(Ids::name).toString());
                                 }
                             }
-                        
+
                             if (e2->hasTagName("key") && (e2->getAllSubText() == "subtype"))
                             {
                                 XmlElement *subtype = e2->getNextElementWithTagName("string");
@@ -215,7 +215,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                                     subtype->addTextElement(sourceInfo->getProperty(Ids::panelInstanceUID).toString().isEmpty() ? generateRandomUniquePluginId() : sourceInfo->getProperty(Ids::panelInstanceUID).toString());
                                 }
                             }
-                        
+
                             if (e2->hasTagName("key") && (e2->getAllSubText() == "version"))
                             {
                                 XmlElement *version = e2->getNextElementWithTagName("integer");
@@ -247,14 +247,14 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 int CtrlrMac::getVersionAsHexInteger(const String version) const
 {
     const StringArray segments = StringArray::fromTokens (version, ".", "\"'");
-    
+
     int value = (segments[0].getIntValue() << 16)
     + (segments[1].getIntValue() << 8)
     + segments[2].getIntValue();
-    
+
     if (segments.size() >= 4)
         value = (value << 8) + segments[3].getIntValue();
-    
+
     return value;
 }
 #endif

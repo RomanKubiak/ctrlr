@@ -20,7 +20,7 @@ CtrlrLinux::~CtrlrLinux()
 {
 }
 
-const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted=false)
+const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const bool isRestricted, const bool signPanel, RSAKey privateKey)
 {
 	_DBG("CtrlrLinux::exportWithDefaultPanel");
 

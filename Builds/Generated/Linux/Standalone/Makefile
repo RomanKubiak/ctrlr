@@ -314,6 +314,7 @@ OBJECTS := \
   $(OBJDIR)/juce_audio_processors_bd1ca294.o \
   $(OBJDIR)/juce_audio_utils_fd7e75a.o \
   $(OBJDIR)/juce_core_62c225be.o \
+  $(OBJDIR)/juce_cryptography_4b816818.o \
   $(OBJDIR)/juce_data_structures_2dd916fa.o \
   $(OBJDIR)/juce_events_632f8332.o \
   $(OBJDIR)/juce_graphics_3c1b7996.o \
@@ -1545,6 +1546,11 @@ $(OBJDIR)/juce_audio_utils_fd7e75a.o: ../../../../Juce/modules/juce_audio_utils/
 $(OBJDIR)/juce_core_62c225be.o: ../../../../Juce/modules/juce_core/juce_core.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling juce_core.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/juce_cryptography_4b816818.o: ../../../../Juce/modules/juce_cryptography/juce_cryptography.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling juce_cryptography.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/juce_data_structures_2dd916fa.o: ../../../../Juce/modules/juce_data_structures/juce_data_structures.cpp

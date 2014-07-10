@@ -14,7 +14,7 @@ class CtrlrWindows : public CtrlrNative
 		/* resource handling */
 		const Result writeResource (void *handle, const LPSTR resourceId, const LPSTR resourceType, const MemoryBlock &resourceData);
 		const Result readResource (void *handle, const LPSTR resourceId, const LPSTR resourceType, MemoryBlock &resourceData);
-		const Result exportWithDefaultPanel(CtrlrPanel *panelToWrite, const bool isRestricted=false);
+		const Result exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted=false, const bool signPanel=false, RSAKey privateKey=RSAKey());
 		const Result getDefaultPanel(MemoryBlock &dataToWrite);
 		const Result getDefaultResources(MemoryBlock& dataToWrite);
 		const Result registerFileHandler();

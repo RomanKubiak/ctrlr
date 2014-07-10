@@ -42,6 +42,7 @@
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2010 targetFolder="../Generated/Windows/Standalone" libraryType="1"
@@ -81,6 +82,7 @@
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </VS2010>
     <LINUX_MAKE targetFolder="../Generated/Linux/Standalone" extraDefs="" bigIcon="QqMgrL"
@@ -113,6 +115,7 @@
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries=""
@@ -145,6 +148,7 @@
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS>
     <VS2013 targetFolder="../Generated/Windows/Standalone_2013" extraDefs="_CRT_SECURE_NO_WARNINGS"
@@ -178,6 +182,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </VS2013>
   </EXPORTFORMATS>
@@ -1241,6 +1246,7 @@
     <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>

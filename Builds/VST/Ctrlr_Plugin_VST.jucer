@@ -9,7 +9,7 @@
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
               jucerVersion="3.1.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
-              aaxIdentifier="com.yourcompany.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
+              aaxIdentifier="com.instigator.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
               companyEmail="ctrlr@ctrlr.org">
@@ -53,6 +53,7 @@
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2010 targetFolder="../Generated/Windows/VST" libraryType="1" extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm512"
@@ -90,6 +91,7 @@
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </VS2010>
     <LINUX_MAKE targetFolder="../Generated/Linux/VST" extraCompilerFlags="-fpermissive -w -fPIC"
@@ -123,6 +125,7 @@
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <CODEBLOCKS targetFolder="../Generated/Linux/VST/" vstFolder="/home/atom/devel/ctrlr/VST"
@@ -155,6 +158,7 @@
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS>
     <VS2013 targetFolder="../Generated/Windows/VST_2013" vstFolder="../../VST"
@@ -186,6 +190,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </VS2013>
   </EXPORTFORMATS>
@@ -1260,6 +1265,7 @@
     <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
