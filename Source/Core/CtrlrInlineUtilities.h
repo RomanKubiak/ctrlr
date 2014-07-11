@@ -388,4 +388,13 @@ static const inline String versionNumberToString2 (const int versionNumber)
 
 	return (STR(major)+"."+STR(minor));
 }
+
+static const inline MemoryBlock signData (const MemoryBlock &dataToSign, const RSAKey keyToSign)
+{
+    BigInteger md5DataAsBigInteger;
+    md5DataAsBigInteger.loadFromMemoryBlock (MD5 (dataToSign).getRawChecksumData());
+    keyToSign.applyToValue (md5DataAsBigInteger);
+
+    return (md5DataAsBigInteger.toMemoryBlock());
+}
 #endif

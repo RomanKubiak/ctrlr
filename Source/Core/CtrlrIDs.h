@@ -719,6 +719,7 @@ namespace Ids
 	DECLARE_ID (ctrlrMenuBarHighlightedTextColour);
 	DECLARE_ID (ctrlrMenuBarHighlightColour);
 	DECLARE_ID (ctrlrMenuBarFont);
+    DECLARE_ID (ctrlrPrivateKey);
 
 	DECLARE_ID (luaMethodName);
 	DECLARE_ID (luaManagerMethods); // need to keep it for compatibility reasons
