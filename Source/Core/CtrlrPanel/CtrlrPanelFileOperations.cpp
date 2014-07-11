@@ -13,7 +13,7 @@
 ValueTree CtrlrPanel::getCleanPanelTree()
 {
 	ValueTree exportTree = panelTree.createCopy();
-	
+
 	for (int i=0; i<exportTree.getNumProperties(); i++)
 	{
 		exportTree.removeProperty (Ids::panelMidiOutputDevice, 0);
@@ -150,7 +150,18 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 	}
 	if (saveOption == CtrlrEditor::doExportFileInstanceRestricted)
 	{
-		Result res = owner.getNativeObject().exportWithDefaultPanel(this, true);
+	    RSAKey privateKey;
+	    File privateKeyFile (owner.getProperty(Ids::ctrlrPrivateKey));
+	    if (privateKeyFile.existsAsFile())
+        {
+            privateKey = RSAKey (privateKeyFile.loadFileAsString());
+        }
+        else
+        {
+            privateKey = owner.getCtrlrPrivateKey();
+        }
+
+		Result res = owner.getNativeObject().exportWithDefaultPanel(this, true, true, privateKey);
 
 		if (res.failed())
 		{

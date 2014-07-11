@@ -86,6 +86,7 @@ void CtrlrManager::setDefaults()
 	setProperty (Ids::ctrlrUseEditorWrapper, true);
 	setProperty (Ids::ctrlrPropertiesAreURLs, true);
 	setProperty (Ids::ctrlrNativeAlerts, false);
+	setProperty (Ids::ctrlrPrivateKey, String::empty);
 	setProperty (Ids::uiLuaConsoleInputRemoveAfterRun, true);
 }
 

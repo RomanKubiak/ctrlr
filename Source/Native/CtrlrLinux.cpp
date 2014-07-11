@@ -81,14 +81,30 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const 
 		{
 			if (!libr_write (outputHandle, CTRLR_INTERNAL_RESOURCES_SECTION, panelResourcesData.getData(), panelResourcesData.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
 			{
+			    libr_close (outputHandle);
 				return (Result::fail ("Linux native, failed to write panel resource data to binary ["+newMe.getFullPathName()+"], size ["+STR((int32)panelResourcesData.getSize())+"]"));
-				libr_close (outputHandle);
 			}
 			else
             {
                 _DBG("CtrlrLinux::exportWithDefaultPanel wrote resources, size: "+_STR((int)panelResourcesData.getSize()));
             }
 		}
+
+		if (isRestricted)
+        {
+            /* Sign the panel */
+            MemoryBlock signature = signData (panelResourcesData, privateKey);
+
+            if (!libr_write (outputHandle, CTRLR_INTERNAL_SIGNATURE_SECTION, signature.getData(), signature.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
+			{
+			    libr_close (outputHandle);
+				return (Result::fail ("Linux native, failed to write panel signature data to binary ["+newMe.getFullPathName()+"], size ["+STR((int32)signature.getSize())+"]"));
+			}
+			else
+            {
+                _DBG("CtrlrLinux::exportWithDefaultPanel wrote signature, size: "+_STR((int)signature.getSize()));
+            }
+        }
 	}
 
     /* We need to move the temporary file to the new destination, libr won't do that for us */

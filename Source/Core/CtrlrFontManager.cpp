@@ -201,14 +201,14 @@ Font CtrlrFontManager::getFont(const File &fontFile)
 
 const Font CtrlrFontManager::getFontFromString (const String &string)
 {
-    _DBG(string);
+    //_DBG(string);
 
 	if (!string.contains (";"))
 	{
-	    _DBG("\tno ; in string");
+	    //_DBG("\tno ; in string");
 	    if (string == String::empty)
         {
-            _DBG("\tstring is empty, return default font");
+            //_DBG("\tstring is empty, return default font");
             return (Font (15.0f));
         }
 		return (Font::fromString(string));
@@ -220,11 +220,11 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 
 	if (fontProps[fontTypefaceName] != String::empty)
 	{
-	    _DBG("\tfont name not empty: "+fontProps[fontTypefaceName]);
+	    //_DBG("\tfont name not empty: "+fontProps[fontTypefaceName]);
 
 		if (fontProps[fontSet] != String::empty && fontProps[fontSet].getIntValue() >= 0)
 		{
-		    _DBG("\tfont set is not empty and >= 0: "+_STR(fontProps[fontSet]));
+		    //_DBG("\tfont set is not empty and >= 0: "+_STR(fontProps[fontSet]));
 
 			/* We need to fetch the typeface for the font from the correct font set */
 
@@ -234,7 +234,7 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 			{
 				if (fontSetToUse[i].getTypefaceName() == fontProps[fontTypefaceName])
 				{
-				    _DBG("\tgot font from set, index: "+_STR(i));
+				    //_DBG("\tgot font from set, index: "+_STR(i));
 
 					font = fontSetToUse[i];
 					break;

@@ -283,6 +283,8 @@ class CtrlrManager : public ValueTree::Listener, public ChangeBroadcaster, publi
 		void panelFileOpened(const File &panelFile);
 		CtrlrLookAndFeel *getCtrlrLookAndFeel()																	{ return (ctrlrLookAndFeel); }
 		CtrlrModulator *getInvalidModulator()																	{ return (nullModulator); }
+        RSAKey &getCtrlrPrivateKey()                                                                            { return (ctrlrPrivateKey); }
+        RSAKey &getCtrlrPublicKey()                                                                             { return (ctrlrPublicKey); }
 
 		/** Instance handlers **/
 		const String getInstanceName() const;
@@ -330,6 +332,7 @@ class CtrlrManager : public ValueTree::Listener, public ChangeBroadcaster, publi
 		CtrlrLookAndFeel *ctrlrLookAndFeel;
 		CtrlrUpdateManager updateManager;
 		CtrlrModulator *invalidModulator;
+		RSAKey ctrlrPrivateKey, ctrlrPublicKey;
 };
 
 #endif

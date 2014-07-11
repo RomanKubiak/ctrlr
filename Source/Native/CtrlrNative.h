@@ -4,13 +4,19 @@
 #include "JuceHeader.h"
 class CtrlrPanel;
 
-#define	CTRLR_INTERNAL_PANEL_RESID			1040
-#define CTRLR_INTERNAL_PANEL_SECTION		"ctrlr_panel"
-#define CTRLR_INTERNAL_RESOURCES_RESID		1041
-#define CTRLR_INTERNAL_RESOURCES_SECTION	"ctrl_panel_resources"
 #define CTRLR_NEW_INSTANCE_DIALOG_TITLE		L"Write new instance here"
+
+#define	CTRLR_INTERNAL_PANEL_RESID			1040
+#define CTRLR_INTERNAL_RESOURCES_RESID		1041
+#define CTRLR_INTERNAL_SIGNATURE_RESID      1042
+
 #define CTRLR_MAC_PANEL_FILE				L"PanelZ"
 #define CTRLR_MAC_RESOURCES_FILE			L"ResourcesZ"
+#define CTRLR_MAC_SIGNATURE_FILE            L"Signature"
+
+#define CTRLR_INTERNAL_PANEL_SECTION		"ctrlr_panel"
+#define CTRLR_INTERNAL_RESOURCES_SECTION	"ctrlr_panel_resources"
+#define CTRLR_INTERNAL_SIGNATURE_SECTION    "ctrlr_panel_signature"
 
 class CtrlrNative
 {
