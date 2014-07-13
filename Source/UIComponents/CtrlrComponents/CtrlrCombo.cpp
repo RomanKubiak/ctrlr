@@ -47,7 +47,7 @@ CtrlrCombo::CtrlrCombo (CtrlrModulator &owner)
 
 
     //[UserPreSize]
-	//ctrlrCombo->setLookAndFeel (&lf);
+	ctrlrCombo->setLookAndFeel (&lf);
 	componentTree.addListener (this);
 
 	setProperty (Ids::uiComboArrowColour, "0xff0000ff");
@@ -112,7 +112,6 @@ void CtrlrCombo::resized()
 void CtrlrCombo::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 {
     //[UsercomboBoxChanged_Pre]
-	_DBG("CtrlrCombo::comboBoxChanged");
     //[/UsercomboBoxChanged_Pre]
 
     if (comboBoxThatHasChanged == ctrlrCombo)
@@ -220,8 +219,8 @@ void CtrlrCombo::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 		|| property == Ids::uiComboButtonWidthOverride
 		|| property == Ids::uiComboButtonWidth)
 	{
-		//ctrlrCombo->setLookAndFeel(0);
-		//ctrlrCombo->setLookAndFeel(&lf);
+		ctrlrCombo->setLookAndFeel(0);
+		ctrlrCombo->setLookAndFeel(&lf);
 	}
 	else if (property == Ids::uiComboDynamicContent)
 	{
