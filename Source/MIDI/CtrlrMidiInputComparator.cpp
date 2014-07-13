@@ -70,7 +70,7 @@ void CtrlrMidiInputComparator::addMatchTarget (CtrlrModulator *modulatorToAdd)
 			break;
 
 		default:
-			_WRN("CtrlrMidiInputComparator::addMatchTarget an unknown midi type found="+String((int)type));
+			//_WRN("CtrlrMidiInputComparator::addMatchTarget an unknown midi type found="+String((int)type));
 			break;
 	}
 }

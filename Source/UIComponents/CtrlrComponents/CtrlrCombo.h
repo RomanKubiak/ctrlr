@@ -39,7 +39,7 @@
 */
 class CtrlrCombo  : public CtrlrComponent,
                     public KeyListener,
-                    public ComboBoxListener
+					public ComboBox::Listener
 {
 public:
     //==============================================================================

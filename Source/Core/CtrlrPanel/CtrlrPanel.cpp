@@ -1435,7 +1435,6 @@ bool CtrlrPanel::isSchemeAtLeast(const int minimumLevel)
 	}
 	else
 	{
-		_WRN ("Panel scheme is old or not defined, unexpected results may occur");
 		return (false);
 	}
 }
