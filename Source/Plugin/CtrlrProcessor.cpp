@@ -93,12 +93,12 @@ void CtrlrProcessor::setParameter (int index, float newValue)
 	CtrlrModulator *m = ctrlrManager->getModulatorByVstIndex (index);
 	if (m == nullptr)
 	{
-		_WRN("CtrlrProcessor::setParameter can't find modulator for index="+String(index)+" value="+String(newValue));
+		//_WRN("CtrlrProcessor::setParameter can't find modulator for index="+String(index)+" value="+String(newValue));
 		return;
 	}
 	else if (newValue > 1.0f || newValue < 0.000000f)
 	{
-		_WRN("CtrlrProcessor::setParameter value out of bounds index="+String(index)+" value="+String(newValue));
+		//_WRN("CtrlrProcessor::setParameter value out of bounds index="+String(index)+" value="+String(newValue));
 		return;
 	}
 	else

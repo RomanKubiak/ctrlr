@@ -114,7 +114,6 @@ void CtrlrImage::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 {
 	if (property == Ids::uiImageResource)
 	{
-		_DBG("CtrlrImage::valueTreePropertyChanged res="+getProperty(property).toString());
 		setResource();
 	}
 
@@ -137,7 +136,6 @@ void CtrlrImage::restoreState (const ValueTree &savedState)
 
 void CtrlrImage::setResource()
 {
-	_DBG("CtrlrImage::setResource");
 	currentImage = owner.getOwner().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageResource));
 	repaint();
 	resized();
