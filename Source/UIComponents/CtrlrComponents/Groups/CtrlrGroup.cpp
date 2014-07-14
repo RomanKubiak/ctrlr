@@ -143,7 +143,7 @@ void CtrlrGroup::paint (Graphics& g)
 
 void CtrlrGroup::resized()
 {
-    label->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
+    //label->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
 	if (textMargin > 0)
 	{

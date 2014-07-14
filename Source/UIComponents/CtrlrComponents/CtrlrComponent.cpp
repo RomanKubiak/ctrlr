@@ -20,6 +20,7 @@ void CtrlrComponentResizableBorder::paint (Graphics &g)
 {
 	if (owner->getRestoreState())
 		return;
+
 	ResizableBorderComponent::paint (g);
 }
 
@@ -238,7 +239,6 @@ void CtrlrComponent::restoreState (const ValueTree &savedState)
 	}
 
 	restoreStateInProgress = false;
-
 	resized();
 }
 
@@ -279,7 +279,7 @@ void CtrlrComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	{
 		componentNameLabel.setText (getVisibleName(), dontSendNotification);
 	}
-	if (	property == Ids::componentLabelPosition
+	else if (	property == Ids::componentLabelPosition
 		||	property == Ids::componentLabelHeight
 		||	property == Ids::componentLabelWidth
 		||	property == Ids::componentLabelVisible

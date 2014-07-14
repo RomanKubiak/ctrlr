@@ -575,8 +575,6 @@ void CtrlrPanelCanvas::startDraggingSelection()
 
 void CtrlrPanelCanvas::restoreState (const ValueTree &savedState)
 {
-	owner.getOwner().getUndoManager()->beginNewTransaction ("CtrlrPanelCanvas::restoreState");
-
 	setBounds (VAR2RECT(getProperty(Ids::uiPanelCanvasRectangle)));
 
 	/* first restore any layers used */
@@ -603,6 +601,7 @@ void CtrlrPanelCanvas::restoreState (const ValueTree &savedState)
 	}
 
 	/* now restore components */
+	int dispatchCounter = 0;
 	for (int i=0; i<savedState.getNumChildren(); i++)
 	{
 		ValueTree child = savedState.getChild(i);
@@ -622,6 +621,13 @@ void CtrlrPanelCanvas::restoreState (const ValueTree &savedState)
 				}
 				c->setVisible ((bool)c->getProperty(Ids::componentVisibility));
 			}
+		}
+
+		if (MessageManager::getInstance() && ++dispatchCounter > 300)
+		{
+			_DBG("CtrlrPanelCanvas::restoreState more then 300 modulators created, dispatch pending messages");
+			MessageManager::getInstance()->runDispatchLoopUntil (25);
+			dispatchCounter = 0;
 		}
 	}
 
@@ -673,6 +679,7 @@ void CtrlrPanelCanvas::editMenuPaste()
 			CtrlrComponent *c = addNewComponent (clipboardTree.getChild(i), 0, true);
 			c->setTopLeftPosition (c->getX()+(c->getWidth()/2), c->getY()+(c->getHeight()/2));
 			c->panelEditModeChanged (owner.getProperty (Ids::uiPanelEditMode));
+			c->getOwner().setProperty (Ids::vstIndex, owner.getOwner().getOwner().getVstManager().getFirstFree());
 			owner.getSelection()->addToSelection (c);
 		}
 	}

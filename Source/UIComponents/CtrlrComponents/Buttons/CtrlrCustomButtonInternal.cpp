@@ -42,6 +42,7 @@ CtrlrCustomButtonInternal::CtrlrCustomButtonInternal (CtrlrImageButton &_owner)
 	  paintMode(RectanglePlacement::stretchToFit)
 {
     //[UserPreSize]
+	setBufferedToImage (true);
     //[/UserPreSize]
 
     setSize (128, 32);

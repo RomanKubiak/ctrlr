@@ -97,7 +97,7 @@ CtrlrManagerVst &CtrlrManager::getVstManager()
 
 void CtrlrManager::addModulator (CtrlrModulator *modulatorToAdd)
 {
-	// ctrlrManagerVst->set (modulatorToAdd);
+	ctrlrManagerVst->set (modulatorToAdd);
 	ctrlrModulators.addIfNotAlreadyThere (modulatorToAdd);
 }
 

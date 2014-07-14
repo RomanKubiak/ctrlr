@@ -48,6 +48,8 @@ CtrlrImageSlider::CtrlrImageSlider (CtrlrModulator &owner)
 
 
     //[UserPreSize]
+	ctrlrSlider->setBufferedToImage (true);
+	setBufferedToImage (true);
 	ctrlrSlider->setSliderStyle (Slider::RotaryVerticalDrag);
 	ctrlrSlider->setLookAndFeel (&lf);
 	setProperty (Ids::uiSliderStyle, "RotaryVerticalDrag");
@@ -110,8 +112,10 @@ void CtrlrImageSlider::paint (Graphics& g)
 
 void CtrlrImageSlider::resized()
 {
-    ctrlrSlider->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
+    //ctrlrSlider->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
+	if (restoreStateInProgress)
+		return;
 	ctrlrSlider->setBounds (getUsableRect());
     //[/UserResized]
 }

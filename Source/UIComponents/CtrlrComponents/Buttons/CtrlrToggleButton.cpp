@@ -43,6 +43,8 @@ CtrlrToggleButton::CtrlrToggleButton (CtrlrModulator &owner)
 
 
     //[UserPreSize]
+	setBufferedToImage (true);
+	ctrlrButton->setBufferedToImage (true);
 	setProperty (Ids::uiButtonTextColourOn, "0xff000000");
 	setProperty (Ids::uiToggleButtonText, "Button");
 	setProperty (Ids::uiButtonTrueValue, 1);

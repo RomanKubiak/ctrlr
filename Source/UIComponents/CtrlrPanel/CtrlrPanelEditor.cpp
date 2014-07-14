@@ -296,11 +296,12 @@ void CtrlrPanelEditor::setAllCombosEnabled()
 
 void CtrlrPanelEditor::restoreState(const ValueTree &savedState)
 {
+	setVisible (false);
+
 	setRestoreState(true);
-    setVisible (false);
+    
 	restoreProperties (savedState.getChildWithName(Ids::uiPanelEditor), panelEditorTree, 0);
 	getCanvas()->restoreState (savedState);
-    setVisible (true);
 
     if (getSelection())
     {
@@ -314,6 +315,8 @@ void CtrlrPanelEditor::restoreState(const ValueTree &savedState)
 
 	editModeChanged();
 	setRestoreState(false);
+
+	setVisible (true);
 }
 
 CtrlrComponent *CtrlrPanelEditor::getSelected(const Identifier &type)
