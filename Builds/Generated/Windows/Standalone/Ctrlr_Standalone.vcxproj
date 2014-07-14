@@ -364,7 +364,8 @@
       <OutputFile>$(IntDir)\Ctrlr-$(Platform)$(NATIVE_ARCH).bsc</OutputFile>
     </Bscmake>
     <PreBuildEvent>
-      <Command>$(MSBuildProjectDirectory)\..\..\..\..\Scripts\pre-build-windows.bat $(MSBuildProjectDirectory) $(VisualStudioVersion) $(OSVersion) $(TargetedRuntimeVersion)</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) ..\..\..\..\Bin</Command>
