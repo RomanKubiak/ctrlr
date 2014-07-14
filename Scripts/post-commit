@@ -53,7 +53,7 @@ function build_now {
 	fi
 }
 
-function windows_msbuild {
+function windows_msbuild {	
 	if [ -x "$DOTNET/MSBuild.exe" ]; then
 		echo "CTRLR: MSBuild.exe found"
 		cd $CTRLR_ROOT/Builds
@@ -81,6 +81,8 @@ function build_now_windows {
 	REVISION_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.h"
 	TEMPLATE_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.template"
 
+	echo -n > $BUILD_LOG_WIN32
+	echo -n > $BUILD_LOG_WIN64	
 	echo "Version: $VERSION"
 	echo "CtrlrRevision.template: $TEMPLATE_H"
 	echo "CtrlrRevision.h: $REVISION_H"
@@ -88,8 +90,10 @@ function build_now_windows {
 	echo
 	sed -e "s/%REVISION%/$VERSION/g" -e "s/%REVISION_DATE%/$DATE/g" $TEMPLATE_H > $REVISION_H
 	
-	if [ "$ARGS" != "package" ]; then
+	if [ ! "$ARGS" == "package" ]; then
 		windows_msbuild
+	else
+		echo "CTRLR: Package only"
 	fi
 	
 	echo "CTRLR: Build success, create installer"
