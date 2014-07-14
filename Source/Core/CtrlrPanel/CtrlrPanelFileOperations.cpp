@@ -335,8 +335,9 @@ const ValueTree CtrlrPanel::openBinPanel(const File &panelFile)
 
 		if (fileInputStream)
 		{
-			GZIPDecompressorInputStream gzFileInputStream (*fileInputStream);
-			tree = ValueTree::readFromStream (gzFileInputStream);
+		    PerformanceCounter pc ("Panel decompression", 1, File("/tmp/ctrlr_perf.txt"));
+            GZIPDecompressorInputStream gzFileInputStream (*fileInputStream);
+            tree = ValueTree::readFromStream (gzFileInputStream);
 			return (tree);
 		}
 	}

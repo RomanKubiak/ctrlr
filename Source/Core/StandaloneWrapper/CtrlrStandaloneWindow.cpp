@@ -7,8 +7,8 @@
 extern AudioProcessor* JUCE_CALLTYPE createPluginFilter();
 
 CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour& backgroundColour)
-	:	DocumentWindow (title, backgroundColour, DocumentWindow::allButtons, true), 
-		ctrlrProcessor(nullptr), 
+	:	DocumentWindow (title, backgroundColour, DocumentWindow::allButtons, true),
+		ctrlrProcessor(nullptr),
 		filter(nullptr),
 		appProperties(nullptr),
 		restoreState(true)
@@ -48,7 +48,7 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 				{
 					ctrlrProcessor->setStateInformation (xml);
 				}
-				
+
 
 				AudioProcessorEditor *editor = ctrlrProcessor->createEditorIfNeeded();
 				setName (ctrlrProcessor->getManager().getInstanceName());
@@ -131,7 +131,7 @@ void CtrlrStandaloneWindow::resized()
 	}
 }
 
-void CtrlrStandaloneWindow::moveed()
+void CtrlrStandaloneWindow::moved()
 {
 	DocumentWindow::moved();
 

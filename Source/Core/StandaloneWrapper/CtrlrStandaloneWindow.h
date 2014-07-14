@@ -13,7 +13,7 @@ class CtrlrStandaloneWindow	: public DocumentWindow
 		virtual PropertySet* getGlobalSettings();
 		void closeButtonPressed();
 		void resized();
-		void moveed();
+		void moved();
 		void openFileFromCli(const File &file);
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrStandaloneWindow);
 
