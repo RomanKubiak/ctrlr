@@ -16,7 +16,7 @@ CtrlrPanelCanvas::CtrlrPanelCanvas (CtrlrPanelEditor &_owner)
 	: owner(_owner),
       ctrlrPanelCanvasResizableBorder (0)
 {
-	
+
     addAndMakeVisible (ctrlrPanelCanvasResizableBorder = new ResizableBorderComponent (this, 0));
     ctrlrPanelCanvasResizableBorder->setName ("ctrlrPanelCanvasResizableBorder");
 

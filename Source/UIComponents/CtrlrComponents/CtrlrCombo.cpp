@@ -226,9 +226,15 @@ void CtrlrCombo::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	{
 		fillContent(getProperty(property));
 	}
+    else
+    {
+        CtrlrComponent::valueTreePropertyChanged(treeWhosePropertyHasChanged, property);
+    }
 
-	CtrlrComponent::valueTreePropertyChanged(treeWhosePropertyHasChanged, property);
-	resized();
+	if (restoreStateInProgress == false)
+	{
+		resized();
+	}
 }
 
 bool CtrlrCombo::keyPressed (const KeyPress& key, Component* originatingComponent)

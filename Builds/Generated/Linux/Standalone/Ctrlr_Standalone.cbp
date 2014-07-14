@@ -12,14 +12,11 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-march=core2" />
 					<Add option="-w" />
 					<Add option="-g" />
-					<Add option="-O0" />
 					<Add option="-std=gnu++0x" />
-					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
-					<Add option="-D__MINGW__=1" />
-					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-DCTRLR_NIGHTLY=1" />
 					<Add option="-DJucePlugin_Build_Standalone=" />
 					<Add option="-DDEBUG=1" />
@@ -30,6 +27,7 @@
 					<Add option="-DJUCER_CODEBLOCKS_C6428F40=1" />
 					<Add option="-DJUCE_APP_VERSION=5.2.0" />
 					<Add option="-DJUCE_APP_VERSION_HEX=0x50200" />
+					<Add option="-DJUCE_COMPILER_SUPPORTS_MOVE_SEMANTICS=1" />
 					<Add directory="." />
 					<Add directory="../../../Standalone/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />
@@ -124,14 +122,11 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-march=corei7-avx" />
 					<Add option="-Os" />
-					<Add option="-std=gnu++0x" />
-					<Add option="-mstackrealign" />
 					<Add option="-w" />
+					<Add option="-std=gnu++0x" />
 					<Add option="-fpermissive" />
-					<Add option="-D__MINGW__=1" />
-					<Add option="-D__MINGW_EXTENSION=" />
-					<Add option="-DJUCE_FORCE_DEBUG=0" />
 					<Add option="-DCTRLR_NIGHTLY=1" />
 					<Add option="-DJucePlugin_Build_Standalone=" />
 					<Add option="-DLINUX=1" />
@@ -139,6 +134,7 @@
 					<Add option="-DJUCER_CODEBLOCKS_C6428F40=1" />
 					<Add option="-DJUCE_APP_VERSION=5.2.0" />
 					<Add option="-DJUCE_APP_VERSION_HEX=0x50200" />
+					<Add option="-DJUCE_COMPILER_SUPPORTS_MOVE_SEMANTICS=1" />
 					<Add directory="." />
 					<Add directory="../../../Standalone/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />
@@ -152,6 +148,7 @@
 					<Add directory="../../../../Source/Application" />
 					<Add directory="../../../../Source/Lua" />
 					<Add directory="../../../../Source/Lua/lua" />
+					<Add directory="/usr/include/freetype2" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -164,18 +161,6 @@
 					<Add option="-lasound" />
 					<Add option="-lz" />
 					<Add option="-lbfd" />
-					<Add library="comdlg32" />
-					<Add library="imm32" />
-					<Add library="ole32" />
-					<Add library="oleaut32" />
-					<Add library="rpcrt4" />
-					<Add library="shlwapi" />
-					<Add library="uuid" />
-					<Add library="version" />
-					<Add library="wininet" />
-					<Add library="winmm" />
-					<Add library="ws2_32" />
-					<Add library="wsock32" />
 				</Linker>
 			</Target>
 		</Build>

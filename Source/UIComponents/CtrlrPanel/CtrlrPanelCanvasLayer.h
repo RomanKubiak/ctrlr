@@ -17,7 +17,6 @@ class CtrlrPanelCanvasLayer : public Component, public CtrlrLuaObject, public Va
 		CtrlrPanelCanvasLayer(CtrlrPanelCanvas &_owner);
 		~CtrlrPanelCanvasLayer();
 		void paint (Graphics &g);
-
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
@@ -33,7 +32,6 @@ class CtrlrPanelCanvasLayer : public Component, public CtrlrLuaObject, public Va
 		void moveUp();
 		void moveDown();
 		void resized();
-
 		JUCE_LEAK_DETECTOR(CtrlrPanelCanvasLayer)
 
 	private:

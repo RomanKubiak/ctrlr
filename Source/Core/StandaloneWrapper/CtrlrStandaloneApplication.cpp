@@ -100,16 +100,9 @@ class CtrlrApplication : public JUCEApplication
 
 							JUCEApplication::quit();
 						}
-
-						if (parameters.contains("engine"))
-						{
-							/* run the engine only */
-							Logger::writeToLog ("CTRLR:engine start");
-							return;
-						}
 					}
-					
-					
+
+
 					filterWindow = new CtrlrStandaloneWindow (ProjectInfo::projectName + String("/") + ProjectInfo::versionString, Colours::lightgrey);
 
 					if (File::isAbsolutePath(commandLineParameters.unquoted()))

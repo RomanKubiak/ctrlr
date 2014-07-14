@@ -297,12 +297,15 @@ void CtrlrPanelEditor::setAllCombosEnabled()
 void CtrlrPanelEditor::restoreState(const ValueTree &savedState)
 {
 	setRestoreState(true);
-
+    setVisible (false);
 	restoreProperties (savedState.getChildWithName(Ids::uiPanelEditor), panelEditorTree, 0);
 	getCanvas()->restoreState (savedState);
+    setVisible (true);
 
     if (getSelection())
+    {
         getSelection()->sendChangeMessage();
+    }
 
 	if (owner.getOwner().getInstanceMode() == InstanceSingle || owner.getOwner().getInstanceMode() == InstanceSingleRestriced)
 	{
@@ -310,7 +313,6 @@ void CtrlrPanelEditor::restoreState(const ValueTree &savedState)
 	}
 
 	editModeChanged();
-
 	setRestoreState(false);
 }
 
