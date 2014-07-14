@@ -269,7 +269,7 @@ void CtrlrTabsComponent::paint (Graphics& g)
 
 void CtrlrTabsComponent::resized()
 {
-    ctrlrTabs->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
+    //ctrlrTabs->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
 	ctrlrTabs->setBounds (getUsableRect());
     //[/UserResized]

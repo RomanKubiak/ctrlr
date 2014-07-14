@@ -35,6 +35,7 @@
 CtrlrLabelInternal::CtrlrLabelInternal(CtrlrLabel &_owner, const String &componentName, const String &labelText)
 	: Label (componentName, labelText), owner(_owner)
 {
+	setBufferedToImage (true);
 }
 
 TextEditor *CtrlrLabelInternal::createEditorComponent()
@@ -60,7 +61,6 @@ TextEditor *CtrlrLabelInternal::createEditorComponent()
 
 bool CtrlrLabelInternal::keyPressed (const KeyPress &key)
 {
-	_DBG("CtrlrLabelInternal::keyPressed");
 	return (false);
 }
 //[/MiscUserDefs]
@@ -142,8 +142,10 @@ void CtrlrLabel::paint (Graphics& g)
 
 void CtrlrLabel::resized()
 {
-    ctrlrLabel->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
+    //ctrlrLabel->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
+	if (restoreStateInProgress)
+		return;
 	if ((bool)ctrlrLabel->getProperties() ["fh"] == true)
 	{
 		Font f = ctrlrLabel->getFont();

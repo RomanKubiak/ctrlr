@@ -108,8 +108,10 @@ void CtrlrFixedSlider::paint (Graphics& g)
 
 void CtrlrFixedSlider::resized()
 {
-    ctrlrSlider->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
+    //ctrlrSlider->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
+	if (restoreStateInProgress)
+		return;
 	ctrlrSlider->setBounds (getUsableRect());
     //[/UserResized]
 }

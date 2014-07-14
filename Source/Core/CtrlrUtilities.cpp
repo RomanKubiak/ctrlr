@@ -342,8 +342,7 @@ const String generateRandomUnique(const String &additionalRandomData)
 		+ SystemStats::getFullUserName()
 		+ SystemStats::getJUCEVersion()
 		+ SystemStats::getLogonName()
-		+ SystemStats::getOperatingSystemName()
-		+ String(SystemStats::getCpuSpeedInMegaherz());
+		+ SystemStats::getOperatingSystemName();
 
 	BigInteger bi;
 	r.fillBitsRandomly(bi, 0, 64);

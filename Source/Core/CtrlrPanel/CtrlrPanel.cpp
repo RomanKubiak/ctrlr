@@ -1316,7 +1316,8 @@ const Array<int,CriticalSection> CtrlrPanel::globalsFromString(const String &glo
 
 CtrlrModulator* CtrlrPanel::getModulator (const String& name) const
 {
-	for (int i=0; i<ctrlrModulators.size(); i++)
+	return (modulatorsByName[name]);
+	/*for (int i=0; i<ctrlrModulators.size(); i++)
 	{
 		if (ctrlrModulators[i]->getProperty (Ids::name) == name)
 		{
@@ -1324,6 +1325,7 @@ CtrlrModulator* CtrlrPanel::getModulator (const String& name) const
 		}
 	}
 	return (0);
+	*/
 }
 
 CtrlrModulator* CtrlrPanel::getModulatorByVstIndex (const int vstIndex)

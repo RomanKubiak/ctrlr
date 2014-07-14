@@ -50,6 +50,8 @@ CtrlrLCDLabel::CtrlrLCDLabel (CtrlrModulator &owner)
 
 
     //[UserPreSize]
+	setBufferedToImage (true);
+	ctrlrLabel->setBufferedToImage (true);
 	owner.setProperty (Ids::modulatorIsStatic, true);
 	owner.setProperty (Ids::modulatorVstExported, false);
 
@@ -118,7 +120,7 @@ void CtrlrLCDLabel::paint (Graphics& g)
 
 void CtrlrLCDLabel::resized()
 {
-    ctrlrLabel->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
+    //ctrlrLabel->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }

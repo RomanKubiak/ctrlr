@@ -13,6 +13,7 @@ CtrlrSlider::CtrlrSlider (CtrlrModulator &owner)
 	setColour (TooltipWindow::textColourId, Colours::red);
 	addAndMakeVisible (&ctrlrSlider);
 
+	ctrlrSlider.setBufferedToImage (true);
     ctrlrSlider.setRange (1, 127, 1);
     ctrlrSlider.setSliderStyle (Slider::RotaryVerticalDrag);
     ctrlrSlider.setTextBoxStyle (Slider::TextBoxBelow, false, 64, 12);
@@ -71,6 +72,8 @@ CtrlrSlider::~CtrlrSlider()
 
 void CtrlrSlider::resized()
 {
+	if (restoreStateInProgress)
+		return;
 	ctrlrSlider.setBounds (getUsableRect());
 }
 

@@ -46,7 +46,7 @@ void CtrlrLuaObject::setPropertyInt(const String &propertyName, const int value)
 void CtrlrLuaObject::setPropertyString(const String &propertyName, const String &value)
 {
 	if (Identifier::isValidIdentifier (propertyName))
-		setProperty (propertyName, removeInvalidChars(value));
+		setProperty (propertyName, value);
 }
 
 void CtrlrLuaObject::removeProperty (const Identifier &propertyName)

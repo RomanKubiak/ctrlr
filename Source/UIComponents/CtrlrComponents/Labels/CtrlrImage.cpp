@@ -85,6 +85,8 @@ void CtrlrImage::paint (Graphics& g)
 void CtrlrImage::resized()
 {
     //[UserResized] Add your own custom resize handling here..
+	if (restoreStateInProgress)
+		return;
     //[/UserResized]
 }
 

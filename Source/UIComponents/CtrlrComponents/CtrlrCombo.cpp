@@ -47,6 +47,8 @@ CtrlrCombo::CtrlrCombo (CtrlrModulator &owner)
 
 
     //[UserPreSize]
+	setBufferedToImage (true);
+	ctrlrCombo->setBufferedToImage (true);
 	ctrlrCombo->setLookAndFeel (&lf);
 	componentTree.addListener (this);
 
@@ -103,8 +105,11 @@ void CtrlrCombo::paint (Graphics& g)
 
 void CtrlrCombo::resized()
 {
-    ctrlrCombo->setBounds (2, 2, getWidth() - 4, getHeight() - 4);
+    //ctrlrCombo->setBounds (2, 2, getWidth() - 4, getHeight() - 4);
     //[UserResized] Add your own custom resize handling here..
+	if (restoreStateInProgress)
+		return;
+
 	ctrlrCombo->setBounds (getUsableRect());
     //[/UserResized]
 }
