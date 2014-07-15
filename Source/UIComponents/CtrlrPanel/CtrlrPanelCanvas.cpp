@@ -623,12 +623,13 @@ void CtrlrPanelCanvas::restoreState (const ValueTree &savedState)
 			}
 		}
 
+#ifdef JUCE_WINDOWS
 		if (MessageManager::getInstance() && ++dispatchCounter > 300)
 		{
-			_DBG("CtrlrPanelCanvas::restoreState more then 300 modulators created, dispatch pending messages");
 			MessageManager::getInstance()->runDispatchLoopUntil (25);
 			dispatchCounter = 0;
 		}
+#endif
 	}
 
 	canvasStateRestored();

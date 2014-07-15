@@ -5,6 +5,44 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 
+class CtrlrKeyGenerator : public ThreadWithProgressWindow
+{
+        public:
+                CtrlrKeyGenerator() : ThreadWithProgressWindow ("Generating key", true, true)
+                {
+                }
+
+                void run()
+                {
+                    Array<int> randomValues;
+                    int lastRandomValue = 0;
+
+                    for (int i=1; i<=400; i++)
+                    {
+                        if ((Desktop::getMousePosition().x * Desktop::getMousePosition().y) != lastRandomValue)
+                        {
+                            randomValues.add (Desktop::getMousePosition().x * Desktop::getMousePosition().y);
+                        }
+
+                        lastRandomValue = Desktop::getMousePosition().x * Desktop::getMousePosition().y;
+
+                        setStatusMessage ("Random seed (move the mouse around to generate more): "+ STR(randomValues.size()));
+                        sleep (20);
+
+                        setProgress ((i / (double) 400));
+                        if (threadShouldExit())
+                            return;
+                    }
+
+                    setProgress (-1);
+                    setStatusMessage ("Generating 2048 bit RSA key pair, might take a moment");
+                    sleep (5);
+                    RSAKey::createKeyPair (publicKey, privateKey, 1024, randomValues.getRawDataPointer(), randomValues.size());
+                }
+
+                RSAKey publicKey, privateKey;
+};
+
 bool CtrlrEditor::perform (const InvocationInfo &info)
 {
 	// _DBG("CtrlrEditor::perform commandID="+STR(info.commandID));
@@ -272,6 +310,10 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			}
 			break;
 
+        case doKeyGenerator:
+            performKeyGenerator();
+            break;
+
 		default:
 			break;
 	}
@@ -409,4 +451,25 @@ void CtrlrEditor::performCustomRequest(const int menuItemID)
 	if (isPanelActive())
 	{
 	}
+}
+
+void CtrlrEditor::performKeyGenerator()
+{
+    CtrlrKeyGenerator generator;
+    generator.runThread ();
+    if (generator.waitForThreadToExit (60 * 1000))
+    {
+        FileChooser fc ("RSA Key file name", File::getSpecialLocation (File::userHomeDirectory), "*.*", true);
+        if (fc.browseForFileToSave(true))
+        {
+            File privateKeyFile = fc.getResult().withFileExtension("private");
+            File publicKeyFile  = fc.getResult().withFileExtension("public");
+
+            if (privateKeyFile.hasWriteAccess() && publicKeyFile.hasWriteAccess())
+            {
+                privateKeyFile.replaceWithText (generator.privateKey.toString());
+                publicKeyFile.replaceWithText (generator.publicKey.toString());
+            }
+        }
+    }
 }
