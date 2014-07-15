@@ -20,6 +20,7 @@ CtrlrModulator::CtrlrModulator(CtrlrPanel &_owner)
 		processor(*this),
 		vstExported(false)
 {
+    modulatorTree.addListener (this);
 	setProperty (Ids::modulatorCustomIndex, 0);
 	setProperty (Ids::modulatorCustomIndexGroup, 0);
 	setProperty(Ids::modulatorIsStatic, true);
@@ -59,7 +60,7 @@ CtrlrModulator::CtrlrModulator(CtrlrPanel &_owner, const int suggestedVstIndex)
 	setProperty (Ids::modulatorCustomName, String::empty);
 	setProperty (Ids::modulatorCustomIndexGroup, 0);
 	setProperty (Ids::modulatorCustomNameGroup, String::empty);
-	
+
 	setProperty (Ids::modulatorVstNameFormat, "%n");
 	setProperty (Ids::luaModulatorValueChange, COMBO_NONE_ITEM);
 }
@@ -494,7 +495,7 @@ void CtrlrModulator::modifyReference(const int newValue)
 			{
 				_WRN("Modulator link (to panel) is invalid, the referenced property \""+targetProperty+"\" is invalid");
 				return;
-			
+
 			}
 			else
 			{

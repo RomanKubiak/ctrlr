@@ -306,6 +306,10 @@ function build_now_linux {
 	cp -r $CTRLR_ROOT/Panels $CTRLR_ROOT/Packaging/Linux/Ctrlr/
 	cp -r $CTRLR_ROOT/Doc $CTRLR_ROOT/Packaging/Linux/Ctrlr/
 	
+	echo "CTRLR: strip binaries"
+	strip $CTRLR_ROOT/Packaging/Linux/Ctrlr/Ctrlr-*
+	strip $CTRLR_ROOT/Packaging/Linux/Ctrlr/libCtrlr-*.so
+	
 	echo "CTRLR: create self extracting package"
 	$CTRLR_ROOT/Packaging/Linux/makeself.sh --bzip2 --notemp $CTRLR_ROOT/Packaging/Linux/Ctrlr $PACKAGE Ctrlr-$VERSION
 	if [ $? -ne 0 ]; then

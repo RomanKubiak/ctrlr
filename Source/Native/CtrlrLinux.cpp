@@ -90,7 +90,8 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const 
             }
 		}
 
-		if (isRestricted)
+		/* If it's a restricted instance and the signing key is valid, sign the instance */
+		if (isRestricted && privateKey != RSAKey())
         {
             /* Sign the panel */
             MemoryBlock signature = signData (panelResourcesData, privateKey);
@@ -225,6 +226,39 @@ const Result CtrlrLinux::getDefaultResources(MemoryBlock& dataToWrite)
 	}
 
 	dataToWrite.append (panelResourcesData, panelResourcesDataSize);
+
+	libr_close (handle);
+
+    return (Result::ok());
+}
+
+const Result CtrlrLinux::getSignature(MemoryBlock &dataToWrite)
+{
+    libr_file *handle = libr_open (nullptr, LIBR_READ);
+
+	if (handle == nullptr)
+	{
+		return (Result::fail ("Linux native, libr_open failed to open binary [self]"));
+	}
+	else
+	{
+		_DBG("CtrlrLinux::getSignature, libr_open succeeded for binary [self]");
+	}
+
+	size_t signatureDataSize;
+	char *signatureData = libr_malloc (handle, CTRLR_INTERNAL_RESOURCES_SECTION, &signatureDataSize);
+
+	if (signatureData == nullptr)
+	{
+		libr_close (handle);
+		return (Result::fail ("Linux native, libr_malloc didn't find embedded signature in binary"));
+	}
+	else
+	{
+		_DBG("CtrlrLinux::getSignature, libr_malloc returned data for signature size ["+STR((int32)signatureDataSize)+"]");
+	}
+
+	dataToWrite.append (signatureData, signatureDataSize);
 
 	libr_close (handle);
 

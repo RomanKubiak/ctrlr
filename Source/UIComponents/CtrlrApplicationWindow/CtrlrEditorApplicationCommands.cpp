@@ -73,6 +73,7 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
 								doCrash,
 								doDumpVstTables,
 								doRegisterExtension,
+								doKeyGenerator,
 								doQuit
 							};
 
@@ -470,6 +471,11 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 			result.setInfo ("Register file extensions", "Register Ctrlr to hanle .panel file extension", globalCategory, 0);
 			result.setActive (true);
 			break;
+
+        case doKeyGenerator:
+            result.setInfo ("Key Generator", "Generate a private key for signing panels", globalCategory, 0);
+            result.setActive (true);
+            break;
 
 		case doQuit:
 			result.setInfo ("Quit", "Quit Ctrlr", globalCategory, 0);

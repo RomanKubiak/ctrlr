@@ -226,6 +226,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, showLogViewer);
 		menu.addCommandItem (commandManager, showComparatorTables);
 		menu.addCommandItem (commandManager, doRegisterExtension);
+		menu.addCommandItem (commandManager, doKeyGenerator);
 	}
 	else if (topLevelMenuIndex == 7) // Help
 	{
