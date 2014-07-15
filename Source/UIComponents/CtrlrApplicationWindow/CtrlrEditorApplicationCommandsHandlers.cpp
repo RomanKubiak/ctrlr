@@ -35,9 +35,9 @@ class CtrlrKeyGenerator : public ThreadWithProgressWindow
                     }
 
                     setProgress (-1);
-                    setStatusMessage ("Generating 2048 bit RSA key pair, might take a moment");
+                    setStatusMessage ("Generating 512 bit RSA key pair, this might take a moment");
                     sleep (5);
-                    RSAKey::createKeyPair (publicKey, privateKey, 1024, randomValues.getRawDataPointer(), randomValues.size());
+                    RSAKey::createKeyPair (publicKey, privateKey, 512, randomValues.getRawDataPointer(), randomValues.size());
                 }
 
                 RSAKey publicKey, privateKey;

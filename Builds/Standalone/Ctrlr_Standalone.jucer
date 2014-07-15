@@ -67,7 +67,7 @@
                        binaryPath="" winWarningLevel="2" winArchitecture="32-bit" generateManifest="1"
                        postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" libraryPath=""
                        wholeProgramOptimisation="1" userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"
-                       prebuildCommand="$(MSBuildProjectDirectory)\..\..\..\..\Scripts\pre-build-windows.bat $(MSBuildProjectDirectory) $(VisualStudioVersion) $(OSVersion) $(TargetedRuntimeVersion)"/>
+                       prebuildCommand=""/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
@@ -151,43 +151,13 @@
         <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS>
-    <VS2013 targetFolder="../Generated/Windows/Standalone_2013" extraDefs="_CRT_SECURE_NO_WARNINGS"
-            extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm512"
-            smallIcon="IfrBI6" bigIcon="wPCbe6">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="2" generateManifest="0" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(Platform)$(NATIVE_ARCH)"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
-                       binaryPath="../../Bin/Standalone/$(Platform)$(NATIVE_ARCH)" defines="CTRLR_NIGHTLY=1 &#10;JucePlugin_Build_Standalone"
-                       prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2013\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\Standalone\Ctrlr_Standalone.jucer"
-                       wholeProgramOptimisation="1"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="2" targetName="Ctrlr_Standalone"/>
-        <CONFIGURATION name="Release_Nightly" winWarningLevel="2" generateManifest="1"
-                       winArchitecture="32-bit" isDebug="0" optimisation="2" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
-                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
-                       postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" prebuildCommand="$(MSBuildProjectDirectory)\..\..\..\..\Scripts\pre-build-windows.bat $(MSBuildProjectDirectory) $(VisualStudioVersion) $(OSVersion) $(TargetedRuntimeVersion)"
-                       wholeProgramOptimisation="1" fastMath="1"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
-        <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_events" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_core" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
-      </MODULEPATHS>
-    </VS2013>
   </EXPORTFORMATS>
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
+      <FILE id="hlGevs" name="ctrlr-master-key.public" compile="0" resource="1"
+            file="../../Source/Resources/ctrlr-master-key.public"/>
+      <FILE id="gQgXgw" name="ctrlr-master-key.private" compile="0" resource="1"
+            file="../../Source/Resources/ctrlr-master-key.private"/>
       <GROUP id="{F43FBFF2-7D6A-C5F7-3C57-3DC4E3DBEE35}" name="Fonts">
         <FILE id="lECaM0" name="FONT_60sekuntia.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_60sekuntia.bin"/>

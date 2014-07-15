@@ -623,7 +623,7 @@ void CtrlrPanelCanvas::restoreState (const ValueTree &savedState)
 			}
 		}
 
-#ifdef JUCE_WINDOWS
+#if JUCE_WINDOWS
 		if (MessageManager::getInstance() && ++dispatchCounter > 300)
 		{
 			MessageManager::getInstance()->runDispatchLoopUntil (25);

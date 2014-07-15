@@ -1522,8 +1522,8 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\RTAS\juce_RTAS_Wrapper.cpp">
       <CallingConvention>StdCall</CallingConvention>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp"/>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp"/>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h"/>
@@ -1920,9 +1920,9 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharacterFunctions.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_ASCII.h"/>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF16.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF32.h"/>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_Identifier.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_LocalisedStrings.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_NewLine.h"/>
@@ -2260,6 +2260,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Source\Core\CtrlrRevision.template"/>
+    <None Include="..\..\..\..\Source\Resources\ctrlr-master-key.private"/>
+    <None Include="..\..\..\..\Source\Resources\ctrlr-master-key.public"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_box.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_bug.png"/>
