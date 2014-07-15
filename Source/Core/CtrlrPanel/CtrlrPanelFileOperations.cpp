@@ -156,10 +156,6 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
         {
             privateKey = RSAKey (privateKeyFile.loadFileAsString());
         }
-        else
-        {
-            privateKey = owner.getCtrlrPrivateKey();
-        }
 
 		Result res = owner.getNativeObject().exportWithDefaultPanel(this, true, true, privateKey);
 

@@ -131,6 +131,12 @@ const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, con
 			{
 				return (Result::fail("Windows Native: exportMeWithNewResource writeResource[panel] failed"));
 			}
+
+			if (isRestricted && privateKey != RSAKey())
+			{
+				/* Sign the panel */
+				MemoryBlock signature = signData (panelResourcesData, privateKey);
+			}
 		}
 		else
 		{
@@ -187,6 +193,11 @@ const Result CtrlrWindows::getDefaultResources(MemoryBlock& dataToWrite)
 #endif
 
 	return (readResource (nullptr, MAKEINTRESOURCE(CTRLR_INTERNAL_RESOURCES_RESID), RT_RCDATA, dataToWrite));
+}
+
+const Result CtrlrWindows::getSignature(MemoryBlock &dataToWrite)
+{
+	return (readResource (nullptr, MAKEINTRESOURCE(CTRLR_INTERNAL_SIGNATURE_RESID), RT_RCDATA, dataToWrite));
 }
 
 const Result CtrlrWindows::registerFileHandler()

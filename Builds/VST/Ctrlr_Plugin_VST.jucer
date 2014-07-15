@@ -312,6 +312,10 @@
       <FILE id="GKACXT" name="stdafx.h" compile="0" resource="0" file="../../Source/Core/stdafx.h"/>
     </GROUP>
     <GROUP id="{E4E9D961-652D-2904-F1EC-5C383EEF8FD4}" name="Resources">
+      <FILE id="UCkycH" name="ctrlr-master-key.private" compile="0" resource="1"
+            file="../../Source/Resources/ctrlr-master-key.private"/>
+      <FILE id="HvzbUq" name="ctrlr-master-key.public" compile="0" resource="1"
+            file="../../Source/Resources/ctrlr-master-key.public"/>
       <GROUP id="{D36DF736-203E-4694-9E23-E7107A73D2FE}" name="Icons">
         <FILE id="qNvTKP" name="ico_transaction.png" compile="0" resource="1"
               file="../../Source/Resources/Icons/ico_transaction.png"/>

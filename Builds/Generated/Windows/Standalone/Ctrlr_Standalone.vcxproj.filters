@@ -3350,13 +3350,13 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_ASCII.h">
       <Filter>Juce Modules\juce_core\text</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h">
+      <Filter>Juce Modules\juce_core\text</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF16.h">
       <Filter>Juce Modules\juce_core\text</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF32.h">
-      <Filter>Juce Modules\juce_core\text</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h">
       <Filter>Juce Modules\juce_core\text</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_Identifier.h">
@@ -4363,6 +4363,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Source\Resources\ctrlr-master-key.public">
+      <Filter>Ctrlr_Standalone\Resources</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\ctrlr-master-key.private">
+      <Filter>Ctrlr_Standalone\Resources</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.bin">
       <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
     </None>

@@ -313,8 +313,7 @@
       <OutputFile>$(IntDir)\Ctrlr-VST-$(Platform)$(NATIVE_ARCH).bsc</OutputFile>
     </Bscmake>
     <PreBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(MSBuildProjectDirectory)\..\..\..\..\Scripts\pre-build-windows.bat $(MSBuildProjectDirectory) $(VisualStudioVersion) $(OSVersion) $(TargetedRuntimeVersion)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) ..\..\..\..\Bin</Command>
@@ -364,8 +363,7 @@
       <OutputFile>$(IntDir)\Ctrlr-VST-$(Platform)$(NATIVE_ARCH).bsc</OutputFile>
     </Bscmake>
     <PreBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(MSBuildProjectDirectory)\..\..\..\..\Scripts\pre-build-windows.bat $(MSBuildProjectDirectory) $(VisualStudioVersion) $(OSVersion) $(TargetedRuntimeVersion)</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) ..\..\..\..\Bin</Command>
@@ -2456,7 +2454,7 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
       </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp">
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
@@ -2476,7 +2474,7 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
       </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp">
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
@@ -2892,9 +2890,9 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharacterFunctions.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_ASCII.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF16.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF32.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_Identifier.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_LocalisedStrings.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_NewLine.h" />
@@ -3232,6 +3230,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Source\Core\CtrlrRevision.template" />
+    <None Include="..\..\..\..\Source\Resources\ctrlr-master-key.private" />
+    <None Include="..\..\..\..\Source\Resources\ctrlr-master-key.public" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_box.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_bug.png" />

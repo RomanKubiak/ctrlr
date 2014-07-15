@@ -120,7 +120,6 @@
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <LargeAddressAware>true</LargeAddressAware>
-      <Profile>true</Profile>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -167,7 +166,6 @@
       <SubSystem>Windows</SubSystem>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <LargeAddressAware>true</LargeAddressAware>
-      <Profile>true</Profile>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -306,16 +304,11 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
-      <Profile>true</Profile>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(IntDir)\Ctrlr-$(Platform)$(NATIVE_ARCH).bsc</OutputFile>
     </Bscmake>
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) ..\..\..\..\Bin</Command>
     </PostBuildEvent>
@@ -357,16 +350,11 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
-      <Profile>true</Profile>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(IntDir)\Ctrlr-$(Platform)$(NATIVE_ARCH).bsc</OutputFile>
     </Bscmake>
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) ..\..\..\..\Bin</Command>
     </PostBuildEvent>
@@ -2696,9 +2684,9 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharacterFunctions.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_ASCII.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF16.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF32.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_Identifier.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_LocalisedStrings.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_NewLine.h" />
@@ -3035,6 +3023,8 @@
     <ClInclude Include="..\..\..\Standalone\JuceLibraryCode\JuceHeader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Source\Resources\ctrlr-master-key.public" />
+    <None Include="..\..\..\..\Source\Resources\ctrlr-master-key.private" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.bin" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Computerfont.bin" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digit.bin" />
