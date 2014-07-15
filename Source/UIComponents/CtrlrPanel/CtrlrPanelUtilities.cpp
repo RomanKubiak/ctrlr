@@ -96,7 +96,12 @@ void CtrlrPanelUtilities::changeListenerCallback (ChangeBroadcaster* source)
 	if (owner.getSelection()->getNumSelected() == 0)
 		return;
 
-	if ((owner.isVisible() && owner.getSelection()->getNumSelected() == 0) || owner.getSelection()->getNumSelected() > 1)
+    reloadContent();
+}
+
+void CtrlrPanelUtilities::reloadContent()
+{
+    if ((owner.isVisible() && owner.getSelection()->getNumSelected() == 0) || owner.getSelection()->getNumSelected() > 1)
 	{
 		ScopedPointer <XmlElement> xml (owner.getOwner().getPanelTree().createXml());
 		if (xml)
@@ -117,6 +122,14 @@ void CtrlrPanelUtilities::changeListenerCallback (ChangeBroadcaster* source)
 			}
 		}
 	}
+}
+
+void CtrlrPanelUtilities::visibilityChanged()
+{
+    if (isVisible())
+    {
+        reloadContent();
+    }
 }
 //[/MiscUserCode]
 

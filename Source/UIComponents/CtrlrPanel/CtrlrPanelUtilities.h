@@ -48,6 +48,8 @@ public:
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
 	void changeListenerCallback (ChangeBroadcaster* source);
+	void visibilityChanged();
+	void reloadContent();
     //[/UserMethods]
 
     void paint (Graphics& g);
