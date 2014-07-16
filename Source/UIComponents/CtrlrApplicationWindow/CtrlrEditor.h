@@ -17,6 +17,18 @@ class CtrlrEditor  : public AudioProcessorEditor,
 	public:
 		CtrlrEditor (CtrlrProcessor *ownerFilter, CtrlrManager &_owner);
 		~CtrlrEditor();
+		enum TopMenuIDs
+		{
+			MenuFile,
+			MenuEdit,
+			MenuView,
+			MenuPanel,
+			MenuMidi,
+			MenuPrograms,
+			MenuTools,
+			MenuHelp
+		};
+
 		enum CommandIDs
 		{
 			doSaveState					= 0x2000,

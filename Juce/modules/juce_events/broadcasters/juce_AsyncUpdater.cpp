@@ -61,7 +61,8 @@ AsyncUpdater::~AsyncUpdater()
 void AsyncUpdater::triggerAsyncUpdate()
 {
     if (activeMessage->shouldDeliver.compareAndSetBool (1, 0))
-        activeMessage->post();
+        if (! activeMessage->post())
+            activeMessage->shouldDeliver = 0;
 }
 
 void AsyncUpdater::cancelPendingUpdate() noexcept

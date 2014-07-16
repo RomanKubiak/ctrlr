@@ -17,17 +17,6 @@ void CtrlrLookAndFeel::setActivePanelEditor(CtrlrPanelEditor *_editor)
 
 Typeface::Ptr CtrlrLookAndFeel::getTypefaceForFont(const Font &font)
 {
-   /* if (font.getTypefaceName() == "<Sans-Serif>")
-    {
-        if (font.isBold() && font.isItalic())
-            return (Typeface::createSystemTypefaceFor (BinaryData::FONT_OpenSansBoldItalic_ttf, BinaryData::FONT_OpenSansBoldItalic_ttfSize));
-        else if (font.isBold() && !font.isItalic())
-            return (Typeface::createSystemTypefaceFor (BinaryData::FONT_OpenSansBold_ttf, BinaryData::FONT_OpenSansBold_ttf));
-        else
-            return (Typeface::createSystemTypefaceFor (BinaryData::FONT_OpenSansRegular_ttf, BinaryData::FONT_OpenSansRegular_ttfSize));
-    }
-*/
-
     return Font::getDefaultTypefaceForFont (font);
 }
 
@@ -91,161 +80,6 @@ void CtrlrLookAndFeel::drawMenuBarBackground (Graphics &g, int width, int height
 	g.drawLine (0.0f, (float)height, (float)width, (float)height, 1.0f);
 }
 
-/*
-void CtrlrLookAndFeel::drawPopupMenuBackground (Graphics &g, int width, int height)
-{
-	const Colour background (findColour (PopupMenu::backgroundColourId));
-
-    g.fillAll (background);
-    g.setColour (background.overlaidWith (Colour (0x2badd8e6)));
-
-    for (int i = 0; i < height; i += 3)
-        g.fillRect (0, i, width, 1);
-
-#if ! JUCE_MAC
-    g.setColour (findColour (PopupMenu::textColourId).withAlpha (0.6f));
-    g.drawRect (0, 0, width, height);
-#endif
-}
-
-Font CtrlrLookAndFeel::getPopupMenuFont()
-{
-	return (Font(13.5f, Font::plain));
-}
-
-
-Font CtrlrLookAndFeel::getMenuBarFont (MenuBarComponent &menuBar, int itemIndex, const String &itemText)
-{
-	return (getPopupMenuFont());
-}
-
-void CtrlrLookAndFeel::drawMenuBarItem (Graphics &g, int width, int height, int itemIndex, const String &itemText, bool isMouseOverItem, bool isMenuOpen, bool isMouseOverBar, MenuBarComponent &menuBar)
-{
-	Colour textColour	= menuBar.findColour (PopupMenu::textColourId);
-	Font textFont		= getMenuBarFont (menuBar, itemIndex, itemText);
-
-	if (!menuBar.isEnabled())
-	{
-		textColour = textColour.withMultipliedAlpha (0.5f);
-	}
-	else if (isMouseOverItem && !isMenuOpen)
-	{
-		textColour = textColour.contrasting(1.0f);
-		drawSelectionRectangle (g, width, height, Colour(0xff4364ff).brighter(0.2f));
-	}
-	else if (isMouseOverItem && isMenuOpen)
-	{
-		textColour = textColour.contrasting(1.0f);
-		drawSelectionRectangle (g, width, height, Colour(0xff4364ff).darker(0.1f));
-	}
-
-	g.setColour (textColour);
-	g.setFont (textFont);
-	g.drawFittedText (itemText, 0, 0, width, height, Justification::centred, 1);
-}
-
-void CtrlrLookAndFeel::drawPopupMenuItem (Graphics& g,
-                                    int width, int height,
-                                    bool isSeparator,
-                                    bool isActive,
-                                    bool isHighlighted,
-                                    bool isTicked,
-                                    bool hasSubMenu,
-                                    const String& text,
-                                    const String& shortcutKeyText,
-                                    Image* image,
-                                    const Colour* const textColourToUse)
-{
-    const float halfH = height * 0.5f;
-
-    if (isSeparator)
-    {
-        const float separatorIndent = 5.5f;
-
-        g.setColour (Colour (0x33000000));
-        g.drawLine (separatorIndent, halfH, width - separatorIndent, halfH);
-
-        g.setColour (Colour (0x66ffffff));
-        g.drawLine (separatorIndent, halfH + 1.0f, width - separatorIndent, halfH + 1.0f);
-    }
-    else
-    {
-        Colour textColour (findColour (PopupMenu::textColourId));
-
-        if (textColourToUse != nullptr)
-            textColour = *textColourToUse;
-
-        if (isHighlighted)
-        {
-			drawSelectionRectangle (g, width, height);
-            g.setColour (findColour (PopupMenu::highlightedTextColourId));
-        }
-        else
-        {
-            g.setColour (textColour);
-        }
-
-        if (! isActive)
-            g.setOpacity (0.3f);
-
-        Font font (getPopupMenuFont());
-
-        if (font.getHeight() > height / 1.3f)
-            font.setHeight (height / 1.3f);
-
-        g.setFont (font);
-
-        const int leftBorder = (height * 5) / 4;
-        const int rightBorder = 4;
-
-        if (image != nullptr)
-        {
-            g.drawImageWithin (*image,
-                               2, 1, leftBorder - 4, height - 2,
-                               RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, false);
-        }
-        else if (isTicked)
-        {
-            const Path tick (getTickShape (1.0f));
-            const float th = font.getAscent();
-            const float ty = halfH - th * 0.5f;
-
-            g.fillPath (tick, tick.getTransformToScaleToFit (2.0f, ty, (float) (leftBorder - 4),
-                                                             th, true));
-        }
-
-        g.drawFittedText (text,
-                          leftBorder, 0, width - (leftBorder + rightBorder), height,
-                          Justification::centredLeft, 1);
-
-        if (shortcutKeyText.isNotEmpty())
-        {
-            Font f2 (font);
-            f2.setHeight (f2.getHeight() * 0.75f);
-            f2.setHorizontalScale (0.95f);
-            g.setFont (f2);
-
-            g.drawText (shortcutKeyText,
-                        leftBorder, 0, width - (leftBorder + rightBorder + 4), height,
-                        Justification::centredRight,
-                        true);
-        }
-
-        if (hasSubMenu)
-        {
-            const float arrowH = 0.6f * getPopupMenuFont().getAscent();
-            const float x = width - height * 0.6f;
-
-            Path p;
-            p.addTriangle (x, halfH - arrowH * 0.5f,
-                           x, halfH + arrowH * 0.5f,
-                           x + arrowH * 0.6f, halfH);
-
-            g.fillPath (p);
-        }
-    }
-}
-*/
 CtrlrFontManager &CtrlrLookAndFeel::getFontManager()
 {
 	return (owner.getFontManager());
@@ -318,6 +152,10 @@ Colour CtrlrMenuBarLookAndFeel::getColour (const Identifier &property)
 
 Font CtrlrMenuBarLookAndFeel::getFont(const Identifier &property)
 {
+	if (panel)
+	{
+		return (owner.getOwner().getFontManager().getFontFromString (panel->getProperty (property)));
+	}
 	return (Font(18.0f));
 }
 
@@ -328,8 +166,8 @@ void CtrlrMenuBarLookAndFeel::drawPopupMenuBackground (Graphics &g, int width, i
     g.fillAll (background);
     g.setColour (background.overlaidWith (Colour (0x2badd8e6)));
 
-    for (int i = 0; i < height; i += 3)
-        g.fillRect (0, i, width, 1);
+    //for (int i = 0; i < height; i += 3)
+ //       g.fillRect (0, i, width, 1);
 
 #if ! JUCE_MAC
     g.setColour (findColour (PopupMenu::textColourId).withAlpha (0.6f));
@@ -337,18 +175,16 @@ void CtrlrMenuBarLookAndFeel::drawPopupMenuBackground (Graphics &g, int width, i
 #endif
 }
 
-void CtrlrMenuBarLookAndFeel::drawPopupMenuItem (Graphics &g, int width, int height, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, Image *image,
-													const Colour *const textColourToUse)
+void CtrlrMenuBarLookAndFeel::drawPopupMenuItem (Graphics &g, const Rectangle<int>& area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String& text, const String& shortcutKeyText, const Drawable* icon, const Colour* textColourToUse)
 {
-	const float halfH = height * 0.5f;
+	const float halfH = area.getHeight() * 0.5f;
 
     if (isSeparator)
     {
         const float separatorIndent = 5.5f;
 
         g.setColour (getColour (Ids::ctrlrMenuItemSeparatorColour));
-        g.fillRect (separatorIndent, halfH, width - (separatorIndent*2), 1.25f);
-        //g.drawLine (separatorIndent, halfH, width - separatorIndent, halfH, 0.3f);
+		g.fillRect (separatorIndent, halfH, area.getWidth() - (separatorIndent*2), 1.25f);
     }
     else
     {
@@ -356,7 +192,7 @@ void CtrlrMenuBarLookAndFeel::drawPopupMenuItem (Graphics &g, int width, int hei
 
         if (isHighlighted)
         {
-			drawSelectionRectangle (g, width, height, getColour (Ids::ctrlrMenuItemHighlightColour));
+			drawSelectionRectangle (g, area.getWidth(), area.getHeight(), getColour (Ids::ctrlrMenuItemHighlightColour));
             g.setColour (getColour (Ids::ctrlrMenuItemHighlightedTextColour));
         }
         else
@@ -369,19 +205,17 @@ void CtrlrMenuBarLookAndFeel::drawPopupMenuItem (Graphics &g, int width, int hei
 
         Font font (getPopupMenuFont());
 
-        if (font.getHeight() > height / 1.3f)
-            font.setHeight (height / 1.3f);
+        if (font.getHeight() > area.getHeight() / 1.3f)
+            font.setHeight (area.getHeight() / 1.3f);
 
         g.setFont (font);
 
-        const int leftBorder = (height * 5) / 4;
+        const int leftBorder = (area.getHeight() * 5) / 4;
         const int rightBorder = 4;
 
-        if (image != nullptr)
+        if (icon != nullptr)
         {
-            g.drawImageWithin (*image,
-                               2, 1, leftBorder - 4, height - 2,
-                               RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, false);
+			icon->drawWithin (g, Rectangle<float> (2.0f, 1.0f, leftBorder - 4.0f, area.getHeight() - 2.0f), RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, 1.0f);
         }
         else if (isTicked)
         {
@@ -394,7 +228,7 @@ void CtrlrMenuBarLookAndFeel::drawPopupMenuItem (Graphics &g, int width, int hei
         }
 
         g.drawFittedText (text,
-                          leftBorder, 0, width - (leftBorder + rightBorder), height,
+							leftBorder, 0, area.getWidth() - (leftBorder + rightBorder), area.getHeight(),
                           Justification::centredLeft, 1);
 
         if (shortcutKeyText.isNotEmpty())
@@ -405,7 +239,7 @@ void CtrlrMenuBarLookAndFeel::drawPopupMenuItem (Graphics &g, int width, int hei
             g.setFont (f2);
 
             g.drawText (shortcutKeyText,
-                        leftBorder, 0, width - (leftBorder + rightBorder + 4), height,
+                        leftBorder, 0, area.getWidth() - (leftBorder + rightBorder + 4), area.getHeight(),
                         Justification::centredRight,
                         true);
         }
@@ -413,7 +247,7 @@ void CtrlrMenuBarLookAndFeel::drawPopupMenuItem (Graphics &g, int width, int hei
         if (hasSubMenu)
         {
             const float arrowH = 0.6f * getPopupMenuFont().getAscent();
-            const float x = width - height * 0.6f;
+            const float x = area.getWidth() - area.getHeight() * 0.6f;
 
             Path p;
             p.addTriangle (x, halfH - arrowH * 0.5f,
@@ -427,7 +261,12 @@ void CtrlrMenuBarLookAndFeel::drawPopupMenuItem (Graphics &g, int width, int hei
 
 Font CtrlrMenuBarLookAndFeel::getPopupMenuFont ()
 {
-	return (getFont(Ids::ctrlrMenuItemFont));
+	return (getFont (Ids::ctrlrMenuItemFont));
+}
+
+Font CtrlrMenuBarLookAndFeel::getMenuBarFont (MenuBarComponent &menuBar, int itemIndex, const String &itemText)
+{
+	return (getFont(Ids::ctrlrMenuBarFont));
 }
 
 void CtrlrMenuBarLookAndFeel::drawPopupMenuUpDownArrow (Graphics &g, int width, int height, bool isScrollUpArrow)
@@ -489,13 +328,11 @@ int CtrlrMenuBarLookAndFeel::getMenuBarItemWidth (MenuBarComponent &menuBar, int
 	return getMenuBarFont (menuBar, itemIndex, itemText).getStringWidth (itemText) + menuBar.getHeight();
 }
 
-Font CtrlrMenuBarLookAndFeel::getMenuBarFont (MenuBarComponent &menuBar, int itemIndex, const String &itemText)
-{
-	return (getFont(Ids::ctrlrMenuBarFont));
-}
-
 void CtrlrMenuBarLookAndFeel::drawMenuBarItem (Graphics &g, int width, int height, int itemIndex, const String &itemText, bool isMouseOverItem, bool isMenuOpen, bool isMouseOverBar, MenuBarComponent &menuBar)
 {
+	if (itemText.isEmpty())
+		return;
+
 	Colour textColour	= getColour (Ids::ctrlrMenuBarTextColour);
 	Font textFont		= getMenuBarFont (menuBar, itemIndex, itemText);
 

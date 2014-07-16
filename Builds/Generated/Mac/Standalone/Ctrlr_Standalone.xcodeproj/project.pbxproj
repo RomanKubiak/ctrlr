@@ -698,7 +698,6 @@
 		499316C01EE2C7DE1B54EA87 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_android_OpenSL.cpp"; path = "../../../../Juce/modules/juce_audio_devices/native/juce_android_OpenSL.cpp"; sourceTree = "SOURCE_ROOT"; };
 		49D173E797794C14308B3493 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = libr.c; path = ../../../../Source/Native/Linux/libr.c; sourceTree = "SOURCE_ROOT"; };
 		49E8EE367069812CA5B7C372 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_FileOutputStream.cpp"; path = "../../../../Juce/modules/juce_core/files/juce_FileOutputStream.cpp"; sourceTree = "SOURCE_ROOT"; };
-		4A1643760CBD4FC99F6452D0 = {isa = PBXFileReference; lastKnownFileType = file.public; name = "ctrlr-master-key.public"; path = "../../../../Source/Resources/ctrlr-master-key.public"; sourceTree = "SOURCE_ROOT"; };
 		4A3836810F412C16AFE3A9FB = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_audio_devices.h"; path = "../../../../Juce/modules/juce_audio_devices/juce_audio_devices.h"; sourceTree = "SOURCE_ROOT"; };
 		4AA984EDCA57C480FE9CCA18 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrCustomComponent.cpp; path = ../../../../Source/UIComponents/CtrlrComponents/CtrlrCustomComponent.cpp; sourceTree = "SOURCE_ROOT"; };
 		4ABE19A3240A7410D52AA972 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = ../../../../Source/Core/stdafx.h; sourceTree = "SOURCE_ROOT"; };
@@ -1335,7 +1334,6 @@
 		C04E675B45BF8FF55F496BE4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrComponentSelection.cpp; path = ../../../../Source/UIComponents/CtrlrComponentSelection.cpp; sourceTree = "SOURCE_ROOT"; };
 		C09789B15D00717805121BC7 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_Identifier.h"; path = "../../../../Juce/modules/juce_core/text/juce_Identifier.h"; sourceTree = "SOURCE_ROOT"; };
 		C0D03FFC3ACAFE5FA879D665 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ChoicePropertyComponent.h"; path = "../../../../Juce/modules/juce_gui_basics/properties/juce_ChoicePropertyComponent.h"; sourceTree = "SOURCE_ROOT"; };
-		C0DF8764E55F554B3F2EE314 = {isa = PBXFileReference; lastKnownFileType = file.private; name = "ctrlr-master-key.private"; path = "../../../../Source/Resources/ctrlr-master-key.private"; sourceTree = "SOURCE_ROOT"; };
 		C0E0217DED99EE7F1F4B37F7 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "juce_gui_basics.mm"; path = "../../../../Juce/modules/juce_gui_basics/juce_gui_basics.mm"; sourceTree = "SOURCE_ROOT"; };
 		C10E2E253A72C6C2D0D483F2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrProperties.cpp; path = ../../../../Source/Core/CtrlrProperties.cpp; sourceTree = "SOURCE_ROOT"; };
 		C1650966BBE3BF2986DA0DD9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_WaitableEvent.h"; path = "../../../../Juce/modules/juce_core/threads/juce_WaitableEvent.h"; sourceTree = "SOURCE_ROOT"; };
@@ -1758,8 +1756,6 @@
 					9605865D872BFB57A5EB6F5E,
 					DEF590BB4B15606395E9DFA0, ); name = XML; sourceTree = "<group>"; };
 		0886C11A7E0A096881D2516C = {isa = PBXGroup; children = (
-					4A1643760CBD4FC99F6452D0,
-					C0DF8764E55F554B3F2EE314,
 					A576045E643742F54642F503,
 					95D6F30874C9F04A31EDDDCC,
 					E6584E1A42C424414B83E423,

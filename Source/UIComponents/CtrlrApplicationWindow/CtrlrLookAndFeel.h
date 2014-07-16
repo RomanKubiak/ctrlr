@@ -14,7 +14,7 @@ class CtrlrMenuBarLookAndFeel : public LookAndFeel_V2
 		CtrlrMenuBarLookAndFeel (CtrlrEditor &_owner);
 		void setPanel(CtrlrPanel *_panel);
 		void drawPopupMenuBackground (Graphics &g, int width, int height);
-		void drawPopupMenuItem (Graphics &g, int width, int height, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, Image *image, const Colour *textColourToUse);
+		void drawPopupMenuItem (Graphics &g, const juce::Rectangle<int>& area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String& text, const String& shortcutKeyText, const Drawable* icon, const Colour* textColourToUse);
 		Font getPopupMenuFont ();
 		void drawPopupMenuUpDownArrow (Graphics &g, int width, int height, bool isScrollUpArrow);
 		void getIdealPopupMenuItemSize (const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight);

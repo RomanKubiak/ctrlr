@@ -370,14 +370,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/Resources/ctrlr-master-key.private">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/ctrlr-master-key.public">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_transaction.png">
       <Option compile="0"/>
       <Option link="0"/>
