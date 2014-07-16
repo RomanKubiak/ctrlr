@@ -49,7 +49,7 @@ void CtrlrValueTreeEditorItem::itemSelectionChanged (bool isNowSelected)
 
 int	CtrlrValueTreeEditorItem::getItemWidth () const
 {
-	return (jmax<int>(128, provider.getItemFont(treeToEdit).getStringWidth (provider.getUniqueName(treeToEdit))));
+	return (jmax<int>(128, 48 + provider.getItemFont(treeToEdit).getStringWidth (provider.getUniqueName(treeToEdit))));
 }
 
 int	CtrlrValueTreeEditorItem::getItemHeight () const

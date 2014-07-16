@@ -36,7 +36,7 @@ void CtrlrManager::setEmbeddedDefaults()
 
 Result CtrlrManager::initEmbeddedInstance()
 {
-	ctrlrNativeObject	= CtrlrNative::getNativeObject();
+	ctrlrNativeObject	= CtrlrNative::getNativeObject(*this);
 
 	if (ctrlrNativeObject)
 	{

@@ -6,7 +6,7 @@
 class CtrlrGeneric : public CtrlrNative
 {
 	public:
-		CtrlrGeneric() {}
+		CtrlrGeneric(CtrlrManager &owner) {}
 		~CtrlrGeneric() {}
 		const int getMemoryUsage(){}
 		const short getCpuUsage(){}

@@ -634,5 +634,6 @@ void CtrlrComponent::wrapForLua (lua_State *L)
 			.def("getMaximum", &CtrlrComponent::getMaximum)
 			.def("getMinimum", &CtrlrComponent::getMinimum)
 			.def("getTextForValue", &CtrlrComponent::getTextForValue)
+			.def("getOwner", &CtrlrComponent::getOwner)
 	];
 }
