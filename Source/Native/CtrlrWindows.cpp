@@ -6,7 +6,7 @@
 #include "CtrlrWindows.h"
 #include <psapi.h>
 
-CtrlrWindows::CtrlrWindows()
+CtrlrWindows::CtrlrWindows(CtrlrManager &_owner) : owner(_owner)
 {
 }
 

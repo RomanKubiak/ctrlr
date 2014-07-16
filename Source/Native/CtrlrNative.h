@@ -23,7 +23,7 @@ class CtrlrPanel;
 class CtrlrNative
 {
 	public:
-		static CtrlrNative *getNativeObject();
+		static CtrlrNative *getNativeObject(CtrlrManager &owner);
 		virtual const Result exportWithDefaultPanel (CtrlrPanel *panelToWrite,
                                                         const bool isRestricted=false,
                                                         const bool signPanel=false,

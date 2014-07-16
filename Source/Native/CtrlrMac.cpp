@@ -9,7 +9,7 @@ static const int zero=0;
 #include "CtrlrLog.h"
 
 
-CtrlrMac::CtrlrMac()
+CtrlrMac::CtrlrMac(CtrlrManager &_owner) : owner(_owner)
 {
 }
 

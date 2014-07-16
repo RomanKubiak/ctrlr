@@ -8,7 +8,7 @@ class CtrlrPanel;
 class CtrlrWindows : public CtrlrNative
 {
 	public:
-		CtrlrWindows();
+		CtrlrWindows(CtrlrManager &_owner);
 		~CtrlrWindows();
 
 		/* resource handling */
@@ -19,5 +19,7 @@ class CtrlrWindows : public CtrlrNative
 		const Result getDefaultResources(MemoryBlock& dataToWrite);
 		const Result getSignature(MemoryBlock &dataToWrite);
 		const Result registerFileHandler();
+    private:
+        CtrlrManager &owner;
 };
 #endif

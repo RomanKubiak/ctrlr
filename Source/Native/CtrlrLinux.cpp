@@ -12,7 +12,7 @@ extern "C"
     #include "Linux/libr.h"
 }
 
-CtrlrLinux::CtrlrLinux()
+CtrlrLinux::CtrlrLinux(CtrlrManager &_owner) : owner(_owner)
 {
 }
 
