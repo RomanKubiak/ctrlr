@@ -1,4 +1,4 @@
-ctrlr
+Ctrlr
 =====
 
 Control any MIDI enabled hardware: synthesizers, drum machines, samplers, effects. Create custom User Interfaces. Host them as VST or AU plugins in your favorite DAWs.
