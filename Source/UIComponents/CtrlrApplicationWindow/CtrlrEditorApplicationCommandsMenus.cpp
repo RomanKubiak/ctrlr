@@ -76,8 +76,19 @@ class CtrlrMenuSlider : public PopupMenu::CustomComponent, public LookAndFeel_V3
 
 StringArray CtrlrEditor::getMenuBarNames()
 {
-	const char* const names[] = { "File", "Edit", "View", "Panel", "MIDI", "Programs", "Tools", "Help", nullptr };
-	StringArray n(names);
+	StringArray n;
+
+	if (!isRestricted())
+	{
+		const char* const names[] = { "File", "Edit", "View", "Panel", "MIDI", "Programs", "Tools", "Help", nullptr };
+		n = StringArray (names);
+	}
+	else
+	{
+		const char* const names[] = { "File", "Edit", "View",  "",     "MIDI", "Programs", "Tools", "Help", nullptr };
+		n = StringArray (names);
+	}
+
 	return (n);
 }
 
@@ -86,7 +97,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 	ApplicationCommandManager* commandManager = &(owner.getCommandManager());
 	PopupMenu menu;
 
-	if (topLevelMenuIndex == 0) // File
+	if (topLevelMenuIndex == MenuFile) // File
 	{
 		if (!isRestricted())
 		{
@@ -119,7 +130,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addSeparator();
 		menu.addCommandItem (commandManager, doQuit);
 	}
-	else if (topLevelMenuIndex == 1) // Edit
+	else if (topLevelMenuIndex == MenuEdit) // Edit
 	{
 		menu.addCommandItem (commandManager, doCopy);
 		menu.addCommandItem (commandManager, doCut);
@@ -131,7 +142,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, showKeyboardMappingDialog);
 		menu.addCommandItem (commandManager, showGlobalSettingsDialog);
 	}
-	else if (topLevelMenuIndex == 2) // View
+	else if (topLevelMenuIndex == MenuView) // View
 	{
 		menu.addCommandItem (commandManager, doZoomIn);
 		menu.addCommandItem (commandManager, doZoomOut);
@@ -141,7 +152,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		if (!isRestricted()) menu.addCommandItem (commandManager, doRefreshPropertyLists);
 		if (!isRestricted()) menu.addCommandItem (commandManager, doViewPropertyDisplayIDs);
 	}
-	else if (topLevelMenuIndex == 3 && !isRestricted()) // Panel
+	else if (topLevelMenuIndex == MenuPanel) // Panel
 	{
 		menu.addCommandItem (commandManager, doPanelMode);
 		menu.addCommandItem (commandManager, doPanelLock);
@@ -155,7 +166,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, showLuaConsole);
 		menu.addCommandItem (commandManager, showBufferEditor);
 	}
-	else if (topLevelMenuIndex == 4) // MIDI
+	else if (topLevelMenuIndex == MenuMidi) // MIDI
 	{
 		menu.addSectionHeader ("Input"+getMidiSummary(CtrlrMidiDeviceManager::inputDevice));
 		menu.addSubMenu ("Device", getMidiDeviceMenu(CtrlrMidiDeviceManager::inputDevice), isPanelActive());
@@ -187,16 +198,10 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, optMidiOutuptToHost);
 		menu.addSubMenu ("Input channel", getMidiChannelMenu(CtrlrMidiDeviceManager::hostInputDevice),		(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
 		menu.addSubMenu ("Output channel", getMidiChannelMenu(CtrlrMidiDeviceManager::hostOutputDevice),	(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
-
-		menu.addSectionHeader ("Snapshot options");
-		menu.addCommandItem (commandManager, doSendSnapshot);
-		menu.addCommandItem (commandManager, optMidiSnapshotOnLoad);
-		menu.addCommandItem (commandManager, optMidiSnapshotOnProgramChange);
-		menu.addCustomItem (1, new CtrlrMenuSlider(this, "Snapshot delay", getPanelProperty(Ids::panelMidiSnapshotDelay), 0, 2000, 1));
 	}
-	else if (topLevelMenuIndex == 5) // Programs
+	else if (topLevelMenuIndex == MenuPrograms) // Programs
 	{
-		menu.addCommandItem (commandManager, showMidiLibrary);
+	/*	menu.addCommandItem (commandManager, showMidiLibrary);
 		menu.addSectionHeader("Local operations");
 		menu.addCommandItem (commandManager, doSnapshotStore);
 		menu.addCommandItem (commandManager, doSaveSaveToCurrentProgram);
@@ -209,17 +214,23 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, doCurrentBankRequest);
 		menu.addCommandItem (commandManager, doCurrentProgramRequest);
 		menu.addCommandItem (commandManager, doAllProgramsRequest);
-
+	*/
 		if (getActivePanel())
 		{
-			menu.addSectionHeader ("Custom requests");
-			getActivePanel()->getCtrlrMIDILibrary().attachCustomRequests (menu);
+			// menu.addSectionHeader ("Custom requests");
+			// getActivePanel()->getCtrlrMIDILibrary().attachCustomRequests (menu);
 
 			menu.addSectionHeader ("Program change");
 			getActivePanel()->getCtrlrMIDILibrary().attachToPopupMenu (menu);
 		}
+	
+		menu.addSectionHeader ("Snapshots");
+		menu.addCommandItem (commandManager, doSendSnapshot);
+		menu.addCommandItem (commandManager, optMidiSnapshotOnLoad);
+		menu.addCommandItem (commandManager, optMidiSnapshotOnProgramChange);
+		menu.addCustomItem (1, new CtrlrMenuSlider(this, "Snapshot delay", getPanelProperty(Ids::panelMidiSnapshotDelay), 0, 2000, 1));
 	}
-	else if (topLevelMenuIndex == 6) // Tools
+	else if (topLevelMenuIndex == MenuTools) // Tools
 	{
 		menu.addCommandItem (commandManager, showMidiMonitor);
 		menu.addCommandItem (commandManager, showMidiCalculator);
@@ -228,7 +239,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, doRegisterExtension);
 		menu.addCommandItem (commandManager, doKeyGenerator);
 	}
-	else if (topLevelMenuIndex == 7) // Help
+	else if (topLevelMenuIndex == MenuHelp) // Help
 	{
 		menu.addCommandItem (commandManager, showAboutDialog);
 		menu.addSeparator();

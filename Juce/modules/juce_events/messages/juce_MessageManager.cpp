@@ -66,12 +66,13 @@ void MessageManager::deleteInstance()
 }
 
 //==============================================================================
-void MessageManager::MessageBase::post()
+bool MessageManager::MessageBase::post()
 {
     MessageManager* const mm = MessageManager::instance;
-	
-    if (mm == nullptr || mm->quitMessagePosted || ! postMessageToSystemQueue (this))
+	const bool ret = postMessageToSystemQueue (this);
+    if (mm == nullptr || mm->quitMessagePosted || ! ret)
         Ptr deleter (this); // (this will delete messages that were just created with a 0 ref count)
+	return (ret);
 }
 
 //==============================================================================
