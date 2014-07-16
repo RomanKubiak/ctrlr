@@ -90,11 +90,7 @@ function build_now_windows {
 	echo
 	sed -e "s/%REVISION%/$VERSION/g" -e "s/%REVISION_DATE%/$DATE/g" $TEMPLATE_H > $REVISION_H
 	
-	if [ ! "$ARGS" == "package" ]; then
-		windows_msbuild
-	else
-		echo "CTRLR: Package only"
-	fi
+	windows_msbuild
 	
 	echo "CTRLR: Build success, create installer"
 	eval $NSIS $CTRLR_ROOT/Packaging/Windows/ctrlr.nsi
