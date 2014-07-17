@@ -601,7 +601,7 @@ void CtrlrPanelCanvas::restoreState (const ValueTree &savedState)
 	}
 
 	/* now restore components */
-	int dispatchCounter = 0;
+	
 	for (int i=0; i<savedState.getNumChildren(); i++)
 	{
 		ValueTree child = savedState.getChild(i);
@@ -622,14 +622,6 @@ void CtrlrPanelCanvas::restoreState (const ValueTree &savedState)
 				c->setVisible ((bool)c->getProperty(Ids::componentVisibility));
 			}
 		}
-
-#if JUCE_WINDOWS
-		if (MessageManager::getInstance() && ++dispatchCounter > 300)
-		{
-			MessageManager::getInstance()->runDispatchLoopUntil (25);
-			dispatchCounter = 0;
-		}
-#endif
 	}
 
 	canvasStateRestored();
