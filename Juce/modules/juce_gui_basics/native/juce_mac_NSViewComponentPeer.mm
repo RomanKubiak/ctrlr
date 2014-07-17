@@ -1013,7 +1013,7 @@ public:
     static Point<float> getMousePos (NSEvent* e, NSView* view)
     {
         NSPoint p = [view convertPoint: [e locationInWindow] fromView: nil];
-        return Point<float> (p.x, [view frame].size.height - p.y);
+        return Point<float> ((float) p.x, (float) ([view frame].size.height - p.y));
     }
 
     static int getModifierForButtonNumber (const NSInteger num)
@@ -1221,6 +1221,8 @@ private:
 
         const Rectangle<int> clipBounds (clipW, clipH);
         const CGFloat viewH = [view frame].size.height;
+
+        clip.ensureStorageAllocated ((int) numRects);
 
         for (int i = 0; i < numRects; ++i)
             clip.addWithoutMerging (clipBounds.getIntersection (Rectangle<int> (roundToInt (rects[i].origin.x) + offset.x,
