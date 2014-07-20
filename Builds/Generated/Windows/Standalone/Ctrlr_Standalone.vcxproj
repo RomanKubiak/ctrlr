@@ -3023,6 +3023,7 @@
     <ClInclude Include="..\..\..\Standalone\JuceLibraryCode\JuceHeader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Source\Resources\Misc\Ctrlr-Instance.rsrc" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.bin" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Computerfont.bin" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digit.bin" />

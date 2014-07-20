@@ -487,6 +487,7 @@
 		2583BB24F1AA4A0587C375B3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrWindows.cpp; path = ../../../../Source/Native/CtrlrWindows.cpp; sourceTree = "SOURCE_ROOT"; };
 		25EB953473EA1A8FE70AC544 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrModulator.h; path = ../../../../Source/Core/CtrlrModulator/CtrlrModulator.h; sourceTree = "SOURCE_ROOT"; };
 		25FE58D831BD3832EAD4AA55 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ResizableWindow.h"; path = "../../../../Juce/modules/juce_gui_basics/windows/juce_ResizableWindow.h"; sourceTree = "SOURCE_ROOT"; };
+		261E352223A973CE129F5460 = {isa = PBXFileReference; lastKnownFileType = file.rsrc; name = "Ctrlr-Instance.rsrc"; path = "../../../../Source/Resources/Misc/Ctrlr-Instance.rsrc"; sourceTree = "SOURCE_ROOT"; };
 		264046B5DACACAE8077556C5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = ../../../../Source/Core/stdafx.cpp; sourceTree = "SOURCE_ROOT"; };
 		2641E0ED38B327BD3F47C933 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_Expression.cpp"; path = "../../../../Juce/modules/juce_core/maths/juce_Expression.cpp"; sourceTree = "SOURCE_ROOT"; };
 		26455D01998D5522959D0B05 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_MemoryInputStream.cpp"; path = "../../../../Juce/modules/juce_core/streams/juce_MemoryInputStream.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -1694,6 +1695,8 @@
 		FFC6161214C8AA2C321F0F0B = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_RecentlyOpenedFilesList.h"; path = "../../../../Juce/modules/juce_gui_extra/misc/juce_RecentlyOpenedFilesList.h"; sourceTree = "SOURCE_ROOT"; };
 		FFFE30FD19B17011D05FE483 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LThread.cpp; path = ../../../../Source/Lua/JuceClasses/LThread.cpp; sourceTree = "SOURCE_ROOT"; };
 		FFFFB98FC46272E762E10FC9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_TreeView.h"; path = "../../../../Juce/modules/juce_gui_basics/widgets/juce_TreeView.h"; sourceTree = "SOURCE_ROOT"; };
+		852DA618D758B91B66D96E1B = {isa = PBXGroup; children = (
+					261E352223A973CE129F5460, ); name = Misc; sourceTree = "<group>"; };
 		A576045E643742F54642F503 = {isa = PBXGroup; children = (
 					947C59F3517EB38CB2587D97,
 					EF8711819F70684022B564DC,
@@ -1756,6 +1759,7 @@
 					9605865D872BFB57A5EB6F5E,
 					DEF590BB4B15606395E9DFA0, ); name = XML; sourceTree = "<group>"; };
 		0886C11A7E0A096881D2516C = {isa = PBXGroup; children = (
+					852DA618D758B91B66D96E1B,
 					A576045E643742F54642F503,
 					95D6F30874C9F04A31EDDDCC,
 					E6584E1A42C424414B83E423,

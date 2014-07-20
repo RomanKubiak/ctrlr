@@ -49,6 +49,8 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 		setSize (640, 480);
 	}
 
+	initTest();
+
 	lookAndFeelChanged();
 	activeCtrlrChanged();
 }
@@ -125,4 +127,19 @@ const bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
 	}
 
 	return (false);
+}
+
+void CtrlrEditor::initTest()
+{
+	MemoryBlock r (BinaryData::CtrlrInstance_rsrc, BinaryData::CtrlrInstance_rsrcSize);	
+	const int dataStart = ByteOrder::bigEndianInt (r.getData());
+	const int mapStart  = ByteOrder::bigEndianInt ((char *)r.getData() + 4);
+	const int dataLen   = ByteOrder::bigEndianInt ((char *)r.getData() + 8);
+	const int mapLen    = ByteOrder::bigEndianInt ((char *)r.getData() + 12);
+
+	const int nameLen   = ByteOrder::bigEndianInt ((void *)&r[dataStart]);
+
+	const String name ( ((char *)r.getData() + dataStart + sizeof(int)), dataLen);
+	_DBG (String::formatted ("dataStart: %d mapStart %d dataLen: %d mapLen: %d nameLen: %d", dataStart, mapStart, dataLen, mapLen, nameLen));
+	_DBG("name: "+name);
 }
