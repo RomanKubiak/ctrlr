@@ -58,13 +58,13 @@ function windows_msbuild {
 		echo "CTRLR: MSBuild.exe found"
 		cd $CTRLR_ROOT/Builds
 		echo "CTRLR: Build Win32"
-		$DOTNET/MSBuild.exe $CTRLR_ROOT/Builds/Ctrlr_Release.sln /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:Platform=Win32 /maxcpucount:6
+		$DOTNET/MSBuild.exe $CTRLR_ROOT/Builds/Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:Platform=Win32 /maxcpucount:6
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: Win32 build failed"
 			exit 1
 		fi
 		echo "CTRLR: Build x64"
-		$DOTNET/MSBuild.exe $CTRLR_ROOT/Builds/Ctrlr_Release.sln /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:Platform=x64 /maxcpucount:6
+		$DOTNET/MSBuild.exe $CTRLR_ROOT/Builds/Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:Platform=x64 /maxcpucount:6
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: x64 build failed"
 			exit 1

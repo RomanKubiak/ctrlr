@@ -7,6 +7,9 @@
     <Filter Include="Ctrlr_Standalone\Resources">
       <UniqueIdentifier>{7E11FCBD-4938-259A-5C1D-29CC740599C7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ctrlr_Standalone\Resources\Misc">
+      <UniqueIdentifier>{F1916C69-B609-D7B9-3629-CF4E1360D5C2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Ctrlr_Standalone\Resources\Fonts">
       <UniqueIdentifier>{11A1B9FE-4FAE-887A-459D-00AFC83549E6}</UniqueIdentifier>
     </Filter>
@@ -4363,6 +4366,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Source\Resources\Misc\Ctrlr-Instance.rsrc">
+      <Filter>Ctrlr_Standalone\Resources\Misc</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.bin">
       <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
     </None>

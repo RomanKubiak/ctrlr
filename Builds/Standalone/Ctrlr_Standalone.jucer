@@ -154,6 +154,10 @@
   </EXPORTFORMATS>
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
+      <GROUP id="{675B9675-5157-95D4-7C42-61D020DD23E6}" name="Misc">
+        <FILE id="EvmCWr" name="Ctrlr-Instance.rsrc" compile="0" resource="1"
+              file="../../Source/Resources/Misc/Ctrlr-Instance.rsrc"/>
+      </GROUP>
       <GROUP id="{F43FBFF2-7D6A-C5F7-3C57-3DC4E3DBEE35}" name="Fonts">
         <FILE id="lECaM0" name="FONT_60sekuntia.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_60sekuntia.bin"/>
