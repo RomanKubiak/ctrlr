@@ -131,6 +131,7 @@ const bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
 
 void CtrlrEditor::initTest()
 {
+#ifdef JUCE_DEBUG
 	MemoryBlock r (BinaryData::CtrlrInstance_rsrc, BinaryData::CtrlrInstance_rsrcSize);	
 	const int dataStart = ByteOrder::bigEndianInt (r.getData());
 	const int mapStart  = ByteOrder::bigEndianInt ((char *)r.getData() + 4);
@@ -141,5 +142,6 @@ void CtrlrEditor::initTest()
 
 	const String name ( ((char *)r.getData() + dataStart + sizeof(int)), dataLen);
 	_DBG (String::formatted ("dataStart: %d mapStart %d dataLen: %d mapLen: %d nameLen: %d", dataStart, mapStart, dataLen, mapLen, nameLen));
-	_DBG("name: "+name);
+	_DBG("name: \""+name+"\"");
+#endif
 }
