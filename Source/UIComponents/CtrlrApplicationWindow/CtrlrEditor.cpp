@@ -146,6 +146,4 @@ void CtrlrEditor::getRsrcInfo(const MemoryBlock &rsrc)
 void CtrlrEditor::initTest()
 {
     getRsrcInfo (MemoryBlock (BinaryData::CtrlrInstance_rsrc, BinaryData::CtrlrInstance_rsrcSize));
-    getRsrcInfo (MemoryBlock (BinaryData::Zeta_rsrc, BinaryData::Zeta_rsrcSize));
-    getRsrcInfo (MemoryBlock (BinaryData::Zeta1_rsrc, BinaryData::Zeta1_rsrcSize));
 }
