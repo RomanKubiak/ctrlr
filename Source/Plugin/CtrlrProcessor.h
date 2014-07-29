@@ -13,6 +13,21 @@ class CtrlrManager;
 typedef WeakReference<CtrlrPanelProcessor>	PanelProcessorReference;
 typedef WeakReference<CtrlrModulator> ModulatorReference;
 
+struct DelayedPluginDeleter  : private Timer, private DeletedAtShutdown
+{
+    DelayedPluginDeleter (AudioPluginInstance* p)  : plugin (p)
+    {
+        startTimer (1000);
+    }
+    
+    void timerCallback() override
+    {
+        delete this;
+    }
+
+    ScopedPointer<AudioPluginInstance> plugin;
+};
+
 struct CtrlrParameterFromHost
 {
 	CtrlrParameterFromHost(const int _index, const float _value)

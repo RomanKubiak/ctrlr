@@ -744,7 +744,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-missing-field-initializers",
@@ -753,7 +753,7 @@
 					"-Wno-unused-variable",
 					"-Wno-reorder",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 				SDKROOT_ppc = macosx10.5;
 				SYMROOT = /usr/local/lib;
 			};
@@ -784,7 +784,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-missing-field-initializers",
@@ -793,7 +793,7 @@
 					"-Wno-unused-variable",
 					"-Wno-reorder",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 				SDKROOT_ppc = macosx10.5;
 			};
 			name = Debug;
@@ -866,7 +866,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-missing-field-initializers",
@@ -875,7 +875,7 @@
 					"-Wno-unused-variable",
 					"-Wno-reorder",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 				SDKROOT_ppc = macosx10.5;
 				SYMROOT = /usr/local/lib;
 			};

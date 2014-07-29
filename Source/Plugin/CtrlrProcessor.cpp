@@ -23,7 +23,7 @@ CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrMana
 	overridesFile	= currentExec.withFileExtension("overrides");
 
 	overridesTree.setProperty (Ids::ctrlrMaxExportedVstParameters, 64, 0);
-	overridesTree.setProperty (Ids::ctrlrShutdownDelay, 256, 0);
+	overridesTree.setProperty (Ids::ctrlrShutdownDelay, 512, 0);
 
 	if (overridesFile.existsAsFile())
 	{
@@ -66,8 +66,6 @@ const String CtrlrProcessor::getName() const
 
 int CtrlrProcessor::getNumParameters()
 {
-	// _DBG("CtrlrProcessor::getNumParameters");
-
 	if (ctrlrManager)
 		return (jmax(ctrlrManager->getNumModulators(true), (int)overridesTree.getProperty (Ids::ctrlrMaxExportedVstParameters)));
 	else
@@ -79,7 +77,6 @@ float CtrlrProcessor::getParameter (int index)
 	CtrlrModulator *m = ctrlrManager->getModulatorByVstIndex (index);
 	if (m)
 	{
-		// _DBG("\treturn "+String(m->getProcessor().getValueForHost(),2));
 		return (m->getProcessor().getValueForHost());
 	}
 	else
@@ -93,12 +90,10 @@ void CtrlrProcessor::setParameter (int index, float newValue)
 	CtrlrModulator *m = ctrlrManager->getModulatorByVstIndex (index);
 	if (m == nullptr)
 	{
-		//_WRN("CtrlrProcessor::setParameter can't find modulator for index="+String(index)+" value="+String(newValue));
 		return;
 	}
 	else if (newValue > 1.0f || newValue < 0.000000f)
 	{
-		//_WRN("CtrlrProcessor::setParameter value out of bounds index="+String(index)+" value="+String(newValue));
 		return;
 	}
 	else
@@ -109,7 +104,6 @@ void CtrlrProcessor::setParameter (int index, float newValue)
 
 const String CtrlrProcessor::getParameterName (int index)
 {
-	// _DBG("CtrlrProcessor::getParameterName index="+STR(index));
     if (ctrlrManager->getModulatorByVstIndex (index))
 	{
 		return (ctrlrManager->getModulatorByVstIndex (index)->getNameForHost());
@@ -122,7 +116,6 @@ const String CtrlrProcessor::getParameterName (int index)
 
 const String CtrlrProcessor::getParameterText (int index)
 {
-	// _DBG("CtrlrProcessor::getParameterText index="+STR(index));
     if (ctrlrManager->getModulatorByVstIndex (index))
 	{
 		const String text = ctrlrManager->getModulatorByVstIndex (index)->getTextForHost();
