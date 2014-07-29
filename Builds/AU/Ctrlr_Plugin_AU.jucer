@@ -17,11 +17,11 @@
     <XCODE_MAC targetFolder="../Generated/Mac/AU" vstFolder="~/devel/vstsdk2.4"
                rtasFolder="~/SDKs/PT_80_SDK" objCExtraSuffix="CTRLRUNIQAU" extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
                smallIcon="NlgAZz" bigIcon="NDfriF" extraDefs="__MACOSX_CORE__=1"
-               postbuildCommand="#if [ &quot;$CONFIGURATION&quot; == &quot;Debug&quot; ]; then&#10;#    exit 0&#10;#fi&#10;&#10;AU=&quot;$PROJECT_DIR/../../../../Bin/$FULL_PRODUCT_NAME&quot;&#10;echo &quot;[CTRLR]: CONFIGURATION - $CONFIGURATION&quot;&#10;echo &quot;[CTRLR]: PRODUCT PATH - $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME&quot;&#10;echo &quot;[CTRLR]: UPDATED PRODUCT PATH - $AU&quot;&#10;&#10;if [ -d $AU ]; then&#10;    echo &quot;[CTRLR]: $AU ALREADY EXISTS - DELETE&quot;&#10;    rm -rf $AU&#10;fi&#10;&#10;echo &quot;[CTRLR]: COPY PRODUCT&quot;&#10;echo &quot;[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU&quot;&#10;cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU&#10;echo $?"
+               postbuildCommand="if [ &quot;$CONFIGURATION&quot; == &quot;Debug&quot; ]; then&#10;    exit 0&#10;fi&#10;&#10;AU=&quot;$PROJECT_DIR/../../../../Bin/$FULL_PRODUCT_NAME&quot;&#10;echo &quot;[CTRLR]: CONFIGURATION - $CONFIGURATION&quot;&#10;echo &quot;[CTRLR]: PRODUCT PATH - $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME&quot;&#10;echo &quot;[CTRLR]: UPDATED PRODUCT PATH - $AU&quot;&#10;&#10;if [ -d $AU ]; then&#10;    echo &quot;[CTRLR]: $AU ALREADY EXISTS - DELETE&quot;&#10;    rm -rf $AU&#10;fi&#10;&#10;echo &quot;[CTRLR]: COPY PRODUCT&quot;&#10;echo &quot;[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU&quot;&#10;cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU&#10;echo $?"
                prebuildCommand="" extraLinkerFlags="-L$PROJECT_DIR -L/usr/lib -L/usr/local/lib -lau_wrapper">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
-                       osxSDK="10.8 SDK" osxCompatibility="10.8 SDK" osxArchitecture="64BitUniversal"
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="32BitUniversal"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Lua&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Lua&#10;../../../../Source/Application"
                        binaryPath="" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_AU&#10;JUCE_DEBUG=1&#10;LUA_USE_LINUX"
                        customXcodeFlags="EXCLUDED_SOURCE_FILE_NAMES=&quot;*AU*.cpp Carbon*.cpp ComponentBase.cpp MusicDeviceBase.cpp&quot;,GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
@@ -638,6 +638,10 @@
             resource="0" file="../../Source/Plugin/CtrlrProcessorEditorForLive.h"/>
     </GROUP>
     <GROUP id="{F570B22C-B55C-D55C-378E-102502EFE32E}" name="Resources">
+      <GROUP id="{78AE3BD3-3C5D-8FCD-4FE0-B2F5B3C9C8E4}" name="Misc">
+        <FILE id="xI0r3y" name="Ctrlr-Instance.rsrc" compile="0" resource="1"
+              file="../../Source/Resources/Misc/Ctrlr-Instance.rsrc"/>
+      </GROUP>
       <GROUP id="{5A224694-9F55-9179-D979-927BC5002604}" name="Icons">
         <FILE id="eEA2r4" name="ico_transaction.png" compile="0" resource="1"
               file="../../Source/Resources/Icons/ico_transaction.png"/>
