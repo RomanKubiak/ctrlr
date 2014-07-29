@@ -155,6 +155,11 @@
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
       <GROUP id="{675B9675-5157-95D4-7C42-61D020DD23E6}" name="Misc">
+        <FILE id="qnTd6k" name="Zeta.rsrc" compile="0" resource="1" file="../../Source/Resources/Zeta.rsrc"/>
+        <FILE id="VhHrGO" name="Zeta1.rsrc" compile="0" resource="1" file="../../Source/Resources/Zeta1.rsrc"/>
+        <FILE id="Q5VaR4" name="Zeta12.rsrc" compile="0" resource="1" file="../../Source/Resources/Zeta12.rsrc"/>
+        <FILE id="GG3EBz" name="Zeta123.rsrc" compile="0" resource="1" file="../../Source/Resources/Zeta123.rsrc"/>
+        <FILE id="LFMdrW" name="Zeta1234.rsrc" compile="0" resource="1" file="../../Source/Resources/Zeta1234.rsrc"/>
         <FILE id="EvmCWr" name="Ctrlr-Instance.rsrc" compile="0" resource="1"
               file="../../Source/Resources/Misc/Ctrlr-Instance.rsrc"/>
       </GROUP>

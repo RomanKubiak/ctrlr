@@ -129,19 +129,23 @@ const bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
 	return (false);
 }
 
+void CtrlrEditor::getRsrcInfo(const MemoryBlock &rsrc)
+{
+	const int dataStart = ByteOrder::bigEndianInt (rsrc.getData());
+	const int mapStart  = ByteOrder::bigEndianInt ((char *)rsrc.getData() + 4);
+	const int dataLen   = ByteOrder::bigEndianInt ((char *)rsrc.getData() + 8);
+	const int mapLen    = ByteOrder::bigEndianInt ((char *)rsrc.getData() + 12);
+
+	const int nameLen   = ByteOrder::bigEndianInt ((void *)&rsrc[dataStart]);
+
+	const String name ( ((char *)rsrc.getData() + dataStart + sizeof(int) + 1), nameLen);
+	_DBG (String::formatted ("total: %d dataStart: %d mapStart %d dataLen: %d mapLen: %d nameLen: %d", rsrc.getSize(), dataStart, mapStart, dataLen, mapLen, nameLen));
+	_DBG("name: \""+name+"\"");
+}
+
 void CtrlrEditor::initTest()
 {
-#ifdef JUCE_DEBUG
-	MemoryBlock r (BinaryData::CtrlrInstance_rsrc, BinaryData::CtrlrInstance_rsrcSize);	
-	const int dataStart = ByteOrder::bigEndianInt (r.getData());
-	const int mapStart  = ByteOrder::bigEndianInt ((char *)r.getData() + 4);
-	const int dataLen   = ByteOrder::bigEndianInt ((char *)r.getData() + 8);
-	const int mapLen    = ByteOrder::bigEndianInt ((char *)r.getData() + 12);
-
-	const int nameLen   = ByteOrder::bigEndianInt ((void *)&r[dataStart]);
-
-	const String name ( ((char *)r.getData() + dataStart + sizeof(int) + 1), dataLen);
-	_DBG (String::formatted ("dataStart: %d mapStart %d dataLen: %d mapLen: %d nameLen: %d", dataStart, mapStart, dataLen, mapLen, nameLen));
-	_DBG("name: \""+name+"\"");
-#endif
+    getRsrcInfo (MemoryBlock (BinaryData::CtrlrInstance_rsrc, BinaryData::CtrlrInstance_rsrcSize));
+    getRsrcInfo (MemoryBlock (BinaryData::Zeta_rsrc, BinaryData::Zeta_rsrcSize));
+    getRsrcInfo (MemoryBlock (BinaryData::Zeta1_rsrc, BinaryData::Zeta1_rsrcSize));
 }

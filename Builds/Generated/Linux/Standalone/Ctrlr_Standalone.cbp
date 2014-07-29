@@ -2474,6 +2474,11 @@
 		<Unit filename="../../../../Source/Resources/XML/CtrlrMIDITransactions.xml" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrMIDIVendors.xml" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrMidiMultiTemplate.xml" />
+		<Unit filename="../../../../Source/Resources/Zeta.rsrc" />
+		<Unit filename="../../../../Source/Resources/Zeta1.rsrc" />
+		<Unit filename="../../../../Source/Resources/Zeta12.rsrc" />
+		<Unit filename="../../../../Source/Resources/Zeta123.rsrc" />
+		<Unit filename="../../../../Source/Resources/Zeta1234.rsrc" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrAbout.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrAbout.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrDocumentPanel.cpp" />
