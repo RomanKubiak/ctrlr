@@ -151,6 +151,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		void performCustomRequest(const int menuItemID);
 		void performKeyGenerator();
 		void initTest();
+		void getRsrcInfo(const MemoryBlock &rsrc);
 		CtrlrMenuBarLookAndFeel *getMenuBarLookAndFeel () { return (menuBarLookAndFeel); }
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrEditor)
 

@@ -9,6 +9,21 @@
 
 namespace BinaryData
 {
+    extern const char*   Zeta_rsrc;
+    const int            Zeta_rsrcSize = 772;
+
+    extern const char*   Zeta1_rsrc;
+    const int            Zeta1_rsrcSize = 785;
+
+    extern const char*   Zeta12_rsrc;
+    const int            Zeta12_rsrcSize = 798;
+
+    extern const char*   Zeta123_rsrc;
+    const int            Zeta123_rsrcSize = 811;
+
+    extern const char*   Zeta1234_rsrc;
+    const int            Zeta1234_rsrcSize = 824;
+
     extern const char*   CtrlrInstance_rsrc;
     const int            CtrlrInstance_rsrcSize = 761;
 
@@ -190,7 +205,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 59;
+    const int namedResourceListSize = 64;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
