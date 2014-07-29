@@ -231,6 +231,10 @@ void CtrlrValueMap::fillCombo (ComboBox &comboToFill, const bool clearBeforeFill
 			}
 		}
 
+		if ((i+1) <= 0)
+		{
+			_WRN("CtrlrValueMap::fillCombo trying to insert an item with newItemId="+String(i+1));
+		}
 		comboToFill.addItem (values[i].textRepresentation, i+1);
 	}
 }

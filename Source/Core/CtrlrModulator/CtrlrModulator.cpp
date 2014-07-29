@@ -219,11 +219,12 @@ void CtrlrModulator::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 		if (!modulatorTree.hasProperty(property))
 			return;
 
+		modifyReference(getProperty(property));
+
 		if (getRestoreState())
 			return;
 
 		owner.modulatorValueChanged(this);
-		modifyReference(getProperty(property));
 
 		modulatorListeners.call (&ModulatorListener::modulatorChanged, this, getProperty(property));
 	}
@@ -424,7 +425,12 @@ void CtrlrModulator::setReference (const String &modulatorToReference)
 	}
 	else if (modulatorToReference != getName())
 	{
-		ctrlrModulatorReference = owner.getModulator (modulatorToReference);
+		CtrlrModulator *m = owner.getModulator (modulatorToReference);
+		if (m == nullptr)
+		{
+			_WRN("CtrlrModulator::setReference ["+getName()+"] can't find modulator with name \""+modulatorToReference+"\" link won't work");
+		}
+		ctrlrModulatorReference = m;
 	}
 	else
 	{

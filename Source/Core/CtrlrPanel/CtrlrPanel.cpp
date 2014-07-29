@@ -290,13 +290,13 @@ void CtrlrPanel::bootstrapPanel(const bool setInitialProgram)
 
 	boostrapStateStatus = true;
 
-	if (setInitialProgram)
-		setProgram (initialProgram);
-
 	for (int i=0; i<ctrlrModulators.size(); i++)
 	{
 		ctrlrModulators[i]->allModulatorsInitialized();
 	}
+
+	if (setInitialProgram)
+		setProgram (initialProgram);
 
 	if (luaPanelLoadedCbk && !luaPanelLoadedCbk.wasObjectDeleted())
 	{
