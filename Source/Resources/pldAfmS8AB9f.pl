@@ -226,6 +226,7 @@ for $i (@order) {
     #
     read(RSRC, $data, $rlen);
     $offs = 0;					# offset of this line in $data
+    print " data len: $rlen ";
     while (length($data) > 15) {
       $piece = substr($data, 0, 16, '');
       @bytesfrompiece = unpack("C16", $piece);

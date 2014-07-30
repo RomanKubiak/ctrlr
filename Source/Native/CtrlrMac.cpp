@@ -28,6 +28,7 @@ const Result CtrlrMac::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const b
 	File	newMe;
 	MemoryBlock panelExportData,panelResourcesData;
 	String error;
+    
 	FileChooser fc(CTRLR_NEW_INSTANCE_DIALOG_TITLE, me.getParentDirectory().getChildFile(File::createLegalFileName(panelToWrite->getProperty(Ids::name))).withFileExtension(me.getFileExtension()), me.getFileExtension());
 
 	if (fc.browseForDirectory())
@@ -43,11 +44,18 @@ const Result CtrlrMac::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const b
 		return (Result::fail("MAC native, browse for directory dialog failed"));
 	}
 
-	if (!setBundleInfo(panelToWrite, newMe))
+    Result res = setBundleInfo(panelToWrite, newMe);
+	if (!res.wasOk())
 	{
-		_WRN("CtrlrMac::exportMeWithNewResource failed to write new bundle information");
+		return (res);
 	}
 
+    res = setBundleInfoCarbon(panelToWrite, newMe);
+    if (!res.wasOk())
+    {
+        return (res);
+    }
+    
 	if ( (error = CtrlrPanel::exportPanel (panelToWrite, File::nonexistent, newMe, &panelExportData, &panelResourcesData, isRestricted)) == String::empty)
 	{
 		File panelFile		= newMe.getChildFile("Contents/Resources/"+String(CTRLR_MAC_PANEL_FILE));
@@ -110,7 +118,7 @@ const Result CtrlrMac::getDefaultResources(MemoryBlock& dataToWrite)
 	return (Result::fail("MAC native, \""+meRes.getFullPathName()+"\" does not exist"));
 }
 
-const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
+const Result CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 {
 	File plist = bundle.getChildFile("Contents/Info.plist");
 
@@ -178,6 +186,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
                             _DBG("INSTANCE: enum subtext: "+e2->getAllSubText());
                             if (e2->hasTagName("key") && (e2->getAllSubText() == "description"))
                             {
+                                _DBG("\tmodify");
                                 XmlElement *description = e2->getNextElementWithTagName("string");
                                 if (description != nullptr)
                                 {
@@ -188,6 +197,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 
                             if (e2->hasTagName("key") && (e2->getAllSubText() == "manufacturer"))
                             {
+                                _DBG("\tmodify");
                                 XmlElement *manufacturer = e2->getNextElementWithTagName("string");
                                 if (manufacturer != nullptr)
                                 {
@@ -208,6 +218,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 
                             if (e2->hasTagName("key") && (e2->getAllSubText() == "subtype"))
                             {
+                                _DBG("\tmodify");
                                 XmlElement *subtype = e2->getNextElementWithTagName("string");
                                 if (subtype != nullptr)
                                 {
@@ -218,6 +229,7 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 
                             if (e2->hasTagName("key") && (e2->getAllSubText() == "version"))
                             {
+                                _DBG("\tmodify");
                                 XmlElement *version = e2->getNextElementWithTagName("integer");
                                 if (version != nullptr)
                                 {
@@ -236,43 +248,86 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 		}
 
 		plist.replaceWithText(plistXml->createDocument("<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd\">"));
-		return (true);
+		return (Result::ok());
 	}
 	else
 	{
 		 return (Result::fail("MAC native, Infp.plist does not exist or is not writable: \""+plist.getFullPathName()+"\""));
-	 }
+    }
+    
+    return (Result::ok());
 }
 
 const Result CtrlrMac::setBundleInfoCarbon (CtrlrPanel *sourceInfo, const File &bundle)
 {
-    File rsrcFile = bundle.getChildFile("Contents/Resources/Ctrlr-AU.rsrc");
+#ifdef JUCE_DEBUG
+    File rsrcFile = bundle.getChildFile("Contents/Resources/Ctrlr-Debug.rsrc");
+#else
+    File rsrcFile = bundle.getChildFile("Contents/Resources/Ctrlr.rsrc");
+#endif
 
     MemoryBlock resourceForkTemplate (BinaryData::CtrlrInstance_rsrc, BinaryData::CtrlrInstance_rsrcSize);
+    MemoryBlock tempStore (0);
+    
+	char s = 0x14;
     const int dataStart = ByteOrder::bigEndianInt (resourceForkTemplate.getData());
 	const int mapStart  = ByteOrder::bigEndianInt ((char *)resourceForkTemplate.getData() + 4);
 	const int dataLen   = ByteOrder::bigEndianInt ((char *)resourceForkTemplate.getData() + 8);
 	const int mapLen    = ByteOrder::bigEndianInt ((char *)resourceForkTemplate.getData() + 12);
 	const int nameLen   = ByteOrder::bigEndianInt ((void *)&resourceForkTemplate[dataStart]);
-
+    const int baseDataLen   = dataLen - nameLen;
+	const int baseMapStart	= mapStart - nameLen;
+    
     const String instanceName           = sourceInfo->getPanelInstanceName();
     const String instanceManufacturer   = sourceInfo->getPanelInstanceManufacturer();
     const String instanceID             = sourceInfo->getPanelInstanceID();
     const String instanceManufacturerID = sourceInfo->getPanelInstanceManufacturerID();
 
     const String nameToWrite    = instanceManufacturer + ": " + instanceName;
+    const int newNameLen        = nameToWrite.length() + 1;
+    const int newDataLen        = baseDataLen + nameToWrite.length();
+	const int newMapStart		= baseMapStart + nameToWrite.length() + 1;
     const String idToWrite      = instanceID+instanceManufacturerID;
 
     if (idToWrite.length() != 8)
     {
-        return (Result::fail("MAC native, id to write for Carbon information is not 8 characters \"+idToWrite+"\""));
+        return (Result::fail("MAC native, id to write for Carbon information is not 8 characters \""+idToWrite+"\""));
     }
 
     /* Write the ID, always 8 bytes, the structure of the resource fork does not need to change */
-    resourceForkTemplate.copyFrom (idToWrite.toUTF8(), 400, 8);
-
-    /* When writing the name, calculate the new data size */
-
-    return (false);
+    resourceForkTemplate.copyFrom (idToWrite.toUTF8(), 400, sizeof(char) * idToWrite.length());
+    
+    /* Change the total data length */
+    uint32 dataToWrite  = ByteOrder::bigEndianInt(&newDataLen);
+    resourceForkTemplate.copyFrom (&dataToWrite, 8,  sizeof(uint32));
+    
+	/* Change the map offset/start */
+	dataToWrite			= ByteOrder::bigEndianInt(&newMapStart);
+	resourceForkTemplate.copyFrom (&dataToWrite, 4,  sizeof(uint32));
+	
+	_DBG(String::formatted ("INSTANCE: mapStart %d mapLen %d", mapStart, mapLen));
+    _DBG(String::formatted ("INSTANCE: write initial segment %d bytes", dataStart));
+    tempStore.append(resourceForkTemplate.getData(), dataStart);
+    
+	dataToWrite			= ByteOrder::bigEndianInt(&newNameLen);
+    _DBG(String::formatted ("INSTANCE: write the new name length %d bytes value %d", sizeof (uint32), newNameLen));
+    tempStore.append(&dataToWrite, sizeof (uint32));
+    tempStore.append(&s, sizeof(char));
+	
+    _DBG(String::formatted ("INSTANCE: write name %d bytes", nameToWrite.length()));
+    tempStore.append(nameToWrite.toUTF8(), nameToWrite.length());
+    
+    _DBG(String::formatted ("INSTANCE: write ending data %d bytes at offset %d", (resourceForkTemplate.getSize() - dataStart - nameLen - sizeof(uint32)), dataStart + sizeof(uint32) + nameLen));
+	tempStore.append((char *)resourceForkTemplate.getData() + dataStart + sizeof(uint32) + nameLen, resourceForkTemplate.getSize() - dataStart - sizeof(uint32) - nameLen);
+    
+    _DBG(String::formatted ("INSTANCE: complete data size %d", tempStore.getSize()));
+    
+    _DBG (String::formatted ("INSTANCE: name to write: \"%s\" dataLen=%d newDataLen=%d nameLen=%d newNameLen=%d", nameToWrite.toUTF8().getAddress(), dataLen, newDataLen, nameLen, newNameLen));
+    if (!rsrcFile.replaceWithData (tempStore.getData(), tempStore.getSize()))
+    {
+        return (Result::fail ("MAC native, can't write resource fork data to: \""+rsrcFile.getFullPathName()+"\""));
+    }
+    
+    return (Result::ok());
 }
 #endif

@@ -4575,7 +4575,8 @@
 			name = "Post-build script";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    exit 0\nfi\n\nAU=\"$PROJECT_DIR/../../../../Bin/$FULL_PRODUCT_NAME\"\necho \"[CTRLR]: CONFIGURATION - $CONFIGURATION\"\necho \"[CTRLR]: PRODUCT PATH - $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME\"\necho \"[CTRLR]: UPDATED PRODUCT PATH - $AU\"\n\nif [ -d $AU ]; then\n    echo \"[CTRLR]: $AU ALREADY EXISTS - DELETE\"\n    rm -rf $AU\nfi\n\necho \"[CTRLR]: COPY PRODUCT\"\necho \"[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\"\ncp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\necho $?";
+			shellScript = "#if [ \"$CONFIGURATION\" == \"Debug\" ]; then\n#   exit 0\n#fi\n\nAU=\"$PROJECT_DIR/../../../../Bin/$FULL_PRODUCT_NAME\"\necho \"[CTRLR]: CONFIGURATION - $CONFIGURATION\"\necho \"[CTRLR]: PRODUCT PATH - $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME\"\necho \"[CTRLR]: UPDATED PRODUCT PATH - $AU\"\n\nif [ -d $AU ]; then\n    echo \"[CTRLR]: $AU ALREADY EXISTS - DELETE\"\n    rm -rf $AU\nfi\n\necho \"[CTRLR]: COPY PRODUCT\"\n\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\n    echo \"cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $HOME/Library/Audio/Plug-Ins/Components/\"\n    cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $HOME/Library/Audio/Plug-Ins/Components/\nelse\n    echo \"[CTRLR]: cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\"\n    cp -r $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME $AU\nfi\n\nexit 0";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
