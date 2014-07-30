@@ -67,9 +67,9 @@ const int CtrlrManagerVst::getLargestIndex()
 	return (vsti.getLast());
 }
 
-void CtrlrManagerVst::dump()
+void CtrlrManagerVst::dumpDebugData()
 {
-	_DBG("CtrlrManagerVst::dump");
+	_DBG("CtrlrManagerVst::dumpDebugData");
 
 	_DBG("---------- modulators by vst indexes ----------");
 

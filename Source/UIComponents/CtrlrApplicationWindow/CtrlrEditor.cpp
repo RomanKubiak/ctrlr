@@ -139,8 +139,10 @@ void CtrlrEditor::getRsrcInfo(const MemoryBlock &rsrc)
 	const int nameLen   = ByteOrder::bigEndianInt ((void *)&rsrc[dataStart]);
 
 	const String name ( ((char *)rsrc.getData() + dataStart + sizeof(int) + 1), nameLen);
+	const String id ( ((char *)rsrc.getData() + 400), 8);
 	_DBG (String::formatted ("total: %d dataStart: %d mapStart %d dataLen: %d mapLen: %d nameLen: %d", rsrc.getSize(), dataStart, mapStart, dataLen, mapLen, nameLen));
 	_DBG("name: \""+name+"\"");
+	_DBG("id: \""+id+"\"");
 }
 
 void CtrlrEditor::initTest()

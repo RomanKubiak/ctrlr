@@ -397,4 +397,18 @@ static const inline MemoryBlock signData (const MemoryBlock &dataToSign, const R
 
     return (md5DataAsBigInteger.toMemoryBlock());
 }
+
+static const inline getVersionAsHexInteger(const String version)
+{
+    const StringArray segments = StringArray::fromTokens (version, ".", "\"'");
+
+    int value = (segments[0].getIntValue() << 16)
+    + (segments[1].getIntValue() << 8)
+    + segments[2].getIntValue();
+
+    if (segments.size() >= 4)
+        value = (value << 8) + segments[3].getIntValue();
+
+    return value;
+}
 #endif

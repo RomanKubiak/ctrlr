@@ -288,10 +288,10 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			break;
 
 		case doDumpVstTables:
-			owner.getVstManager().dump();
+			owner.getVstManager().dumpDebugData();
 			if (isPanelActive())
 			{
-				getActivePanel()->dump();
+				getActivePanel()->dumpDebugData();
 			}
 			break;
 

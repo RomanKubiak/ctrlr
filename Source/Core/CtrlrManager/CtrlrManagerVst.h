@@ -19,7 +19,7 @@ class CtrlrManagerVst
 		const int size();
 		const int getLargestIndex();
 		void set(CtrlrModulator *mod, const int idx = 0);
-		void dump();
+		void dumpDebugData();
 		void removeIfAlreadyThere(CtrlrModulator *mod);
 		JUCE_LEAK_DETECTOR(CtrlrManagerVst)
 

@@ -247,7 +247,15 @@ class CtrlrPanel:	public ValueTree::Listener,
 		void notify (const String &notification, CtrlrNotificationCallback *callback=nullptr, const CtrlrNotificationType ctrlrNotificationType = NotifyInformation);
 		bool getDialogStatus();
 		void upgradeScheme();
-		void dump();
+
+		const String getPanelInstanceID();
+		const String getPanelInstanceManufacturerID();
+		const String getPanelInstanceVersionString();
+		const int getPanelInstanceVersionInt();
+        const String getPanelInstanceName();
+        const String getPanelInstanceManufacturer();
+
+		void dumpDebugData();
 		static const String globalsToString(const Array<int,CriticalSection> &arrayOfGlobals);
 		static const Array<int,CriticalSection> globalsFromString(const String &globalsString);
 		static void wrapForLua (lua_State *L);
