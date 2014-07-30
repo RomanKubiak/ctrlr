@@ -398,7 +398,7 @@ static const inline MemoryBlock signData (const MemoryBlock &dataToSign, const R
     return (md5DataAsBigInteger.toMemoryBlock());
 }
 
-static const inline getVersionAsHexInteger(const String version)
+static const inline int getVersionAsHexInteger(const String version)
 {
     const StringArray segments = StringArray::fromTokens (version, ".", "\"'");
 
