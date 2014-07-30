@@ -13,7 +13,7 @@ class CtrlrMac : public CtrlrNative
 		const Result exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted=false, const bool signPanel=false, RSAKey privateKey=RSAKey());
 		const Result getDefaultPanel(MemoryBlock &dataToWrite);
 		const Result getDefaultResources(MemoryBlock& dataToWrite);
-		const bool setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle);
+		const Result setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle);
 		const Result setBundleInfoCarbon (CtrlrPanel *sourceInfo, const File &bundle);
 
     private:
