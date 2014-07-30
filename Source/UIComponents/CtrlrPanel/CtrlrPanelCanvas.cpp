@@ -601,7 +601,7 @@ void CtrlrPanelCanvas::restoreState (const ValueTree &savedState)
 	}
 
 	/* now restore components */
-	
+
 	for (int i=0; i<savedState.getNumChildren(); i++)
 	{
 		ValueTree child = savedState.getChild(i);
@@ -700,7 +700,9 @@ void CtrlrPanelCanvas::editMenuPaste(const MouseEvent &e)
 		{
 			CtrlrComponent *c = addNewComponent (clipboardTree.getChild(i), e.eventComponent, true);
 			c->setTopLeftPosition (c->getX()+deltaX, c->getY()+deltaY);
-		}
+			// KAMDER ADD THIS FROM THE PASTE EDIT MENU
+            c->getOwner().setProperty (Ids::vstIndex, owner.getOwner().getOwner().getVstManager().getFirstFree());
+        }
 	}
 
 	if (clipboardTree.hasType ("groupTree"))

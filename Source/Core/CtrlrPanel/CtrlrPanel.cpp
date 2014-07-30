@@ -1481,9 +1481,9 @@ void CtrlrPanel::modulatorNameChanged(CtrlrModulator *modulatorThatChanged, cons
 	modulatorsByName.set (newName, modulatorThatChanged);
 }
 
-void CtrlrPanel::dump()
+void CtrlrPanel::dumpDebugData()
 {
-	_DBG("CtrlrPanel::dump");
+	_DBG("CtrlrPanel::dumpDebugData");
 
 	_DBG("---------- modulators by name hash table ----------");
 	HashMap<String,CtrlrModulator*>::Iterator it (modulatorsByName);
@@ -1557,4 +1557,44 @@ void CtrlrPanel::resourceImportFinished()
 			getCtrlrLuaManager().getMethodManager().call (luaPanelResourcesLoadedCbk);
 		}
 	}
+}
+
+const String CtrlrPanel::getPanelInstanceID()
+{
+    if (getProperty(Ids::panelInstanceUID).toString().length() < 4)
+    {
+        setProperty (Ids::panelInstanceUID, generateRandomUniquePluginId());
+    }
+
+    return (getProperty(Ids::panelInstanceUID).toString());
+}
+
+const String CtrlrPanel::getPanelInstanceManufacturerID()
+{
+    if (getProperty(Ids::panelInstanceManufacturerID).toString().length() < 4)
+    {
+        setProperty (Ids::panelInstanceManufacturerID, generateRandomUniquePluginId());
+    }
+
+    return (getProperty(Ids::panelInstanceManufacturerID).toString());
+}
+
+const String CtrlrPanel::getPanelInstanceVersionString()
+{
+    return (getVersionString (false, false, "."));
+}
+
+const int CtrlrPanel::getPanelInstanceVersionInt()
+{
+    return (getVersionAsHexInteger (getVersionString (false, false, ".")));
+}
+
+const String CtrlrPanel::getPanelInstanceName()
+{
+    return (getProperty (Ids::name).toString());
+}
+
+const String CtrlrPanel::getPanelInstanceManufacturer()
+{
+    return (getProperty(Ids::panelAuthorName).toString());
 }

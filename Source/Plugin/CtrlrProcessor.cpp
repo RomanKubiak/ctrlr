@@ -139,7 +139,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                 {
                     if (ctrlrManager->getActivePanel())
                     {
-                        return (ctrlrManager->getActivePanel()->getProperty(Ids::panelInstanceUID));
+                        return (ctrlrManager->getActivePanel()->getPanelInstanceID());
                     }
                 }
                 return ("CTRL");
@@ -149,7 +149,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                 {
                     if (ctrlrManager->getActivePanel())
                     {
-                        return (ctrlrManager->getActivePanel()->getProperty(Ids::panelAuthorName));
+                        return (ctrlrManager->getActivePanel()->getPanelInstanceManufacturer());
                     }
                 }
                 return ("Instigator");
@@ -159,7 +159,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                 {
                     if (ctrlrManager->getActivePanel())
                     {
-                        return (ctrlrManager->getActivePanel()->getProperty(Ids::name));
+                        return (ctrlrManager->getActivePanel()->getPanelInstanceName());
                     }
                 }
                 return ("Ctrlr");
@@ -169,7 +169,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                 {
                     if (ctrlrManager->getActivePanel())
                     {
-                        return (ctrlrManager->getActivePanel()->getProperty(Ids::panelVersionMajor));
+                        return (ctrlrManager->getActivePanel()->getPanelInstanceVersionString());
                     }
                 }
                 return (ProjectInfo::versionString);

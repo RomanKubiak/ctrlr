@@ -540,7 +540,7 @@ void CtrlrPanel::wrapForLua (lua_State *L)
 			.def("createProgramFromData", &CtrlrPanel::createProgramFromData)
 			.def("getLibrary", &CtrlrPanel::getCtrlrMIDILibrary)
 			.def("getCtrlrMIDILibrary", &CtrlrPanel::getCtrlrMIDILibrary)
-			.def("dumpHashTable", &CtrlrPanel::dump)
+			.def("dumpDebugData", &CtrlrPanel::dumpDebugData)
 			.enum_("CtrlrPanelFileType")
 			[
 				value("PanelFileXML", 0),

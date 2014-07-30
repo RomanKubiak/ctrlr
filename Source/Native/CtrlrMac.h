@@ -14,7 +14,8 @@ class CtrlrMac : public CtrlrNative
 		const Result getDefaultPanel(MemoryBlock &dataToWrite);
 		const Result getDefaultResources(MemoryBlock& dataToWrite);
 		const bool setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle);
-        int getVersionAsHexInteger(const String version) const;
+		const Result setBundleInfoCarbon (CtrlrPanel *sourceInfo, const File &bundle);
+
     private:
         CtrlrManager &owner;
 };

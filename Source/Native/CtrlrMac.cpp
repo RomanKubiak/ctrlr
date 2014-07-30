@@ -244,17 +244,35 @@ const bool CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle)
 	 }
 }
 
-int CtrlrMac::getVersionAsHexInteger(const String version) const
+const Result CtrlrMac::setBundleInfoCarbon (CtrlrPanel *sourceInfo, const File &bundle)
 {
-    const StringArray segments = StringArray::fromTokens (version, ".", "\"'");
+    File rsrcFile = bundle.getChildFile("Contents/Resources/Ctrlr-AU.rsrc");
 
-    int value = (segments[0].getIntValue() << 16)
-    + (segments[1].getIntValue() << 8)
-    + segments[2].getIntValue();
+    MemoryBlock resourceForkTemplate (BinaryData::CtrlrInstance_rsrc, BinaryData::CtrlrInstance_rsrcSize);
+    const int dataStart = ByteOrder::bigEndianInt (resourceForkTemplate.getData());
+	const int mapStart  = ByteOrder::bigEndianInt ((char *)resourceForkTemplate.getData() + 4);
+	const int dataLen   = ByteOrder::bigEndianInt ((char *)resourceForkTemplate.getData() + 8);
+	const int mapLen    = ByteOrder::bigEndianInt ((char *)resourceForkTemplate.getData() + 12);
+	const int nameLen   = ByteOrder::bigEndianInt ((void *)&resourceForkTemplate[dataStart]);
 
-    if (segments.size() >= 4)
-        value = (value << 8) + segments[3].getIntValue();
+    const String instanceName           = sourceInfo->getPanelInstanceName();
+    const String instanceManufacturer   = sourceInfo->getPanelInstanceManufacturer();
+    const String instanceID             = sourceInfo->getPanelInstanceID();
+    const String instanceManufacturerID = sourceInfo->getPanelInstanceManufacturerID();
 
-    return value;
+    const String nameToWrite    = instanceManufacturer + ": " + instanceName;
+    const String idToWrite      = instanceID+instanceManufacturerID;
+
+    if (idToWrite.length() != 8)
+    {
+        return (Result::fail("MAC native, id to write for Carbon information is not 8 characters \"+idToWrite+"\""));
+    }
+
+    /* Write the ID, always 8 bytes, the structure of the resource fork does not need to change */
+    resourceForkTemplate.copyFrom (idToWrite.toUTF8(), 400, 8);
+
+    /* When writing the name, calculate the new data size */
+
+    return (false);
 }
 #endif
