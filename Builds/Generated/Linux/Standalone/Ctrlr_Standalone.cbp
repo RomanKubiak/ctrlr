@@ -2468,17 +2468,12 @@
 		<Unit filename="../../../../Source/Resources/Icons/ico_unknown.png" />
 		<Unit filename="../../../../Source/Resources/Icons/ico_waveform.png" />
 		<Unit filename="../../../../Source/Resources/Images/tile.gif" />
-		<Unit filename="../../../../Source/Resources/Misc/Ctrlr-Instance.rsrc" />
+		<Unit filename="../../../../Source/Resources/Misc/RSRC.zip" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrIDs.xml" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrLuaMethodTemplates.xml" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrMIDITransactions.xml" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrMIDIVendors.xml" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrMidiMultiTemplate.xml" />
-		<Unit filename="../../../../Source/Resources/Zeta.rsrc" />
-		<Unit filename="../../../../Source/Resources/Zeta1.rsrc" />
-		<Unit filename="../../../../Source/Resources/Zeta12.rsrc" />
-		<Unit filename="../../../../Source/Resources/Zeta123.rsrc" />
-		<Unit filename="../../../../Source/Resources/Zeta1234.rsrc" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrAbout.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrAbout.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrDocumentPanel.cpp" />
@@ -2673,7 +2668,6 @@
 			<envvars />
 			<code_completion />
 			<debugger />
-			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

@@ -26,7 +26,7 @@ class CtrlrLuaUtils
 
 		/** @brief Unpack bytes from a SysEx message using the DSI method (Mopho, Evolver, Tetra)
 
-			@param dataToUnpack		the data to unpack (this must not include the MIDI SysEx prefix or suffix, 
+			@param dataToUnpack		the data to unpack (this must not include the MIDI SysEx prefix or suffix,
 									and must be a multiple of 8)
 		*/
 		static LMemoryBlock *unpackDsiData (MemoryBlock &dataToUnpack);
@@ -43,7 +43,7 @@ class CtrlrLuaUtils
 			@param message	Window message
 		*/
 		static void warnWindow (const String title, const String message);
-		
+
 		/** @brief Show a messge window with a info icon
 
 			@param title	Window title
@@ -104,3 +104,23 @@ class CtrlrLuaUtils
 };
 
 #endif
+/*
+--
+-- Called when the panel background needs repainting
+--
+drawPanel = function(canvas,g)
+	p = Path()
+	p:startNewSubPath (0, 100);
+	p:lineTo (200, 100);
+	p:lineTo (400, 200);
+	p:lineTo (200, 300);
+	p:lineTo (0, 100);
+	stroke = PathStrokeType (2.0, PathStrokeType.curved, PathStrokeType.butt)
+	trans = AffineTransform()
+	dashes = { 7.0, 4.0 , 3.0, 2.0}
+	stroke:createDashedStroke (p, p, dashes, trans, 1.0)
+	g:strokePath (p, stroke, trans)
+end
+
+panel:getCanvas():repaint()
+*/

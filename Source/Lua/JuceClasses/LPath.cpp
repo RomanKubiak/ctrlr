@@ -63,12 +63,13 @@ void LPath::wrapForLua (lua_State *L)
 			.def("toString", &Path::toString)
 			.def("restoreFromString", &Path::restoreFromString)
 		,
-
-		class_<PathStrokeType>("PathStrokeType")
+        class_<LPathStrokeType>("PathStrokeType")
+		,
+		class_<PathStrokeType, bases<LPathStrokeType> >("PathStrokeType")
 			.def(constructor<float, PathStrokeType::JointStyle, PathStrokeType::EndCapStyle>())
 			.def(constructor<const PathStrokeType &>())
-			.def("createDashedStroke", &PathStrokeType::createDashedStroke)
-			.def("createDashedStroke", &PathStrokeType::createDashedStroke)
+			.def("createStrokedPath", &PathStrokeType::createStrokedPath)
+			.def("createDashedStroke", &LPathStrokeType::createDashedStrokeWrap)
 			.def("createStrokeWithArrowheads", &PathStrokeType::createStrokeWithArrowheads)
 			.def("getStrokeThickness", &PathStrokeType::getStrokeThickness)
 			.def("setStrokeThickness", &PathStrokeType::setStrokeThickness)
@@ -89,4 +90,16 @@ void LPath::wrapForLua (lua_State *L)
 				value("rounded", PathStrokeType::rounded)
 			]
 	];
+}
+
+void LPathStrokeType::createDashedStrokeWrap (Path &destPath, const Path &sourcePath, const luabind::object dashLengths, const AffineTransform &transform, float extraAccuracy)
+{
+    Array<float> dashLengthsFloat = luaArrayToFloat (dashLengths);
+
+    _DBG("LPathStrokeType::createDashedStrokeWrap");
+    for (int i=0; i<dashLengthsFloat.size(); i++)
+    {
+        _DBG("\t"+_STR(dashLengthsFloat[i]));
+    }
+    PathStrokeType::createDashedStroke (destPath, sourcePath, dashLengthsFloat.getRawDataPointer(), dashLengthsFloat.size(), transform, extraAccuracy);
 }
