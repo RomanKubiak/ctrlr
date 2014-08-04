@@ -345,6 +345,21 @@ static const inline MemoryBlock luaArrayTomemoryBlock(const luabind::object &lua
 	return (bl);
 }
 
+static inline Array<float> luaArrayToFloat(const luabind::object &luaArray)
+{
+    Array<float> data;
+
+    if (luaArray.is_valid() && luabind::type(luaArray) == LUA_TTABLE)
+	{
+		for(luabind::iterator i(luaArray), end; i != end; i++)
+		{
+			data.add (luabind::object_cast<float>(*i));
+		}
+	}
+
+    return (data);
+}
+
 static const inline MemoryBlock stringToMemoryBlock (const String &stringToConvert)
 {
 	return (MemoryBlock (stringToConvert.toUTF8().getAddress(), strlen(stringToConvert.toUTF8())));

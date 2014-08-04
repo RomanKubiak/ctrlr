@@ -131,4 +131,20 @@ const bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
 
 void CtrlrEditor::initTest()
 {
+    MemoryInputStream zipStream (BinaryData::RSRC_zip, BinaryData::RSRC_zipSize, false);
+    ZipFile zipFile (zipStream);
+    ScopedPointer <InputStream> is (zipFile.createStreamForEntry(107));
+
+    if (is)
+    {
+        MemoryBlock data;
+        String lookingFor ("M: N");
+        is->readIntoMemoryBlock (data, is->getTotalLength());
+
+        if (data.getSize() > 0)
+        {
+            /* name data start 519 */
+            /* id data startx 579 - after the name is removed*/
+        }
+    }
 }
