@@ -4,13 +4,16 @@
 
 */
 
+#ifndef BINARYDATA_H_53207093_INCLUDED
+#define BINARYDATA_H_53207093_INCLUDED
+
 namespace BinaryData
 {
     extern const char*   CtrlrRevision_template;
     const int            CtrlrRevision_templateSize = 199;
 
-    extern const char*   CtrlrInstance_rsrc;
-    const int            CtrlrInstance_rsrcSize = 761;
+    extern const char*   RSRC_zip;
+    const int            RSRC_zipSize = 49800;
 
     extern const char*   ico_transaction_png;
     const int            ico_transaction_pngSize = 3798;
@@ -184,9 +187,11 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    extern const int namedResourceListSize;
+    const int namedResourceListSize = 58;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
     const char* getNamedResource (const char* resourceNameUTF8, int& dataSizeInBytes) throw();
 }
+
+#endif

@@ -280,6 +280,9 @@
       <FILE id="GKACXT" name="stdafx.h" compile="0" resource="0" file="../../Source/Core/stdafx.h"/>
     </GROUP>
     <GROUP id="{E4E9D961-652D-2904-F1EC-5C383EEF8FD4}" name="Resources">
+      <GROUP id="{E9773117-FC22-2F9F-57AF-6916AC06ED33}" name="Misc">
+        <FILE id="Mw6jfB" name="RSRC.zip" compile="0" resource="1" file="../../Source/Resources/Misc/RSRC.zip"/>
+      </GROUP>
       <GROUP id="{D36DF736-203E-4694-9E23-E7107A73D2FE}" name="Icons">
         <FILE id="qNvTKP" name="ico_transaction.png" compile="0" resource="1"
               file="../../Source/Resources/Icons/ico_transaction.png"/>
