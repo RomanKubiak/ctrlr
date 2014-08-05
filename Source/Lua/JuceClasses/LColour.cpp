@@ -36,9 +36,17 @@ void LColour::wrapForLua (lua_State *L)
 			.def("withMultipliedBrightness", &Colour::withMultipliedBrightness)
 			.def("brighter", &Colour::brighter)
 			.def("darker", &Colour::darker)
-			.def("greyLevel", &Colour::greyLevel)
 			.def("toString", &Colour::toString)
-			.def("fromString", &Colour::fromString)
 			.def("toDisplayString", &Colour::toDisplayString)
+			.scope
+			[
+                def("fromRGB", &Colour::fromRGB),
+                def("fromRGBA", &Colour::fromRGBA),
+                def("fromFloatRGBA", &Colour::fromFloatRGBA),
+                def("fromHSV", &Colour::fromHSV),
+                def("contrasting", (Colour (*)(Colour, Colour) noexcept) &Colour::contrasting),
+                def("greyLevel", (Colour (*)(float)) &Colour::greyLevel),
+                def("fromString", &Colour::fromString)
+			]
 	];
 }
