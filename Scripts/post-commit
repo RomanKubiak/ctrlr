@@ -26,10 +26,11 @@ function detect_os {
 		
 	if [ "$UNAME" == "Linux" ]; then
 		OSNAME="LINUX"
+		ARCH=`uname -m`
 		CTRLR_ROOT="$(dirname $(readlink -f $0))/../"
 		VERSION=`$CTRLR_ROOT/Scripts/git-revision.sh`
-		PACKAGE=$CTRLR_ROOT/Packaging/Linux/Ctrlr-$VERSION.sh
-		BUILD_LOG=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.linux.build.log
+		PACKAGE=$CTRLR_ROOT/Packaging/Linux/Ctrlr-$ARCH-$VERSION.sh
+		BUILD_LOG=$CTRLR_ROOT/Builds/Ctrlr-$ARCH-$VERSION.linux.build.log
 		return
 	fi
 	
