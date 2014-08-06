@@ -48,7 +48,6 @@ CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrMana
 
 CtrlrProcessor::~CtrlrProcessor()
 {
-	deleteAndZero (ctrlrLog);
 	MessageManager::getInstance()->runDispatchLoopUntil((int)overridesTree.getProperty(Ids::ctrlrShutdownDelay));
 }
 
