@@ -21,7 +21,7 @@
 #define _MINSTR(message)									if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::MidiIn)
 #define _MOUTSTR(message)									if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::MidiOut)
 
-class CtrlrLog : public AsyncUpdater, public Logger
+class CtrlrLog : public AsyncUpdater, public Logger, public DeletedAtShutdown
 {
 	public:
 		enum LogLevel
@@ -56,8 +56,8 @@ class CtrlrLog : public AsyncUpdater, public Logger
 		CtrlrLog(const bool _logToFile);
 		~CtrlrLog();
 
-		void addListener (Listener *l)													{ listeners.add(l); }
-		void removeListener (Listener *l)												{ listeners.remove(l); }
+		void addListener (Listener *l);
+		void removeListener (Listener *l);
 		void handleAsyncUpdate();
 
 		void logMessage (const String &message, const LogLevel level);

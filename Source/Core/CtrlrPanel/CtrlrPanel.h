@@ -209,8 +209,24 @@ class CtrlrPanel:	public ValueTree::Listener,
 		const bool isPanelResource (const int hashCode);
 
 		static const Identifier getMidiOptionIdentifier(const CtrlrPanelMidiOption option);
-		LMemoryBlock getModulatorValuesAsData(const String &propertyToIndexBy, const CtrlrByteEncoding byteEncoding, const int bytesPerValue, const bool useMappedValues);
-		LMemoryBlock getModulatorValuesAsData(const ValueTree &programTree, const String &propertyToIndexBy, const CtrlrByteEncoding byteEncoding, const int bytesPerValue, const bool useMappedValues);
+		LMemoryBlock getModulatorValuesAsData(const String &propertyToIndexBy,
+                                                const CtrlrByteEncoding byteEncoding,
+                                                const int bytesPerValue,
+                                                const bool useMappedValues);
+
+		LMemoryBlock getModulatorValuesAsData(const ValueTree &programTree,
+                                                const String &propertyToIndexBy,
+                                                const CtrlrByteEncoding byteEncoding,
+                                                const int bytesPerValue,
+                                                const bool useMappedValues);
+
+		LMemoryBlock getModulatorValuesAsData(const String &propertyToIndexBy,
+                                                const CtrlrByteEncoding byteEncoding,
+                                                const int propertyValueStart,
+                                                const int howMany,
+                                                const int bytesPerValue,
+                                                const bool useMappedValues);
+
 		void setModulatorValuesFromData (const MemoryBlock &dataSource, const String &propertyToIndexBy, const CtrlrByteEncoding byteEncoding, int propertyOffset, int bytesPerValue, const bool useMappedValues);
 		ValueTree createProgramFromData(const MemoryBlock &dataSource, const String &propertyToIndexBy, const CtrlrByteEncoding byteEncoding, int propertyOffset, int bytesPerValue, const bool useMappedValues);
 

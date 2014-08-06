@@ -252,3 +252,13 @@ const String CtrlrLog::formatMidiMessage (const MidiMessage &message)
 										)
 	);
 }
+
+void CtrlrLog::addListener (Listener *l)
+{
+    listeners.add (l);
+}
+
+void CtrlrLog::removeListener (Listener *l)
+{
+    listeners.remove(l);
+}

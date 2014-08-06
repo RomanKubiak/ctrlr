@@ -51,7 +51,8 @@ void LGraphics::wrapForLua (lua_State *L)
 			.def("fillEllipse", (void (Graphics::*)(float, float, float, float) const)&Graphics::fillEllipse)
 			.def("fillEllipse", (void (Graphics::*)(const Rectangle<float> &) const)&Graphics::fillEllipse)
 
-			//.def("drawEllipse", &Graphics::drawEllipse)
+			.def("drawEllipse", (void (Graphics::*)(float, float, float, float, float) const)&Graphics::drawEllipse)
+			.def("drawEllipse", (void (Graphics::*)(const Rectangle<float> &, float) const)&Graphics::drawEllipse)
 
 			.def("drawLine", (void (Graphics::*)(float, float, float, float) const)&Graphics::drawLine)
 			.def("drawLine", (void (Graphics::*)(float, float, float, float, float) const)&Graphics::drawLine)

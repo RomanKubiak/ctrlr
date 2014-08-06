@@ -39,12 +39,12 @@ CtrlrLuaMethodEditor::CtrlrLuaMethodEditor (CtrlrPanel &_owner)
 
 CtrlrLuaMethodEditor::~CtrlrLuaMethodEditor()
 {
+    deleteAndZero (methodEditArea);
 	componentTree.removeListener (this);
 	masterReference.clear();
 	methodTree->deleteRootItem();
 	deleteAndZero (methodTree);
 	deleteAndZero (resizer);
-    deleteAndZero (methodEditArea);
 }
 
 void CtrlrLuaMethodEditor::paint (Graphics& g)

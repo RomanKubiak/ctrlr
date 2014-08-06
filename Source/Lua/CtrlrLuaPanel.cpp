@@ -423,6 +423,40 @@ LMemoryBlock CtrlrPanel::getModulatorValuesAsData(const String &propertyToIndexB
 	return (modulatorData);
 }
 
+LMemoryBlock CtrlrPanel::getModulatorValuesAsData(const String &propertyToIndexBy,
+                                                    const CtrlrByteEncoding byteEncoding,
+                                                    const int propertyValueStart,
+                                                    const int howMany,
+                                                    const int bytesPerValue,
+                                                    const bool useMappedValues)
+{
+	MemoryBlock modulatorData (getNumModulators() * bytesPerValue, true);
+	uint32 truncateTo = getNumModulators() * bytesPerValue;
+	uint32 modulatorValue;
+
+	for (int i=0; i<getNumModulators(); i++)
+	{
+		const int index = getModulatorByIndex(i)->getProperty(propertyToIndexBy);
+
+		if (index >= propertyValueStart && index < howMany)
+        {
+            if (useMappedValues)
+				modulatorValue = getModulatorByIndex(i)->getValueMapped();
+			else
+				modulatorValue = getModulatorByIndex(i)->getValueNonMapped();
+
+			modulatorData.setBitRange (index * (bytesPerValue * 8), bytesPerValue * 8, modulatorValue);
+		}
+		else
+		{
+			truncateTo--;
+		}
+	}
+
+	modulatorData.setSize (truncateTo, false);
+	return (modulatorData);
+}
+
 LMemoryBlock CtrlrPanel::getModulatorValuesAsData(const ValueTree &programTree, const String &propertyToIndexBy, const CtrlrByteEncoding byteEncoding, const int bytesPerValue, const bool useMappedValues)
 {
 	MemoryBlock modulatorData (getNumModulators() * bytesPerValue, true);
@@ -536,6 +570,7 @@ void CtrlrPanel::wrapForLua (lua_State *L)
 			.def("getInputComparator", &CtrlrPanel::getInputComparator)
 			.def("getModulatorValuesAsData", (LMemoryBlock (CtrlrPanel::*)(const String &, const CtrlrByteEncoding, const int, const bool))&CtrlrPanel::getModulatorValuesAsData)
 			.def("getModulatorValuesAsData", (LMemoryBlock (CtrlrPanel::*)(const ValueTree &, const String &, const CtrlrByteEncoding, const int, const bool))&CtrlrPanel::getModulatorValuesAsData)
+			.def("getModulatorValuesAsData", (LMemoryBlock (CtrlrPanel::*)(const String &, const CtrlrByteEncoding, const int, const int, const int, const bool))&CtrlrPanel::getModulatorValuesAsData)
 			.def("setModulatorValuesFromData", &CtrlrPanel::setModulatorValuesFromData)
 			.def("createProgramFromData", &CtrlrPanel::createProgramFromData)
 			.def("getLibrary", &CtrlrPanel::getCtrlrMIDILibrary)

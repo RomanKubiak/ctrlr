@@ -119,7 +119,7 @@ void CtrlrLuaMethodEditArea::mouseDoubleClick (const MouseEvent &e)
 {
 	// LUA compile error: ERROR: [string "function myNewMethod()..."]:4: '=' expected near 'end'
 	// Search result: SEARCH: [method]:3 position:43-46
-	
+
 	const String line = output->getLineAtPosition (output->getTextIndexAt (e.x, e.y)).trim();
 
 	//_DBG(line);
