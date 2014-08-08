@@ -127,6 +127,17 @@ const Image CtrlrPanelResourceManager::getResourceAsImage (const String &resourc
 	return (Image::null);
 }
 
+const Font CtrlrPanelResourceManager::getResourceAsFont (const String &resourceName)
+{
+    CtrlrPanelResource *res = getResource (resourceName);
+	if (res != 0)
+	{
+		return (res->asFont());
+	}
+
+	return (Font());
+}
+
 void CtrlrPanelResourceManager::reloadComboContents (ComboBox &comboToUpdate)
 {
 	const String lastSelected	= comboToUpdate.getText();
@@ -349,6 +360,7 @@ void CtrlrPanelResourceManager::wrapForLua(lua_State *L)
 			.def("getNumResources", &CtrlrPanelResourceManager::getNumResources)
 			.def("getResourceIndex", &CtrlrPanelResourceManager::getResourceIndex)
 			.def("getResourceAsImage", &CtrlrPanelResourceManager::getResourceAsImage)
+			.def("getResourceAsFont", &CtrlrPanelResourceManager::getResourceAsFont)
 	];
 }
 
