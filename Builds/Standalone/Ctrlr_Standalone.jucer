@@ -1014,6 +1014,10 @@
         </GROUP>
       </GROUP>
       <GROUP id="{E5B1CE63-5334-0AB5-2F3D-7652B433DE0C}" name="CtrlrMIDI">
+        <FILE id="Ye1Uwt" name="CtrlrProgramWizard.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.cpp"/>
+        <FILE id="sG0M5j" name="CtrlrProgramWizard.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.h"/>
         <FILE id="Cx6hUr" name="CtrlrMIDIBuffer.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp"/>
         <FILE id="vdQEZs" name="CtrlrMIDIBuffer.h" compile="0" resource="0"
