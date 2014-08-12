@@ -57,13 +57,15 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<HyperlinkButton> progressStep1;
-    ScopedPointer<HyperlinkButton> progressStep2;
-    ScopedPointer<HyperlinkButton> progressStep3;
-    ScopedPointer<HyperlinkButton> progressStep4;
     ScopedPointer<TextButton> textButton;
     ScopedPointer<TextButton> textButton2;
     ScopedPointer<TextButton> textButton3;
+    ScopedPointer<Label> label;
+    ScopedPointer<Label> label2;
+    ScopedPointer<Label> label3;
+    ScopedPointer<Label> label4;
+    ScopedPointer<Label> label5;
+    ScopedPointer<Viewport> content;
 
 
     //==============================================================================
