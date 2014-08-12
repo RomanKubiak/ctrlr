@@ -74,6 +74,7 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
 								doDumpVstTables,
 								doRegisterExtension,
 								doKeyGenerator,
+								doProgramWizard,
 								doQuit
 							};
 
@@ -474,6 +475,11 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 
         case doKeyGenerator:
             result.setInfo ("Key Generator", "Generate a private key for signing panels", globalCategory, 0);
+            result.setActive (true);
+            break;
+
+        case doProgramWizard:
+            result.setInfo ("Program wizard", "Wizard to generate program requests", globalCategory, 0);
             result.setActive (true);
             break;
 

@@ -223,7 +223,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 			menu.addSectionHeader ("Program change");
 			getActivePanel()->getCtrlrMIDILibrary().attachToPopupMenu (menu);
 		}
-	
+
 		menu.addSectionHeader ("Snapshots");
 		menu.addCommandItem (commandManager, doSendSnapshot);
 		menu.addCommandItem (commandManager, optMidiSnapshotOnLoad);
@@ -238,6 +238,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, showComparatorTables);
 		menu.addCommandItem (commandManager, doRegisterExtension);
 		menu.addCommandItem (commandManager, doKeyGenerator);
+		menu.addCommandItem (commandManager, doProgramWizard);
 	}
 	else if (topLevelMenuIndex == MenuHelp) // Help
 	{

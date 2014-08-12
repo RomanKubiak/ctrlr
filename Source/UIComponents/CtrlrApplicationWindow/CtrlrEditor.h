@@ -107,6 +107,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 			doDumpVstTables				= 0x21,
 			doRegisterExtension			= 0x22,
 			doKeyGenerator              = 0x23,
+			doProgramWizard             = 0x24,
 			doQuit						= 0x00fffffe
 		};
 
@@ -150,6 +151,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		void performRecentFileOpen(const int menuItemID);
 		void performCustomRequest(const int menuItemID);
 		void performKeyGenerator();
+		void performProgramWizard();
 		void initTest();
 		CtrlrMenuBarLookAndFeel *getMenuBarLookAndFeel () { return (menuBarLookAndFeel); }
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrEditor)
