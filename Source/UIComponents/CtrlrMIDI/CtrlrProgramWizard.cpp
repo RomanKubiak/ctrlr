@@ -29,26 +29,6 @@
 //==============================================================================
 CtrlrProgramWizard::CtrlrProgramWizard ()
 {
-    addAndMakeVisible (progressStep1 = new HyperlinkButton (TRANS("General information"),
-                                                            URL (String::empty)));
-    progressStep1->setButtonText (TRANS("General information"));
-    progressStep1->setColour (HyperlinkButton::textColourId, Colour (0xcc000000));
-
-    addAndMakeVisible (progressStep2 = new HyperlinkButton (TRANS("Request data"),
-                                                            URL (String::empty)));
-    progressStep2->setButtonText (TRANS("Request data"));
-    progressStep2->setColour (HyperlinkButton::textColourId, Colour (0xcc000000));
-
-    addAndMakeVisible (progressStep3 = new HyperlinkButton (TRANS("Response data"),
-                                                            URL (String::empty)));
-    progressStep3->setButtonText (TRANS("Response data"));
-    progressStep3->setColour (HyperlinkButton::textColourId, Colour (0xcc000000));
-
-    addAndMakeVisible (progressStep4 = new HyperlinkButton (TRANS("Storage format"),
-                                                            URL (String::empty)));
-    progressStep4->setButtonText (TRANS("Storage format"));
-    progressStep4->setColour (HyperlinkButton::textColourId, Colour (0xcc000000));
-
     addAndMakeVisible (textButton = new TextButton ("new button"));
     textButton->setButtonText (TRANS("Next"));
     textButton->addListener (this);
@@ -63,6 +43,50 @@ CtrlrProgramWizard::CtrlrProgramWizard ()
     textButton3->setButtonText (TRANS("Execute"));
     textButton3->addListener (this);
     textButton3->setColour (TextButton::buttonColourId, Colour (0xffbebebe));
+
+    addAndMakeVisible (label = new Label ("step_1",
+                                          TRANS("General information")));
+    label->setFont (Font (16.00f, Font::plain));
+    label->setJustificationType (Justification::centredLeft);
+    label->setEditable (false, false, false);
+    label->setColour (TextEditor::textColourId, Colours::black);
+    label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label2 = new Label ("step_2",
+                                           TRANS("General information")));
+    label2->setFont (Font (16.00f, Font::plain));
+    label2->setJustificationType (Justification::centredLeft);
+    label2->setEditable (false, false, false);
+    label2->setColour (TextEditor::textColourId, Colours::black);
+    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label3 = new Label ("step_3",
+                                           TRANS("General information")));
+    label3->setFont (Font (16.00f, Font::plain));
+    label3->setJustificationType (Justification::centredLeft);
+    label3->setEditable (false, false, false);
+    label3->setColour (TextEditor::textColourId, Colours::black);
+    label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label4 = new Label ("step_4",
+                                           TRANS("General information")));
+    label4->setFont (Font (16.00f, Font::plain));
+    label4->setJustificationType (Justification::centredLeft);
+    label4->setEditable (false, false, false);
+    label4->setColour (TextEditor::textColourId, Colours::black);
+    label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label5 = new Label ("step_5",
+                                           TRANS("General information")));
+    label5->setFont (Font (16.00f, Font::plain));
+    label5->setJustificationType (Justification::centredLeft);
+    label5->setEditable (false, false, false);
+    label5->setColour (TextEditor::textColourId, Colours::black);
+    label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (content = new Viewport (String::empty));
+    content->setScrollBarsShown (false, false);
+    content->setScrollBarThickness (16);
 
 
     //[UserPreSize]
@@ -80,13 +104,15 @@ CtrlrProgramWizard::~CtrlrProgramWizard()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    progressStep1 = nullptr;
-    progressStep2 = nullptr;
-    progressStep3 = nullptr;
-    progressStep4 = nullptr;
     textButton = nullptr;
     textButton2 = nullptr;
     textButton3 = nullptr;
+    label = nullptr;
+    label2 = nullptr;
+    label3 = nullptr;
+    label4 = nullptr;
+    label5 = nullptr;
+    content = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -99,8 +125,6 @@ void CtrlrProgramWizard::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colours::white);
-
     g.setColour (Colour (0xff81acc3));
     g.fillRect (0, 0, proportionOfWidth (0.2500f), getHeight() - 0);
 
@@ -110,13 +134,15 @@ void CtrlrProgramWizard::paint (Graphics& g)
 
 void CtrlrProgramWizard::resized()
 {
-    progressStep1->setBounds (16, 16, proportionOfWidth (0.2000f), 24);
-    progressStep2->setBounds (16, 56, proportionOfWidth (0.2000f), 24);
-    progressStep3->setBounds (16, 96, proportionOfWidth (0.2000f), 24);
-    progressStep4->setBounds (16, 136, proportionOfWidth (0.2000f), 24);
-    textButton->setBounds (688, 552, 95, 32);
-    textButton2->setBounds (480, 552, 95, 32);
-    textButton3->setBounds (584, 552, 95, 32);
+    textButton->setBounds (proportionOfWidth (0.8600f), proportionOfHeight (0.9200f), proportionOfWidth (0.1200f), proportionOfHeight (0.0500f));
+    textButton2->setBounds (proportionOfWidth (0.6000f), proportionOfHeight (0.9200f), proportionOfWidth (0.1200f), proportionOfHeight (0.0500f));
+    textButton3->setBounds (proportionOfWidth (0.7300f), proportionOfHeight (0.9200f), proportionOfWidth (0.1200f), proportionOfHeight (0.0500f));
+    label->setBounds (proportionOfWidth (0.0500f), 16, proportionOfWidth (0.2000f), 32);
+    label2->setBounds (proportionOfWidth (0.0500f), 56, proportionOfWidth (0.2000f), 32);
+    label3->setBounds (proportionOfWidth (0.0500f), 96, proportionOfWidth (0.2000f), 32);
+    label4->setBounds (proportionOfWidth (0.0500f), 136, proportionOfWidth (0.2000f), 32);
+    label5->setBounds (proportionOfWidth (0.0500f), 176, proportionOfWidth (0.2000f), 32);
+    content->setBounds (proportionOfWidth (0.2500f), 0, proportionOfWidth (0.7500f), proportionOfHeight (0.9000f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -165,34 +191,47 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="800" initialHeight="600">
-  <BACKGROUND backgroundColour="ffffffff">
+  <BACKGROUND backgroundColour="0">
     <RECT pos="0 0 25% 0M" fill="solid: ff81acc3" hasStroke="0"/>
   </BACKGROUND>
-  <HYPERLINKBUTTON name="" id="23e6c13cc7c72353" memberName="progressStep1" virtualName=""
-                   explicitFocusOrder="0" pos="16 16 20% 24" textCol="cc000000"
-                   buttonText="General information" connectedEdges="0" needsCallback="0"
-                   radioGroupId="0" url=""/>
-  <HYPERLINKBUTTON name="" id="ff5fc3bd9eb903f1" memberName="progressStep2" virtualName=""
-                   explicitFocusOrder="0" pos="16 56 20% 24" textCol="cc000000"
-                   buttonText="Request data" connectedEdges="0" needsCallback="0"
-                   radioGroupId="0" url=""/>
-  <HYPERLINKBUTTON name="" id="b9e86467d1ef2d14" memberName="progressStep3" virtualName=""
-                   explicitFocusOrder="0" pos="16 96 20% 24" textCol="cc000000"
-                   buttonText="Response data" connectedEdges="0" needsCallback="0"
-                   radioGroupId="0" url=""/>
-  <HYPERLINKBUTTON name="" id="e5756d456645b4fb" memberName="progressStep4" virtualName=""
-                   explicitFocusOrder="0" pos="16 136 20% 24" textCol="cc000000"
-                   buttonText="Storage format" connectedEdges="0" needsCallback="0"
-                   radioGroupId="0" url=""/>
   <TEXTBUTTON name="new button" id="f94a26109cc16d12" memberName="textButton"
-              virtualName="" explicitFocusOrder="0" pos="688 552 95 32" bgColOff="ffbebebe"
+              virtualName="" explicitFocusOrder="0" pos="86% 92% 12% 5%" bgColOff="ffbebebe"
               buttonText="Next" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="71f9c8dad3d1ac" memberName="textButton2"
-              virtualName="" explicitFocusOrder="0" pos="480 552 95 32" bgColOff="ffbebebe"
+              virtualName="" explicitFocusOrder="0" pos="60% 92% 12% 5%" bgColOff="ffbebebe"
               buttonText="Previous" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="e658577ed337b9cb" memberName="textButton3"
-              virtualName="" explicitFocusOrder="0" pos="584 552 95 32" bgColOff="ffbebebe"
+              virtualName="" explicitFocusOrder="0" pos="73% 92% 12% 5%" bgColOff="ffbebebe"
               buttonText="Execute" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <LABEL name="step_1" id="55f638b6ae64bf74" memberName="label" virtualName=""
+         explicitFocusOrder="0" pos="5% 16 20% 32" edTextCol="ff000000"
+         edBkgCol="0" labelText="General information" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="16" bold="0" italic="0" justification="33"/>
+  <LABEL name="step_2" id="6cdd85436df42ec0" memberName="label2" virtualName=""
+         explicitFocusOrder="0" pos="5% 56 20% 32" edTextCol="ff000000"
+         edBkgCol="0" labelText="General information" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="16" bold="0" italic="0" justification="33"/>
+  <LABEL name="step_3" id="2ca013796ad158d3" memberName="label3" virtualName=""
+         explicitFocusOrder="0" pos="5% 96 20% 32" edTextCol="ff000000"
+         edBkgCol="0" labelText="General information" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="16" bold="0" italic="0" justification="33"/>
+  <LABEL name="step_4" id="ad881dca9522f695" memberName="label4" virtualName=""
+         explicitFocusOrder="0" pos="5% 136 20% 32" edTextCol="ff000000"
+         edBkgCol="0" labelText="General information" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="16" bold="0" italic="0" justification="33"/>
+  <LABEL name="step_5" id="ffde037166dfb368" memberName="label5" virtualName=""
+         explicitFocusOrder="0" pos="5% 176 20% 32" edTextCol="ff000000"
+         edBkgCol="0" labelText="General information" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="16" bold="0" italic="0" justification="33"/>
+  <VIEWPORT name="" id="7365944102f64de9" memberName="content" virtualName=""
+            explicitFocusOrder="0" pos="25% 0 75% 90%" vscroll="0" hscroll="0"
+            scrollbarThickness="16" contentType="0" jucerFile="" contentClass=""
+            constructorParams=""/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
