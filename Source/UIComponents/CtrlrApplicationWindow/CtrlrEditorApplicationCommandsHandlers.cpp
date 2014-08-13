@@ -481,7 +481,7 @@ void CtrlrEditor::performKeyGenerator()
 
 void CtrlrEditor::performProgramWizard()
 {
-    ScopedPointer <CtrlrProgramWizard> wz = new CtrlrProgramWizard();
+    ScopedPointer <CtrlrProgramWizard> wz (new CtrlrProgramWizard());
 
     DialogWindow::showModalDialog ("Program wizard", wz, this, Colours::white, true, true, true);
 }
