@@ -120,6 +120,7 @@ public:
 	const PopupMenu getGroupPopup(const int startIndex=4096);
 	const PopupMenu getTabPopup(const int startIndex=8192);
 	void handleGroupMenu (const int returnCode, CtrlrComponent *c, const bool altCoords=false);
+	void handleLayerMenu (const int returnCode, const MouseEvent &e);
 	void handleTabMenu (PopupMenu &m, const int returnCode, CtrlrComponent *c, const bool altCoords=false);
 	void handleLeftClickOnComponent(const MouseEvent &e);
 	void handleRightClickOnCanvas(const MouseEvent &e);
@@ -216,6 +217,7 @@ public:
 	void itemDragExit (const SourceDetails &dragSourceDetails);
 	void itemDragEnter (const SourceDetails &dragSourceDetails);
 	void replaceComponent (CtrlrModulator &modulator, const String &targetComponentType);
+	PopupMenu getLayerMenu();
     JUCE_LEAK_DETECTOR(CtrlrPanelCanvas)
 
 private:
