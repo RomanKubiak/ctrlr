@@ -46,7 +46,7 @@ void CtrlrFontManager::reloadJuceFonts()
 
 const int CtrlrFontManager::getNumBuiltInFonts()
 {
-	return (10);
+	return (11);
 }
 
 void CtrlrFontManager::reloadBuiltInFonts()
@@ -168,16 +168,24 @@ Font CtrlrFontManager::getFont(const int fontIndex)
 
 Font CtrlrFontManager::getBuiltInFont(const String &fontResourceName)
 {
-	int dataSize;
-	const char *dataPointer = BinaryData::getNamedResource(fontResourceName.toUTF8(), dataSize);
-	if (dataSize <= 0)
-		return (Font());
+    int dataSize;
+    const char *dataPointer = BinaryData::getNamedResource(fontResourceName.toUTF8(), dataSize);
+    if (dataSize <= 0)
+        return (Font());
 
-	MemoryBlock data(dataPointer, dataSize);
-	MemoryInputStream mi (data, true);
+    MemoryBlock data(dataPointer, dataSize);
 
-	CustomTypeface *importedTypeFace = new CustomTypeface(mi);
-	return (Font (importedTypeFace));
+    if (fontResourceName.endsWith ("_ttf"))
+    {
+        return (Font (Typeface::createSystemTypefaceFor (dataPointer, dataSize)));
+    }
+    else
+    {
+        MemoryInputStream mi (data, true);
+
+        CustomTypeface *importedTypeFace = new CustomTypeface(mi);
+        return (Font (importedTypeFace));
+    }
 }
 
 const Font CtrlrFontManager::getFont (const char *fontData, const int fontDataSize)
@@ -336,6 +344,10 @@ const Font CtrlrFontManager::getBuiltInFont(const int fontIndex)
 		case 9:
 			f = FONT_FROM_DATA (FONT_60sekuntia_bin);
 			break;
+        case 10:
+            f = getBuiltInFont ("FONT_WarenhausStandard_ttf");
+            break;
+
 		default:
 			break;
 	}

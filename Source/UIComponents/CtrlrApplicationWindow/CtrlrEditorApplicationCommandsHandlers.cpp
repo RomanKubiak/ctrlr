@@ -5,6 +5,7 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "CtrlrMIDI/CtrlrProgramWizard.h"
+#include "CtrlrWindowManagers/CtrlrDialogWindow.h"
 
 class CtrlrKeyGenerator : public ThreadWithProgressWindow
 {
@@ -481,7 +482,7 @@ void CtrlrEditor::performKeyGenerator()
 
 void CtrlrEditor::performProgramWizard()
 {
-    ScopedPointer <CtrlrProgramWizard> wz (new CtrlrProgramWizard());
+    ScopedPointer <CtrlrProgramWizard> wz (new CtrlrProgramWizard(*this));
 
-    DialogWindow::showModalDialog ("Program wizard", wz, this, Colours::white, true, true, true);
+    CtrlrDialogWindow::showModalDialog ("Program wizard", wz, false, this);
 }
