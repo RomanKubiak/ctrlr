@@ -17,14 +17,14 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_323C79E86CBA8010__
-#define __JUCE_HEADER_323C79E86CBA8010__
+#ifndef __JUCE_HEADER_A6EC9C027CD54328__
+#define __JUCE_HEADER_A6EC9C027CD54328__
 
 //[Headers]     -- You can add your own extra header files here --
-class CtrlrEditor;
+#include "JuceHeader.h"
+class CtrlrProgramWizard;
 //[/Headers]
 
-#include "CtrlrProgramWizardMonitor.h"
 
 
 //==============================================================================
@@ -35,41 +35,44 @@ class CtrlrEditor;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class CtrlrProgramWizard  : public Component,
-                            public ButtonListener
+class CtrlrProgramWizardMonitor  : public Component,
+                                   public TextEditor::Listener
 {
 public:
     //==============================================================================
-    CtrlrProgramWizard (CtrlrEditor &_owner);
-    ~CtrlrProgramWizard();
+    CtrlrProgramWizardMonitor (CtrlrProgramWizard &_owner);
+    ~CtrlrProgramWizardMonitor();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    CtrlrEditor &getOwner() { return (owner); }
+    void textEditorTextChanged(TextEditor &editor);
     //[/UserMethods]
 
     void paint (Graphics& g);
     void resized();
-    void buttonClicked (Button* buttonThatWasClicked);
+    void mouseMove (const MouseEvent& e);
+    void mouseDown (const MouseEvent& e);
+    void mouseDrag (const MouseEvent& e);
+    void mouseDoubleClick (const MouseEvent& e);
 
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    CtrlrEditor &owner;
+    CtrlrProgramWizard &owner;
+    Font monoDataFont, monoStatusFont;
+    MemoryBlock statusData;
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<TextButton> executeButton;
-    ScopedPointer<CtrlrProgramWizardMonitor> inputMonitor;
-    ScopedPointer<CtrlrProgramWizardMonitor> outputMonitor;
+    ScopedPointer<TextEditor> dataDisplay;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrProgramWizard)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrProgramWizardMonitor)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_323C79E86CBA8010__
+#endif   // __JUCE_HEADER_A6EC9C027CD54328__
