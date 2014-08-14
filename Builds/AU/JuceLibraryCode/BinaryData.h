@@ -4,9 +4,6 @@
 
 */
 
-#ifndef BINARYDATA_H_53207093_INCLUDED
-#define BINARYDATA_H_53207093_INCLUDED
-
 namespace BinaryData
 {
     extern const char*   CtrlrRevision_template;
@@ -187,11 +184,9 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 58;
+    extern const int namedResourceListSize;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
     const char* getNamedResource (const char* resourceNameUTF8, int& dataSizeInBytes) throw();
 }
-
-#endif
