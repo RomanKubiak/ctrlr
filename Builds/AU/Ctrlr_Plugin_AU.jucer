@@ -923,6 +923,10 @@
         </GROUP>
       </GROUP>
       <GROUP id="{F6EBDABA-5036-888C-4314-5C8C9E8B1A40}" name="CtrlrMIDI">
+        <FILE id="tdErNV" name="CtrlrProgramWizard.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.cpp"/>
+        <FILE id="OqXTA3" name="CtrlrProgramWizard.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.h"/>
         <FILE id="RqfiHN" name="CtrlrMIDIBuffer.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp"/>
         <FILE id="lQxsrM" name="CtrlrMIDIBuffer.h" compile="0" resource="0"
