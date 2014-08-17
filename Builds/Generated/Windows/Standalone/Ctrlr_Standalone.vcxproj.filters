@@ -480,6 +480,12 @@
     <ClCompile Include="..\..\..\..\Source\Core\stdafx.cpp">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.cpp">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.cpp">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClCompile>
@@ -959,6 +965,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.cpp">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
@@ -2297,6 +2306,12 @@
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
@@ -2962,6 +2977,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.h">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
@@ -4374,6 +4392,9 @@
   <ItemGroup>
     <None Include="..\..\..\..\Source\Resources\Misc\RSRC.zip">
       <Filter>Ctrlr_Standalone\Resources\Misc</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Warenhaus-Standard.ttf">
+      <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.bin">
       <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>

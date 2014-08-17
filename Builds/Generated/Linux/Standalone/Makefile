@@ -99,6 +99,8 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
+  $(OBJDIR)/LFileListComponent_37dd3b4d.o \
+  $(OBJDIR)/LFileTreeComponent_854e584d.o \
   $(OBJDIR)/LXmlElement_f51e885.o \
   $(OBJDIR)/LThread_5c655aaa.o \
   $(OBJDIR)/LThreadWithProgressWindow_a962c8ed.o \
@@ -259,6 +261,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaMethodEditorTabs_9f9d2de6.o \
   $(OBJDIR)/CtrlrLuaMethodFind_e941a694.o \
   $(OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o \
+  $(OBJDIR)/CtrlrProgramWizardMonitor_c2db5cf.o \
   $(OBJDIR)/CtrlrProgramWizard_c826c3d5.o \
   $(OBJDIR)/CtrlrMIDIBuffer_8a274ae5.o \
   $(OBJDIR)/CtrlrMIDIBufferEditor_370fe5f2.o \
@@ -472,6 +475,16 @@ $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o: ../../../../Source/Core/StandaloneWr
 $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling stdafx.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LFileListComponent_37dd3b4d.o: ../../../../Source/Lua/JuceClasses/LFileListComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LFileListComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LFileTreeComponent_854e584d.o: ../../../../Source/Lua/JuceClasses/LFileTreeComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LFileTreeComponent.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LXmlElement_f51e885.o: ../../../../Source/Lua/JuceClasses/LXmlElement.cpp
@@ -1272,6 +1285,11 @@ $(OBJDIR)/CtrlrLuaMethodFind_e941a694.o: ../../../../Source/UIComponents/CtrlrLu
 $(OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrMethodEditorTabCloseButton.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrMethodEditorTabCloseButton.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrProgramWizardMonitor_c2db5cf.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizardMonitor.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrProgramWizardMonitor.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrProgramWizard_c826c3d5.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.cpp

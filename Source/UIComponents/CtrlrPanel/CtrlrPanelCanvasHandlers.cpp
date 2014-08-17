@@ -15,6 +15,8 @@ void CtrlrPanelCanvas::handleRightClickOnMultiSelection(const MouseEvent &e)
 	PopupMenu componentSubMenu = CtrlrComponentTypeManager::getComponentMenu(true);
 	getEditMenu(m);
 	m.addSeparator();
+	m.addSubMenu ("Send to layer", getLayerMenu());
+	m.addSeparator();
 	m.addSubMenu ("Replace with", componentSubMenu, true);
 	const int ret = m.show();
 
@@ -22,6 +24,10 @@ void CtrlrPanelCanvas::handleRightClickOnMultiSelection(const MouseEvent &e)
 	{
 		handleEditMenu (ret, e);
 	}
+	else if (ret >= 4096 && ret < 8192)
+    {
+        handleLayerMenu (ret, e);
+    }
 	else if (ret < 1024 && ret > 10)
 	{
 		String replaceWithComponentName;
@@ -45,7 +51,7 @@ void CtrlrPanelCanvas::handleRightClickOnMultiSelection(const MouseEvent &e)
 		if (!replaceWithComponentName.isEmpty())
 		{
             Array <CtrlrComponent *> items;
-            
+
             if (owner.getSelection())
                 items = owner.getSelection()->getItemArray ();
 
@@ -143,7 +149,7 @@ void CtrlrPanelCanvas::handleRightClickOnComponent(const MouseEvent &e)
 	m.addSectionHeader ("Layout");
 	m.addItem (1024, "Send to back");
 	m.addItem (1025, "Send to front");
-
+	m.addSubMenu ("Send to layer", getLayerMenu());
 	m.addSeparator();
 	m.addSubMenu ("Replace with", componentSubMenu, true);
 
@@ -189,6 +195,10 @@ void CtrlrPanelCanvas::handleRightClickOnComponent(const MouseEvent &e)
 	{
 		handleEditMenu (ret, e);
 	}
+	else if (ret >= 4096 && ret < 8192)
+    {
+        handleLayerMenu (ret, e);
+    }
 	else if (ret < 1024 && ret > 10)
 	{
 		PopupMenu::MenuItemIterator iterator((const PopupMenu &)componentSubMenu);
@@ -225,7 +235,7 @@ void CtrlrPanelCanvas::replaceComponent (CtrlrModulator &modulator, const String
         getOwner().getSelection()->dispatchPendingMessages();
         getOwner().getSelection()->removeChangeListener(oldComponent);
     }
-    
+
 	if (oldComponent)
 	{
 		/* keep a copy of the old properties, we need to find out if the component is in a group */
@@ -237,7 +247,7 @@ void CtrlrPanelCanvas::replaceComponent (CtrlrModulator &modulator, const String
 		newComponent = modulator.getComponent();
         if (getOwner().getSelection())
             getOwner().getSelection()->addChangeListener (newComponent);
-        
+
 		addAndMakeVisibleNg (modulator.getComponent(), nullptr, true);
 
 		/* attach the new component to any group components the old component was int */
@@ -370,7 +380,7 @@ void CtrlrPanelCanvas::deleteWithChildren(CtrlrComponent *c)
 	{
         if (getOwner().getSelection())
             getOwner().getSelection()->deselectAll();
-        
+
 		Array<CtrlrComponent*> children = c->getOwnedChildren();
 		for (int i=0; i<children.size(); i++)
 		{
@@ -417,4 +427,33 @@ void CtrlrPanelCanvas::pasteGroupComponent(const ValueTree &groupTree, const int
 void CtrlrPanelCanvas::pasteGroupComponent(const ValueTree &groupTree, const MouseEvent &e)
 {
 	pasteGroupComponent (groupTree, e.x, e.y);
+}
+
+PopupMenu CtrlrPanelCanvas::getLayerMenu()
+{
+    PopupMenu m;
+
+    for (int i=0; i<getNumLayers(); i++)
+    {
+        m.addItem (i+4096, getLayerName(i));
+    }
+    return (m);
+}
+
+void CtrlrPanelCanvas::handleLayerMenu (const int returnCode, const MouseEvent &e)
+{
+    if (owner.getSelection())
+    {
+        const int numSelected = owner.getSelection()->getNumSelected();
+
+        for (int i=0; i<numSelected; i++)
+        {
+            CtrlrComponent *c = owner.getSelection()->getSelectedItem (i);
+
+            if (c != nullptr && getLayerFromArray (returnCode - 4096) != nullptr)
+            {
+                assignToLayer (c, getLayerFromArray (returnCode - 4096));
+            }
+        }
+    }
 }
