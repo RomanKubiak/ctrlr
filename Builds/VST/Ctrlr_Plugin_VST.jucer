@@ -346,6 +346,8 @@
               file="../../Source/Resources/Icons/ico_waveform.png"/>
       </GROUP>
       <GROUP id="{A435AE00-B243-3EF1-6401-EBBD00F6107D}" name="Fonts">
+        <FILE id="vPkR4w" name="FONT_Warenhaus-Standard.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf"/>
         <FILE id="XuWNRk" name="FONT_60sekuntia.bin" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_60sekuntia.bin"/>
         <FILE id="BIfugb" name="FONT_Computerfont.bin" compile="0" resource="1"
@@ -1024,6 +1026,14 @@
         </GROUP>
       </GROUP>
       <GROUP id="{56955E24-D55D-EDAC-5C31-8CA84BA65627}" name="CtrlrMIDI">
+        <FILE id="pB0r1J" name="CtrlrProgramWizard.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.cpp"/>
+        <FILE id="RKCZvh" name="CtrlrProgramWizard.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.h"/>
+        <FILE id="BBmJMp" name="CtrlrProgramWizardMonitor.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizardMonitor.cpp"/>
+        <FILE id="x8t6r3" name="CtrlrProgramWizardMonitor.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizardMonitor.h"/>
         <FILE id="hcf7gC" name="CtrlrMIDIBuffer.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp"/>
         <FILE id="bB9SiX" name="CtrlrMIDIBuffer.h" compile="0" resource="0"

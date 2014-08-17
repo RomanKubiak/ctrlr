@@ -530,6 +530,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Resources/Fonts/FONT_60sekuntia.bin">
       <Option compile="0"/>
       <Option link="0"/>
@@ -1644,6 +1648,16 @@
     </Unit>
     <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrMethodEditorTabCloseButton.cpp"/>
     <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrMethodEditorTabCloseButton.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizardMonitor.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizardMonitor.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

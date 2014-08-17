@@ -394,6 +394,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.cpp" />
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.cpp" />
@@ -611,6 +613,7 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditorTabs.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodFind.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.cpp" />
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.cpp" />
@@ -1781,6 +1784,8 @@
     <ClInclude Include="..\..\..\..\Source\Core\dxtrans.h" />
     <ClInclude Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h" />
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h" />
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.h" />
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThread.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.h" />
@@ -2003,6 +2008,7 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditorTabs.h" />
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodFind.h" />
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.h" />
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.h" />
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.h" />
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.h" />
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.h" />
@@ -2475,6 +2481,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Source\Resources\Misc\RSRC.zip" />
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Warenhaus-Standard.ttf" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.bin" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Computerfont.bin" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digit.bin" />
