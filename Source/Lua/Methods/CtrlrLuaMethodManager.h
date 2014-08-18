@@ -92,7 +92,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const MouseEvent &param2);
 
 		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const MouseEvent &param2, float param3, float param4);
-
+		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const double param2, const bool param3);
 		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const KeyPress &param2, Component *param3);
 		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const bool param2, Component *param3);
 

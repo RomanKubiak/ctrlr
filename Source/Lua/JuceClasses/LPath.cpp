@@ -66,6 +66,7 @@ void LPath::wrapForLua (lua_State *L)
         class_<LPathStrokeType>("PathStrokeType")
 		,
 		class_<PathStrokeType, bases<LPathStrokeType> >("PathStrokeType")
+			.def(constructor<float>())
 			.def(constructor<float, PathStrokeType::JointStyle, PathStrokeType::EndCapStyle>())
 			.def(constructor<const PathStrokeType &>())
 			.def("createStrokedPath", &PathStrokeType::createStrokedPath)
