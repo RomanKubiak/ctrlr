@@ -423,17 +423,24 @@
 
   <!-- Custom component -->
   <id name="uiCustomResizedCallback" text="Resized callback" type="LuaMethod"/>
-  <id name="uiCustomPaintCallback" text="Paint callback" type="LuaMethod"/>
-  <id name="uiCustomPaintOverChildrenCallback" text="Paint over children callback" type="LuaMethod"/>
-  <id name="uiCustomMouseDownCallback" text="Mouse down callback" type="LuaMethod"/>
-  <id name="uiCustomMouseUpCallback" text="Mouse up callback" type="LuaMethod"/>
-  <id name="uiCustomMouseDoubleClickCallback" text="Mouse double click callback" type="LuaMethod"/>
-  <id name="uiCustomMouseEnterCallback" text="Mouse enter callback" type="LuaMethod"/>
-  <id name="uiCustomMouseExitCallback" text="Mouse exit callback" type="LuaMethod"/>
-  <id name="uiCustomMouseDragCallback" text="Mouse Drag" type="LuaMethod"/>
-  <id name="uiCustomMouseMoveCallback" text="Mouse move callback" type="LuaMethod"/>
-  <id name="uiCustomMouseWheelMoveCallback" text="Mouse wheel move callback" type="LuaMethod"/>
-  <id name="uiCustomKeyDownCallback" text="Key down callback" type="LuaMethod"/>
+  <id name="uiCustomPaintCallback"              text="Paint callback" type="LuaMethod"/>
+  <id name="uiCustomPaintOverChildrenCallback"  text="Paint over children callback" type="LuaMethod"/>
+  <id name="uiCustomMouseDownCallback"          text="Mouse down callback" type="LuaMethod"/>
+  <id name="uiCustomMouseUpCallback"            text="Mouse up callback" type="LuaMethod"/>
+  <id name="uiCustomMouseDoubleClickCallback"   text="Mouse double click callback" type="LuaMethod"/>
+  <id name="uiCustomMouseEnterCallback"         text="Mouse enter callback" type="LuaMethod"/>
+  <id name="uiCustomMouseExitCallback"          text="Mouse exit callback" type="LuaMethod"/>
+  <id name="uiCustomMouseDragCallback"          text="Mouse Drag" type="LuaMethod"/>
+  <id name="uiCustomMouseMoveCallback"          text="Mouse move callback" type="LuaMethod"/>
+  <id name="uiCustomMouseWheelMoveCallback"     text="Mouse wheel move callback" type="LuaMethod"/>
+  <id name="uiCustomKeyDownCallback"            text="Key down callback" type="LuaMethod"/>
+  <id name="uiCustomKeyStateChangedCallback"    text="Key state changed callback" type="LuaMethod" />
+  <id name="uiCustomMouseDownGrabsFocus"        text="Mouse down grabs keyboard focus" type="Bool" />
+  <id name="uiCustomWantsKeyboardFocus"         text="This component needs keyboard focus" type="Bool" />
+  <id name="uiCustomSetText"                    text="Called to set the components text" type="LuaMethod" />
+  <id name="uiCostomGetText"                    text="Called to get the components text" type="LuaMethod" />
+  <id name="uiCustomSetValue"                   text="Called to set the components value" type="LuaMethod" />
+  <id name="uiCustomGetValue"                   text="Called to get the components value" type="LuaMethod" />
 
   <!-- Waveform -->
   <id name="uiWaveformColour"                           text="Waveform colour"                      type="Colour"/>

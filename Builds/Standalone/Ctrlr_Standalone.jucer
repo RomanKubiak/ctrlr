@@ -377,14 +377,6 @@
     </GROUP>
     <GROUP id="{BF1AE96C-84FC-3E33-914B-08E0062FCD5B}" name="Lua">
       <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
-        <FILE id="cIkmxi" name="LFileListComponent.cpp" compile="1" resource="0"
-              file="../../Source/Lua/JuceClasses/LFileListComponent.cpp"/>
-        <FILE id="nB7NXe" name="LFileListComponent.h" compile="0" resource="0"
-              file="../../Source/Lua/JuceClasses/LFileListComponent.h"/>
-        <FILE id="d36G79" name="LFileTreeComponent.cpp" compile="1" resource="0"
-              file="../../Source/Lua/JuceClasses/LFileTreeComponent.cpp"/>
-        <FILE id="McNpmN" name="LFileTreeComponent.h" compile="0" resource="0"
-              file="../../Source/Lua/JuceClasses/LFileTreeComponent.h"/>
         <FILE id="lbR2oN" name="LXmlElement.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.cpp"/>
         <FILE id="rTvtUS" name="LXmlElement.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.h"/>
         <FILE id="kz9hTM" name="LThread.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LThread.cpp"/>

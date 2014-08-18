@@ -23,6 +23,17 @@
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
 class CtrlrProgramWizard;
+
+static const String groupBinary(const String in)
+{
+    String ret;
+    for (int i=0; i<in.length(); i+=4)
+    {
+        ret << in.substring (i, i+4);
+        ret << " ";
+    }
+    return (ret);
+}
 //[/Headers]
 
 

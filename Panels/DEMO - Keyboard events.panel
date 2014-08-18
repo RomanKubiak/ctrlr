@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<panel name="Ctrlr Panel" panelShowDialogs="1" panelMessageTime="10000"
+       panelAuthorName="" panelAuthorEmail="" panelAuthorUrl="" panelAuthorDesc=""
+       panelVersionMajor="1" panelVersionMinor="0" panelVersionName="Hell-O-Kitty"
+       panelVendor="" panelDevice="" panelMidiSnapshotAfterLoad="0"
+       panelMidiSnapshotAfterProgramChange="0" panelMidiSnapshotDelay="10"
+       panelMidiInputChannelDevice="1" panelMidiInputDevice="-- None"
+       panelMidiControllerChannelDevice="1" panelMidiControllerDevice="-- None"
+       panelMidiOutputChannelDevice="1" panelMidiOutputDevice="-- None"
+       panelMidiInputFromHost="0" panelMidiInputChannelHost="1" panelMidiOutputToHost="0"
+       panelMidiOutputChannelHost="1" panelMidiThruH2H="0" panelMidiThruH2HChannelize="0"
+       panelMidiThruH2D="0" panelMidiThruH2DChannelize="0" panelMidiThruD2D="0"
+       panelMidiThruD2DChannelize="0" panelMidiThruD2H="0" panelMidiThruD2HChannelize="0"
+       panelMidiRealtimeIgnore="1" panelMidiInputThreadPriority="7"
+       panelMidiProgram="0" panelMidiBankLsb="0" panelMidiBankMsb="0"
+       panelMidiSendProgramChangeOnLoad="0" panelMidiProgramCalloutOnprogramChange="0"
+       panelMidiMatchCacheSize="32" panelMidiGlobalDelay="0" luaPanelMidiChannelChanged="-- None"
+       luaPanelMidiReceived="-- None" luaPanelLoaded="-- None" luaPanelBeforeLoad="-- None"
+       luaPanelSaved="-- None" luaPanelResourcesLoaded="-- None" luaPanelProgramChanged="-- None"
+       luaPanelGlobalChanged="-- None" luaPanelMessageHandler="-- None"
+       panelFilePath="-- None" panelUID="8.9DGWkvQyiRH" panelInstanceUID="HryD"
+       panelInstanceManufacturerID="sbza" panelModulatorListColumns="-- None"
+       panelModulatorListCsvDelimiter="," panelModulatorListXmlRoot="ctrlrModulatorList"
+       panelModulatorListXmlModulator="ctrlrModulator" panelModulatorListSortOption="1"
+       panelGlobalVariables="-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1"
+       panelResources="-- None" panelPropertyDisplayIDs="0" ctrlrMenuItemBackgroundColour="ffffffff"
+       ctrlrMenuItemTextColour="ff000000" ctrlrMenuItemHighlightedTextColour="ffffffff"
+       ctrlrMenuItemHighlightColour="ff4364ff" ctrlrMenuItemFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;0"
+       ctrlrMenuItemSeparatorColour="44000000" ctrlrMenuItemHeaderColour="ff000000"
+       ctrlrMenuBarBackgroundColour1="fff7f7f7" ctrlrMenuBarBackgroundColour2="ffcccccc"
+       ctrlrMenuBarTextColour="ff000000" ctrlrMenuBarHighlightedTextColour="ffffffff"
+       ctrlrMenuBarHighlightColour="ff4364ff" ctrlrMenuBarFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;0"
+       ctrlrUseEditorWrapper="0" panelIndex="0">
+  <uiWindowManager>
+    <uiChildWindow uiChildWindowName="LuaMethodEditor" uiChildWindowState="2024 66 1703 847">
+      <uiChildWindowContentState luaMethodEditor="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&#13;&#10;&lt;CLOSED id=&quot;LUA Method&quot; scrollPos=&quot;0&quot;/&gt;&#13;&#10;;66826e2df8914099a3e768f694715f9f:739dfa5ac60849a384e6ff03aecb3892:8ea40d91684746a9aafe5204915da774"/>
+    </uiChildWindow>
+    <uiChildWindow uiChildWindowName="LuaConsole" uiChildWindowState="564 317 800 500">
+      <uiChildWindowContentState/>
+    </uiChildWindow>
+  </uiWindowManager>
+  <midiLibrary uuid="d445b23a4e28415f8ede98eb37abafbf" luaTransInfo="-- None"
+               midiLibraryParameterIndexProperty="modulatorCustomIndex" midiLibraryMidiProgramChangeControl="0"
+               midiLibrarySendSnapAfterPChg="0" midiLibraryDefaultBankName="New Bank - %H:%M:%S"
+               midiLibraryDefaultProgramName="New Program - %H:%M:%S" midiLibraryDefaultSnapshotName="Snapshot - %H:%M:%S"
+               midiLibraryCustomRequests="">
+    <midiLibrarySnapshots name="Snapshots"/>
+    <midiLibraryFirmware name="Firmware"/>
+    <midiLibraryEditBuffer name="Edit buffer"/>
+    <midiLibraryTransactions name="Transactions">
+      <trans name="Request Identity" enabled="1" internal="1" transCap="midiLibrary"
+             timeout="1000" transReqFormulaPrefix="F0 7E 7F 06 01" transReqFormulaSuffix="F7"
+             transRespSizeCheck="0" transReqDataLen="0" transReqExists="1"
+             transConfExists="0" transRespFormulaPrefix="F0 7E 7F 06 02" transRespFormulaSuffix="F7"
+             transRespDataLen="8" transRespDataCheck="1" transRespExists="1"/>
+      <trans name="Request Identity [LUA]" enabled="1" internal="1" transCap="midiLibrary"
+             timeout="1000" transReqFormulaPrefix="" transReqFormulaSuffix=""
+             transReqDataLen="0" transReqExists="1" transConfExists="0" transRespFormulaPrefix=""
+             transRespFormulaSuffix="" transRespDataLen="8" transRespDataCheck="0"
+             transRespSizeCheck="0" transRespExists="1" luaTransRequest="transIdReq"
+             luaTransProcess="transIdProc"/>
+      <trans name="Send SYX file" enabled="1" internal="1" transCap="midiLibrary"
+             timeout="1000" transReqFormulaPrefix="" transReqFormulaSuffix=""
+             transReqDataLen="0" transReqExists="1" transConfExists="0" transRespFormulaPrefix=""
+             transRespFormulaSuffix="" transRespDataLen="0" transRespDataCheck="0"
+             transRespExists="0" luaTransRequest="transSYXSendReq"/>
+      <trans name="Recieve SYX file" enabled="1" internal="1" transCap="midiLibrary"
+             timeout="1000" transReqFormulaPrefix="" transReqFormulaSuffix=""
+             transReqDataLen="0" transReqExists="1" transConfExists="0" transRespFormulaPrefix=""
+             transRespFormulaSuffix="" transRespDataLen="0" transRespDataCheck="0"
+             transRespExists="1" luaTransRequest="transSYXRcvReq" luaTransProcess="transSYXRcvProc"/>
+    </midiLibraryTransactions>
+  </midiLibrary>
+  <luaManager>
+    <luaManagerMethods>
+      <luaMethodGroup name="Built-In" uuid="d1a47e802ee346cfae5cc60a2026bd3c">
+        <luaMethod luaMethodName="table_dump" luaMethodCode="--&#13;&#10;-- Print table contents&#13;&#10;--&#13;&#10;function table_dump(table)&#13;&#10;&#9;for key,value in ipairs(table) do&#13;&#10;&#9;&#9;debug (&quot;KEY= [&quot;..key..&quot;]&quot;)&#13;&#10;&#13;&#10;&#9;&#9;if (type(value) == &quot;table&quot;) then&#13;&#10;&#9;&#9;&#9;table_dump(value)&#13;&#10;&#9;&#9;elseif (type(value) == &quot;nil&quot;) then&#13;&#10;&#9;&#9;&#9;debug (&quot; = NIL&quot;)&#13;&#10;&#9;&#9;else&#13;&#10;&#9;&#9;&#9;what (value)&#13;&#10;&#9;&#9;end&#13;&#10;&#9;end&#13;&#10;end"
+                   luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000001"
+                   luaMethodValid="1"/>
+        <luaMethod luaMethodName="what" luaMethodCode="--&#13;&#10;-- Print methods for an object&#13;&#10;--&#13;&#10;function what(o)&#13;&#10;&#9;info = class_info(o)&#13;&#10;&#9;if info ~= nil then&#13;&#10;&#9;&#9;ret = &quot;Object type [&quot; .. info.name .. &quot;]\n-----------------------------------------------------------------\n\n&quot;..&quot;Members:\n&quot;&#13;&#10;&#13;&#10;&#9;&#9;if info.name == &quot;table&quot; then&#13;&#10;&#9;&#9;&#9;table_dump(o)&#13;&#10;&#9;&#9;end&#13;&#10;&#13;&#10;&#9;&#9;for k, v in pairs(info.methods) do&#13;&#10;&#9;&#9;&#9;ret = ret .. string.format (&quot;\t%30s:\t%5s\n&quot;, k, type(v))&#13;&#10;&#9;&#9;end&#13;&#10;&#9;&#9;ret = ret .. &quot;\n\nAttributes:\n&quot;&#13;&#10;&#9;&#9;for k, v in pairs(info.attributes) do&#13;&#10;&#9;&#9;&#9;ret = ret .. string.format (&quot;\t%30s:\t%5s\n&quot;, k, type(v))&#13;&#10;&#9;&#9;end&#13;&#10;&#9;&#9;ret = ret .. &quot;\n-----------------------------------------------------------------&quot;&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;debug (ret)&#13;&#10;&#9;return ret&#13;&#10;end"
+                   luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000002"
+                   luaMethodValid="1"/>
+        <luaMethod luaMethodName="how" luaMethodCode="--&#13;&#10;-- Print all available classes&#13;&#10;--&#13;&#10;function how()&#13;&#10;&#9;ret = &quot;Available classes:\n&quot;&#13;&#10;&#9;ret = ret .. &quot;\n-----------------------------------------------------------------&quot;&#13;&#10;&#9;for i,v in ipairs(class_names()) do&#13;&#10;&#9;&#9;ret = ret .. &quot;\t&quot;.. v .. &quot;\n&quot;&#13;&#10;&#9;end&#13;&#10;&#9;ret = ret .. &quot;\n-----------------------------------------------------------------&quot;&#13;&#10;&#9;debug (ret)&#13;&#10;&#9;return ret&#13;&#10;end"
+                   luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000003"
+                   luaMethodValid="1"/>
+        <luaMethod luaMethodName="transSYXSendReq" luaMethodCode="function transSYXSendReq(transaction)&#13;&#10;&#9;console(&quot;transSYXSendReq&quot;)&#13;&#10;&#9;fileToSend = utils.openFileWindow(&quot;SYX file to send&quot;, File.getSpecialLocation(File.userHomeDirectory), &quot;*.*&quot;, true)&#13;&#10;&#13;&#10;&#9;if fileToSend:existsAsFile() then&#13;&#10;&#9;&#9;result = MemoryBlock (0, true)&#13;&#10;&#9;&#9;fileToSend:loadFileAsData (result)&#13;&#10;&#13;&#10;&#9;&#9;if result:getSize() &lt;= 0 then&#13;&#10;&#9;&#9;&#9;utils.warnWindow (&quot;Send SYX File&quot;, &quot;Reading the file resultet in 0 data bytes&quot;)&#13;&#10;&#9;&#9;&#9;return&#13;&#10;&#9;&#9;end&#13;&#10;&#13;&#10;&#9;&#9;debug (&quot;sending file: &quot;..fileToSend:getFullPathName())&#13;&#10;&#13;&#10;&#9;&#9;transaction:setRequest (result)&#13;&#10;&#9;else&#13;&#10;&#9;&#9;utils.warnWindow (&quot;Send SYX File&quot;, &quot;Can't read selected file&quot;)&#13;&#10;&#9;end&#13;&#10;end"
+                   luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000004"
+                   luaMethodValid="1"/>
+        <luaMethod luaMethodName="transSYXRcvReq" luaMethodCode="function transSYXRcvReq(transaction)&#13;&#10;&#9;console(&quot;transSYXRcvReq&quot;)&#13;&#10;end"
+                   luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000005"
+                   luaMethodValid="1"/>
+        <luaMethod luaMethodName="transSYXRcvProc" luaMethodCode="function transSYXRcvProc(transaction)&#13;&#10;&#9;console(&quot;transSYXRcvProc&quot;)&#13;&#10;end"
+                   luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000006"
+                   luaMethodValid="1"/>
+      </luaMethodGroup>
+      <luaMethod luaMethodName="onKeyDown" luaMethodCode="--&#13;-- Called when the a key is pressed and the component has focus&#13;--&#13;onKeyDown = function(comp, keyEvent, originatingComponent)&#13;&#10;&#9;console (&quot;keyEvent: &quot;..keyEvent:getTextDescription())&#13;&#10;&#9;lastKeyEvent = keyEvent:getTextDescription()&#13;&#10;&#9;comp:repaint()&#13;end"
+                 luaMethodLinkedProperty="uiCustomKeyDownCallback" luaMethodSource="0"
+                 uuid="66826e2df8914099a3e768f694715f9f" luaMethodValid="1"/>
+      <luaMethod luaMethodName="onKeyStateChanged" luaMethodCode="--&#13;-- Called when the a key state changes&#13;--&#13;onKeyStateChanged = function(comp, isKeyDown, originatingComponent)&#13;end"
+                 luaMethodLinkedProperty="uiCustomKeyStateChangedCallback" luaMethodSource="0"
+                 uuid="739dfa5ac60849a384e6ff03aecb3892" luaMethodValid="1"/>
+      <luaMethod luaMethodName="onPaint" luaMethodCode="--&#13;-- Called when a component needs repainting&#13;-- @comp&#13;-- @g    http://ctrlr.org/api/class_ctrlr_lua_graphics.html&#13;--              see also http://www.rawmaterialsoftware.com/juce/api/classGraphics.html&#13;--&#13;onPaint = function(comp,g)&#13;&#10;&#9;g:fillAll (Colour (0x56ff0000))&#13;&#10;&#9;&#13;&#10;&#9;if lastKeyEvent ~= nil then&#13;&#10;&#9;&#9;g:setColour (Colour (0xffffffff))&#13;&#10;&#9;&#9;g:setFont (48)&#13;&#10;&#9;&#9;g:drawText (lastKeyEvent, comp:getBounds(), Justification (Justification.centredLeft), false)&#13;&#10;&#9;end&#13;end"
+                 luaMethodLinkedProperty="uiCustomPaintCallback" luaMethodSource="0"
+                 uuid="8ea40d91684746a9aafe5204915da774" luaMethodValid="1"/>
+      <luaMethod luaMethodName="myMethod" luaMethodCode="--&#13;-- Called when a component needs repainting&#13;-- @comp&#13;-- @g    http://ctrlr.org/api/class_ctrlr_lua_graphics.html&#13;--              see also http://www.rawmaterialsoftware.com/juce/api/classGraphics.html&#13;--&#13;myMethod = function(comp,g)&#13;end"
+                 luaMethodLinkedProperty="uiCustomPaintCallback" luaMethodSource="0"
+                 uuid="7b024d4ff710494d86c82665e569e16f" luaMethodValid="1"/>
+    </luaManagerMethods>
+  </luaManager>
+  <panelResources/>
+  <uiPanelEditor uiPanelCanvasRectangle="0 0 600 400" uiPanelSnapSize="8" uiPanelBackgroundColour="0xffffffff"
+                 uiPanelBackgroundColour1="ff000000" uiPanelBackgroundColour2="ff4e4e4e"
+                 uiPanelBackgroundGradientType="1" uiPanelImageResource="-- None"
+                 uiPanelEditMode="0" uiPanelViewPortSize="741" uiPanelPropertiesSize="579"
+                 uiPanelLock="0" uiPanelDisabledOnEdit="0" uiPanelWidth="400"
+                 uiPanelHeight="400" name="Ctrlr Panel" uiPanelImageAlpha="255"
+                 uiPanelImageLayout="64" uiPanelSnapActive="1" uiPanelPropertiesOnRight="0"
+                 luaPanelPaintBackground="-- None" luaPanelResized="-- None" luaPanelFileDragDropHandler="-- None"
+                 luaPanelFileDragEnterHandler="-- None" luaPanelFileDragExitHandler="-- None"
+                 uiPanelInvisibleComponentAlpha="0.71" uiPanelMidiToolbarVisible="0"
+                 uiPanelTooltipBackgroundColour="0xffeeeebb" uiPanelTooltipOutlineColour="0xff000000"
+                 uiPanelTooltipColour="0xff000000" uiPanelTooltipCornerRound="1"
+                 uiPanelTooltipPlacement="2" uiPanelTooltipFont="&lt;Sans-Serif&gt;;15;1;0;0;0;1;0"
+                 uiPanelZoom="1">
+    <uiPanelCanvasLayer uiPanelCanvasLayerName="New layer" uiPanelCanvasLayerUid="70fb9c50020000005b0000006e000000"
+                        uiPanelCanvasLayerColour="0x000000" uiPanelCanvasLayerVisibility="1"
+                        uiPanelCanvasLayerIndex="0"/>
+  </uiPanelEditor>
+  <modulator modulatorVstExported="1" modulatorMax="65536" vstIndex="0" modulatorIsStatic="0"
+             modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
+             modulatorValueExpression="modulatorValue" modulatorValueExpressionReverse="midiValue"
+             luaModulatorGetValueForMIDI="-- None" luaModulatorGetValueFromMIDI="-- None"
+             modulatorLinkedToPanelProperty="-- None" modulatorLinkedToModulatorProperty="-- None"
+             modulatorLinkedToModulator="-- None" modulatorLinkedToModulatorSource="1"
+             modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
+             modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
+             modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
+             name="modulator-1" modulatorValue="0">
+    <midi midiMessageType="9" midiMessageChannelOverride="0" midiMessageChannel="1"
+          midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList=""
+          midiMessageSysExFormula=""/>
+    <component componentLabelPosition="top" componentLabelJustification="centred"
+               componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="0"
+               componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1;0" componentVisibleName="modulator-1"
+               componentMouseCursor="2" componentGroupName="" componentGroupped="0"
+               componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
+               componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
+               componentEffect="0" componentEffectRadius="1" componentEffectColour="0xff000000"
+               componentEffectOffsetX="0" componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
+               componentBubbleRoundAngle="10" componentBubbleBackgroundColour1="0x9cffffff"
+               componentBubbleBackgroundColour2="0xbab9b9b9" componentBubbleBackgroundGradientType="1"
+               componentBubbleValueColour="0xff000000" componentBubbleValueFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;0"
+               componentBubbleValueJustification="centred" componentBubbleNameColour="0xff000000"
+               componentBubbleNameFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;0" componentBubbleNameJustification="centred"
+               componentValueDecimalPlaces="0" uiCustomResizedCallback="-- None"
+               uiCustomPaintCallback="onPaint" uiCustomPaintOverChildrenCallback="-- None"
+               componentRectangle="56 40 491 319" uiCustomMouseDownCallback="-- None"
+               uiCustomMouseUpCallback="-- None" uiCustomMouseEnterCallback="-- None"
+               uiCustomMouseExitCallback="-- None" uiCustomMouseMoveCallback="-- None"
+               uiCustomMouseDragCallback="-- None" uiCustomKeyDownCallback="onKeyDown"
+               uiCustomKeyStateChangedCallback="onKeyStateChanged" uiCustomMouseDoubleClickCallback="-- None"
+               uiCustomMouseWheelMoveCallback="-- None" uiCustomMouseDownGrabsFocus="1"
+               uiCustomWantsKeyboardFocus="1" uiType="uiCustomComponent" componentLayerUid="70fb9c50020000005b0000006e000000"/>
+  </modulator>
+</panel>

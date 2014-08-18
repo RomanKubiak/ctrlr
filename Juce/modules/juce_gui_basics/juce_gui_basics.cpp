@@ -33,7 +33,6 @@
 
 // Your project must contain an AppConfig.h file with your project-specific settings in it,
 // and your header search path must make it accessible to the module's files.
-#include "stdafx.h"
 #include "AppConfig.h"
 
 #define NS_FORMAT_FUNCTION(F,A) // To avoid spurious warnings from GCC

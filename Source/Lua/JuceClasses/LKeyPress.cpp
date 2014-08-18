@@ -7,12 +7,23 @@ void LKeyPress::wrapForLua (lua_State *L)
 
 	module(L)
     [
-		class_<KeyPress>("JKeyPress")
-		,
-		class_<LKeyPress, bases<KeyPress> >("KeyPress")
+		class_<KeyPress>("KeyPress")
 			.def(constructor<>())
 			.def(constructor<int>())
 			.def(constructor<int, const ModifierKeys &, juce_wchar>())
+			.def("isValid", &KeyPress::isValid)
+			.def("getKeyCode", &KeyPress::getKeyCode)
+			.def("getModifiers", &KeyPress::getModifiers)
+			.def("getTextCharacter", &KeyPress::getTextCharacter)
+			.def("isKeyCode", &KeyPress::isKeyCode)
+			.def("getTextDescription", &KeyPress::getTextDescription)
+			.def("getTextDescriptionWithIcons", &KeyPress::getTextDescriptionWithIcons)
+			.def("isCurrentlyDown", &KeyPress::isCurrentlyDown)
+			.scope
+			[
+                def("createFromDescription", &KeyPress::createFromDescription),
+                def("isKeyCurrentlyDown", &KeyPress::isKeyCurrentlyDown)
+			]
 			.enum_("KeyCode")
 			[
 				value("spaceKey", KeyPress::spaceKey),

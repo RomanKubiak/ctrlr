@@ -473,8 +473,15 @@ namespace Ids
 	DECLARE_ID (uiCustomMouseDragCallback);
 	DECLARE_ID (uiCustomMouseMoveCallback);
 	DECLARE_ID (uiCustomKeyDownCallback);
+	DECLARE_ID (uiCustomKeyStateChangedCallback);
 	DECLARE_ID (uiCustomMouseDoubleClickCallback);
 	DECLARE_ID (uiCustomMouseWheelMoveCallback);
+    DECLARE_ID (uiCustomMouseDownGrabsFocus);
+    DECLARE_ID (uiCustomWantsKeyboardFocus);
+    DECLARE_ID (uiCustomSetText);
+    DECLARE_ID (uiCostomGetText);
+    DECLARE_ID (uiCustomSetValue);
+    DECLARE_ID (uiCustomGetValue);
 
 	DECLARE_ID (uiWaveformColour);
 	DECLARE_ID (uiWaveformBackgroundColour1);
