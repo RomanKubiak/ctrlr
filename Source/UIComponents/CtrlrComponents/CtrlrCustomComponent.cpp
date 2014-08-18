@@ -4,24 +4,24 @@
 #include "CtrlrProcessor.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 
-CtrlrCustomComponent::CtrlrCustomComponent(CtrlrModulator &_owner) 
+CtrlrCustomComponent::CtrlrCustomComponent(CtrlrModulator &_owner)
 	: CtrlrComponent(_owner)
 {
-	setWantsKeyboardFocus (true);
-	
-	setProperty(Ids::uiCustomResizedCallback, "");
-	setProperty(Ids::uiCustomPaintCallback, "");
-	setProperty(Ids::uiCustomPaintOverChildrenCallback, "");
-	setProperty(Ids::uiCustomMouseDownCallback, "");
-	setProperty(Ids::uiCustomMouseUpCallback, "");
-	setProperty(Ids::uiCustomMouseEnterCallback, "");
-	setProperty(Ids::uiCustomMouseExitCallback, "");
-	setProperty(Ids::uiCustomMouseMoveCallback, "");
-	setProperty(Ids::uiCustomMouseDragCallback, "");
-	setProperty(Ids::uiCustomKeyDownCallback, "");
-	setProperty(Ids::uiCustomMouseDoubleClickCallback, "");
-	setProperty(Ids::uiCustomMouseWheelMoveCallback, "");
-
+	setProperty(Ids::uiCustomResizedCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomPaintCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomPaintOverChildrenCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomMouseDownCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomMouseUpCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomMouseEnterCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomMouseExitCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomMouseMoveCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomMouseDragCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomKeyDownCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomKeyStateChangedCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomMouseDoubleClickCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomMouseWheelMoveCallback, COMBO_ITEM_NONE);
+    setProperty(Ids::uiCustomMouseDownGrabsFocus, false);
+    setProperty(Ids::uiCustomWantsKeyboardFocus, false);
 	setSize (64,64);
 }
 
@@ -42,11 +42,25 @@ void CtrlrCustomComponent::paint (Graphics &g)
 
 bool CtrlrCustomComponent::keyPressed (const KeyPress &key, Component *originatingComponent)
 {
+    if (keyPressedCbk && !keyPressedCbk.wasObjectDeleted())
+	{
+		if (keyPressedCbk->isValid())
+		{
+			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (keyPressedCbk, this, key, originatingComponent);
+		}
+	}
 	return (false);
 }
 
 bool CtrlrCustomComponent::keyStateChanged (bool isKeyDown, Component *originatingComponent)
 {
+    if (keyStateChangedCbk && !keyStateChangedCbk.wasObjectDeleted())
+	{
+		if (keyStateChangedCbk->isValid())
+		{
+			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (keyStateChangedCbk, this, isKeyDown, originatingComponent);
+		}
+	}
 	return (false);
 }
 
@@ -146,20 +160,54 @@ const double CtrlrCustomComponent::getComponentMaxValue()
 
 const String CtrlrCustomComponent::getComponentText()
 {
-	return (String::empty);
+    if (getTextCbk && !getTextCbk.wasObjectDeleted())
+	{
+		if (getTextCbk->isValid())
+		{
+			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRetString (getTextCbk, this));
+		}
+	}
+	else
+    {
+        return (String::empty);
+    }
 }
 
 void CtrlrCustomComponent::setComponentText (const String &componentText)
 {
+    if (setTextCbk && !setTextCbk.wasObjectDeleted())
+	{
+		if (setTextCbk->isValid())
+		{
+			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().call (setTextCbk, this, componentText));
+		}
+	}
 }
 
 void CtrlrCustomComponent::setComponentValue (const double newValue, const bool sendChangeMessage)
 {
+    if (setValueCbk && !setValueCbk.wasObjectDeleted())
+	{
+		if (setValueCbk->isValid())
+		{
+			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().call (setValueCbk, this, newValue, sendChangeMessage));
+		}
+	}
 }
 
 const double CtrlrCustomComponent::getComponentValue()
 {
-	return (1);
+	if (getValueCbk && !getValueCbk.wasObjectDeleted())
+	{
+		if (getValueCbk->isValid())
+		{
+			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().call (getValueCbk, this));
+		}
+	}
+	else
+    {
+        return (0);
+    }
 }
 
 const int CtrlrCustomComponent::getComponentMidiValue()
@@ -239,9 +287,66 @@ void CtrlrCustomComponent::valueTreePropertyChanged (ValueTree &treeWhosePropert
 
 		mouseWheelMoveCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
+	else if (property == Ids::uiCustomKeyDownCallback)
+	{
+		if (isInvalidMethodName (getProperty(property)))
+			return;
 
-	CtrlrComponent::valueTreePropertyChanged(treeWhosePropertyHasChanged, property);
-	CtrlrComponent::resized();
+		keyPressedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::uiCustomKeyStateChangedCallback)
+	{
+		if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		keyStateChangedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::uiCustomMouseDownGrabsFocus)
+    {
+        setMouseClickGrabsKeyboardFocus ((bool)getProperty(property));
+    }
+    else if (property == Ids::uiCustomWantsKeyboardFocus)
+    {
+        setWantsKeyboardFocus ((bool)getProperty(property));
+
+        if (getWantsKeyboardFocus())
+        {
+            addKeyListener (this);
+        }
+    }
+    else if (property == Ids::uiCustomSetText)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		setTextCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+    else if (property == Ids::uiCostomGetText)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		getTextCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+    else if (property == Ids::uiCustomSetValue)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		setValueCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+    else if (property == Ids::uiCustomGetValue)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		getValueCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+    else
+    {
+        CtrlrComponent::valueTreePropertyChanged(treeWhosePropertyHasChanged, property);
+        CtrlrComponent::resized();
+    }
 }
 
 void CtrlrCustomComponent::valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded)

@@ -99,8 +99,6 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
-  $(OBJDIR)/LFileListComponent_37dd3b4d.o \
-  $(OBJDIR)/LFileTreeComponent_854e584d.o \
   $(OBJDIR)/LXmlElement_f51e885.o \
   $(OBJDIR)/LThread_5c655aaa.o \
   $(OBJDIR)/LThreadWithProgressWindow_a962c8ed.o \
@@ -475,16 +473,6 @@ $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o: ../../../../Source/Core/StandaloneWr
 $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling stdafx.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LFileListComponent_37dd3b4d.o: ../../../../Source/Lua/JuceClasses/LFileListComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LFileListComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LFileTreeComponent_854e584d.o: ../../../../Source/Lua/JuceClasses/LFileTreeComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LFileTreeComponent.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LXmlElement_f51e885.o: ../../../../Source/Lua/JuceClasses/LXmlElement.cpp

@@ -21,6 +21,17 @@ catch (luabind::error &e)\
 	return (false);\
 }
 
+#define CATCH_METHOD_EXCEPTION_STR \
+catch (luabind::error &e)\
+{\
+	o->setValid(false);\
+	const char* a = lua_tostring(e.state(), -1);\
+	lastExecutionError = String(a);\
+	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(e.what()) + "\n" + lastExecutionError + "\n\nMethod disabled");\
+	_LERR("Callback error: [" + o->getName() + "] " + String(e.what())+" "+lastExecutionError+".\nMethod disabled");\
+	return (String::empty);\
+}
+
 #define CATCH_METHOD_EXCEPTION_NO_DIALOG \
 catch (luabind::error &e)\
 {\
@@ -657,4 +668,69 @@ int CtrlrLuaMethodManager::callWithRet(CtrlrLuaMethod *o, ValueTree valueTree1, 
 	CATCH_METHOD_EXCEPTION
 
 	return (-1);
+}
+
+String CtrlrLuaMethodManager::callWithRetString(CtrlrLuaMethod *o, CtrlrCustomComponent *param1)
+{
+    const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (String::empty);
+
+	try
+	{
+		if (o->isValid())
+		{
+			return (luabind::call_function<String>(o->getObject().getObject(), param1));
+		}
+	}
+	CATCH_METHOD_EXCEPTION_STR
+
+	return (String::empty);
+}
+
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const KeyPress &param2, Component *param3)
+{
+    const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
+		}
+	}
+
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
+}
+
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const bool param2, Component *param3)
+{
+    const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
+		}
+	}
+
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
 }

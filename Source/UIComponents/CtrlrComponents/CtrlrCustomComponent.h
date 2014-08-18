@@ -14,7 +14,7 @@ class CtrlrCustomComponent : public CtrlrComponent, public KeyListener
 		bool keyPressed (const KeyPress &key, Component *originatingComponent);
 		bool keyStateChanged (bool isKeyDown, Component *originatingComponent);
 		void paint (Graphics &g);
-		
+
 		void paintOverChildren(Graphics &g);
 		void resized();
 		void mouseDown (const MouseEvent &e);
@@ -46,7 +46,7 @@ class CtrlrCustomComponent : public CtrlrComponent, public KeyListener
 		JUCE_LEAK_DETECTOR(CtrlrCustomComponent)
 
 	private:
-		WeakReference <CtrlrLuaMethod> mouseDoubleClickCbk,mouseWheelMoveCbk,paintCbk,paintOverChildrenCbk,resizedCbk,mouseEnterCbk,mouseExitCbk,mouseDownCbk,mouseUpCbk,mouseMoveCbk,mouseDragCbk;
+		WeakReference <CtrlrLuaMethod> setValueCbk, getValueCbk, setTextCbk, getTextCbk, keyStateChangedCbk, keyPressedCbk, mouseDoubleClickCbk,mouseWheelMoveCbk,paintCbk,paintOverChildrenCbk,resizedCbk,mouseEnterCbk,mouseExitCbk,mouseDownCbk,mouseUpCbk,mouseMoveCbk,mouseDragCbk;
 };
 
 #endif

@@ -123,7 +123,16 @@
     -- Called when the a key is pressed and the component has focus
     --
 
-    __method_name = function(comp, event)
+    __method_name = function(comp, keyEvent, originatingComponent)
+    end
+  </luaMethod>
+
+  <luaMethod name="uiCustomKeyStateChangedCallback">
+    --
+    -- Called when the a key state changes
+    --
+
+    __method_name = function(comp, isKeyDown, originatingComponent)
     end
   </luaMethod>
 

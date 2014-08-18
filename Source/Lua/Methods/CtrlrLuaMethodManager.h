@@ -90,7 +90,12 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		const bool call(CtrlrLuaMethod *o, CtrlrPanelCanvas *param1, Graphics &param2);
 		const bool call(CtrlrLuaMethod *o, CtrlrPanel *param1);
 		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const MouseEvent &param2);
+
 		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const MouseEvent &param2, float param3, float param4);
+
+		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const KeyPress &param2, Component *param3);
+		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const bool param2, Component *param3);
+
 		const bool call(CtrlrLuaMethod *o, const CtrlrMidiMessage &param1);
 		const bool call(CtrlrLuaMethod *o, const MidiMessage &param1);
 		const bool call(CtrlrLuaMethod *o, const int param1, const int param2, const int param3, luabind::object const &param4);
@@ -111,6 +116,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		int callWithRet(CtrlrLuaMethod *o, ValueTree valueTree1, ValueTree valueTree2);
 		int callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1, const int param2);
 		int callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1, const CtrlrMidiMessage &param2, const int param3);
+        String callWithRetString(CtrlrLuaMethod *o, CtrlrCustomComponent *param1);
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethodManager)
 

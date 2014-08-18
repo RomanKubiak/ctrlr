@@ -111,7 +111,7 @@ void CtrlrProgramWizardMonitor::paint (Graphics& g)
 
         bi.setBitRangeAsInt (0, 32, dataAsInt);
         status.append (" (BIN: ", monoDataFont, Colours::lightgrey);
-        status.append (_STR(bi.toString(2, 8)), monoDataFont, Colours::white);
+        status.append (groupBinary (bi.toString(2, 4)).trim(), monoDataFont, Colours::white);
         status.append (")", monoDataFont, Colours::lightgrey);
     }
 
