@@ -734,3 +734,25 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	return (true);
 }
+
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const double param2, const bool param3)
+{
+	const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
+		}
+	}
+
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
+}

@@ -167,10 +167,8 @@ const String CtrlrCustomComponent::getComponentText()
 			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRetString (getTextCbk, this));
 		}
 	}
-	else
-    {
-        return (String::empty);
-    }
+	
+	return (String::empty);
 }
 
 void CtrlrCustomComponent::setComponentText (const String &componentText)
@@ -179,7 +177,7 @@ void CtrlrCustomComponent::setComponentText (const String &componentText)
 	{
 		if (setTextCbk->isValid())
 		{
-			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().call (setTextCbk, this, componentText));
+			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (setTextCbk, this, componentText);
 		}
 	}
 }
@@ -190,7 +188,7 @@ void CtrlrCustomComponent::setComponentValue (const double newValue, const bool 
 	{
 		if (setValueCbk->isValid())
 		{
-			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().call (setValueCbk, this, newValue, sendChangeMessage));
+			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (setValueCbk, this, newValue, sendChangeMessage);
 		}
 	}
 }
@@ -204,10 +202,8 @@ const double CtrlrCustomComponent::getComponentValue()
 			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().call (getValueCbk, this));
 		}
 	}
-	else
-    {
-        return (0);
-    }
+	
+	return (0);
 }
 
 const int CtrlrCustomComponent::getComponentMidiValue()
