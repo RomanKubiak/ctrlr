@@ -5,7 +5,7 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 
 CtrlrCustomComponent::CtrlrCustomComponent(CtrlrModulator &_owner)
-	: CtrlrComponent(_owner)
+	: CtrlrComponent(_owner), isADragAndDropContainer(false)
 {
 	setProperty(Ids::uiCustomResizedCallback, COMBO_ITEM_NONE);
 	setProperty(Ids::uiCustomPaintCallback, COMBO_ITEM_NONE);
@@ -20,6 +20,19 @@ CtrlrCustomComponent::CtrlrCustomComponent(CtrlrModulator &_owner)
 	setProperty(Ids::uiCustomKeyStateChangedCallback, COMBO_ITEM_NONE);
 	setProperty(Ids::uiCustomMouseDoubleClickCallback, COMBO_ITEM_NONE);
 	setProperty(Ids::uiCustomMouseWheelMoveCallback, COMBO_ITEM_NONE);
+
+	setProperty(Ids::uiCustomStartDraggingCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomIsInterestedInDragSourceCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomItemDragEnterCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomItemDragMoveCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomItemDragExitCallback, COMBO_ITEM_NONE);
+	setProperty(Ids::uiCustomItemDroppedCallback, COMBO_ITEM_NONE);
+
+	setProperty(Ids::uiCustomDragAndDropTarget, false);
+	setProperty(Ids::uiCustomDragAndDropContainer, false);
+	setProperty(Ids::uiCustomDrawDragImageWhenOver, false);
+	setProperty(Ids::uiCustomAllowExternalDrags, false);
+
     setProperty(Ids::uiCustomMouseDownGrabsFocus, false);
     setProperty(Ids::uiCustomWantsKeyboardFocus, false);
 	setSize (64,64);
@@ -122,6 +135,11 @@ void CtrlrCustomComponent::mouseUp (const MouseEvent &e)
 
 void CtrlrCustomComponent::mouseDrag (const MouseEvent &e)
 {
+	if (isADragAndDropContainer)
+	{
+		startDragging ("Temp drag", this, Image::null, true, nullptr);
+	}
+
 	if (mouseDragCbk && !mouseDragCbk.wasObjectDeleted())
 	{
 		if (mouseDragCbk->isValid())
@@ -338,6 +356,52 @@ void CtrlrCustomComponent::valueTreePropertyChanged (ValueTree &treeWhosePropert
 
 		getValueCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
+	else if (property == Ids::uiCustomStartDraggingCallback)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		dadStartCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+	else if (property == Ids::uiCustomIsInterestedInDragSourceCallback)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		dadIsInterestedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+	else if (property == Ids::uiCustomItemDragEnterCallback)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		dadEnterCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+	else if (property == Ids::uiCustomItemDragMoveCallback)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		dadMoveCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+	else if (property == Ids::uiCustomItemDragExitCallback)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		dadExitCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+	else if (property == Ids::uiCustomItemDroppedCallback)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		dadDroppedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
+	else if (property == Ids::uiCustomDragAndDropContainer)
+	{
+		isADragAndDropContainer = (bool) getProperty(property);
+	}
     else
     {
         CtrlrComponent::valueTreePropertyChanged(treeWhosePropertyHasChanged, property);
@@ -374,4 +438,70 @@ void CtrlrCustomComponent::mouseWheelMove (const MouseEvent &e, const MouseWheel
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseWheelMoveCbk, this, e, wheel.deltaX, wheel.deltaY);
 		}
 	}
+}
+
+bool CtrlrCustomComponent::isInterestedInDragSource (const SourceDetails& dragSourceDetails)
+{
+	if (dadIsInterestedCbk && !dadIsInterestedCbk.wasObjectDeleted())
+	{
+		if (dadIsInterestedCbk->isValid())
+		{
+			return ((bool) owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (dadIsInterestedCbk, this, DragAndDropSourceDetails (dragSourceDetails)));
+		}
+	}
+	return (false);
+}
+
+void CtrlrCustomComponent::itemDragEnter (const SourceDetails &dragSourceDetails)
+{
+	if (dadEnterCbk && !dadEnterCbk.wasObjectDeleted())
+	{
+		if (dadEnterCbk->isValid())
+		{
+			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (dadEnterCbk, this, DragAndDropSourceDetails (dragSourceDetails));
+		}
+	}
+}
+
+void CtrlrCustomComponent::itemDragMove (const SourceDetails &dragSourceDetails)
+{
+	if (dadMoveCbk && !dadMoveCbk.wasObjectDeleted())
+	{
+		if (dadMoveCbk->isValid())
+		{
+			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (dadMoveCbk, this, DragAndDropSourceDetails (dragSourceDetails));
+		}
+	}
+}
+
+void CtrlrCustomComponent::itemDragExit (const SourceDetails &dragSourceDetails)
+{
+	if (dadExitCbk && !dadExitCbk.wasObjectDeleted())
+	{
+		if (dadExitCbk->isValid())
+		{
+			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (dadExitCbk, this, DragAndDropSourceDetails (dragSourceDetails));
+		}
+	}
+}
+
+void CtrlrCustomComponent::itemDropped (const SourceDetails& dragSourceDetails)
+{
+	if (dadDroppedCbk && !dadDroppedCbk.wasObjectDeleted())
+	{
+		if (dadDroppedCbk->isValid())
+		{
+			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (dadDroppedCbk, this, DragAndDropSourceDetails (dragSourceDetails));
+		}
+	}
+}
+
+bool CtrlrCustomComponent::shouldDrawDragImageWhenOver ()
+{
+	return ((bool)getProperty(Ids::uiCustomDrawDragImageWhenOver));
+}
+
+bool CtrlrCustomComponent::shouldDropFilesWhenDraggedExternally (const DragAndDropTarget::SourceDetails &sourceDetails, StringArray &files, bool &canMoveFiles)
+{
+	return ((bool)getProperty(Ids::uiCustomAllowExternalDrags));
 }

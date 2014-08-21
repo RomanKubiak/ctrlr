@@ -482,6 +482,17 @@ namespace Ids
     DECLARE_ID (uiCostomGetText);
     DECLARE_ID (uiCustomSetValue);
     DECLARE_ID (uiCustomGetValue);
+	DECLARE_ID (uiCustomDragAndDropTarget);
+	DECLARE_ID (uiCustomDragAndDropContainer);
+	DECLARE_ID (uiCustomDrawDragImageWhenOver);
+	DECLARE_ID (uiCustomAllowExternalDrags);
+
+	DECLARE_ID (uiCustomStartDraggingCallback);
+	DECLARE_ID (uiCustomIsInterestedInDragSourceCallback);
+	DECLARE_ID (uiCustomItemDragEnterCallback);
+	DECLARE_ID (uiCustomItemDragMoveCallback);
+	DECLARE_ID (uiCustomItemDragExitCallback);
+	DECLARE_ID (uiCustomItemDroppedCallback);
 
 	DECLARE_ID (uiWaveformColour);
 	DECLARE_ID (uiWaveformBackgroundColour1);

@@ -191,9 +191,9 @@ void CtrlrLuaManager::wrapCore (lua_State* L)
 		def("log", &CtrlrLuaManager::log),
 
 		class_<CtrlrLuaObjectWrapper>("CtrlrLuaObjectWrapper")
-				.def(constructor<luabind::object const&>())
-				.def(constructor<>())
-				.def("getObject", &CtrlrLuaObjectWrapper::getObject)
+			.def(constructor<luabind::object const&>())
+			.def(constructor<>())
+			.def("getObject", &CtrlrLuaObjectWrapper::getObject)
     ];
 }
 

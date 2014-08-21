@@ -182,6 +182,31 @@ class CtrlrNotificationCallback
 		WeakReference<CtrlrNotificationCallback>::Master masterReference;
 };
 
+class DragAndDropSourceDetails
+{
+	public:
+		DragAndDropSourceDetails (const DragAndDropTarget::SourceDetails &details)
+			: description(details.description), sourceComponent(details.sourceComponent), localPositionX(details.localPosition.getX()), localPositionY(details.localPosition.getY())
+		{
+		}
+
+		DragAndDropSourceDetails (const String &_description, Component *_sourceComponent, int _localPositionX, int _localPositionY)
+			: description(_description), sourceComponent(_sourceComponent), localPositionX(_localPositionX), localPositionY(_localPositionY)
+		{
+		}
+
+		const String getDescription() const		{ return (description); }
+		Component *getSourceComponent() const	{ return (sourceComponent); }
+		int getLocalPositionX() const			{ return (localPositionX); }
+		int getLocalPositionY() const			{ return (localPositionY); }
+
+	private:
+		String description;
+		Component *sourceComponent;
+		int localPositionX;
+		int localPositionY;
+};
+
 enum CtrlrInstance
 {
 	InstanceSingle,

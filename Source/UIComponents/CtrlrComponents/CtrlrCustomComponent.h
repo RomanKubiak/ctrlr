@@ -6,7 +6,7 @@
 #include "CtrlrMacros.h"
 #include "CtrlrIDs.h"
 
-class CtrlrCustomComponent : public CtrlrComponent, public KeyListener
+class CtrlrCustomComponent : public CtrlrComponent, public KeyListener, public DragAndDropContainer, public DragAndDropTarget
 {
 	public:
 		CtrlrCustomComponent (CtrlrModulator &_owner);
@@ -35,6 +35,14 @@ class CtrlrCustomComponent : public CtrlrComponent, public KeyListener
 		const String getComponentText();
 		void setComponentText (const String &componentText);
 
+		bool isInterestedInDragSource (const SourceDetails& dragSourceDetails);
+		void itemDragEnter (const SourceDetails &dragSourceDetails);
+		void itemDragMove (const SourceDetails &dragSourceDetails);
+		void itemDragExit (const SourceDetails &dragSourceDetails);
+		void itemDropped (const SourceDetails& dragSourceDetails);
+		bool shouldDrawDragImageWhenOver ();
+		bool shouldDropFilesWhenDraggedExternally (const DragAndDropTarget::SourceDetails &sourceDetails, StringArray &files, bool &canMoveFiles);
+
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
@@ -46,7 +54,12 @@ class CtrlrCustomComponent : public CtrlrComponent, public KeyListener
 		JUCE_LEAK_DETECTOR(CtrlrCustomComponent)
 
 	private:
-		WeakReference <CtrlrLuaMethod> setValueCbk, getValueCbk, setTextCbk, getTextCbk, keyStateChangedCbk, keyPressedCbk, mouseDoubleClickCbk,mouseWheelMoveCbk,paintCbk,paintOverChildrenCbk,resizedCbk,mouseEnterCbk,mouseExitCbk,mouseDownCbk,mouseUpCbk,mouseMoveCbk,mouseDragCbk;
+		WeakReference <CtrlrLuaMethod> setValueCbk, getValueCbk, setTextCbk, getTextCbk, 
+										keyStateChangedCbk, keyPressedCbk, mouseDoubleClickCbk,
+										mouseWheelMoveCbk,paintCbk,paintOverChildrenCbk,resizedCbk,
+										mouseEnterCbk,mouseExitCbk,mouseDownCbk,mouseUpCbk,mouseMoveCbk,mouseDragCbk,
+										dadStartCbk,dadIsInterestedCbk,dadEnterCbk,dadExitCbk,dadMoveCbk,dadDroppedCbk;
+		bool isADragAndDropContainer;
 };
 
 #endif
