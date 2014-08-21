@@ -756,3 +756,46 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	return (true);
 }
+
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, DragAndDropSourceDetails param2)
+{
+	const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
+		}
+	}
+
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
+}
+
+int CtrlrLuaMethodManager::callWithRet(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, DragAndDropSourceDetails param2)
+{
+	const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (-2);
+
+	try
+	{
+		if (o->isValid())
+		{
+			return (luabind::call_function<int>(o->getObject().getObject(), param1, param2));
+		}
+	}
+	CATCH_METHOD_EXCEPTION
+
+	return (-1);
+}

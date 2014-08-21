@@ -111,11 +111,14 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		const bool call(CtrlrLuaMethod *o, const ValueTree &param1, CtrlrMIDILibraryRequest *param2);
 		const bool call(CtrlrLuaMethod *o, CtrlrMIDILibraryRequest *param2);
 		const bool call(CtrlrLuaMethod *o, CtrlrMIDITransaction *midiTransaction, MemoryBlock *destinationMemoryBlock);
+		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, DragAndDropSourceDetails param2);
+		int callWithRet(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, DragAndDropSourceDetails param2);
 
 		int callWithRet(CtrlrLuaMethod *o, CtrlrMIDITransaction *midiTransaction, ValueTree valueTree);
 		int callWithRet(CtrlrLuaMethod *o, ValueTree valueTree1, ValueTree valueTree2);
 		int callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1, const int param2);
 		int callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1, const CtrlrMidiMessage &param2, const int param3);
+		
         String callWithRetString(CtrlrLuaMethod *o, CtrlrCustomComponent *param1);
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethodManager)

@@ -136,6 +136,33 @@
     end
   </luaMethod>
 
+  <luaMethod name="uiCustomStartDraggingCallback">
+    --
+    -- Called when a dragging event starts on a DragAndDrop container (source component)
+    --
+
+    __method_name = function(sourceDescription, sourceComponent, dragImage, allowDraggingToOtherJuceWindows, imageOffsetFromMouse)
+    end
+  </luaMethod>
+
+  <luaMethod name="uiCustomIsInterestedInDragSourceCallback">
+    --
+    -- Called to check if we are interested in this DragAndDrop event
+    --
+
+    __method_name = function(dragSourceDetails)
+    end
+  </luaMethod>
+
+  <luaMethod name="uiCustomItemDragEnterCallback">
+    --
+    -- Called when a DragAndDrop event enters this component
+    --
+
+    __method_name = function(dragSourceDetails)
+    end
+  </luaMethod>
+  
   <luaMethod name="uiTabsCurrentTabChanged">
     --
     -- Called when the current tab in an uiTabs component is changed
