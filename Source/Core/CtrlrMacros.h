@@ -186,7 +186,7 @@ class DragAndDropSourceDetails
 {
 	public:
 		DragAndDropSourceDetails (const DragAndDropTarget::SourceDetails &details)
-			: description(details.description), sourceComponent(details.sourceComponent), localPositionX(details.localPosition.getX()), localPositionY(details.localPosition.getY())
+			: description(details.description.toString()), sourceComponent(details.sourceComponent), localPositionX(details.localPosition.getX()), localPositionY(details.localPosition.getY())
 		{
 		}
 
