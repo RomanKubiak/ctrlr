@@ -722,7 +722,7 @@ namespace Ids
 	DECLARE_ID (ctrlrCapabilities);
 	DECLARE_ID (ctrlrLastMenuItemId);
 	DECLARE_ID (ctrlrNativeAlerts);
-
+	DECLARE_ID (ctrlrUsingOpenGL);
 	DECLARE_ID (ctrlrMenuItemBackgroundColour);
 	DECLARE_ID (ctrlrMenuItemTextColour);
 	DECLARE_ID (ctrlrMenuItemHighlightedTextColour);

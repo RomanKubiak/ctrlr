@@ -132,3 +132,53 @@ const bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
 void CtrlrEditor::initTest()
 {
 }
+
+static const char* openGLRendererName = "OpenGL Renderer";
+
+StringArray CtrlrEditor::getRenderingEngines() const
+{
+    StringArray renderingEngines;
+
+    if (ComponentPeer* peer = getPeer())
+        renderingEngines = peer->getAvailableRenderingEngines();
+
+   #if JUCE_OPENGL
+    renderingEngines.add (openGLRendererName);
+   #endif
+
+    return renderingEngines;
+}
+
+void CtrlrEditor::setRenderingEngine (int index)
+{
+   #if JUCE_OPENGL
+    if (getRenderingEngines()[index] == openGLRendererName)
+    {
+        openGLContext.attachTo (*getTopLevelComponent());
+        return;
+    }
+
+    openGLContext.detach();
+   #endif
+
+    if (ComponentPeer* peer = getPeer())
+        peer->setCurrentRenderingEngine (index);
+}
+
+void CtrlrEditor::setOpenGLRenderingEngine()
+{
+    setRenderingEngine (getRenderingEngines().indexOf (openGLRendererName));
+}
+
+int CtrlrEditor::getActiveRenderingEngine() const
+{
+   #if JUCE_OPENGL
+    if (openGLContext.isAttached())
+        return getRenderingEngines().indexOf (openGLRendererName);
+   #endif
+
+    if (ComponentPeer* peer = getPeer())
+        return peer->getCurrentRenderingEngine();
+
+    return 0;
+}
