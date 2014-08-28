@@ -1717,6 +1717,30 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_win32_WebBrowserComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLContext.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLFrameBuffer.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLGraphicsContext.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLHelpers.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLImage.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLPixelFormat.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLShaderProgram.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLTexture.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\Standalone\JuceLibraryCode\BinaryData.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -1958,6 +1982,26 @@
       </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
+      </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
+      </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
@@ -2699,6 +2743,27 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\misc\juce_WebBrowserComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_CarbonViewWrapperComponent.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_Draggable3DOrientation.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_Matrix3D.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLContext.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLFrameBuffer.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLGraphicsContext.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLHelpers.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLImage.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLPixelFormat.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLRenderer.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLShaderProgram.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_OpenGLTexture.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_Quaternion.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_Vector3D.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\native\juce_MissingGLDefinitions.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\native\juce_OpenGL_android.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\native\juce_OpenGL_ios.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\native\juce_OpenGL_linux.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\native\juce_OpenGL_osx.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\native\juce_OpenGL_win32.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\native\juce_OpenGLExtensions.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
     <ClInclude Include="..\..\..\Standalone\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\..\Standalone\JuceLibraryCode\BinaryData.h" />
     <ClInclude Include="..\..\..\Standalone\JuceLibraryCode\JuceHeader.h" />
@@ -2776,6 +2841,7 @@
     <None Include="..\..\..\..\Juce\modules\juce_graphics\juce_module_info" />
     <None Include="..\..\..\..\Juce\modules\juce_gui_basics\juce_module_info" />
     <None Include="..\..\..\..\Juce\modules\juce_gui_extra\juce_module_info" />
+    <None Include="..\..\..\..\Juce\modules\juce_opengl\juce_module_info" />
     <None Include=".\icon.ico" />
   </ItemGroup>
   <ItemGroup>

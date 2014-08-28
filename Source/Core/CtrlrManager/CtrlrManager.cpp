@@ -87,6 +87,7 @@ void CtrlrManager::setDefaults()
 	setProperty (Ids::ctrlrPropertiesAreURLs, true);
 	setProperty (Ids::ctrlrNativeAlerts, false);
 	setProperty (Ids::ctrlrPrivateKey, String::empty);
+	setProperty (Ids::ctrlrUsingOpenGL, false);
 	setProperty (Ids::uiLuaConsoleInputRemoveAfterRun, true);
 }
 

@@ -715,7 +715,8 @@
   <id name="ctrlrMenuBarFont" 					text="Menu bar font" type="Font" />
   <id name="ctrlrNativeAlerts"					text="Use OS native dialog windows" type="Bool" />
   <id name="ctrlrPrivateKey"                   text="RSA private key used to sign exported panels" type="FileProperty" />
-
+  <id name="ctlrUsingOpenGL"            text="Use OpenGL render" type="Bool" />
+  
   <!-- LUA callbacks -->
   <id name="luaManagerMethods"                text="luaManagerMethods"                                    type="Text" />
   <id name="luaMethodCode"                    text="luaMethodCode"                                        type="Text" />

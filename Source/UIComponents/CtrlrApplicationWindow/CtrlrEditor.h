@@ -153,10 +153,17 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		void performKeyGenerator();
 		void performProgramWizard();
 		void initTest();
+		StringArray getRenderingEngines() const;
+		int getActiveRenderingEngine() const;
+		void setRenderingEngine (int index);
+		void setOpenGLRenderingEngine();
 		CtrlrMenuBarLookAndFeel *getMenuBarLookAndFeel () { return (menuBarLookAndFeel); }
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrEditor)
 
 	private:
+		#if JUCE_OPENGL
+			OpenGLContext openGLContext;
+		#endif
 		bool menuHandlerCalled;
 		ScopedPointer <CtrlrMenuBarLookAndFeel> menuBarLookAndFeel;
 		MenuBarComponent *menuBar;
