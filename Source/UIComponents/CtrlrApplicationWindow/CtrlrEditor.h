@@ -157,6 +157,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		int getActiveRenderingEngine() const;
 		void setRenderingEngine (int index);
 		void setOpenGLRenderingEngine();
+		void setUsingOpenGL(const bool isUsingOpenGL);
 		CtrlrMenuBarLookAndFeel *getMenuBarLookAndFeel () { return (menuBarLookAndFeel); }
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrEditor)
 
