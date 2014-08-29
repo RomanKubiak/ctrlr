@@ -320,6 +320,13 @@ void CtrlrManager::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChan
 			getCtrlrLookAndFeel()->setUsingNativeAlerts(getProperty(property));
 		}
 	}
+	else if (property == Ids::ctrlrUsingOpenGL)
+    {
+        if (getEditor())
+        {
+            getEditor()->setUsingOpenGL (getProperty (property));
+        }
+    }
 }
 
 const bool CtrlrManager::isValidComponentName(const String &name)

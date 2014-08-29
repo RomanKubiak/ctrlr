@@ -451,7 +451,7 @@
   <id name="uiCustomItemDragMoveCallback"       text="Called when dragging happend over this component" type="LuaMethod" />
   <id name="uiCustomItemDragExitCallback"       text="Called when dragging exits this component" type="LuaMethod"/>
   <id name="uiCustomItemDroppedCallback"        text="Called when an item is dropped on this component" type="LuaMethod" />
-  
+
   <!-- Waveform -->
   <id name="uiWaveformColour"                           text="Waveform colour"                      type="Colour"/>
   <id name="uiWaveformBackgroundColour1"                text="Background colour[1]"                 type="Colour"/>
@@ -715,8 +715,8 @@
   <id name="ctrlrMenuBarFont" 					text="Menu bar font" type="Font" />
   <id name="ctrlrNativeAlerts"					text="Use OS native dialog windows" type="Bool" />
   <id name="ctrlrPrivateKey"                   text="RSA private key used to sign exported panels" type="FileProperty" />
-  <id name="ctlrUsingOpenGL"            text="Use OpenGL render" type="Bool" />
-  
+  <id name="ctrlrUsingOpenGL"            text="Use OpenGL render" type="Bool" />
+
   <!-- LUA callbacks -->
   <id name="luaManagerMethods"                text="luaManagerMethods"                                    type="Text" />
   <id name="luaMethodCode"                    text="luaMethodCode"                                        type="Text" />
@@ -756,6 +756,8 @@
   <id name="luaTransConfData"		text="Transaction get confirmation data" 	type="LuaMethod" />
   <id name="luaTransTimeout"		text="Transaction timeout handler" 			type="LuaMethod" />
   <id name="luaTransInfo"			text="Transaction information query"		type="LuaMethod" />
+
+  <id name="uiLuaConsoleInputRemoveAfterRun"    text="Clear console input after execute" type="Bool" />
 
   <id name="midiLibraryTreeState"     				text="Tree state"     												type="ReadOnly" />
   <id name="midiLibraryCanGetItem"    				text="Can get item"   												type="Bool" />

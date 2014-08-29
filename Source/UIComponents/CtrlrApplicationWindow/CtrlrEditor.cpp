@@ -182,3 +182,18 @@ int CtrlrEditor::getActiveRenderingEngine() const
 
     return 0;
 }
+
+void CtrlrEditor::setUsingOpenGL(const bool isUsingOpenGL)
+{
+    if (isUsingOpenGL)
+    {
+        if (getRenderingEngines().contains(openGLRendererName))
+        {
+            setOpenGLRenderingEngine();
+        }
+    }
+    else
+    {
+        setRenderingEngine (0);
+    }
+}
