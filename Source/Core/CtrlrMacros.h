@@ -67,7 +67,7 @@
 #define FONT2STR(x)												getFontManager().getStringFromFont(x)
 #define FONT2STRM(m,x)											m.getStringFromFont(x)
 #define INTERNAL_FONT(x)										getFontManager().getFont (BinaryData::x, BinaryData::x ## Size)
-#define HIGHLIGHT_COLOUR			0xff4364ff
+#define HIGHLIGHT_COLOUR										0xff4364ff
 
 //==============================================================================
 /** Used in SysEx formula editor
@@ -191,7 +191,19 @@ class DragAndDropSourceDetails
 		}
 
 		DragAndDropSourceDetails (const String &_description, Component *_sourceComponent, int _localPositionX, int _localPositionY)
-			: description(_description), sourceComponent(_sourceComponent), localPositionX(_localPositionX), localPositionY(_localPositionY)
+			: description(_description), sourceComponent(_sourceComponent), localPositionX(_localPositionX), localPositionY(_localPositionY), 
+				dragImage(Image::null), imageOffsetX(-1), imageOffsetY(-1)
+		{
+		}
+
+		DragAndDropSourceDetails (const String &_description, Image _dragImage, int _imageOffsetX, int _imageOffsetY)
+			: description(_description), dragImage(_dragImage), imageOffsetX(_imageOffsetX), imageOffsetY(_imageOffsetY)
+		{
+		}
+
+		DragAndDropSourceDetails () 
+			: dragImage(Image::null), imageOffsetX(-1), imageOffsetY(-1), 
+				sourceComponent(nullptr), localPositionX(-1), localPositionY(-1)
 		{
 		}
 
@@ -199,12 +211,18 @@ class DragAndDropSourceDetails
 		Component *getSourceComponent() const	{ return (sourceComponent); }
 		int getLocalPositionX() const			{ return (localPositionX); }
 		int getLocalPositionY() const			{ return (localPositionY); }
+		int getImageOffsetX() const				{ return (imageOffsetX); }
+		int getImageOffsetY() const				{ return (imageOffsetY); }
+		Image getDragImage() const				{ return (dragImage); }
 
 	private:
 		String description;
 		Component *sourceComponent;
 		int localPositionX;
 		int localPositionY;
+		Image dragImage;
+		int imageOffsetX;
+		int imageOffsetY;
 };
 
 enum CtrlrInstance

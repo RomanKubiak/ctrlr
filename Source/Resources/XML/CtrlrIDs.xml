@@ -242,6 +242,8 @@
   <id name="uiComboButtonGradientColour2" text="Combo button gradient colour2" type="Colour"/>
   <id name="uiComboButtonWidthOverride" text="Override the default button width" type="Bool"/>
   <id name="uiComboButtonWidth" text="Button width" type="Text"/>
+  <id name="uiComboSelectedId" text="Current selected item ID" type="Readonly " />
+  <id name="uiComboSelectedIndex" text="Current selected item index" type="Readonly" />
 
   <!-- List box -->
   <id name="uiListBoxContent"             text="ListBox contents"                   type="MultiLine"/>
