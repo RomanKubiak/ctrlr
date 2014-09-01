@@ -33,7 +33,7 @@ CtrlrProgramWizard::CtrlrProgramWizard (CtrlrEditor &_owner)
     : owner(_owner)
 {
     addAndMakeVisible (executeButton = new TextButton (String::empty));
-    executeButton->setButtonText (TRANS("Execute"));
+    executeButton->setButtonText ("Execute");
     executeButton->addListener (this);
     executeButton->setColour (TextButton::buttonColourId, Colours::lightgrey);
 

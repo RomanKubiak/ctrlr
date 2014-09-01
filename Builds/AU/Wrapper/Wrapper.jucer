@@ -311,7 +311,7 @@
         <CONFIGURATION name="Release" osxSDK="10.8 SDK" osxCompatibility="10.8 SDK"
                        osxArchitecture="64BitUniversal" isDebug="0" optimisation="2"
                        targetName="au_wrapper" binaryPath="/usr/local/lib"/>
-        <CONFIGURATION name="Release_Nightly" osxSDK="10.8 SDK" osxCompatibility="10.8 SDK"
+        <CONFIGURATION name="Release_Nightly" osxSDK="10.8 SDK" osxCompatibility="10.6 SDK"
                        osxArchitecture="64BitUniversal" isDebug="0" optimisation="2"
                        targetName="au_wrapper" binaryPath="/usr/local/lib" defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_AU&#10;LUA_USE_LINUX"/>
       </CONFIGURATIONS>
