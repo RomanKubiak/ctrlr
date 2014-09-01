@@ -17,6 +17,7 @@
         <Compiler>
           <Add option="-O0"/>
           <Add option="-std=gnu++0x"/>
+          <Add option="-march=pentium4"/>
           <Add option="-mstackrealign"/>
           <Add option="-g"/>
           <Add option="-w"/>
@@ -31,8 +32,6 @@
           <Add option="-DLINUX=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1"/>
-          <Add option="-DJUCE_APP_VERSION=5.2.0"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=0x50200"/>
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -83,6 +82,7 @@
         <Compiler>
           <Add option="-Os"/>
           <Add option="-std=gnu++0x"/>
+          <Add option="-march=pentium4"/>
           <Add option="-mstackrealign"/>
           <Add option="-w"/>
           <Add option="-fpermissive"/>
@@ -95,8 +95,6 @@
           <Add option="-DLINUX=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1"/>
-          <Add option="-DJUCE_APP_VERSION=5.2.0"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=0x50200"/>
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -148,6 +146,7 @@
         <Compiler>
           <Add option="-Os"/>
           <Add option="-std=gnu++0x"/>
+          <Add option="-march=pentium4"/>
           <Add option="-mstackrealign"/>
           <Add option="-w"/>
           <Add option="-fpermissive"/>
@@ -160,8 +159,6 @@
           <Add option="-DLINUX=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1"/>
-          <Add option="-DJUCE_APP_VERSION=5.2.0"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=0x50200"/>
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -2637,15 +2634,15 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_UTF8.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_UTF16.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_UTF32.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_UTF8.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -5209,8 +5206,8 @@
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinUtilities.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_Wrapper.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST/juce_VST_Wrapper.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST3/juce_VST3_Wrapper.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST/juce_VST_Wrapper.cpp"/>
     <Unit filename="../../../VST/JuceLibraryCode/JuceHeader.h">
       <Option compile="0"/>
       <Option link="0"/>

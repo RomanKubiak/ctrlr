@@ -201,12 +201,6 @@
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Instigator"
 #endif
-#ifndef  JucePlugin_ManufacturerWebsite
- #define JucePlugin_ManufacturerWebsite    "http://ctrlr.org"
-#endif
-#ifndef  JucePlugin_ManufacturerEmail
- #define JucePlugin_ManufacturerEmail      "ctrlr@ctrlr.org"
-#endif
 #ifndef  JucePlugin_ManufacturerCode
  #define JucePlugin_ManufacturerCode       'INST'
 #endif
@@ -294,14 +288,14 @@
 #ifndef  JucePlugin_AAXProductId
  #define JucePlugin_AAXProductId           JucePlugin_PluginCode
 #endif
+#ifndef  JucePlugin_AAXPluginId
+ #define JucePlugin_AAXPluginId            JucePlugin_PluginCode
+#endif
 #ifndef  JucePlugin_AAXCategory
  #define JucePlugin_AAXCategory            AAX_ePlugInCategory_Dynamics
 #endif
 #ifndef  JucePlugin_AAXDisableBypass
  #define JucePlugin_AAXDisableBypass       0
-#endif
-#ifndef  JucePlugin_AAXDisableMultiMono
- #define JucePlugin_AAXDisableMultiMono    0
 #endif
 
 #endif  // __JUCE_APPCONFIG_JUWYQY__
