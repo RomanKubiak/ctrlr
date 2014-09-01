@@ -137,7 +137,14 @@ void CtrlrCustomComponent::mouseDrag (const MouseEvent &e)
 {
 	if (isADragAndDropContainer)
 	{
-		startDragging ("Temp drag", this, Image::null, true, nullptr);
+		if (dadStartCbk && !dadStartCbk.wasObjectDeleted())
+		{
+			if (dadStartCbk->isValid())
+			{
+				DragAndDropSourceDetails details = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (dadStartCbk, this, e);
+				startDragging (details.getDescription(), this, details.getDragImage(), true, &Point<int>(details.getImageOffsetX(), details.getImageOffsetY()));
+			}
+		}
 	}
 
 	if (mouseDragCbk && !mouseDragCbk.wasObjectDeleted())

@@ -118,7 +118,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		int callWithRet(CtrlrLuaMethod *o, ValueTree valueTree1, ValueTree valueTree2);
 		int callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1, const int param2);
 		int callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1, const CtrlrMidiMessage &param2, const int param3);
-		
+		DragAndDropSourceDetails callWithRet (CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const MouseEvent &param2);
         String callWithRetString(CtrlrLuaMethod *o, CtrlrCustomComponent *param1);
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethodManager)

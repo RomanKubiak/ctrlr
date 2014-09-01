@@ -32,6 +32,16 @@ catch (luabind::error &e)\
 	return (String::empty);\
 }
 
+#define CATCH_METHOD_EXCEPTION_DAD \
+catch (luabind::error &e)\
+{\
+	o->setValid(false);\
+	const char* a = lua_tostring(e.state(), -1);\
+	lastExecutionError = String(a);\
+	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(e.what()) + "\n" + lastExecutionError + "\n\nMethod disabled");\
+	_LERR("Callback error: [" + o->getName() + "] " + String(e.what())+" "+lastExecutionError+".\nMethod disabled");\
+}
+
 #define CATCH_METHOD_EXCEPTION_NO_DIALOG \
 catch (luabind::error &e)\
 {\
@@ -798,4 +808,25 @@ int CtrlrLuaMethodManager::callWithRet(CtrlrLuaMethod *o, CtrlrCustomComponent *
 	CATCH_METHOD_EXCEPTION
 
 	return (-1);
+}
+
+DragAndDropSourceDetails CtrlrLuaMethodManager::callWithRet (CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const MouseEvent &param2)
+{
+	const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (DragAndDropSourceDetails());
+
+	try
+	{
+		if (o->isValid())
+		{
+			return (luabind::call_function<DragAndDropSourceDetails>(o->getObject().getObject(), param1, param2));
+		}
+	}
+	CATCH_METHOD_EXCEPTION_DAD
+
+	return (DragAndDropSourceDetails());
 }

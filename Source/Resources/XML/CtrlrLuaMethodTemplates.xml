@@ -136,21 +136,15 @@
     end
   </luaMethod>
 
-  <luaMethod name="uiCustomStartDraggingCallback">
-    --
-    -- Called when a dragging event starts on a DragAndDrop container (source component)
-    --
-
-    __method_name = function(sourceDescription, sourceComponent, dragImage, allowDraggingToOtherJuceWindows, imageOffsetFromMouse)
-    end
-  </luaMethod>
-
   <luaMethod name="uiCustomIsInterestedInDragSourceCallback">
     --
-    -- Called to check if we are interested in this DragAndDrop event
+    -- This method needs to return information if this component
+    -- is interested in a drag and drop event
     --
+    -- the parameter is a DragAndDropSourceDetails object
 
-    __method_name = function(dragSourceDetails)
+    __method_name = function(component, dragSourceDetails)
+        return (1)
     end
   </luaMethod>
 
@@ -159,7 +153,28 @@
     -- Called when a DragAndDrop event enters this component
     --
 
-    __method_name = function(dragSourceDetails)
+    __method_name = function(component, dragSourceDetails)
+    end
+  </luaMethod>
+
+  <luaMethod name="uiCustomStartDraggingCallback">
+    --
+    -- This method needs to return source information for a drag event
+    -- the return value is a DragAndDropSourceDetails object
+    --
+
+    __method_name = function(component, mouseEvent)
+        details = DragAndDropSourceDetails()
+        return (details)
+    end
+  </luaMethod>
+
+  <luaMethod name="uiCustomItemDroppedCallback">
+    --
+    -- Called when something is dropped on this component
+    --
+
+    __method_name = function(component, dragSourceDetails)
     end
   </luaMethod>
   

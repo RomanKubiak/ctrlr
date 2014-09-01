@@ -30,6 +30,8 @@ void CtrlrCustomComponent::wrapForLua(lua_State *L)
 		,
 		class_<DragAndDropSourceDetails>("DragAndDropSourceDetails")
 			.def(constructor<const String &, Component *, int, int>())
+			.def(constructor<const String &, Image, int, int>())
+			.def(constructor<>())
 			.def("getDescription", &DragAndDropSourceDetails::getDescription)
 			.def("getSourceComponent", &DragAndDropSourceDetails::getSourceComponent)
 			.def("getLocalPositionX", &DragAndDropSourceDetails::getLocalPositionX)
