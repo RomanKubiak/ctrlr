@@ -72,6 +72,8 @@ CtrlrCombo::CtrlrCombo (CtrlrModulator &owner)
 	setProperty (Ids::uiComboButtonWidthOverride, false);
 	setProperty (Ids::uiComboButtonWidth, 16);
 	setProperty (Ids::uiComboDynamicContent, 0);
+	setProperty (Ids::uiComboSelectedId, -1);
+	setProperty (Ids::uiComboSelectedIndex, -1);
     //[/UserPreSize]
 
     setSize (88, 32);
@@ -231,6 +233,20 @@ void CtrlrCombo::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	{
 		fillContent(getProperty(property));
 	}
+	else if (property == Ids::uiComboSelectedId )
+    {
+        if ((int)getProperty(property) != -1)
+        {
+            ctrlrCombo->setSelectedId (getProperty(property), sendNotificationAsync);
+        }
+    }
+    else if (property == Ids::uiComboSelectedIndex)
+    {
+        if ((int)getProperty(property) != -1)
+        {
+            ctrlrCombo->setSelectedItemIndex (getProperty(property), sendNotificationAsync);
+        }
+    }
     else
     {
         CtrlrComponent::valueTreePropertyChanged(treeWhosePropertyHasChanged, property);

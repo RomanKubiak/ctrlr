@@ -2178,7 +2178,10 @@
 		<Unit filename="../../../../Source/Core/StandaloneWrapper/CtrlrStandaloneWindow.h" />
 		<Unit filename="../../../../Source/Core/dxtrans.h" />
 		<Unit filename="../../../../Source/Core/stdafx.cpp" />
-		<Unit filename="../../../../Source/Core/stdafx.h" />
+		<Unit filename="../../../../Source/Core/stdafx.h">
+			<Option compile="1" />
+			<Option weight="0" />
+		</Unit>
 		<Unit filename="../../../../Source/Lua/CtrlrLuaAudioConverter.cpp" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaAudioConverter.h" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaConverters.h" />
