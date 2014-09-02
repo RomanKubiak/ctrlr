@@ -141,9 +141,13 @@ void CtrlrCustomComponent::mouseDrag (const MouseEvent &e)
 		{
 			if (dadStartCbk->isValid())
 			{
-				DragAndDropSourceDetails details = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (dadStartCbk, this, e);
-				Point<int> offset(details.getImageOffsetX(), details.getImageOffsetY());
-				startDragging (details.getDescription(), this, details.getDragImage(), true, &offset);
+			    DragAndDropContainer* const dragContainer = DragAndDropContainer::findParentDragContainerFor (this);
+			    if (dragContainer)
+                {
+                    DragAndDropSourceDetails details = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (dadStartCbk, this, e);
+                    Point<int> offset(details.getImageOffsetX(), details.getImageOffsetY());
+                    dragContainer->startDragging (details.getDescription(), this, details.getDragImage(), true, &offset);
+                }
 			}
 		}
 	}
@@ -193,7 +197,7 @@ const String CtrlrCustomComponent::getComponentText()
 			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRetString (getTextCbk, this));
 		}
 	}
-	
+
 	return (String::empty);
 }
 
@@ -228,7 +232,7 @@ const double CtrlrCustomComponent::getComponentValue()
 			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().call (getValueCbk, this));
 		}
 	}
-	
+
 	return (0);
 }
 
@@ -450,6 +454,8 @@ void CtrlrCustomComponent::mouseWheelMove (const MouseEvent &e, const MouseWheel
 
 bool CtrlrCustomComponent::isInterestedInDragSource (const SourceDetails& dragSourceDetails)
 {
+    _DBG("CtrlrCustomComponent::isInterestedInDragSource");
+
 	if (dadIsInterestedCbk && !dadIsInterestedCbk.wasObjectDeleted())
 	{
 		if (dadIsInterestedCbk->isValid())
@@ -462,6 +468,7 @@ bool CtrlrCustomComponent::isInterestedInDragSource (const SourceDetails& dragSo
 
 void CtrlrCustomComponent::itemDragEnter (const SourceDetails &dragSourceDetails)
 {
+    _DBG("CtrlrCustomComponent::itemDragEnter "+getName());
 	if (dadEnterCbk && !dadEnterCbk.wasObjectDeleted())
 	{
 		if (dadEnterCbk->isValid())
@@ -473,6 +480,7 @@ void CtrlrCustomComponent::itemDragEnter (const SourceDetails &dragSourceDetails
 
 void CtrlrCustomComponent::itemDragMove (const SourceDetails &dragSourceDetails)
 {
+    _DBG("CtrlrCustomComponent::itemDragMove " +getName());
 	if (dadMoveCbk && !dadMoveCbk.wasObjectDeleted())
 	{
 		if (dadMoveCbk->isValid())
@@ -484,6 +492,8 @@ void CtrlrCustomComponent::itemDragMove (const SourceDetails &dragSourceDetails)
 
 void CtrlrCustomComponent::itemDragExit (const SourceDetails &dragSourceDetails)
 {
+    _DBG("CtrlrCustomComponent::itemDragExit");
+
 	if (dadExitCbk && !dadExitCbk.wasObjectDeleted())
 	{
 		if (dadExitCbk->isValid())
@@ -495,6 +505,8 @@ void CtrlrCustomComponent::itemDragExit (const SourceDetails &dragSourceDetails)
 
 void CtrlrCustomComponent::itemDropped (const SourceDetails& dragSourceDetails)
 {
+    _DBG("CtrlrCustomComponent::itemDropped");
+
 	if (dadDroppedCbk && !dadDroppedCbk.wasObjectDeleted())
 	{
 		if (dadDroppedCbk->isValid())
@@ -509,7 +521,46 @@ bool CtrlrCustomComponent::shouldDrawDragImageWhenOver ()
 	return ((bool)getProperty(Ids::uiCustomDrawDragImageWhenOver));
 }
 
-bool CtrlrCustomComponent::shouldDropFilesWhenDraggedExternally (const DragAndDropTarget::SourceDetails &sourceDetails, StringArray &files, bool &canMoveFiles)
+bool CtrlrCustomComponent::isInterestedInFileDrag (const StringArray& files)
 {
-	return ((bool)getProperty(Ids::uiCustomAllowExternalDrags));
+    _DBG("CtrlrCustomComponent::isInterestedInFileDrag");
+    return (true);
+}
+
+bool CtrlrCustomComponent::isInterestedInTextDrag (const String& text)
+{
+    _DBG("CtrlrCustomComponent::isInterestedInTextDrag");
+    return (true);
+}
+
+void CtrlrCustomComponent::fileDragEnter (const StringArray& files, int x, int y)
+{
+}
+
+void CtrlrCustomComponent::fileDragMove (const StringArray& files, int x, int y)
+{
+}
+
+void CtrlrCustomComponent::fileDragExit (const StringArray& files)
+{
+}
+
+void CtrlrCustomComponent::filesDropped (const StringArray& files, int x, int y)
+{
+}
+
+void CtrlrCustomComponent::textDragEnter (const String& text, int x, int y)
+{
+}
+
+void CtrlrCustomComponent::textDragMove (const String& text, int x, int y)
+{
+}
+
+void CtrlrCustomComponent::textDragExit (const String& text)
+{
+}
+
+void CtrlrCustomComponent::textDropped (const String& text, int x, int y)
+{
 }

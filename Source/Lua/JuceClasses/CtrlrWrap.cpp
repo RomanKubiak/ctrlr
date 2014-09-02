@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "CtrlrLuaManager.h"
+#include "LButton.h"
+#include "LTextButton.h"
 #include "LGlobalFunctions.h"
 #include "LAffineTransform.h"
 #include "LAudioFile.h"
@@ -53,6 +55,7 @@
 #include "LThread.h"
 #include "LThreadWithProgressWindow.h"
 #include "LXmlElement.h"
+#include "LTypeface.h"
 
 void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 {
@@ -68,6 +71,7 @@ void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 	LURL::wrapForLua(L);
 	LValue::wrapForLua(L);
 	LTimer::wrapForLua(L);
+	LTypeface::wrapForLua(L);
 	LFont::wrapForLua(L);
 	LZipFile::wrapForLua(L);
 	LMemoryInputStream::wrapForLua(L);
@@ -95,11 +99,12 @@ void CtrlrLuaManager::wrapJuceClasses(lua_State *L)
 	LMouseEvent::wrapForLua(L);
 	LPath::wrapForLua(L);
 	LPoint::wrapForLua(L);
+	LButton::wrapForLua(L);
 	LPopupMenu::wrapForLua(L);
 	LRandom::wrapForLua(L);
 	LRectangle::wrapForLua(L);
 	LValueTree::wrapForLua(L);
-	LLookAndFeel::wrapForLua(L);
+	LLookAndFeel_V3::wrapForLua(L);
 	LLabel::wrapForLua(L);
 	LSlider::wrapForLua(L);
 	LBubbleMessageComponent::wrapForLua(L);

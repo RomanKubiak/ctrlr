@@ -1044,24 +1044,26 @@ void CtrlrPanelCanvas::filesDropped (const StringArray &files, int x, int y)
 {
 	for (int i=0; i<files.size(); i++)
 	{
-		const File f = files[i];
-
-		if (f.hasFileExtension(".component"))
-		{
-			importComponent (f, x, y);
-		}
-		else if (CtrlrPanel::isPanelFile (f))
-		{
-			importPanel (f, x, y);
-		}
-		else
-		{
-			Image i = ImageFileFormat::loadFrom(f);
-			if (i != Image::null)
-			{
-				importImage (f, x, y);
-			}
-		}
+		const File f = File (files[i]);
+		if (f != File::nonexistent)
+        {
+            if (f.hasFileExtension(".component"))
+            {
+                importComponent (f, x, y);
+            }
+            else if (CtrlrPanel::isPanelFile (f))
+            {
+                importPanel (f, x, y);
+            }
+            else
+            {
+                Image i = ImageFileFormat::loadFrom(f);
+                if (i != Image::null)
+                {
+                    importImage (f, x, y);
+                }
+            }
+        }
 	}
 
 	if (luaPanelFileDragDropHandlerCbk && !luaPanelFileDragDropHandlerCbk.wasObjectDeleted())
