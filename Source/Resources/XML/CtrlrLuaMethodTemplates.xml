@@ -157,6 +157,24 @@
     end
   </luaMethod>
 
+  <luaMethod name="uiCustomItemDragMoveCallback">
+    --
+    -- Called when a DragAndDrop event occurs over this component
+    --
+
+    __method_name = function(component, dragSourceDetails)
+    end
+  </luaMethod>
+
+  <luaMethod name="uiCustomItemDragExitCallback">
+    --
+    -- Called when a DragAndDrop event exits this component
+    --
+
+    __method_name = function(component, dragSourceDetails)
+    end
+  </luaMethod>
+
   <luaMethod name="uiCustomStartDraggingCallback">
     --
     -- This method needs to return source information for a drag event

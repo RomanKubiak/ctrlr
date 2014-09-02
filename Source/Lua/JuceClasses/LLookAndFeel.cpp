@@ -9,7 +9,6 @@ void setLookAndFeel (Component *target, luabind::object lookAndFeel)
 
         if (lf && target)
         {
-            _DBG("setLookAndFeel success!");
             target->setLookAndFeel(lf);
         }
     }
@@ -25,13 +24,13 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
         ,
 		class_<LookAndFeel_V3, LLookAndFeel_V3>("LookAndFeel_V3")
             .def(constructor<>())
-			.def("findColour", &LookAndFeel_V3::findColour)
-			.def("setColour", &LookAndFeel_V3::setColour)
-			.def("isColourSpecified", &LookAndFeel_V3::isColourSpecified)
-			.def("getTypefaceForFont", &LookAndFeel_V3::getTypefaceForFont)
-			.def("setDefaultSansSerifTypefaceName", &LookAndFeel_V3::setDefaultSansSerifTypefaceName)
-			.def("getMouseCursorFor", &LookAndFeel_V3::getMouseCursorFor)
-			.def("createGraphicsContext", &LookAndFeel_V3::createGraphicsContext)
+			.def("findColour", &LookAndFeel_V3::findColour, &LLookAndFeel_V3::def_findColour)
+			.def("setColour", &LookAndFeel_V3::setColour, &LLookAndFeel_V3::def_setColour)
+			.def("isColourSpecified", &LookAndFeel_V3::isColourSpecified, &LLookAndFeel_V3::def_isColourSpecified)
+			.def("getTypefaceForFont", &LookAndFeel_V3::getTypefaceForFont, &LLookAndFeel_V3::def_getTypefaceForFont)
+			.def("setDefaultSansSerifTypefaceName", &LookAndFeel_V3::setDefaultSansSerifTypefaceName, &LLookAndFeel_V3::def_setDefaultSansSerifTypefaceName)
+			.def("getMouseCursorFor", &LookAndFeel_V3::getMouseCursorFor, &LLookAndFeel_V3::def_getMouseCursorFor)
+			// .def("createGraphicsContext", &LookAndFeel_V3::createGraphicsContext)
 			.def("drawButtonBackground", &LookAndFeel_V3::drawButtonBackground, &LLookAndFeel_V3::def_drawButtonBackground)
 			.def("drawButtonText", &LookAndFeel_V3::drawButtonText)
 			.def("drawToggleButton", &LookAndFeel_V3::drawToggleButton)
