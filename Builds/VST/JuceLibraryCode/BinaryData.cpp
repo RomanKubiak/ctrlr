@@ -14687,6 +14687,24 @@ static const unsigned char temp_binary_data_56[] =
 "    end\r\n"
 "  </luaMethod>\r\n"
 "\r\n"
+"  <luaMethod name=\"uiCustomItemDragMoveCallback\">\r\n"
+"    --\r\n"
+"    -- Called when a DragAndDrop event occurs over this component\r\n"
+"    --\r\n"
+"\r\n"
+"    __method_name = function(component, dragSourceDetails)\r\n"
+"    end\r\n"
+"  </luaMethod>\r\n"
+"\r\n"
+"  <luaMethod name=\"uiCustomItemDragExitCallback\">\r\n"
+"    --\r\n"
+"    -- Called when a DragAndDrop event exits this component\r\n"
+"    --\r\n"
+"\r\n"
+"    __method_name = function(component, dragSourceDetails)\r\n"
+"    end\r\n"
+"  </luaMethod>\r\n"
+"\r\n"
 "  <luaMethod name=\"uiCustomStartDraggingCallback\">\r\n"
 "    --\r\n"
 "    -- This method needs to return source information for a drag event\r\n"
@@ -15253,7 +15271,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0xa5970535:  numBytes = 1963; return CtrlrMIDITransactions_xml;
         case 0x37e081fb:  numBytes = 15061; return CtrlrMIDIVendors_xml;
         case 0xa32a74e9:  numBytes = 78807; return CtrlrIDs_xml;
-        case 0x75a28bbf:  numBytes = 17437; return CtrlrLuaMethodTemplates_xml;
+        case 0x75a28bbf:  numBytes = 17877; return CtrlrLuaMethodTemplates_xml;
         case 0xcfea1483:  numBytes = 662; return CtrlrMidiMultiTemplate_xml;
         default: break;
     }
@@ -15261,8 +15279,6 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
     numBytes = 0;
     return 0;
 }
-
-const int namedResourceListSize = 58;
 
 const char* namedResourceList[] =
 {

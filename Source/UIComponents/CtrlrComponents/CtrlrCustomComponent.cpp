@@ -454,8 +454,6 @@ void CtrlrCustomComponent::mouseWheelMove (const MouseEvent &e, const MouseWheel
 
 bool CtrlrCustomComponent::isInterestedInDragSource (const SourceDetails& dragSourceDetails)
 {
-    _DBG("CtrlrCustomComponent::isInterestedInDragSource");
-
 	if (dadIsInterestedCbk && !dadIsInterestedCbk.wasObjectDeleted())
 	{
 		if (dadIsInterestedCbk->isValid())
@@ -468,7 +466,6 @@ bool CtrlrCustomComponent::isInterestedInDragSource (const SourceDetails& dragSo
 
 void CtrlrCustomComponent::itemDragEnter (const SourceDetails &dragSourceDetails)
 {
-    _DBG("CtrlrCustomComponent::itemDragEnter "+getName());
 	if (dadEnterCbk && !dadEnterCbk.wasObjectDeleted())
 	{
 		if (dadEnterCbk->isValid())
@@ -480,7 +477,6 @@ void CtrlrCustomComponent::itemDragEnter (const SourceDetails &dragSourceDetails
 
 void CtrlrCustomComponent::itemDragMove (const SourceDetails &dragSourceDetails)
 {
-    _DBG("CtrlrCustomComponent::itemDragMove " +getName());
 	if (dadMoveCbk && !dadMoveCbk.wasObjectDeleted())
 	{
 		if (dadMoveCbk->isValid())
@@ -491,9 +487,7 @@ void CtrlrCustomComponent::itemDragMove (const SourceDetails &dragSourceDetails)
 }
 
 void CtrlrCustomComponent::itemDragExit (const SourceDetails &dragSourceDetails)
-{
-    _DBG("CtrlrCustomComponent::itemDragExit");
-
+{   
 	if (dadExitCbk && !dadExitCbk.wasObjectDeleted())
 	{
 		if (dadExitCbk->isValid())
@@ -505,8 +499,6 @@ void CtrlrCustomComponent::itemDragExit (const SourceDetails &dragSourceDetails)
 
 void CtrlrCustomComponent::itemDropped (const SourceDetails& dragSourceDetails)
 {
-    _DBG("CtrlrCustomComponent::itemDropped");
-
 	if (dadDroppedCbk && !dadDroppedCbk.wasObjectDeleted())
 	{
 		if (dadDroppedCbk->isValid())
@@ -523,13 +515,11 @@ bool CtrlrCustomComponent::shouldDrawDragImageWhenOver ()
 
 bool CtrlrCustomComponent::isInterestedInFileDrag (const StringArray& files)
 {
-    _DBG("CtrlrCustomComponent::isInterestedInFileDrag");
     return (true);
 }
 
 bool CtrlrCustomComponent::isInterestedInTextDrag (const String& text)
 {
-    _DBG("CtrlrCustomComponent::isInterestedInTextDrag");
     return (true);
 }
 
