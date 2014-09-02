@@ -7,7 +7,21 @@ void LImage::wrapForLua (lua_State *L)
 
 	module(L)
     [
+        class_<ImageType>("ImageType")
+            .def("create", &ImageType::create)
+            .def("getTypeID", &ImageType::getTypeID)
+            .def("convert", &ImageType::convert)
+        ,
 		class_<Image>("Image")
+            .enum_("PixelFormat")
+			[
+				value("UnknownFormat", Image::UnknownFormat),
+				value("RGB", Image::RGB),
+				value("ARGB", Image::ARGB),
+				value("SingleChannel", Image::SingleChannel)
+			]
+            .def(constructor<Image::PixelFormat, int, int, bool>())
+            .def(constructor<Image::PixelFormat, int, int, bool, const ImageType &>())
 			.def(constructor<const Image &>())
 			.def(constructor<>())
 			.def("isValid", &Image::isValid)
@@ -27,18 +41,6 @@ void LImage::wrapForLua (lua_State *L)
 			.def("desaturate", &Image::desaturate)
 			.def("moveImageSection", &Image::moveImageSection)
 			.def("getReferenceCount", &Image::getReferenceCount)
-			.enum_("PixelFormat")
-			[
-				value("UnknownFormat", Image::UnknownFormat),
-				value("RGB", Image::RGB),
-				value("ARGB", Image::ARGB),
-				value("SingleChannel", Image::SingleChannel)
-			]
-			.enum_("ImageType")
-			[
-				value("SoftwareImage ", 0),
-				value("NativeImage ", 1)
-			]
 		,
 		class_<ImageFileFormat>("ImageFileFormat")
 			.def("getFormatName", &ImageFileFormat::getFormatName)

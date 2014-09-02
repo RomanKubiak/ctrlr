@@ -381,6 +381,12 @@
     </GROUP>
     <GROUP id="{BF1AE96C-84FC-3E33-914B-08E0062FCD5B}" name="Lua">
       <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
+        <FILE id="IK8mBP" name="LButton.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LButton.cpp"/>
+        <FILE id="c41Lvg" name="LButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LButton.h"/>
+        <FILE id="HZ8B9T" name="LTextButton.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTextButton.cpp"/>
+        <FILE id="vuxglL" name="LTextButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTextButton.h"/>
+        <FILE id="sq3Jcz" name="LTypeface.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTypeface.cpp"/>
+        <FILE id="MZkgqM" name="LTypeface.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTypeface.h"/>
         <FILE id="lbR2oN" name="LXmlElement.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.cpp"/>
         <FILE id="rTvtUS" name="LXmlElement.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.h"/>
         <FILE id="kz9hTM" name="LThread.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LThread.cpp"/>
@@ -532,10 +538,6 @@
             file="../../Source/Lua/CtrlrLuaConverters.h"/>
       <FILE id="k7BcPD" name="CtrlrLuaCustomComponent.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaCustomComponent.cpp"/>
-      <FILE id="IlF30P" name="CtrlrLuaLookAndFeel.cpp" compile="1" resource="0"
-            file="../../Source/Lua/CtrlrLuaLookAndFeel.cpp"/>
-      <FILE id="ztsNiq" name="CtrlrLuaLookAndFeel.h" compile="0" resource="0"
-            file="../../Source/Lua/CtrlrLuaLookAndFeel.h"/>
       <FILE id="RBkE0T" name="CtrlrLuaManager.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaManager.cpp"/>
       <FILE id="n5jx6b" name="CtrlrLuaManager.h" compile="0" resource="0"

@@ -6,6 +6,8 @@
 class LComponent : public Component
 {
 	public:
+	    LComponent() : Component() {}
+	    LComponent(const String &name) : Component(name) {}
 		void addToDesktop(const int windowStyleFlags)
 		{
 			Component::addToDesktop (windowStyleFlags, nullptr);

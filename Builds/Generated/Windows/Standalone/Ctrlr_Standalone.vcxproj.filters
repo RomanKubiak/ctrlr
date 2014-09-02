@@ -490,6 +490,15 @@
     <ClCompile Include="..\..\..\..\Source\Core\stdafx.cpp">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LButton.cpp">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.cpp">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.cpp">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClCompile>
@@ -659,9 +668,6 @@
       <Filter>Ctrlr_Standalone\Lua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaCustomComponent.cpp">
-      <Filter>Ctrlr_Standalone\Lua</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaLookAndFeel.cpp">
       <Filter>Ctrlr_Standalone\Lua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaManager.cpp">
@@ -2406,6 +2412,15 @@
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LButton.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
@@ -2572,9 +2587,6 @@
       <Filter>Ctrlr_Standalone\Lua</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaConverters.h">
-      <Filter>Ctrlr_Standalone\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaLookAndFeel.h">
       <Filter>Ctrlr_Standalone\Lua</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaManager.h">
@@ -3471,13 +3483,13 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_ASCII.h">
       <Filter>Juce Modules\juce_core\text</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h">
+      <Filter>Juce Modules\juce_core\text</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF16.h">
       <Filter>Juce Modules\juce_core\text</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF32.h">
-      <Filter>Juce Modules\juce_core\text</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h">
       <Filter>Juce Modules\juce_core\text</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_Identifier.h">

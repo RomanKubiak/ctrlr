@@ -11,7 +11,6 @@
 #include "CtrlrPanel/CtrlrPanelCanvasLayer.h"
 #include "CtrlrLuaObjectWrapper.h"
 #include "CtrlrMidiInputComparator.h"
-#include "CtrlrLuaLookAndFeel.h"
 #include "CtrlrPanel/CtrlrPanelResourceManager.h"
 #include "MIDI/CtrlrMidiInputComparator.h"
 #include "MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"
@@ -210,7 +209,6 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrPanelResourceManager::wrapForLua (L);
 	CtrlrPanelCanvasLayer::wrapForLua (L);
 	CtrlrLuaAudioConverter::wrapForLua (L);
-	CtrlrLuaLookAndFeel::wrapForLua (L);
 	CtrlrLuaBigInteger::wrapForLua (L);
 	CtrlrLuaMemoryBlock::wrapForLua (L);
 	CtrlrLuaRectangle::wrapForLua (L);

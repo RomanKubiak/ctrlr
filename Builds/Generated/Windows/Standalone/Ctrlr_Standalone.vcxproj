@@ -22,18 +22,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
-    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
   <ImportGroup Label="ExtensionSettings"/>
@@ -66,7 +63,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua/luabind;../../../../Source/Misc;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Lua;../../../../Source/Lua/lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;_CRT_SECURE_NO_WARNINGS;JUCER_VS2010_FC975A20=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;_CRT_SECURE_NO_WARNINGS;JUCER_VS2010_FC975A20=1;JUCE_APP_VERSION=5.2.0;JUCE_APP_VERSION_HEX=0x50200;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -111,7 +108,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua/luabind;../../../../Source/Misc;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Lua;../../../../Source/Lua/lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=0;JucePlugin_Build_Standalone;_CRT_SECURE_NO_WARNINGS;JUCER_VS2010_FC975A20=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=0;JucePlugin_Build_Standalone;_CRT_SECURE_NO_WARNINGS;JUCER_VS2010_FC975A20=1;JUCE_APP_VERSION=5.2.0;JUCE_APP_VERSION_HEX=0x50200;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -157,7 +154,7 @@
     <ClCompile>
       <Optimization>MinSpace</Optimization>
       <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua/luabind;../../../../Source/Misc;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Lua;../../../../Source/Lua/lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;_CRT_SECURE_NO_WARNINGS;JUCER_VS2010_FC975A20=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;_CRT_SECURE_NO_WARNINGS;JUCER_VS2010_FC975A20=1;JUCE_APP_VERSION=5.2.0;JUCE_APP_VERSION_HEX=0x50200;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -220,6 +217,9 @@
     <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneApplication.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\stdafx.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LButton.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.cpp"/>
@@ -277,7 +277,6 @@
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaCustomComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaLookAndFeel.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaModulator.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaMultiTimer.cpp"/>
@@ -1557,6 +1556,9 @@
     <ClInclude Include="..\..\..\..\Source\Core\dxtrans.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LButton.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThread.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.h"/>
@@ -1613,7 +1615,6 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaConverters.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaLookAndFeel.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaManager.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaMultiTimer.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObject.h"/>
@@ -1912,9 +1913,9 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharacterFunctions.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_ASCII.h"/>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF16.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF32.h"/>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_CharPointer_UTF8.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_Identifier.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_LocalisedStrings.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\text\juce_NewLine.h"/>
