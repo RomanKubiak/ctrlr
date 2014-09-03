@@ -432,6 +432,14 @@
         <FILE id="t8NDxd" name="LColour.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LColour.h"/>
         <FILE id="DmwWUf" name="LComboBox.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.cpp"/>
         <FILE id="bFE4Q1" name="LComboBox.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.h"/>
+        <FILE id="oj1FSq" name="LFileListComponent.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LFileListComponent.cpp"/>
+        <FILE id="xsLS97" name="LFileListComponent.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LFileListComponent.h"/>
+        <FILE id="vCuIPz" name="LFileTreeComponent.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LFileTreeComponent.cpp"/>
+        <FILE id="IZsYxb" name="LFileTreeComponent.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LFileTreeComponent.h"/>
         <FILE id="pCco08" name="LColourGradient.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LColourGradient.cpp"/>
         <FILE id="EG832w" name="LColourGradient.h" compile="0" resource="0"
@@ -467,12 +475,19 @@
         <FILE id="IlnOx7" name="LInputStream.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LInputStream.h"/>
         <FILE id="HyBcBP" name="LKeyPress.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LKeyPress.cpp"/>
         <FILE id="nyqsyF" name="LKeyPress.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LKeyPress.h"/>
+        <FILE id="ZnKgGe" name="LMidiKeyboardComponent.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp"/>
+        <FILE id="mfciTU" name="LMidiKeyboardComponent.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LMidiKeyboardComponent.h"/>
         <FILE id="I83YLf" name="LJustification.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LJustification.cpp"/>
         <FILE id="dHNAjR" name="LJustification.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LJustification.h"/>
         <FILE id="JSQ3mj" name="LLabel.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLabel.cpp"/>
         <FILE id="E8X1eR" name="LLabel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLabel.h"/>
+        <FILE id="wm93LC" name="LMouseCursor.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LMouseCursor.cpp"/>
+        <FILE id="oqFjRG" name="LMouseCursor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseCursor.h"/>
         <FILE id="Rtwaug" name="LLine.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLine.cpp"/>
         <FILE id="glbv0u" name="LLine.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLine.h"/>
         <FILE id="u0mGw1" name="LLookAndFeel.cpp" compile="1" resource="0"
@@ -517,6 +532,9 @@
         <FILE id="IcktbX" name="LString.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LString.h"/>
         <FILE id="LhNvtn" name="LTextEditor.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTextEditor.cpp"/>
         <FILE id="e8em8J" name="LTextEditor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTextEditor.h"/>
+        <FILE id="jKzDwQ" name="LToggleButton.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LToggleButton.cpp"/>
+        <FILE id="NYIvt0" name="LToggleButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LToggleButton.h"/>
         <FILE id="PdpkyS" name="LTime.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTime.cpp"/>
         <FILE id="aVFNWl" name="LTime.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTime.h"/>
         <FILE id="ViKYP8" name="LTimer.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTimer.cpp"/>

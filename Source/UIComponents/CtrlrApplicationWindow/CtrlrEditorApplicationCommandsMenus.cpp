@@ -225,6 +225,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		}
 
 		menu.addSectionHeader ("Snapshots");
+		menu.addCommandItem (commandManager, doSnapshotStore);
 		menu.addCommandItem (commandManager, doSendSnapshot);
 		menu.addCommandItem (commandManager, optMidiSnapshotOnLoad);
 		menu.addCommandItem (commandManager, optMidiSnapshotOnProgramChange);
