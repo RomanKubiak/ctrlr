@@ -221,51 +221,47 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_60sekuntia.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_Computerfont.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_Digit.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_Digital-7.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_DottyShadow.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_Electronic Highway Sign.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_Invasion2000.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_Karmatic Arcade.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_LCD.ttf">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_60sekuntia.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_Computerfont.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_Digit.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_Digital-7.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_DottyShadow.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_Electronic Highway Sign.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_Invasion2000.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_Karmatic Arcade.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_LCD.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_Source Code Pro.bin">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Resources/Fonts/FONT_ZX81.bin">
+    <Unit filename="../../../../Source/Resources/Fonts/FONT_ZX81.ttf">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

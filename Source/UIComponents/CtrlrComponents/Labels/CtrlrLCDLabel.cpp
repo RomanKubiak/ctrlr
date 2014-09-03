@@ -122,6 +122,15 @@ void CtrlrLCDLabel::resized()
 {
     //ctrlrLabel->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
+	if (restoreStateInProgress)
+		return;
+	if ((bool)ctrlrLabel->getProperties() ["fh"] == true)
+	{
+		Font f = ctrlrLabel->getFont();
+		f.setHeight (getHeight()*0.95f);
+		ctrlrLabel->setFont (f);
+	}
+	ctrlrLabel->setBounds (getUsableRect());
     //[/UserResized]
 }
 
@@ -145,20 +154,6 @@ const double CtrlrLCDLabel::getComponentValue()
 const int CtrlrLCDLabel::getComponentMidiValue()
 {
 	return (1);
-}
-
-const Array<Font> CtrlrLCDLabel::getFontList()
-{
-	Array <Font> ret;
-	Font f = STR2FONT(getProperty(Ids::uiLabelFont));
-	if (f.getTypefaceName() != Font::getDefaultSerifFontName()
-		&& f.getTypefaceName() != Font::getDefaultSansSerifFontName()
-		&& f.getTypefaceName() != Font::getDefaultMonospacedFontName()
-		&& f.getTypefaceName() != "<Sans-Serif>")
-	{
-		ret.add (f);
-	}
-	return (ret);
 }
 
 void CtrlrLCDLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
@@ -187,29 +182,20 @@ void CtrlrLCDLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 		ctrlrLabel->setColour (Label::textColourId, VAR2COLOUR(getProperty(Ids::uiLabelTextColour)));
 		ctrlrLabel->setColour (TextEditor::textColourId, VAR2COLOUR(getProperty(Ids::uiLabelTextColour)));
 	}
-	else if (property == Ids::uiLabelFitFont || property == Ids::uiLabelFont)
+	else if (property == Ids::uiLabelFitFont)
 	{
 		ctrlrLabel->getProperties().set ("fh", getProperty(Ids::uiLabelFitFont));
 		const String t = ctrlrLabel->getText();
+		ctrlrLabel->setFont (CtrlrFontManager::getBuiltInFont ((int)getProperty(Ids::uiLCDLabelFont)).withHeight((float)getProperty(Ids::uiLCDLabelFontHeight)));
 		ctrlrLabel->setText (t, dontSendNotification);
 	}
 	else if (property == Ids::uiLabelJustification)
 	{
 		ctrlrLabel->setJustificationType (justificationFromProperty(getProperty(property)));
 	}
-
-	else if (property == Ids::uiLCDLabelFontHeight)
+	else if (property == Ids::uiLCDLabelFont || property == Ids::uiLCDLabelFontHeight)
 	{
-		Font f = ctrlrLabel->getFont();
-		f.setHeight ((float)getProperty(property));
-		ctrlrLabel->setFont(f);
-	}
-
-	else if (property == Ids::uiLCDLabelFont)
-	{
-		Font f = CtrlrFontManager::getBuiltInFont ((int)getProperty(property));
-		f.setHeight ((float)getProperty(Ids::uiLCDLabelFontHeight));
-		ctrlrLabel->setFont (f);
+		ctrlrLabel->setFont(CtrlrFontManager::getBuiltInFont ((int)getProperty(Ids::uiLCDLabelFont)).withHeight((float)getProperty(Ids::uiLCDLabelFontHeight)));
 	}
 	else if (property == Ids::uiLabelEditOnSingleClick
 		|| property == Ids::uiLabelEditOnDoubleClick

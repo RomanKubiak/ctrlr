@@ -6,8 +6,6 @@
 #include "CtrlrPanel/CtrlrPanelResourceManager.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"
 
-#define FONT_FROM_DATA(x)		getFont (BinaryData::x, BinaryData::x ## Size)
-
 CtrlrFontManager::CtrlrFontManager(CtrlrManager &_owner) : owner(_owner)
 {
 	reloadFonts();
@@ -315,34 +313,34 @@ const Font CtrlrFontManager::getBuiltInFont(const int fontIndex)
 	switch (fontIndex)
 	{
 		case 0:
-			f = FONT_FROM_DATA (FONT_LCD_bin);
+			f = getBuiltInFont ("FONT_LCD_ttf");
 			break;
 		case 1:
-			f = FONT_FROM_DATA (FONT_Digital7_bin);
+			f = getBuiltInFont ("FONT_Digital7_ttf");
 			break;
 		case 2:
-			f = FONT_FROM_DATA (FONT_DottyShadow_bin);
+			f = getBuiltInFont ("FONT_DottyShadow_ttf");
 			break;
 		case 3:
-			f = FONT_FROM_DATA (FONT_ZX81_bin);
+			f = getBuiltInFont ("FONT_ZX81_ttf");
 			break;
 		case 4:
-			f = FONT_FROM_DATA (FONT_Invasion2000_bin);
+			f = getBuiltInFont ("FONT_Invasion2000_ttf");
 			break;
 		case 5:
-			f = FONT_FROM_DATA (FONT_Digit_bin);
+			f = getBuiltInFont ("FONT_Digit_ttf");
 			break;
 		case 6:
-			f = FONT_FROM_DATA (FONT_Computerfont_bin);
+			f = getBuiltInFont ("FONT_Computerfont_ttf");
 			break;
 		case 7:
-			f = FONT_FROM_DATA (FONT_Electronic_Highway_Sign_bin);
+			f = getBuiltInFont ("FONT_Electronic_Highway_Sign_ttf");
 			break;
 		case 8:
-			f = FONT_FROM_DATA (FONT_Karmatic_Arcade_bin);
+			f = getBuiltInFont ("FONT_Karmatic_Arcade_ttf");
 			break;
 		case 9:
-			f = FONT_FROM_DATA (FONT_60sekuntia_bin);
+			f = getBuiltInFont ("FONT_60sekuntia_ttf");
 			break;
         case 10:
             f = getBuiltInFont ("FONT_WarenhausStandard_ttf");
