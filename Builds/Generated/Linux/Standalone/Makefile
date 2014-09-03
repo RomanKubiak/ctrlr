@@ -118,6 +118,8 @@ OBJECTS := \
   $(OBJDIR)/LBubbleMessageComponent_3f076002.o \
   $(OBJDIR)/LColour_f601596c.o \
   $(OBJDIR)/LComboBox_fd631dbd.o \
+  $(OBJDIR)/LFileListComponent_37dd3b4d.o \
+  $(OBJDIR)/LFileTreeComponent_854e584d.o \
   $(OBJDIR)/LColourGradient_2f12e5bc.o \
   $(OBJDIR)/LComponent_c76bde67.o \
   $(OBJDIR)/LComponentPeer_7b1a09e9.o \
@@ -131,8 +133,10 @@ OBJECTS := \
   $(OBJDIR)/LImage_657eee45.o \
   $(OBJDIR)/LInputStream_796e1d94.o \
   $(OBJDIR)/LKeyPress_ea4d5a04.o \
+  $(OBJDIR)/LMidiKeyboardComponent_c4245d9f.o \
   $(OBJDIR)/LJustification_1a98a75c.o \
   $(OBJDIR)/LLabel_759d4f5e.o \
+  $(OBJDIR)/LMouseCursor_eeedd585.o \
   $(OBJDIR)/LLine_2ab6b654.o \
   $(OBJDIR)/LLookAndFeel_2f64a028.o \
   $(OBJDIR)/LMemoryBlock_bf2138b6.o \
@@ -151,6 +155,7 @@ OBJECTS := \
   $(OBJDIR)/LSlider_e4f58201.o \
   $(OBJDIR)/LString_45435131.o \
   $(OBJDIR)/LTextEditor_762fe41a.o \
+  $(OBJDIR)/LToggleButton_e9b0206.o \
   $(OBJDIR)/LTime_680b44ad.o \
   $(OBJDIR)/LTimer_9d03472f.o \
   $(OBJDIR)/LURL_d54a4599.o \
@@ -573,6 +578,16 @@ $(OBJDIR)/LComboBox_fd631dbd.o: ../../../../Source/Lua/JuceClasses/LComboBox.cpp
 	@echo "Compiling LComboBox.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/LFileListComponent_37dd3b4d.o: ../../../../Source/Lua/JuceClasses/LFileListComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LFileListComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LFileTreeComponent_854e584d.o: ../../../../Source/Lua/JuceClasses/LFileTreeComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LFileTreeComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/LColourGradient_2f12e5bc.o: ../../../../Source/Lua/JuceClasses/LColourGradient.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LColourGradient.cpp"
@@ -638,6 +653,11 @@ $(OBJDIR)/LKeyPress_ea4d5a04.o: ../../../../Source/Lua/JuceClasses/LKeyPress.cpp
 	@echo "Compiling LKeyPress.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/LMidiKeyboardComponent_c4245d9f.o: ../../../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LMidiKeyboardComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/LJustification_1a98a75c.o: ../../../../Source/Lua/JuceClasses/LJustification.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LJustification.cpp"
@@ -646,6 +666,11 @@ $(OBJDIR)/LJustification_1a98a75c.o: ../../../../Source/Lua/JuceClasses/LJustifi
 $(OBJDIR)/LLabel_759d4f5e.o: ../../../../Source/Lua/JuceClasses/LLabel.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LLabel.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LMouseCursor_eeedd585.o: ../../../../Source/Lua/JuceClasses/LMouseCursor.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LMouseCursor.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LLine_2ab6b654.o: ../../../../Source/Lua/JuceClasses/LLine.cpp
@@ -736,6 +761,11 @@ $(OBJDIR)/LString_45435131.o: ../../../../Source/Lua/JuceClasses/LString.cpp
 $(OBJDIR)/LTextEditor_762fe41a.o: ../../../../Source/Lua/JuceClasses/LTextEditor.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LTextEditor.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LToggleButton_e9b0206.o: ../../../../Source/Lua/JuceClasses/LToggleButton.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LToggleButton.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LTime_680b44ad.o: ../../../../Source/Lua/JuceClasses/LTime.cpp
