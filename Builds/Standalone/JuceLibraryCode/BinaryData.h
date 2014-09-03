@@ -12,41 +12,38 @@ namespace BinaryData
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
 
+    extern const char*   FONT_60sekuntia_ttf;
+    const int            FONT_60sekuntia_ttfSize = 97264;
+
+    extern const char*   FONT_Computerfont_ttf;
+    const int            FONT_Computerfont_ttfSize = 39104;
+
+    extern const char*   FONT_Digit_ttf;
+    const int            FONT_Digit_ttfSize = 13028;
+
+    extern const char*   FONT_Digital7_ttf;
+    const int            FONT_Digital7_ttfSize = 34360;
+
+    extern const char*   FONT_DottyShadow_ttf;
+    const int            FONT_DottyShadow_ttfSize = 569464;
+
+    extern const char*   FONT_Electronic_Highway_Sign_ttf;
+    const int            FONT_Electronic_Highway_Sign_ttfSize = 73060;
+
+    extern const char*   FONT_Invasion2000_ttf;
+    const int            FONT_Invasion2000_ttfSize = 30836;
+
+    extern const char*   FONT_Karmatic_Arcade_ttf;
+    const int            FONT_Karmatic_Arcade_ttfSize = 56908;
+
+    extern const char*   FONT_LCD_ttf;
+    const int            FONT_LCD_ttfSize = 27664;
+
     extern const char*   FONT_WarenhausStandard_ttf;
     const int            FONT_WarenhausStandard_ttfSize = 28212;
 
-    extern const char*   FONT_60sekuntia_bin;
-    const int            FONT_60sekuntia_binSize = 95989;
-
-    extern const char*   FONT_Computerfont_bin;
-    const int            FONT_Computerfont_binSize = 11029;
-
-    extern const char*   FONT_Digit_bin;
-    const int            FONT_Digit_binSize = 3392;
-
-    extern const char*   FONT_Digital7_bin;
-    const int            FONT_Digital7_binSize = 3660;
-
-    extern const char*   FONT_DottyShadow_bin;
-    const int            FONT_DottyShadow_binSize = 489732;
-
-    extern const char*   FONT_Electronic_Highway_Sign_bin;
-    const int            FONT_Electronic_Highway_Sign_binSize = 2979;
-
-    extern const char*   FONT_Invasion2000_bin;
-    const int            FONT_Invasion2000_binSize = 6542;
-
-    extern const char*   FONT_Karmatic_Arcade_bin;
-    const int            FONT_Karmatic_Arcade_binSize = 5043;
-
-    extern const char*   FONT_LCD_bin;
-    const int            FONT_LCD_binSize = 5454;
-
-    extern const char*   FONT_Source_Code_Pro_bin;
-    const int            FONT_Source_Code_Pro_binSize = 28981;
-
-    extern const char*   FONT_ZX81_bin;
-    const int            FONT_ZX81_binSize = 2837;
+    extern const char*   FONT_ZX81_ttf;
+    const int            FONT_ZX81_ttfSize = 17176;
 
     extern const char*   ico_box_png;
     const int            ico_box_pngSize = 3869;
@@ -193,7 +190,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 60;
+    const int namedResourceListSize = 59;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

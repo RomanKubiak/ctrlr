@@ -182,20 +182,6 @@ const int CtrlrLabel::getComponentMidiValue()
 	return (1);
 }
 
-const Array<Font> CtrlrLabel::getFontList()
-{
-	Array <Font> ret;
-	Font f = STR2FONT(getProperty(Ids::uiLabelFont));
-	if (f.getTypefaceName() != Font::getDefaultSerifFontName()
-		&& f.getTypefaceName() != Font::getDefaultSansSerifFontName()
-		&& f.getTypefaceName() != Font::getDefaultMonospacedFontName()
-		&& f.getTypefaceName() != "<Sans-Serif>")
-	{
-		ret.add (f);
-	}
-	return (ret);
-}
-
 void CtrlrLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
 {
 	if (property == Ids::uiLabelDisplaysAllValues)

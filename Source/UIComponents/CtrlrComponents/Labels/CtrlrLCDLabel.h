@@ -54,7 +54,6 @@ public:
 	const double getComponentMaxValue();
 	const String getComponentText();
 	void setComponentText (const String &componentText);
-	const Array<Font> getFontList();
 	void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 	void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 	void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
