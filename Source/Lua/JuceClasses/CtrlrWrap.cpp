@@ -104,7 +104,7 @@ void CtrlrLuaManager::wrapJuceClasses(lua_State *L)
 	LRandom::wrapForLua(L);
 	LRectangle::wrapForLua(L);
 	LValueTree::wrapForLua(L);
-	LLookAndFeel_V3::wrapForLua(L);
+	LLookAndFeel::wrapForLua(L);
 	LLabel::wrapForLua(L);
 	LSlider::wrapForLua(L);
 	LBubbleMessageComponent::wrapForLua(L);
