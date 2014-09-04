@@ -1,20 +1,30 @@
 #include "stdafx.h"
 #include "LLookAndFeel.h"
 
-void setLookAndFeel (Component *target, luabind::object lookAndFeel)
+void setLookAndFeel(Component *c, luabind::object o)
 {
-    if (lookAndFeel && luabind::type(lookAndFeel) != LUA_TNIL)
+    _DBG("::setLookAndFeel");
+    if (luabind::type (o) != LUA_TNIL)
     {
-        LookAndFeel_V3 *lf = luabind::object_cast<LookAndFeel_V3*>(lookAndFeel);
+        LookAndFeel_V3 *lookAndFeel_V3= luabind::object_cast<LookAndFeel_V3*>(o);
 
-        if (lf && target)
+        if (lookAndFeel_V3)
         {
-            target->setLookAndFeel(lf);
+            _DBG("\tobject cast to LookAndFeel_V3 success");
+
+            if (c)
+            {
+                c->setLookAndFeel (lookAndFeel_V3);
+            }
         }
     }
 }
 
-void LLookAndFeel_V3::wrapForLua (lua_State *L)
+LLookAndFeel::LLookAndFeel()
+{
+}
+
+void LLookAndFeel::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
 
@@ -22,6 +32,12 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
     [
         def("setLookAndFeel", &setLookAndFeel)
         ,
+        class_<LookAndFeel_V3>("LookAndFeel_V3")
+        ,
+        class_<LLookAndFeel, LookAndFeel_V3>("LookAndFeel")
+            .def(constructor<>())
+            .def("method", &method, &LLookAndFeel::def_method)
+        /*,
 		class_<LookAndFeel_V3, LLookAndFeel_V3>("LookAndFeel_V3")
             .def(constructor<>())
 			.def("findColour", &LookAndFeel_V3::findColour, &LLookAndFeel_V3::def_findColour)
@@ -133,6 +149,6 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
 			.def("setDefaultLookAndFeel", &LookAndFeel_V3::setDefaultLookAndFeel)
 			.def("drawBevel", &LookAndFeel_V3::drawBevel)
 			.def("drawGlassSphere", &LookAndFeel_V3::drawGlassSphere)
-			.def("drawGlassPointer", &LookAndFeel_V3::drawGlassPointer)
+			.def("drawGlassPointer", &LookAndFeel_V3::drawGlassPointer)*/
 	];
 }
