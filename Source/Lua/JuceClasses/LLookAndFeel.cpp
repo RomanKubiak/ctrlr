@@ -6,11 +6,11 @@ void setLookAndFeel(Component *c, luabind::object o)
     _DBG("::setLookAndFeel");
     if (luabind::type (o) != LUA_TNIL)
     {
-        LookAndFeel_V3 *lookAndFeel_V3= luabind::object_cast<LookAndFeel_V3*>(o);
+        LLookAndFeel_V3 *lookAndFeel_V3= luabind::object_cast<LLookAndFeel_V3*>(o);
 
         if (lookAndFeel_V3)
         {
-            _DBG("\tobject cast to LookAndFeel_V3 success");
+            _DBG("\tobject cast to LLookAndFeel_V3 success");
 
             if (c)
             {
@@ -20,11 +20,7 @@ void setLookAndFeel(Component *c, luabind::object o)
     }
 }
 
-LLookAndFeel::LLookAndFeel()
-{
-}
-
-void LLookAndFeel::wrapForLua (lua_State *L)
+void LLookAndFeel_V3::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
 
@@ -32,57 +28,52 @@ void LLookAndFeel::wrapForLua (lua_State *L)
     [
         def("setLookAndFeel", &setLookAndFeel)
         ,
-        class_<LookAndFeel_V3>("LookAndFeel_V3")
+        class_<LookAndFeel_V3>("JLookAndFeel_V3")
         ,
-        class_<LLookAndFeel, LookAndFeel_V3>("LookAndFeel")
-            .def(constructor<>())
-            .def("method", &method, &LLookAndFeel::def_method)
-        /*,
-		class_<LookAndFeel_V3, LLookAndFeel_V3>("LookAndFeel_V3")
+        class_<LLookAndFeel_V3, LookAndFeel_V3>("LookAndFeel_V3")
             .def(constructor<>())
 			.def("findColour", &LookAndFeel_V3::findColour, &LLookAndFeel_V3::def_findColour)
 			.def("setColour", &LookAndFeel_V3::setColour, &LLookAndFeel_V3::def_setColour)
 			.def("isColourSpecified", &LookAndFeel_V3::isColourSpecified, &LLookAndFeel_V3::def_isColourSpecified)
 			.def("getTypefaceForFont", &LookAndFeel_V3::getTypefaceForFont, &LLookAndFeel_V3::def_getTypefaceForFont)
-			.def("setDefaultSansSerifTypefaceName", &LookAndFeel_V3::setDefaultSansSerifTypefaceName, &LLookAndFeel_V3::def_setDefaultSansSerifTypefaceName)
-			.def("getMouseCursorFor", &LookAndFeel_V3::getMouseCursorFor, &LLookAndFeel_V3::def_getMouseCursorFor)
-			// .def("createGraphicsContext", &LookAndFeel_V3::createGraphicsContext)
+			.def("setDefaultSansSerifTypefaceName", &LookAndFeel_V3::setDefaultSansSerifTypefaceName)
+			.def("getMouseCursorFor", &LookAndFeel_V3::getMouseCursorFor, &LLookAndFeel_V3::def_getMouseCursorFor, copy(result))
 			.def("drawButtonBackground", &LookAndFeel_V3::drawButtonBackground, &LLookAndFeel_V3::def_drawButtonBackground)
-			.def("drawButtonText", &LookAndFeel_V3::drawButtonText)
-			.def("drawToggleButton", &LookAndFeel_V3::drawToggleButton)
-			.def("changeToggleButtonWidthToFitText", &LookAndFeel_V3::changeToggleButtonWidthToFitText)
-			.def("drawTickBox", &LookAndFeel_V3::drawTickBox)
-			.def("createAlertWindow", &LookAndFeel_V3::createAlertWindow)
-			.def("drawAlertBox", &LookAndFeel_V3::drawAlertBox)
-			.def("getAlertBoxWindowFlags", &LookAndFeel_V3::getAlertBoxWindowFlags)
-			.def("getAlertWindowButtonHeight", &LookAndFeel_V3::getAlertWindowButtonHeight)
-			.def("getAlertWindowMessageFont", &LookAndFeel_V3::getAlertWindowMessageFont)
-			.def("getAlertWindowFont", &LookAndFeel_V3::getAlertWindowFont)
+			.def("drawButtonText", &LookAndFeel_V3::drawButtonText, &LLookAndFeel_V3::def_drawButtonText)
+			.def("drawToggleButton", &LookAndFeel_V3::drawToggleButton, &LLookAndFeel_V3::def_drawToggleButton)
+			.def("changeToggleButtonWidthToFitText", &LookAndFeel_V3::changeToggleButtonWidthToFitText, &LLookAndFeel_V3::def_changeToggleButtonWidthToFitText)
+			.def("drawTickBox", &LookAndFeel_V3::drawTickBox, &LLookAndFeel_V3::def_drawTickBox)
+			.def("createAlertWindow", &LookAndFeel_V3::createAlertWindow, &LLookAndFeel_V3::def_createAlertWindow)
+			.def("drawAlertBox", &LookAndFeel_V3::drawAlertBox, &LLookAndFeel_V3::def_drawAlertBox)
+			.def("getAlertBoxWindowFlags", &LookAndFeel_V3::getAlertBoxWindowFlags, &LLookAndFeel_V3::def_getAlertBoxWindowFlags)
+			.def("getAlertWindowButtonHeight", &LookAndFeel_V3::getAlertWindowButtonHeight, &LLookAndFeel_V3::def_getAlertWindowButtonHeight)
+			.def("getAlertWindowMessageFont", &LookAndFeel_V3::getAlertWindowMessageFont, &LLookAndFeel_V3::def_getAlertWindowMessageFont)
+			.def("getAlertWindowFont", &LookAndFeel_V3::getAlertWindowFont, &LLookAndFeel_V3::def_getAlertWindowFont)
 			.def("setUsingNativeAlertWindows", &LookAndFeel_V3::setUsingNativeAlertWindows)
 			.def("isUsingNativeAlertWindows", &LookAndFeel_V3::isUsingNativeAlertWindows)
-			.def("drawProgressBar", &LookAndFeel_V3::drawProgressBar)
-			.def("drawSpinningWaitAnimation", &LookAndFeel_V3::drawSpinningWaitAnimation)
-			.def("areScrollbarButtonsVisible", &LookAndFeel_V3::areScrollbarButtonsVisible)
-			.def("getScrollbarEffect", &LookAndFeel_V3::getScrollbarEffect)
-			.def("getMinimumScrollbarThumbSize", &LookAndFeel_V3::getMinimumScrollbarThumbSize)
-			.def("getDefaultScrollbarWidth", &LookAndFeel_V3::getDefaultScrollbarWidth)
-			.def("getScrollbarButtonSize", &LookAndFeel_V3::getScrollbarButtonSize)
-			.def("getTickShape", &LookAndFeel_V3::getTickShape)
-			.def("getCrossShape", &LookAndFeel_V3::getCrossShape)
-			.def("drawTreeviewPlusMinusBox", &LookAndFeel_V3::drawTreeviewPlusMinusBox)
-			.def("fillTextEditorBackground", &LookAndFeel_V3::fillTextEditorBackground)
-			.def("drawTextEditorOutline", &LookAndFeel_V3::drawTextEditorOutline)
+			.def("drawProgressBar", &LookAndFeel_V3::drawProgressBar, &LLookAndFeel_V3::def_drawProgressBar)
+			.def("drawSpinningWaitAnimation", &LookAndFeel_V3::drawSpinningWaitAnimation, &LLookAndFeel_V3::def_drawSpinningWaitAnimation)
+			.def("areScrollbarButtonsVisible", &LookAndFeel_V3::areScrollbarButtonsVisible, &LLookAndFeel_V3::def_areScrollbarButtonsVisible)
+			.def("getScrollbarEffect", &LookAndFeel_V3::getScrollbarEffect, &LLookAndFeel_V3::def_getScrollbarEffect)
+			.def("getMinimumScrollbarThumbSize", &LookAndFeel_V3::getMinimumScrollbarThumbSize, &LLookAndFeel_V3::def_getMinimumScrollbarThumbSize)
+			.def("getDefaultScrollbarWidth", &LookAndFeel_V3::getDefaultScrollbarWidth, &LLookAndFeel_V3::def_getDefaultScrollbarWidth)
+			.def("getScrollbarButtonSize", &LookAndFeel_V3::getScrollbarButtonSize, &LLookAndFeel_V3::def_getScrollbarButtonSize)
+			.def("getTickShape", &LookAndFeel_V3::getTickShape, &LLookAndFeel_V3::def_getTickShape)
+			.def("getCrossShape", &LookAndFeel_V3::getCrossShape, &LLookAndFeel_V3::def_getCrossShape)
+			.def("drawTreeviewPlusMinusBox", &LookAndFeel_V3::drawTreeviewPlusMinusBox, &LLookAndFeel_V3::def_drawTreeviewPlusMinusBox)
+			.def("fillTextEditorBackground", &LookAndFeel_V3::fillTextEditorBackground, &LLookAndFeel_V3::def_fillTextEditorBackground)
+			.def("drawTextEditorOutline", &LookAndFeel_V3::drawTextEditorOutline, &LLookAndFeel_V3::def_drawTextEditorOutline)
 			.def("createCaretComponent", &LookAndFeel_V3::createCaretComponent)
 			.def("getDefaultFolderImage", &LookAndFeel_V3::getDefaultFolderImage)
 			.def("getDefaultDocumentFileImage", &LookAndFeel_V3::getDefaultDocumentFileImage)
 			.def("createFileChooserHeaderText", &LookAndFeel_V3::createFileChooserHeaderText)
-			// .def("drawFileBrowserRow", &LookAndFeel_V3::drawFileBrowserRow)
+			.def("drawFileBrowserRow", &LookAndFeel_V3::drawFileBrowserRow)
 			.def("createFileBrowserGoUpButton", &LookAndFeel_V3::createFileBrowserGoUpButton)
 			.def("layoutFileBrowserComponent", &LookAndFeel_V3::layoutFileBrowserComponent)
 			.def("drawBubble", &LookAndFeel_V3::drawBubble)
 			.def("drawLasso", &LookAndFeel_V3::drawLasso)
 			.def("drawPopupMenuBackground", &LookAndFeel_V3::drawPopupMenuBackground)
-			// .def("drawPopupMenuItem", &LookAndFeel_V3::drawPopupMenuItem)
+			.def("drawPopupMenuItem", &LookAndFeel_V3::drawPopupMenuItem)
 			.def("getPopupMenuFont", &LookAndFeel_V3::getPopupMenuFont)
 			.def("drawPopupMenuUpDownArrow", &LookAndFeel_V3::drawPopupMenuUpDownArrow)
 			.def("getIdealPopupMenuItemSize", &LookAndFeel_V3::getIdealPopupMenuItemSize)
@@ -149,6 +140,6 @@ void LLookAndFeel::wrapForLua (lua_State *L)
 			.def("setDefaultLookAndFeel", &LookAndFeel_V3::setDefaultLookAndFeel)
 			.def("drawBevel", &LookAndFeel_V3::drawBevel)
 			.def("drawGlassSphere", &LookAndFeel_V3::drawGlassSphere)
-			.def("drawGlassPointer", &LookAndFeel_V3::drawGlassPointer)*/
+			.def("drawGlassPointer", &LookAndFeel_V3::drawGlassPointer)
 	];
 }

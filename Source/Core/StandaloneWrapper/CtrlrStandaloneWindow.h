@@ -4,7 +4,7 @@
 #include "CtrlrMacros.h"
 class CtrlrProcessor;
 
-class CtrlrStandaloneWindow	: public DocumentWindow
+class CtrlrStandaloneWindow	: public DocumentWindow, public ActionListener
 {
 	public:
 		CtrlrStandaloneWindow (const String& title, const Colour& backgroundColour);
@@ -15,6 +15,8 @@ class CtrlrStandaloneWindow	: public DocumentWindow
 		void resized();
 		void moved();
 		void openFileFromCli(const File &file);
+		void saveStateNow();
+		void actionListenerCallback(const String &message);
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrStandaloneWindow);
 
 	private:

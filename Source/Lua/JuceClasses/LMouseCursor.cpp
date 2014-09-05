@@ -8,6 +8,11 @@ void LMouseCursor::wrapForLua(lua_State *L)
 	module(L)
     [
 		class_<MouseCursor>("MouseCursor")
+            .def(constructor<>())
+            .def(constructor<MouseCursor::StandardCursorType>())
+            .def(constructor<const Image &, int, int>())
+            .def(constructor<const Image &, int, int, float>())
+            .def(constructor<const MouseCursor &>())
             .enum_("StandardCursorType")
             [
                 value("ParentCursor", MouseCursor::ParentCursor),
@@ -15,11 +20,6 @@ void LMouseCursor::wrapForLua(lua_State *L)
                 value("NormalCursor", MouseCursor::NormalCursor),
                 value("WaitCursor", MouseCursor::WaitCursor)
             ]
-            .def(constructor<>())
-            .def(constructor<MouseCursor::StandardCursorType>())
-            .def(constructor<const Image &, int, int>())
-            .def(constructor<const Image &, int, int, float>())
-            .def(constructor<const MouseCursor &>())
             .scope
             [
                 def("showWaitCursor", &MouseCursor::showWaitCursor),

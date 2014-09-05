@@ -2,6 +2,7 @@
 #include "CtrlrLuaManager.h"
 #include "LButton.h"
 #include "LTextButton.h"
+#include "LToggleButton.h"
 #include "LGlobalFunctions.h"
 #include "LAffineTransform.h"
 #include "LAudioFile.h"
@@ -19,6 +20,7 @@
 #include "LMemoryBlock.h"
 #include "LMidiMessage.h"
 #include "LModifierKeys.h"
+#include "LMouseCursor.h"
 #include "LMouseEvent.h"
 #include "LPath.h"
 #include "LPoint.h"
@@ -97,14 +99,17 @@ void CtrlrLuaManager::wrapJuceClasses(lua_State *L)
 	LLine::wrapForLua(L);
 	LModifierKeys::wrapForLua(L);
 	LMouseEvent::wrapForLua(L);
+	LMouseCursor::wrapForLua(L);
 	LPath::wrapForLua(L);
 	LPoint::wrapForLua(L);
 	LButton::wrapForLua(L);
+	LTextButton::wrapForLua(L);
+	LToggleButton::wrapForLua(L);
 	LPopupMenu::wrapForLua(L);
 	LRandom::wrapForLua(L);
 	LRectangle::wrapForLua(L);
 	LValueTree::wrapForLua(L);
-	LLookAndFeel::wrapForLua(L);
+	LLookAndFeel_V3::wrapForLua(L);
 	LLabel::wrapForLua(L);
 	LSlider::wrapForLua(L);
 	LBubbleMessageComponent::wrapForLua(L);

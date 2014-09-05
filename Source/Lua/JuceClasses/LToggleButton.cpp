@@ -7,9 +7,10 @@ void LToggleButton::wrapForLua (lua_State *L)
 
 	module(L)
     [
-		class_<ToggleButton>("ToggleButton")
+		class_<ToggleButton, Button>("ToggleButton")
             .def(constructor<>())
             .def(constructor<const String &>())
             .def("changeWidthToFitText", &ToggleButton::changeWidthToFitText)
+
     ];
 }
