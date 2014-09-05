@@ -35,6 +35,9 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 
 			addKeyListener (ctrlrProcessor->getManager().getCommandManager().getKeyMappings());
 
+            /* we want to listen too manager actions */
+            ctrlrProcessor->getManager().addActionListener (this);
+
 			/* get the properties pointer from the manager */
 			appProperties = ctrlrProcessor->getManager().getApplicationProperties();
 
@@ -79,6 +82,23 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 
 CtrlrStandaloneWindow::~CtrlrStandaloneWindow()
 {
+    ctrlrProcessor->getManager().removeActionListener (this);
+    saveStateNow();
+    deleteFilter();
+}
+
+void CtrlrStandaloneWindow::actionListenerCallback(const String &message)
+{
+    if (message == "save")
+    {
+        saveStateNow();
+    }
+}
+
+void CtrlrStandaloneWindow::saveStateNow()
+{
+    _DBG("CtrlrStandaloneWindow::saveStateNow");
+
     if (ctrlrProcessor != nullptr && appProperties != nullptr)
     {
 		appProperties->getUserSettings()->setValue (CTRLR_PROPERTIES_WINDOW_STATE, getWindowStateAsString());
@@ -96,8 +116,6 @@ CtrlrStandaloneWindow::~CtrlrStandaloneWindow()
 			}
 		}
 	}
-
-    deleteFilter();
 }
 
 void CtrlrStandaloneWindow::deleteFilter()

@@ -30,7 +30,13 @@ class CtrlrLookAndFeel;
     The main class that holds all panels, also connects LUA contexts.
 
 */
-class CtrlrManager : public ValueTree::Listener, public ChangeBroadcaster, public AsyncUpdater, public ChangeListener, public MultiTimer, public ApplicationCommandManagerListener
+class CtrlrManager :    public ValueTree::Listener,
+                        public ChangeBroadcaster,
+                        public AsyncUpdater,
+                        public ChangeListener,
+                        public MultiTimer,
+                        public ApplicationCommandManagerListener,
+                        public ActionBroadcaster
 {
 	public:
 		//==============================================================================

@@ -576,14 +576,7 @@ void CtrlrManager::saveStateToDisk()
 {
 	if (JUCEApplication::isStandaloneApp())
 	{
-		if (getCtrlrProperties().saveIfNeeded())
-		{
-			_INF("CtrlrManager::saveStateToDisk ok");
-		}
-		else
-		{
-			_INF("CtrlrManager::saveStateToDisk failed");
-		}
+		sendActionMessage ("save");
 	}
 }
 

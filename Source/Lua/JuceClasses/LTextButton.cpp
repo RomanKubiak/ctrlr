@@ -7,6 +7,8 @@ void LTextButton::wrapForLua (lua_State *L)
 
 	module(L)
     [
-		class_<TextButton>("TextButton")
+		class_<TextButton, Button>("TextButton")
+            .def(constructor<const String &>())
+            .def(constructor<const String &, const String &>())
     ];
 }

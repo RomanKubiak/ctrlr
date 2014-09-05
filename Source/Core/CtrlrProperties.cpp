@@ -18,13 +18,25 @@ CtrlrProperties::CtrlrProperties(CtrlrManager &_owner) : owner(_owner)
 
 	applicationProperties.setStorageParameters (options);
 }
- 
+
 CtrlrProperties::~CtrlrProperties()
 {
 }
 
-bool CtrlrProperties::saveIfNeeded()
+bool CtrlrProperties::saveIfNeeded(const bool force)
 {
+    if (force)
+    {
+        if (applicationProperties.getUserSettings())
+        {
+            return (applicationProperties.getUserSettings()->save());
+        }
+
+        if (applicationProperties.getCommonSettings(true))
+        {
+            return (applicationProperties.getCommonSettings(true)->save());
+        }
+    }
 	return (applicationProperties.saveIfNeeded());
 }
 

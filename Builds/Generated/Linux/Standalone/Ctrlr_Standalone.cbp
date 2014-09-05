@@ -30,6 +30,7 @@
 					<Add option="-DJUCER_CODEBLOCKS_C6428F40=1" />
 					<Add option="-DJUCE_APP_VERSION=5.2.0" />
 					<Add option="-DJUCE_APP_VERSION_HEX=0x50200" />
+					<Add option="-DJUCE_COMPILER_SUPPORTS_MOVE_SEMANTICS=1" />
 					<Add directory="." />
 					<Add directory="../../../Standalone/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />

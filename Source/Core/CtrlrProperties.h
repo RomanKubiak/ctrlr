@@ -11,7 +11,7 @@ class CtrlrProperties
 		CtrlrProperties(CtrlrManager &_owner);
 		~CtrlrProperties();
 		ApplicationProperties &getProperties();
-		bool saveIfNeeded();
+		bool saveIfNeeded(const bool force=true);
 
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrProperties);
 
