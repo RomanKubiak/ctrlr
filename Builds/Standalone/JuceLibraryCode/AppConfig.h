@@ -39,7 +39,6 @@
 //==============================================================================
 // juce_audio_devices flags:
 
-#define JUCE_COMPILER_SUPPORTS_MOVE_SEMANTICS 1
 #ifndef    JUCE_ASIO
  #define   JUCE_ASIO 0
 #endif
