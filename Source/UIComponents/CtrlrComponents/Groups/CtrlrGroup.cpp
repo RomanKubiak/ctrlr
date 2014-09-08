@@ -37,6 +37,7 @@
 
 CtrlrGroupContentComponent::CtrlrGroupContentComponent(CtrlrGroup &_owner) : owner(_owner)
 {
+	setColour (GroupComponent::outlineColourId, Colours::transparentBlack);
 }
 
 CtrlrGroupContentComponent::~CtrlrGroupContentComponent()

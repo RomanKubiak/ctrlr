@@ -6,6 +6,20 @@
 
 struct DrawFileBrowserRowParams
 {
+	DrawFileBrowserRowParams(Graphics &_g, 
+							int _width, 
+							int _height, 
+							const String &_filename, 
+							Image *_icon, 
+							const String &_fileSizeDescription,
+							const String &_fileTimeDescription,
+							bool _isDirectory,
+							bool _isItemSelected,
+							int _itemIndex,
+							DirectoryContentsDisplayComponent &_component) 
+		:	g(_g), width(_width), height(_height), filename(_filename), icon(_icon), fileSizeDescription(_fileSizeDescription),
+			fileTimeDescription(_fileTimeDescription), isDirectory(_isDirectory), isItemSelected(_isItemSelected),
+			itemIndex(_itemIndex), component(_component) {}
     Graphics &g;
     int width;
     int height;
@@ -116,27 +130,27 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { return (ptr->LookAndFeel_V3::drawSpinningWaitAnimation (g, colour, x, y, w, h)); }
 
         virtual bool areScrollbarButtonsVisible () override
-        { call<bool>("areScrollbarButtonsVisible"); }
+        { return (call<bool>("areScrollbarButtonsVisible")); }
         static bool def_areScrollbarButtonsVisible (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::areScrollbarButtonsVisible ()); }
 
         virtual ImageEffectFilter *getScrollbarEffect () override
-        { call<ImageEffectFilter*>("getScrollbarEffect"); }
+        { return (call<ImageEffectFilter*>("getScrollbarEffect")); }
         static ImageEffectFilter *def_getScrollbarEffect (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::getScrollbarEffect ()); }
 
         virtual int getMinimumScrollbarThumbSize (ScrollBar &bar) override
-        { call<int>("getMinimumScrollbarThumbSize", boost::ref(bar)); }
+        { return (call<int>("getMinimumScrollbarThumbSize", boost::ref(bar))); }
         static int def_getMinimumScrollbarThumbSize (LookAndFeel_V3 *ptr, ScrollBar &bar)
         { return (ptr->LookAndFeel_V3::getMinimumScrollbarThumbSize (bar)); }
 
         virtual int getDefaultScrollbarWidth () override
-        { call<int>("getDefaultScrollbarWidth"); }
+        { return (call<int>("getDefaultScrollbarWidth")); }
         static int def_getDefaultScrollbarWidth (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::getDefaultScrollbarWidth ()); }
 
         virtual int getScrollbarButtonSize (ScrollBar &bar) override
-        { call<int>("getScrollbarButtonSize", boost::ref(bar)); }
+        { return (call<int>("getScrollbarButtonSize", boost::ref(bar))); }
         static int def_getScrollbarButtonSize (LookAndFeel_V3 *ptr, ScrollBar &bar)
         { return (ptr->LookAndFeel_V3::getScrollbarButtonSize (bar)); }
 
@@ -186,7 +200,7 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { return (ptr->LookAndFeel_V3::createFileChooserHeaderText (title, instructions)); }
 
         virtual void drawFileBrowserRow (Graphics &g, int width, int height, const String &filename, Image *icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &component) override
-        { call<void>("drawFileBrowserRow", DrawFileBrowserRowParams ({boost::ref(g),width,height,filename,icon,fileSizeDescription,fileTimeDescription,isDirectory,isItemSelected,itemIndex,boost::ref(component)})); }
+		{ call<void>("drawFileBrowserRow", DrawFileBrowserRowParams (boost::ref(g),width,height,filename,icon,fileSizeDescription,fileTimeDescription,isDirectory,isItemSelected,itemIndex,boost::ref(component))); }
         static void def_drawFileBrowserRow (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, const String &filename, Image *icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &component)
         { return (ptr->LookAndFeel_V3::drawFileBrowserRow (g, width, height, filename, icon, fileSizeDescription, fileTimeDescription, isDirectory, isItemSelected, itemIndex, component)); }
 
@@ -198,22 +212,22 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         virtual void layoutFileBrowserComponent (FileBrowserComponent &component, DirectoryContentsDisplayComponent *contentsComponent, FilePreviewComponent *previewComponent, ComboBox *currentPathBox, TextEditor *filenameBox, Button *goUpButton) override
         { call<void>("layoutFileBrowserComponent", boost::ref(component), contentsComponent, previewComponent, currentPathBox, filenameBox, goUpButton); }
         static void def_layoutFileBrowserComponent (LookAndFeel_V3 *ptr, FileBrowserComponent &component, DirectoryContentsDisplayComponent *contentsComponent, FilePreviewComponent *previewComponent, ComboBox *currentPathBox, TextEditor *filenameBox, Button *goUpButton)
-        { return (ptr->LookAndFeel_V3::layoutFileBrowserComponent (component, contentsComponent, previewComponent, currentPathBox, filenameBox, goUpButton)); }
+        { ptr->LookAndFeel_V3::layoutFileBrowserComponent (component, contentsComponent, previewComponent, currentPathBox, filenameBox, goUpButton); }
 
         virtual void drawBubble (Graphics &g, BubbleComponent &bubble, const Point<float> &tip, const Rectangle<float> &body) override
-        { return (call<void>("drawBubble", boost::ref(g), boost::ref(bubble), tip, body)); }
+        { call<void>("drawBubble", boost::ref(g), boost::ref(bubble), tip, body); }
         static void def_drawBubble (LookAndFeel_V3 *ptr, Graphics &g, BubbleComponent &bubble, const Point<float> &tip, const Rectangle<float> &body)
-        { return (ptr->LookAndFeel_V3::drawBubble (g, bubble, tip, body)); }
+        { ptr->LookAndFeel_V3::drawBubble (g, bubble, tip, body); }
 
         virtual void drawLasso (Graphics &g, Component &component) override
-        { return (call<void>("drawLasso", boost::ref(g), boost::ref(component))); }
+        { call<void>("drawLasso", boost::ref(g), boost::ref(component)); }
         static void def_drawLasso (LookAndFeel_V3 *ptr, Graphics &g, Component &component)
-        { return (ptr->LookAndFeel_V3::drawLasso (g, component)); }
+        { ptr->LookAndFeel_V3::drawLasso (g, component); }
 
         virtual void drawPopupMenuBackground (Graphics &g, int width, int height) override
-        { return (call<void>("drawPopupMenuBackground", boost::ref(g), width, height)); }
+        { call<void>("drawPopupMenuBackground", boost::ref(g), width, height); }
         static void def_drawPopupMenuBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height)
-        { return (ptr->LookAndFeel_V3::drawPopupMenuBackground (g, width, height)); }
+        { ptr->LookAndFeel_V3::drawPopupMenuBackground (g, width, height); }
 
         virtual void drawLabel (Graphics &g, Label &label) override
         { call<void>("drawLabel", boost::ref(g), boost::ref(label)); }
@@ -221,14 +235,14 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { return (ptr->LookAndFeel_V3::drawLabel (g, label)); }
 
         virtual void drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider) override
-        { return (call<void>("drawRotarySlider", boost::ref(g), x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, boost::ref(slider))); }
+        { call<void>("drawRotarySlider", boost::ref(g), x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, boost::ref(slider)); }
         static void def_drawRotarySlider (LookAndFeel_V3 *ptr, Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider)
-        { return (ptr->LookAndFeel_V3::drawRotarySlider (g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider)); }
+        { ptr->LookAndFeel_V3::drawRotarySlider (g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider); }
 
         virtual void drawGroupComponentOutline (Graphics &g, int w, int h, const String &text, const Justification &justification, GroupComponent &component) override
         { call<void>("drawGroupComponentOutline", boost::ref(g), w, h, text, justification, boost::ref(component)); }
         static void def_drawGroupComponentOutline (LookAndFeel_V3 *ptr, Graphics &g, int w, int h, const String &text, const Justification &justification, GroupComponent &component)
-        { return (ptr->LookAndFeel_V3::drawGroupComponentOutline (g, w, h, text, justification, component)); }
+        { ptr->LookAndFeel_V3::drawGroupComponentOutline (g, w, h, text, justification, component); }
 };
 
 #endif
