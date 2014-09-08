@@ -54,6 +54,7 @@
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2010 targetFolder="../Generated/Windows/VST" libraryType="1" extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm512"
@@ -92,6 +93,7 @@
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
     </VS2010>
     <LINUX_MAKE targetFolder="../Generated/Linux/VST" extraCompilerFlags="-fpermissive -w -fPIC"
@@ -126,6 +128,7 @@
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <CODEBLOCKS targetFolder="../Generated/Linux/VST/" vstFolder="/home/atom/devel/ctrlr/VST"
@@ -159,6 +162,7 @@
         <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
         <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS>
   </EXPORTFORMATS>
@@ -1262,5 +1266,6 @@
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
   </MODULES>
 </JUCERPROJECT>

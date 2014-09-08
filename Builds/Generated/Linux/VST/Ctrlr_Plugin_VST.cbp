@@ -65,6 +65,7 @@
           <Add library="imm32"/>
           <Add library="ole32"/>
           <Add library="oleaut32"/>
+          <Add library="opengl32"/>
           <Add library="rpcrt4"/>
           <Add library="shlwapi"/>
           <Add library="uuid"/>
@@ -131,6 +132,7 @@
           <Add library="imm32"/>
           <Add library="ole32"/>
           <Add library="oleaut32"/>
+          <Add library="opengl32"/>
           <Add library="rpcrt4"/>
           <Add library="shlwapi"/>
           <Add library="uuid"/>
@@ -197,6 +199,7 @@
           <Add library="imm32"/>
           <Add library="ole32"/>
           <Add library="oleaut32"/>
+          <Add library="opengl32"/>
           <Add library="rpcrt4"/>
           <Add library="shlwapi"/>
           <Add library="uuid"/>
@@ -5201,6 +5204,126 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_Draggable3DOrientation.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_Matrix3D.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLContext.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLContext.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLFrameBuffer.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLFrameBuffer.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLGraphicsContext.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLGraphicsContext.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLHelpers.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLHelpers.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLImage.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLImage.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLPixelFormat.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLPixelFormat.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLRenderer.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLShaderProgram.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLShaderProgram.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLTexture.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLTexture.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_Quaternion.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_Vector3D.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/native/juce_MissingGLDefinitions.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/native/juce_OpenGL_android.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/native/juce_OpenGL_ios.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/native/juce_OpenGL_linux.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/native/juce_OpenGL_osx.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/native/juce_OpenGL_win32.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/native/juce_OpenGLExtensions.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/juce_module_info">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/juce_opengl.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../VST/JuceLibraryCode/AppConfig.h">
       <Option compile="0"/>
       <Option link="0"/>
@@ -5223,6 +5346,7 @@
     <Unit filename="../../../../Juce/modules/juce_graphics/juce_graphics.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_gui_basics/juce_gui_basics.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_gui_extra/juce_gui_extra.cpp"/>
+    <Unit filename="../../../../Juce/modules/juce_opengl/juce_opengl.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/utility/juce_PluginUtilities.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode1.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode2.cpp"/>

@@ -135,36 +135,6 @@ namespace BinaryData
     extern const char*   FONT_WarenhausStandard_ttf;
     const int            FONT_WarenhausStandard_ttfSize = 28212;
 
-    extern const char*   FONT_60sekuntia_bin;
-    const int            FONT_60sekuntia_binSize = 95989;
-
-    extern const char*   FONT_Computerfont_bin;
-    const int            FONT_Computerfont_binSize = 11029;
-
-    extern const char*   FONT_Digit_bin;
-    const int            FONT_Digit_binSize = 3392;
-
-    extern const char*   FONT_Digital7_bin;
-    const int            FONT_Digital7_binSize = 3660;
-
-    extern const char*   FONT_DottyShadow_bin;
-    const int            FONT_DottyShadow_binSize = 489732;
-
-    extern const char*   FONT_Electronic_Highway_Sign_bin;
-    const int            FONT_Electronic_Highway_Sign_binSize = 2979;
-
-    extern const char*   FONT_Invasion2000_bin;
-    const int            FONT_Invasion2000_binSize = 6542;
-
-    extern const char*   FONT_Karmatic_Arcade_bin;
-    const int            FONT_Karmatic_Arcade_binSize = 5043;
-
-    extern const char*   FONT_LCD_bin;
-    const int            FONT_LCD_binSize = 5454;
-
-    extern const char*   FONT_ZX81_bin;
-    const int            FONT_ZX81_binSize = 2837;
-
     extern const char*   tile_gif;
     const int            tile_gifSize = 326;
 
