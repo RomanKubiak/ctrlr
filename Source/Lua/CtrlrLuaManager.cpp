@@ -26,7 +26,7 @@
 #include "CtrlrComponents/Buttons/CtrlrToggleButton.h"
 #include "CtrlrComponents/Buttons/CtrlrButton.h"
 #include "CtrlrComponents/Buttons/CtrlrImageButton.h"
-
+#include "CtrlrComponents/Groups/CtrlrGroup.h"
 #include "CtrlrComponents/Sliders/CtrlrFixedImageSlider.h"
 #include "CtrlrComponents/Sliders/CtrlrFixedSlider.h"
 #include "CtrlrComponents/Sliders/CtrlrImageSlider.h"
@@ -188,7 +188,6 @@ void CtrlrLuaManager::wrapCore (lua_State* L)
 		def("int64ToDouble", &CtrlrLuaManager::int64ToDouble),
 		def("int64ToInt", &CtrlrLuaManager::int64ToInt),
 		def("log", &CtrlrLuaManager::log),
-
 		class_<CtrlrLuaObjectWrapper>("CtrlrLuaObjectWrapper")
 			.def(constructor<luabind::object const&>())
 			.def(constructor<>())
@@ -231,6 +230,7 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrImageSlider::wrapForLua (L);
 	CtrlrFixedSlider::wrapForLua (L);
 	CtrlrSlider::wrapForLua (L);
+	CtrlrGroup::wrapForLua (L);
 }
 
 void CtrlrLuaManager::assignDefaultObjects(lua_State* L)

@@ -26,7 +26,7 @@
  */
 #define DSI_VOICE_DATA_MAX 16535
 
-struct DSIVoiceData 
+struct DSIVoiceData
 {
 	int size;
 	unsigned char* data;
@@ -214,5 +214,9 @@ void CtrlrLuaUtils::wrapForLua (lua_State *L)
 			.def("askForTextInputWindow", &CtrlrLuaUtils::askForTextInputWindow)
 			.def("getMidiInputDevices", &CtrlrLuaUtils::getMidiInputDevices)
 			.def("getMidiOutputDevices", &CtrlrLuaUtils::getMidiOutputDevices)
+			.def("getVersionMajor", &CtrlrLuaUtils::getVersionMajor)
+			.def("getVersionMinor", &CtrlrLuaUtils::getVersionMinor)
+			.def("getVersionRevision", &CtrlrLuaUtils::getVersionRevision)
+			.def("getVersionString", &CtrlrLuaUtils::getVersionString)
 	];
 }

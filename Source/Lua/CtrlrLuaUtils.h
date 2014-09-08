@@ -3,8 +3,9 @@
 
 #pragma warning(disable:4100)
 
-#include "MIDI/CtrlrMidiMessage.h"
-#include "JuceHeader.h"
+#include "CtrlrMacros.h"
+#include "CtrlrRevision.h"
+
 class LMemoryBlock;
 /*! \class CtrlrModulator
     \brief Modulator class
@@ -97,6 +98,10 @@ class CtrlrLuaUtils
 		*/
 		static File getDirectoryWindow(const String &dialogBoxTitle, const File &initialFileOrDirectory);
 
+        static int getVersionMajor() { return (_STR(ctrlrRevision).upToFirstOccurrenceOf(".", false, true).getIntValue()); }
+        static int getVersionMinor() { return (_STR(ctrlrRevision).fromFirstOccurrenceOf(".", false, true).getIntValue()); }
+        static int getVersionRevision() { return (_STR(ctrlrRevision).fromLastOccurrenceOf(".", false, true).getIntValue()); }
+        static String getVersionString() { return (_STR(ctrlrRevision)); }
 		static StringArray getMidiInputDevices();
 		static StringArray getMidiOutputDevices();
 

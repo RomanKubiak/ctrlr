@@ -63,8 +63,8 @@ CtrlrLuaConsole::CtrlrLuaConsole (CtrlrPanel &_owner)
  	layoutManager.setItemLayout (1, -0.001, -0.01, -0.01);
  	layoutManager.setItemLayout (2, -0.001, -1.0, -0.30);
 
-	luaConsoleInput->setFont (Font(owner.getOwner().getFontManager().getDefaultMonoFontName(), 12, Font::plain));
-	luaConsoleOutput->setFont (Font(owner.getOwner().getFontManager().getDefaultMonoFontName(), 12, Font::plain));
+	luaConsoleInput->setFont (Font(owner.getOwner().getFontManager().getDefaultMonoFontName(), 15, Font::plain));
+	luaConsoleOutput->setFont (Font(owner.getOwner().getFontManager().getDefaultMonoFontName(), 15, Font::plain));
 	luaConsoleInput->setColour (CodeEditorComponent::backgroundColourId, Colour(0xffffffff));
 	luaConsoleOutput->setColour (CodeEditorComponent::backgroundColourId, Colour(0xffffffff));
 
