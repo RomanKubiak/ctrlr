@@ -88,7 +88,7 @@
       </MODULEPATHS>
     </VS2010>
     <LINUX_MAKE targetFolder="../Generated/Linux/Standalone" extraDefs="" bigIcon="QqMgrL"
-                smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -w -fPIC"
+                smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -w -fPIC -std=c++0x"
                 extraLinkerFlags="-lz&#10;-lbfd&#10;-lGL">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
@@ -123,8 +123,8 @@
     </LINUX_MAKE>
     <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries=""
                 extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lfreetype -lpthread -lasound -lz -lbfd -lGL"
-                extraCompilerFlags="-w -fpermissive" smallIcon="xQ5dKQ" bigIcon="ugOMDZ"
-                extraDefs="LINUX=1&#10;_LINUX=1" userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
+                extraCompilerFlags="-w -fpermissive -std=c++0x" smallIcon="xQ5dKQ"
+                bigIcon="ugOMDZ" extraDefs="LINUX=1&#10;_LINUX=1" userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;/usr/include/freetype2"
