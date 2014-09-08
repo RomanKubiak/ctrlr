@@ -132,8 +132,38 @@ namespace BinaryData
     extern const char*   ico_waveform_png;
     const int            ico_waveform_pngSize = 1520;
 
+    extern const char*   FONT_60sekuntia_ttf;
+    const int            FONT_60sekuntia_ttfSize = 97264;
+
+    extern const char*   FONT_Computerfont_ttf;
+    const int            FONT_Computerfont_ttfSize = 39104;
+
+    extern const char*   FONT_Digit_ttf;
+    const int            FONT_Digit_ttfSize = 13028;
+
+    extern const char*   FONT_Digital7_ttf;
+    const int            FONT_Digital7_ttfSize = 34360;
+
+    extern const char*   FONT_DottyShadow_ttf;
+    const int            FONT_DottyShadow_ttfSize = 569464;
+
+    extern const char*   FONT_Electronic_Highway_Sign_ttf;
+    const int            FONT_Electronic_Highway_Sign_ttfSize = 73060;
+
+    extern const char*   FONT_Invasion2000_ttf;
+    const int            FONT_Invasion2000_ttfSize = 30836;
+
+    extern const char*   FONT_Karmatic_Arcade_ttf;
+    const int            FONT_Karmatic_Arcade_ttfSize = 56908;
+
+    extern const char*   FONT_LCD_ttf;
+    const int            FONT_LCD_ttfSize = 27664;
+
     extern const char*   FONT_WarenhausStandard_ttf;
     const int            FONT_WarenhausStandard_ttfSize = 28212;
+
+    extern const char*   FONT_ZX81_ttf;
+    const int            FONT_ZX81_ttfSize = 17176;
 
     extern const char*   tile_gif;
     const int            tile_gifSize = 326;

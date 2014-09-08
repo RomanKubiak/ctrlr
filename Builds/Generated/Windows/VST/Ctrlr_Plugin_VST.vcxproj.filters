@@ -4790,37 +4790,37 @@
     <None Include="..\..\..\..\Source\Resources\Icons\ico_waveform.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Computerfont.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digit.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digital-7.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_DottyShadow.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Electronic Highway Sign.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Invasion2000.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Karmatic Arcade.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Warenhaus-Standard.ttf">
       <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.bin">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Computerfont.bin">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digit.bin">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digital-7.bin">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_DottyShadow.bin">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Electronic Highway Sign.bin">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Invasion2000.bin">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Karmatic Arcade.bin">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.bin">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.bin">
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.ttf">
       <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Images\tile.gif">

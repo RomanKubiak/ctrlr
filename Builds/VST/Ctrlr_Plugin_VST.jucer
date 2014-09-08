@@ -350,25 +350,25 @@
               file="../../Source/Resources/Icons/ico_waveform.png"/>
       </GROUP>
       <GROUP id="{A435AE00-B243-3EF1-6401-EBBD00F6107D}" name="Fonts">
+        <FILE id="LUvPSX" name="FONT_60sekuntia.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_60sekuntia.ttf"/>
+        <FILE id="xbqd49" name="FONT_Computerfont.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Computerfont.ttf"/>
+        <FILE id="Dox0ct" name="FONT_Digit.ttf" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_Digit.ttf"/>
+        <FILE id="mqAf66" name="FONT_Digital-7.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Digital-7.ttf"/>
+        <FILE id="RLpzLO" name="FONT_DottyShadow.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_DottyShadow.ttf"/>
+        <FILE id="VRzMDy" name="FONT_Electronic Highway Sign.ttf" compile="0"
+              resource="1" file="../../Source/Resources/Fonts/FONT_Electronic Highway Sign.ttf"/>
+        <FILE id="aCsBw7" name="FONT_Invasion2000.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Invasion2000.ttf"/>
+        <FILE id="qyuVMp" name="FONT_Karmatic Arcade.ttf" compile="0" resource="1"
+              file="../../Source/Resources/Fonts/FONT_Karmatic Arcade.ttf"/>
+        <FILE id="NJv2ar" name="FONT_LCD.ttf" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_LCD.ttf"/>
         <FILE id="vPkR4w" name="FONT_Warenhaus-Standard.ttf" compile="0" resource="1"
               file="../../Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf"/>
-        <FILE id="XuWNRk" name="FONT_60sekuntia.bin" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_60sekuntia.bin"/>
-        <FILE id="BIfugb" name="FONT_Computerfont.bin" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_Computerfont.bin"/>
-        <FILE id="anqwgS" name="FONT_Digit.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_Digit.bin"/>
-        <FILE id="qhSkv0" name="FONT_Digital-7.bin" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_Digital-7.bin"/>
-        <FILE id="qEomke" name="FONT_DottyShadow.bin" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_DottyShadow.bin"/>
-        <FILE id="s6k3VP" name="FONT_Electronic Highway Sign.bin" compile="0"
-              resource="1" file="../../Source/Resources/Fonts/FONT_Electronic Highway Sign.bin"/>
-        <FILE id="Cw4j8u" name="FONT_Invasion2000.bin" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_Invasion2000.bin"/>
-        <FILE id="m5gzxe" name="FONT_Karmatic Arcade.bin" compile="0" resource="1"
-              file="../../Source/Resources/Fonts/FONT_Karmatic Arcade.bin"/>
-        <FILE id="bUJLzA" name="FONT_LCD.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_LCD.bin"/>
-        <FILE id="RheoVI" name="FONT_ZX81.bin" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_ZX81.bin"/>
+        <FILE id="FaMoh3" name="FONT_ZX81.ttf" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_ZX81.ttf"/>
       </GROUP>
       <GROUP id="{5FAC550A-4FC3-BAF2-39EF-176F752E8594}" name="Images">
         <FILE id="pTrmZW" name="tile.gif" compile="0" resource="1" file="../../Source/Resources/Images/tile.gif"/>
