@@ -57,7 +57,7 @@ namespace std
 // the maximum number of arguments of functions that's
 // registered. Must at least be 2
 #ifndef LUABIND_MAX_ARITY
-	#define LUABIND_MAX_ARITY 14
+	#define LUABIND_MAX_ARITY 12
 #elif LUABIND_MAX_ARITY <= 1
 	#undef LUABIND_MAX_ARITY
 	#define LUABIND_MAX_ARITY 2

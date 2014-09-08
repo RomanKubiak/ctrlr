@@ -27,7 +27,7 @@
 
 class CtrlrGroup;
 
-class CtrlrGroupContentComponent : public Component
+class CtrlrGroupContentComponent : public GroupComponent
 {
 	public:
 		CtrlrGroupContentComponent(CtrlrGroup &_owner);
@@ -92,6 +92,7 @@ public:
 	Array <CtrlrComponent*> getOwnedChildren();
 	void reloadResources(Array <CtrlrPanelResource*> resourcesThatChanged);
 	void setResource();
+	static void wrapForLua (lua_State *L);
     //[/UserMethods]
 
     void paint (Graphics& g);

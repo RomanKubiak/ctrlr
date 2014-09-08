@@ -415,6 +415,19 @@ void CtrlrGroup::reloadResources(Array <CtrlrPanelResource*> resourcesThatChange
 		}
 	}
 }
+
+void CtrlrGroup::wrapForLua (lua_State *L)
+{
+    using namespace luabind;
+
+	module(L)
+    [
+        class_<GroupComponent>("GroupComponent")
+            .def(constructor<const String &, const String &>())
+            .def("setText", &GroupComponent::setText)
+            .def("getText", &GroupComponent::getText)
+    ];
+}
 //[/MiscUserCode]
 
 
