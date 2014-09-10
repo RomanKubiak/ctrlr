@@ -258,6 +258,18 @@
     end
   </luaMethod>
 
+  <luaMethod name="luaPanelModulatorValueChanged">
+    --
+    -- Called when any modulator changes on the panel
+    --
+    -- @program modulator that changed
+    -- @value new modulator value
+    --
+
+    __method_name = function(modulator, value)
+    end
+  </luaMethod>
+  
   <luaMethod name="luaPanelMidiReceived">
     --
     -- Called when a panel receives a midi message (does not need to match any modulator mask)
