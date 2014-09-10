@@ -39,17 +39,17 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
 	    LLookAndFeel_V3() : LookAndFeel_V3() {}
 		static void wrapForLua (lua_State *L);
 
-        virtual Colour findColour (int colourId) override
+        virtual Colour findColour (int colourId)
         { return (call<Colour>("findColour", colourId)); }
         static Colour def_findColour (LookAndFeel_V3 *ptr, int colourId)
         { return (ptr->LookAndFeel_V3::findColour (colourId)); }
 
-        virtual void setColour (int colourId, Colour colour) override
+        virtual void setColour (int colourId, Colour colour)
         { call<void>("setColour", colourId, colour); }
         static void def_setColour (LookAndFeel_V3 *ptr, int colourId, Colour colour)
         { return (ptr->LookAndFeel_V3::setColour (colourId, colour)); }
 
-        virtual bool isColourSpecified (int colourId) override
+        virtual bool isColourSpecified (int colourId)
         { return (call<bool>("isColourSpecified", colourId)); }
         static bool def_isColourSpecified (LookAndFeel_V3 *ptr, int colourId)
         { return (ptr->LookAndFeel_V3::isColourSpecified (colourId)); }
