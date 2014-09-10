@@ -763,6 +763,7 @@ namespace Ids
 	DECLARE_ID (luaModulatorGetValueForMIDI);
 	DECLARE_ID (luaModulatorGetValueFromMIDI);
 	DECLARE_ID (luaPanelLoaded);
+	DECLARE_ID (luaPanelModulatorValueChanged);
 	DECLARE_ID (luaPanelBeforeLoad);
 	DECLARE_ID (luaPanelMidiReceived);
 	DECLARE_ID (luaPanelMidiChannelChanged);
