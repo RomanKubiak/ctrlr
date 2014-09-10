@@ -41,6 +41,10 @@ void LImage::wrapForLua (lua_State *L)
 			.def("desaturate", &Image::desaturate)
 			.def("moveImageSection", &Image::moveImageSection)
 			.def("getReferenceCount", &Image::getReferenceCount)
+			.scope
+			[
+                def("null", &LImage::null)
+			]
 		,
 		class_<ImageFileFormat>("ImageFileFormat")
 			.def("getFormatName", &ImageFileFormat::getFormatName)

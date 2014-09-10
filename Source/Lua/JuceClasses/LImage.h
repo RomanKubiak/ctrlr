@@ -6,6 +6,7 @@
 class LImage
 {
 	public:
+        static Image null() { return (Image::null); }
 		static void wrapForLua (lua_State *L);
 };
 
