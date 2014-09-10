@@ -6,17 +6,17 @@
 
 struct DrawFileBrowserRowParams
 {
-	DrawFileBrowserRowParams(Graphics &_g, 
-							int _width, 
-							int _height, 
-							const String &_filename, 
-							Image *_icon, 
+	DrawFileBrowserRowParams(Graphics &_g,
+							int _width,
+							int _height,
+							const String &_filename,
+							Image *_icon,
 							const String &_fileSizeDescription,
 							const String &_fileTimeDescription,
 							bool _isDirectory,
 							bool _isItemSelected,
 							int _itemIndex,
-							DirectoryContentsDisplayComponent &_component) 
+							DirectoryContentsDisplayComponent &_component)
 		:	g(_g), width(_width), height(_height), filename(_filename), icon(_icon), fileSizeDescription(_fileSizeDescription),
 			fileTimeDescription(_fileTimeDescription), isDirectory(_isDirectory), isItemSelected(_isItemSelected),
 			itemIndex(_itemIndex), component(_component) {}
@@ -31,6 +31,36 @@ struct DrawFileBrowserRowParams
     bool isItemSelected;
     int itemIndex;
     DirectoryContentsDisplayComponent &component;
+};
+
+struct DrawPopupMenuItemParams
+{
+    DrawPopupMenuItemParams(Graphics &_g,
+                            const Rectangle<int> &_area,
+                            bool _isSeparator,
+                            bool _isActive,
+                            bool _isHighlighted,
+                            bool _isTicked,
+                            bool _hasSubMenu,
+                            const String &_text,
+                            const String &_shortcutKeyText,
+                            const Drawable *_icon,
+                            const Colour *_textColour)
+        : g(_g), area(_area), isSeparator(_isSeparator), isActive(_isActive), isHighlighted(_isHighlighted),
+            isTicked(_isTicked), hasSubMenu(_hasSubMenu), text(_text),
+            shortcutKeyText(_shortcutKeyText), icon(_icon), textColour(_textColour)
+            {}
+    Graphics &g;
+    const Rectangle<int> &area;
+    bool isSeparator;
+    bool isActive;
+    bool isHighlighted;
+    bool isTicked;
+    bool hasSubMenu;
+    const String &text;
+    const String &shortcutKeyText;
+    const Drawable *icon;
+    const Colour *textColour;
 };
 
 class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
@@ -228,6 +258,56 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { call<void>("drawPopupMenuBackground", boost::ref(g), width, height); }
         static void def_drawPopupMenuBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height)
         { ptr->LookAndFeel_V3::drawPopupMenuBackground (g, width, height); }
+
+        virtual void drawPopupMenuItem (Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable *icon, const Colour *textColour) override
+        { call<void>("drawPopupMenuItem", DrawPopupMenuItemParams (boost::ref(g), area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, icon, textColour)); }
+        static void def_drawPopupMenuItem (LookAndFeel_V3 *ptr, Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable *icon, const Colour *textColour)
+        { ptr->LookAndFeel_V3::drawPopupMenuItem (g, area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, icon, textColour); }
+
+        virtual Font getPopupMenuFont (Graphics &g, int width, int height) override
+        { return (call<Font>("getPopupMenuFont")); }
+        static Font def_getPopupMenuFont (LookAndFeel_V3 *ptr)
+        { return (ptr->LookAndFeel_V3::getPopupMenuFont ()); }
+
+        virtual void drawPopupMenuUpDownArrow (Graphics &g, int width, int height, bool isScrollUpArrow) override
+        { call<void>("drawPopupMenuUpDownArrow", boost::ref(g), width, height, isScrollUpArrow); }
+        static void def_drawPopupMenuUpDownArrow (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, bool isScrollUpArrow)
+        { ptr->LookAndFeel_V3::drawPopupMenuUpDownArrow (g, width, height, isScrollUpArrow); }
+
+        virtual void getIdealPopupMenuItemSize (const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight) override
+        { call<void>("getIdealPopupMenuItemSize", text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight); }
+        static void def_getIdealPopupMenuItemSize (LookAndFeel_V3 *ptr, const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight)
+        { ptr->LookAndFeel_V3::getIdealPopupMenuItemSize (text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight); }
+
+        virtual int getMenuWindowFlags () override
+        { return (call<int>("getMenuWindowFlags")); }
+        static int def_getMenuWindowFlags (LookAndFeel_V3 *ptr)
+        { return (ptr->LookAndFeel_V3::getMenuWindowFlags ()); }
+
+        virtual void drawMenuBarBackground (Graphics &g, int width, int height, bool isMouseOverBar, MenuBarComponent &component) override
+        { call<void>("drawMenuBarBackground", boost::ref(g), width, height, isMouseOverBar, boost::ref(component)); }
+        static void def_drawMenuBarBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, bool isMouseOverBar, MenuBarComponent &component)
+        { ptr->LookAndFeel_V3::drawMenuBarBackground (g, width, height, isMouseOverBar, component); }
+
+        virtual int getMenuBarItemWidth (MenuBarComponent &component, int itemIndex, const String &itemText) override
+        { return (call<int>("getMenuBarItemWidth", boost::ref(component), itemIndex, itemText)); }
+        static int def_getMenuBarItemWidth (LookAndFeel_V3 *ptr, MenuBarComponent &component, int itemIndex, const String &itemText)
+        { return (ptr->LookAndFeel_V3::getMenuBarItemWidth (component, itemIndex, itemText)); }
+
+        virtual Font getMenuBarFont (MenuBarComponent &component, int itemIndex, const String &itemText) override
+        { return (call<Font>("getMenuBarFont", boost::ref(component), itemIndex, itemText)); }
+        static Font def_getMenuBarFont (LookAndFeel_V3 *ptr, MenuBarComponent &component, int itemIndex, const String &itemText)
+        { return (ptr->LookAndFeel_V3::getMenuBarFont (component, itemIndex, itemText)); }
+
+        virtual void drawMenuBarItem (Graphics &g, int width, int height, int itemIndex, const String &itemText, bool isMouseOverItem, bool isMenuOpen, bool isMouseOverBar, MenuBarComponent &component) override
+        { call<void>("drawMenuBarItem", boost::ref(g), width, height, itemIndex, itemText, isMouseOverItem, isMenuOpen, isMouseOverBar, boost::ref(component)); }
+        static void def_drawMenuBarItem (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, int itemIndex, const String &itemText, bool isMouseOverItem, bool isMenuOpen, bool isMouseOverBar, MenuBarComponent &component)
+        { ptr->LookAndFeel_V3::drawMenuBarItem (g, width, height, itemIndex, itemText, isMouseOverItem, isMenuOpen, isMouseOverBar, component); }
+
+        virtual void drawComboBox (Graphics &g, int width, int height, bool isButtonDown, int buttonX, int buttonY, int buttonW, int buttonH, ComboBox &component) override
+        { call<void>("drawComboBox", boost::ref(g), width, height, isButtonDown, buttonX, buttonY, buttonW, buttonH, boost::ref(component)); }
+        static void def_drawComboBox (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, bool isButtonDown, int buttonX, int buttonY, int buttonW, int buttonH, ComboBox &component)
+        { return (ptr->LookAndFeel_V3::drawComboBox (g, width, height, isButtonDown, buttonX, buttonY, buttonW, buttonH, component)); }
 
         virtual void drawLabel (Graphics &g, Label &label) override
         { call<void>("drawLabel", boost::ref(g), boost::ref(label)); }

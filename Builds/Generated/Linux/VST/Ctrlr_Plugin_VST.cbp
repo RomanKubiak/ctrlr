@@ -786,6 +786,11 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LMouseCursor.cpp"/>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LMouseCursor.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Lua/JuceClasses/LMemoryInputStream.cpp"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LMemoryInputStream.h">
       <Option compile="0"/>
@@ -873,6 +878,11 @@
     </Unit>
     <Unit filename="../../../../Source/Lua/JuceClasses/LTimer.cpp"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LTimer.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LToggleButton.cpp"/>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LToggleButton.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
