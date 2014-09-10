@@ -136,6 +136,7 @@ OBJECTS := \
   $(OBJDIR)/LMidiKeyboardComponent_c4245d9f.o \
   $(OBJDIR)/LLookAndFeel_2f64a028.o \
   $(OBJDIR)/LMemoryBlock_bf2138b6.o \
+  $(OBJDIR)/LMouseCursor_eeedd585.o \
   $(OBJDIR)/LMemoryInputStream_656eca93.o \
   $(OBJDIR)/LMidiMessage_7531a950.o \
   $(OBJDIR)/LModifierKeys_3e79f94b.o \
@@ -154,6 +155,7 @@ OBJECTS := \
   $(OBJDIR)/LTextEditor_762fe41a.o \
   $(OBJDIR)/LTime_680b44ad.o \
   $(OBJDIR)/LTimer_9d03472f.o \
+  $(OBJDIR)/LToggleButton_e9b0206.o \
   $(OBJDIR)/LTypeface_963867f7.o \
   $(OBJDIR)/LURL_d54a4599.o \
   $(OBJDIR)/LValue_6c32db5b.o \
@@ -669,6 +671,11 @@ $(OBJDIR)/LMemoryBlock_bf2138b6.o: ../../../../Source/Lua/JuceClasses/LMemoryBlo
 	@echo "Compiling LMemoryBlock.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/LMouseCursor_eeedd585.o: ../../../../Source/Lua/JuceClasses/LMouseCursor.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LMouseCursor.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/LMemoryInputStream_656eca93.o: ../../../../Source/Lua/JuceClasses/LMemoryInputStream.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LMemoryInputStream.cpp"
@@ -757,6 +764,11 @@ $(OBJDIR)/LTime_680b44ad.o: ../../../../Source/Lua/JuceClasses/LTime.cpp
 $(OBJDIR)/LTimer_9d03472f.o: ../../../../Source/Lua/JuceClasses/LTimer.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LTimer.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LToggleButton_e9b0206.o: ../../../../Source/Lua/JuceClasses/LToggleButton.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LToggleButton.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LTypeface_963867f7.o: ../../../../Source/Lua/JuceClasses/LTypeface.cpp

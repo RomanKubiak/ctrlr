@@ -493,6 +493,9 @@
         <FILE id="sZDI5f" name="LMemoryBlock.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LMemoryBlock.cpp"/>
         <FILE id="qRKObs" name="LMemoryBlock.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMemoryBlock.h"/>
+        <FILE id="teTQ9b" name="LMouseCursor.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LMouseCursor.cpp"/>
+        <FILE id="TcOExg" name="LMouseCursor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseCursor.h"/>
         <FILE id="hUbheA" name="LMemoryInputStream.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LMemoryInputStream.cpp"/>
         <FILE id="ScnPAH" name="LMemoryInputStream.h" compile="0" resource="0"
@@ -535,6 +538,9 @@
         <FILE id="aitvQ5" name="LTime.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTime.h"/>
         <FILE id="sV8N4B" name="LTimer.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTimer.cpp"/>
         <FILE id="DfGKFz" name="LTimer.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTimer.h"/>
+        <FILE id="QnSLiX" name="LToggleButton.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LToggleButton.cpp"/>
+        <FILE id="vdBap2" name="LToggleButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LToggleButton.h"/>
         <FILE id="daUcwj" name="LTypeface.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTypeface.cpp"/>
         <FILE id="Ppt0lq" name="LTypeface.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTypeface.h"/>
         <FILE id="hI8PjV" name="LURL.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LURL.cpp"/>
