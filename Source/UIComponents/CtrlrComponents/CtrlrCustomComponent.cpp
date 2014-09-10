@@ -102,6 +102,7 @@ void CtrlrCustomComponent::resized()
 
 void CtrlrCustomComponent::mouseMove (const MouseEvent &e)
 {
+    _DBG("CtrlrCustomComponent::mouseMove");
 	if (mouseMoveCbk && !mouseMoveCbk.wasObjectDeleted())
 	{
 		if (mouseMoveCbk->isValid())
@@ -135,6 +136,7 @@ void CtrlrCustomComponent::mouseUp (const MouseEvent &e)
 
 void CtrlrCustomComponent::mouseDrag (const MouseEvent &e)
 {
+    _DBG("CtrlrCustomComponent::mouseDrag");
 	if (isADragAndDropContainer)
 	{
 		if (dadStartCbk && !dadStartCbk.wasObjectDeleted())
@@ -163,6 +165,7 @@ void CtrlrCustomComponent::mouseDrag (const MouseEvent &e)
 
 void CtrlrCustomComponent::mouseEnter (const MouseEvent &e)
 {
+    _DBG("CtrlrCustomComponent::mouseEnter");
 	if (mouseEnterCbk && !mouseEnterCbk.wasObjectDeleted())
 	{
 		if (mouseEnterCbk->isValid())
@@ -477,6 +480,7 @@ void CtrlrCustomComponent::itemDragEnter (const SourceDetails &dragSourceDetails
 
 void CtrlrCustomComponent::itemDragMove (const SourceDetails &dragSourceDetails)
 {
+    _DBG("CtrlrCustomComponent::itemDragMove");
 	if (dadMoveCbk && !dadMoveCbk.wasObjectDeleted())
 	{
 		if (dadMoveCbk->isValid())
@@ -487,7 +491,7 @@ void CtrlrCustomComponent::itemDragMove (const SourceDetails &dragSourceDetails)
 }
 
 void CtrlrCustomComponent::itemDragExit (const SourceDetails &dragSourceDetails)
-{   
+{
 	if (dadExitCbk && !dadExitCbk.wasObjectDeleted())
 	{
 		if (dadExitCbk->isValid())

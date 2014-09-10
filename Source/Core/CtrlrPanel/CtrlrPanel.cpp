@@ -118,6 +118,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::luaPanelProgramChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelGlobalChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelMessageHandler, COMBO_ITEM_NONE);
+	setProperty (Ids::luaPanelModulatorValueChanged, COMBO_ITEM_NONE);
 
 	setProperty (Ids::panelFilePath, COMBO_ITEM_NONE);
 	setProperty (Ids::panelUID, generateRandomUnique());
@@ -486,6 +487,13 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 			return;
 
 		luaPanelResourcesLoadedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::luaPanelModulatorValueChanged)
+	{
+		if (getProperty(property) == String::empty)
+			return;
+
+		luaPanelModulatorValueChangedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::panelGlobalVariables)
 	{
@@ -1115,6 +1123,14 @@ void CtrlrPanel::modulatorValueChanged(CtrlrModulator *m)
 	if (m->getComponent())
 	{
 		m->getComponent()->setComponentValue(m->getProperty(Ids::modulatorValue), false);
+	}
+
+	if (luaPanelModulatorValueChangedCbk && !luaPanelModulatorValueChangedCbk.wasObjectDeleted())
+	{
+		if (luaPanelModulatorValueChangedCbk->isValid())
+		{
+			getCtrlrLuaManager().getMethodManager().call (luaPanelModulatorValueChangedCbk, m, m->getValueNonMapped());
+		}
 	}
 
 	listeners.call (&CtrlrPanel::Listener::modulatorChanged, m);
