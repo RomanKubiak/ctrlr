@@ -20,7 +20,7 @@ struct DrawFileBrowserRowParams
 		:	g(_g), width(_width), height(_height), filename(_filename), icon(_icon), fileSizeDescription(_fileSizeDescription),
 			fileTimeDescription(_fileTimeDescription), isDirectory(_isDirectory), isItemSelected(_isItemSelected),
 			itemIndex(_itemIndex), component(_component) {}
-    Graphics &g;
+    Graphics &g; void set_g(Graphics &g) {}; Graphics &get_g() { return (g); }
     int width;
     int height;
     const String &filename;
@@ -50,7 +50,7 @@ struct DrawPopupMenuItemParams
             isTicked(_isTicked), hasSubMenu(_hasSubMenu), text(_text),
             shortcutKeyText(_shortcutKeyText), icon(_icon), textColour(_textColour)
             {}
-    Graphics &g;
+    Graphics &g; void set_g(Graphics &g) {}; Graphics &get_g() { return (g); }
     const Rectangle<int> &area;
     bool isSeparator;
     bool isActive;
@@ -309,20 +309,270 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_drawComboBox (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, bool isButtonDown, int buttonX, int buttonY, int buttonW, int buttonH, ComboBox &component)
         { return (ptr->LookAndFeel_V3::drawComboBox (g, width, height, isButtonDown, buttonX, buttonY, buttonW, buttonH, component)); }
 
+        virtual Font getComboBoxFont (ComboBox &component) override
+        { return (call<Font>("getComboBoxFont", boost::ref(component))); }
+        static Font def_getComboBoxFont (LookAndFeel_V3 *ptr, ComboBox &component)
+        { return (ptr->LookAndFeel_V3::getComboBoxFont (component)); }
+
+        virtual Label *createComboBoxTextBox (ComboBox &component) override
+        { return (call<Label *>("createComboBoxTextBox", boost::ref(component))); }
+        static Label *def_createComboBoxTextBox (LookAndFeel_V3 *ptr, ComboBox &component)
+        { return (ptr->LookAndFeel_V3::createComboBoxTextBox (component)); }
+
+        virtual void positionComboBoxText (ComboBox &component, Label &label) override
+        { return (call<void>("positionComboBoxText", boost::ref(component), boost::ref(label))); }
+        static void def_positionComboBoxText (LookAndFeel_V3 *ptr, ComboBox &component, Label &label)
+        { return (ptr->LookAndFeel_V3::positionComboBoxText (component, label)); }
+
         virtual void drawLabel (Graphics &g, Label &label) override
         { call<void>("drawLabel", boost::ref(g), boost::ref(label)); }
         static void def_drawLabel (LookAndFeel_V3 *ptr, Graphics &g, Label &label)
         { return (ptr->LookAndFeel_V3::drawLabel (g, label)); }
+
+        virtual void drawLinearSlider (Graphics &g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle style, Slider &component) override
+        { call<void>("drawLinearSlider", boost::ref(g), x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, boost::ref(component)); }
+        static void def_drawLinearSlider (LookAndFeel_V3 *ptr, Graphics &g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle style, Slider &component)
+        { return (ptr->LookAndFeel_V3::drawLinearSlider (g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, component)); }
+
+        virtual void drawLinearSliderBackground (Graphics &g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle style, Slider &component) override
+        { call<void>("drawLinearSliderBackground", boost::ref(g), x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, boost::ref(component)); }
+        static void def_drawLinearSliderBackground (LookAndFeel_V3 *ptr, Graphics &g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle style, Slider &component)
+        { return (ptr->LookAndFeel_V3::drawLinearSliderBackground (g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, component)); }
+
+        virtual void drawLinearSliderThumb (Graphics &g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle style, Slider &component) override
+        { call<void>("drawLinearSliderThumb", boost::ref(g), x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, boost::ref(component)); }
+        static void def_drawLinearSliderThumb (LookAndFeel_V3 *ptr, Graphics &g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle style, Slider &component)
+        { return (ptr->LookAndFeel_V3::drawLinearSliderThumb (g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, component)); }
+
+        virtual int getSliderThumbRadius (Slider &component) override
+        { return (call<int>("getSliderThumbRadius", boost::ref(component))); }
+        static int def_getSliderThumbRadius (LookAndFeel_V3 *ptr, Slider &component)
+        { return (ptr->LookAndFeel_V3::getSliderThumbRadius (component)); }
 
         virtual void drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider) override
         { call<void>("drawRotarySlider", boost::ref(g), x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, boost::ref(slider)); }
         static void def_drawRotarySlider (LookAndFeel_V3 *ptr, Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider)
         { ptr->LookAndFeel_V3::drawRotarySlider (g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider); }
 
+        virtual Button *createSliderButton (Slider &component, bool isIncrement) override
+        { return (call<Button *>("createSliderButton", boost::ref(component), isIncrement)); }
+        static Button *def_createSliderButton (LookAndFeel_V3 *ptr, Slider &component, bool isIncrement)
+        { return (ptr->LookAndFeel_V3::createSliderButton (component, isIncrement)); }
+
+        virtual Label *createSliderTextBox (Slider &component) override
+        { return (call<Label *>("createSliderTextBox", boost::ref(component))); }
+        static Label *def_createSliderTextBox (LookAndFeel_V3 *ptr, Slider &component)
+        { return (ptr->LookAndFeel_V3::createSliderTextBox (component)); }
+
+        virtual ImageEffectFilter *getSliderEffect (Slider &component) override
+        { return (call<ImageEffectFilter *>("getSliderEffect", boost::ref(component))); }
+        static ImageEffectFilter *def_getSliderEffect (LookAndFeel_V3 *ptr, Slider &component)
+        { return (ptr->LookAndFeel_V3::getSliderEffect (component)); }
+
+        virtual void getTooltipSize (const String &tipText, int &width, int &height) override
+        { return (call<void>("getTooltipSize", tipText, width, height)); }
+        static void def_getTooltipSize (LookAndFeel_V3 *ptr, const String &tipText, int &width, int &height)
+        { return (ptr->LookAndFeel_V3::getTooltipSize (tipText, width, height)); }
+
+        virtual void drawTooltip (Graphics &g, const String &text, int width, int height) override
+        { call<void>("drawTooltip", boost::ref(g), text, width, height); }
+        static void def_drawTooltip (LookAndFeel_V3 *ptr, Graphics &g, const String &text, int width, int height)
+        { ptr->LookAndFeel_V3::drawTooltip (g, text, width, height); }
+
+        virtual Button *createFilenameComponentBrowseButton (const String &text) override
+        { return (call<Button *>("createFilenameComponentBrowseButton", text)); }
+        static Button *def_createFilenameComponentBrowseButton (LookAndFeel_V3 *ptr, const String &text)
+        { return (ptr->LookAndFeel_V3::createFilenameComponentBrowseButton (text)); }
+
+        virtual void layoutFilenameComponent (FilenameComponent &component, ComboBox *filenameBox, Button *browseButton) override
+        { call<void>("layoutFilenameComponent", boost::ref(component), filenameBox, browseButton); }
+        static void def_layoutFilenameComponent (LookAndFeel_V3 *ptr, FilenameComponent &component, ComboBox *filenameBox, Button *browseButton)
+        { ptr->LookAndFeel_V3::layoutFilenameComponent (component, filenameBox, browseButton); }
+
+        virtual void drawConcertinaPanelHeader (Graphics &g, const Rectangle<int> &area, bool isMouseOver, bool isMouseDown, ConcertinaPanel &component, Component &panel) override
+        { call<void>("drawConcertinaPanelHeader", boost::ref(g), area, isMouseOver, isMouseDown, boost::ref(component), boost::ref(panel)); }
+        static void def_drawConcertinaPanelHeader (LookAndFeel_V3 *ptr, Graphics &g, const Rectangle<int> &area, bool isMouseOver, bool isMouseDown, ConcertinaPanel &component, Component &panel)
+        { ptr->LookAndFeel_V3::drawConcertinaPanelHeader (g, area, isMouseOver, isMouseDown, component, panel); }
+
+        virtual void drawCornerResizer (Graphics &g, int w, int h, bool isMouseOver, bool isMouseDragging) override
+        { call<void>("drawCornerResizer", boost::ref(g), w, h, isMouseOver, isMouseDragging); }
+        static void def_drawCornerResizer (LookAndFeel_V3 *ptr, Graphics &g, int w, int h, bool isMouseOver, bool isMouseDragging)
+        { ptr->LookAndFeel_V3::drawCornerResizer (g, w, h, isMouseOver, isMouseDragging); }
+
+        virtual void drawResizableFrame (Graphics &g, int w, int h, const BorderSize<int> &borderSize) override
+        { call<void>("drawResizableFrame", boost::ref(g), w, h, borderSize); }
+        static void def_drawResizableFrame (LookAndFeel_V3 *ptr, Graphics &g, int w, int h, const BorderSize<int> &borderSize)
+        { ptr->LookAndFeel_V3::drawResizableFrame (g, w, h, borderSize); }
+
+        virtual void fillResizableWindowBackground (Graphics &g, int w, int h, const BorderSize<int> &borderSize, ResizableWindow &window) override
+        { call<void>("fillResizableWindowBackground", boost::ref(g), w, h, borderSize, boost::ref(window)); }
+        static void def_fillResizableWindowBackground (LookAndFeel_V3 *ptr, Graphics &g, int w, int h, const BorderSize<int> &borderSize, ResizableWindow &window)
+        { ptr->LookAndFeel_V3::fillResizableWindowBackground (g, w, h, borderSize, window); }
+
+        virtual void drawResizableWindowBorder (Graphics &g, int w, int h, const BorderSize<int> &borderSize, ResizableWindow &window) override
+        { call<void>("drawResizableWindowBorder", boost::ref(g), w, h, borderSize, boost::ref(window)); }
+        static void def_drawResizableWindowBorder (LookAndFeel_V3 *ptr, Graphics &g, int w, int h, const BorderSize<int> &borderSize, ResizableWindow &window)
+        { ptr->LookAndFeel_V3::drawResizableWindowBorder (g, w, h, borderSize, window); }
+
+        virtual void drawDocumentWindowTitleBar (DocumentWindow &window, Graphics &g, int w, int h, int titleSpaceX, int titleSpaceW, const Image *icon, bool drawTitleTextOnLeft) override
+        { call<void>("drawDocumentWindowTitleBar", boost::ref(window), boost::ref(g), w, h, titleSpaceX, titleSpaceW, icon, drawTitleTextOnLeft); }
+        static void def_drawDocumentWindowTitleBar (LookAndFeel_V3 *ptr, DocumentWindow &window, Graphics &g, int w, int h, int titleSpaceX, int titleSpaceW, const Image *icon, bool drawTitleTextOnLeft)
+        { ptr->LookAndFeel_V3::drawDocumentWindowTitleBar (window, g, w, h, titleSpaceX, titleSpaceW, icon, drawTitleTextOnLeft); }
+
+        virtual Button *createDocumentWindowButton (int buttonType) override
+        { return (call<Button *>("createDocumentWindowButton", buttonType)); }
+        static Button *def_createDocumentWindowButton (LookAndFeel_V3 *ptr, int buttonType)
+        { return (ptr->LookAndFeel_V3::createDocumentWindowButton (buttonType)); }
+
+        virtual void positionDocumentWindowButtons (DocumentWindow &window, int titleBarX, int titleBarY, int titleBarW, int titleBarH, Button *minimiseButton, Button *maximiseButton, Button *closeButton, bool positionTitleBarButtonsOnLeft) override
+        { call<void>("positionDocumentWindowButtons", boost::ref(window), titleBarX, titleBarY, titleBarW, titleBarH, minimiseButton, maximiseButton, closeButton, positionTitleBarButtonsOnLeft); }
+        static void def_positionDocumentWindowButtons (LookAndFeel_V3 *ptr, DocumentWindow &window, int titleBarX, int titleBarY, int titleBarW, int titleBarH, Button *minimiseButton, Button *maximiseButton, Button *closeButton, bool positionTitleBarButtonsOnLeft)
+        { ptr->LookAndFeel_V3::positionDocumentWindowButtons (window, titleBarX, titleBarY, titleBarW, titleBarH, minimiseButton, maximiseButton, closeButton, positionTitleBarButtonsOnLeft); }
+
+        virtual int getDefaultMenuBarHeight () override
+        { return (call<int>("getDefaultMenuBarHeight")); }
+        static int def_getDefaultMenuBarHeight (LookAndFeel_V3 *ptr)
+        { return (ptr->LookAndFeel_V3::getDefaultMenuBarHeight ()); }
+
+        virtual DropShadower *createDropShadowerForComponent (Component *component) override
+        { return (call<DropShadower *>("createDropShadowerForComponent", component)); }
+        static DropShadower *def_createDropShadowerForComponent (LookAndFeel_V3 *ptr, Component *component)
+        { return (ptr->LookAndFeel_V3::createDropShadowerForComponent (component)); }
+
         virtual void drawGroupComponentOutline (Graphics &g, int w, int h, const String &text, const Justification &justification, GroupComponent &component) override
         { call<void>("drawGroupComponentOutline", boost::ref(g), w, h, text, justification, boost::ref(component)); }
         static void def_drawGroupComponentOutline (LookAndFeel_V3 *ptr, Graphics &g, int w, int h, const String &text, const Justification &justification, GroupComponent &component)
         { ptr->LookAndFeel_V3::drawGroupComponentOutline (g, w, h, text, justification, component); }
+
+        virtual int getTabButtonSpaceAroundImage () override
+        { return (call<int>("getTabButtonSpaceAroundImage")); }
+        static int def_getTabButtonSpaceAroundImage (LookAndFeel_V3 *ptr)
+        { return (ptr->LookAndFeel_V3::getTabButtonSpaceAroundImage ()); }
+
+        virtual int getTabButtonOverlap (int tabDepth) override
+        { return (call<int>("getTabButtonOverlap", tabDepth)); }
+        static int def_getTabButtonOverlap (LookAndFeel_V3 *ptr, int tabDepth)
+        { return (ptr->LookAndFeel_V3::getTabButtonOverlap (tabDepth)); }
+
+        virtual int getTabButtonBestWidth (TabBarButton &component, int tabDepth) override
+        { return (call<int>("getTabButtonBestWidth", boost::ref(component), tabDepth)); }
+        static int def_getTabButtonBestWidth (LookAndFeel_V3 *ptr, TabBarButton &component, int tabDepth)
+        { return (ptr->LookAndFeel_V3::getTabButtonBestWidth (component, tabDepth)); }
+
+        virtual Rectangle<int> getTabButtonExtraComponentBounds (const TabBarButton &component, Rectangle<int> &textArea, Component &extraComp) override
+        { return (call<Rectangle<int>>("getTabButtonExtraComponentBounds", boost::ref(component), textArea, boost::ref(extraComp))); }
+        static Rectangle<int> def_getTabButtonExtraComponentBounds (LookAndFeel_V3 *ptr, const TabBarButton &component, Rectangle<int> &textArea, Component &extraComp)
+        { return (ptr->LookAndFeel_V3::getTabButtonExtraComponentBounds (component, textArea, extraComp)); }
+
+        virtual void drawTabButton (TabBarButton &component, Graphics &g, bool isMouseOver, bool isMouseDown) override
+        { return (call<void>("drawTabButton", boost::ref(component), boost::ref(g), isMouseOver, isMouseDown)); }
+        static void def_drawTabButton (LookAndFeel_V3 *ptr, TabBarButton &component, Graphics &g, bool isMouseOver, bool isMouseDown)
+        { return (ptr->LookAndFeel_V3::drawTabButton (component, g, isMouseOver, isMouseDown)); }
+
+        virtual void drawTabButtonText (TabBarButton &component, Graphics &g, bool isMouseOver, bool isMouseDown) override
+        { return (call<void>("drawTabButtonText", boost::ref(component), boost::ref(g), isMouseOver, isMouseDown)); }
+        static void def_drawTabButtonText (LookAndFeel_V3 *ptr, TabBarButton &component, Graphics &g, bool isMouseOver, bool isMouseDown)
+        { return (ptr->LookAndFeel_V3::drawTabButtonText (component, g, isMouseOver, isMouseDown)); }
+
+        virtual void drawTabAreaBehindFrontButton (TabbedButtonBar &component, Graphics &g, int w, int h) override
+        { return (call<void>("drawTabAreaBehindFrontButton", boost::ref(component), boost::ref(g), w, h)); }
+        static void def_drawTabAreaBehindFrontButton (LookAndFeel_V3 *ptr, TabbedButtonBar &component, Graphics &g, int w, int h)
+        { return (ptr->LookAndFeel_V3::drawTabAreaBehindFrontButton (component, g, w, h)); }
+
+        virtual void createTabButtonShape (TabBarButton &component, Path &p, bool isMouseOver, bool isMouseDown) override
+        { return (call<void>("createTabButtonShape", boost::ref(component), p, isMouseOver, isMouseDown)); }
+        static void def_createTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &component, Path &p, bool isMouseOver, bool isMouseDown)
+        { return (ptr->LookAndFeel_V3::createTabButtonShape (component, p, isMouseOver, isMouseDown)); }
+
+        virtual void fillTabButtonShape (TabBarButton &component, Graphics &g, const Path &p, bool isMouseOver, bool isMouseDown) override
+        { return (call<void>("fillTabButtonShape", boost::ref(component), boost::ref(g), p, isMouseOver, isMouseDown)); }
+        static void def_fillTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &component, Graphics &g, const Path &p, bool isMouseOver, bool isMouseDown)
+        { return (ptr->LookAndFeel_V3::fillTabButtonShape (component, g, p, isMouseOver, isMouseDown)); }
+
+        virtual Button *createTabBarExtrasButton () override
+        { return (call<Button *>("createTabBarExtrasButton")); }
+        static Button *def_createTabBarExtrasButton (LookAndFeel_V3 *ptr)
+        { return (ptr->LookAndFeel_V3::createTabBarExtrasButton ()); }
+
+        virtual void drawImageButton (Graphics &g, Image *image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColour, float imageOpacity, ImageButton &component) override
+        { call<void>("drawImageButton", boost::ref(g), image, imageX, imageY, imageW, imageH, overlayColour, imageOpacity, boost::ref(component)); }
+        static void def_drawImageButton (LookAndFeel_V3 *ptr, Graphics &g, Image *image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColour, float imageOpacity, ImageButton &component)
+        { ptr->LookAndFeel_V3::drawImageButton (g, image, imageX, imageY, imageW, imageH, overlayColour, imageOpacity, component); }
+
+        virtual void drawTableHeaderBackground (Graphics &g, TableHeaderComponent &component) override
+        { return (call<void>("drawTableHeaderBackground", boost::ref(g), boost::ref(component))); }
+        static void def_drawTableHeaderBackground (LookAndFeel_V3 *ptr, Graphics &g, TableHeaderComponent &component)
+        { return (ptr->LookAndFeel_V3::drawTableHeaderBackground (g, component)); }
+
+        virtual void drawTableHeaderColumn (Graphics &g, const String &columnName, int columnId, int width, int height, bool isMouseOver, bool isMouseDown, int columnFlags) override
+        { return (call<void>("drawTableHeaderColumn", boost::ref(g), columnName, columnId, width, height, isMouseOver, isMouseDown, columnFlags)); }
+        static void def_drawTableHeaderColumn (LookAndFeel_V3 *ptr, Graphics &g, const String &columnName, int columnId, int width, int height, bool isMouseOver, bool isMouseDown, int columnFlags)
+        { return (ptr->LookAndFeel_V3::drawTableHeaderColumn (g, columnName, columnId, width, height, isMouseOver, isMouseDown, columnFlags)); }
+
+        virtual void paintToolbarBackground (Graphics &g, int width, int height, Toolbar &component) override
+        { return (call<void>("paintToolbarBackground", boost::ref(g), width, height, boost::ref(component))); }
+        static void def_paintToolbarBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, Toolbar &component)
+        { return (ptr->LookAndFeel_V3::paintToolbarBackground (g, width, height, component)); }
+
+        virtual Button *createToolbarMissingItemsButton (Toolbar &component) override
+        { return (call<Button *>("createToolbarMissingItemsButton", boost::ref(component))); }
+        static Button *def_createToolbarMissingItemsButton (LookAndFeel_V3 *ptr, Toolbar &component)
+        { return (ptr->LookAndFeel_V3::createToolbarMissingItemsButton (component)); }
+
+        virtual void paintToolbarButtonBackground (Graphics &g, int width, int height, bool isMouseOver, bool isMouseDown, ToolbarItemComponent &component) override
+        { return (call<void>("paintToolbarButtonBackground", boost::ref(g), width, height, isMouseOver, isMouseDown, boost::ref(component))); }
+        static void def_paintToolbarButtonBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, bool isMouseOver, bool isMouseDown, ToolbarItemComponent &component)
+        { return (ptr->LookAndFeel_V3::paintToolbarButtonBackground (g, width, height, isMouseOver, isMouseDown, component)); }
+
+        virtual void paintToolbarButtonLabel (Graphics &g, int x, int y, int width, int height, const String &text, ToolbarItemComponent &component) override
+        { return (call<void>("paintToolbarButtonLabel", boost::ref(g), x, y, width, height, text, boost::ref(component))); }
+        static void def_paintToolbarButtonLabel (LookAndFeel_V3 *ptr, Graphics &g, int x, int y, int width, int height, const String &text, ToolbarItemComponent &component)
+        { return (ptr->LookAndFeel_V3::paintToolbarButtonLabel (g, x, y, width, height, text, component)); }
+
+        virtual void drawStretchableLayoutResizerBar (Graphics &g, int w, int h, bool isVerticalBar, bool isMouseOver, bool isMouseDragging) override
+        { call<void>("drawStretchableLayoutResizerBar", boost::ref(g), w, h, isVerticalBar, isMouseOver, isMouseDragging); }
+        static void def_drawStretchableLayoutResizerBar (LookAndFeel_V3 *ptr, Graphics &g, int w, int h, bool isVerticalBar, bool isMouseOver, bool isMouseDragging)
+        { ptr->LookAndFeel_V3::drawStretchableLayoutResizerBar (g, w, h, isVerticalBar, isMouseOver, isMouseDragging); }
+
+        virtual void drawPropertyPanelSectionHeader (Graphics &g, const String &name, bool isOpen, int width, int height) override
+        { call<void>("drawPropertyPanelSectionHeader", boost::ref(g), name, isOpen, width, height); }
+        static void def_drawPropertyPanelSectionHeader (LookAndFeel_V3 *ptr, Graphics &g, const String &name, bool isOpen, int width, int height)
+        { ptr->LookAndFeel_V3::drawPropertyPanelSectionHeader (g, name, isOpen, width, height); }
+
+        virtual void drawPropertyComponentBackground (Graphics &g, int width, int height, PropertyComponent &component) override
+        { call<void>("drawPropertyComponentBackground", boost::ref(g), width, height, boost::ref(component)); }
+        static void def_drawPropertyComponentBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, PropertyComponent &component)
+        { ptr->LookAndFeel_V3::drawPropertyComponentBackground (g, width, height, component); }
+
+        virtual void drawPropertyComponentLabel (Graphics &g, int width, int height, PropertyComponent &component) override
+        { call<void>("drawPropertyComponentLabel", boost::ref(g), width, height, boost::ref(component)); }
+        static void def_drawPropertyComponentLabel (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, PropertyComponent &component)
+        { ptr->LookAndFeel_V3::drawPropertyComponentLabel (g, width, height, component); }
+
+        virtual Rectangle<int> getPropertyComponentContentPosition (PropertyComponent &component) override
+        { return (call<Rectangle<int>>("getPropertyComponentContentPosition", boost::ref(component))); }
+        static Rectangle<int> def_getPropertyComponentContentPosition (LookAndFeel_V3 *ptr, PropertyComponent &component)
+        { return (ptr->LookAndFeel_V3::getPropertyComponentContentPosition (component)); }
+
+        virtual void drawCallOutBoxBackground (CallOutBox &component, Graphics &g, const Path &path, Image &cachedImage) override
+        { call<void>("drawCallOutBoxBackground", boost::ref(component), boost::ref(g), path, cachedImage); }
+        static void def_drawCallOutBoxBackground (LookAndFeel_V3 *ptr, CallOutBox &component, Graphics &g, const Path &path, Image &cachedImage)
+        { ptr->LookAndFeel_V3::drawCallOutBoxBackground (component, g, path, cachedImage); }
+
+        virtual void drawLevelMeter (Graphics &g, int width, int height, float level) override
+        { call<void>("drawLevelMeter", boost::ref(g), width, height, level); }
+        static void def_drawLevelMeter (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, float level)
+        { ptr->LookAndFeel_V3::drawLevelMeter (g, width, height, level); }
+
+        virtual void drawKeymapChangeButton (Graphics &g, int width, int height, Button &component, const String &keyDescription) override
+        { call<void>("drawKeymapChangeButton", boost::ref(g), width, height, boost::ref(component), keyDescription); }
+        static void def_drawKeymapChangeButton (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, Button &component, const String &keyDescription)
+        { ptr->LookAndFeel_V3::drawKeymapChangeButton (g, width, height, component, keyDescription); }
+
+        virtual void playAlertSound()
+        { call<void>("playAlertSound"); }
+        static void def_playAlertSound (LookAndFeel_V3 *ptr)
+        { ptr->LookAndFeel_V3::playAlertSound(); }
 };
 
 #endif
