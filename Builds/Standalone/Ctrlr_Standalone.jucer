@@ -13,7 +13,7 @@
                prebuildCommand="" customPList="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
-                       osxSDK="10.8 SDK" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
+                       osxSDK="10.8 SDK" osxCompatibility="10.7 SDK" osxArchitecture="Native"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;../../../../../Juce"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;LUA_USE_LINUX&#10;LUABIND_CPP0x"
                        binaryPath="" customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
@@ -250,6 +250,8 @@
         <FILE id="iMbRxk" name="tile.gif" compile="0" resource="1" file="../../Source/Resources/Images/tile.gif"/>
       </GROUP>
       <GROUP id="{C7BDEF86-BA53-19FE-8370-362589146B0A}" name="XML">
+        <FILE id="cwCpEA" name="CtrlrLuaClassTemplates.xml" compile="0" resource="1"
+              file="../../Source/Resources/XML/CtrlrLuaClassTemplates.xml"/>
         <FILE id="Bm5ved" name="CtrlrMIDITransactions.xml" compile="0" resource="1"
               file="../../Source/Resources/XML/CtrlrMIDITransactions.xml"/>
         <FILE id="JXJwCW" name="CtrlrMIDIVendors.xml" compile="0" resource="1"

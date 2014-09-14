@@ -2836,6 +2836,7 @@
     <None Include="..\..\..\..\Source\Resources\Icons\ico_unknown.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\ico_waveform.png" />
     <None Include="..\..\..\..\Source\Resources\Images\tile.gif" />
+    <None Include="..\..\..\..\Source\Resources\XML\CtrlrLuaClassTemplates.xml" />
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDITransactions.xml" />
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDIVendors.xml" />
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrIDs.xml" />

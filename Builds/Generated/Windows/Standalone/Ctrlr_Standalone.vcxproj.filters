@@ -4678,6 +4678,9 @@
     <None Include="..\..\..\..\Source\Resources\Images\tile.gif">
       <Filter>Ctrlr_Standalone\Resources\Images</Filter>
     </None>
+    <None Include="..\..\..\..\Source\Resources\XML\CtrlrLuaClassTemplates.xml">
+      <Filter>Ctrlr_Standalone\Resources\XML</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDITransactions.xml">
       <Filter>Ctrlr_Standalone\Resources\XML</Filter>
     </None>

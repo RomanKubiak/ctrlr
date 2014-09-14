@@ -15649,8 +15649,17 @@ static const unsigned char temp_binary_data_52[] =
 
 const char* tile_gif = (const char*) temp_binary_data_52;
 
-//================== CtrlrMIDITransactions.xml ==================
+//================== CtrlrLuaClassTemplates.xml ==================
 static const unsigned char temp_binary_data_53[] =
+"<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n"
+"<classes>\r\n"
+"  <luaClass name=\"LookAndFeel_V3\" />\r\n"
+"</classes>\r\n";
+
+const char* CtrlrLuaClassTemplates_xml = (const char*) temp_binary_data_53;
+
+//================== CtrlrMIDITransactions.xml ==================
+static const unsigned char temp_binary_data_54[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n"
 "<transactions>\r\n"
 "\t<trans \t\tname=\"Request Identity\"\r\n"
@@ -15732,10 +15741,10 @@ static const unsigned char temp_binary_data_53[] =
 "\t\t/>\r\n"
 "</transactions>\r\n";
 
-const char* CtrlrMIDITransactions_xml = (const char*) temp_binary_data_53;
+const char* CtrlrMIDITransactions_xml = (const char*) temp_binary_data_54;
 
 //================== CtrlrMIDIVendors.xml ==================
-static const unsigned char temp_binary_data_54[] =
+static const unsigned char temp_binary_data_55[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n"
 "<vendors>\r\n"
 "\t\t<vendor name=\"Ta Horng Musical Instrument\" id=\"000074\" />\r\n"
@@ -16044,10 +16053,10 @@ static const unsigned char temp_binary_data_54[] =
 "\t\t<vendor name=\"SD Card Association\"\tid=\"5F\" />\r\n"
 "</vendors>\r\n";
 
-const char* CtrlrMIDIVendors_xml = (const char*) temp_binary_data_54;
+const char* CtrlrMIDIVendors_xml = (const char*) temp_binary_data_55;
 
 //================== CtrlrIDs.xml ==================
-static const unsigned char temp_binary_data_55[] =
+static const unsigned char temp_binary_data_56[] =
 { 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,13,10,13,10,60,99,116,114,108,114,73,100,115,62,13,10,32,32,60,33,45,45,32,77,111,100,117,108,97,116,111,114,32,112,114,
 111,112,101,114,116,105,101,115,32,45,45,62,13,10,32,32,60,105,100,32,110,97,109,101,61,34,109,111,100,117,108,97,116,111,114,86,97,108,117,101,34,32,9,9,9,9,9,116,101,120,116,61,34,67,117,114,114,101,110,116,32,109,111,100,117,108,97,116,111,114,32,
 118,97,108,117,101,34,32,116,121,112,101,61,34,82,101,97,100,79,110,108,121,34,47,62,13,10,32,32,60,105,100,32,110,97,109,101,61,34,109,111,100,117,108,97,116,111,114,73,115,83,116,97,116,105,99,34,32,9,9,9,9,9,116,101,120,116,61,34,77,111,100,117,108,
@@ -17148,10 +17157,10 @@ static const unsigned char temp_binary_data_55[] =
 54,44,69,108,101,99,116,114,111,110,105,99,45,72,105,103,104,119,97,121,45,83,105,103,110,61,55,44,75,97,114,109,97,116,105,99,45,65,114,99,97,100,101,61,56,44,54,48,115,101,107,117,110,116,105,97,61,57,34,32,47,62,13,10,32,32,60,47,99,111,110,115,116,
 97,110,116,115,62,13,10,13,10,60,47,99,116,114,108,114,73,100,115,62,13,10,0,0 };
 
-const char* CtrlrIDs_xml = (const char*) temp_binary_data_55;
+const char* CtrlrIDs_xml = (const char*) temp_binary_data_56;
 
 //================== CtrlrLuaMethodTemplates.xml ==================
-static const unsigned char temp_binary_data_56[] =
+static const unsigned char temp_binary_data_57[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n"
 "<methods>\r\n"
 "  <luaMethod name=\"luaModulatorValueChange\">\r\n"
@@ -17813,10 +17822,10 @@ static const unsigned char temp_binary_data_56[] =
 "  </utilityMethods>\r\n"
 "</methods>\r\n";
 
-const char* CtrlrLuaMethodTemplates_xml = (const char*) temp_binary_data_56;
+const char* CtrlrLuaMethodTemplates_xml = (const char*) temp_binary_data_57;
 
 //================== CtrlrMidiMultiTemplate.xml ==================
-static const unsigned char temp_binary_data_57[] =
+static const unsigned char temp_binary_data_58[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n"
 "<templates>\r\n"
 "  <template name=\"RPN\">\r\n"
@@ -17838,10 +17847,10 @@ static const unsigned char temp_binary_data_57[] =
 "  </template>\r\n"
 "</templates>";
 
-const char* CtrlrMidiMultiTemplate_xml = (const char*) temp_binary_data_57;
+const char* CtrlrMidiMultiTemplate_xml = (const char*) temp_binary_data_58;
 
 //================== CtrlrRevision.template ==================
-static const unsigned char temp_binary_data_58[] =
+static const unsigned char temp_binary_data_59[] =
 "#ifndef __CTRLR_REVISION__\r\n"
 "#define __CTRLR_REVISION__\r\n"
 "\r\n"
@@ -17850,7 +17859,7 @@ static const unsigned char temp_binary_data_58[] =
 "\r\n"
 "#endif\r\n";
 
-const char* CtrlrRevision_template = (const char*) temp_binary_data_58;
+const char* CtrlrRevision_template = (const char*) temp_binary_data_59;
 
 
 const char* getNamedResource (const char*, int&) throw();
@@ -17916,6 +17925,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0xda0f160a:  numBytes = 3086; return ico_unknown_png;
         case 0xe9ce6391:  numBytes = 1520; return ico_waveform_png;
         case 0x827e0ab3:  numBytes = 326; return tile_gif;
+        case 0x4321d08a:  numBytes = 101; return CtrlrLuaClassTemplates_xml;
         case 0xa5970535:  numBytes = 1963; return CtrlrMIDITransactions_xml;
         case 0x37e081fb:  numBytes = 15061; return CtrlrMIDIVendors_xml;
         case 0xa32a74e9:  numBytes = 78934; return CtrlrIDs_xml;
@@ -17984,6 +17994,7 @@ const char* namedResourceList[] =
     "ico_unknown_png",
     "ico_waveform_png",
     "tile_gif",
+    "CtrlrLuaClassTemplates_xml",
     "CtrlrMIDITransactions_xml",
     "CtrlrMIDIVendors_xml",
     "CtrlrIDs_xml",

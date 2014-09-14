@@ -130,6 +130,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		OwnedArray <CtrlrLuaMethod> methods;
 		CtrlrLuaManager &owner;
 		XmlElement methodTemplates;
+		XmlElement classTemplates;
 		XmlElement *utilityMethods;
 		CtrlrLuaMethod emptyMethod;
 		CriticalSection methodManagerCriticalSection;

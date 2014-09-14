@@ -168,6 +168,9 @@ namespace BinaryData
     extern const char*   tile_gif;
     const int            tile_gifSize = 326;
 
+    extern const char*   CtrlrLuaClassTemplates_xml;
+    const int            CtrlrLuaClassTemplates_xmlSize = 101;
+
     extern const char*   CtrlrMIDITransactions_xml;
     const int            CtrlrMIDITransactions_xmlSize = 1963;
 
@@ -190,7 +193,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 59;
+    const int namedResourceListSize = 60;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

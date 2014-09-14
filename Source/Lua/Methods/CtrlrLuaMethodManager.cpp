@@ -16,14 +16,24 @@ CtrlrLuaMethodManager::CtrlrLuaMethodManager(CtrlrLuaManager &_owner)
 		debug(false),
 		emptyMethod(*this),
 		currentMethodEditor(nullptr),
-		utilityMethods(nullptr)
+		utilityMethods(nullptr),
+		classTemplates("classes")
 {
-	XmlDocument doc(String(BinaryData::CtrlrLuaMethodTemplates_xml, BinaryData::CtrlrLuaMethodTemplates_xmlSize));
-	ScopedPointer <XmlElement> xml (doc.getDocumentElement());
-	if (xml)
+	XmlDocument methodsDocument(String(BinaryData::CtrlrLuaMethodTemplates_xml, BinaryData::CtrlrLuaMethodTemplates_xmlSize));
+	XmlDocument classesDocument(String(BinaryData::CtrlrLuaClassTemplates_xml, BinaryData::CtrlrLuaClassTemplates_xmlSize));
+
+	ScopedPointer <XmlElement> methodsXml (methodsDocument.getDocumentElement());
+	ScopedPointer <XmlElement> classesXml (classesDocument.getDocumentElement());
+
+	if (methodsXml)
 	{
-		methodTemplates = XmlElement(*xml);
+		methodTemplates = XmlElement(*methodsXml);
 		utilityMethods  = methodTemplates.getChildByName("utilityMethods");
+	}
+
+	if (classesXml)
+	{
+		classTemplates = XmlElement(*classesXml);
 	}
 
 	managerTree.addListener(this);
