@@ -320,7 +320,7 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { return (ptr->LookAndFeel_V3::createComboBoxTextBox (component)); }
 
         virtual void positionComboBoxText (ComboBox &component, Label &label) override
-        { return (call<void>("positionComboBoxText", boost::ref(component), boost::ref(label))); }
+        { call<void>("positionComboBoxText", boost::ref(component), boost::ref(label)); }
         static void def_positionComboBoxText (LookAndFeel_V3 *ptr, ComboBox &component, Label &label)
         { return (ptr->LookAndFeel_V3::positionComboBoxText (component, label)); }
 
@@ -370,7 +370,7 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { return (ptr->LookAndFeel_V3::getSliderEffect (component)); }
 
         virtual void getTooltipSize (const String &tipText, int &width, int &height) override
-        { return (call<void>("getTooltipSize", tipText, width, height)); }
+        { call<void>("getTooltipSize", tipText, width, height); }
         static void def_getTooltipSize (LookAndFeel_V3 *ptr, const String &tipText, int &width, int &height)
         { return (ptr->LookAndFeel_V3::getTooltipSize (tipText, width, height)); }
 
@@ -465,27 +465,27 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { return (ptr->LookAndFeel_V3::getTabButtonExtraComponentBounds (component, textArea, extraComp)); }
 
         virtual void drawTabButton (TabBarButton &component, Graphics &g, bool isMouseOver, bool isMouseDown) override
-        { return (call<void>("drawTabButton", boost::ref(component), boost::ref(g), isMouseOver, isMouseDown)); }
+        { call<void>("drawTabButton", boost::ref(component), boost::ref(g), isMouseOver, isMouseDown); }
         static void def_drawTabButton (LookAndFeel_V3 *ptr, TabBarButton &component, Graphics &g, bool isMouseOver, bool isMouseDown)
         { return (ptr->LookAndFeel_V3::drawTabButton (component, g, isMouseOver, isMouseDown)); }
 
         virtual void drawTabButtonText (TabBarButton &component, Graphics &g, bool isMouseOver, bool isMouseDown) override
-        { return (call<void>("drawTabButtonText", boost::ref(component), boost::ref(g), isMouseOver, isMouseDown)); }
+        { call<void>("drawTabButtonText", boost::ref(component), boost::ref(g), isMouseOver, isMouseDown); }
         static void def_drawTabButtonText (LookAndFeel_V3 *ptr, TabBarButton &component, Graphics &g, bool isMouseOver, bool isMouseDown)
         { return (ptr->LookAndFeel_V3::drawTabButtonText (component, g, isMouseOver, isMouseDown)); }
 
         virtual void drawTabAreaBehindFrontButton (TabbedButtonBar &component, Graphics &g, int w, int h) override
-        { return (call<void>("drawTabAreaBehindFrontButton", boost::ref(component), boost::ref(g), w, h)); }
+        { call<void>("drawTabAreaBehindFrontButton", boost::ref(component), boost::ref(g), w, h); }
         static void def_drawTabAreaBehindFrontButton (LookAndFeel_V3 *ptr, TabbedButtonBar &component, Graphics &g, int w, int h)
         { return (ptr->LookAndFeel_V3::drawTabAreaBehindFrontButton (component, g, w, h)); }
 
         virtual void createTabButtonShape (TabBarButton &component, Path &p, bool isMouseOver, bool isMouseDown) override
-        { return (call<void>("createTabButtonShape", boost::ref(component), p, isMouseOver, isMouseDown)); }
+        { call<void>("createTabButtonShape", boost::ref(component), p, isMouseOver, isMouseDown); }
         static void def_createTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &component, Path &p, bool isMouseOver, bool isMouseDown)
         { return (ptr->LookAndFeel_V3::createTabButtonShape (component, p, isMouseOver, isMouseDown)); }
 
         virtual void fillTabButtonShape (TabBarButton &component, Graphics &g, const Path &p, bool isMouseOver, bool isMouseDown) override
-        { return (call<void>("fillTabButtonShape", boost::ref(component), boost::ref(g), p, isMouseOver, isMouseDown)); }
+        { call<void>("fillTabButtonShape", boost::ref(component), boost::ref(g), p, isMouseOver, isMouseDown); }
         static void def_fillTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &component, Graphics &g, const Path &p, bool isMouseOver, bool isMouseDown)
         { return (ptr->LookAndFeel_V3::fillTabButtonShape (component, g, p, isMouseOver, isMouseDown)); }
 
@@ -500,17 +500,17 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { ptr->LookAndFeel_V3::drawImageButton (g, image, imageX, imageY, imageW, imageH, overlayColour, imageOpacity, component); }
 
         virtual void drawTableHeaderBackground (Graphics &g, TableHeaderComponent &component) override
-        { return (call<void>("drawTableHeaderBackground", boost::ref(g), boost::ref(component))); }
+        { call<void>("drawTableHeaderBackground", boost::ref(g), boost::ref(component)); }
         static void def_drawTableHeaderBackground (LookAndFeel_V3 *ptr, Graphics &g, TableHeaderComponent &component)
         { return (ptr->LookAndFeel_V3::drawTableHeaderBackground (g, component)); }
 
         virtual void drawTableHeaderColumn (Graphics &g, const String &columnName, int columnId, int width, int height, bool isMouseOver, bool isMouseDown, int columnFlags) override
-        { return (call<void>("drawTableHeaderColumn", boost::ref(g), columnName, columnId, width, height, isMouseOver, isMouseDown, columnFlags)); }
+        { call<void>("drawTableHeaderColumn", boost::ref(g), columnName, columnId, width, height, isMouseOver, isMouseDown, columnFlags); }
         static void def_drawTableHeaderColumn (LookAndFeel_V3 *ptr, Graphics &g, const String &columnName, int columnId, int width, int height, bool isMouseOver, bool isMouseDown, int columnFlags)
         { return (ptr->LookAndFeel_V3::drawTableHeaderColumn (g, columnName, columnId, width, height, isMouseOver, isMouseDown, columnFlags)); }
 
         virtual void paintToolbarBackground (Graphics &g, int width, int height, Toolbar &component) override
-        { return (call<void>("paintToolbarBackground", boost::ref(g), width, height, boost::ref(component))); }
+        { call<void>("paintToolbarBackground", boost::ref(g), width, height, boost::ref(component)); }
         static void def_paintToolbarBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, Toolbar &component)
         { return (ptr->LookAndFeel_V3::paintToolbarBackground (g, width, height, component)); }
 
@@ -520,12 +520,12 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { return (ptr->LookAndFeel_V3::createToolbarMissingItemsButton (component)); }
 
         virtual void paintToolbarButtonBackground (Graphics &g, int width, int height, bool isMouseOver, bool isMouseDown, ToolbarItemComponent &component) override
-        { return (call<void>("paintToolbarButtonBackground", boost::ref(g), width, height, isMouseOver, isMouseDown, boost::ref(component))); }
+        { call<void>("paintToolbarButtonBackground", boost::ref(g), width, height, isMouseOver, isMouseDown, boost::ref(component)); }
         static void def_paintToolbarButtonBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, bool isMouseOver, bool isMouseDown, ToolbarItemComponent &component)
         { return (ptr->LookAndFeel_V3::paintToolbarButtonBackground (g, width, height, isMouseOver, isMouseDown, component)); }
 
         virtual void paintToolbarButtonLabel (Graphics &g, int x, int y, int width, int height, const String &text, ToolbarItemComponent &component) override
-        { return (call<void>("paintToolbarButtonLabel", boost::ref(g), x, y, width, height, text, boost::ref(component))); }
+        { call<void>("paintToolbarButtonLabel", boost::ref(g), x, y, width, height, text, boost::ref(component)); }
         static void def_paintToolbarButtonLabel (LookAndFeel_V3 *ptr, Graphics &g, int x, int y, int width, int height, const String &text, ToolbarItemComponent &component)
         { return (ptr->LookAndFeel_V3::paintToolbarButtonLabel (g, x, y, width, height, text, component)); }
 
