@@ -23,15 +23,16 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		~CtrlrLuaMethodManager();
 		void restoreState (const ValueTree &savedState);
 		CtrlrLuaManager &getOwner();
-
 		CtrlrLuaMethod *getMethodByUuid(const Uuid &methodUuid);
 		CtrlrLuaMethod *getMethodByName(const String &methodName);
 		CtrlrLuaMethod *getMethod(const String &methodName) { return (getMethodByName(methodName)); }
 		ValueTree getGroupByUuid(const Uuid &groupUuid);
 
 		const String getMethodListForCombo();
+		const String getClassListForCombo();
 
 		void restoreMethod (const ValueTree &savedState, const Uuid parentUuid=UID_NULL);
+		void restoreClass (const ValueTree &savedState, const Uuid parentUuid=UID_NULL);
 		void removeMethod (const Uuid methodUuid=UID_NULL);
 		void restoreMethodsRecursivly(const ValueTree &savedState, const Uuid parentUuid=UID_NULL);
 		void restoreGroup (const ValueTree &savedState, const Uuid parentUuid=UID_NULL);
@@ -40,36 +41,37 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		const bool attachDefaultGroups();
 		ValueTree getGroupByName(const String &groupName);
 		ValueTree findGroupRecursive(ValueTree treeToSearch, const Uuid &groupUuid);
-
 		void addMethod (ValueTree groupToAddTo, const String &methodName, const String &initialCode, const String &linkedToProperty, const Uuid methodUuid=UID_NULL);
+		void addClass (ValueTree groupToAddTo, const String &className, const String &initialCode, const String &classBase, const Uuid classUid);
 		void addMethodFromFile (ValueTree groupToAddTo, const File &fileToUse, const Uuid methodUuid=UID_NULL);
 		void deleteMethod(const Uuid &methodUuid);
-
 		void setEditedMethod(const Uuid &methodUid);
 		void setEditedMethod(const String &methodName);
 		void setMethodEditor(CtrlrLuaMethodEditor *_currentMethodEditor);
-
 		const String getTemplateForProperty(const String &methodName, const String &propertyName);
-
+		const String getTemplateForClassBase(const String &className, const String &classBase);
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
 		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& child);
 		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child);
 		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
-
 		bool isLuaDisabled();
 		ValueTree &getManagerTree()											{ return (managerTree); }
 		void setDebug(const bool _debug)									{ debug = _debug; }
 		const bool getDebug()												{ return (debug); }
 		const StringArray getMethodList();
 		const StringArray getTemplateList();
+		const StringArray getClassTemplateList();
 		const String getDefaultMethodCode (const String &methodName, const String &propertyToLinkTo);
+		const String getDefaultClassCode (const String &className, const String &classBase);
 		const int getNumMethods();
 		CtrlrLuaMethod *getMethodByIndex(const int index);
 		const String cleanupMethod(const String &methodCode, const String &methodName);
+		const String cleanupClass(const String &classCode, const String &className);
 		ValueTree getDefaultGroupTree(const String &groupName, const Uuid groupUuid=UID_NULL);
 		ValueTree getDefaultMethodTree(const String &methodName, const String &methodCode, const String &methodProperty, const Uuid methodUuid);
+		ValueTree getDefaultClassTree(const String &className, const String &classCode, const String &classBase, const Uuid methodUuid);
 		ValueTree getDefaultMethodTree(const File &methodFileSource, const Uuid methodUuid);
 		static bool isValidMethodName(const String &methodName);
 		int getNumUtilities();

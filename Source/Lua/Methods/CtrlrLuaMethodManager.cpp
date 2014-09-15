@@ -134,6 +134,11 @@ void CtrlrLuaMethodManager::restoreState (const ValueTree &savedState)
 			restoreMethod (savedState.getChild(i));
 		}
 
+		if (savedState.getChild(i).hasType (Ids::luaClass))
+		{
+			restoreClass (savedState.getChild(i));
+		}
+
 		if (savedState.getChild(i).hasType (Ids::luaMethodGroup))
 		{
 			restoreMethodsRecursivly (savedState.getChild(i));
@@ -208,6 +213,21 @@ void CtrlrLuaMethodManager::restoreMethod (const ValueTree &savedState, const Uu
 	}
 }
 
+void CtrlrLuaMethodManager::restoreClass(const ValueTree &savedState, const Uuid parentUuid)
+{
+    if ((int)savedState.getProperty(Ids::luaClassSource) == (int)CtrlrLuaMethod::codeInFile)
+    {
+    }
+    else
+    {
+        addClass			(getGroupByUuid(parentUuid),
+								savedState.getProperty(Ids::luaClassName),
+								savedState.getProperty(Ids::luaClassCode),
+								savedState.getProperty(Ids::luaClassBase),
+								savedState.getProperty(Ids::uuid).toString());
+    }
+}
+
 void CtrlrLuaMethodManager::restoreMethodsRecursivly(const ValueTree &savedState, const Uuid parentUuid)
 {
 	for (int i=0; i<savedState.getNumChildren(); i++)
@@ -233,6 +253,18 @@ void CtrlrLuaMethodManager::addMethod (ValueTree groupToAddTo, const String &met
 	else
 	{
 		managerTree.addChild (getDefaultMethodTree (methodName, initialCode, linkedToProperty, methodUid), -1, nullptr);
+	}
+}
+
+void CtrlrLuaMethodManager::addClass (ValueTree groupToAddTo, const String &className, const String &initialCode, const String &classBase, const Uuid classUid)
+{
+    if (groupToAddTo.isValid())
+	{
+		groupToAddTo.addChild (getDefaultClassTree (className, initialCode, classBase, classUid), -1, nullptr);
+	}
+	else
+	{
+		managerTree.addChild (getDefaultClassTree (className, initialCode, classBase, classUid), -1, nullptr);
 	}
 }
 
@@ -365,6 +397,20 @@ ValueTree CtrlrLuaMethodManager::findGroupRecursive(ValueTree treeToSearch, cons
 	return (ValueTree());
 }
 
+const String CtrlrLuaMethodManager::cleanupClass(const String &classCode, const String &className)
+{
+	String value;
+	StringArray lines;
+	lines.addTokens (classCode, "\n", String::empty);
+
+	for (int i=0; i<lines.size(); i++)
+	{
+		value << lines[i].trimStart();
+	}
+
+	return (value.replace ("__class_name", className, false).trim());
+}
+
 const String CtrlrLuaMethodManager::cleanupMethod(const String &methodCode, const String &methodName)
 {
 	String value;
@@ -402,6 +448,11 @@ const String CtrlrLuaMethodManager::getTemplateForProperty(const String &methodN
 	return ("");
 }
 
+const String CtrlrLuaMethodManager::getTemplateForClassBase(const String &className, const String &classBase)
+{
+    return ("");
+}
+
 const StringArray CtrlrLuaMethodManager::getMethodList()
 {
 	StringArray ret;
@@ -429,6 +480,21 @@ const StringArray CtrlrLuaMethodManager::getTemplateList()
 	return (ret);
 }
 
+const StringArray CtrlrLuaMethodManager::getClassTemplateList()
+{
+    StringArray ret;
+	ret.add(COMBO_NONE_ITEM);
+	forEachXmlChildElement (classTemplates, el)
+	{
+		if (el->hasTagName(Ids::luaClass.toString()))
+		{
+			ret.add (el->getStringAttribute ("name", String::empty));
+		}
+	}
+
+	return (ret);
+}
+
 const String CtrlrLuaMethodManager::getDefaultMethodCode(const String &methodName, const String &linkedToProperty)
 {
 	if (linkedToProperty.isEmpty() || linkedToProperty == COMBO_NONE_ITEM)
@@ -438,6 +504,18 @@ const String CtrlrLuaMethodManager::getDefaultMethodCode(const String &methodNam
 	else
 	{
 		return (getTemplateForProperty(methodName, linkedToProperty));
+	}
+}
+
+const String CtrlrLuaMethodManager::getDefaultClassCode(const String &className, const String &classBase)
+{
+	if (classBase.isEmpty() || classBase == COMBO_NONE_ITEM)
+	{
+		return ("function "+className+"()\n\t-- Your method code here\nend");
+	}
+	else
+	{
+		return (getTemplateForClassBase(className, classBase));
 	}
 }
 
@@ -455,6 +533,23 @@ ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const String &methodName, 
 	methodTree.setProperty (Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInProperty, nullptr);
 	methodTree.setProperty (Ids::uuid, methodUuid.isNull() ? Uuid().toString() : methodUuid.toString(), nullptr);
 	return (methodTree);
+}
+
+ValueTree CtrlrLuaMethodManager::getDefaultClassTree(const String &className, const String &classCode, const String &classBase, const Uuid classUuid)
+{
+    ValueTree classTree (Ids::luaClass);
+	classTree.setProperty (Ids::luaClassName, className, nullptr);
+
+	if (classCode.isEmpty())
+		classTree.setProperty (Ids::luaClassCode, getDefaultClassCode(className, classBase), nullptr);
+	else
+		classTree.setProperty (Ids::luaClassCode, classCode, nullptr);
+
+	classTree.setProperty (Ids::luaClassSource, (int)CtrlrLuaMethod::codeInProperty, nullptr);
+	classTree.setProperty (Ids::luaClassBase, classBase, nullptr);
+	classTree.setProperty (Ids::uuid, classUuid.isNull() ? Uuid().toString() : classUuid.toString(), nullptr);
+
+	return (classTree);
 }
 
 ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const File &methodFileSource, const Uuid methodUuid)
@@ -544,13 +639,15 @@ ValueTree CtrlrLuaMethodManager::getGroupByName(const String &groupName)
 
 const bool CtrlrLuaMethodManager::attachDefaultGroups()
 {
+    bool ret;
+
     if (!getGroupByName("Built-In").isValid())
 	{
 		addGroup ("Built-In", Uuid::null(), Uuid());
-		return (true);
+		ret = true;
 	}
 
-	return (false);
+	return (ret);
 }
 
 void CtrlrLuaMethodManager::wrapUtilities()

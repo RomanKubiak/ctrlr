@@ -19,6 +19,14 @@ void setLookAndFeel(Component *c, luabind::object o)
             }
         }
     }
+    else
+    {
+        if (c)
+        {
+            _DBG("\tset look and feel to nullptr");
+            c->setLookAndFeel (nullptr);
+        }
+    }
 }
 
 void LLookAndFeel_V3::wrapForLua (lua_State *L)
