@@ -204,6 +204,35 @@ void CtrlrLuaMethodEditor::addNewMethod(ValueTree parentGroup)
 	saveSettings(); // save settings
 }
 
+void CtrlrLuaMethodEditor::addNewClass(ValueTree parentGroup)
+{
+	AlertWindow wnd(METHOD_NEW, String::empty, AlertWindow::InfoIcon, this);
+	wnd.addTextEditor ("className", "MyNewClass", "Class name", false);
+	wnd.addComboBox ("templateList", getMethodManager().getClassTemplateList(), "Initialize from template");
+
+	wnd.addButton ("OK", 1, KeyPress(KeyPress::returnKey));
+	wnd.addButton ("Cancel", 0, KeyPress(KeyPress::escapeKey));
+	if (wnd.runModalLoop())
+	{
+		const String className = wnd.getTextEditorContents("className");
+
+		if (getMethodManager().isValidMethodName(className))
+		{
+			const String initialCode = getMethodManager().getDefaultClassCode(className, wnd.getComboBoxComponent("templateList")->getText());
+
+			getMethodManager().addClass (parentGroup, wnd.getTextEditorContents("className"), initialCode, String::empty, String::empty);
+		}
+		else
+		{
+			WARN("Invalid class name, please correct");
+		}
+	}
+
+	updateRootItem();
+
+	saveSettings(); // save settings
+}
+
 void CtrlrLuaMethodEditor::addMethodFromFile(ValueTree parentGroup)
 {
 	FileChooser fc ("Select LUA files", lastBrowsedSourceDir, "*.lua;*.txt");
@@ -479,13 +508,17 @@ const String CtrlrLuaMethodEditor::getUniqueName (const ValueTree &item) const
 	{
 		return (item.getProperty(Ids::luaMethodName).toString());
 	}
+	if (item.hasType (Ids::luaClass))
+	{
+		return (item.getProperty(Ids::luaClassName).toString());
+	}
 	if (item.hasType(Ids::luaMethodGroup))
 	{
 		return (item.getProperty (Ids::name).toString());
 	}
 	if (item.hasType(Ids::luaManagerMethods))
 	{
-		return ("LUA Method");
+		return ("LUA");
 	}
 
 	return ("Unknown");
@@ -528,10 +561,15 @@ const AttributedString CtrlrLuaMethodEditor::getDisplayString(const ValueTree &i
 
 	if (item.getType() == Ids::luaManagerMethods)
 	{
-		str.append ("LUA Methods", Font(14.0f, Font::bold), Colours::black);
+		str.append ("LUA", Font(14.0f, Font::bold), Colours::black);
 
 		str.setJustification (Justification::left);
 	}
+
+    if (item.getType() == Ids::luaClass)
+    {
+        str.append (item.getProperty(Ids::luaClassName).toString(), Font(12.0f, Font::plain), Colours::black);
+    }
 
 	return (str);
 }
@@ -587,6 +625,7 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			PopupMenu m;
 			m.addSectionHeader ("Group operations");
 			m.addItem (1, "Add method");
+			m.addItem (11, "Add class");
 			m.addItem (2, "Add files");
 			m.addItem (3, "Add group");
 			m.addSeparator();
@@ -606,6 +645,10 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			{
 				addNewMethod (item);
 			}
+			else if (ret == 11)
+            {
+                addNewClass (item);
+            }
 			else if (ret == 2)
 			{
 				addMethodFromFile (item);
@@ -685,7 +728,7 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 
 void CtrlrLuaMethodEditor::itemDoubleClicked (const MouseEvent &e, ValueTree &item)
 {
-	setEditedMethod (Uuid(item.getProperty(Ids::uuid).toString()));
+    setEditedMethod (Uuid(item.getProperty(Ids::uuid).toString()));
 }
 
 const bool CtrlrLuaMethodEditor::renameItem(const ValueTree &item, const String &newName) const

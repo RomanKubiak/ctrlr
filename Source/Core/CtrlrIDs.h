@@ -742,6 +742,7 @@ namespace Ids
     DECLARE_ID (ctrlrPrivateKey);
 
 	DECLARE_ID (luaMethodName);
+	DECLARE_ID (luaClassName);
 	DECLARE_ID (luaManagerMethods); // need to keep it for compatibility reasons
 
 	DECLARE_ID (luaMethodEditor);
@@ -749,10 +750,14 @@ namespace Ids
 	DECLARE_ID (luaMethodEditorBgColour);
 	DECLARE_ID (luaMethodGroup);
 	DECLARE_ID (luaMethodCode);
+	DECLARE_ID (luaClassCode);
 	DECLARE_ID (luaMethodSource);
+	DECLARE_ID (luaClassSource);
 	DECLARE_ID (luaMethodSourcePath);
 	DECLARE_ID (luaMethodLinkedProperty);
 	DECLARE_ID (luaMethod);
+	DECLARE_ID (luaClass);
+	DECLARE_ID (luaClassBase);
 	DECLARE_ID (luaManager);
 	DECLARE_ID (luaMethodValid);
 
