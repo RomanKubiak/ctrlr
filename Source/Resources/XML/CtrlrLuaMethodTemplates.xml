@@ -195,7 +195,7 @@
     __method_name = function(component, dragSourceDetails)
     end
   </luaMethod>
-  
+
   <luaMethod name="uiTabsCurrentTabChanged">
     --
     -- Called when the current tab in an uiTabs component is changed
@@ -269,7 +269,7 @@
     __method_name = function(modulator, value)
     end
   </luaMethod>
-  
+
   <luaMethod name="luaPanelMidiReceived">
     --
     -- Called when a panel receives a midi message (does not need to match any modulator mask)
@@ -555,6 +555,9 @@
       --
       __method_name = function()
       end
+  </luaMethod>
+
+  <luaMethod name="LookAndFeel_V3" resource="LookAndFeel_V3_lua">
   </luaMethod>
 
   <utilityMethods>
