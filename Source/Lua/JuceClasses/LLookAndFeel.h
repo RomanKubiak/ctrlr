@@ -119,9 +119,9 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_drawTickBox (LookAndFeel_V3 *ptr, Graphics &g, Component &component, float x, float y, float w, float h, bool ticked, bool isEnabled, bool isMouseOverButton, bool isButtonDown)
         { return (ptr->LookAndFeel_V3::drawTickBox (g, component, x, y, w, h, ticked, isEnabled, isMouseOverButton, isButtonDown)); }
 
-        virtual AlertWindow *createAlertWindow (const String &title, const String &message, const String &button1, const String &button2, const String &button3, AlertWindow::AlertIconType iconType, int numButtons, Component *associatedComponent)
-        { return (call<AlertWindow *>("createAlertWindow", title, message, button1, button2, button3, iconType, numButtons, associatedComponent)); }
-        static AlertWindow * def_createAlertWindow (LookAndFeel_V3 *ptr, const String &title, const String &message, const String &button1, const String &button2, const String &button3, AlertWindow::AlertIconType iconType, int numButtons, Component *associatedComponent)
+        virtual AlertWindow *createAlertWindow (const String &title, const String &message, const String &button1, const String &button2, const String &button3, AlertWindow::AlertIconType iconType, int numButtons, Component* associatedComponent)
+        { return (call<AlertWindow*>("createAlertWindow", title, message, button1, button2, button3, iconType, numButtons, associatedComponent)); }
+        static AlertWindow* def_createAlertWindow (LookAndFeel_V3 *ptr, const String &title, const String &message, const String &button1, const String &button2, const String &button3, AlertWindow::AlertIconType iconType, int numButtons, Component* associatedComponent)
         { return (ptr->LookAndFeel_V3::createAlertWindow (title, message, button1, button2, button3, iconType, numButtons, associatedComponent)); }
 
         virtual void drawAlertBox (Graphics &g, AlertWindow &window, const Rectangle<int> &textArea, TextLayout &layout)
@@ -164,9 +164,9 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static bool def_areScrollbarButtonsVisible (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::areScrollbarButtonsVisible ()); }
 
-        virtual ImageEffectFilter *getScrollbarEffect ()
+        virtual ImageEffectFilter* getScrollbarEffect ()
         { return (call<ImageEffectFilter*>("getScrollbarEffect")); }
-        static ImageEffectFilter *def_getScrollbarEffect (LookAndFeel_V3 *ptr)
+        static ImageEffectFilter* def_getScrollbarEffect (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::getScrollbarEffect ()); }
 
         virtual int getMinimumScrollbarThumbSize (ScrollBar &bar)
@@ -209,19 +209,19 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_drawTextEditorOutline (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, TextEditor &editor)
         { return (ptr->LookAndFeel_V3::drawTextEditorOutline (g, width, height, editor)); }
 
-        virtual CaretComponent  *createCaretComponent (Component *keyFocusOwner)
+        virtual CaretComponent* createCaretComponent (Component *keyFocusOwner)
         { return (call<CaretComponent*>("createCaretComponent", keyFocusOwner)); }
-        static CaretComponent *def_createCaretComponent (LookAndFeel_V3 *ptr, Component *keyFocusOwner)
+        static CaretComponent* def_createCaretComponent (LookAndFeel_V3 *ptr, Component* keyFocusOwner)
         { return (ptr->LookAndFeel_V3::createCaretComponent (keyFocusOwner)); }
 
-        virtual const Drawable *getDefaultFolderImage ()
-        { return (call<const Drawable *>("getDefaultFolderImage")); }
-        static const Drawable *def_getDefaultFolderImage (LookAndFeel_V3 *ptr)
+        virtual const Drawable* getDefaultFolderImage ()
+        { return (call<const Drawable*>("getDefaultFolderImage")); }
+        static const Drawable* def_getDefaultFolderImage (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::getDefaultFolderImage ()); }
 
-        virtual const Drawable *getDefaultDocumentFileImage ()
-        { return (call<const Drawable *>("getDefaultDocumentFileImage")); }
-        static const Drawable *def_getDefaultDocumentFileImage (LookAndFeel_V3 *ptr)
+        virtual const Drawable* getDefaultDocumentFileImage ()
+        { return (call<const Drawable*>("getDefaultDocumentFileImage")); }
+        static const Drawable* def_getDefaultDocumentFileImage (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::getDefaultDocumentFileImage ()); }
 
         virtual AttributedString createFileChooserHeaderText (const String &title, const String &instructions)
@@ -229,19 +229,19 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static AttributedString def_createFileChooserHeaderText (LookAndFeel_V3 *ptr, const String &title, const String &instructions)
         { return (ptr->LookAndFeel_V3::createFileChooserHeaderText (title, instructions)); }
 
-        virtual void drawFileBrowserRow (Graphics &g, int width, int height, const String &filename, Image *icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &component)
+        virtual void drawFileBrowserRow (Graphics &g, int width, int height, const String &filename, Image* icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &component)
 		{ call<void>("drawFileBrowserRow", DrawFileBrowserRowParams (boost::ref(g),width,height,filename,icon,fileSizeDescription,fileTimeDescription,isDirectory,isItemSelected,itemIndex,boost::ref(component))); }
-        static void def_drawFileBrowserRow (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, const String &filename, Image *icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &component)
+        static void def_drawFileBrowserRow (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, const String &filename, Image* icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &component)
         { return (ptr->LookAndFeel_V3::drawFileBrowserRow (g, width, height, filename, icon, fileSizeDescription, fileTimeDescription, isDirectory, isItemSelected, itemIndex, component)); }
 
-        virtual Button *createFileBrowserGoUpButton ()
-        { return (call<Button *>("createFileBrowserGoUpButton")); }
-        static Button *def_createFileBrowserGoUpButton (LookAndFeel_V3 *ptr)
+        virtual Button* createFileBrowserGoUpButton ()
+        { return (call<Button*>("createFileBrowserGoUpButton")); }
+        static Button* def_createFileBrowserGoUpButton (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::createFileBrowserGoUpButton ()); }
 
-        virtual void layoutFileBrowserComponent (FileBrowserComponent &component, DirectoryContentsDisplayComponent *contentsComponent, FilePreviewComponent *previewComponent, ComboBox *currentPathBox, TextEditor *filenameBox, Button *goUpButton)
+        virtual void layoutFileBrowserComponent (FileBrowserComponent &component, DirectoryContentsDisplayComponent* contentsComponent, FilePreviewComponent* previewComponent, ComboBox* currentPathBox, TextEditor* filenameBox, Button* goUpButton)
         { call<void>("layoutFileBrowserComponent", boost::ref(component), contentsComponent, previewComponent, currentPathBox, filenameBox, goUpButton); }
-        static void def_layoutFileBrowserComponent (LookAndFeel_V3 *ptr, FileBrowserComponent &component, DirectoryContentsDisplayComponent *contentsComponent, FilePreviewComponent *previewComponent, ComboBox *currentPathBox, TextEditor *filenameBox, Button *goUpButton)
+        static void def_layoutFileBrowserComponent (LookAndFeel_V3 *ptr, FileBrowserComponent &component, DirectoryContentsDisplayComponent* contentsComponent, FilePreviewComponent* previewComponent, ComboBox* currentPathBox, TextEditor* filenameBox, Button* goUpButton)
         { ptr->LookAndFeel_V3::layoutFileBrowserComponent (component, contentsComponent, previewComponent, currentPathBox, filenameBox, goUpButton); }
 
         virtual void drawBubble (Graphics &g, BubbleComponent &bubble, const Point<float> &tip, const Rectangle<float> &body)
@@ -259,9 +259,9 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_drawPopupMenuBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height)
         { ptr->LookAndFeel_V3::drawPopupMenuBackground (g, width, height); }
 
-        virtual void drawPopupMenuItem (Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable *icon, const Colour *textColour)
+        virtual void drawPopupMenuItem (Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* icon, const Colour* textColour)
         { call<void>("drawPopupMenuItem", DrawPopupMenuItemParams (boost::ref(g), area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, icon, textColour)); }
-        static void def_drawPopupMenuItem (LookAndFeel_V3 *ptr, Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable *icon, const Colour *textColour)
+        static void def_drawPopupMenuItem (LookAndFeel_V3 *ptr, Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* icon, const Colour* textColour)
         { ptr->LookAndFeel_V3::drawPopupMenuItem (g, area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, icon, textColour); }
 
         virtual Font getPopupMenuFont (Graphics &g, int width, int height)
@@ -314,9 +314,9 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static Font def_getComboBoxFont (LookAndFeel_V3 *ptr, ComboBox &component)
         { return (ptr->LookAndFeel_V3::getComboBoxFont (component)); }
 
-        virtual Label *createComboBoxTextBox (ComboBox &component)
+        virtual Label* createComboBoxTextBox (ComboBox &component)
         { return (call<Label *>("createComboBoxTextBox", boost::ref(component))); }
-        static Label *def_createComboBoxTextBox (LookAndFeel_V3 *ptr, ComboBox &component)
+        static Label* def_createComboBoxTextBox (LookAndFeel_V3 *ptr, ComboBox &component)
         { return (ptr->LookAndFeel_V3::createComboBoxTextBox (component)); }
 
         virtual void positionComboBoxText (ComboBox &component, Label &label)
@@ -354,19 +354,19 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_drawRotarySlider (LookAndFeel_V3 *ptr, Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider)
         { ptr->LookAndFeel_V3::drawRotarySlider (g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider); }
 
-        virtual Button *createSliderButton (Slider &component, bool isIncrement)
+        virtual Button* createSliderButton (Slider &component, bool isIncrement)
         { return (call<Button *>("createSliderButton", boost::ref(component), isIncrement)); }
-        static Button *def_createSliderButton (LookAndFeel_V3 *ptr, Slider &component, bool isIncrement)
+        static Button* def_createSliderButton (LookAndFeel_V3 *ptr, Slider &component, bool isIncrement)
         { return (ptr->LookAndFeel_V3::createSliderButton (component, isIncrement)); }
 
-        virtual Label *createSliderTextBox (Slider &component)
+        virtual Label* createSliderTextBox (Slider &component)
         { return (call<Label *>("createSliderTextBox", boost::ref(component))); }
-        static Label *def_createSliderTextBox (LookAndFeel_V3 *ptr, Slider &component)
+        static Label* def_createSliderTextBox (LookAndFeel_V3 *ptr, Slider &component)
         { return (ptr->LookAndFeel_V3::createSliderTextBox (component)); }
 
-        virtual ImageEffectFilter *getSliderEffect (Slider &component)
+        virtual ImageEffectFilter* getSliderEffect (Slider &component)
         { return (call<ImageEffectFilter *>("getSliderEffect", boost::ref(component))); }
-        static ImageEffectFilter *def_getSliderEffect (LookAndFeel_V3 *ptr, Slider &component)
+        static ImageEffectFilter* def_getSliderEffect (LookAndFeel_V3 *ptr, Slider &component)
         { return (ptr->LookAndFeel_V3::getSliderEffect (component)); }
 
         virtual void getTooltipSize (const String &tipText, int &width, int &height)
@@ -379,14 +379,14 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_drawTooltip (LookAndFeel_V3 *ptr, Graphics &g, const String &text, int width, int height)
         { ptr->LookAndFeel_V3::drawTooltip (g, text, width, height); }
 
-        virtual Button *createFilenameComponentBrowseButton (const String &text)
+        virtual Button* createFilenameComponentBrowseButton (const String &text)
         { return (call<Button *>("createFilenameComponentBrowseButton", text)); }
-        static Button *def_createFilenameComponentBrowseButton (LookAndFeel_V3 *ptr, const String &text)
+        static Button* def_createFilenameComponentBrowseButton (LookAndFeel_V3 *ptr, const String &text)
         { return (ptr->LookAndFeel_V3::createFilenameComponentBrowseButton (text)); }
 
-        virtual void layoutFilenameComponent (FilenameComponent &component, ComboBox *filenameBox, Button *browseButton)
+        virtual void layoutFilenameComponent (FilenameComponent &component, ComboBox* filenameBox, Button* browseButton)
         { call<void>("layoutFilenameComponent", boost::ref(component), filenameBox, browseButton); }
-        static void def_layoutFilenameComponent (LookAndFeel_V3 *ptr, FilenameComponent &component, ComboBox *filenameBox, Button *browseButton)
+        static void def_layoutFilenameComponent (LookAndFeel_V3 *ptr, FilenameComponent &component, ComboBox* filenameBox, Button* browseButton)
         { ptr->LookAndFeel_V3::layoutFilenameComponent (component, filenameBox, browseButton); }
 
         virtual void drawConcertinaPanelHeader (Graphics &g, const Rectangle<int> &area, bool isMouseOver, bool isMouseDown, ConcertinaPanel &component, Component &panel)
@@ -414,19 +414,19 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_drawResizableWindowBorder (LookAndFeel_V3 *ptr, Graphics &g, int w, int h, const BorderSize<int> &borderSize, ResizableWindow &window)
         { ptr->LookAndFeel_V3::drawResizableWindowBorder (g, w, h, borderSize, window); }
 
-        virtual void drawDocumentWindowTitleBar (DocumentWindow &window, Graphics &g, int w, int h, int titleSpaceX, int titleSpaceW, const Image *icon, bool drawTitleTextOnLeft)
+        virtual void drawDocumentWindowTitleBar (DocumentWindow &window, Graphics &g, int w, int h, int titleSpaceX, int titleSpaceW, const Image* icon, bool drawTitleTextOnLeft)
         { call<void>("drawDocumentWindowTitleBar", boost::ref(window), boost::ref(g), w, h, titleSpaceX, titleSpaceW, icon, drawTitleTextOnLeft); }
-        static void def_drawDocumentWindowTitleBar (LookAndFeel_V3 *ptr, DocumentWindow &window, Graphics &g, int w, int h, int titleSpaceX, int titleSpaceW, const Image *icon, bool drawTitleTextOnLeft)
+        static void def_drawDocumentWindowTitleBar (LookAndFeel_V3 *ptr, DocumentWindow &window, Graphics &g, int w, int h, int titleSpaceX, int titleSpaceW, const Image* icon, bool drawTitleTextOnLeft)
         { ptr->LookAndFeel_V3::drawDocumentWindowTitleBar (window, g, w, h, titleSpaceX, titleSpaceW, icon, drawTitleTextOnLeft); }
 
-        virtual Button *createDocumentWindowButton (int buttonType)
+        virtual Button* createDocumentWindowButton (int buttonType)
         { return (call<Button *>("createDocumentWindowButton", buttonType)); }
-        static Button *def_createDocumentWindowButton (LookAndFeel_V3 *ptr, int buttonType)
+        static Button* def_createDocumentWindowButton (LookAndFeel_V3 *ptr, int buttonType)
         { return (ptr->LookAndFeel_V3::createDocumentWindowButton (buttonType)); }
 
-        virtual void positionDocumentWindowButtons (DocumentWindow &window, int titleBarX, int titleBarY, int titleBarW, int titleBarH, Button *minimiseButton, Button *maximiseButton, Button *closeButton, bool positionTitleBarButtonsOnLeft)
+        virtual void positionDocumentWindowButtons (DocumentWindow &window, int titleBarX, int titleBarY, int titleBarW, int titleBarH, Button* minimiseButton, Button* maximiseButton, Button* closeButton, bool positionTitleBarButtonsOnLeft)
         { call<void>("positionDocumentWindowButtons", boost::ref(window), titleBarX, titleBarY, titleBarW, titleBarH, minimiseButton, maximiseButton, closeButton, positionTitleBarButtonsOnLeft); }
-        static void def_positionDocumentWindowButtons (LookAndFeel_V3 *ptr, DocumentWindow &window, int titleBarX, int titleBarY, int titleBarW, int titleBarH, Button *minimiseButton, Button *maximiseButton, Button *closeButton, bool positionTitleBarButtonsOnLeft)
+        static void def_positionDocumentWindowButtons (LookAndFeel_V3 *ptr, DocumentWindow &window, int titleBarX, int titleBarY, int titleBarW, int titleBarH, Button* minimiseButton, Button* maximiseButton, Button* closeButton, bool positionTitleBarButtonsOnLeft)
         { ptr->LookAndFeel_V3::positionDocumentWindowButtons (window, titleBarX, titleBarY, titleBarW, titleBarH, minimiseButton, maximiseButton, closeButton, positionTitleBarButtonsOnLeft); }
 
         virtual int getDefaultMenuBarHeight ()
@@ -434,9 +434,9 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static int def_getDefaultMenuBarHeight (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::getDefaultMenuBarHeight ()); }
 
-        virtual DropShadower *createDropShadowerForComponent (Component *component)
+        virtual DropShadower* createDropShadowerForComponent (Component* component)
         { return (call<DropShadower *>("createDropShadowerForComponent", component)); }
-        static DropShadower *def_createDropShadowerForComponent (LookAndFeel_V3 *ptr, Component *component)
+        static DropShadower* def_createDropShadowerForComponent (LookAndFeel_V3 *ptr, Component* component)
         { return (ptr->LookAndFeel_V3::createDropShadowerForComponent (component)); }
 
         virtual void drawGroupComponentOutline (Graphics &g, int w, int h, const String &text, const Justification &justification, GroupComponent &component)
@@ -489,14 +489,14 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_fillTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &component, Graphics &g, const Path &p, bool isMouseOver, bool isMouseDown)
         { return (ptr->LookAndFeel_V3::fillTabButtonShape (component, g, p, isMouseOver, isMouseDown)); }
 
-        virtual Button *createTabBarExtrasButton ()
+        virtual Button* createTabBarExtrasButton ()
         { return (call<Button *>("createTabBarExtrasButton")); }
-        static Button *def_createTabBarExtrasButton (LookAndFeel_V3 *ptr)
+        static Button* def_createTabBarExtrasButton (LookAndFeel_V3 *ptr)
         { return (ptr->LookAndFeel_V3::createTabBarExtrasButton ()); }
 
-        virtual void drawImageButton (Graphics &g, Image *image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColour, float imageOpacity, ImageButton &component)
+        virtual void drawImageButton (Graphics &g, Image* image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColour, float imageOpacity, ImageButton &component)
         { call<void>("drawImageButton", boost::ref(g), image, imageX, imageY, imageW, imageH, overlayColour, imageOpacity, boost::ref(component)); }
-        static void def_drawImageButton (LookAndFeel_V3 *ptr, Graphics &g, Image *image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColour, float imageOpacity, ImageButton &component)
+        static void def_drawImageButton (LookAndFeel_V3 *ptr, Graphics &g, Image* image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColour, float imageOpacity, ImageButton &component)
         { ptr->LookAndFeel_V3::drawImageButton (g, image, imageX, imageY, imageW, imageH, overlayColour, imageOpacity, component); }
 
         virtual void drawTableHeaderBackground (Graphics &g, TableHeaderComponent &component)
@@ -514,9 +514,9 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_paintToolbarBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, Toolbar &component)
         { return (ptr->LookAndFeel_V3::paintToolbarBackground (g, width, height, component)); }
 
-        virtual Button *createToolbarMissingItemsButton (Toolbar &component)
-        { return (call<Button *>("createToolbarMissingItemsButton", boost::ref(component))); }
-        static Button *def_createToolbarMissingItemsButton (LookAndFeel_V3 *ptr, Toolbar &component)
+        virtual Button* createToolbarMissingItemsButton (Toolbar &component)
+        { return (call<Button*>("createToolbarMissingItemsButton", boost::ref(component))); }
+        static Button* def_createToolbarMissingItemsButton (LookAndFeel_V3 *ptr, Toolbar &component)
         { return (ptr->LookAndFeel_V3::createToolbarMissingItemsButton (component)); }
 
         virtual void paintToolbarButtonBackground (Graphics &g, int width, int height, bool isMouseOver, bool isMouseDown, ToolbarItemComponent &component)
