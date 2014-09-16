@@ -158,6 +158,10 @@
   </EXPORTFORMATS>
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
+      <GROUP id="{9AA7A95B-18B0-8AB1-FF2C-719D1130345F}" name="Lua">
+        <FILE id="B5rqlc" name="LookAndFeel_V3.lua" compile="0" resource="1"
+              file="../../Source/Resources/Lua/LookAndFeel_V3.lua"/>
+      </GROUP>
       <GROUP id="{675B9675-5157-95D4-7C42-61D020DD23E6}" name="Misc">
         <FILE id="LYL1yC" name="RSRC.zip" compile="0" resource="1" file="../../Source/Resources/Misc/RSRC.zip"/>
       </GROUP>
@@ -250,8 +254,6 @@
         <FILE id="iMbRxk" name="tile.gif" compile="0" resource="1" file="../../Source/Resources/Images/tile.gif"/>
       </GROUP>
       <GROUP id="{C7BDEF86-BA53-19FE-8370-362589146B0A}" name="XML">
-        <FILE id="cwCpEA" name="CtrlrLuaClassTemplates.xml" compile="0" resource="1"
-              file="../../Source/Resources/XML/CtrlrLuaClassTemplates.xml"/>
         <FILE id="Bm5ved" name="CtrlrMIDITransactions.xml" compile="0" resource="1"
               file="../../Source/Resources/XML/CtrlrMIDITransactions.xml"/>
         <FILE id="JXJwCW" name="CtrlrMIDIVendors.xml" compile="0" resource="1"

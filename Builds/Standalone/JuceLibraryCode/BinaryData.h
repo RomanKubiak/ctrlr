@@ -9,6 +9,9 @@
 
 namespace BinaryData
 {
+    extern const char*   LookAndFeel_V3_lua;
+    const int            LookAndFeel_V3_luaSize = 595;
+
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
 
@@ -168,9 +171,6 @@ namespace BinaryData
     extern const char*   tile_gif;
     const int            tile_gifSize = 326;
 
-    extern const char*   CtrlrLuaClassTemplates_xml;
-    const int            CtrlrLuaClassTemplates_xmlSize = 101;
-
     extern const char*   CtrlrMIDITransactions_xml;
     const int            CtrlrMIDITransactions_xmlSize = 1963;
 
@@ -181,7 +181,7 @@ namespace BinaryData
     const int            CtrlrIDs_xmlSize = 78934;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 18162;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 18240;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;

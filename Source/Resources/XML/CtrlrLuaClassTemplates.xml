@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <classes>
   <class name="LookAndFeel_V3">
-      class '__class_name' (LookAndFeel_V3)
 
-      function __class_name:__init()
-        --
-        -- This is needed for luabind, so just leave it like that, you can add
-        -- more calls here, just leave that one line
-        --
-        LookAndFeel_V3.__init(self)
-      end
-
-      -- Draws a button background
-
-      -- function __class_name:drawButtonBackground(--[[Graphics]] g, --[[Button]] button, --[[Colour]]colour, --[[bool]]mouseOver, --[[bool]]mouseDown)
-      -- end
-
-      -- function __class_name:drawLabel (g, label)
-      -- end
   </class>
 </methods>
