@@ -12,6 +12,7 @@ class LString
 class LStringArray : public StringArray
 {
     public:
+        LStringArray(const StringArray &other) : StringArray(other) {}
         LStringArray() {}
         LStringArray (const String &string) : StringArray (string) {}
         LStringArray (const char *const *pointer, const int size) : StringArray (pointer, size) {}
