@@ -9,8 +9,11 @@
 
 namespace BinaryData
 {
+    extern const char*   gen_LookAndFeel_V3_sh;
+    const int            gen_LookAndFeel_V3_shSize = 2434;
+
     extern const char*   LookAndFeel_V3_lua;
-    const int            LookAndFeel_V3_luaSize = 595;
+    const int            LookAndFeel_V3_luaSize = 17772;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
@@ -193,7 +196,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 60;
+    const int namedResourceListSize = 61;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

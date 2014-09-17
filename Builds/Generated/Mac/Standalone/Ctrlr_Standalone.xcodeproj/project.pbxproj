@@ -1210,6 +1210,7 @@
 		A439464AE230244F02CB29E3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ImageConvolutionKernel.h"; path = "../../../../Juce/modules/juce_graphics/images/juce_ImageConvolutionKernel.h"; sourceTree = "SOURCE_ROOT"; };
 		A4F0E521F1FA83319C31B7C2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MenuBarModel.h"; path = "../../../../Juce/modules/juce_gui_basics/menus/juce_MenuBarModel.h"; sourceTree = "SOURCE_ROOT"; };
 		A51C949BF62172ECEA1FB873 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_win32_Threads.cpp"; path = "../../../../Juce/modules/juce_core/native/juce_win32_Threads.cpp"; sourceTree = "SOURCE_ROOT"; };
+		A5401669DE3A3E9AA5926B7A = {isa = PBXFileReference; lastKnownFileType = file.sh; name = "gen_LookAndFeel_V3.sh"; path = "../../../../Source/Resources/Lua/gen_LookAndFeel_V3.sh"; sourceTree = "SOURCE_ROOT"; };
 		A542D860CB2B6051C8A6EE68 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_ReverbAudioSource.cpp"; path = "../../../../Juce/modules/juce_audio_basics/sources/juce_ReverbAudioSource.cpp"; sourceTree = "SOURCE_ROOT"; };
 		A55AD771999856B09D8F846C = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LInputStream.h; path = ../../../../Source/Lua/JuceClasses/LInputStream.h; sourceTree = "SOURCE_ROOT"; };
 		A57FA1904C9DDF2CA4061CB7 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ModifierKeys.h"; path = "../../../../Juce/modules/juce_gui_basics/keyboard/juce_ModifierKeys.h"; sourceTree = "SOURCE_ROOT"; };
@@ -1758,6 +1759,7 @@
 		FFFE30FD19B17011D05FE483 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LThread.cpp; path = ../../../../Source/Lua/JuceClasses/LThread.cpp; sourceTree = "SOURCE_ROOT"; };
 		FFFFB98FC46272E762E10FC9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_TreeView.h"; path = "../../../../Juce/modules/juce_gui_basics/widgets/juce_TreeView.h"; sourceTree = "SOURCE_ROOT"; };
 		0129841AB7E5215051E1CF4D = {isa = PBXGroup; children = (
+					A5401669DE3A3E9AA5926B7A,
 					9AEF27E2A4BFAE81191095CC, ); name = Lua; sourceTree = "<group>"; };
 		852DA618D758B91B66D96E1B = {isa = PBXGroup; children = (
 					0047E98E5B3707A33B90A687, ); name = Misc; sourceTree = "<group>"; };
