@@ -212,7 +212,7 @@ class CtrlrManager :    public ValueTree::Listener,
 		/** Return the number of all modulators available
 
 		*/
-		const int getNumModulators(const bool onlyVstParameters);
+		int getNumModulators(const bool onlyVstParameters);
 
 		/** Return modulator based on it's vstIndex
 
@@ -233,11 +233,11 @@ class CtrlrManager :    public ValueTree::Listener,
 
 			@params modulatorIndex				the vst index of the searched modulator
 		*/
-		const int getPanelForModulator(const int modulatorIndex);
+		int getPanelForModulator(const int modulatorIndex);
 		void applicationCommandInvoked(const ApplicationCommandTarget::InvocationInfo &info);
 		void applicationCommandListChanged();
-		const int getNextVstIndex();
-		const int getModulatorVstIndexByName(const String &modulatorName);
+		int getNextVstIndex();
+		int getModulatorVstIndexByName(const String &modulatorName);
 		CtrlrProperties &getCtrlrProperties();
 		ApplicationProperties *getApplicationProperties();
 		CtrlrProcessor *getOwner()																				{ return (owner); }
@@ -250,17 +250,17 @@ class CtrlrManager :    public ValueTree::Listener,
 		CtrlrPanel *getActivePanel();
 		void toggleLayout();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
-		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
-		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
-		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
+		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
 		UndoManager* getUndoManager() const;
 		void changeListenerCallback (ChangeBroadcaster* source);
 		void setEditor (CtrlrEditor *editorToSet);
 		CtrlrEditor *getEditor()																				{ return (ctrlrEditor); }
 		void restoreEditorState();
-		static const bool isValidComponentName(const String &name);
+		static bool isValidComponentName(const String &name);
 		int compareElements (CtrlrModulator *first, CtrlrModulator *second);
 		int compareElements (CtrlrPanel *first, CtrlrPanel *second);
 		void organizeVstIndexes();
@@ -274,12 +274,12 @@ class CtrlrManager :    public ValueTree::Listener,
 		void openPanelFromFile(Component *componentToAttachMenu);
 		CtrlrPanel *getPanelByUid(const String &uid);
 		CtrlrPanel *getPanel(const int panelIndex);
-		const int getNumPanels();
+		int getNumPanels();
 		AudioFormatManager &getAudioFormatManager()																{ return (audioFormatManager); }
 		AudioThumbnailCache &getAudioThumbnailCache()															{ return (audioThumbnailCache); }
 		CtrlrIDManager &getIDManager()																			{ return (ctrlrIDManager); }
 		CtrlrIDManager &getCtrlrIDManager()																		{ return (ctrlrIDManager); }
-		const bool isRestoring()																				{ return (ctrlrManagerRestoring); }
+		bool isRestoring()																				{ return (ctrlrManagerRestoring); }
 		void saveStateToDisk();
 		void timerCallback (int timerId);
 		CtrlrIDManager &getIdManager()																			{ return (ctrlrIDManager); }
@@ -295,7 +295,7 @@ class CtrlrManager :    public ValueTree::Listener,
 		/** Instance handlers **/
 		const String getInstanceName() const;
         const String getInstanceNameForHost() const;
-		const CtrlrInstance getInstanceMode() const;
+		CtrlrInstance getInstanceMode() const;
 		XmlElement *saveState();
 		Result importInstanceResources(CtrlrNative *native);
 		ValueTree &getInstanceTree();

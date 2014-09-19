@@ -12,7 +12,7 @@ class CtrlrPanelProcessor : public AsyncUpdater, public CtrlrPanelMidiProcessor
 		void handleAsyncUpdate();
 		void processBlock(MidiBuffer &midiMessages, MidiBuffer &leftoverBuffer);
 		void midiOptionChanged(const CtrlrPanelMidiOption optionThatChanged);
-		void midiChannelChaned(const CtrlrPanelMidiChannel channelThatChanged){}
+		void midiChannelChaned(const CtrlrPanelMidiChannel /*channelThatChanged*/){}
 		CtrlrPanel &getOwner();
 
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrPanelProcessor)

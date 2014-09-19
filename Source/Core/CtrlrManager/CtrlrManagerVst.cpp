@@ -12,7 +12,7 @@ CtrlrManagerVst::~CtrlrManagerVst()
 {
 }
 
-const int CtrlrManagerVst::size ()
+int CtrlrManagerVst::size ()
 {
 	return ((int)map.size());
 }
@@ -57,12 +57,12 @@ CtrlrModulator *CtrlrManagerVst::get(const int idx)
 		return (nullptr);
 }
 
-const int CtrlrManagerVst::getFirstFree()
+int CtrlrManagerVst::getFirstFree()
 {
 	return ((int)map.size());
 }
 
-const int CtrlrManagerVst::getLargestIndex()
+int CtrlrManagerVst::getLargestIndex()
 {
 	return (vsti.getLast());
 }

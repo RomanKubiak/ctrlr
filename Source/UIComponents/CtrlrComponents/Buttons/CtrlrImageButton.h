@@ -61,14 +61,14 @@ public:
 	void mouseDown (const MouseEvent &e);
 	void setComponentValue (const double newValue, const bool sendChangeMessage=false);
 	void setComponentMidiValue (const int newValue, const bool sendChangeMessage=false);
-	const int getComponentMidiValue();
-	const double getComponentValue();
-	const double getComponentMaxValue();
+	int getComponentMidiValue();
+	double getComponentValue();
+	double getComponentMaxValue();
 	const String getComponentText();
 	void buttonContentChanged();
 	const Array<int> getResourceList();
 	const Array<Font> getFontList();
-	const bool getToggleState();
+	bool getToggleState();
 	void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 	void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 	void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
@@ -79,7 +79,7 @@ public:
 	void buttonModeChanged(const ImageButtonMode newMode);
 	const ImageButtonMode getButtonMode();
 	void click();
-	const bool isToggleButton();
+	bool isToggleButton();
 	void setToggleState(const bool toggleState, const bool sendChangeMessage=false);
 	CtrlrValueMap &getValueMap() { return (valueMap); }
 	void timerCallback();

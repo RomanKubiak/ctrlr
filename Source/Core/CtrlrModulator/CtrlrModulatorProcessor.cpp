@@ -236,7 +236,7 @@ void CtrlrModulatorProcessor::setValueFromHost(const float inValue)
 	{
 		/* first quickly check if we need to change anything at all */
 		const ScopedReadLock sl (processorLock);
-		
+
 		const int possibleNewValue	= denormalizeValue (inValue, minValue, maxValue);
 
 		if (possibleNewValue == currentValue)
@@ -250,7 +250,7 @@ void CtrlrModulatorProcessor::setValueFromHost(const float inValue)
 	{
 		/* if we got here the value from the host is new and we need to update things */
 		const ScopedWriteLock sl(processorLock);
-		
+
 		/* set the new value for the modulator */
 		currentValue = denormalizeValue (inValue, minValue, maxValue);
 
@@ -260,7 +260,7 @@ void CtrlrModulatorProcessor::setValueFromHost(const float inValue)
 
 	/* update the modulator ValueTree and tell the GUI about the changes */
 	triggerAsyncUpdate();
-} 
+}
 
 
 void CtrlrModulatorProcessor::setValueFromMIDI(CtrlrMidiMessage &m)
@@ -268,13 +268,13 @@ void CtrlrModulatorProcessor::setValueFromMIDI(CtrlrMidiMessage &m)
 	/* called from the Panel's MIDI thread */
 	{
 		const ScopedWriteLock sl (processorLock);
-		
+
 		/* merge the icomming midi data with our message */
 		mergeMidiData (m, *ctrlrMidiMessage);
 
 		/* fetch the value from the midi message and pass it to the host */
 		const int possibleValue = getValueFromMidiMessage();
-		
+
 		if (currentValue != possibleValue)
 		{
 			if (isInValidMappedRange (possibleValue))
@@ -286,9 +286,9 @@ void CtrlrModulatorProcessor::setValueFromMIDI(CtrlrMidiMessage &m)
 			}
 		}
 	}
-} 
+}
 
-const void CtrlrModulatorProcessor::setParameterNotifyingHost()
+void CtrlrModulatorProcessor::setParameterNotifyingHost()
 {
 	if (owner.getVstIndex() >= 0 && owner.isExportedToVst())
 	{
@@ -296,7 +296,7 @@ const void CtrlrModulatorProcessor::setParameterNotifyingHost()
 	}
 }
 
-const int CtrlrModulatorProcessor::getValueFromMidiMessage()
+int CtrlrModulatorProcessor::getValueFromMidiMessage()
 {
 	int evaluationResult = 0;
 	if (usingValueMap)
@@ -328,7 +328,7 @@ const int CtrlrModulatorProcessor::getValueFromMidiMessage()
 	return (evaluationResult);
 }
 
-const float CtrlrModulatorProcessor::getValueForHost() const
+float CtrlrModulatorProcessor::getValueForHost() const
 {
 	const ScopedReadLock sl (processorLock);
 
@@ -359,28 +359,28 @@ CtrlrProcessor *CtrlrModulatorProcessor::getProcessor()
 	return (owner.getOwner().getOwner().getOwner());
 }
 
-const int CtrlrModulatorProcessor::getValue() const
+int CtrlrModulatorProcessor::getValue() const
 {
 	const ScopedReadLock sl (processorLock);
 
 	return (currentValue);
 }
 
-const int CtrlrModulatorProcessor::getValueMapped() const
+int CtrlrModulatorProcessor::getValueMapped() const
 {
 	const ScopedReadLock sl (processorLock);
 
 	return (valueMap.getMappedValue(currentValue));
 }
 
-const int CtrlrModulatorProcessor::getMax() const
+int CtrlrModulatorProcessor::getMax() const
 {
 	const ScopedReadLock sl (processorLock);
 
 	return (maxValue);
 }
 
-const int CtrlrModulatorProcessor::getMin() const
+int CtrlrModulatorProcessor::getMin() const
 {
 	const ScopedReadLock sl (processorLock);
 
@@ -439,7 +439,7 @@ void CtrlrModulatorProcessor::setValueMap (const CtrlrValueMap &map)
 	}
 }
 
-const int CtrlrModulatorProcessor::getValueForMidiMessage(const int value)
+int CtrlrModulatorProcessor::getValueForMidiMessage(const int value)
 {
 	int evaluationResult = value;
 
@@ -470,7 +470,7 @@ const int CtrlrModulatorProcessor::getValueForMidiMessage(const int value)
 	return (evaluationResult);
 }
 
-const bool CtrlrModulatorProcessor::isInValidMappedRange(const int possibleValue) const
+bool CtrlrModulatorProcessor::isInValidMappedRange(const int possibleValue) const
 {
 	if (usingValueMap)
 	{
@@ -499,14 +499,14 @@ void CtrlrModulatorProcessor::setLinkedToGlobal(const bool _linkedToGlobal, cons
 	}
 }
 
-const bool CtrlrModulatorProcessor::getLinkedToGlobal()
+bool CtrlrModulatorProcessor::getLinkedToGlobal()
 {
 	const ScopedReadLock sl (processorLock);
 
 	return (linkedToGlobal);
 }
 
-const int CtrlrModulatorProcessor::getLinkedToGlobalIndex()
+int CtrlrModulatorProcessor::getLinkedToGlobalIndex()
 {
 	const ScopedReadLock sl (processorLock);
 
@@ -518,7 +518,7 @@ CtrlrValueMap &CtrlrModulatorProcessor::getValueMap()
 	return (valueMap);
 }
 
-const int CtrlrModulatorProcessor::evaluateForward(const int inValue)
+int CtrlrModulatorProcessor::evaluateForward(const int inValue)
 {
 	if (usingForwardProcess)
 	{
@@ -538,7 +538,7 @@ const int CtrlrModulatorProcessor::evaluateForward(const int inValue)
 	return (inValue);
 }
 
-const int CtrlrModulatorProcessor::evaluateReverse(const int inValue)
+int CtrlrModulatorProcessor::evaluateReverse(const int inValue)
 {
 	if (usingReverseProcess)
 	{

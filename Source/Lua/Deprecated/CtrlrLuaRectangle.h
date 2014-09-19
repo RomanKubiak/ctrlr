@@ -1,7 +1,8 @@
 #ifndef __CTRLR_LUA_RECTANGLE__
 #define __CTRLR_LUA_RECTANGLE__
-
+#ifdef _WIN32
 #pragma warning(disable:4100)
+#endif
 
 #include "CtrlrMacros.h"
 #include "JuceHeader.h"

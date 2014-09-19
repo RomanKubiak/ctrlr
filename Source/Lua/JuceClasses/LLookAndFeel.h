@@ -94,7 +94,7 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static MouseCursor def_getMouseCursorFor (LookAndFeel_V3 *ptr, Component &component)
         { return (ptr->LookAndFeel_V3::getMouseCursorFor (component)); }
 
-		virtual void drawButtonBackground (Graphics &g, Button &b, const Colour &c, bool over, bool down)
+		void drawButtonBackground (Graphics &g, Button &b, const Colour &c, bool over, bool down)
         { call<void>("drawButtonBackground", boost::ref (g), boost::ref(b), c, over, down); }
         static void def_drawButtonBackground (LookAndFeel_V3 *ptr, Graphics &g, Button &b, const Colour &c, bool over, bool down)
         { return (ptr->LookAndFeel_V3::drawButtonBackground (g,b,c,over,down)); }
@@ -349,7 +349,7 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static int def_getSliderThumbRadius (LookAndFeel_V3 *ptr, Slider &component)
         { return (ptr->LookAndFeel_V3::getSliderThumbRadius (component)); }
 
-        virtual void drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider)
+        void drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider)
         { call<void>("drawRotarySlider", boost::ref(g), x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, boost::ref(slider)); }
         static void def_drawRotarySlider (LookAndFeel_V3 *ptr, Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider)
         { ptr->LookAndFeel_V3::drawRotarySlider (g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider); }

@@ -48,11 +48,11 @@ class CtrlrMIDILibrary : public ValueTree::Listener,
 		~CtrlrMIDILibrary();
 
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
-		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
-		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
+		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
 		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ libraryTree.setProperty (name, newValue, 0); }
 		const var &getProperty (const Identifier& name) const											{ return libraryTree.getProperty (name); }
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return libraryTree.getProperty (name, defaultReturnValue); }
@@ -64,8 +64,8 @@ class CtrlrMIDILibrary : public ValueTree::Listener,
 		void handleAsyncUpdate();
 		void changeListenerCallback(ChangeBroadcaster *changeSource);
 
-		const int getNumBanks();
-		const int getNumPrograms(const Uuid &bankUuid);
+		int getNumBanks();
+		int getNumPrograms(const Uuid &bankUuid);
 
 		const String getProgramName(const Uuid &bankUuid, const Uuid &programUuid);
 		const String getBankName(const Uuid &bankUuid);
@@ -115,8 +115,8 @@ class CtrlrMIDILibrary : public ValueTree::Listener,
 		void addListener (ValueTree::Listener *listener)												{ libraryTree.addListener(listener); }
 		void removeListener (ValueTree::Listener *listener)												{ libraryTree.removeListener(listener); }
 
-		const int getCurrentProgramMIDINumber(const int suggestedProgramNumber=-1);
-		const int getCurrentBankMIDINumber(const int suggestedBankNumber=-1);
+		int getCurrentProgramMIDINumber(const int suggestedProgramNumber=-1);
+		int getCurrentBankMIDINumber(const int suggestedBankNumber=-1);
 
 		PopupMenu getProgramMenu();
 		PopupMenu getBankMenu();
@@ -154,12 +154,12 @@ class CtrlrMIDILibrary : public ValueTree::Listener,
 		static String getItemName(const int itemId);
 		static Image getItemIcon(const int itemId);
 		static const String getName(const ValueTree &vt);
-		static const int getNumber(const ValueTree &vt);
-		static const int getLSB(const ValueTree &vt);
-		static const int getMSB(const ValueTree &vt);
-		static const Uuid getUuid(const ValueTree &tree);
-		const bool transactionCanHandle(const ValueTree &transactionState, ValueTree transactionItem);
-		const bool transactionCanHandleType(const ValueTree &transactionState, const ValueTree transactionItem);
+		static int getNumber(const ValueTree &vt);
+		static int getLSB(const ValueTree &vt);
+		static int getMSB(const ValueTree &vt);
+		Uuid getUuid(const ValueTree &tree);
+		bool transactionCanHandle(const ValueTree &transactionState, ValueTree transactionItem);
+		bool transactionCanHandleType(const ValueTree &transactionState, const ValueTree transactionItem);
 		void queueTransaction(ValueTree transactionState, ValueTree transactionItem=ValueTree::invalid);
 		CtrlrMIDITransaction *getTransactionByName(const String &transactionName);
 		void attachStandardTransactions();

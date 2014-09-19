@@ -182,7 +182,7 @@ const String CtrlrIDManager::typeToString (const PropertyType t)
 	return ("");
 }
 
-const CtrlrIDManager::PropertyType CtrlrIDManager::stringToType (const String t)
+CtrlrIDManager::PropertyType CtrlrIDManager::stringToType (const String t)
 {
 	if (t == "Numeric")
 	{

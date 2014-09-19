@@ -33,7 +33,7 @@ bool CtrlrMidiMessageEx::operator== (const CtrlrMidiMessageEx &other) const
 	return (false);
 }
 
-const int CtrlrMidiMessageEx::getValueInternal(const int value) const
+int CtrlrMidiMessageEx::getValueInternal(const int value) const
 {
 	if (overrideValue >= 0)
 	{
@@ -71,7 +71,7 @@ const BigInteger CtrlrMidiMessageEx::getBitValue()
 	return (BigInteger(0));
 }
 
-const int CtrlrMidiMessageEx::getNumberInternal(const int number) const
+int CtrlrMidiMessageEx::getNumberInternal(const int number) const
 {
 	if (overrideNumber >= 0)
 	{
@@ -89,7 +89,7 @@ void CtrlrMidiMessageEx::setChannel (const int channel)
 	}
 }
 
-const int CtrlrMidiMessageEx::getValue() const
+int CtrlrMidiMessageEx::getValue() const
 {
 	if (m.isNoteOff() || m.isNoteOn())
 	{
@@ -148,7 +148,7 @@ void CtrlrMidiMessageEx::setValue (const int value)
 	}
 }
 
-const int CtrlrMidiMessageEx::getNumber() const
+int CtrlrMidiMessageEx::getNumber() const
 {
 	if (m.isNoteOff() || m.isNoteOn() || m.isAftertouch())
 	{

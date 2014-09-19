@@ -260,17 +260,17 @@ const String CtrlrModulator::getName()
 	return (hasProperty(Ids::name) ? getProperty(Ids::name) : "<unnamed>");
 }
 
-const bool CtrlrModulator::hasName()
+bool CtrlrModulator::hasName()
 {
 	return (hasProperty(Ids::name));
 }
 
-const int CtrlrModulator::getVstIndex() const
+int CtrlrModulator::getVstIndex() const
 {
 	return ((int)getProperty(Ids::vstIndex));
 }
 
-const float CtrlrModulator::getVstValue(const int intValueToUse) const
+float CtrlrModulator::getVstValue(const int intValueToUse) const
 {
 	if (intValueToUse >= 0)
 	{
@@ -282,22 +282,22 @@ const float CtrlrModulator::getVstValue(const int intValueToUse) const
 	}
 }
 
-const int CtrlrModulator::getMaxModulatorValue() const
+int CtrlrModulator::getMaxModulatorValue() const
 {
 	return (processor.getMax());
 }
 
-const int CtrlrModulator::getMinModulatorValue() const
+int CtrlrModulator::getMinModulatorValue() const
 {
 	return (processor.getMin());
 }
 
-const int CtrlrModulator::getModulatorValue() const
+int CtrlrModulator::getModulatorValue() const
 {
 	return (processor.getValue());
 }
 
-const bool CtrlrModulator::removeComponent()
+bool CtrlrModulator::removeComponent()
 {
 	if (ctrlrComponent)
 	{
@@ -313,12 +313,11 @@ const bool CtrlrModulator::removeComponent()
 void CtrlrModulator::setComponentType (const ValueTree &savedState)
 {
 	Rectangle<int> oldBounds;
-	bool componentWasDeleted = false;
 
 	if (ctrlrComponent)
 	{
 		oldBounds			= ctrlrComponent->getBounds();
-		componentWasDeleted = removeComponent();
+		removeComponent();
 	}
 
 	ctrlrComponent		= CtrlrComponentTypeManager::createComponent (savedState, *this);
@@ -511,7 +510,7 @@ void CtrlrModulator::modifyReference(const int newValue)
 	}
 }
 
-const bool CtrlrModulator::isDelayedProperty(const Identifier &name)
+bool CtrlrModulator::isDelayedProperty(const Identifier &name)
 {
 	if (name == Ids::modulatorLinkedToModulator)
 		return (true);
@@ -576,13 +575,13 @@ void CtrlrModulator::setRestoreState(const bool _restoreStateStatus)
 	restoreStateStatus = _restoreStateStatus;
 }
 
-const bool CtrlrModulator::getRestoreState()
+bool CtrlrModulator::getRestoreState()
 {
 	const ScopedReadLock lock (modulatorLock);
 	return (restoreStateStatus);
 }
 
-const bool CtrlrModulator::isStatic()
+bool CtrlrModulator::isStatic()
 {
 	return (getProperty(Ids::modulatorIsStatic));
 }

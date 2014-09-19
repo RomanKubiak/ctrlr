@@ -34,8 +34,8 @@ class CtrlrPanelResourceManager
 		const Image getResourceAsImage (const String &resourceName);
 		const Font getResourceAsFont (const String &resourceName);
 		void reloadComboContents (ComboBox &comboToUpdate);
-		const int getHashCode (const String &resourceName, const bool preloadResource=false);
-		const int getResourceIndex (const String &resourceName);
+		int getHashCode (const String &resourceName, const bool preloadResource=false);
+		int getResourceIndex (const String &resourceName);
 
 		Result removeResourceRange (const int resourceIndexStart, const int numberOfResourcesToRemove);
 		Result removeResource (const int resourceIndex);
@@ -44,14 +44,14 @@ class CtrlrPanelResourceManager
 		Result importResource (const ValueTree &resourceTree);
 
 		void panelUIDChanged();
-		const int getResourceIndexByHashCode(const int hashCode);
-		const int getResourceHashCode(const int resourceIndex);
+		int getResourceIndexByHashCode(const int hashCode);
+		int getResourceHashCode(const int resourceIndex);
 		const File getResourcesDirectory()	{ return (resourcesDirectory); }
 		void initManager();
-		const bool resourceExists(const File &resourceFile);
+		bool resourceExists(const File &resourceFile);
 		CtrlrPanel &getOwner();
 		static const String getTypeDescription(const CtrlrPanelResourceType type);
-		const CtrlrPanelResourceManager::CtrlrPanelResourceType guessType(const File &resourceFile);
+		CtrlrPanelResourceManager::CtrlrPanelResourceType guessType(const File &resourceFile);
 		static void wrapForLua(lua_State *L);
 		Result restoreState (const ValueTree &savedState);
 		int compareElements(CtrlrPanelResource *first, CtrlrPanelResource *second);

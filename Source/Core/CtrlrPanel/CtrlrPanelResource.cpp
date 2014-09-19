@@ -60,17 +60,17 @@ File &CtrlrPanelResource::getFile()
 	return (resourceDataFile);
 }
 
-const int64 CtrlrPanelResource::getSize()
+int64 CtrlrPanelResource::getSize()
 {
 	return (resourceDataFile.getSize());
 }
 
-const double CtrlrPanelResource::getSizeDouble()
+double CtrlrPanelResource::getSizeDouble()
 {
 	return ((double)getSize());
 }
 
-const int64 CtrlrPanelResource::getHashCode()
+int64 CtrlrPanelResource::getHashCode()
 {
 	return (getProperty(Ids::resourceHash));
 }
@@ -129,7 +129,7 @@ const MemoryBlock &CtrlrPanelResource::asData()
 	return (data);
 }
 
-const bool CtrlrPanelResource::isLoaded()
+bool CtrlrPanelResource::isLoaded()
 {
 	return (resourceLoaded);
 }
@@ -195,7 +195,7 @@ ValueTree CtrlrPanelResource::createTree()
 	return (resourceTreeCopy);
 }
 
-const CtrlrPanelResourceManager::CtrlrPanelResourceType CtrlrPanelResource::getType()
+CtrlrPanelResourceManager::CtrlrPanelResourceType CtrlrPanelResource::getType()
 {
 	return (resourceType);
 }

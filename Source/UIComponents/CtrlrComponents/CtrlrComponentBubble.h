@@ -54,11 +54,11 @@ public:
 	Label &getNameLabel();
 	void mouseDoubleClick(const MouseEvent& e);
 	void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
-	void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
-	void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
-	void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-	void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-	void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+	void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+	void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
+	void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
+	void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
+	void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
 	bool keyPressed (const KeyPress& key, Component* originatingComponent);
     //[/UserMethods]
 

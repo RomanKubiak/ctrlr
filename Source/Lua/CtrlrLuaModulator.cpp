@@ -41,32 +41,32 @@ void CtrlrModulator::setModulatorValue(const int newValue, bool vst, bool midi, 
 	processor.handleUpdateNowIfNeeded();
 }
 
-const int CtrlrModulator::getValueMapped() const
+int CtrlrModulator::getValueMapped() const
 {
 	return (processor.getValueMapped());
 }
 
-const int CtrlrModulator::getValueNonMapped() const
+int CtrlrModulator::getValueNonMapped() const
 {
 	return (getModulatorValue());
 }
 
-const int CtrlrModulator::getMaxMapped()
+int CtrlrModulator::getMaxMapped()
 {
 	return (processor.getValueMap().getMappedMax());
 }
 
-const int CtrlrModulator::getMaxNonMapped()
+int CtrlrModulator::getMaxNonMapped()
 {
 	return (getMaxModulatorValue());
 }
 
-const int CtrlrModulator::getMinMapped()
+int CtrlrModulator::getMinMapped()
 {
 	return (processor.getValueMap().getMappedMin());
 }
 
-const int CtrlrModulator::getMinNonMapped()
+int CtrlrModulator::getMinNonMapped()
 {
 	return (getMinModulatorValue());
 }

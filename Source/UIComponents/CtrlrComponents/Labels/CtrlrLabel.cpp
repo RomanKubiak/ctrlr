@@ -159,7 +159,7 @@ void CtrlrLabel::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-const double CtrlrLabel::getComponentMaxValue()
+double CtrlrLabel::getComponentMaxValue()
 {
 	return (1);
 }
@@ -172,12 +172,12 @@ void CtrlrLabel::setComponentValue (const double newValue, const bool sendChange
 	}
 }
 
-const double CtrlrLabel::getComponentValue()
+double CtrlrLabel::getComponentValue()
 {
 	return (1);
 }
 
-const int CtrlrLabel::getComponentMidiValue()
+int CtrlrLabel::getComponentMidiValue()
 {
 	return (1);
 }

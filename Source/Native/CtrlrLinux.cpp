@@ -69,7 +69,7 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const 
 
 	if ( (error = CtrlrPanel::exportPanel (panelToWrite, File::nonexistent, newMe, &panelExportData, &panelResourcesData, isRestricted)) == String::empty)
 	{
-		if (!libr_write (outputHandle, CTRLR_INTERNAL_PANEL_SECTION, panelExportData.getData(), panelExportData.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
+		if (!libr_write (outputHandle, CTRLR_INTERNAL_PANEL_SECTION, (char *)panelExportData.getData(), panelExportData.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
 		{
 			return (Result::fail ("Linux native, failed to write panel data to binary ["+newMe.getFullPathName()+"], size ["+STR((int32)panelExportData.getSize())+"]"));
 			libr_close (outputHandle);
@@ -79,7 +79,7 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const 
 
 		if (panelResourcesData.getSize() > 0)
 		{
-			if (!libr_write (outputHandle, CTRLR_INTERNAL_RESOURCES_SECTION, panelResourcesData.getData(), panelResourcesData.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
+			if (!libr_write (outputHandle, CTRLR_INTERNAL_RESOURCES_SECTION, (char *)panelResourcesData.getData(), panelResourcesData.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
 			{
 			    libr_close (outputHandle);
 				return (Result::fail ("Linux native, failed to write panel resource data to binary ["+newMe.getFullPathName()+"], size ["+STR((int32)panelResourcesData.getSize())+"]"));
@@ -96,7 +96,7 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const 
             /* Sign the panel */
             MemoryBlock signature = signData (panelResourcesData, privateKey);
 
-            if (!libr_write (outputHandle, CTRLR_INTERNAL_SIGNATURE_SECTION, signature.getData(), signature.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
+            if (!libr_write (outputHandle, CTRLR_INTERNAL_SIGNATURE_SECTION, (char *)signature.getData(), signature.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
 			{
 			    libr_close (outputHandle);
 				return (Result::fail ("Linux native, failed to write panel signature data to binary ["+newMe.getFullPathName()+"], size ["+STR((int32)signature.getSize())+"]"));

@@ -5,7 +5,10 @@
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "JuceClasses/LMemoryBlock.h"
+
+#ifdef _WIN32
 #pragma warning(disable:4706)
+#endif // _WIN32
 
 static const char *asciiSpecials[]	= {"[NUL]", "[SOH]", "[STX]", "[ETX]", "[EOT]", "[ENQ]", "[ACK]", "[BEL]", "[BS]", "[HT]", "[LF]", "[VT]", "[FF]", "[CR]", "[SO]", "[SI]", "[DLE]", "[DC1]", "[DC2]", "[DC3]", "[DC4]", "[NAK]", "[SYN]", "[ETB]", "[CAN]", "[EM]", "[SUB]", "[ESC]", "[FS]", "[GS]", "[RS]", "[US]", 0};
 
@@ -53,7 +56,7 @@ const String midiMessageTypeToString (const CtrlrMidiMessageType messageType)
 	return ("None");
 }
 
-const CtrlrMidiMessageType midiMessageStringToType (const String &messageType)
+CtrlrMidiMessageType midiMessageStringToType (const String &messageType)
 {
 	if (messageType == "CC")
 	{
@@ -117,7 +120,7 @@ const CtrlrMidiMessageType midiMessageStringToType (const String &messageType)
 	}
 }
 
-const CtrlrMidiMessageType midiMessageToType (const MidiMessage &midiMessage)
+CtrlrMidiMessageType midiMessageToType (const MidiMessage &midiMessage)
 {
 	if (midiMessage.isController())
 	{
@@ -174,7 +177,7 @@ const CtrlrMidiMessageType midiMessageToType (const MidiMessage &midiMessage)
 	return (SysEx);
 }
 
-const CtrlrSysExFormulaToken indirectFromString (const String &str)
+CtrlrSysExFormulaToken indirectFromString (const String &str)
 {
 	if (str == "ByteValue")
 		return (ByteValue);
@@ -397,7 +400,7 @@ int getMidiNumberFromModulator(CtrlrModulator *m)
 	return (-1);
 }
 
-const CtrlrMidiMessageType getMidiTypeFromModulator(CtrlrModulator *m, const int index)
+CtrlrMidiMessageType getMidiTypeFromModulator(CtrlrModulator *m, const int index)
 {
 	if (m == 0 || m->getMidiMessagePtr() == 0)
 		return (None);
@@ -408,7 +411,7 @@ const CtrlrMidiMessageType getMidiTypeFromModulator(CtrlrModulator *m, const int
 		return (midiMessageToType(m->getMidiMessage().getReference(index).m));
 }
 
-const int getMidiNumberFromMidiMessage (const MidiMessage &m)
+int getMidiNumberFromMidiMessage (const MidiMessage &m)
 {
 	switch (midiMessageToType(m))
 	{
@@ -645,7 +648,7 @@ void setBitOption (int &storage, const int optionToSet, const bool isSet)
 	}
 }
 
-const bool getBitOption (const int &storage, const int &optionToGet)
+bool getBitOption (const int &storage, const int &optionToGet)
 {
 	return ((storage & optionToGet) != 0);
 }
@@ -712,7 +715,7 @@ const String getAudioFormatReaderDetails(AudioFormatReader *reader)
 	return (ret);
 }
 
-const int customInfoDialog (const String &title, Component *customComponent)
+int customInfoDialog (const String &title, Component *customComponent)
 {
 	AlertWindow wnd(title, String::empty, AlertWindow::InfoIcon);
 	customComponent->setSize (400,400);
@@ -731,7 +734,7 @@ const String dataPrefix (const MemoryBlock &data, const int prefixLength)
     return ("("+STR((int)data.getSize())+")"+String::toHexString (data.getData(), ( (prefixLength < data.getSize()) ? prefixLength : data.getSize() ) ));
 }
 
-const bool isMonospaced(const Font &font)
+bool isMonospaced(const Font &font)
 {
 	return (false);
 }

@@ -11,26 +11,26 @@ class CtrlrMIDITransaction : public ValueTree::Listener, public AsyncUpdater, pu
 	public:
 		CtrlrMIDITransaction (CtrlrMIDILibrary &_owner);
 		~CtrlrMIDITransaction();
-		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ transactionState.setProperty (name, newValue, 0); }
+		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ transactionState.setProperty (name, newValue, isUndoable ? nullptr : nullptr); }
 		const var &getProperty (const Identifier& name) const											{ return transactionState.getProperty (name); }
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return transactionState.getProperty (name, defaultReturnValue); }
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
-		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
-		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
+		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
 		void restoreState (const ValueTree &savedState);
 		const String getName();
-		const bool getHasResponse();
+		bool getHasResponse();
 		void setHasResponse(const bool _hasResponse);
 		void setHasDataCheck(const bool _hasDataCheck);
-		const bool getHasDataCheck();
+		bool getHasDataCheck();
 		void setHasSizeCheck(const bool _hasSizeCheck);
-		const bool getHasSizeCheck();
+		bool getHasSizeCheck();
 		const String getAdditionalExitData();
 		void setAdditionalExitData(const String &_additionalExitData);
-		const int getTimeout();
+		int getTimeout();
 		void setTimeout (const int _timeout);
 		void constructRequest();
 		void constructResponseMask();
@@ -39,9 +39,9 @@ class CtrlrMIDITransaction : public ValueTree::Listener, public AsyncUpdater, pu
 		void timerCallback();
 		const MemoryBlock getFormulaAsMemoryBlock(const String &formula);
 		const MemoryBlock getDataFromResponse(const MidiMessage &messageToExtractFrom);
-		const size_t getResponsePrefixLength();
-		const size_t getResponseDataLength();
-		const size_t getDataLengthFromFormula(const String &formula);
+		size_t getResponsePrefixLength();
+		size_t getResponseDataLength();
+		size_t getDataLengthFromFormula(const String &formula);
 		MemoryBlock getResponseReceived();
 		MemoryBlock getRequest();
 		MemoryBlock getResponseMask();
@@ -51,17 +51,17 @@ class CtrlrMIDITransaction : public ValueTree::Listener, public AsyncUpdater, pu
 		void setRequest(const MemoryBlock &request);
 		void setResponseMask(const MemoryBlock &responseMask);
 		void checkPossibleResponse(const MidiMessage &responseToCheck);
-		const bool sendRequest();
+		bool sendRequest();
 		void setTransactionItem(ValueTree _transactionItem);
 		ValueTree &getTransactionItem();
-		const bool canHandleItem(const ValueTree _transactionItem=ValueTree::invalid);
-		const bool canHandleItemType(const Identifier &itemType);
+		bool canHandleItem(const ValueTree _transactionItem=ValueTree::invalid);
+		bool canHandleItemType(const Identifier &itemType);
 		MemoryBlock getRequestDataAsMemoryBlock();
 		MemoryBlock getConfirmationDataAsMemoryBlock();
 		MemoryBlock getNameAsMemoryBlock();
 		MemoryBlock getDataFromCurrentResponse();
 
-		static const bool compareMemoryWithWildcard(const MidiMessage &midi, const MemoryBlock &memory);
+		static bool compareMemoryWithWildcard(const MidiMessage &midi, const MemoryBlock &memory);
 		static ValueTree createEmptyTransactionTree(const String &transactionName);
 		static void wrapForLua (lua_State *L);
 

@@ -1,8 +1,8 @@
 #ifndef __CTRLR_LUA_MULTI_TIMER__
 #define __CTRLR_LUA_MULTI_TIMER__
-
+#ifdef _WIN32
 #pragma warning(disable:4100)
-
+#endif // _WIN32
 
 #include "Methods/CtrlrLuaMethod.h"
 
@@ -23,7 +23,7 @@ class CtrlrLuaMultiTimer : public MultiTimer
 
 		*/
 		CtrlrLuaMultiTimer();
-		
+
 		/** @brief Internal
 
 		*/

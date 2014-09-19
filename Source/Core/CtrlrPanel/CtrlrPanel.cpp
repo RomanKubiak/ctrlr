@@ -802,17 +802,17 @@ void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 	}
 }
 
-const int CtrlrPanel::getCurrentProgramNumber()
+int CtrlrPanel::getCurrentProgramNumber()
 {
 	return (3);
 }
 
-const int CtrlrPanel::getCurrentBankNumber()
+int CtrlrPanel::getCurrentBankNumber()
 {
 	return (4);
 }
 
-const int CtrlrPanel::getPanelIndex()
+int CtrlrPanel::getPanelIndex()
 {
 	return (getProperty(Ids::panelIndex));
 }
@@ -857,12 +857,12 @@ const String CtrlrPanel::getVersionString(const bool includeVersionName, const b
 	return (r);
 }
 
-const int CtrlrPanel::cleanBogusProperties()
+int CtrlrPanel::cleanBogusProperties()
 {
 	return (cleanBogusPropertiesFromChild (panelTree));
 }
 
-const int CtrlrPanel::cleanBogusPropertiesFromChild(ValueTree &treeToClean)
+int CtrlrPanel::cleanBogusPropertiesFromChild(ValueTree &treeToClean)
 {
 	int removedProperties = 0;
 
@@ -953,7 +953,7 @@ void CtrlrPanel::queueMessageForHostOutput(const CtrlrMidiMessage &m)
 	owner.getOwner()->addMidiToOutputQueue (m);
 }
 
-const bool CtrlrPanel::getMidiOptionBool(const CtrlrPanelMidiOption optionToCheck)
+bool CtrlrPanel::getMidiOptionBool(const CtrlrPanelMidiOption optionToCheck)
 {
 	const uint32 opt = midiOptions.get();
 
@@ -980,7 +980,7 @@ void CtrlrPanel::setMidiOptionBool(const CtrlrPanelMidiOption optionToSet, const
 	midiInputThread.midiOptionChanged(optionToSet);
 }
 
-const uint8 CtrlrPanel::getMidiChannel(const CtrlrPanelMidiChannel channelToGet)
+uint8 CtrlrPanel::getMidiChannel(const CtrlrPanelMidiChannel channelToGet)
 {
 	switch (channelToGet)
 	{
@@ -1040,7 +1040,7 @@ void CtrlrPanel::setMidiChannel(const CtrlrPanelMidiChannel optionToSet, const u
     }
 }
 
-const CtrlrPanelMidiChannel CtrlrPanel::midiChannelFromString(const Identifier &i)
+CtrlrPanelMidiChannel CtrlrPanel::midiChannelFromString(const Identifier &i)
 {
 	if (Ids::panelMidiInputChannelDevice == i)
 	{
@@ -1065,7 +1065,7 @@ const CtrlrPanelMidiChannel CtrlrPanel::midiChannelFromString(const Identifier &
 	return (panelMidiInputChannelDevice);
 }
 
-const CtrlrPanelMidiOption CtrlrPanel::midiOptionFromString(const Identifier &i)
+CtrlrPanelMidiOption CtrlrPanel::midiOptionFromString(const Identifier &i)
 {
 	if (Ids::panelMidiInputFromHost == i)
 	{
@@ -1151,12 +1151,12 @@ void CtrlrPanel::setRadioGroupId(CtrlrComponent *componentMember, const int grou
 	}
 }
 
-const bool CtrlrPanel::componentIsInRadioGroup(CtrlrComponent *component)
+bool CtrlrPanel::componentIsInRadioGroup(CtrlrComponent *component)
 {
 	return (radioGrouppedComponent.contains (component));
 }
 
-const bool CtrlrPanel::checkRadioGroup(CtrlrComponent *c, const bool componentToggleState)
+bool CtrlrPanel::checkRadioGroup(CtrlrComponent *c, const bool componentToggleState)
 {
 	if (c->isToggleButton())
 	{
@@ -1181,7 +1181,7 @@ const bool CtrlrPanel::checkRadioGroup(CtrlrComponent *c, const bool componentTo
 						)
 					{
 						/* need to change that state, only one in the group can have this state */
-						radioGrouppedComponent[i]->setToggleState(false);
+						radioGrouppedComponent[i]->setToggleState(false, false);
 						radioGrouppedComponent[i]->getOwner().setProperty (Ids::modulatorValue, false);
 					}
 					else if (
@@ -1204,19 +1204,19 @@ void CtrlrPanel::sendSnapshot()
 	snapshot.sendSnapshot();
 }
 
-const bool CtrlrPanel::getRestoreState()
+bool CtrlrPanel::getRestoreState()
 {
 	const ScopedReadLock lock (panelLock);
 	return (restoreStateStatus);
 }
 
-const bool CtrlrPanel::getProgramState()
+bool CtrlrPanel::getProgramState()
 {
 	const ScopedReadLock lock (panelLock);
 	return (programState);
 }
 
-const bool CtrlrPanel::getBootstrapState()
+bool CtrlrPanel::getBootstrapState()
 {
 	const ScopedReadLock lock (panelLock);
 	return (boostrapStateStatus);
@@ -1364,12 +1364,12 @@ CtrlrModulator* CtrlrPanel::getModulatorByCustomIndex (const int customIndex)
 	return (nullptr);
 }
 
-const int CtrlrPanel::getModulatorIndex (const CtrlrModulator *const modulatorToFind) const
+int CtrlrPanel::getModulatorIndex (const CtrlrModulator *const modulatorToFind) const
 {
 	return (ctrlrModulators.indexOf (modulatorToFind));
 }
 
-const int CtrlrPanel::getModulatorIndex (const String &modulatorToFind) const
+int CtrlrPanel::getModulatorIndex (const String &modulatorToFind) const
 {
 	return (ctrlrModulators.indexOf(getModulator(modulatorToFind)));
 }
@@ -1415,7 +1415,7 @@ void CtrlrPanel::removePanelResource (const int hashCode)
 	setProperty (Ids::panelResources, globalsToString(panelResources));
 }
 
-const bool CtrlrPanel::isPanelResource (const int hashCode)
+bool CtrlrPanel::isPanelResource (const int hashCode)
 {
 	return (panelResources.contains (hashCode));
 }
@@ -1600,7 +1600,7 @@ const String CtrlrPanel::getPanelInstanceVersionString()
     return (getVersionString (false, false, "."));
 }
 
-const int CtrlrPanel::getPanelInstanceVersionInt()
+int CtrlrPanel::getPanelInstanceVersionInt()
 {
     return (getVersionAsHexInteger (getVersionString (false, false, ".")));
 }

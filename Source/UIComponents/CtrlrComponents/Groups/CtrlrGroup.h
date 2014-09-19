@@ -69,9 +69,9 @@ public:
 	static const GradientType gradientFromString(const String &str);
 	static const Justification justificationFromString(const String &str);
 	void setComponentValue (const double newValue, const bool sendChangeMessage=false);
-	const double getComponentValue();
-	const int getComponentMidiValue();
-	const double getComponentMaxValue();
+	double getComponentValue();
+	int getComponentMidiValue();
+	double getComponentMaxValue();
 	const String getComponentText();
 	void setComponentText (const String &componentText);
 	void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);

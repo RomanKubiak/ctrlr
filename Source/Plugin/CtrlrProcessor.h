@@ -19,7 +19,7 @@ struct DelayedPluginDeleter  : private Timer, private DeletedAtShutdown
     {
         startTimer (1000);
     }
-    
+
     void timerCallback() override
     {
         delete this;
@@ -47,7 +47,7 @@ class CtrlrProcessor  : public AudioProcessor
 		void releaseResources();
 		void processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages);
 		AudioProcessorEditor* createEditor();
-		const bool useWrapper();
+		bool useWrapper();
 		bool hasEditor() const;
 		const String getName() const;
 		int getNumParameters();
@@ -90,7 +90,7 @@ class CtrlrProcessor  : public AudioProcessor
 		void openFileFromCli(const File &file);
 		AudioPlayHead::CurrentPositionInfo lastPosInfo;
 		const var &getProperty (const Identifier& name) const;
-		const bool hasProperty(const Identifier &name) const;
+		bool hasProperty(const Identifier &name) const;
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrProcessor);
 
 	private:

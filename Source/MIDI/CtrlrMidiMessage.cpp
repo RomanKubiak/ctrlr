@@ -609,7 +609,7 @@ int CtrlrMidiMessage::getNumber() const
 	}
 }
 
-const CtrlrMidiMessageType CtrlrMidiMessage::getMidiMessageType() const
+CtrlrMidiMessageType CtrlrMidiMessage::getMidiMessageType() const
 {
 	return (messageType);
 }
@@ -862,7 +862,7 @@ const String CtrlrMidiMessage::toString() const
 	return (String::toHexString (getData().getData(), getData().getSize()));
 }
 
-const int CtrlrMidiMessage::getSize() const
+int CtrlrMidiMessage::getSize() const
 {
 	return (getData().getSize());
 }

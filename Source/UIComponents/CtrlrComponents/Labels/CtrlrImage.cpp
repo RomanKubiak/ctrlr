@@ -93,17 +93,17 @@ void CtrlrImage::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-const double CtrlrImage::getComponentMaxValue()
+double CtrlrImage::getComponentMaxValue()
 {
 	return (1);
 }
 
-const double CtrlrImage::getComponentValue()
+double CtrlrImage::getComponentValue()
 {
 	return (1);
 }
 
-const int CtrlrImage::getComponentMidiValue()
+int CtrlrImage::getComponentMidiValue()
 {
 	return (1);
 }

@@ -78,7 +78,7 @@ Component *CtrlrPanelWindowManager::getContent(const CtrlrPanelWindowManager::Wi
 	return (0);
 }
 
-const bool CtrlrPanelWindowManager::isCreated(const CtrlrPanelWindowManager::WindowType window)
+bool CtrlrPanelWindowManager::isCreated(const CtrlrPanelWindowManager::WindowType window)
 {
 	for (int i=0; i<windows.size(); i++)
 	{
@@ -126,7 +126,7 @@ const String CtrlrPanelWindowManager::getWindowName(const CtrlrPanelWindowManage
 	}
 }
 
-const CtrlrPanelWindowManager::WindowType CtrlrPanelWindowManager::getWindowType(const String &windowName)
+CtrlrPanelWindowManager::WindowType CtrlrPanelWindowManager::getWindowType(const String &windowName)
 {
 	if (windowName == "LuaConsole")
 		return (LuaConsole);

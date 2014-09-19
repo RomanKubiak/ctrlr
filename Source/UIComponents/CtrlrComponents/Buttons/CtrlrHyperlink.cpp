@@ -109,17 +109,17 @@ void CtrlrHyperlink::setComponentValue (const double newValue, const bool sendCh
 {
 }
 
-const double CtrlrHyperlink::getComponentValue()
+double CtrlrHyperlink::getComponentValue()
 {
 	return (0);
 }
 
-const int CtrlrHyperlink::getComponentMidiValue()
+int CtrlrHyperlink::getComponentMidiValue()
 {
 	return (getComponentValue());
 }
 
-const double CtrlrHyperlink::getComponentMaxValue()
+double CtrlrHyperlink::getComponentMaxValue()
 {
 	return (1);
 }

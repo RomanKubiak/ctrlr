@@ -146,17 +146,17 @@ void CtrlrFixedImageSlider::mouseDoubleClick (const MouseEvent& e)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-const double CtrlrFixedImageSlider::getComponentMaxValue()
+double CtrlrFixedImageSlider::getComponentMaxValue()
 {
 	return (valueMap.getNonMappedMax());
 }
 
-const double CtrlrFixedImageSlider::getComponentValue()
+double CtrlrFixedImageSlider::getComponentValue()
 {
 	return ((int)ctrlrSlider->getValue());
 }
 
-const int CtrlrFixedImageSlider::getComponentMidiValue()
+int CtrlrFixedImageSlider::getComponentMidiValue()
 {
 	return (valueMap.getMappedValue(ctrlrSlider->getValue()));
 

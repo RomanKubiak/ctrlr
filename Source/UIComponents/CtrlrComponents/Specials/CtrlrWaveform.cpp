@@ -76,17 +76,17 @@ void CtrlrWaveform::setComponentValue (const double newValue, const bool sendCha
 {
 }
 
-const double CtrlrWaveform::getComponentValue()
+double CtrlrWaveform::getComponentValue()
 {
 	return (1);
 }
 
-const int CtrlrWaveform::getComponentMidiValue()
+int CtrlrWaveform::getComponentMidiValue()
 {
 	return (1);
 }
 
-const double CtrlrWaveform::getComponentMaxValue()
+double CtrlrWaveform::getComponentMaxValue()
 {
 	return (roundFloatToInt(getApproximatePeak()));
 }

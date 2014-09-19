@@ -329,7 +329,7 @@ void CtrlrManager::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChan
     }
 }
 
-const bool CtrlrManager::isValidComponentName(const String &name)
+bool CtrlrManager::isValidComponentName(const String &name)
 {
 	if (name.length() < 3 || name.length() > 256)
 		return (false);
@@ -403,7 +403,7 @@ void CtrlrManager::setEditor (CtrlrEditor *editorToSet)
 	restoreEditorState();
 }
 
-const int CtrlrManager::getModulatorVstIndexByName(const String &modulatorName)
+int CtrlrManager::getModulatorVstIndexByName(const String &modulatorName)
 {
 	CtrlrModulator *m = getModulator(modulatorName);
 
@@ -454,7 +454,7 @@ void CtrlrManager::handleAsyncUpdate()
 {
 }
 
-const int CtrlrManager::getPanelForModulator(const int modulatorIndex)
+int CtrlrManager::getPanelForModulator(const int modulatorIndex)
 {
 	if (ctrlrModulators[modulatorIndex])
 	{
@@ -463,7 +463,7 @@ const int CtrlrManager::getPanelForModulator(const int modulatorIndex)
 	return (-1);
 }
 
-const int CtrlrManager::getNextVstIndex()
+int CtrlrManager::getNextVstIndex()
 {
 	return (ctrlrManagerVst->getFirstFree());
 }
@@ -544,7 +544,7 @@ CtrlrPanel *CtrlrManager::getPanel(const int panelIndex)
 	return (0);
 }
 
-const int CtrlrManager::getNumPanels()
+int CtrlrManager::getNumPanels()
 {
 	return (ctrlrPanels.size());
 }
@@ -557,7 +557,7 @@ CtrlrModulator *CtrlrManager::getModulatorByVstIndex(const int index)
 		return (nullptr);
 }
 
-const int CtrlrManager::getNumModulators(const bool onlyVstParameters)
+int CtrlrManager::getNumModulators(const bool onlyVstParameters)
 {
 	if (onlyVstParameters)
 	{

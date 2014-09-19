@@ -1,8 +1,8 @@
 #ifndef __CTRLR_LUA_AUDIO_SAMPLE_BUFFER__
 #define __CTRLR_LUA_AUDIO_SAMPLE_BUFFER__
-
+#ifdef _WIN32
 #pragma warning(disable:4100)
-
+#endif // _WIN32
 
 #include "JuceHeader.h"
 

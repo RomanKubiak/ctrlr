@@ -32,37 +32,37 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 
 			@return the index of the modulator on the parameter list
 		*/
-		const int getVstIndex() const;
+		int getVstIndex() const;
 
 		/** @brief Get the current modulator value
 
 			@return the value of the modulator
 		*/
-		const int getModulatorValue() const;
+		int getModulatorValue() const;
 
 		/** @brief Get the current mapped modulator value
 
 			@return the mapped value of the modulator
 		*/
-		const int getValueMapped() const;
+		int getValueMapped() const;
 
 		/** @brief Get the current non-mapped modulator value
 
 			@return the current non-mapped value of the modulator
 		*/
-		const int getValueNonMapped() const;
+		int getValueNonMapped() const;
 
 		/** @brief Get the maximum value the modulator can have
 
 			@return the max numeric value of the modulator
 		*/
-		const int getMaxModulatorValue() const;
+		int getMaxModulatorValue() const;
 
 		/** @brief Get the minimum value the modulator can have
 
 			@return the minimum numeric value of the modulator
 		*/
-		const int getMinModulatorValue() const;
+		int getMinModulatorValue() const;
 
 		/** @brief Get the object that represents this modulator in the UI
 
@@ -74,7 +74,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 
 			@return true if the modulator is in restore state, otherwise false. In restore state no MIDI is transmitted
 		*/
-		const bool getRestoreState();
+		bool getRestoreState();
 
 		/** @brief Set the value to the modulator (uses the mapped value after the= on the value list)
 
@@ -114,25 +114,25 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 
 			@param return	the max mapped value used
 		*/
-		const int getMaxMapped();
+		int getMaxMapped();
 
 		/** @brief Get the max non-mapped value, for a fixed component this will be the count of values on the list
 
 			@param return	the max non-mapped value used
 		*/
-		const int getMaxNonMapped();
+		int getMaxNonMapped();
 
 		/** @brief Get the min mapped possible value (this will be the first mapped value on the list, not the numeric MIN value)
 
 			@param return	the min mapped value used
 		*/
-		const int getMinMapped();
+		int getMinMapped();
 
 		/** @brief Get the min non-mapped value, for a fixed component this will be always 0
 
 			@param return	the min non-mapped value used
 		*/
-		const int getMinNonMapped();
+		int getMinNonMapped();
 
 		class ModulatorListener
 		{
@@ -146,9 +146,9 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		const Identifier getComponentType();
 		void setModulatorValue(const int newValue, bool vst, bool midi, bool ui);
 		const String getName();
-		const bool hasName();
+		bool hasName();
 		const std::string getLuaName() { return (getName().toUTF8().getAddress()); }
-		const float getVstValue(const int intValueToUse=-1) const;
+		float getVstValue(const int intValueToUse=-1) const;
 		CtrlrMidiMessage *getMidiMessagePtr();
 		void restoreState (const ValueTree &savedState);
 		CtrlrManager &getCtrlrManager();
@@ -156,11 +156,11 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false);
 		const String getModulatorText();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
-		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
-		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
-		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
+		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
 		void setComponentType (const Identifier &componentType, const bool forceIfAlreadyThisType=false);
 		void setComponentType (const ValueTree &savedState);
 		void setMidiType (const ValueTree &savedState);
@@ -168,21 +168,21 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		void setReference (const String &modulatorToReference);
 		CtrlrModulator *getReference();
 		void setPanelReference(CtrlrPanel *referencedPanel);
-		const bool isDelayedProperty(const Identifier &name);
+		bool isDelayedProperty(const Identifier &name);
 		void setDelayedProperty(const Identifier &name, const var value);
 		CtrlrOwnedMidiMessage &getOwnedMidiMessage();
 		static void wrapForLua (lua_State *L);
 		ValueTree &getObjectTree()																		{ return (modulatorTree); }
 		ValueTree &getModulatorTree()																	{ return (modulatorTree); }
 		const var &getProperty (const Identifier& name) const											{ return (modulatorTree.getProperty (name)); }
-		const bool hasProperty(const Identifier& name) const											{ return (modulatorTree.hasProperty (name)); }
+		bool hasProperty(const Identifier& name) const											{ return (modulatorTree.hasProperty (name)); }
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return modulatorTree.getProperty (name, defaultReturnValue); }
 		CtrlrPanel &getOwner()																			{ return (owner); }
 		CtrlrModulatorProcessor &getProcessor()															{ return (processor); }
 		void addModulatorListener (ModulatorListener *l)													{ modulatorListeners.add(l); }
 		void removeModulatorListener (ModulatorListener *l)													{ modulatorListeners.remove(l); }
-		const bool isExportedToVst()																		{ return (vstExported); }
-		const bool isStatic();
+		bool isExportedToVst()																		{ return (vstExported); }
+		bool isStatic();
 		const String getNameForHost();
 		const String getTextForHost();
 		const String getGroupName();
@@ -192,7 +192,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 	private:
 		ReadWriteLock modulatorLock;
 		bool restoreStateStatus;
-		const bool removeComponent();
+		bool removeComponent();
 		friend class WeakReference<CtrlrModulator>;
 		WeakReference<CtrlrModulator>::Master masterReference;
 		WeakReference<CtrlrModulator> ctrlrModulatorReference;

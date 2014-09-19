@@ -2,14 +2,14 @@
 #include "CtrlrMIDILibraryRequest.h"
 
 CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest(const CtrlrMIDILibraryAction _currentAction, const CtrlrMidiMessage _requestData, const CtrlrMIDILibraryStatus _status)
-	:	data(_requestData), 
-		currentAction(_currentAction), 
+	:	data(_requestData),
+		currentAction(_currentAction),
 		status(_status),
-		createdTime(Time::getCurrentTime()), 
-		delay(0), 
-		expectedPrefixSize(0), 
-		timeout(1500), 
-		matchSize(true), 
+		createdTime(Time::getCurrentTime()),
+		delay(0),
+		expectedPrefixSize(0),
+		timeout(1500),
+		matchSize(true),
 		matchPrefix(true),
 		customRequestIndex(-1),
 		programNumber(0),
@@ -19,19 +19,19 @@ CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest(const CtrlrMIDILibraryAction _c
 }
 
 CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest(const CtrlrMIDILibraryRequest &other)
-	:	currentAction(other.currentAction), 
-		data(other.data), 
+	:	currentAction(other.currentAction),
+		data(other.data),
 		status(other.status),
-		createdTime(other.createdTime), 
-		delay(other.delay), 
+		createdTime(other.createdTime),
+		delay(other.delay),
 		expectedPrefixSize(other.expectedPrefixSize),
-		timeout(other.timeout), 
-		responseData(other.responseData), 
+		timeout(other.timeout),
+		responseData(other.responseData),
 		timestamp(other.timestamp),
-		index(other.index), 
-		item(other.item), 
-		dataFile(other.dataFile), 
-		matchSize(other.matchSize), 
+		index(other.index),
+		item(other.item),
+		dataFile(other.dataFile),
+		matchSize(other.matchSize),
 		matchPrefix(other.matchPrefix),
 		customRequestIndex(other.customRequestIndex),
 		programNumber(other.programNumber),
@@ -41,19 +41,19 @@ CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest(const CtrlrMIDILibraryRequest &
 }
 
 CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest(const CtrlrMIDILibraryRequest &other, const MidiMessage _response)
-	:	currentAction(other.currentAction), 
-		data(other.data), 
+	:	currentAction(other.currentAction),
+		data(other.data),
 		status(other.status),
-		createdTime(other.createdTime), 
-		delay(other.delay), 
+		createdTime(other.createdTime),
+		delay(other.delay),
 		expectedPrefixSize(other.expectedPrefixSize),
-		timeout(other.timeout), 
-		responseData(_response), 
+		timeout(other.timeout),
+		responseData(_response),
 		timestamp(other.timestamp),
-		index(other.index), 
-		item(other.item), 
-		dataFile(other.dataFile), 
-		matchSize(other.matchSize), 
+		index(other.index),
+		item(other.item),
+		dataFile(other.dataFile),
+		matchSize(other.matchSize),
 		matchPrefix(other.matchPrefix),
 		customRequestIndex(other.customRequestIndex),
 		programNumber(other.programNumber),
@@ -63,16 +63,16 @@ CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest(const CtrlrMIDILibraryRequest &
 }
 
 CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest(const CtrlrMIDILibraryAction _currentAction, ValueTree _item, const int _customRequestIndex)
-	:	currentAction(_currentAction), 
+	:	currentAction(_currentAction),
 		status(ExecStop),
-		createdTime(Time::getCurrentTime()), 
-		delay(0), 
+		createdTime(Time::getCurrentTime()),
+		delay(0),
 		expectedPrefixSize(0),
-		timeout(1500), 
-		timestamp(-1), 
-		index(-1), 
-		item(_item), 
-		matchSize(true), 
+		timeout(1500),
+		timestamp(-1),
+		index(-1),
+		item(_item),
+		matchSize(true),
 		matchPrefix(true),
 		customRequestIndex(_customRequestIndex),
 		programNumber(0),
@@ -81,16 +81,16 @@ CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest(const CtrlrMIDILibraryAction _c
 }
 
 CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest (const CtrlrMidiMessage &_requestData, const CtrlrMIDILibraryAction _currentAction, ValueTree _item, const int _customRequestIndex, const CtrlrMIDILibraryStatus _status)
-	:	currentAction(_currentAction), 
+	:	currentAction(_currentAction),
 		status(ExecStop),
-		createdTime(Time::getCurrentTime()), 
-		delay(0), 
+		createdTime(Time::getCurrentTime()),
+		delay(0),
 		expectedPrefixSize(0),
-		timeout(1500), 
-		timestamp(-1), 
-		index(-1), 
-		item(_item), 
-		matchSize(true), 
+		timeout(1500),
+		timestamp(-1),
+		index(-1),
+		item(_item),
+		matchSize(true),
 		matchPrefix(true),
 		customRequestIndex(_customRequestIndex),
 		programNumber(0),
@@ -99,7 +99,7 @@ CtrlrMIDILibraryRequest::CtrlrMIDILibraryRequest (const CtrlrMidiMessage &_reque
 {
 }
 
-const bool CtrlrMIDILibraryRequest::operator== (const CtrlrMIDILibraryRequest& other) const noexcept
+bool CtrlrMIDILibraryRequest::operator== (const CtrlrMIDILibraryRequest& other) const noexcept
 {
 	if (other.timestamp == timestamp)
 		return (true);
@@ -128,7 +128,7 @@ const MemoryBlock CtrlrMIDILibraryRequest::getExpectedPrefix() const
 	return (expectedPrefix);
 }
 
-const int CtrlrMIDILibraryRequest::getExpectedPrefixSize() const
+int CtrlrMIDILibraryRequest::getExpectedPrefixSize() const
 {
 	return (expectedPrefixSize);
 }
@@ -148,7 +148,7 @@ void CtrlrMIDILibraryRequest::setTimeout(const double _timeout)
 	timeout = _timeout;
 }
 
-const double CtrlrMIDILibraryRequest::getTimeout() const
+double CtrlrMIDILibraryRequest::getTimeout() const
 {
 	return (timeout);
 }
@@ -158,7 +158,7 @@ void CtrlrMIDILibraryRequest::setDelay(const double _delay)
 	delay = _delay;
 }
 
-const double CtrlrMIDILibraryRequest::getDelay() const
+double CtrlrMIDILibraryRequest::getDelay() const
 {
 	return (delay);
 }
@@ -168,7 +168,7 @@ void CtrlrMIDILibraryRequest::setCurrentAction(const CtrlrMIDILibraryAction _cur
 	currentAction = _currentAction;
 }
 
-const CtrlrMIDILibraryAction CtrlrMIDILibraryRequest::getCurrentAction() const
+CtrlrMIDILibraryAction CtrlrMIDILibraryRequest::getCurrentAction() const
 {
 	return (currentAction);
 }
@@ -178,7 +178,7 @@ void CtrlrMIDILibraryRequest::setNextAction(const CtrlrMIDILibraryAction _nextAc
 	nextAction = _nextAction;
 }
 
-const CtrlrMIDILibraryAction CtrlrMIDILibraryRequest::getNextAction() const
+CtrlrMIDILibraryAction CtrlrMIDILibraryRequest::getNextAction() const
 {
 	return (nextAction);
 }
@@ -208,7 +208,7 @@ void CtrlrMIDILibraryRequest::setStatus(const CtrlrMIDILibraryStatus _status)
 	status = _status;
 }
 
-const CtrlrMIDILibraryStatus CtrlrMIDILibraryRequest::getStatus() const
+CtrlrMIDILibraryStatus CtrlrMIDILibraryRequest::getStatus() const
 {
 	return (status);
 }
@@ -218,7 +218,7 @@ void CtrlrMIDILibraryRequest::setIndex(const int _index)
 	index = _index;
 }
 
-const int CtrlrMIDILibraryRequest::getIndex() const
+int CtrlrMIDILibraryRequest::getIndex() const
 {
 	return (index);
 }
@@ -243,7 +243,7 @@ void CtrlrMIDILibraryRequest::setMatchSize(const bool _matchSize)
 	matchSize = _matchSize;
 }
 
-const bool CtrlrMIDILibraryRequest::getMatchSize() const
+bool CtrlrMIDILibraryRequest::getMatchSize() const
 {
 	return (matchSize);
 }
@@ -253,12 +253,12 @@ void CtrlrMIDILibraryRequest::setMatchPrefix(const bool _matchPrefix)
 	matchPrefix = _matchPrefix;
 }
 
-const bool CtrlrMIDILibraryRequest::getMatchPrefix() const
+bool CtrlrMIDILibraryRequest::getMatchPrefix() const
 {
 	return (matchPrefix);
 }
 
-const int CtrlrMIDILibraryRequest::getCustomRequestIndex() const
+int CtrlrMIDILibraryRequest::getCustomRequestIndex() const
 {
 	return (customRequestIndex);
 }
@@ -278,12 +278,12 @@ void CtrlrMIDILibraryRequest::setBankNumber(const int _bankNumber)
 	bankNumber = _bankNumber;
 }
 
-const int CtrlrMIDILibraryRequest::getProgramNumber() const
+int CtrlrMIDILibraryRequest::getProgramNumber() const
 {
 	return (programNumber);
 }
 
-const int CtrlrMIDILibraryRequest::getBankNumber() const
+int CtrlrMIDILibraryRequest::getBankNumber() const
 {
 	return (bankNumber);
 }

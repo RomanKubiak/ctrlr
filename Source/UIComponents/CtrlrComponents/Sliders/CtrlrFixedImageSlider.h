@@ -52,9 +52,9 @@ public:
     //[UserMethods]     -- You can add your own custom methods in this section.
 	void sliderValueChanged (Slider* sliderThatWasMoved);
 	void setComponentValue (const double newValue, const bool sendChangeMessage=false);
-	const double getComponentValue();
-	const int getComponentMidiValue();
-	const double getComponentMaxValue();
+	double getComponentValue();
+	int getComponentMidiValue();
+	double getComponentMaxValue();
 	const String getComponentText();
 	void sliderContentChanged();
 	void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);

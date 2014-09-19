@@ -15,8 +15,8 @@ class CtrlrMidiMessageEx
 		void setNumber (const int number);
 		void setChannel (const int channel);
 
-		const int getValue() const;
-		const int getNumber() const;
+		int getValue() const;
+		int getNumber() const;
 		Array <CtrlrSysexToken> &getTokenArray()					{ return (sysExTokenArray); }
 		void setTokenArray(Array <CtrlrSysexToken> tokens)			{ sysExTokenArray = tokens; }
 
@@ -30,8 +30,8 @@ class CtrlrMidiMessageEx
 	private:
 		Array <CtrlrSysexToken> sysExTokenArray;
 		MemoryBlock messageContainer;
-		const int getValueInternal(const int value) const;
-		const int getNumberInternal(const int number) const;
+		int getValueInternal(const int value) const;
+		int getNumberInternal(const int number) const;
 };
 
 #endif

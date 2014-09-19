@@ -13,7 +13,7 @@ CtrlrSysexToken::~CtrlrSysexToken()
 {
 }
 
-const int CtrlrSysexToken::getAdditionalData() const
+int CtrlrSysexToken::getAdditionalData() const
 {
 	return (tokenAdditionalData);
 }
@@ -45,7 +45,7 @@ void CtrlrSysexToken::setAdditionalData(const int _tokenAdditionalData)
 	}
 }
 
-const CtrlrSysExFormulaToken CtrlrSysexToken::getType() const
+CtrlrSysExFormulaToken CtrlrSysexToken::getType() const
 {
 	return (tokenType);
 }
@@ -55,7 +55,7 @@ void CtrlrSysexToken::setType (const CtrlrSysExFormulaToken _tokenType)
 	tokenType = _tokenType;
 }
 
-const int CtrlrSysexToken::getPosition() const
+int CtrlrSysexToken::getPosition() const
 {
 	return (tokenPosition);
 }
@@ -65,7 +65,7 @@ void CtrlrSysexToken::setPosition(const int _tokenPosition)
 	tokenPosition = _tokenPosition;
 }
 
-const bool CtrlrSysexToken::isHoldingValue()
+bool CtrlrSysexToken::isHoldingValue()
 {
 	if (		tokenType == ByteValue
 			||	tokenType == LSB7bitValue

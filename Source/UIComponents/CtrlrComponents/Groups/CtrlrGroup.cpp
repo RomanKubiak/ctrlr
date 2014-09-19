@@ -21,7 +21,9 @@
 */
 
 //[Headers] You can add your own extra header files here...
+#ifdef _WIN32
 #pragma warning(disable:4244)
+#endif
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"
 //[/Headers]
@@ -185,17 +187,17 @@ void CtrlrGroup::setComponentText (const String &componentText)
 	setProperty (Ids::uiGroupText, componentText, true);
 }
 
-const double CtrlrGroup::getComponentMaxValue()
+double CtrlrGroup::getComponentMaxValue()
 {
 	return (1);
 }
 
-const double CtrlrGroup::getComponentValue()
+double CtrlrGroup::getComponentValue()
 {
 	return (1);
 }
 
-const int CtrlrGroup::getComponentMidiValue()
+int CtrlrGroup::getComponentMidiValue()
 {
 	return (1);
 }

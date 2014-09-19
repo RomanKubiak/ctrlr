@@ -56,7 +56,7 @@ class CtrlrIDManager
 														StringArray *possibleValues=nullptr);
 
 		static const String typeToString (const PropertyType t);
-		static const PropertyType stringToType (const String t);
+		static PropertyType stringToType (const String t);
 		static Array <var> toValueList (const StringArray &in);
 		StringArray getChoicesArray(const ValueTree &cid);
 		StringArray getValuesArray(const ValueTree &cid);

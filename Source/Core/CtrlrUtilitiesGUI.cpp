@@ -130,7 +130,7 @@ const RectanglePlacement relativePostionFromProperty (const var &positionPropert
 	return ((RectanglePlacement)(int)positionProperty);
 }
 
-const MouseCursor::StandardCursorType mouseCursorFromproperty (const var &cursorProperty)
+MouseCursor::StandardCursorType mouseCursorFromproperty (const var &cursorProperty)
 {
 	return ((MouseCursor::StandardCursorType)(int)cursorProperty);
 }

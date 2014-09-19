@@ -120,7 +120,7 @@ ValueTree &CtrlrMIDILibrary::getFirmware()
 
 /** Banks
  */
-const int CtrlrMIDILibrary::getNumBanks()
+int CtrlrMIDILibrary::getNumBanks()
 {
 	int bankCount = 0;
 
@@ -381,7 +381,7 @@ ValueTree CtrlrMIDILibrary::getSnapshot(const Uuid &snapshotUuid)
     return (getSnapshots().getChildWithProperty(Ids::uuid, snapshotUuid.toString()));
 }
 
-const int CtrlrMIDILibrary::getNumPrograms(const Uuid &bankUuid)
+int CtrlrMIDILibrary::getNumPrograms(const Uuid &bankUuid)
 {
 	int programCount = 0;
 	for (int i=0; i<getBank(bankUuid).getNumChildren(); i++)
@@ -405,7 +405,7 @@ const String CtrlrMIDILibrary::getProgramDescription(const Uuid &bankUuid, const
 	return (getProgram(bankUuid, programUuid).getProperty(Ids::description));
 }
 
-const int CtrlrMIDILibrary::getCurrentProgramMIDINumber(const int suggestedProgramNumber)
+int CtrlrMIDILibrary::getCurrentProgramMIDINumber(const int suggestedProgramNumber)
 {
 	if (suggestedProgramNumber >= 0)
 		return (suggestedProgramNumber);
@@ -413,7 +413,7 @@ const int CtrlrMIDILibrary::getCurrentProgramMIDINumber(const int suggestedProgr
 		return (midiProgramNumber);
 }
 
-const int CtrlrMIDILibrary::getCurrentBankMIDINumber(const int suggestedBankNumber)
+int CtrlrMIDILibrary::getCurrentBankMIDINumber(const int suggestedBankNumber)
 {
 	if (suggestedBankNumber >= 0)
 		return (suggestedBankNumber);
@@ -1007,22 +1007,22 @@ const String CtrlrMIDILibrary::getName(const ValueTree &vt)
 	return (vt.getProperty(Ids::name).toString());
 }
 
-const int CtrlrMIDILibrary::getNumber(const ValueTree &vt)
+int CtrlrMIDILibrary::getNumber(const ValueTree &vt)
 {
 	return (vt.getProperty(Ids::number, -1));
 }
 
-const int CtrlrMIDILibrary::getLSB(const ValueTree &vt)
+int CtrlrMIDILibrary::getLSB(const ValueTree &vt)
 {
 	return (vt.getProperty(Ids::lsb, -1));
 }
 
-const int CtrlrMIDILibrary::getMSB(const ValueTree &vt)
+int CtrlrMIDILibrary::getMSB(const ValueTree &vt)
 {
 	return (vt.getProperty(Ids::msb, -1));
 }
 
-const Uuid CtrlrMIDILibrary::getUuid(const ValueTree &vt)
+Uuid CtrlrMIDILibrary::getUuid(const ValueTree &vt)
 {
 	return (Uuid(vt.getProperty(Ids::uuid)));
 }
@@ -1087,7 +1087,7 @@ void CtrlrMIDILibrary::attachStandardTransactions()
 	}
 }
 
-const bool CtrlrMIDILibrary::transactionCanHandle(const ValueTree &transactionState, const ValueTree transactionItem)
+bool CtrlrMIDILibrary::transactionCanHandle(const ValueTree &transactionState, const ValueTree transactionItem)
 {
 	if (transactionState.isValid() && transactionState.hasType(Ids::trans))
 	{
@@ -1115,7 +1115,7 @@ const bool CtrlrMIDILibrary::transactionCanHandle(const ValueTree &transactionSt
 	return (false);
 }
 
-const bool CtrlrMIDILibrary::transactionCanHandleType(const ValueTree &transactionState, const ValueTree transactionItem)
+bool CtrlrMIDILibrary::transactionCanHandleType(const ValueTree &transactionState, const ValueTree transactionItem)
 {
 	StringArray types = StringArray::fromTokens (transactionState.getProperty(Ids::transCap).toString(), ",; ", "\"\'");
 	for (int i=0; i<types.size(); i++)

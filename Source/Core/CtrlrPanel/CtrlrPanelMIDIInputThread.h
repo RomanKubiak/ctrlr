@@ -16,13 +16,13 @@ class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMidiDevice::Listene
 		int getListenerInputMidiChannel();
 		void handleMIDIFromDevice(const MidiMessage &message);
 		void handleMIDIFromHost(MidiBuffer &buffer);
-		void processMessage(MidiMessage &midiMessage) {}
+		void processMessage(MidiMessage &/*midiMessage*/) {}
 		void handlePartialMIDIFromDevice (const uint8* messageData, const int numBytesSoFar, const double timestamp);
 		bool openInputDevice (const String &inputDeviceName);
 		void panelEditModeChanged (const bool _panelEditMode);
 		CtrlrMidiInputComparator &getInputComparator();
 		void process();
-		void midiOptionChanged(const CtrlrPanelMidiOption optionThatChanged){}
+		void midiOptionChanged(const CtrlrPanelMidiOption /*optionThatChanged*/){}
 		void midiChannelChaned(const CtrlrPanelMidiChannel channelThatChanged);
 		void closeInputDevice();
 		bool isController();

@@ -31,15 +31,15 @@ class CtrlrFontManager
 		const String getDefaultMonoFontName();
 		const Font getFontFromString (const String &string);
 		const String getStringFromFont (const Font &font);
-		const int getNumBuiltInFonts();
-		const FontSet getFontSetEnum (const Font &font);
+		int getNumBuiltInFonts();
+		FontSet getFontSetEnum (const Font &font);
 		Array<Font> &getFontSet (const FontSet fontSetToFetch);
 
 		static Font getBuiltInFont(const char *fontData, const int fontDataSize);
 		static Font getBuiltInFont(const String &fontResourceName);
 		static const Font getFont (const char *fontData, const int fontDataSize);
 		static const Font getBuiltInFont(const int fontIndex);
-		static const bool isFontFile(const File &fontFile) { return (fontFile.hasFileExtension("jfont")); }
+		static bool isFontFile(const File &fontFile) { return (fontFile.hasFileExtension("jfont")); }
 
 		JUCE_LEAK_DETECTOR(CtrlrFontManager);
 

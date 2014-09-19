@@ -102,17 +102,17 @@ void CtrlrSlider::mouseDoubleClick (const MouseEvent& e)
 		bubble.show();
 }
 
-const double CtrlrSlider::getComponentValue()
+double CtrlrSlider::getComponentValue()
 {
 	return (ctrlrSlider.getValue());
 }
 
-const int CtrlrSlider::getComponentMidiValue()
+int CtrlrSlider::getComponentMidiValue()
 {
 	return ((int)ctrlrSlider.getValue());
 }
 
-const double CtrlrSlider::getComponentMaxValue()
+double CtrlrSlider::getComponentMaxValue()
 {
 	return (ctrlrSlider.getMaximum());
 }

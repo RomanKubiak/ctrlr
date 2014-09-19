@@ -57,7 +57,7 @@ void CtrlrLuaMethod::remove() // this is called by the manager to remove us perm
 	deleteAndZero (luaObject);
 }
 
-const bool CtrlrLuaMethod::isSourceInFile()
+bool CtrlrLuaMethod::isSourceInFile()
 {
 	if ((int)methodTree.getProperty(Ids::luaMethodSource) == codeInFile)
 	{
@@ -143,7 +143,7 @@ const String CtrlrLuaMethod::getCode()
 	}
 }
 
-const bool CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
+bool CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
 {
 	bool compileRet			= owner.getOwner().runCode (newMethodCode);
 	errorString.clear();
@@ -188,7 +188,7 @@ void CtrlrLuaMethod::setValid (const bool _methodIsValid)
 	methodTree.setProperty (Ids::luaMethodValid, methodIsValid, nullptr);
 }
 
-const bool CtrlrLuaMethod::isValid () const
+bool CtrlrLuaMethod::isValid () const
 {
 	return (methodIsValid);
 }
@@ -234,7 +234,7 @@ void CtrlrLuaMethod::triggerSourceChangeFromEditor(const bool recompile)
 	}
 }
 
-const int CtrlrLuaMethod::getCodeSize()
+int CtrlrLuaMethod::getCodeSize()
 {
 	return (getCode().length());
 }

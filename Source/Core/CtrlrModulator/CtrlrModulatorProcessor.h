@@ -33,10 +33,10 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 		void setValueChangedCallback (const String &methodName);
 		void setGetValueFromMidiCallback (const String &methodName);
 		void setGetValueForMidiCallback (const String &methodName);
-		const int getValue() const;
-		const int getValueMapped() const;
-		const int getMax() const;
-		const int getMin() const;
+		int getValue() const;
+		int getValueMapped() const;
+		int getMax() const;
+		int getMin() const;
 
 		/** Used for evaluating expressions when getting the midi value from the modulator (forward evaluation)
 
@@ -49,7 +49,7 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 			- midiValue : the current value stored in the MIDI MESSAGE assosiated with the modulator
 			- midiNumber : the number of the MIDI MESSAGE controller if applicable
 		*/
-		const int evaluateForward(const int inValue);
+		int evaluateForward(const int inValue);
 
 		/** Used for evaluating expressions when getting the modulator value from the incomming midi message
 
@@ -64,7 +64,7 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 			- midiValue : the value of the incomming midi message
 			- midiNumber : the number of the MIDI MESSAGE controller if applicable
 		*/
-		const int evaluateReverse(const int inValue);
+		int evaluateReverse(const int inValue);
 
 		/** When evaluating expression in either direction a couple of utility functions can be used, the notation is the same as in C
 			for example to get the absolute value of the modulator you'd type: "abs(modulatorValue)" as the expression
@@ -82,16 +82,16 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 			- max : returns the bigger of two parameters
 			- min : returns the smaller of two parameters
 			- getBitRangeAsInt (value, startBit, numBits)
-			- setBitRangeAsInt (value, startBit, numBits, valueToSet) 
-			- clearBit (value, bitToClear) 
-			- isBitSet (value, bitPosition) 
-			- setBit (value, bitToSet) 
+			- setBitRangeAsInt (value, startBit, numBits, valueToSet)
+			- clearBit (value, bitToClear)
+			- isBitSet (value, bitPosition)
+			- setBit (value, bitToSet)
 			- setGlobal (globalIndex, newValueToSet)
 		*/
 		double evaluateFunction (const String& functionName, const double* parameters, int numParameters) const;
 
-		const int getValueForMidiMessage(const int value);
-		const int getValueFromMidiMessage();
+		int getValueForMidiMessage(const int value);
+		int getValueFromMidiMessage();
 		void setValueFromGUI(const double inValue, const bool force=false, const bool mute=false);
 		void setValueFromMIDI(CtrlrMidiMessage &m);
 		void setValueFromHost(const float inValue);
@@ -108,16 +108,16 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 			it otherwise a lot of modulators will react to the same message.
 
 		*/
-		const bool isInValidMappedRange(const int possibleValue) const;
-		const float getValueForHost() const;
+		bool isInValidMappedRange(const int possibleValue) const;
+		float getValueForHost() const;
 		const CtrlrValueMap &setValueMap (const String &mapAsString);
 		void setValueMap (const CtrlrValueMap &map);
 		CtrlrValueMap &getValueMap();
 		void setLinkedToGlobal(const bool _linkedToGlobal, const int _globalIndex=-1);
-		const bool getLinkedToGlobal();
-		const int getLinkedToGlobalIndex();
-		const void setParameterNotifyingHost();
-		
+		bool getLinkedToGlobal();
+		int getLinkedToGlobalIndex();
+		void setParameterNotifyingHost();
+
 		int getMidiChannelForOwnedMidiMessages();
 		CtrlrSysexProcessor *getSysexProcessor();
 		Array<int,CriticalSection> &getGlobalVariables();

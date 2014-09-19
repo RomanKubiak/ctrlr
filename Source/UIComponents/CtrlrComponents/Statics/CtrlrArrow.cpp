@@ -83,15 +83,15 @@ void CtrlrArrow::paint (Graphics& g)
 		case 0: /* points top */
 			arrowPath.addArrow (Line<float>(getWidth()/2.0f, (float)getHeight()-thick, getWidth()/2.0f, (float)thick), getProperty(Ids::uiArrowLineThickness), getProperty(Ids::uiArrowHeadWidth), getProperty(Ids::uiArrowHeadHeight));
 			break;
-		
+
 		case 1: /* points down */
 			arrowPath.addArrow (Line<float>(getWidth()/2.0f, (float)thick, getWidth()/2.0f, (float)getHeight()-thick), getProperty(Ids::uiArrowLineThickness), getProperty(Ids::uiArrowHeadWidth), getProperty(Ids::uiArrowHeadHeight));
 			break;
-		
+
 		case 2: /* points left */
 			arrowPath.addArrow (Line<float>((float)getWidth()-thick, (float)getHeight()/2.0f, (float)thick, (float)getHeight()/2.0f), getProperty(Ids::uiArrowLineThickness), getProperty(Ids::uiArrowHeadWidth), getProperty(Ids::uiArrowHeadHeight));
 			break;
-		
+
 		case 3: /* points right */
 			arrowPath.addArrow (Line<float>((float)thick, (float)getHeight()/2.0f, (float)getWidth()-thick, (float)getHeight()/2.0f), getProperty(Ids::uiArrowLineThickness), getProperty(Ids::uiArrowHeadWidth), getProperty(Ids::uiArrowHeadHeight));
 			break;
@@ -121,17 +121,17 @@ void CtrlrArrow::setComponentValue (const double newValue, const bool sendChange
 {
 }
 
-const double CtrlrArrow::getComponentValue()
+double CtrlrArrow::getComponentValue()
 {
 	return (1);
 }
 
-const int CtrlrArrow::getComponentMidiValue()
+int CtrlrArrow::getComponentMidiValue()
 {
 	return (1);
 }
 
-const double CtrlrArrow::getComponentMaxValue()
+double CtrlrArrow::getComponentMaxValue()
 {
 	return (1);
 }

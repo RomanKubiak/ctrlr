@@ -13,9 +13,9 @@ class CtrlrSlider  : public CtrlrComponent,
 		~CtrlrSlider();
 		void paint(Graphics &g) {}
 		void setComponentValue (const double newValue, const bool sendChangeMessage=false);
-		const double getComponentValue();
-		const int getComponentMidiValue();
-		const double getComponentMaxValue();
+		double getComponentValue();
+		int getComponentMidiValue();
+		double getComponentMaxValue();
 		const String getComponentText();
 		const Array<Font> getFontList();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
@@ -30,6 +30,10 @@ class CtrlrSlider  : public CtrlrComponent,
 		void sliderValueChanged (Slider* sliderThatWasMoved);
 		void mouseUp (const MouseEvent& e);
 		void mouseDoubleClick (const MouseEvent& e);
+		void lookAndFeelChanged()
+		{
+            ctrlrSlider.setLookAndFeel (nullptr);
+		}
 		JUCE_LEAK_DETECTOR(CtrlrSlider)
 
 	private:

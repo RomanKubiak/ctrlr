@@ -31,7 +31,7 @@
 #include <luabind/wrapper_base.hpp>
 #include <boost/type_traits/is_polymorphic.hpp>
 
-namespace luabind { namespace detail 
+namespace luabind { namespace detail
 {
     template <class T>
     void adjust_backref_ownership(T* ptr, mpl::true_)
@@ -52,7 +52,7 @@ namespace luabind { namespace detail
 	{
 		typedef adopt_pointer type;
 
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 1;
         }
@@ -103,7 +103,7 @@ namespace luabind { namespace detail
 		template<class T>
 		void apply(lua_State* L, T* ptr)
 		{
-			if (ptr == 0) 
+			if (ptr == 0)
 			{
 				lua_pushnil(L);
 				return;
@@ -149,10 +149,10 @@ namespace luabind { namespace detail
 namespace luabind
 {
 	template<int N>
-	detail::policy_cons<detail::adopt_policy<N>, detail::null_type> 
+	detail::policy_cons<detail::adopt_policy<N>, detail::null_type>
 	adopt(LUABIND_PLACEHOLDER_ARG(N))
-	{ 
-		return detail::policy_cons<detail::adopt_policy<N>, detail::null_type>(); 
+	{
+		return detail::policy_cons<detail::adopt_policy<N>, detail::null_type>();
 	}
 
     template <class Pointer, int N>

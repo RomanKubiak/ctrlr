@@ -91,7 +91,7 @@ void CtrlrMidiInputComparatorMulti::match (const MidiMessage &m)
 	updateState(match);
 }
 
-const bool CtrlrMidiInputComparatorMulti::basicMatch(const MidiMessage &m)
+bool CtrlrMidiInputComparatorMulti::basicMatch(const MidiMessage &m)
 {
 	if (messageTypesContainer[midiMessageToType(m)] == 0)
 	{
@@ -108,7 +108,7 @@ const bool CtrlrMidiInputComparatorMulti::basicMatch(const MidiMessage &m)
 	return (true);
 }
 
-const bool CtrlrMidiInputComparatorMulti::cacheMatch ()
+bool CtrlrMidiInputComparatorMulti::cacheMatch ()
 {
 	bool match = false;
 

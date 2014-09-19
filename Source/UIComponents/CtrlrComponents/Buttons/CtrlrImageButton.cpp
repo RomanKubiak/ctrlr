@@ -124,12 +124,12 @@ void CtrlrImageButton::mouseDown (const MouseEvent& e)
 	}
 }
 
-const double CtrlrImageButton::getComponentMaxValue()
+double CtrlrImageButton::getComponentMaxValue()
 {
 	return (valueMap.getNonMappedMax());
 }
 
-const double CtrlrImageButton::getComponentValue()
+double CtrlrImageButton::getComponentValue()
 {
 	return (valueMap.getCurrentNonMappedValue());
 }
@@ -181,7 +181,7 @@ void CtrlrImageButton::setComponentMidiValue (const int newValue, const bool sen
 	}
 }
 
-const int CtrlrImageButton::getComponentMidiValue()
+int CtrlrImageButton::getComponentMidiValue()
 {
 	return (valueMap.getCurrentMappedValue());
 }
@@ -303,7 +303,7 @@ void CtrlrImageButton::click()
 	ctrlrButton->triggerClick();
 }
 
-const bool CtrlrImageButton::isToggleButton()
+bool CtrlrImageButton::isToggleButton()
 {
 	return (ctrlrButton->getClickingTogglesState());
 }
@@ -313,7 +313,7 @@ void CtrlrImageButton::setToggleState(const bool toggleState, const bool sendCha
 	ctrlrButton->setToggleState (toggleState, sendChangeMessage ? sendNotification : dontSendNotification);
 }
 
-const bool CtrlrImageButton::getToggleState()
+bool CtrlrImageButton::getToggleState()
 {
 	return (ctrlrButton->getToggleState());
 }

@@ -54,32 +54,32 @@ void CtrlrValueMap::parseString (const String &stringToParseAsMap)
 	numericValues.sort (sorter);
 }
 
-const int CtrlrValueMap::getMappedMax() const
+int CtrlrValueMap::getMappedMax() const
 {
 	return (numericValues.getLast());
 }
 
-const int CtrlrValueMap::getMappedMin() const
+int CtrlrValueMap::getMappedMin() const
 {
 	return (numericValues.getFirst());
 }
 
-const int CtrlrValueMap::getNumValues() const
+int CtrlrValueMap::getNumValues() const
 {
 	return (values.size());
 }
 
-const int CtrlrValueMap::getNonMappedMax() const
+int CtrlrValueMap::getNonMappedMax() const
 {
 	return (values.size() - 1);
 }
 
-const int CtrlrValueMap::getNonMappedMin() const
+int CtrlrValueMap::getNonMappedMin() const
 {
 	return (0);
 }
 
-const int CtrlrValueMap::getMappedValue(const int valueIndex) const
+int CtrlrValueMap::getMappedValue(const int valueIndex) const
 {
 	return (values[valueIndex].numericValue);
 }
@@ -105,12 +105,12 @@ void CtrlrValueMap::decrement()
 		currentValue--;
 }
 
-const int CtrlrValueMap::getCurrentNonMappedValue() const
+int CtrlrValueMap::getCurrentNonMappedValue() const
 {
 	return (currentValue);
 }
 
-const int CtrlrValueMap::getCurrentMappedValue() const
+int CtrlrValueMap::getCurrentMappedValue() const
 {
 	return (values[currentValue].numericValue);
 }
@@ -120,7 +120,7 @@ void CtrlrValueMap::setCurrentNonMappedValue(const int _currentValue)
 	currentValue = _currentValue;
 }
 
-const int CtrlrValueMap::getNonMappedValue(const String &textRepresentation) const
+int CtrlrValueMap::getNonMappedValue(const String &textRepresentation) const
 {
 	for (int i=0; i<values.size(); i++)
 	{
@@ -131,7 +131,7 @@ const int CtrlrValueMap::getNonMappedValue(const String &textRepresentation) con
 	return (-1);
 }
 
-const int CtrlrValueMap::getMappedValue(const String &textRepresentation) const
+int CtrlrValueMap::getMappedValue(const String &textRepresentation) const
 {
 	for (int i=0; i<values.size(); i++)
 	{
@@ -177,7 +177,7 @@ void CtrlrValueMap::copyFrom (const CtrlrValueMap &map)
 	}
 }
 
-const bool CtrlrValueMap::mappedValueExists (const int mappedValue)
+bool CtrlrValueMap::mappedValueExists (const int mappedValue)
 {
 	for (int i=0; i<values.size(); i++)
 	{
@@ -188,7 +188,7 @@ const bool CtrlrValueMap::mappedValueExists (const int mappedValue)
 	return (false);
 }
 
-const int CtrlrValueMap::getIndexForValue(const int value) const
+int CtrlrValueMap::getIndexForValue(const int value) const
 {
 	for (int i=0; i<values.size(); i++)
 	{

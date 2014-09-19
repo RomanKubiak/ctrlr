@@ -508,7 +508,7 @@ int CtrlrComponent::snapPosition (int pos, int snapSize, const bool allowSnap)
     return pos;
 }
 
-const int CtrlrComponent::getComponentRadioGroupId()
+int CtrlrComponent::getComponentRadioGroupId()
 {
 	return (getProperty(Ids::componentRadioGroupId));
 }
@@ -569,12 +569,12 @@ void CtrlrComponent::setComponentMidiValue (const int newValue, const bool sendC
 	setComponentValue (newValue, sendChangeMessage);
 }
 
-const int CtrlrComponent::getComponentMidiValue ()
+int CtrlrComponent::getComponentMidiValue ()
 {
 	return (getComponentValue());
 }
 
-const bool CtrlrComponent::getRestoreState()
+bool CtrlrComponent::getRestoreState()
 {
 	return (restoreStateInProgress);
 }
@@ -584,12 +584,12 @@ CtrlrFontManager &CtrlrComponent::getFontManager()
 	return (owner.getOwner().getOwner().getFontManager());
 }
 
-const double CtrlrComponent::getMaximum()
+double CtrlrComponent::getMaximum()
 {
 	return (owner.getMaxModulatorValue());
 }
 
-const double CtrlrComponent::getMinimum()
+double CtrlrComponent::getMinimum()
 {
 	return (owner.getMinModulatorValue());
 }

@@ -157,17 +157,17 @@ void CtrlrImageSlider::mouseDoubleClick (const MouseEvent& e)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-const double CtrlrImageSlider::getComponentMaxValue()
+double CtrlrImageSlider::getComponentMaxValue()
 {
 	return ((int)ctrlrSlider->getMaximum());
 }
 
-const double CtrlrImageSlider::getComponentValue()
+double CtrlrImageSlider::getComponentValue()
 {
 	return ((int)ctrlrSlider->getValue());
 }
 
-const int CtrlrImageSlider::getComponentMidiValue()
+int CtrlrImageSlider::getComponentMidiValue()
 {
 	return ((int)ctrlrSlider->getValue());
 }

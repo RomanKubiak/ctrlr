@@ -21,7 +21,9 @@
 */
 
 //[Headers] You can add your own extra header files here...
+#ifdef _WIN32
 #pragma warning(disable:4244)
+#endif
 #include "CtrlrLuaObjectWrapper.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
@@ -291,17 +293,17 @@ void CtrlrTabsComponent::setComponentValue (const double newValue, const bool se
 	}
 }
 
-const double CtrlrTabsComponent::getComponentValue()
+double CtrlrTabsComponent::getComponentValue()
 {
 	return (ctrlrTabs->getCurrentTabIndex());
 }
 
-const int CtrlrTabsComponent::getComponentMidiValue()
+int CtrlrTabsComponent::getComponentMidiValue()
 {
 	return (getComponentValue());
 }
 
-const double CtrlrTabsComponent::getComponentMaxValue()
+double CtrlrTabsComponent::getComponentMaxValue()
 {
 	return (ctrlrTabs->getNumTabs()-1);
 }

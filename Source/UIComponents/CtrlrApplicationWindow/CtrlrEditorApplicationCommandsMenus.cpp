@@ -319,7 +319,7 @@ const PopupMenu CtrlrEditor::getRecentOpenedFilesMenu()
 	return (m);
 }
 
-const uint32 CtrlrEditor::getMidiDeviceMenuOffset(const CtrlrMidiDeviceManager::DeviceType type)
+uint32 CtrlrEditor::getMidiDeviceMenuOffset(const CtrlrMidiDeviceManager::DeviceType type)
 {
     switch (type)
     {

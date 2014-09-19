@@ -302,7 +302,7 @@ const var &CtrlrProcessor::getProperty (const Identifier& name) const
 	}
 }
 
-const bool CtrlrProcessor::hasProperty(const Identifier &name) const
+bool CtrlrProcessor::hasProperty(const Identifier &name) const
 {
 	if (ctrlrManager->getManagerTree().hasProperty(name) || overridesTree.hasProperty(name))
 		return (true);
@@ -310,7 +310,7 @@ const bool CtrlrProcessor::hasProperty(const Identifier &name) const
 		return (false);
 }
 
-const bool CtrlrProcessor::useWrapper()
+bool CtrlrProcessor::useWrapper()
 {
 	if (JUCEApplication::isStandaloneApp())
 	{

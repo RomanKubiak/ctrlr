@@ -74,17 +74,17 @@ class CtrlrPanel:	public ValueTree::Listener,
 		CtrlrPanelCanvas *getCanvas();
 		CtrlrModulator *createNewModulator(const Identifier &guiType);
 		void addModulator (CtrlrModulator *modulatorToAdd);
-		const int getModulatorIndex (const CtrlrModulator *const modulatorToFind) const;
-		const int getModulatorIndex (const String &modulatorToFind) const;
+		int getModulatorIndex (const CtrlrModulator *const modulatorToFind) const;
+		int getModulatorIndex (const String &modulatorToFind) const;
 		void removeModulator (CtrlrModulator *modulatorToDelete);
 		bool containsCtrlrComponent(const CtrlrComponent *const componentToLookFor) const;
 
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
-		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
-		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
-		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
+		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
 
 		const String getUniqueModulatorName(const String &proposedName);
 		const Array <CtrlrModulator*> getModulatorsByUIType(const Identifier &typeToFilter);
@@ -126,13 +126,13 @@ class CtrlrPanel:	public ValueTree::Listener,
 		void setMidiChannelToAllModulators (const int newChannel);
 		void setGlobalVariable(const int index, const int value);
 
-		const int getGlobalVariable (const int index);
-		const int getPanelIndex();
+		int getGlobalVariable (const int index);
+		int getPanelIndex();
 		ValueTree getProgram(ValueTree treeToWriteTo=ValueTree::invalid);
 		ValueTree getProgramVar(ValueTree programTree=ValueTree::invalid);
 		void setProgram(ValueTree programTree, const bool sendSnapshotNow=false);
-		const int getCurrentProgramNumber();
-		const int getCurrentBankNumber();
+		int getCurrentProgramNumber();
+		int getCurrentBankNumber();
 		Result savePanel();
 		const File savePanelAs(const CommandID saveOption);
 		void savePanelVersioned();
@@ -140,7 +140,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		Result savePanelBin(const File &fileToSave, CtrlrPanel *panel, const bool compressPanel=false);
 
 		static const String exportPanel(CtrlrPanel *panel, const File &lastBrowsedDir, const File &destinationFile=File::nonexistent, MemoryBlock *outputPanelData=nullptr, MemoryBlock *outputResourcesData=nullptr, const bool isRestricted=false);
-		static const bool isPanelFile(const File &fileToCheck, const bool beThorough=false);
+		static bool isPanelFile(const File &fileToCheck, const bool beThorough=false);
 		static const ValueTree openPanel(const File &panelFile);
 		static const ValueTree openXmlPanel(const File &panelFile);
 		static const ValueTree openBinPanel(const File &panelFile);
@@ -162,51 +162,51 @@ class CtrlrPanel:	public ValueTree::Listener,
 		{
 			public:
 				virtual ~Listener(){}
-				virtual void modulatorChanged (CtrlrModulator *modulatorThatChanged) {}
-				virtual void modulatorAdded (CtrlrModulator *modulatorThatWasAdded) {}
-				virtual void modulatorRemoved (CtrlrModulator *modulatorRemoved) {}
-				virtual void panelChanged(CtrlrPanel *panelThatChanged) {}
-				virtual void midiReceived(MidiMessage &message) {}
+				virtual void modulatorChanged (CtrlrModulator */*modulatorThatChanged*/) {}
+				virtual void modulatorAdded (CtrlrModulator */*modulatorThatWasAdded*/) {}
+				virtual void modulatorRemoved (CtrlrModulator */*modulatorRemoved*/) {}
+				virtual void panelChanged(CtrlrPanel */*panelThatChanged*/) {}
+				virtual void midiReceived(MidiMessage &/*message*/) {}
 		};
 
 		void setRadioGroupId(CtrlrComponent *componentMember, const int groupId);
-		const bool componentIsInRadioGroup(CtrlrComponent *component);
-		const bool checkRadioGroup(CtrlrComponent *c, const bool componentToggleState);
+		bool componentIsInRadioGroup(CtrlrComponent *component);
+		bool checkRadioGroup(CtrlrComponent *c, const bool componentToggleState);
 		CtrlrModulator* getModulatorByIndex (const int index);
 		CtrlrModulator* getModulatorByVstIndex (const int vstIndex);
 		CtrlrModulator* getModulatorByCustomIndex (const int customIndex);
 		CtrlrModulator* getModulator (const String& name) const;
-		const int getNumModulators();
+		int getNumModulators();
 		void bootstrapPanel(const bool setInitialProgram=true);
-		const int cleanBogusProperties();
-		const int cleanBogusPropertiesFromChild(ValueTree &treeToClean);
+		int cleanBogusProperties();
+		int cleanBogusPropertiesFromChild(ValueTree &treeToClean);
 		void sync();
 		CtrlrComponent *getComponent(const String &modulatorName);
 		void panelReceivedMidi(const MidiBuffer &buffer);
 		void handleAsyncUpdate();
 		void sendSnapshotOnLoad();
-		const bool getRestoreState();
-		const bool getProgramState();
-		const bool getBootstrapState();
+		bool getRestoreState();
+		bool getProgramState();
+		bool getBootstrapState();
 		void setRestoreState(const bool _restoreState);
 		void setProgramState(const bool _programState);
 		const String getName();
 		void resourceImportFinished();
 		void sendSnapshot();
 		void modulatorValueChanged(CtrlrModulator *m);
-		const bool getMidiOptionBool(const CtrlrPanelMidiOption optionToCheck);
-		const uint8 getMidiChannel(const CtrlrPanelMidiChannel channelToGet);
+		bool getMidiOptionBool(const CtrlrPanelMidiOption optionToCheck);
+		uint8 getMidiChannel(const CtrlrPanelMidiChannel channelToGet);
 		void setMidiOptionBool(const CtrlrPanelMidiOption optionToSet, const bool isSet);
 		void setMidiChannel(const CtrlrPanelMidiChannel optionToSet, const uint8 value);
-		const CtrlrPanelMidiOption midiOptionFromString(const Identifier &i);
-		const CtrlrPanelMidiChannel midiChannelFromString(const Identifier &i);
+		CtrlrPanelMidiOption midiOptionFromString(const Identifier &i);
+		CtrlrPanelMidiChannel midiChannelFromString(const Identifier &i);
 		void dumpComparatorTables();
 		void setLuaDebug (const bool _debug);
 		void initEmbeddedInstance();
 		void setInitialProgramValue (const String &modulatorName, const var &value);
 		void addPanelResource (const int hashCode);
 		void removePanelResource (const int hashCode);
-		const bool isPanelResource (const int hashCode);
+		bool isPanelResource (const int hashCode);
 
 		static const Identifier getMidiOptionIdentifier(const CtrlrPanelMidiOption option);
 		LMemoryBlock getModulatorValuesAsData(const String &propertyToIndexBy,
@@ -267,7 +267,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		const String getPanelInstanceID();
 		const String getPanelInstanceManufacturerID();
 		const String getPanelInstanceVersionString();
-		const int getPanelInstanceVersionInt();
+		int getPanelInstanceVersionInt();
         const String getPanelInstanceName();
         const String getPanelInstanceManufacturer();
 

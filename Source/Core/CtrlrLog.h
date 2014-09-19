@@ -65,15 +65,15 @@ class CtrlrLog : public AsyncUpdater, public Logger, public DeletedAtShutdown
 		void logMessage (const String &device, const MidiBuffer &buffer, const LogLevel level);
 		void logMessage (const String &message);
 		void setLogToFile (const bool _logToFile);
-		const bool getLogMidiInput ();
-		const bool getLogMidiOutput ();
+		bool getLogMidiInput ();
+		bool getLogMidiOutput ();
 		const String formatMidiMessage (const MidiMessage &message);
-		static const LogLevel stringToLevel (const String &level);
-		static const String levelToString(const LogLevel &level);
-		static const String timeToString(const Time &time);
-		static const Colour getColourForMessage(const CtrlrLogMessage &message);
-		static const Colour getColourForLevel(const CtrlrLog::LogLevel logLevel);
-		static const String formatMessage(const CtrlrLogMessage &m, const bool includeLevel=true, const bool includeTimestamp=true);
+		static LogLevel stringToLevel (const String &level);
+		static String levelToString(const LogLevel &level);
+		static String timeToString(const Time &time);
+		static Colour getColourForMessage(const CtrlrLogMessage &message);
+		static Colour getColourForLevel(const CtrlrLog::LogLevel logLevel);
+		static String formatMessage(const CtrlrLogMessage &m, const bool includeLevel=true, const bool includeTimestamp=true);
 		void setMidiLogOptions(const int logOptions) { midiLogOptions.set(logOptions); }
 		static CtrlrLog *ctrlrLog;
 

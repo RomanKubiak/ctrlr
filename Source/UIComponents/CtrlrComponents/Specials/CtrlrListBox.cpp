@@ -139,17 +139,17 @@ void CtrlrListBox::setComponentValue (const double newValue, const bool sendChan
 	}
 }
 
-const double CtrlrListBox::getComponentValue()
+double CtrlrListBox::getComponentValue()
 {
 	return (listBox->getSelectedRow());
 }
 
-const int CtrlrListBox::getComponentMidiValue()
+int CtrlrListBox::getComponentMidiValue()
 {
 	return (valueMap.getMappedValue(listBox->getSelectedRow()));
 }
 
-const double CtrlrListBox::getComponentMaxValue()
+double CtrlrListBox::getComponentMaxValue()
 {
 	return (valueMap.getNonMappedMax());
 }

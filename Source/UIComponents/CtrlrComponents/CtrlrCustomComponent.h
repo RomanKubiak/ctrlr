@@ -33,9 +33,9 @@ class CtrlrCustomComponent :    public CtrlrComponent,
 		void restoreState (const ValueTree &savedState);
 
 		void setComponentValue (const double newValue, const bool sendChangeMessage=false);
-		const double getComponentValue();
-		const int getComponentMidiValue();
-		const double getComponentMaxValue();
+		double getComponentValue();
+		int getComponentMidiValue();
+		double getComponentMaxValue();
 		const String getComponentText();
 		void setComponentText (const String &componentText);
 
