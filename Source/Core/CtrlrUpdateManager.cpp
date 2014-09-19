@@ -7,7 +7,7 @@
 #include "CtrlrLog.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 
-CtrlrUpdateManager::CtrlrUpdateManager(CtrlrManager &_owner, const bool _startTimer, ChangeListener *initialListener)
+CtrlrUpdateManager::CtrlrUpdateManager(CtrlrManager &_owner, const bool /*_startTimer*/, ChangeListener *initialListener)
 	:	Thread("Update Manager"),
 		owner(_owner)
 {
@@ -44,7 +44,7 @@ void CtrlrUpdateManager::handleAsyncUpdate()
 	}
 }
 
-void CtrlrUpdateManager::notificationClicked (const MouseEvent e)
+void CtrlrUpdateManager::notificationClicked (const MouseEvent /*e*/)
 {
 	URL ("http://ctrlr.org/downloads").launchInDefaultBrowser();
 }

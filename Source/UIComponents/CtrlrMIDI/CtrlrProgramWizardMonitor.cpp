@@ -27,6 +27,16 @@
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
+static const String groupBinary(const String in)
+{
+    String ret;
+    for (int i=0; i<in.length(); i+=4)
+    {
+        ret << in.substring (i, i+4);
+        ret << " ";
+    }
+    return (ret);
+}
 //[/MiscUserDefs]
 
 //==============================================================================

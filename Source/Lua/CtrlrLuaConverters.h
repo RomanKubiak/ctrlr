@@ -39,7 +39,7 @@ static const var toVar(lua_State* L, int index)
     return v;
 }
 
-static const void fromVar (lua_State* L, var const& v)
+static void fromVar (lua_State* L, var const& v)
 {
 	if(v.isString())
 	{

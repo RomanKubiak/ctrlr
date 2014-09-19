@@ -45,17 +45,17 @@ void CtrlrMidiKeyboard::resized()
 }
 
 
-const double CtrlrMidiKeyboard::getComponentValue()
+double CtrlrMidiKeyboard::getComponentValue()
 {
 	return (owner.getMidiMessage().getValue());
 }
 
-const int CtrlrMidiKeyboard::getComponentMidiValue()
+int CtrlrMidiKeyboard::getComponentMidiValue()
 {
 	return (owner.getMidiMessage().getValue());
 }
 
-const double CtrlrMidiKeyboard::getComponentMaxValue()
+double CtrlrMidiKeyboard::getComponentMaxValue()
 {
 	return (127);
 }

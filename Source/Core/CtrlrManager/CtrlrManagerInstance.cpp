@@ -182,7 +182,7 @@ void CtrlrManager::restoreInstanceState(const ValueTree &instanceState)
 	ctrlrManagerRestoring = false;
 }
 
-const CtrlrInstance CtrlrManager::getInstanceMode() const
+CtrlrInstance CtrlrManager::getInstanceMode() const
 {
 	return (ctrlrPlayerInstanceMode);
 }

@@ -170,12 +170,12 @@ void CtrlrButton::setComponentValue (const double newValue, const bool sendChang
 	}
 }
 
-const double CtrlrButton::getComponentMaxValue()
+double CtrlrButton::getComponentMaxValue()
 {
 	return (valueMap.getNonMappedMax());
 }
 
-const bool CtrlrButton::getToggleState()
+bool CtrlrButton::getToggleState()
 {
 	return (ctrlrButton->getToggleState());
 }
@@ -190,12 +190,12 @@ void CtrlrButton::setComponentText (const String &componentText)
 	setComponentValue (valueMap.getNonMappedValue(componentText));
 }
 
-const double CtrlrButton::getComponentValue()
+double CtrlrButton::getComponentValue()
 {
 	return (valueMap.getCurrentNonMappedValue());
 }
 
-const int CtrlrButton::getComponentMidiValue()
+int CtrlrButton::getComponentMidiValue()
 {
 	return (valueMap.getCurrentMappedValue());
 }
@@ -289,7 +289,7 @@ void CtrlrButton::click()
 	ctrlrButton->triggerClick();
 }
 
-const bool CtrlrButton::isToggleButton()
+bool CtrlrButton::isToggleButton()
 {
 	return (ctrlrButton->getClickingTogglesState());
 }

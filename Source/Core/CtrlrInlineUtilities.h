@@ -58,17 +58,17 @@ static const inline void mergeMidiData (const CtrlrMidiMessage &source, CtrlrMid
 	}
 }
 
-static const inline int getIntValue(const float newValue, const int maxValue)
+static inline int getIntValue(const float newValue, const int maxValue)
 {
 	return (roundFloatToInt(newValue*(float)maxValue));
 }
 
-static const inline float getFloatValue(const int intValueToUse, const int maxValue)
+static inline float getFloatValue(const int intValueToUse, const int maxValue)
 {
 	return ((float)intValueToUse/(float)maxValue);
 }
 
-static const inline int	indirectOperation (const int inValue, const CtrlrSysExFormulaToken op)
+static inline int	indirectOperation (const int inValue, const CtrlrSysExFormulaToken op)
 {
 	if (op == LSB7bitValue)
 	{
@@ -92,7 +92,7 @@ static const inline int	indirectOperation (const int inValue, const CtrlrSysExFo
 	}
 }
 
-static const inline int indirectReverseOperation (const int inValue, const CtrlrSysExFormulaToken op)
+static inline int indirectReverseOperation (const int inValue, const CtrlrSysExFormulaToken op)
 {
 	BigInteger i(0);
 	if (op == LSB7bitValue)
@@ -207,7 +207,7 @@ static const inline MemoryBlock midiMessagePattern (const CtrlrMidiMessageEx &mE
 	return (MemoryBlock());
 }
 
-static const inline bool compareMemory (const MemoryBlock &haystack, const MemoryBlock &needle)
+static inline bool compareMemory (const MemoryBlock &haystack, const MemoryBlock &needle)
 {
 	if (haystack.getSize() != needle.getSize())
 		return (false);
@@ -252,14 +252,14 @@ static inline void channelizeBuffer (MidiBuffer &inputBuffer, MidiBuffer &output
 	}
 }
 
-static const inline float normalizeValue (const double& value, const double& minValue, const double& maxValue)
+static inline float normalizeValue (const double& value, const double& minValue, const double& maxValue)
 {
 	// jassert(maxValue > minValue);
     // jassert(normalized >= 0.0f && normalized <= 1.0f);
     return ((float)((value - minValue) / (maxValue - minValue)));
 }
 
-static const inline double denormalizeValue (const float& normalized, const double& minValue, const double& maxValue)
+static inline double denormalizeValue (const float& normalized, const double& minValue, const double& maxValue)
 {
 	// jassert(normalized >= 0.0f && normalized <= 1.0f);
 	// jassert(maxValue > minValue);
@@ -267,7 +267,7 @@ static const inline double denormalizeValue (const float& normalized, const doub
     return roundFloatToInt (minValue + normalized * (maxValue - minValue));
 }
 
-static const inline void restoreProperties (const ValueTree &sourceTree, ValueTree &destinationTree, UndoManager *undoManager=0, const String &propertyPrefix=String::empty)
+static inline void restoreProperties (const ValueTree &sourceTree, ValueTree &destinationTree, UndoManager *undoManager=0, const String &propertyPrefix=String::empty)
 {
 	if (propertyPrefix == String::empty)
 	{
@@ -322,7 +322,7 @@ static inline int add_file_and_line(lua_State* L)
 	}
 }
 
-static const inline bool isInvalidMethodName(const String &name)
+static inline bool isInvalidMethodName(const String &name)
 {
 	if (name.isEmpty() || name == COMBO_NONE_ITEM)
 		return (true);
@@ -382,7 +382,7 @@ static const inline String dumpMemoryBlock(const MemoryBlock &data)
 	return (memoryBlockToString(data));
 }
 
-static const inline bool stringIsHexadecimal (const String &hexData)
+static inline bool stringIsHexadecimal (const String &hexData)
 {
 	return hexData.isNotEmpty() && hexData.containsOnly ("abcdefABCDEF0123456789 ");
 }
@@ -413,7 +413,7 @@ static const inline MemoryBlock signData (const MemoryBlock &dataToSign, const R
     return (md5DataAsBigInteger.toMemoryBlock());
 }
 
-static const inline int getVersionAsHexInteger(const String version)
+static inline int getVersionAsHexInteger(const String version)
 {
     const StringArray segments = StringArray::fromTokens (version, ".", "\"'");
 

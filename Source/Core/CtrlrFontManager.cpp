@@ -42,7 +42,7 @@ void CtrlrFontManager::reloadJuceFonts()
 	juceFonts.add (Font (Font::getDefaultSerifFontName(), 14.0f, Font::plain));
 }
 
-const int CtrlrFontManager::getNumBuiltInFonts()
+int CtrlrFontManager::getNumBuiltInFonts()
 {
 	return (11);
 }
@@ -353,7 +353,7 @@ const Font CtrlrFontManager::getBuiltInFont(const int fontIndex)
 	return (f);
 }
 
-const CtrlrFontManager::FontSet CtrlrFontManager::getFontSetEnum (const Font &font)
+CtrlrFontManager::FontSet CtrlrFontManager::getFontSetEnum (const Font &font)
 {
     for (int i=0; i<importedFonts.size(); i++)
 	{

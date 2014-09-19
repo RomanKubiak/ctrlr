@@ -57,8 +57,8 @@ class CtrlrLuaObject
 		/** @brief Internal
 
 		*/
-		virtual const int getPropertyInt(const String &propertyName);
-		virtual const double getPropertyDouble(const String &propertyName);
+		virtual int getPropertyInt(const String &propertyName);
+		virtual double getPropertyDouble(const String &propertyName);
 		virtual const String getPropertyString(const String &propertyName);
 		virtual void setPropertyColour(const String &propertyName, const Colour value);
 		virtual void setPropertyDouble(const String &propertyName, const double value);

@@ -10,9 +10,9 @@ class CtrlrWaveform  : public CtrlrComponent, public FileDragAndDropTarget
 		CtrlrWaveform (CtrlrModulator &owner);
 		~CtrlrWaveform();
 		void setComponentValue (const double newValue, const bool sendChangeMessage=false);
-		const double getComponentValue();
-		const int getComponentMidiValue();
-		const double getComponentMaxValue();
+		double getComponentValue();
+		int getComponentMidiValue();
+		double getComponentMaxValue();
 		const String getComponentText();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
@@ -55,7 +55,7 @@ class CtrlrWaveform  : public CtrlrComponent, public FileDragAndDropTarget
 		double getHashCode();
 		int getNumChannels();
 		void clear();
-		
+
 		JUCE_LEAK_DETECTOR(CtrlrWaveform)
 
 	private:

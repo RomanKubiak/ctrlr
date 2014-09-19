@@ -14,11 +14,13 @@ class CtrlrSliderInternal : public Slider
 		String getTextFromValue(double value);
 		void mouseWheelMove (const MouseEvent &e, const MouseWheelDetails& wheel);
 
+		JUCE_LEAK_DETECTOR(CtrlrSliderInternal)
+
 	private:
 		CtrlrComponent &owner;
 };
 
-class CtrlrSliderLookAndFeel : public LookAndFeel_V2
+class CtrlrSliderLookAndFeel : public LookAndFeel_V3
 {
 	public:
 		CtrlrSliderLookAndFeel(CtrlrComponent &_owner, ValueTree &_ownerTree) : ownerTree(_ownerTree), owner(_owner)

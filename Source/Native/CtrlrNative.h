@@ -24,10 +24,10 @@ class CtrlrNative
 {
 	public:
 		static CtrlrNative *getNativeObject(CtrlrManager &owner);
-		virtual const Result exportWithDefaultPanel (CtrlrPanel *panelToWrite,
-                                                        const bool isRestricted=false,
-                                                        const bool signPanel=false,
-                                                        RSAKey privateKey = RSAKey())
+		virtual const Result exportWithDefaultPanel (CtrlrPanel */*panelToWrite*/,
+                                                        const bool /*isRestricted=false*/,
+                                                        const bool /*signPanel=false*/,
+                                                        RSAKey /*privateKey = RSAKey()*/)
 		{
 		    return (Result::fail("Native, implement me"));
         }

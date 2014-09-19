@@ -22,10 +22,10 @@ class CtrlrPanelWindowManager : public CtrlrWindowManager
 		virtual ~CtrlrPanelWindowManager();
 		CtrlrPanel &getOwner();
 		const String getWindowName(const CtrlrPanelWindowManager::WindowType window);
-		const CtrlrPanelWindowManager::WindowType getWindowType(const String &windowName);
+		CtrlrPanelWindowManager::WindowType getWindowType(const String &windowName);
 		void show (const CtrlrPanelWindowManager::WindowType window);
 		void toggle(const CtrlrPanelWindowManager::WindowType window, const bool makeVisible=true);
-		const bool isCreated(const CtrlrPanelWindowManager::WindowType window);
+		bool isCreated(const CtrlrPanelWindowManager::WindowType window);
 		Component *getContent(const CtrlrPanelWindowManager::WindowType window);
 		void windowChanged(CtrlrChildWindow *windowThatChanged);
 		void windowClosedButtonPressed(CtrlrChildWindow *windowThatChanged);

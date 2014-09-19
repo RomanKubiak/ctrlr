@@ -116,7 +116,7 @@ void CtrlrLog::handleAsyncUpdate()
 	pendingQueue.clear();
 }
 
-const Colour CtrlrLog::getColourForLevel(const CtrlrLog::LogLevel logLevel)
+Colour CtrlrLog::getColourForLevel(const CtrlrLog::LogLevel logLevel)
 {
 	switch (logLevel)
 	{
@@ -146,12 +146,12 @@ const Colour CtrlrLog::getColourForLevel(const CtrlrLog::LogLevel logLevel)
 	return Colours::black;
 }
 
-const Colour CtrlrLog::getColourForMessage(const CtrlrLogMessage &message)
+Colour CtrlrLog::getColourForMessage(const CtrlrLogMessage &message)
 {
 	return (getColourForLevel(message.level));
 }
 
-const String CtrlrLog::levelToString (const LogLevel &level)
+String CtrlrLog::levelToString (const LogLevel &level)
 {
 	switch (level)
 	{
@@ -181,7 +181,7 @@ const String CtrlrLog::levelToString (const LogLevel &level)
 	return ("[INFO   ]");
 }
 
-const CtrlrLog::LogLevel CtrlrLog::stringToLevel (const String &_level)
+CtrlrLog::LogLevel CtrlrLog::stringToLevel (const String &_level)
 {
 	const String level = _level.trim();
 	if (level == "INFO")
@@ -208,12 +208,12 @@ const CtrlrLog::LogLevel CtrlrLog::stringToLevel (const String &_level)
 	return (kLogLevels);
 }
 
-const String CtrlrLog::timeToString(const Time &time)
+String CtrlrLog::timeToString(const Time &time)
 {
 	return (time.formatted ("[%H:%M:%S:") + String::formatted ("%06d]", time.getMilliseconds()));
 }
 
-const String CtrlrLog::formatMessage(const CtrlrLogMessage &m, const bool includeLevel, const bool includeTimestamp)
+String CtrlrLog::formatMessage(const CtrlrLogMessage &m, const bool includeLevel, const bool includeTimestamp)
 {
 	String ret;
 

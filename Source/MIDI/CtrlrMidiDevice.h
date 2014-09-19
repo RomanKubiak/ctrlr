@@ -1,7 +1,9 @@
 #ifndef __CTRLR_MIDI_DEVICE__
 #define __CTRLR_MIDI_DEVICE__
 
+#ifdef _WIN32
 #pragma warning(disable:4201)
+#endif // _WIN32
 
 #include "CtrlrMacros.h"
 #include "CtrlrModulator/CtrlrModulator.h"
@@ -30,20 +32,20 @@ class CtrlrMidiDevice : public ValueTree::Listener, public MidiInputCallback
 
 		void closeJuceDevice (const bool type);
 		void closeRtDevice (const bool type);
-		const bool openJuceDevice (const bool type);
-		const bool openRtDevice (const bool type);
+		bool openJuceDevice (const bool type);
+		bool openRtDevice (const bool type);
 		void restoreState(const ValueTree &savedState);
 		void setProperty (const Identifier& name, const var &newValue)									{ deviceTree.setProperty (name, newValue, 0); }
 		const var &getProperty (const Identifier& name) const											{ return deviceTree.getProperty (name); }
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return deviceTree.getProperty (name, defaultReturnValue); }
 		UndoManager* getUndoManager() const																{ return (0); }
 		ValueTree &getDeviceTree()																		{ return (deviceTree); }
-		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
-		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
-		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
-		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreePropertyChanged (ValueTree &/*treeWhosePropertyHasChanged*/, const Identifier &/*property*/){}
+		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
+		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
 
 		void addDeviceListener (CtrlrMidiDevice::Listener *l)											{ deviceListeners.add(l); }
 		void removeDeviceListener (CtrlrMidiDevice::Listener *l)										{ deviceListeners.remove(l); }
@@ -55,10 +57,10 @@ class CtrlrMidiDevice : public ValueTree::Listener, public MidiInputCallback
 
 		MidiInput *getInputDevicePtr();
 
-		virtual const bool getType();
-		virtual const bool getState();
+		virtual bool getType();
+		virtual bool getState();
 		virtual const String getName();
-		virtual const bool openDevice();
+		virtual bool openDevice();
 		virtual void closeDevice();
 
 		JUCE_LEAK_DETECTOR(CtrlrMidiDevice)

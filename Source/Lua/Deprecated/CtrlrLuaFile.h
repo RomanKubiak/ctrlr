@@ -1,8 +1,8 @@
 #ifndef __CTRLR_LUA_FILE__
 #define __CTRLR_LUA_FILE__
-
+#ifdef _WIN32
 #pragma warning(disable:4100)
-
+#endif
 
 #include "JuceHeader.h"
 #include "CtrlrLuaMemoryBlock.h"

@@ -15,8 +15,8 @@ class CtrlrMidiInputComparatorSingle
 		void clear();
 		void match (const MidiMessage &m);
 		void matchSysEx(const MidiMessage &m);
-		const bool cacheMatch(CtrlrMidiMessageType type, const int number, const int channel);
-		const bool cacheMatchSysEx ();
+		bool cacheMatch(CtrlrMidiMessageType type, const int number, const int channel);
+        bool cacheMatchSysEx ();
 		void addMatchTarget (CtrlrModulator *m);
 		void addMatchTargetSysEx (CtrlrModulator *m);
 		CtrlrMidiMap &getMap(const CtrlrMidiMessageType t);
@@ -25,7 +25,7 @@ class CtrlrMidiInputComparatorSingle
 		void updateCache (const CtrlrMidiMessageType t, CtrlrMidiMapIterator &it);
 		void updateCacheSysEx (CtrlrMultiMidiMapIterator &it);
 		const String dumpTableContents();
-		
+
 		JUCE_LEAK_DETECTOR(CtrlrMidiInputComparatorSingle)
 
 	private:
@@ -33,23 +33,23 @@ class CtrlrMidiInputComparatorSingle
 		CtrlrMidiMessage messageContainer;
 		CtrlrMultiMidiMap mapSysEx;
 		Array<CtrlrCacheDataMulti> cacheSysEx;
-		CtrlrMidiMap 
-			mapCC, 
-			mapAftertouch, 
-			mapPitchWheel, 
-			mapProgramChange, 
-			mapNoteOn, 
-			mapNoteOff, 
+		CtrlrMidiMap
+			mapCC,
+			mapAftertouch,
+			mapPitchWheel,
+			mapProgramChange,
+			mapNoteOn,
+			mapNoteOff,
 			mapChannelPressure,
 			mapNull;
 
-		Array<CtrlrCacheDataSingle>	
-			cacheCC, 
-			cacheAftertouch, 
-			cachePitchWheel, 
-			cacheProgramChange, 
-			cacheNoteOn, 
-			cacheNoteOff, 
+		Array<CtrlrCacheDataSingle>
+			cacheCC,
+			cacheAftertouch,
+			cachePitchWheel,
+			cacheProgramChange,
+			cacheNoteOn,
+			cacheNoteOff,
 			cacheChannelPressure,
 			cacheNull;
 

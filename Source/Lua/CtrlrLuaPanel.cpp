@@ -54,7 +54,7 @@ void CtrlrPanel::setGlobalVariable(const int index, const int value)
 
 	@param	index	the global variable index 0-16
 */
-const int CtrlrPanel::getGlobalVariable (const int index)
+int CtrlrPanel::getGlobalVariable (const int index)
 {
 	return (globalVariables[index]);
 }
@@ -91,7 +91,7 @@ CtrlrComponent *CtrlrPanel::getComponent(const String &modulatorName)
 /** @brief Get the amount of modulators in the panel
 
 */
-const int CtrlrPanel::getNumModulators()
+int CtrlrPanel::getNumModulators()
 {
 	return (ctrlrModulators.size());
 }

@@ -43,9 +43,9 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
         ,
         def("setLookAndFeel", &setLookAndFeel)
         ,
-        class_<LookAndFeel_V3>("JLookAndFeel_V3")
-        ,
-        class_<LLookAndFeel_V3, LookAndFeel_V3>("LookAndFeel_V3")
+        //class_<LookAndFeel_V3>("JLookAndFeel_V3")
+        //,
+        class_<LookAndFeel_V3, LLookAndFeel_V3>("LookAndFeel_V3")
             .def(constructor<>())
 			.def("findColour", &LookAndFeel_V3::findColour, &LLookAndFeel_V3::def_findColour)
 			.def("setColour", &LookAndFeel_V3::setColour, &LLookAndFeel_V3::def_setColour)
@@ -99,7 +99,7 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
 			.def("drawMenuBarItem", &LookAndFeel_V3::drawMenuBarItem, &LLookAndFeel_V3::def_drawMenuBarItem)
 			.def("drawComboBox", &LookAndFeel_V3::drawComboBox, &LLookAndFeel_V3::def_drawComboBox)
 			.def("getComboBoxFont", &LookAndFeel_V3::getComboBoxFont, &LLookAndFeel_V3::def_getComboBoxFont)
-			.def("createComboBoxTextBox", &LookAndFeel_V3::createComboBoxTextBox, &LLookAndFeel_V3::def_getPopupMenuFont)
+			.def("createComboBoxTextBox", &LookAndFeel_V3::createComboBoxTextBox, &LLookAndFeel_V3::def_createComboBoxTextBox)
 			.def("positionComboBoxText", &LookAndFeel_V3::positionComboBoxText, &LLookAndFeel_V3::def_positionComboBoxText)
 			.def("drawLabel", &LookAndFeel_V3::drawLabel, &LLookAndFeel_V3::def_drawLabel)
 			.def("drawLinearSlider", &LookAndFeel_V3::drawLinearSlider, &LLookAndFeel_V3::def_drawLinearSlider)

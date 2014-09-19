@@ -7,7 +7,7 @@
 #include "CtrlrLog.h"
 #include "CtrlrUtilities.h"
 
-CtrlrMidiDeviceManager::CtrlrMidiDeviceManager(CtrlrManager &_owner) 
+CtrlrMidiDeviceManager::CtrlrMidiDeviceManager(CtrlrManager &_owner)
 	:	managerTree(Ids::midiDeviceManager),
 		owner(_owner)
 {
@@ -17,13 +17,13 @@ CtrlrMidiDeviceManager::CtrlrMidiDeviceManager(CtrlrManager &_owner)
 }
 
 CtrlrMidiDeviceManager::~CtrlrMidiDeviceManager()
-{	
+{
 	processingListeners.clear();
 	inDevs.clear();
 	outDevs.clear();
 }
 
-const int CtrlrMidiDeviceManager::getNumDevices(const DeviceType type)
+int CtrlrMidiDeviceManager::getNumDevices(const DeviceType type)
 {
 	if (type == outputDevice)
 	{
@@ -54,7 +54,7 @@ const String CtrlrMidiDeviceManager::getDeviceName(const int idx, const DeviceTy
 	return (COMBO_NONE_ITEM);
 }
 
-const bool CtrlrMidiDeviceManager::isDeviceOpened(const int idx, const DeviceType type)
+bool CtrlrMidiDeviceManager::isDeviceOpened(const int idx, const DeviceType type)
 {
 	if (type == outputDevice)
 	{
@@ -64,11 +64,11 @@ const bool CtrlrMidiDeviceManager::isDeviceOpened(const int idx, const DeviceTyp
 	{
 		return (inDevs[idx]->getProperty(Ids::midiDevState));
 	}
-	
+
 	return (false);
 }
 
-const bool CtrlrMidiDeviceManager::toggleDevice (const int idx, const DeviceType type, const bool state)
+bool CtrlrMidiDeviceManager::toggleDevice (const int idx, const DeviceType type, const bool state)
 {
 	owner.sendChangeMessage();
 
@@ -153,7 +153,7 @@ CtrlrMidiDevice *CtrlrMidiDeviceManager::getDeviceByName(const String name, cons
 			}
 		}
 	}
-	
+
 	if (type == controllerDevice)
 	{
 		for (int i=0; i<inDevs.size(); i++)
@@ -178,7 +178,7 @@ CtrlrMidiDevice *CtrlrMidiDeviceManager::getDeviceByName(const String name, cons
 CtrlrMidiDevice *CtrlrMidiDeviceManager::getDeviceByIndex(const int idx, const DeviceType type)
 {
 	if (type == outputDevice)
-	{		
+	{
 		return (outDevs[idx]);
 	}
 	else if (type == controllerDevice || type == inputDevice)
@@ -194,7 +194,7 @@ void CtrlrMidiDeviceManager::reloadComboContents (ComboBox &comboToUpdate, const
 //	refreshDevices();  //This worked, but it would never send output to the "new" device, even though it found it.
 	comboToUpdate.clear();
 	if (type == outputDevice)
-	{ 
+	{
 		comboToUpdate.addItem (COMBO_NONE_ITEM, 1);
 		for (int i=0; i<outDevs.size(); i++)
 		{
@@ -205,7 +205,7 @@ void CtrlrMidiDeviceManager::reloadComboContents (ComboBox &comboToUpdate, const
 	{
 		comboToUpdate.addItem (COMBO_NONE_ITEM, 1);
 		for (int i=0; i<inDevs.size(); i++)
-		{		
+		{
 			comboToUpdate.addItem (inDevs[i]->getProperty(Ids::name).toString(), i+2);
 		}
 	}

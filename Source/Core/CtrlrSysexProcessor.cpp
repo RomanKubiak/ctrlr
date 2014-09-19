@@ -131,7 +131,7 @@ void CtrlrSysexProcessor::sysexProcessPrograms(const Array<CtrlrSysexToken> &tok
 }
 
 
-const CtrlrMidiMessageEx CtrlrSysexProcessor::sysexMessageFromString (const String &formula, const int value, const int channel)
+CtrlrMidiMessageEx CtrlrSysexProcessor::sysexMessageFromString (const String &formula, const int value, const int channel)
 {
 	MidiMessage m;
 	MemoryBlock bl(0,true);
@@ -152,7 +152,7 @@ const CtrlrMidiMessageEx CtrlrSysexProcessor::sysexMessageFromString (const Stri
 	return (mex);
 }
 
-const double CtrlrSysexProcessor::getValueFromSysExData (const Array<CtrlrSysexToken> &tokens, const CtrlrMidiMessageEx &message)
+double CtrlrSysexProcessor::getValueFromSysExData (const Array<CtrlrSysexToken> &tokens, const CtrlrMidiMessageEx &message)
 {
 	double v = 0;
 
@@ -167,7 +167,7 @@ const double CtrlrSysexProcessor::getValueFromSysExData (const Array<CtrlrSysexT
 	return (v);
 }
 
-const uint8 CtrlrSysexProcessor::getRolandSplit (const int value, const int byteNum)
+uint8 CtrlrSysexProcessor::getRolandSplit (const int value, const int byteNum)
 {
 	const double result4   = value/16;
 	const double reminder4 = fmod((double)value, 16.0);
@@ -250,7 +250,7 @@ void CtrlrSysexProcessor::setMultiMessageFromString(CtrlrMidiMessage &message, c
 	}
 }
 
-const Array<CtrlrSysexToken> CtrlrSysexProcessor::sysExToTokenArray (const String &formula)
+Array<CtrlrSysexToken> CtrlrSysexProcessor::sysExToTokenArray (const String &formula)
 {
 	Array <CtrlrSysexToken> tokensToReturn;
 
@@ -278,7 +278,7 @@ const Array<CtrlrSysexToken> CtrlrSysexProcessor::sysExToTokenArray (const Strin
 	return (tokensToReturn);
 }
 
-const CtrlrSysExFormulaToken CtrlrSysexProcessor::sysExIdentifyToken(const String &s)
+CtrlrSysExFormulaToken CtrlrSysexProcessor::sysExIdentifyToken(const String &s)
 {
 	if (s == "xx")
 	{

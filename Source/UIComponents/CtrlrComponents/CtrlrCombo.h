@@ -49,9 +49,9 @@ public:
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
 	void setComponentValue (const double newValue, const bool sendChangeMessage=false);
-	const double getComponentValue();
-	const int getComponentMidiValue();
-	const double getComponentMaxValue();
+	double getComponentValue();
+	int getComponentMidiValue();
+	double getComponentMaxValue();
 	const String getComponentText();
 	void setComponentText (const String &componentText);
 	void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
@@ -93,6 +93,10 @@ public:
 	void setText(const String &text, const bool dontNotify);
 	ComboBox *getOwnedComboBox() { return (ctrlrCombo); }
 	static void wrapForLua(lua_State *L);
+	void lookAndFeelChanged()
+    {
+        ctrlrCombo->setLookAndFeel (nullptr);
+    }
     //[/UserMethods]
 
     void paint (Graphics& g);

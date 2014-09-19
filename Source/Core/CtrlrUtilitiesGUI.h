@@ -11,6 +11,6 @@ const String imageToBase64 (const Image &image);
 void gradientFromProperty (Graphics &g, Rectangle<int> gradientBounds, const ValueTree &propertyHolder, const Identifier &gradientType, const Identifier &colour1, const Identifier &colour2);
 const Justification justificationFromProperty(const var &justificationProperty);
 const RectanglePlacement relativePostionFromProperty (const var &positionProperty);
-const MouseCursor::StandardCursorType mouseCursorFromproperty (const var &cursorProperty);
+MouseCursor::StandardCursorType mouseCursorFromproperty (const var &cursorProperty);
 const Point<int> pointFromString(const String &pointState);
 #endif

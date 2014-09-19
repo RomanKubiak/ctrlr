@@ -148,17 +148,17 @@ void CtrlrToggleButton::setComponentMidiValue (const int newValue, const bool se
 	}
 }
 
-const double CtrlrToggleButton::getComponentMaxValue()
+double CtrlrToggleButton::getComponentMaxValue()
 {
 	return (1);
 }
 
-const bool CtrlrToggleButton::getToggleState()
+bool CtrlrToggleButton::getToggleState()
 {
 	return (ctrlrButton->getToggleState());
 }
 
-const double CtrlrToggleButton::getComponentValue()
+double CtrlrToggleButton::getComponentValue()
 {
 	if (ctrlrButton->getToggleState())
 	{
@@ -170,7 +170,7 @@ const double CtrlrToggleButton::getComponentValue()
 	}
 }
 
-const int CtrlrToggleButton::getComponentMidiValue()
+int CtrlrToggleButton::getComponentMidiValue()
 {
 	return (valueMap.getMappedValue(ctrlrButton->getToggleState()));
 }
@@ -214,7 +214,7 @@ void CtrlrToggleButton::click()
 	ctrlrButton->triggerClick();
 }
 
-const bool CtrlrToggleButton::isToggleButton()
+bool CtrlrToggleButton::isToggleButton()
 {
 	return (true);
 }

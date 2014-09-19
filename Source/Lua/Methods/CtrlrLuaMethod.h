@@ -2,7 +2,9 @@
 #define __CTRLR_LUA_METHOD__
 
 #include "JuceHeader.h"
+#ifdef _WIN32
 #pragma warning(disable:4100)
+#endif // _WIN
 
 class CtrlrModulator;
 class CtrlrPanel;
@@ -26,10 +28,10 @@ class CtrlrLuaMethod : public ValueTree::Listener
 		void setCodeEditor (CtrlrLuaMethodCodeEditor *_methodCodeEditor);
 		CtrlrLuaMethodCodeEditor *getCodeEditor();
 		void setObject (CtrlrLuaObjectWrapper _luaObject);
-		
+
 		const String getName() const;
 		CtrlrLuaObjectWrapper &getObject();
-		const bool isValid() const;
+		bool isValid() const;
 		void setValid (const bool _methodIsValid);
 
 		void remove();
@@ -37,25 +39,25 @@ class CtrlrLuaMethod : public ValueTree::Listener
 		Uuid getUuid();
 		const String getCode();
 		const AttributedString getLastError()								{ return (errorString); }
-		const bool isSourceInFile();
+		bool isSourceInFile();
 		const File getSourceFile();
-		const int getCodeSize();
+		int getCodeSize();
 		void setSourceFile (const File &sourceFile);
 		void triggerSourceChangeFromEditor(const bool recompile);
 		bool isAudioThreadMethod();
 		lua_State *getLuaState();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
-		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
-		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
-		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& child){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
+		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*child*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*child*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethod)
 
 	private:
 		Font out;
-		const bool setCodeInternal (const String &newMethodCode);
+		bool setCodeInternal (const String &newMethodCode);
 		WeakReference<CtrlrLuaMethod>::Master masterReference;
 		friend class WeakReference<CtrlrLuaMethod>;
 		CtrlrLuaObjectWrapper *luaObject;

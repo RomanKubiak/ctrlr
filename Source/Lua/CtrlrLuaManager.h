@@ -1,7 +1,8 @@
 #ifndef __CTRLR_LUA_MANAGER__
 #define __CTRLR_LUA_MANAGER__
-
+#ifdef _WIN32
 #pragma warning(disable:4100)
+#endif
 
 #include "Methods/CtrlrLuaMethodManager.h"
 #include "CtrlrLuaUtils.h"

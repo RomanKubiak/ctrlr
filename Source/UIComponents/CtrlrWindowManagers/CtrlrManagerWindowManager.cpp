@@ -82,7 +82,7 @@ Component *CtrlrManagerWindowManager::getContent(const CtrlrManagerWindowManager
 	return (0);
 }
 
-const bool CtrlrManagerWindowManager::isCreated(const CtrlrManagerWindowManager::WindowType window)
+bool CtrlrManagerWindowManager::isCreated(const CtrlrManagerWindowManager::WindowType window)
 {
 	for (int i=0; i<windows.size(); i++)
 	{
@@ -126,7 +126,7 @@ const String CtrlrManagerWindowManager::getWindowName(const CtrlrManagerWindowMa
 	}
 }
 
-const CtrlrManagerWindowManager::WindowType CtrlrManagerWindowManager::getWindowType(const String &windowName)
+CtrlrManagerWindowManager::WindowType CtrlrManagerWindowManager::getWindowType(const String &windowName)
 {
 	if (windowName == "Repository")
 		return (Repository);

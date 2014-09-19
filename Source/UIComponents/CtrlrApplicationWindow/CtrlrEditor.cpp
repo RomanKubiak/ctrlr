@@ -92,7 +92,7 @@ CtrlrPanel *CtrlrEditor::getActivePanel()
 	return (owner.getActivePanel());
 }
 
-const bool CtrlrEditor::isRestricted()
+bool CtrlrEditor::isRestricted()
 {
 	return (owner.getInstanceMode() == InstanceSingleRestriced);
 }
@@ -107,7 +107,7 @@ CtrlrPanelEditor *CtrlrEditor::getActivePanelEditor()
 	return (nullptr);
 }
 
-const bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
+bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
 {
 	if (getActivePanel())
 	{

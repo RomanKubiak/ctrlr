@@ -1,8 +1,8 @@
 #ifndef __CTRLR_LUA_COMPONENT_ANIMATOR__
 #define __CTRLR_LUA_COMPONENT_ANIMATOR__
-
+#ifdef _WIN32
 #pragma warning(disable:4100)
-
+#endif
 #include "CtrlrLuaRectangle.h"
 #include "CtrlrLuaMemoryBlock.h"
 #include "CtrlrComponents/CtrlrComponent.h"
@@ -25,7 +25,7 @@ class CtrlrLuaComponentAnimator
 		bool isAnimating (CtrlrComponent *component);
 
 		static void wrapForLua (lua_State *L);
-		
+
 		JUCE_LEAK_DETECTOR(CtrlrLuaComponentAnimator)
 
 	private:

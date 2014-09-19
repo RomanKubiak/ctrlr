@@ -50,9 +50,9 @@ public:
 	int getNumRows();
 	void paintListBoxItem (int rowNumber, Graphics &g, int width, int height, bool rowIsSelected);
 	void setComponentValue (const double newValue, const bool sendChangeMessage=false);
-	const double getComponentValue();
-	const int getComponentMidiValue();
-	const double getComponentMaxValue();
+	double getComponentValue();
+	int getComponentMidiValue();
+	double getComponentMaxValue();
 	const String getComponentText();
 	const String getTextForValue(const double value);
 	void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);

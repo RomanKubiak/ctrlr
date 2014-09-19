@@ -1,8 +1,8 @@
 #ifndef __CTRLR_LUA_BIG_INTEGER__
 #define __CTRLR_LUA_BIG_INTEGER__
-
+#ifdef _WIN32
 #pragma warning(disable:4100)
-
+#endif
 
 #include "JuceHeader.h"
 
@@ -14,7 +14,7 @@ class CtrlrLuaBigInteger
 {
 	public:
 		/** @brief Constructor
-			
+
 			@param integer	creates a BigInteger class from this value
 		*/
 		CtrlrLuaBigInteger(const int integer);

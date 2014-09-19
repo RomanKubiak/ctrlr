@@ -16,8 +16,8 @@ class CtrlrMidiInputComparatorMulti : public Timer
 		void clear();
 		void addMatchTarget (CtrlrModulator *m);
 		void match (const MidiMessage &m);
-		const bool cacheMatch ();
-		const bool basicMatch(const MidiMessage &m);
+		bool cacheMatch ();
+		bool basicMatch(const MidiMessage &m);
 		void panelEditModeChanged (const bool _panelEditMode);
 		void updateCache (CtrlrMultiMidiMapIterator &it);
 		void updateState (const bool match);

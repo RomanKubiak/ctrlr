@@ -141,11 +141,11 @@ namespace luabind { namespace detail
 	{
 		static const T& t;
 
-		BOOST_STATIC_CONSTANT(bool, value = 
+		BOOST_STATIC_CONSTANT(bool, value =
 			sizeof(is_policy_cons_test(t)) == sizeof(yes_t));
 
 		typedef boost::mpl::bool_<value> type;
-	};	
+	};
 
 	template<bool>
 	struct is_string_literal
@@ -159,7 +159,7 @@ namespace luabind { namespace detail
 	{
 		static no_t helper(indirection_layer);
 	};
-	
+
 
     namespace mpl = boost::mpl;
 
@@ -208,7 +208,7 @@ namespace luabind { namespace detail
 
         void* result;
 
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 1;
         }
@@ -216,7 +216,7 @@ namespace luabind { namespace detail
 		template<class T>
 		void apply(lua_State* L, T* ptr)
 		{
-			if (ptr == 0) 
+			if (ptr == 0)
 			{
 				lua_pushnil(L);
 				return;
@@ -250,7 +250,7 @@ namespace luabind { namespace detail
 		}
 
 		template<class T>
-		void converter_postcall(lua_State*, by_pointer<T>, int) 
+		void converter_postcall(lua_State*, by_pointer<T>, int)
 		{}
 	};
 
@@ -261,7 +261,7 @@ namespace luabind { namespace detail
 		typedef value_converter type;
         typedef mpl::false_ is_native;
 
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 1;
         }
@@ -313,7 +313,7 @@ namespace luabind { namespace detail
 		typedef const_pointer_converter type;
         typedef mpl::false_ is_native;
 
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 1;
         }
@@ -327,7 +327,7 @@ namespace luabind { namespace detail
 		template<class T>
 		void apply(lua_State* L, const T* ptr)
 		{
-			if (ptr == 0) 
+			if (ptr == 0)
 			{
 				lua_pushnil(L);
 				return;
@@ -369,7 +369,7 @@ namespace luabind { namespace detail
 		typedef ref_converter type;
         typedef mpl::false_ is_native;
 
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 1;
         }
@@ -415,7 +415,7 @@ namespace luabind { namespace detail
 		typedef const_ref_converter type;
         typedef mpl::false_ is_native;
 
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 1;
         }
@@ -467,11 +467,11 @@ namespace luabind { namespace detail
 		typedef enum_converter type;
         typedef mpl::true_ is_native;
 
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 1;
         }
-		
+
 		void apply(lua_State* L, int val)
 		{
 			lua_pushnumber(L, val);
@@ -482,7 +482,7 @@ namespace luabind { namespace detail
 		{
 			return static_cast<T>(static_cast<int>(lua_tonumber(L, index)));
 		}
-		
+
 		template<class T>
 		static int match(lua_State* L, by_value<T>, int index)
 		{
@@ -511,7 +511,7 @@ namespace luabind { namespace detail
 		typedef value_wrapper_converter<U> type;
 		typedef mpl::true_ is_native;
 
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 1;
         }
@@ -531,7 +531,7 @@ namespace luabind { namespace detail
 		template<class T>
 		static int match(lua_State* L, by_const_reference<T>, int index)
 		{
-			return value_wrapper_traits<T>::check(L, index) 
+			return value_wrapper_traits<T>::check(L, index)
                 ? (std::numeric_limits<int>::max)() / LUABIND_MAX_ARITY
                 : -1;
 		}
@@ -594,7 +594,7 @@ struct native_converter_base
 {
     typedef boost::mpl::true_ is_native;
 
-    int const consumed_args(...)
+    int consumed_args(...)
     {
         return 1;
     }
@@ -769,7 +769,7 @@ struct default_converter<char const*>
 {
     typedef boost::mpl::true_ is_native;
 
-    int const consumed_args(...)
+    int consumed_args(...)
     {
         return 1;
     }
@@ -820,7 +820,7 @@ struct default_converter<char[N]>
 template <>
 struct default_converter<lua_State*>
 {
-    int const consumed_args(...)
+    int consumed_args(...)
     {
         return 0;
     }

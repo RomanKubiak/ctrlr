@@ -148,17 +148,17 @@ bool CtrlrCombo::keyPressed (const KeyPress& key)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-const double CtrlrCombo::getComponentMaxValue()
+double CtrlrCombo::getComponentMaxValue()
 {
 	return (valueMap.getNonMappedMax());
 }
 
-const double CtrlrCombo::getComponentValue()
+double CtrlrCombo::getComponentValue()
 {
 	return (ctrlrCombo->getSelectedId()-1);
 }
 
-const int CtrlrCombo::getComponentMidiValue()
+int CtrlrCombo::getComponentMidiValue()
 {
 	return (valueMap.getMappedValue(ctrlrCombo->getSelectedId() - 1));
 }

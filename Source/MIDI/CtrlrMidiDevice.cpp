@@ -38,7 +38,7 @@ void CtrlrMidiDevice::restoreState(const ValueTree &savedState)
 	}
 }
 
-const bool CtrlrMidiDevice::openDevice()
+bool CtrlrMidiDevice::openDevice()
 {
 	if (getType() == CtrlrMidiDeviceManager::outputDevice)
 	{
@@ -113,21 +113,17 @@ void CtrlrMidiDevice::closeDevice()
 	setProperty (Ids::midiDevState, false);
 }
 
-void CtrlrMidiDevice::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
-{
-}
-
-void CtrlrMidiDevice::handlePartialSysexMessage (MidiInput* source, const uint8* messageData, int numBytesSoFar, double timestamp)
+void CtrlrMidiDevice::handlePartialSysexMessage (MidiInput* /*source*/, const uint8* messageData, int numBytesSoFar, double timestamp)
 {
 	deviceListeners.call (&CtrlrMidiDevice::Listener::handlePartialMIDIFromDevice, messageData, numBytesSoFar, timestamp);
 }
 
-void CtrlrMidiDevice::handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message)
+void CtrlrMidiDevice::handleIncomingMidiMessage (MidiInput* /*source*/, const MidiMessage& message)
 {
 	_MIN(getProperty(Ids::name), message);
 
 #ifdef JUCE_LINUX
-    uint8 *ptr = message.getRawData();
+    uint8 *ptr = (uint8 *)message.getRawData();
 
     if (!message.isSysEx() && *(ptr + (message.getRawDataSize() - 1)) == 0xf7)
     {
@@ -172,12 +168,12 @@ void CtrlrMidiDevice::handleIncomingMidiMessage (MidiInput* source, const MidiMe
 	}
 }
 
-const bool CtrlrMidiDevice::getType()
+bool CtrlrMidiDevice::getType()
 {
 	return ((bool)getProperty(Ids::midiDevType));
 }
 
-const bool CtrlrMidiDevice::getState()
+bool CtrlrMidiDevice::getState()
 {
 	return (getProperty(Ids::midiDevState));
 }

@@ -125,10 +125,10 @@ void CtrlrXYSurface::paint (Graphics& g)
 
 	gradientFromProperty (g, usableRectangle.getSmallestIntegerContainer(), getObjectTree(), Ids::uiXYSurfaceOutlineGradientType, Ids::uiXYSurfaceOutlineColour1, Ids::uiXYSurfaceOutlineColour2);
     g.drawRoundedRectangle ((float)usableRectangle.getX(), (float)usableRectangle.getY(), (float)usableRectangle.getWidth(), (float)usableRectangle.getHeight(), getProperty(Ids::uiXYSurfaceCornerSize), getProperty(Ids::uiXYSurfaceOutlineThickness));
-	
+
 	const int snapSize	= (int)getProperty (Ids::uiXYSurfaceGradientGrain, 8);
 	Colour colour		= VAR2COLOUR(getProperty(Ids::uiXYSurfaceGradientColour));
-	
+
 	if (snapSize > 0)
 	{
 		Image backgroundFill(Image::ARGB, snapSize, snapSize, true);
@@ -143,7 +143,7 @@ void CtrlrXYSurface::paint (Graphics& g)
 		g.setTiledImageFill (backgroundFill, 0, 0, 1.0f);
 		g.fillRoundedRectangle ((float)usableRectangle.getX(), (float)usableRectangle.getY(), (float)usableRectangle.getWidth(), (float)usableRectangle.getHeight(), getProperty(Ids::uiXYSurfaceCornerSize));
 	}
-	
+
 	if (backgroundImage.isValid())
 	{
 		if ((int)getProperty (Ids::uiXYSurfaceBgImageLayout) == 8192)
@@ -162,7 +162,7 @@ void CtrlrXYSurface::paint (Graphics& g)
 								RectanglePlacement(getProperty (Ids::uiXYSurfaceBgImageLayout)));
 		}
 	}
-	
+
 	if (getProperty (Ids::uiXYSurfaceXTrackEnabled))
 	{
 		const Point<int> c = surfaceModulator->getBounds().getCentre();
@@ -173,7 +173,7 @@ void CtrlrXYSurface::paint (Graphics& g)
 		g.setColour (VAR2COLOUR(getProperty(Ids::uiXYSurfaceXTrackColour)));
 		g.drawLine ((float)usableRectangle.getX(), (float)c.getY(), (float)usableRectangle.getWidth(), (float)c.getY(), getProperty(Ids::uiXYSurfaceXTrackThickness));
 	}
-	
+
 	if ((bool)getProperty(Ids::uiXYSurfaceInfoLabelVisible))
 	{
 		// const int xScale = (int)getProperty(Ids::uiXYSurfaceMaxX);
@@ -182,15 +182,15 @@ void CtrlrXYSurface::paint (Graphics& g)
 		const Point<int> c = surfaceModulator->getBounds().getCentre();
 		g.setColour (VAR2COLOUR(getProperty (Ids::uiXYSurfaceInfoLabelColour)));
 		g.setFont (STR2FONT(getProperty(Ids::uiXYSurfaceInfoLabelFont)));
-		g.drawText ("X="+String(getValueForPosition(c.getX(), true))+" Y="+String(getValueForPosition(c.getY(), false)), 
-					usableRectangle.getX() + 8, 
-					usableRectangle.getY() + 8, 
-					usableRectangle.getWidth()-16, 
-					usableRectangle.getHeight()-16, 
-					justificationFromProperty(getProperty (Ids::uiXYSurfaceInfoLabelLocation)), 
+		g.drawText ("X="+String(getValueForPosition(c.getX(), true))+" Y="+String(getValueForPosition(c.getY(), false)),
+					usableRectangle.getX() + 8,
+					usableRectangle.getY() + 8,
+					usableRectangle.getWidth()-16,
+					usableRectangle.getHeight()-16,
+					justificationFromProperty(getProperty (Ids::uiXYSurfaceInfoLabelLocation)),
 					true);
 	}
-	
+
     //[/UserPaint]
 }
 
@@ -239,17 +239,17 @@ void CtrlrXYSurface::setComponentValue (const double newValue, const bool sendCh
 {
 }
 
-const double CtrlrXYSurface::getComponentValue()
+double CtrlrXYSurface::getComponentValue()
 {
 	return (1);
 }
 
-const int CtrlrXYSurface::getComponentMidiValue()
+int CtrlrXYSurface::getComponentMidiValue()
 {
 	return (1);
 }
 
-const double CtrlrXYSurface::getComponentMaxValue()
+double CtrlrXYSurface::getComponentMaxValue()
 {
 	return (1);
 }
@@ -283,7 +283,7 @@ void CtrlrXYSurface::modulatorMoved()
 	const Point<int> c	= surfaceModulator->getBounds().getCentre();
 
 	if (destinationX)
-	{	
+	{
 		destinationX->getProcessor().setValueFromGUI (getValueForPosition(c.getX(), true));
 	}
 
@@ -347,27 +347,27 @@ void CtrlrXYSurface::showPopupMenu()
 		setProperty (Ids::uiXYSuraceXFlip, !getProperty(Ids::uiXYSuraceXFlip));
 		return;
 	}
-	
+
 	if (ret == 2)
 	{
 		setProperty (Ids::uiXYSuraceYFlip, !getProperty(Ids::uiXYSuraceYFlip));
 		return;
 	}
-	
+
 	if (ret > 2 && ret <= 3+modulatorList.size())
 	{
 		const int modulatorIndexOnList = ret - 3 - 1;
 		setProperty (Ids::uiXYSurfaceDestinationX, modulatorList[modulatorIndexOnList]);
 		return;
 	}
-	
+
 	if (ret > 3+modulatorList.size())
 	{
 		const int modulatorIndexOnList = ret - 4 - 1 - modulatorList.size();
 		setProperty (Ids::uiXYSurfaceDestinationY, modulatorList[modulatorIndexOnList]);
 		return;
 	}
-	
+
 }
 
 const PopupMenu CtrlrXYSurface::getModulatorListAsMenu(const int startIndex, const String &itemToSelect)

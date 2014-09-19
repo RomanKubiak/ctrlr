@@ -15,9 +15,9 @@ class CtrlrManagerVst
 		~CtrlrManagerVst();
 		void remove(CtrlrModulator *mod);
 		CtrlrModulator* get(const int idx);
-		const int getFirstFree();
-		const int size();
-		const int getLargestIndex();
+		int getFirstFree();
+		int size();
+		int getLargestIndex();
 		void set(CtrlrModulator *mod, const int idx = 0);
 		void dumpDebugData();
 		void removeIfAlreadyThere(CtrlrModulator *mod);

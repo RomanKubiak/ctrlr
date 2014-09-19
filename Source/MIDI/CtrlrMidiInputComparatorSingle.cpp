@@ -19,7 +19,7 @@ void CtrlrMidiInputComparatorSingle::clear()
 {
 	mapCC.clear();
 	mapAftertouch.clear();
-	mapPitchWheel.clear(); 
+	mapPitchWheel.clear();
 	mapProgramChange.clear();
 	mapNoteOn.clear();
 	mapNoteOff.clear();
@@ -85,7 +85,7 @@ Array<CtrlrCacheDataSingle> &CtrlrMidiInputComparatorSingle::getCache(const Ctrl
 }
 
 void CtrlrMidiInputComparatorSingle::addMatchTarget (CtrlrModulator *m)
-{	
+{
 	const CtrlrMidiMessageType type = getMidiTypeFromModulator(m);
 
 	if (type == SysEx)
@@ -137,7 +137,7 @@ void CtrlrMidiInputComparatorSingle::match (const MidiMessage &m)
 
 	if (type == SysEx)
 	{
-		matchSysEx(m);		
+		matchSysEx(m);
 		return;
 	}
 
@@ -223,7 +223,7 @@ void CtrlrMidiInputComparatorSingle::updateCacheSysEx (CtrlrMultiMidiMapIterator
 	}
 }
 
-const bool CtrlrMidiInputComparatorSingle::cacheMatch(CtrlrMidiMessageType type, const int number, const int channel)
+bool CtrlrMidiInputComparatorSingle::cacheMatch(CtrlrMidiMessageType type, const int number, const int channel)
 {
 	if (type == SysEx)
 	{
@@ -257,7 +257,7 @@ const bool CtrlrMidiInputComparatorSingle::cacheMatch(CtrlrMidiMessageType type,
 	return (false);
 }
 
-const bool CtrlrMidiInputComparatorSingle::cacheMatchSysEx ()
+bool CtrlrMidiInputComparatorSingle::cacheMatchSysEx ()
 {
 	for (int i=0; i<cacheSysEx.size(); i++)
 	{
@@ -286,7 +286,7 @@ const String CtrlrMidiInputComparatorSingle::dumpTableContents()
 		{
 			ret << "\n\nMAP type: " << midiMessageTypeToString((const CtrlrMidiMessageType)i) << ", size=" << STR((uint32)map.size());
 			ret << "\n*****************************************************************************\n";
-		
+
 			for(CtrlrMidiMapIterator itr = map.begin(); itr != map.end(); ++itr)
 			{
 				ret << "\n\tindex=" << String(itr->first) << " targets=" << String(itr->second.targets.size());

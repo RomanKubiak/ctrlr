@@ -43,11 +43,11 @@ class CtrlrManagerWindowManager : public CtrlrWindowManager
 		CtrlrManager &getOwner();
 
 		const String getWindowName(const CtrlrManagerWindowManager::WindowType window);
-		const CtrlrManagerWindowManager::WindowType getWindowType(const String &windowName);
+		CtrlrManagerWindowManager::WindowType getWindowType(const String &windowName);
 		void show (const CtrlrManagerWindowManager::WindowType window);
 		void hide (const CtrlrManagerWindowManager::WindowType window);
 		void toggle(const CtrlrManagerWindowManager::WindowType window, const bool makeVisible=true);
-		const bool isCreated(const CtrlrManagerWindowManager::WindowType window);
+		bool isCreated(const CtrlrManagerWindowManager::WindowType window);
 		Component *getContent(const CtrlrManagerWindowManager::WindowType window);
 
 		void windowChanged(CtrlrChildWindow *windowThatChanged);

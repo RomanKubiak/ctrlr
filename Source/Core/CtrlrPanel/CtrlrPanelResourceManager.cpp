@@ -165,7 +165,7 @@ CtrlrPanel &CtrlrPanelResourceManager::getOwner()
 	return (owner);
 }
 
-const int CtrlrPanelResourceManager::getHashCode (const String &resourceName, const bool preloadResource)
+int CtrlrPanelResourceManager::getHashCode (const String &resourceName, const bool preloadResource)
 {
 	CtrlrPanelResource *r = getResource(resourceName);
 
@@ -180,7 +180,7 @@ const int CtrlrPanelResourceManager::getHashCode (const String &resourceName, co
 	return (-1);
 }
 
-const int CtrlrPanelResourceManager::getResourceIndex (const String &resourceName)
+int CtrlrPanelResourceManager::getResourceIndex (const String &resourceName)
 {
 	for (int i=0; i<resources.size(); i++)
 	{
@@ -190,7 +190,7 @@ const int CtrlrPanelResourceManager::getResourceIndex (const String &resourceNam
 	return (-1);
 }
 
-const bool CtrlrPanelResourceManager::resourceExists(const File &resourceFile)
+bool CtrlrPanelResourceManager::resourceExists(const File &resourceFile)
 {
 	if (getResource (resourceFile.getFileNameWithoutExtension()))
 	{
@@ -384,7 +384,7 @@ const String CtrlrPanelResourceManager::getTypeDescription(const CtrlrPanelResou
 	}
 }
 
-const CtrlrPanelResourceManager::CtrlrPanelResourceType CtrlrPanelResourceManager::guessType(const File &resourceFile)
+CtrlrPanelResourceManager::CtrlrPanelResourceType CtrlrPanelResourceManager::guessType(const File &resourceFile)
 {
 	// Image ?
 	Image image = ImageCache::getFromFile (resourceFile);
@@ -426,7 +426,7 @@ const CtrlrPanelResourceManager::CtrlrPanelResourceType CtrlrPanelResourceManage
 	return (DataRes);
 }
 
-const int CtrlrPanelResourceManager::getResourceHashCode(const int resourceIndex)
+int CtrlrPanelResourceManager::getResourceHashCode(const int resourceIndex)
 {
 	if (resources[resourceIndex])
 	{
@@ -436,7 +436,7 @@ const int CtrlrPanelResourceManager::getResourceHashCode(const int resourceIndex
 	return (-1);
 }
 
-const int CtrlrPanelResourceManager::getResourceIndexByHashCode(const int hashCode)
+int CtrlrPanelResourceManager::getResourceIndexByHashCode(const int hashCode)
 {
 	for (int i=0; i<resources.size(); i++)
 	{

@@ -51,9 +51,9 @@ public:
     //[UserMethods]     -- You can add your own custom methods in this section.
 	void sliderValueChanged (Slider* sliderThatWasMoved);
 	void setComponentValue (const double newValue, const bool sendChangeMessage=false);
-	const double getComponentValue();
-	const int getComponentMidiValue();
-	const double getComponentMaxValue();
+	double getComponentValue();
+	int getComponentMidiValue();
+	double getComponentMaxValue();
 	const String getComponentText();
 	void sliderContentChanged();
 	const String getTextForValue(const double value);
@@ -66,6 +66,10 @@ public:
 
 	Slider *getOwnedSlider() { return (ctrlrSlider); }
 	static void wrapForLua(lua_State *L);
+	void lookAndFeelChanged()
+    {
+        ctrlrSlider->setLookAndFeel (nullptr);
+    }
     //[/UserMethods]
 
     void paint (Graphics& g);

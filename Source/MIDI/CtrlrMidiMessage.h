@@ -111,21 +111,21 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 
 		const CtrlrMidiMessageEx &getMidiMessageEx(const int index) const									{ return (messageArray.getReference(index)); }
 		const String toString() const;
-		const CtrlrMidiMessageType getMidiMessageType() const;
+		CtrlrMidiMessageType getMidiMessageType() const;
 		virtual void setMidiMessageType (const CtrlrMidiMessageType newType);
 
 		void restoreState (const ValueTree &stateTree);
 		ValueTree &getMidiTree()																		{ return (midiTree); }
 
-		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ midiTree.setProperty (name, newValue, 0); }
+		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ midiTree.setProperty (name, newValue, isUndoable ? nullptr : nullptr); }
 		const var &getProperty (const Identifier& name) const											{ return midiTree.getProperty (name); }
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return midiTree.getProperty (name, defaultReturnValue); }
 		virtual void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
-		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
-		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
-		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
+		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
 		void setNumberToSingle (const int index, const int number);
 		void setValueToSingle (const int index, const int value);
 		void setNumberToMulti (const int number);
@@ -139,7 +139,7 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 		void memoryMerge (const CtrlrMidiMessage &otherMessage);
 		const MemoryBlock &getMidiPattern()	const;
 		const LMemoryBlock getData() const;
-		const int getSize() const;
+		int getSize() const;
 		CtrlrMidiMessageEx &getReference(const int messageIndex) const;
 		Result fillMessagePropertiesFromData();
 		Result fillMessagePropertiesFromData(const MemoryBlock &data);

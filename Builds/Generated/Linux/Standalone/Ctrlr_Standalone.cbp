@@ -13,12 +13,16 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-std=c++0x" />
-					<Add option="-w" />
 					<Add option="-g" />
 					<Add option="-O0" />
 					<Add option="-std=gnu++0x" />
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
+					<Add option="-Wno-ignored-qualifiers" />
+					<Add option="-Wno-unused-variable" />
+					<Add option="-Wno-unused-parameter" />
+					<Add option="-Wno-reorder" />
+					<Add option="-Wno-empty-body" />
 					<Add option="-D__MINGW__=1" />
 					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-DDEBUG=1" />
@@ -68,9 +72,13 @@
 					<Add option="-Os" />
 					<Add option="-std=gnu++0x" />
 					<Add option="-mstackrealign" />
-					<Add option="-w" />
 					<Add option="-fpermissive" />
 					<Add option="-std=c++0x" />
+					<Add option="-Wno-ignored-qualifiers" />
+					<Add option="-Wno-unused-variable" />
+					<Add option="-Wno-unused-parameter" />
+					<Add option="-Wno-reorder" />
+					<Add option="-Wno-empty-body" />
 					<Add option="-D__MINGW__=1" />
 					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-DNDEBUG=1" />
@@ -133,9 +141,13 @@
 					<Add option="-Os" />
 					<Add option="-std=gnu++0x" />
 					<Add option="-mstackrealign" />
-					<Add option="-w" />
 					<Add option="-fpermissive" />
 					<Add option="-std=c++0x" />
+					<Add option="-Wno-ignored-qualifiers" />
+					<Add option="-Wno-unused-variable" />
+					<Add option="-Wno-unused-parameter" />
+					<Add option="-Wno-reorder" />
+					<Add option="-Wno-empty-body" />
 					<Add option="-D__MINGW__=1" />
 					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-DNDEBUG=1" />
@@ -2753,7 +2765,6 @@
 			<envvars />
 			<code_completion />
 			<debugger />
-			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

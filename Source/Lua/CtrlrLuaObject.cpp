@@ -10,12 +10,12 @@ CtrlrLuaObject::~CtrlrLuaObject()
 {
 }
 
-const int CtrlrLuaObject::getPropertyInt(const String &propertyName)
+int CtrlrLuaObject::getPropertyInt(const String &propertyName)
 {
 	return (getProperty(propertyName));
 }
 
-const double CtrlrLuaObject::getPropertyDouble(const String &propertyName)
+double CtrlrLuaObject::getPropertyDouble(const String &propertyName)
 {
 	return (getProperty(propertyName));
 }

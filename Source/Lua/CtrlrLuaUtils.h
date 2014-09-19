@@ -1,8 +1,9 @@
 #ifndef __CTRLR_LUA_UTILS__
 #define __CTRLR_LUA_UTILS__
 
+#ifdef _WIN32
 #pragma warning(disable:4100)
-
+#endif // _WIN32
 #include "CtrlrMacros.h"
 #include "CtrlrRevision.h"
 

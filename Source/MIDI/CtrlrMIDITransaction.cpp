@@ -135,13 +135,13 @@ const String CtrlrMIDITransaction::getName()
 	return (name);
 }
 
-const int CtrlrMIDITransaction::getTimeout()
+int CtrlrMIDITransaction::getTimeout()
 {
 	ScopedReadLock slr(transactionLock);
 	return (timeout);
 }
 
-const bool CtrlrMIDITransaction::getHasResponse()
+bool CtrlrMIDITransaction::getHasResponse()
 {
 	ScopedReadLock slr(transactionLock);
 	return (hasResponse);
@@ -165,7 +165,7 @@ void CtrlrMIDITransaction::setHasDataCheck(const bool _hasDataCheck)
 	hasDataCheck = _hasDataCheck;
 }
 
-const bool CtrlrMIDITransaction::getHasDataCheck()
+bool CtrlrMIDITransaction::getHasDataCheck()
 {
 	ScopedReadLock slr(transactionLock);
 	return (hasDataCheck);
@@ -177,19 +177,19 @@ void CtrlrMIDITransaction::setHasSizeCheck(const bool _hasSizeCheck)
 	hasSizeCheck = _hasSizeCheck;
 }
 
-const bool CtrlrMIDITransaction::getHasSizeCheck()
+bool CtrlrMIDITransaction::getHasSizeCheck()
 {
 	ScopedReadLock slr(transactionLock);
 	return (hasSizeCheck);
 }
 
-const size_t CtrlrMIDITransaction::getResponsePrefixLength()
+size_t CtrlrMIDITransaction::getResponsePrefixLength()
 {
 	ScopedReadLock slr(transactionLock);
 	return (responsePrefixLength);
 }
 
-const size_t CtrlrMIDITransaction::getResponseDataLength()
+size_t CtrlrMIDITransaction::getResponseDataLength()
 {
 	ScopedReadLock slr(transactionLock);
 	return (responseDataLength);
@@ -300,14 +300,14 @@ MemoryBlock CtrlrMIDITransaction::getDataFromCurrentResponse()
 	return (returnData);
 }
 
-const size_t CtrlrMIDITransaction::getDataLengthFromFormula(const String &formula)
+size_t CtrlrMIDITransaction::getDataLengthFromFormula(const String &formula)
 {
 	MemoryBlock bl;
 	bl.loadFromHexString (formula);
 	return (bl.getSize());
 }
 
-const bool CtrlrMIDITransaction::compareMemoryWithWildcard(const MidiMessage &midi, const MemoryBlock &memory)
+bool CtrlrMIDITransaction::compareMemoryWithWildcard(const MidiMessage &midi, const MemoryBlock &memory)
 {
 	const uint8 *responsePtr = midi.getRawData();
 
@@ -330,7 +330,7 @@ ValueTree CtrlrMIDITransaction::createEmptyTransactionTree(const String &transac
 	transaction.setProperty (Ids::timeout, 2000, nullptr);
 	transaction.setProperty (Ids::transCap, "midiLibraryProgram", nullptr);
 	transaction.setProperty (Ids::transModIdxProp, "modulatorCustomIndex", nullptr);
-	
+
 	transaction.setProperty (Ids::transReqExists, false, nullptr);
 	transaction.setProperty (Ids::transReqFormulaPrefix, "F7", nullptr);
 	transaction.setProperty (Ids::transReqFormulaSuffix, "F7", nullptr);
@@ -516,7 +516,7 @@ MemoryBlock CtrlrMIDITransaction::getNameAsMemoryBlock()
 	return (result);
 }
 
-const bool CtrlrMIDITransaction::sendRequest()
+bool CtrlrMIDITransaction::sendRequest()
 {
 	ScopedWriteLock slr(transactionLock);
 

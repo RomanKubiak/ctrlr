@@ -10,7 +10,7 @@ class CtrlrSysexProcessorOwned : public CtrlrSysexProcessor
 		~CtrlrSysexProcessorOwned();
 		void sysexProcessPrograms(const Array<CtrlrSysexToken> &tokens, MidiMessage &m);
 		Array <int,CriticalSection> &getGlobalVariables();
-		const double getValueFromSysExData (const Array<CtrlrSysexToken> &tokens, const CtrlrMidiMessageEx &message);
+		double getValueFromSysExData (const Array<CtrlrSysexToken> &tokens, const CtrlrMidiMessageEx &message);
 
 	private:
 		CtrlrPanel &owner;

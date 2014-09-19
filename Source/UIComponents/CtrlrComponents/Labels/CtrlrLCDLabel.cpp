@@ -137,7 +137,7 @@ void CtrlrLCDLabel::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-const double CtrlrLCDLabel::getComponentMaxValue()
+double CtrlrLCDLabel::getComponentMaxValue()
 {
 	return (1);
 }
@@ -146,12 +146,12 @@ void CtrlrLCDLabel::setComponentValue (const double newValue, const bool sendCha
 {
 }
 
-const double CtrlrLCDLabel::getComponentValue()
+double CtrlrLCDLabel::getComponentValue()
 {
 	return (1);
 }
 
-const int CtrlrLCDLabel::getComponentMidiValue()
+int CtrlrLCDLabel::getComponentMidiValue()
 {
 	return (1);
 }

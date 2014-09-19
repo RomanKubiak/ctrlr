@@ -1,5 +1,7 @@
 #include "stdafx.h"
+#ifdef _WIN32
 #pragma warning(disable:4244)
+#endif
 #include "CtrlrLuaManager.h"
 #include "CtrlrPanelCanvas.h"
 #include "CtrlrMacros.h"

@@ -35,9 +35,9 @@ class CtrlrMidiDeviceManager
 		};
 
 		const String getDeviceName(const int idx, const DeviceType type=inputDevice);
-		const int getNumDevices(const DeviceType type=inputDevice);
-		const bool isDeviceOpened(const int idx, const DeviceType type=inputDevice);
-		const bool toggleDevice (const int idx, const DeviceType type=inputDevice, const bool state=STP);
+		int getNumDevices(const DeviceType type=inputDevice);
+		bool isDeviceOpened(const int idx, const DeviceType type=inputDevice);
+		bool toggleDevice (const int idx, const DeviceType type=inputDevice, const bool state=STP);
 		CtrlrMidiDevice *getDeviceByIndex(const int idx, const DeviceType type=inputDevice);
 		CtrlrMidiDevice *getDeviceByName(const String name, const DeviceType type=inputDevice, const bool openIfClosed=false);
 		const StringArray getManagedDevices(const DeviceType type=inputDevice);

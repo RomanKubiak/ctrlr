@@ -48,10 +48,10 @@ public:
     //[UserMethods]     -- You can add your own custom methods in this section.
 	void setComponentValue (const double newValue, const bool sendChangeMessage=false);
 	void setComponentMidiValue (const int newValue, const bool sendChangeMessage=false);
-	const double getComponentValue();
-	const int getComponentMidiValue();
-	const double getComponentMaxValue();
-	const bool getToggleState();
+	double getComponentValue();
+	int getComponentMidiValue();
+	double getComponentMaxValue();
+	bool getToggleState();
 	void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 	void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 	void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
@@ -59,7 +59,7 @@ public:
 	void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
 	void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
 	void click();
-	const bool isToggleButton();
+	bool isToggleButton();
 	void setToggleState(const bool toggleState, const bool sendChangeMessage=false);
 	static void wrapForLua(lua_State *L);
     //[/UserMethods]

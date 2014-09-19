@@ -206,17 +206,17 @@ void CtrlrFileListBox::setComponentValue (const double newValue, const bool send
 	treeComponent->setSelectedFile (treeComponent->getSelectedFile(newValue));
 }
 
-const double CtrlrFileListBox::getComponentValue()
+double CtrlrFileListBox::getComponentValue()
 {
 	return (1);
 }
 
-const int CtrlrFileListBox::getComponentMidiValue()
+int CtrlrFileListBox::getComponentMidiValue()
 {
 	return (1);
 }
 
-const double CtrlrFileListBox::getComponentMaxValue()
+double CtrlrFileListBox::getComponentMaxValue()
 {
 	return (directoryContentsList->getNumFiles());
 }
@@ -277,7 +277,7 @@ void CtrlrFileListBox::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 			v->setColour (ScrollBar::thumbColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxVScrollThumbColour)));
 			v->setColour (ScrollBar::trackColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxVScrollTrackColour)));
 		}
-	} 
+	}
 	else if (property == Ids::uiFileListFont)
 	{
 		treeComponent->setLookAndFeel (0);

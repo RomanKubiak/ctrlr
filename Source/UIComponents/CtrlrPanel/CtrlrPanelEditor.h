@@ -1,7 +1,8 @@
 #ifndef __CTRLR_PANEL_EDITOR__
 #define __CTRLR_PANEL_EDITOR__
-
+#ifdef _WIN32
 #pragma warning(disable:4355)
+#endif // _WIN32
 
 #include "CtrlrComponentSelection.h"
 #include "CtrlrPanelCanvas.h"

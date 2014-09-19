@@ -186,7 +186,7 @@ void CtrlrCustomComponent::mouseExit (const MouseEvent &e)
 	}
 }
 
-const double CtrlrCustomComponent::getComponentMaxValue()
+double CtrlrCustomComponent::getComponentMaxValue()
 {
 	return (127);
 }
@@ -226,7 +226,7 @@ void CtrlrCustomComponent::setComponentValue (const double newValue, const bool 
 	}
 }
 
-const double CtrlrCustomComponent::getComponentValue()
+double CtrlrCustomComponent::getComponentValue()
 {
 	if (getValueCbk && !getValueCbk.wasObjectDeleted())
 	{
@@ -239,7 +239,7 @@ const double CtrlrCustomComponent::getComponentValue()
 	return (0);
 }
 
-const int CtrlrCustomComponent::getComponentMidiValue()
+int CtrlrCustomComponent::getComponentMidiValue()
 {
 	return (1);
 }

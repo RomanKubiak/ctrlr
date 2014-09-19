@@ -79,11 +79,11 @@ namespace luabind { namespace detail
 	};
 
 	namespace mpl = boost::mpl;
-	
+
 	template<int Size, class Policies = detail::null_type>
 	struct out_value_converter
 	{
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 1;
         }
@@ -106,7 +106,7 @@ namespace luabind { namespace detail
 		}
 
 		template<class T>
-		void converter_postcall(lua_State* L, by_reference<T>, int) 
+		void converter_postcall(lua_State* L, by_reference<T>, int)
 		{
 			typedef typename find_conversion_policy<2, Policies>::type converter_policy;
 			typename mpl::apply_wrap2<converter_policy,T,cpp_to_lua>::type converter;
@@ -168,7 +168,7 @@ namespace luabind { namespace detail
 	template<int Size, class Policies = detail::null_type>
 	struct pure_out_value_converter
 	{
-        int const consumed_args(...)
+        int consumed_args(...)
         {
             return 0;
         }
@@ -187,7 +187,7 @@ namespace luabind { namespace detail
 		}
 
 		template<class T>
-		void converter_postcall(lua_State* L, by_reference<T>, int) 
+		void converter_postcall(lua_State* L, by_reference<T>, int)
 		{
 			typedef typename find_conversion_policy<1, Policies>::type converter_policy;
 			typename mpl::apply_wrap2<converter_policy,T,cpp_to_lua>::type converter;
@@ -209,7 +209,7 @@ namespace luabind { namespace detail
 		}
 
 		template<class T>
-		void converter_postcall(lua_State* L, by_pointer<T>, int) 
+		void converter_postcall(lua_State* L, by_pointer<T>, int)
 		{
 			typedef typename find_conversion_policy<1, Policies>::type converter_policy;
 			typename mpl::apply_wrap2<converter_policy,T,cpp_to_lua>::type converter;
@@ -242,37 +242,37 @@ namespace luabind { namespace detail
 			>::type type;
 		};
 	};
-	
+
 }}
 
 namespace luabind
 {
 	template<int N>
-	detail::policy_cons<detail::out_value_policy<N>, detail::null_type> 
-	out_value(LUABIND_PLACEHOLDER_ARG(N)) 
-	{ 
-		return detail::policy_cons<detail::out_value_policy<N>, detail::null_type>(); 
+	detail::policy_cons<detail::out_value_policy<N>, detail::null_type>
+	out_value(LUABIND_PLACEHOLDER_ARG(N))
+	{
+		return detail::policy_cons<detail::out_value_policy<N>, detail::null_type>();
 	}
 
 	template<int N, class Policies>
-	detail::policy_cons<detail::out_value_policy<N, Policies>, detail::null_type> 
-	out_value(LUABIND_PLACEHOLDER_ARG(N), const Policies&) 
-	{ 
-		return detail::policy_cons<detail::out_value_policy<N, Policies>, detail::null_type>(); 
+	detail::policy_cons<detail::out_value_policy<N, Policies>, detail::null_type>
+	out_value(LUABIND_PLACEHOLDER_ARG(N), const Policies&)
+	{
+		return detail::policy_cons<detail::out_value_policy<N, Policies>, detail::null_type>();
 	}
 
 	template<int N>
-	detail::policy_cons<detail::pure_out_value_policy<N>, detail::null_type> 
-	pure_out_value(LUABIND_PLACEHOLDER_ARG(N)) 
-	{ 
-		return detail::policy_cons<detail::pure_out_value_policy<N>, detail::null_type>(); 
+	detail::policy_cons<detail::pure_out_value_policy<N>, detail::null_type>
+	pure_out_value(LUABIND_PLACEHOLDER_ARG(N))
+	{
+		return detail::policy_cons<detail::pure_out_value_policy<N>, detail::null_type>();
 	}
 
 	template<int N, class Policies>
-	detail::policy_cons<detail::pure_out_value_policy<N, Policies>, detail::null_type> 
-	pure_out_value(LUABIND_PLACEHOLDER_ARG(N), const Policies&) 
-	{ 
-		return detail::policy_cons<detail::pure_out_value_policy<N, Policies>, detail::null_type>(); 
+	detail::policy_cons<detail::pure_out_value_policy<N, Policies>, detail::null_type>
+	pure_out_value(LUABIND_PLACEHOLDER_ARG(N), const Policies&)
+	{
+		return detail::policy_cons<detail::pure_out_value_policy<N, Policies>, detail::null_type>();
 	}
 }
 

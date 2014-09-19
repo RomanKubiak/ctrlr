@@ -138,7 +138,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 	}
 	if (saveOption == CtrlrEditor::doExportFileInstance)
 	{
-		Result res = owner.getNativeObject().exportWithDefaultPanel(this, false);
+		Result res = owner.getNativeObject().exportWithDefaultPanel(this, false, false, RSAKey());
 		if (res.failed())
 		{
 			AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Panel export", "Failed to export panel as standalone instance.\n"+res.getErrorMessage());
@@ -631,7 +631,7 @@ const File CtrlrPanel::askForPanelFileToSave (CtrlrPanel *possiblePanel, const F
 	return (File::nonexistent);
 }
 
-const bool CtrlrPanel::isPanelFile(const File &fileToCheck, const bool beThorough)
+bool CtrlrPanel::isPanelFile(const File &fileToCheck, const bool beThorough)
 {
 	if (beThorough)
 	{

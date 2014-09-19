@@ -1,8 +1,9 @@
 #ifndef __CTRLR_LUA_MEMORY_BLOCK__
 #define __CTRLR_LUA_MEMORY_BLOCK__
-
+#ifdef _WIN32
 #pragma warning(disable:4100)
 #pragma warning(disable:4018)
+#endif
 
 #include <luabind/luabind.hpp>
 #include "CtrlrMacros.h"
@@ -26,7 +27,7 @@ class CtrlrLuaMemoryBlock
 			@param initialData			LUA array to read the data from
 		*/
 		CtrlrLuaMemoryBlock(luabind::object const &initialData);
-		
+
 		/** @brief Destructor
 
 		*/
@@ -92,7 +93,7 @@ class CtrlrLuaMemoryBlock
 			@return size of the block
 		*/
 		const int getSize() const;
-		
+
 		/** @brief Load data to this block using a string, the string is parsed as hex numbers seperated by spaces
 
 		*/
@@ -114,9 +115,9 @@ class CtrlrLuaMemoryBlock
 		*/
 		void copyTo (CtrlrLuaMemoryBlock &destinationData, int sourceOffset, int numBytes);
 
-		/** @brief Inserts some data into the block. The dataToInsert pointer must not be null. 
-					This block's size will be increased accordingly. 
-					If the insert position lies outside the valid range of the block, it will be clipped 
+		/** @brief Inserts some data into the block. The dataToInsert pointer must not be null.
+					This block's size will be increased accordingly.
+					If the insert position lies outside the valid range of the block, it will be clipped
 					to within the range before being used.
 
 			@param	dataToInsert		data to insert
@@ -126,7 +127,7 @@ class CtrlrLuaMemoryBlock
 		void insert (CtrlrLuaMemoryBlock &dataToInsert, int numBytesToInsert, int insertPosition);
 
 		/** @brief Chops out a section of the block.
-					This will remove a section of the memory block and close the gap around it, 
+					This will remove a section of the memory block and close the gap around it,
 					shifting any subsequent data downwards and reducing the size of the block.
 					If the range specified goes beyond the size of the block, it will be clipped.
 

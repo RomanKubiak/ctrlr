@@ -38,42 +38,42 @@ class CtrlrValueMap
 
 			@return	the maximum of all mapped values
 		*/
-		const int getMappedMax() const;
+		int getMappedMax() const;
 
 		/** @brief Get the minimum mapped value
 
 			@return the minimum of all mapped values
 		*/
-		const int getMappedMin() const;
+		int getMappedMin() const;
 
 		/** @brief Get the direct maximum value (this will be the number of elements-1)
 
 			@return get the non-mapped maximum value
 		*/
-		const int getNonMappedMax() const;
-		const int getNonMappedMin() const;
-		const int getNumValues() const;
+		int getNonMappedMax() const;
+		int getNonMappedMin() const;
+		int getNumValues() const;
 
 		/** @brief For a mapped value, get the non-mapped value (index) in the map
 
 			@return the index of the value in the map
 		*/
-		const int getIndexForValue(const int value) const;
+		int getIndexForValue(const int value) const;
 
 		/** @brief Get a mapped values for an index
 
 			@param valueIndex		the index in the map to fetch
 			@return					the mapped value with this index
 		*/
-		const int getMappedValue(const int valueIndex) const;
+		int getMappedValue(const int valueIndex) const;
 
 		/** @brief Get the index of a value based on the value's text
 
 			@param	textRepresentation	the text to look for
 			@return	the index of the value with this text
 		*/
-		const int getNonMappedValue(const String &textRepresentation) const;
-		const int getMappedValue(const String &textRepresentation) const;
+		int getNonMappedValue(const String &textRepresentation) const;
+		int getMappedValue(const String &textRepresentation) const;
 
 		/** @brief Get the text representation of a value for an index in the map
 
@@ -96,19 +96,19 @@ class CtrlrValueMap
 
 			@return true if the value exists false otherwise
 		*/
-		const bool mappedValueExists (const int mappedValue);
+		bool mappedValueExists (const int mappedValue);
 
 		/** @brief If the map holds a state this fetches the current index that's stored
 
 			@return	the index of the current value stored in the map
 		*/
-		const int getCurrentNonMappedValue() const;
+		int getCurrentNonMappedValue() const;
 
 		/** @brief If the map holds a state, this fetches the current mapped value stored
 
 			@return	the numeric value of the current value stored
 		*/
-		const int getCurrentMappedValue() const;
+		int getCurrentMappedValue() const;
 
 		/** @bried If the map holds a state, this fetches the current text that represents a mapped value
 

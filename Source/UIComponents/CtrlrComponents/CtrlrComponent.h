@@ -42,32 +42,32 @@ class CtrlrComponent :	public Component,
 		void moved();
 
 		virtual void setComponentValue (const double newValue, const bool sendChangeMessage=false)		= 0;
-		virtual const double getComponentValue()														= 0;
-		virtual const double getComponentMaxValue()														= 0;
+		virtual double getComponentValue()														= 0;
+		virtual double getComponentMaxValue()														= 0;
 
 		virtual void setComponentMidiValue (const int newValue, const bool sendChangeMessage=false);
-		virtual const int getComponentMidiValue ();
+		virtual int getComponentMidiValue ();
 		virtual const String getComponentText()														{ return (String::empty); }
-		virtual void setComponentText (const String &componentText)									{}
-		virtual const int getComponentRadioGroupId();
-		virtual const bool getToggleState()															{ return (false); }
-		virtual void setToggleState(const bool toggleState, const bool sendChangeMessage=false) 	{ }
-		virtual const bool isToggleButton()															{ return (false); }
+		virtual void setComponentText (const String &/*componentText*/)									{}
+		virtual int getComponentRadioGroupId();
+		virtual bool getToggleState()															{ return (false); }
+		virtual void setToggleState(const bool /*toggleState*/, const bool /*sendChangeMessage=false*/) 	{ }
+		virtual bool isToggleButton()															{ return (false); }
 		virtual const String getTextForValue(const double value);
 		virtual void panelChanged()																	{ }
 		virtual void restoreState (const ValueTree &savedState);
-		virtual void setText(const String &newText)													{ }
-		virtual void modulatorNameChanged(const String &newName)									{ }
+		virtual void setText(const String &/*newText*/)													{ }
+		virtual void modulatorNameChanged(const String &/*newName*/)									{ }
 		virtual void changeListenerCallback (ChangeBroadcaster* source);
 		virtual void click()																		{ }
 		virtual Array <CtrlrComponent*> getOwnedChildren()											{ Array <CtrlrComponent*> ar; return (ar); }
-		virtual void setOwned (CtrlrComponent *componentToOwn, const bool shouldOwnComponent=true)  { }
-		virtual const PopupMenu getComponentMenu(const MouseEvent &e)										{ return (PopupMenu()); }
-		virtual void handlePopupMenu (const int popupMenuItem)												{ }
+		virtual void setOwned (CtrlrComponent */*componentToOwn*/, const bool /*shouldOwnComponent=true*/)  { }
+		virtual const PopupMenu getComponentMenu(const MouseEvent &/*e*/)										{ return (PopupMenu()); }
+		virtual void handlePopupMenu (const int /*popupMenuItem*/)												{ }
 		virtual CtrlrFontManager &getFontManager();
 		virtual void allModulatorsInitialized()																{ }
 		virtual void panelEditModeChanged(const bool isInEditMode=false);
-		virtual void reloadResources(Array <CtrlrPanelResource*> resourcesThatChanged) {}
+		virtual void reloadResources(Array <CtrlrPanelResource*> /*resourcesThatChanged*/) {}
 		void componentMovedOrResized (Component &component, bool wasMoved, bool wasResized);
 		void addAndMakeVisible (Component *child, int zOrder=-1);
 		CtrlrModulator &getOwner() const															{ return (owner); }
@@ -93,10 +93,10 @@ class CtrlrComponent :	public Component,
 		ValueTree &getObjectTree()																			{ return (componentTree); }
 		void setEffect();
 		int snapDim(int dim);
-		const bool getRestoreState();
+		bool getRestoreState();
 		static void wrapForLua (lua_State *L);
-		const double getMaximum();
-		const double getMinimum();
+		double getMaximum();
+		double getMinimum();
 		// Deprecated
 		CtrlrLuaRectangle getLuaBounds();
 		void setLuaBounds(CtrlrLuaRectangle newBounds);
