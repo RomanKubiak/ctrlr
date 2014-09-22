@@ -150,7 +150,7 @@ const Result CtrlrLinux::getDefaultPanel(MemoryBlock& dataToWrite)
 	}
 
 	size_t panelDataSize;
-	char *panelData = libr_malloc (handle, CTRLR_INTERNAL_PANEL_SECTION, &panelDataSize);
+	char *panelData = (char *)libr_malloc (handle, CTRLR_INTERNAL_PANEL_SECTION, &panelDataSize);
 
 	if (panelData == nullptr)
 	{
@@ -213,7 +213,7 @@ const Result CtrlrLinux::getDefaultResources(MemoryBlock& dataToWrite)
 	}
 
 	size_t panelResourcesDataSize;
-	char *panelResourcesData = libr_malloc (handle, CTRLR_INTERNAL_RESOURCES_SECTION, &panelResourcesDataSize);
+	char *panelResourcesData = (char *)libr_malloc (handle, CTRLR_INTERNAL_RESOURCES_SECTION, &panelResourcesDataSize);
 
 	if (panelResourcesData == nullptr)
 	{
@@ -246,7 +246,7 @@ const Result CtrlrLinux::getSignature(MemoryBlock &dataToWrite)
 	}
 
 	size_t signatureDataSize;
-	char *signatureData = libr_malloc (handle, CTRLR_INTERNAL_RESOURCES_SECTION, &signatureDataSize);
+	char *signatureData = (char *)libr_malloc (handle, CTRLR_INTERNAL_RESOURCES_SECTION, &signatureDataSize);
 
 	if (signatureData == nullptr)
 	{

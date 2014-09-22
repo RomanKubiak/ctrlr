@@ -4,6 +4,92 @@
 #include "CtrlrLuaManager.h"
 #include "CtrlrLog.h"
 
+/* void drawPopupMenuItem (Graphics &g,
+const Rectangle<int> &area,
+bool isSeparator,
+bool isActive,
+bool isHighlighted,
+bool isTicked,
+bool hasSubMenu,
+const String &text,
+const String &shortcutKeyText,
+const Drawable* icon,
+const Colour* textColour)
+*/
+
+class ParamTestBase
+{
+    public:
+    virtual void method11(String &p1, const Rectangle<int> &p2, bool p3, bool p4, bool p5, bool p6, bool p7, const String &p8, const String &p9, const Drawable *p10, const Colour *p11) {}
+};
+
+class ParamTest : public ParamTestBase, public luabind::wrap_base
+{
+    public:
+    ParamTest() {}
+
+    void method11(String &p1,
+                    const Rectangle<int> &p2,
+                    bool p3,
+                    bool p4,
+                    bool p5,
+                    bool p6,
+                    bool p7,
+                    const String &p8,
+                    const String &p9,
+                    const Drawable *p10,
+                    const Colour *p11)
+    {
+        _DBG("C++::method11");
+        call<void>("method11", boost::ref(p1), p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+    }
+    static void def_method11 (ParamTestBase *ptr,
+                                String &p1,
+                                const Rectangle<int> &p2,
+                                bool p3,
+                                bool p4,
+                                bool p5,
+                                bool p6,
+                                bool p7,
+                                const String &p8,
+                                const String &p9,
+                                const Drawable *p10,
+                                const Colour *p11)
+    {
+        _DBG("C++::def_method11");
+        ptr->ParamTestBase::method11 (p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11);
+    }
+
+    static void wrapForLua (lua_State *L)
+    {
+        using namespace luabind;
+        module(L)
+        [
+            class_<ParamTestBase, ParamTest>("ParamTest")
+                .def(constructor<>())
+                .def("method11", &ParamTestBase::method11, &ParamTest::def_method11)
+        ];
+    }
+};
+
+static void doParamTest (luabind::object o)
+{
+    if (luabind::type (o) != LUA_TNIL)
+    {
+        ParamTest *paramTest = luabind::object_cast<ParamTest*>(o);
+        if (paramTest)
+        {
+            _DBG("\tcast to ParamTest success");
+            _DBG("\tcalling method11");
+            String p1("string");
+            Rectangle<int> p2(0,0,1,1);
+            DrawableImage *p10 = nullptr; // new DrawableImage();
+            Colour *p11 = nullptr; // new Colour();
+            paramTest->method11 (p1, p2, true, true, true, true, true, String("string"), String("string"), p10, p11);
+        }
+    }
+}
+
 struct DrawFileBrowserRowParams
 {
 	DrawFileBrowserRowParams(Graphics &_g,
@@ -61,6 +147,19 @@ struct DrawPopupMenuItemParams
     const String &shortcutKeyText;
     const Drawable *icon;
     const Colour *textColour;
+};
+
+struct GetIdealPopupMenuItemSizeParams
+{
+    GetIdealPopupMenuItemSizeParams (const String &_text, bool _isSeparator, int _standardMenuItemHeight, int &_idealWidth, int &_idealHeight)
+    : text(_text), isSeparator(_isSeparator), standardMenuItemHeight(_standardMenuItemHeight), idealWidth(_idealWidth), idealHeight(_idealHeight)
+    {}
+
+    String text; String get_text() { return (text); } void set_text(const String &_text) { text = _text; }
+    bool isSeparator;
+    int standardMenuItemHeight;
+    int &idealWidth;
+    int &idealHeight;
 };
 
 class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
@@ -259,10 +358,10 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         static void def_drawPopupMenuBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height)
         { ptr->LookAndFeel_V3::drawPopupMenuBackground (g, width, height); }
 
-        virtual void drawPopupMenuItem (Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* icon, const Colour* textColour)
-        { call<void>("drawPopupMenuItem", DrawPopupMenuItemParams (boost::ref(g), area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, icon, textColour)); }
+        void drawPopupMenuItem (Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* icon, const Colour* textColour)
+        { call<void>("drawPopupMenuItem", boost::ref(g), area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, icon, textColour); }
         static void def_drawPopupMenuItem (LookAndFeel_V3 *ptr, Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* icon, const Colour* textColour)
-        { ptr->LookAndFeel_V3::drawPopupMenuItem (g, area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, icon, textColour); }
+        { ptr->LookAndFeel_V3::drawPopupMenuItem (g, area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, icon, textColour); return; }
 
         virtual Font getPopupMenuFont (Graphics &g, int width, int height)
         { return (call<Font>("getPopupMenuFont")); }
@@ -275,7 +374,7 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { ptr->LookAndFeel_V3::drawPopupMenuUpDownArrow (g, width, height, isScrollUpArrow); }
 
         virtual void getIdealPopupMenuItemSize (const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight)
-        { call<void>("getIdealPopupMenuItemSize", text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight); }
+        { call<void>("getIdealPopupMenuItemSize", GetIdealPopupMenuItemSizeParams (text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight)); }
         static void def_getIdealPopupMenuItemSize (LookAndFeel_V3 *ptr, const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight)
         { ptr->LookAndFeel_V3::getIdealPopupMenuItemSize (text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight); }
 

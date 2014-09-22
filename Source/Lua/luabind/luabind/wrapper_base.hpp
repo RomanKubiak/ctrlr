@@ -149,6 +149,7 @@ namespace luabind
 	#if BOOST_PP_ITERATION() == 0
 			tuple_t args;
 	#else
+
 			tuple_t args(BOOST_PP_ENUM_PARAMS(BOOST_PP_ITERATION(), &a));
 	#endif
 
@@ -196,7 +197,7 @@ namespace luabind
 #define LUABIND_OPERATOR_PARAMS(z, n, data) const A##n & a##n
 
     template<
-        class R 
+        class R
         BOOST_PP_ENUM_TRAILING_PARAMS(N, class A)
     >
     typename boost::mpl::if_<

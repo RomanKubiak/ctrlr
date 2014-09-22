@@ -18,11 +18,6 @@
 					<Add option="-std=gnu++0x" />
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
-					<Add option="-Wno-ignored-qualifiers" />
-					<Add option="-Wno-unused-variable" />
-					<Add option="-Wno-unused-parameter" />
-					<Add option="-Wno-reorder" />
-					<Add option="-Wno-empty-body" />
 					<Add option="-D__MINGW__=1" />
 					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-DDEBUG=1" />
@@ -205,6 +200,12 @@
 			<Add option="-Wall" />
 			<Add option="-Wno-strict-aliasing" />
 			<Add option="-Wno-strict-overflow" />
+			<Add option="-Wno-ignored-qualifiers" />
+			<Add option="-Wno-unused-variable" />
+			<Add option="-Wno-unused-parameter" />
+			<Add option="-Wno-reorder" />
+			<Add option="-Wno-empty-body" />
+			<Add option="-Wno-write-strings" />
 		</Compiler>
 		<Unit filename="../../../../Juce/modules/juce_audio_basics/buffers/juce_AudioDataConverters.cpp">
 			<Option compile="0" />
