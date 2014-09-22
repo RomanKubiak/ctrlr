@@ -31,6 +31,8 @@ void setLookAndFeel(Component *c, luabind::object o)
 
 void LLookAndFeel_V3::wrapForLua (lua_State *L)
 {
+    ParamTest::wrapForLua (L);
+
 	using namespace luabind;
 
 	module(L)
@@ -39,9 +41,15 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
             .property("g", &DrawFileBrowserRowParams::get_g, &DrawFileBrowserRowParams::set_g)
         ,
         class_<DrawPopupMenuItemParams>("DrawPopupMenuItemParams")
+            .def(constructor<Graphics &, const Rectangle<int> &, bool, bool, bool, bool, bool, const String &, const String &, const Drawable *, const Colour *>())
             .property("g", &DrawPopupMenuItemParams::get_g, &DrawPopupMenuItemParams::set_g)
         ,
+        class_<GetIdealPopupMenuItemSizeParams>("GetIdealPopupMenuItemSizeParams")
+            .property("text", &GetIdealPopupMenuItemSizeParams::get_text, &GetIdealPopupMenuItemSizeParams::set_text)
+        ,
         def("setLookAndFeel", &setLookAndFeel)
+        ,
+        def("doParamTest", &doParamTest)
         ,
         //class_<LookAndFeel_V3>("JLookAndFeel_V3")
         //,
