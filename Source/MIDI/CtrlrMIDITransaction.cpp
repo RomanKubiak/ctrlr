@@ -570,7 +570,7 @@ void CtrlrMIDITransaction::checkPossibleResponse(const MidiMessage &responseToCh
 	_TRANS("["+getName()+"] check if response is for us");
 	_TRANS("["+getName()+"] expecting size: "+STR((int)expectedResponseMask.getSize()));
 
-	if (responseToCheck.getRawDataSize() == expectedResponseMask.getSize())
+	if (responseToCheck.getRawDataSize() == (int)expectedResponseMask.getSize())
 	{
 		_TRANS("["+getName()+"] response matches size");
 

@@ -28,9 +28,9 @@
 #include <luabind/lua_include.hpp>
 #include <memory>
 
-namespace luabind { 
-    
-    struct scope; 
+namespace luabind {
+
+    struct scope;
 
 } // namespace luabind
 
