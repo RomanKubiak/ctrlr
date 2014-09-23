@@ -162,11 +162,11 @@ class CtrlrPanel:	public ValueTree::Listener,
 		{
 			public:
 				virtual ~Listener(){}
-				virtual void modulatorChanged (CtrlrModulator */*modulatorThatChanged*/) {}
-				virtual void modulatorAdded (CtrlrModulator */*modulatorThatWasAdded*/) {}
-				virtual void modulatorRemoved (CtrlrModulator */*modulatorRemoved*/) {}
-				virtual void panelChanged(CtrlrPanel */*panelThatChanged*/) {}
-				virtual void midiReceived(MidiMessage &/*message*/) {}
+				virtual void modulatorChanged (CtrlrModulator *) {}
+				virtual void modulatorAdded (CtrlrModulator *) {}
+				virtual void modulatorRemoved (CtrlrModulator *) {}
+				virtual void panelChanged(CtrlrPanel *) {}
+				virtual void midiReceived(MidiMessage &) {}
 		};
 
 		void setRadioGroupId(CtrlrComponent *componentMember, const int groupId);
