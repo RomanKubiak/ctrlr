@@ -30,7 +30,7 @@ namespace luabind
 }
 
 namespace luabind { namespace detail {
-    
+
 
     namespace
     {
@@ -50,7 +50,7 @@ namespace luabind { namespace detail {
     } // namespace unnamed
 
     struct class_registration : registration
-    {   
+    {
         class_registration(char const* name);
 
         void register_(lua_State* L) const;
@@ -222,7 +222,7 @@ namespace luabind { namespace detail {
 
         lua_settable(L, -3);
     }
-    
+
     // -- interface ---------------------------------------------------------
 
     class_base::class_base(char const* name)
@@ -259,9 +259,9 @@ namespace luabind { namespace detail {
 		m_registration->m_default_members.operator,(scope(ptr));
 	}
 
-    const char* class_base::name() const 
-    { 
-        return m_registration->m_name; 
+    const char* class_base::name() const
+    {
+        return m_registration->m_name;
     }
 
     void class_base::add_static_constant(const char* name, int val)

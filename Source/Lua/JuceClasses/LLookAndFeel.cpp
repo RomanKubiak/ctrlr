@@ -31,8 +31,6 @@ void setLookAndFeel(Component *c, luabind::object o)
 
 void LLookAndFeel_V3::wrapForLua (lua_State *L)
 {
-    ParamTest::wrapForLua (L);
-
 	using namespace luabind;
 
 	module(L)
@@ -49,10 +47,6 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
         ,
         def("setLookAndFeel", &setLookAndFeel)
         ,
-        def("doParamTest", &doParamTest)
-        ,
-        //class_<LookAndFeel_V3>("JLookAndFeel_V3")
-        //,
         class_<LookAndFeel_V3, LLookAndFeel_V3>("LookAndFeel_V3")
             .def(constructor<>())
 			.def("findColour", &LookAndFeel_V3::findColour, &LLookAndFeel_V3::def_findColour)
