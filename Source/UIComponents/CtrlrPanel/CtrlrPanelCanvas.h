@@ -22,7 +22,7 @@ class CtrlrQuickXmlPreview : public Button::Listener, public Component
 			h.setSize (getWidth(), getHeight());
 		}
 
-		void buttonClicked(Button */*button*/)
+		void buttonClicked(Button *)
 		{
 			CodeDocument doc;
 			CodeEditorComponent ed(doc, 0);

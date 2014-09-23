@@ -24,15 +24,15 @@ class CtrlrNative
 {
 	public:
 		static CtrlrNative *getNativeObject(CtrlrManager &owner);
-		virtual const Result exportWithDefaultPanel (CtrlrPanel */*panelToWrite*/,
-                                                        const bool /*isRestricted=false*/,
-                                                        const bool /*signPanel=false*/,
-                                                        RSAKey /*privateKey = RSAKey()*/)
+		virtual const Result exportWithDefaultPanel (CtrlrPanel *,
+                                                        const bool,
+                                                        const bool,
+                                                        RSAKey)
 		{
 		    return (Result::fail("Native, implement me"));
         }
-		virtual const Result getDefaultPanel(MemoryBlock& /*dataToWrite*/)												{ return (Result::fail("Native, implement me")); }
-		virtual const Result getDefaultResources(MemoryBlock& /*dataToWrite*/)											{ return (Result::fail("Native, implement me")); }
+		virtual const Result getDefaultPanel(MemoryBlock&)												{ return (Result::fail("Native, implement me")); }
+		virtual const Result getDefaultResources(MemoryBlock&)											{ return (Result::fail("Native, implement me")); }
 		virtual const Result registerFileHandler()																		{ return (Result::fail("Native, implement me")); }
 		virtual const Result getSignature(MemoryBlock &)                                                                  { return (Result::fail("Native, implement me")); }
 };

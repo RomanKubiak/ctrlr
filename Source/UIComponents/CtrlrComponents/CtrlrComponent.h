@@ -48,26 +48,26 @@ class CtrlrComponent :	public Component,
 		virtual void setComponentMidiValue (const int newValue, const bool sendChangeMessage=false);
 		virtual int getComponentMidiValue ();
 		virtual const String getComponentText()														{ return (String::empty); }
-		virtual void setComponentText (const String &/*componentText*/)									{}
+		virtual void setComponentText (const String &)									{}
 		virtual int getComponentRadioGroupId();
 		virtual bool getToggleState()															{ return (false); }
-		virtual void setToggleState(const bool /*toggleState*/, const bool /*sendChangeMessage=false*/) 	{ }
+		virtual void setToggleState(const bool, const bool) 	{ }
 		virtual bool isToggleButton()															{ return (false); }
 		virtual const String getTextForValue(const double value);
 		virtual void panelChanged()																	{ }
 		virtual void restoreState (const ValueTree &savedState);
-		virtual void setText(const String &/*newText*/)													{ }
-		virtual void modulatorNameChanged(const String &/*newName*/)									{ }
+		virtual void setText(const String &)													{ }
+		virtual void modulatorNameChanged(const String &/* newName */)									{ }
 		virtual void changeListenerCallback (ChangeBroadcaster* source);
 		virtual void click()																		{ }
 		virtual Array <CtrlrComponent*> getOwnedChildren()											{ Array <CtrlrComponent*> ar; return (ar); }
-		virtual void setOwned (CtrlrComponent */*componentToOwn*/, const bool /*shouldOwnComponent=true*/)  { }
-		virtual const PopupMenu getComponentMenu(const MouseEvent &/*e*/)										{ return (PopupMenu()); }
-		virtual void handlePopupMenu (const int /*popupMenuItem*/)												{ }
+		virtual void setOwned (CtrlrComponent *, const bool)  { }
+		virtual const PopupMenu getComponentMenu(const MouseEvent &/* e */)										{ return (PopupMenu()); }
+		virtual void handlePopupMenu (const int)												{ }
 		virtual CtrlrFontManager &getFontManager();
 		virtual void allModulatorsInitialized()																{ }
 		virtual void panelEditModeChanged(const bool isInEditMode=false);
-		virtual void reloadResources(Array <CtrlrPanelResource*> /*resourcesThatChanged*/) {}
+		virtual void reloadResources(Array <CtrlrPanelResource*>) {}
 		void componentMovedOrResized (Component &component, bool wasMoved, bool wasResized);
 		void addAndMakeVisible (Component *child, int zOrder=-1);
 		CtrlrModulator &getOwner() const															{ return (owner); }

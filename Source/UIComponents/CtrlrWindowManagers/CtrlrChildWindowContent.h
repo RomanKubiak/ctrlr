@@ -14,13 +14,13 @@ class CtrlrChildWindowContent :	public Component
 		virtual String getContentName();
 		virtual ValueTree &saveState();
 		ValueTree &getComponentTree() { return (componentTree); }
-		virtual void restoreState (const ValueTree &/*savedState*/) {}
+		virtual void restoreState (const ValueTree &) {}
 		virtual uint8 getType()=0;
 
 		virtual StringArray getMenuBarNames() { return (StringArray()); }
-		virtual PopupMenu getMenuForIndex(int /*topLevelMenuIndex*/, const String &/*menuName*/) { return (PopupMenu()); }
-		virtual void menuItemSelected(int/* menuItemID*/, int /*topLevelMenuIndex*/) {}
-		virtual bool keyPressed (const KeyPress &/*key*/, Component */*originatingComponent*/) { return (false); }
+		virtual PopupMenu getMenuForIndex(int, const String &) { return (PopupMenu()); }
+		virtual void menuItemSelected(int, int ) {}
+		virtual bool keyPressed (const KeyPress &, Component *) { return (false); }
 		JUCE_LEAK_DETECTOR(CtrlrChildWindowContent)
 
 	protected:
