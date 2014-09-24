@@ -20,11 +20,11 @@ echo
 cat $HEADER | grep "def_" | awk '{
 	constNow = 0
 	hack = 0
-	
-	retTypeOffset  = 2;
-	funcNameOffset = 3;
-	paramsOffset   = 5;
-	needsToReturn  = 0;
+	numParams	= 0;
+	retTypeOffset  	= 2;
+	funcNameOffset 	= 3;
+	paramsOffset   	= 5;
+	needsToReturn  	= 0;
 	
 	for (i=1; i<=NF; i++)
 	{
@@ -44,13 +44,14 @@ cat $HEADER | grep "def_" | awk '{
 				returnType = i;
 			}
 				
-			printf ("-- function ");
+			printf ("function ");
 		}
 		
 		if (i == funcNameOffset)
 		{
 			# Function name
-			printf ("__method_name:%s (", substr ($i,5));
+			methodName = substr ($i,5);
+			printf ("__method_name:%s (", methodName);
 		}
 		
 		if (i > paramsOffset)
@@ -91,43 +92,81 @@ cat $HEADER | grep "def_" | awk '{
 			
 			if (hack)
 			{
-				if (! (i%2)) printf ("%s", (i == NF ? $param : $param", ")); else printf ("--[[%s]] ", $param);
+				if (! (i%2)) 
+				{
+					paramArray[++numParams] = param;
+					printf ("%s", (i == NF ? $param : $param", ")); 
+				}
+				else 
+				{
+					printf ("--[[%s]] ", $param);
+				}
 			}
 			else
 			{
-				if (i%2) printf ("%s", (i == NF ? $param : $param", ")); else printf ("--[[%s]] ", $param);
+				if (i%2) 
+				{
+					paramArray[++numParams] = param;
+					printf ("%s", (i == NF ? $param : $param", ")); 
+				}
+				else 
+				{
+					printf ("--[[%s]] ", $param);
+				}
 			}
+						
 		}
 	}
 	
-	if (needsToReturn)
-	{
-		printf (")\n");
-		printf ("\t--\n");
-		printf ("\t-- Body\n");
-		printf ("\t--\n");
+	#if (needsToReturn)
+	#{
+		#printf (")\n");
+		#printf ("\t--\n");
+		#printf ("\t-- Body\n");
+		#printf ("\t--\n");
 		
-		if ($returnType == "bool")
-			printf ("\t-- returnValue = true\n");
-		else if ($returnType == "int")
-			printf ("\t-- returnValue == 1\n");
-		else if ($returnType == "double")
-			printf ("\t-- returnValue == 1.0\n");
+		#if ($returnType == "bool")
+		#	printf ("\t-- returnValue = true\n");
+		#else if ($returnType == "int")
+		#	printf ("\t-- returnValue == 1\n");
+		#else if ($returnType == "double")
+		#	printf ("\t-- returnValue == 1.0\n");
+		#else
+		#{
+		#	if (index ($returnType, "*"))
+		#		printf ("\t-- returnValue = %s()\n", substr ($returnType, 0, index($returnType, "*") - 1));
+		#	else if (index ($returnType, "<"))
+		#		printf ("\t-- returnValue = %s()\n", substr ($returnType, 0, index($returnType, "<") - 1));
+		#	else
+		#		printf ("\t-- returnValue = %s()\n", $returnType);
+		#}
+		#	
+		#printf ("\t-- return returnValue\n");
+		#printf ("end\n\n");		
+	#}
+	#else
+	#{
+		printf (")\n\t--\n\t-- Body");
+		printf ("\n\t--\n");
+		if (needsToReturn)
+			printf ("\treturn LookAndFeel_V3.");
 		else
-		{
-			if (index ($returnType, "*"))
-				printf ("\t-- returnValue = %s()\n", substr ($returnType, 0, index($returnType, "*") - 1));
-			else if (index ($returnType, "<"))
-				printf ("\t-- returnValue = %s()\n", substr ($returnType, 0, index($returnType, "<") - 1));
-			else
-				printf ("\t-- returnValue = %s()\n", $returnType);
-		}
+			printf ("\tLookAndFeel_V3.");
 			
-		printf ("\t-- return returnValue\n");
-		printf ("--end\n\n");
-	}
-	else
-	{
-		printf (")\n\t--\n\t-- Body\n\t--\n-- end\n\n");
-	}
+		printf ("%s (self", methodName);
+		if (numParams > 0)
+			printf (", ");
+			
+		for (x=1; x<=numParams; x++)
+		{
+			if (x == numParams || numParams == 0)
+				printf ("%s", $paramArray[x]);
+			else
+				printf ("%s, ", $paramArray[x]);
+		}
+		printf (")\n")
+		printf ("end\n\n");
+		
+		
+	#}
 }'

@@ -102,6 +102,7 @@ class CtrlrLuaUtils
         static int getVersionMajor() { return (_STR(ctrlrRevision).upToFirstOccurrenceOf(".", false, true).getIntValue()); }
         static int getVersionMinor() { return (_STR(ctrlrRevision).fromFirstOccurrenceOf(".", false, true).getIntValue()); }
         static int getVersionRevision() { return (_STR(ctrlrRevision).fromLastOccurrenceOf(".", false, true).getIntValue()); }
+        static double getPi() { return (double_Pi); }
         static String getVersionString() { return (_STR(ctrlrRevision)); }
 		static StringArray getMidiInputDevices();
 		static StringArray getMidiOutputDevices();

@@ -188,6 +188,8 @@ void CtrlrLuaManager::wrapCore (lua_State* L)
 		def("int64ToDouble", &CtrlrLuaManager::int64ToDouble),
 		def("int64ToInt", &CtrlrLuaManager::int64ToInt),
 		def("log", &CtrlrLuaManager::log),
+		def("jmin", &jmin<double>),
+		def("jmax", &jmax<double>),
 		class_<CtrlrLuaObjectWrapper>("CtrlrLuaObjectWrapper")
 			.def(constructor<luabind::object const&>())
 			.def(constructor<>())

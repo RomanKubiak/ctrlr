@@ -218,5 +218,6 @@ void CtrlrLuaUtils::wrapForLua (lua_State *L)
 			.def("getVersionMinor", &CtrlrLuaUtils::getVersionMinor)
 			.def("getVersionRevision", &CtrlrLuaUtils::getVersionRevision)
 			.def("getVersionString", &CtrlrLuaUtils::getVersionString)
+			.def("getPi", &CtrlrLuaUtils::getPi)
 	];
 }

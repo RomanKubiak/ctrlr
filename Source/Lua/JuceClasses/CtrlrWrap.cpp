@@ -58,6 +58,7 @@
 #include "LThreadWithProgressWindow.h"
 #include "LXmlElement.h"
 #include "LTypeface.h"
+#include "LBorderSize.h"
 
 void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 {
@@ -83,6 +84,7 @@ void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 	LAudioFile::wrapForLua(L);
 	LAudioFormat::wrapForLua(L);
 	LAudioSampleBuffer::wrapForLua(L);
+	LBorderSize::wrapForLua(L);
 }
 
 void CtrlrLuaManager::wrapJuceClasses(lua_State *L)
@@ -109,7 +111,7 @@ void CtrlrLuaManager::wrapJuceClasses(lua_State *L)
 	LRandom::wrapForLua(L);
 	LRectangle::wrapForLua(L);
 	LValueTree::wrapForLua(L);
-	LLookAndFeel_V3::wrapForLua(L);
+	LLookAndFeel::wrapForLua(L);
 	LLabel::wrapForLua(L);
 	LSlider::wrapForLua(L);
 	LBubbleMessageComponent::wrapForLua(L);
