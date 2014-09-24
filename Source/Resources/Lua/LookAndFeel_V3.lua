@@ -5,696 +5,713 @@ function __method_name:__init()
 	-- This is needed for luabind, please don't remove this line
 	-- Add as much code as you like here, just leave this
 	--
-	LookAndFeel_v3.__init(self)
+	LookAndFeel_V3.__init(self)
 end
 
--- function __method_name:findColour (--[[int]] colourId)
+function __method_name:findColour (--[[int]] colourId)
 	--
 	-- Body
 	--
-	-- returnValue = Colour()
-	-- return returnValue
---end
+	return LookAndFeel_V3.findColour (self, colourId)
+end
 
--- function __method_name:setColour (--[[int]] colourId, --[[Colour]] colour)
+function __method_name:setColour (--[[int]] colourId, --[[Colour]] colour)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.setColour (self, colourId, colour)
+end
 
--- function __method_name:isColourSpecified (--[[int]] colourId)
+function __method_name:isColourSpecified (--[[int]] colourId)
 	--
 	-- Body
 	--
-	-- returnValue = true
-	-- return returnValue
---end
+	return LookAndFeel_V3.isColourSpecified (self, colourId)
+end
 
--- function __method_name:getTypefaceForFont (--[[Font]] font)
+function __method_name:getTypefaceForFont (--[[Font]] font)
 	--
 	-- Body
 	--
-	-- returnValue = Typeface::Ptr()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getTypefaceForFont (self, font)
+end
 
--- function __method_name:getMouseCursorFor (--[[Component]] component)
+function __method_name:getMouseCursorFor (--[[Component]] component)
 	--
 	-- Body
 	--
-	-- returnValue = MouseCursor()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getMouseCursorFor (self, component)
+end
 
--- function __method_name:drawButtonBackground (--[[Graphics]] g, --[[Button]] b, --[[Colour]] c, --[[bool]] over, --[[bool]] down)
+function __method_name:drawButtonBackground (--[[Graphics]] g, --[[Button]] b, --[[Colour]] c, --[[bool]] over, --[[bool]] down)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawButtonBackground (self, g, b, c, over, down)
+end
 
--- function __method_name:drawButtonText (--[[Graphics]] g, --[[TextButton]] button, --[[bool]] isMouseOverButton, --[[bool]] isButtonDown)
+function __method_name:drawButtonText (--[[Graphics]] g, --[[TextButton]] button, --[[bool]] isMouseOverButton, --[[bool]] isButtonDown)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawButtonText (self, g, button, isMouseOverButton, isButtonDown)
+end
 
--- function __method_name:drawToggleButton (--[[Graphics]] g, --[[ToggleButton]] button, --[[bool]] isMouseOverButton, --[[bool]] isButtonDown)
+function __method_name:drawToggleButton (--[[Graphics]] g, --[[ToggleButton]] button, --[[bool]] isMouseOverButton, --[[bool]] isButtonDown)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawToggleButton (self, g, button, isMouseOverButton, isButtonDown)
+end
 
--- function __method_name:changeToggleButtonWidthToFitText (--[[ToggleButton]] button)
+function __method_name:changeToggleButtonWidthToFitText (--[[ToggleButton]] button)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.changeToggleButtonWidthToFitText (self, button)
+end
 
--- function __method_name:drawTickBox (--[[Graphics]] g, --[[Component]] component, --[[float]] x, --[[float]] y, --[[float]] w, --[[float]] h, --[[bool]] ticked, --[[bool]] isEnabled, --[[bool]] isMouseOverButton, --[[bool]] isButtonDown)
+function __method_name:drawTickBox (--[[Graphics]] g, --[[Component]] component, --[[float]] x, --[[float]] y, --[[float]] w, --[[float]] h, --[[bool]] ticked, --[[bool]] isEnabled, --[[bool]] isMouseOverButton, --[[bool]] isButtonDown)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawTickBox (self, g, component, x, y, w, h, ticked, isEnabled, isMouseOverButton, isButtonDown)
+end
 
--- function __method_name:createAlertWindow (--[[String]] title, --[[String]] message, --[[String]] button1, --[[String]] button2, --[[String]] button3, --[[AlertWindow::AlertIconType]] iconType, --[[int]] numButtons, --[[Component*]] associatedComponent)
+function __method_name:createAlertWindow (--[[String]] title, --[[String]] message, --[[String]] button1, --[[String]] button2, --[[String]] button3, --[[AlertWindow::AlertIconType]] iconType, --[[int]] numButtons, --[[Component*]] associatedComponent)
 	--
 	-- Body
 	--
-	-- returnValue = AlertWindow()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createAlertWindow (self, title, message, button1, button2, button3, iconType, numButtons, associatedComponent)
+end
 
--- function __method_name:drawAlertBox (--[[Graphics]] g, --[[AlertWindow]] window, --[[Rectangle]] textArea, --[[TextLayout]] layout)
+function __method_name:drawAlertBox (--[[Graphics]] g, --[[AlertWindow]] window, --[[Rectangle]] textArea, --[[TextLayout]] layout)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawAlertBox (self, g, window, textArea, layout)
+end
 
--- function __method_name:getAlertBoxWindowFlags ()
+function __method_name:getAlertBoxWindowFlags ()
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getAlertBoxWindowFlags (self)
+end
 
--- function __method_name:getAlertWindowButtonHeight ()
+function __method_name:getAlertWindowButtonHeight ()
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getAlertWindowButtonHeight (self)
+end
 
--- function __method_name:getAlertWindowMessageFont ()
+function __method_name:getAlertWindowMessageFont ()
 	--
 	-- Body
 	--
-	-- returnValue = Font()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getAlertWindowMessageFont (self)
+end
 
--- function __method_name:getAlertWindowFont ()
+function __method_name:getAlertWindowFont ()
 	--
 	-- Body
 	--
-	-- returnValue = Font()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getAlertWindowFont (self)
+end
 
--- function __method_name:drawProgressBar (--[[Graphics]] g, --[[ProgressBar]] bar, --[[int]] width, --[[int]] height, --[[double]] progress, --[[String]] textToShow)
+function __method_name:drawProgressBar (--[[Graphics]] g, --[[ProgressBar]] bar, --[[int]] width, --[[int]] height, --[[double]] progress, --[[String]] textToShow)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawProgressBar (self, g, bar, width, height, progress, textToShow)
+end
 
--- function __method_name:drawSpinningWaitAnimation (--[[Graphics]] g, --[[Colour]] colour, --[[int]] x, --[[int]] y, --[[int]] w, --[[int]] h)
+function __method_name:drawSpinningWaitAnimation (--[[Graphics]] g, --[[Colour]] colour, --[[int]] x, --[[int]] y, --[[int]] w, --[[int]] h)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawSpinningWaitAnimation (self, g, colour, x, y, w, h)
+end
 
--- function __method_name:areScrollbarButtonsVisible ()
+function __method_name:areScrollbarButtonsVisible ()
 	--
 	-- Body
 	--
-	-- returnValue = true
-	-- return returnValue
---end
+	return LookAndFeel_V3.areScrollbarButtonsVisible (self)
+end
 
--- function __method_name:getScrollbarEffect ()
+function __method_name:getScrollbarEffect ()
 	--
 	-- Body
 	--
-	-- returnValue = ImageEffectFilter()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getScrollbarEffect (self)
+end
 
--- function __method_name:getMinimumScrollbarThumbSize (--[[ScrollBar]] bar)
+function __method_name:getMinimumScrollbarThumbSize (--[[ScrollBar]] bar)
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getMinimumScrollbarThumbSize (self, bar)
+end
 
--- function __method_name:getDefaultScrollbarWidth ()
+function __method_name:getDefaultScrollbarWidth ()
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getDefaultScrollbarWidth (self)
+end
 
--- function __method_name:getScrollbarButtonSize (--[[ScrollBar]] bar)
+function __method_name:getScrollbarButtonSize (--[[ScrollBar]] bar)
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getScrollbarButtonSize (self, bar)
+end
 
--- function __method_name:getTickShape (--[[float]] height)
+function __method_name:getTickShape (--[[float]] height)
 	--
 	-- Body
 	--
-	-- returnValue = Path()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getTickShape (self, height)
+end
 
--- function __method_name:getCrossShape (--[[float]] height)
+function __method_name:getCrossShape (--[[float]] height)
 	--
 	-- Body
 	--
-	-- returnValue = Path()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getCrossShape (self, height)
+end
 
--- function __method_name:drawTreeviewPlusMinusBox (--[[Graphics]] g, --[[Rectangle]] area, --[[Colour]] backgroundColour, --[[bool]] isOpen, --[[bool]] isMouseOver)
+function __method_name:drawTreeviewPlusMinusBox (--[[Graphics]] g, --[[Rectangle]] area, --[[Colour]] backgroundColour, --[[bool]] isOpen, --[[bool]] isMouseOver)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawTreeviewPlusMinusBox (self, g, area, backgroundColour, isOpen, isMouseOver)
+end
 
--- function __method_name:fillTextEditorBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[TextEditor]] editor)
+function __method_name:fillTextEditorBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[TextEditor]] editor)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.fillTextEditorBackground (self, g, width, height, editor)
+end
 
--- function __method_name:drawTextEditorOutline (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[TextEditor]] editor)
+function __method_name:drawTextEditorOutline (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[TextEditor]] editor)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawTextEditorOutline (self, g, width, height, editor)
+end
 
--- function __method_name:createCaretComponent (--[[Component*]] keyFocusOwner)
+function __method_name:createCaretComponent (--[[Component*]] keyFocusOwner)
 	--
 	-- Body
 	--
-	-- returnValue = CaretComponent()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createCaretComponent (self, keyFocusOwner)
+end
 
--- function __method_name:getDefaultFolderImage ()
+function __method_name:getDefaultFolderImage ()
 	--
 	-- Body
 	--
-	-- returnValue = Drawable()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getDefaultFolderImage (self)
+end
 
--- function __method_name:getDefaultDocumentFileImage ()
+function __method_name:getDefaultDocumentFileImage ()
 	--
 	-- Body
 	--
-	-- returnValue = Drawable()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getDefaultDocumentFileImage (self)
+end
 
--- function __method_name:createFileChooserHeaderText (--[[String]] title, --[[String]] instructions)
+function __method_name:createFileChooserHeaderText (--[[String]] title, --[[String]] instructions)
 	--
 	-- Body
 	--
-	-- returnValue = AttributedString()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createFileChooserHeaderText (self, title, instructions)
+end
 
--- function __method_name:drawFileBrowserRow (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[String]] filename, --[[Image*]] icon, --[[String]] fileSizeDescription, --[[String]] fileTimeDescription, --[[bool]] isDirectory, --[[bool]] isItemSelected, --[[int]] itemIndex, --[[DirectoryContentsDisplayComponent]] component)
+function __method_name:drawFileBrowserRow (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[String]] filename, --[[Image*]] icon, --[[String]] fileSizeDescription, --[[String]] fileTimeDescription, --[[bool]] isDirectory, --[[bool]] isItemSelected, --[[int]] itemIndex, --[[DirectoryContentsDisplayComponent]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawFileBrowserRow (self, g, width, height, filename, icon, fileSizeDescription, fileTimeDescription, isDirectory, isItemSelected, itemIndex, component)
+end
 
--- function __method_name:createFileBrowserGoUpButton ()
+function __method_name:createFileBrowserGoUpButton ()
 	--
 	-- Body
 	--
-	-- returnValue = Button()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createFileBrowserGoUpButton (self)
+end
 
--- function __method_name:layoutFileBrowserComponent (--[[FileBrowserComponent]] component, --[[DirectoryContentsDisplayComponent*]] contentsComponent, --[[FilePreviewComponent*]] previewComponent, --[[ComboBox*]] currentPathBox, --[[TextEditor*]] filenameBox, --[[Button*]] goUpButton)
+function __method_name:layoutFileBrowserComponent (--[[FileBrowserComponent]] component, --[[DirectoryContentsDisplayComponent*]] contentsComponent, --[[FilePreviewComponent*]] previewComponent, --[[ComboBox*]] currentPathBox, --[[TextEditor*]] filenameBox, --[[Button*]] goUpButton)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.layoutFileBrowserComponent (self, component, contentsComponent, previewComponent, currentPathBox, filenameBox, goUpButton)
+end
 
--- function __method_name:drawBubble (--[[Graphics]] g, --[[BubbleComponent]] bubble, --[[Point]] tip, --[[Rectangle]] body)
+function __method_name:drawBubble (--[[Graphics]] g, --[[BubbleComponent]] bubble, --[[Point]] tip, --[[Rectangle]] body)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawBubble (self, g, bubble, tip, body)
+end
 
--- function __method_name:drawLasso (--[[Graphics]] g, --[[Component]] component)
+function __method_name:drawLasso (--[[Graphics]] g, --[[Component]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawLasso (self, g, component)
+end
 
--- function __method_name:drawPopupMenuBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height)
+function __method_name:drawPopupMenuBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawPopupMenuBackground (self, g, width, height)
+end
 
--- function __method_name:drawPopupMenuItem (--[[Graphics]] g, --[[Rectangle]] area, --[[bool]] isSeparator, --[[bool]] isActive, --[[bool]] isHighlighted, --[[bool]] isTicked, --[[bool]] hasSubMenu, --[[String]] text, --[[String]] shortcutKeyText, --[[Drawable*]] icon, --[[Colour*]] textColour)
+function __method_name:drawPopupMenuItem (--[[Graphics]] g, --[[Rectangle]] area, --[[bool]] isSeparator, --[[bool]] isActive, --[[bool]] isHighlighted, --[[bool]] isTicked, --[[bool]] hasSubMenu, --[[String]] text, --[[String]] shortcutKeyText, --[[Drawable*]] icon, --[[Colour*]] textColour)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawPopupMenuItem (self, g, area, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, icon, textColour)
+end
 
--- function __method_name:getPopupMenuFont ()
+function __method_name:getPopupMenuFont ()
 	--
 	-- Body
 	--
-	-- returnValue = Font()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getPopupMenuFont (self)
+end
 
--- function __method_name:drawPopupMenuUpDownArrow (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isScrollUpArrow)
+function __method_name:drawPopupMenuUpDownArrow (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isScrollUpArrow)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawPopupMenuUpDownArrow (self, g, width, height, isScrollUpArrow)
+end
 
--- function __method_name:getIdealPopupMenuItemSize (--[[String]] text, --[[bool]] isSeparator, --[[int]] standardMenuItemHeight, --[[int]] idealWidth, --[[int]] idealHeight)
+function __method_name:getIdealPopupMenuItemSize (--[[String]] text, --[[bool]] isSeparator, --[[int]] standardMenuItemHeight, --[[int]] idealWidth, --[[int]] idealHeight)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.getIdealPopupMenuItemSize (self, text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight)
+end
 
--- function __method_name:getMenuWindowFlags ()
+function __method_name:getMenuWindowFlags ()
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getMenuWindowFlags (self)
+end
 
--- function __method_name:drawMenuBarBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isMouseOverBar, --[[MenuBarComponent]] component)
+function __method_name:drawMenuBarBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isMouseOverBar, --[[MenuBarComponent]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawMenuBarBackground (self, g, width, height, isMouseOverBar, component)
+end
 
--- function __method_name:getMenuBarItemWidth (--[[MenuBarComponent]] component, --[[int]] itemIndex, --[[String]] itemText)
+function __method_name:getMenuBarItemWidth (--[[MenuBarComponent]] component, --[[int]] itemIndex, --[[String]] itemText)
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getMenuBarItemWidth (self, component, itemIndex, itemText)
+end
 
--- function __method_name:getMenuBarFont (--[[MenuBarComponent]] component, --[[int]] itemIndex, --[[String]] itemText)
+function __method_name:getMenuBarFont (--[[MenuBarComponent]] component, --[[int]] itemIndex, --[[String]] itemText)
 	--
 	-- Body
 	--
-	-- returnValue = Font()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getMenuBarFont (self, component, itemIndex, itemText)
+end
 
--- function __method_name:drawMenuBarItem (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[int]] itemIndex, --[[String]] itemText, --[[bool]] isMouseOverItem, --[[bool]] isMenuOpen, --[[bool]] isMouseOverBar, --[[MenuBarComponent]] component)
+function __method_name:drawMenuBarItem (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[int]] itemIndex, --[[String]] itemText, --[[bool]] isMouseOverItem, --[[bool]] isMenuOpen, --[[bool]] isMouseOverBar, --[[MenuBarComponent]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawMenuBarItem (self, g, width, height, itemIndex, itemText, isMouseOverItem, isMenuOpen, isMouseOverBar, component)
+end
 
--- function __method_name:drawComboBox (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isButtonDown, --[[int]] buttonX, --[[int]] buttonY, --[[int]] buttonW, --[[int]] buttonH, --[[ComboBox]] component)
+function __method_name:drawComboBox (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isButtonDown, --[[int]] buttonX, --[[int]] buttonY, --[[int]] buttonW, --[[int]] buttonH, --[[ComboBox]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawComboBox (self, g, width, height, isButtonDown, buttonX, buttonY, buttonW, buttonH, component)
+end
 
--- function __method_name:getComboBoxFont (--[[ComboBox]] component)
+function __method_name:getComboBoxFont (--[[ComboBox]] component)
 	--
 	-- Body
 	--
-	-- returnValue = Font()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getComboBoxFont (self, component)
+end
 
--- function __method_name:createComboBoxTextBox (--[[ComboBox]] component)
+function __method_name:createComboBoxTextBox (--[[ComboBox]] component)
 	--
 	-- Body
 	--
-	-- returnValue = Label()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createComboBoxTextBox (self, component)
+end
 
--- function __method_name:positionComboBoxText (--[[ComboBox]] component, --[[Label]] label)
+function __method_name:positionComboBoxText (--[[ComboBox]] component, --[[Label]] label)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.positionComboBoxText (self, component, label)
+end
 
--- function __method_name:drawLabel (--[[Graphics]] g, --[[Label]] label)
+function __method_name:drawLabel (--[[Graphics]] g, --[[Label]] label)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawLabel (self, g, label)
+end
 
--- function __method_name:drawLinearSlider (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPos, --[[float]] minSliderPos, --[[float]] maxSliderPos, --[[Slider::SliderStyle]] style, --[[Slider]] component)
+function __method_name:drawLinearSlider (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPos, --[[float]] minSliderPos, --[[float]] maxSliderPos, --[[Slider::SliderStyle]] style, --[[Slider]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawLinearSlider (self, g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, component)
+end
 
--- function __method_name:drawLinearSliderBackground (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPos, --[[float]] minSliderPos, --[[float]] maxSliderPos, --[[Slider::SliderStyle]] style, --[[Slider]] component)
+function __method_name:drawLinearSliderBackground (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPos, --[[float]] minSliderPos, --[[float]] maxSliderPos, --[[Slider::SliderStyle]] style, --[[Slider]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawLinearSliderBackground (self, g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, component)
+end
 
--- function __method_name:drawLinearSliderThumb (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPos, --[[float]] minSliderPos, --[[float]] maxSliderPos, --[[Slider::SliderStyle]] style, --[[Slider]] component)
+function __method_name:drawLinearSliderThumb (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPos, --[[float]] minSliderPos, --[[float]] maxSliderPos, --[[Slider::SliderStyle]] style, --[[Slider]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawLinearSliderThumb (self, g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, component)
+end
 
--- function __method_name:getSliderThumbRadius (--[[Slider]] component)
+function __method_name:getSliderThumbRadius (--[[Slider]] component)
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getSliderThumbRadius (self, component)
+end
 
--- function __method_name:drawRotarySlider (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPosProportional, --[[float]] rotaryStartAngle, --[[float]] rotaryEndAngle, --[[Slider]] slider)
+function __method_name:drawRotarySlider (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPosProportional, --[[float]] rotaryStartAngle, --[[float]] rotaryEndAngle, --[[Slider]] slider)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawRotarySlider (self, g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider)
+end
 
--- function __method_name:createSliderButton (--[[Slider]] component, --[[bool]] isIncrement)
+function __method_name:createSliderButton (--[[Slider]] component, --[[bool]] isIncrement)
 	--
 	-- Body
 	--
-	-- returnValue = Button()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createSliderButton (self, component, isIncrement)
+end
 
--- function __method_name:createSliderTextBox (--[[Slider]] component)
+function __method_name:createSliderTextBox (--[[Slider]] component)
 	--
 	-- Body
 	--
-	-- returnValue = Label()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createSliderTextBox (self, component)
+end
 
--- function __method_name:getSliderEffect (--[[Slider]] component)
+function __method_name:getSliderEffect (--[[Slider]] component)
 	--
 	-- Body
 	--
-	-- returnValue = ImageEffectFilter()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getSliderEffect (self, component)
+end
 
--- function __method_name:getTooltipSize (--[[String]] tipText, --[[int]] width, --[[int]] height)
+function __method_name:getTooltipSize (--[[String]] tipText, --[[int]] width, --[[int]] height)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.getTooltipSize (self, tipText, width, height)
+end
 
--- function __method_name:drawTooltip (--[[Graphics]] g, --[[String]] text, --[[int]] width, --[[int]] height)
+function __method_name:drawTooltip (--[[Graphics]] g, --[[String]] text, --[[int]] width, --[[int]] height)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawTooltip (self, g, text, width, height)
+end
 
--- function __method_name:createFilenameComponentBrowseButton (--[[String]] text)
+function __method_name:createFilenameComponentBrowseButton (--[[String]] text)
 	--
 	-- Body
 	--
-	-- returnValue = Button()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createFilenameComponentBrowseButton (self, text)
+end
 
--- function __method_name:layoutFilenameComponent (--[[FilenameComponent]] component, --[[ComboBox*]] filenameBox, --[[Button*]] browseButton)
+function __method_name:layoutFilenameComponent (--[[FilenameComponent]] component, --[[ComboBox*]] filenameBox, --[[Button*]] browseButton)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.layoutFilenameComponent (self, component, filenameBox, browseButton)
+end
 
--- function __method_name:drawConcertinaPanelHeader (--[[Graphics]] g, --[[Rectangle]] area, --[[bool]] isMouseOver, --[[bool]] isMouseDown, --[[ConcertinaPanel]] component, --[[Component]] panel)
+function __method_name:drawConcertinaPanelHeader (--[[Graphics]] g, --[[Rectangle]] area, --[[bool]] isMouseOver, --[[bool]] isMouseDown, --[[ConcertinaPanel]] component, --[[Component]] panel)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawConcertinaPanelHeader (self, g, area, isMouseOver, isMouseDown, component, panel)
+end
 
--- function __method_name:drawCornerResizer (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[bool]] isMouseOver, --[[bool]] isMouseDragging)
+function __method_name:drawCornerResizer (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[bool]] isMouseOver, --[[bool]] isMouseDragging)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawCornerResizer (self, g, w, h, isMouseOver, isMouseDragging)
+end
 
--- function __method_name:drawResizableFrame (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[BorderSize]] borderSize)
+function __method_name:drawResizableFrame (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[BorderSize]] borderSize)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawResizableFrame (self, g, w, h, borderSize)
+end
 
--- function __method_name:fillResizableWindowBackground (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[BorderSize]] borderSize, --[[ResizableWindow]] window)
+function __method_name:fillResizableWindowBackground (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[BorderSize]] borderSize, --[[ResizableWindow]] window)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.fillResizableWindowBackground (self, g, w, h, borderSize, window)
+end
 
--- function __method_name:drawResizableWindowBorder (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[BorderSize]] borderSize, --[[ResizableWindow]] window)
+function __method_name:drawResizableWindowBorder (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[BorderSize]] borderSize, --[[ResizableWindow]] window)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawResizableWindowBorder (self, g, w, h, borderSize, window)
+end
 
--- function __method_name:drawDocumentWindowTitleBar (--[[DocumentWindow]] window, --[[Graphics]] g, --[[int]] w, --[[int]] h, --[[int]] titleSpaceX, --[[int]] titleSpaceW, --[[Image*]] icon, --[[bool]] drawTitleTextOnLeft)
+function __method_name:drawDocumentWindowTitleBar (--[[DocumentWindow]] window, --[[Graphics]] g, --[[int]] w, --[[int]] h, --[[int]] titleSpaceX, --[[int]] titleSpaceW, --[[Image*]] icon, --[[bool]] drawTitleTextOnLeft)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawDocumentWindowTitleBar (self, window, g, w, h, titleSpaceX, titleSpaceW, icon, drawTitleTextOnLeft)
+end
 
--- function __method_name:createDocumentWindowButton (--[[int]] buttonType)
+function __method_name:createDocumentWindowButton (--[[int]] buttonType)
 	--
 	-- Body
 	--
-	-- returnValue = Button()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createDocumentWindowButton (self, buttonType)
+end
 
--- function __method_name:positionDocumentWindowButtons (--[[DocumentWindow]] window, --[[int]] titleBarX, --[[int]] titleBarY, --[[int]] titleBarW, --[[int]] titleBarH, --[[Button*]] minimiseButton, --[[Button*]] maximiseButton, --[[Button*]] closeButton, --[[bool]] positionTitleBarButtonsOnLeft)
+function __method_name:positionDocumentWindowButtons (--[[DocumentWindow]] window, --[[int]] titleBarX, --[[int]] titleBarY, --[[int]] titleBarW, --[[int]] titleBarH, --[[Button*]] minimiseButton, --[[Button*]] maximiseButton, --[[Button*]] closeButton, --[[bool]] positionTitleBarButtonsOnLeft)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.positionDocumentWindowButtons (self, window, titleBarX, titleBarY, titleBarW, titleBarH, minimiseButton, maximiseButton, closeButton, positionTitleBarButtonsOnLeft)
+end
 
--- function __method_name:getDefaultMenuBarHeight ()
+function __method_name:getDefaultMenuBarHeight ()
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getDefaultMenuBarHeight (self)
+end
 
--- function __method_name:createDropShadowerForComponent (--[[Component*]] component)
+function __method_name:createDropShadowerForComponent (--[[Component*]] component)
 	--
 	-- Body
 	--
-	-- returnValue = DropShadower()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createDropShadowerForComponent (self, component)
+end
 
--- function __method_name:drawGroupComponentOutline (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[String]] text, --[[Justification]] justification, --[[GroupComponent]] component)
+function __method_name:drawGroupComponentOutline (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[String]] text, --[[Justification]] justification, --[[GroupComponent]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawGroupComponentOutline (self, g, w, h, text, justification, component)
+end
 
--- function __method_name:getTabButtonSpaceAroundImage ()
+function __method_name:getTabButtonSpaceAroundImage ()
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getTabButtonSpaceAroundImage (self)
+end
 
--- function __method_name:getTabButtonOverlap (--[[int]] tabDepth)
+function __method_name:getTabButtonOverlap (--[[int]] tabDepth)
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getTabButtonOverlap (self, tabDepth)
+end
 
--- function __method_name:getTabButtonBestWidth (--[[TabBarButton]] component, --[[int]] tabDepth)
+function __method_name:getTabButtonBestWidth (--[[TabBarButton]] component, --[[int]] tabDepth)
 	--
 	-- Body
 	--
-	-- returnValue == 1
-	-- return returnValue
---end
+	return LookAndFeel_V3.getTabButtonBestWidth (self, component, tabDepth)
+end
 
--- function __method_name:getTabButtonExtraComponentBounds (--[[TabBarButton]] component, --[[Rectangle]] textArea, --[[Component]] extraComp)
+function __method_name:getTabButtonExtraComponentBounds (--[[TabBarButton]] component, --[[Rectangle]] textArea, --[[Component]] extraComp)
 	--
 	-- Body
 	--
-	-- returnValue = Rectangle()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getTabButtonExtraComponentBounds (self, component, textArea, extraComp)
+end
 
--- function __method_name:drawTabButton (--[[TabBarButton]] component, --[[Graphics]] g, --[[bool]] isMouseOver, --[[bool]] isMouseDown)
+function __method_name:drawTabButton (--[[TabBarButton]] component, --[[Graphics]] g, --[[bool]] isMouseOver, --[[bool]] isMouseDown)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawTabButton (self, component, g, isMouseOver, isMouseDown)
+end
 
--- function __method_name:drawTabButtonText (--[[TabBarButton]] component, --[[Graphics]] g, --[[bool]] isMouseOver, --[[bool]] isMouseDown)
+function __method_name:drawTabButtonText (--[[TabBarButton]] component, --[[Graphics]] g, --[[bool]] isMouseOver, --[[bool]] isMouseDown)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawTabButtonText (self, component, g, isMouseOver, isMouseDown)
+end
 
--- function __method_name:drawTabAreaBehindFrontButton (--[[TabbedButtonBar]] component, --[[Graphics]] g, --[[int]] w, --[[int]] h)
+function __method_name:drawTabAreaBehindFrontButton (--[[TabbedButtonBar]] component, --[[Graphics]] g, --[[int]] w, --[[int]] h)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawTabAreaBehindFrontButton (self, component, g, w, h)
+end
 
--- function __method_name:createTabButtonShape (--[[TabBarButton]] component, --[[Path]] p, --[[bool]] isMouseOver, --[[bool]] isMouseDown)
+function __method_name:createTabButtonShape (--[[TabBarButton]] component, --[[Path]] p, --[[bool]] isMouseOver, --[[bool]] isMouseDown)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.createTabButtonShape (self, component, p, isMouseOver, isMouseDown)
+end
 
--- function __method_name:fillTabButtonShape (--[[TabBarButton]] component, --[[Graphics]] g, --[[Path]] p, --[[bool]] isMouseOver, --[[bool]] isMouseDown)
+function __method_name:fillTabButtonShape (--[[TabBarButton]] component, --[[Graphics]] g, --[[Path]] p, --[[bool]] isMouseOver, --[[bool]] isMouseDown)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.fillTabButtonShape (self, component, g, p, isMouseOver, isMouseDown)
+end
 
--- function __method_name:createTabBarExtrasButton ()
+function __method_name:createTabBarExtrasButton ()
 	--
 	-- Body
 	--
-	-- returnValue = Button()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createTabBarExtrasButton (self)
+end
 
--- function __method_name:drawImageButton (--[[Graphics]] g, --[[Image*]] image, --[[int]] imageX, --[[int]] imageY, --[[int]] imageW, --[[int]] imageH, --[[Colour]] overlayColour, --[[float]] imageOpacity, --[[ImageButton]] component)
+function __method_name:drawImageButton (--[[Graphics]] g, --[[Image*]] image, --[[int]] imageX, --[[int]] imageY, --[[int]] imageW, --[[int]] imageH, --[[Colour]] overlayColour, --[[float]] imageOpacity, --[[ImageButton]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawImageButton (self, g, image, imageX, imageY, imageW, imageH, overlayColour, imageOpacity, component)
+end
 
--- function __method_name:drawTableHeaderBackground (--[[Graphics]] g, --[[TableHeaderComponent]] component)
+function __method_name:drawTableHeaderBackground (--[[Graphics]] g, --[[TableHeaderComponent]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawTableHeaderBackground (self, g, component)
+end
 
--- function __method_name:drawTableHeaderColumn (--[[Graphics]] g, --[[String]] columnName, --[[int]] columnId, --[[int]] width, --[[int]] height, --[[bool]] isMouseOver, --[[bool]] isMouseDown, --[[int]] columnFlags)
+function __method_name:drawTableHeaderColumn (--[[Graphics]] g, --[[String]] columnName, --[[int]] columnId, --[[int]] width, --[[int]] height, --[[bool]] isMouseOver, --[[bool]] isMouseDown, --[[int]] columnFlags)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawTableHeaderColumn (self, g, columnName, columnId, width, height, isMouseOver, isMouseDown, columnFlags)
+end
 
--- function __method_name:paintToolbarBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[Toolbar]] component)
+function __method_name:paintToolbarBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[Toolbar]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.paintToolbarBackground (self, g, width, height, component)
+end
 
--- function __method_name:createToolbarMissingItemsButton (--[[Toolbar]] component)
+function __method_name:createToolbarMissingItemsButton (--[[Toolbar]] component)
 	--
 	-- Body
 	--
-	-- returnValue = Button()
-	-- return returnValue
---end
+	return LookAndFeel_V3.createToolbarMissingItemsButton (self, component)
+end
 
--- function __method_name:paintToolbarButtonBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isMouseOver, --[[bool]] isMouseDown, --[[ToolbarItemComponent]] component)
+function __method_name:paintToolbarButtonBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isMouseOver, --[[bool]] isMouseDown, --[[ToolbarItemComponent]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.paintToolbarButtonBackground (self, g, width, height, isMouseOver, isMouseDown, component)
+end
 
--- function __method_name:paintToolbarButtonLabel (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[String]] text, --[[ToolbarItemComponent]] component)
+function __method_name:paintToolbarButtonLabel (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[String]] text, --[[ToolbarItemComponent]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.paintToolbarButtonLabel (self, g, x, y, width, height, text, component)
+end
 
--- function __method_name:drawStretchableLayoutResizerBar (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[bool]] isVerticalBar, --[[bool]] isMouseOver, --[[bool]] isMouseDragging)
+function __method_name:drawStretchableLayoutResizerBar (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[bool]] isVerticalBar, --[[bool]] isMouseOver, --[[bool]] isMouseDragging)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawStretchableLayoutResizerBar (self, g, w, h, isVerticalBar, isMouseOver, isMouseDragging)
+end
 
--- function __method_name:drawPropertyPanelSectionHeader (--[[Graphics]] g, --[[String]] name, --[[bool]] isOpen, --[[int]] width, --[[int]] height)
+function __method_name:drawPropertyPanelSectionHeader (--[[Graphics]] g, --[[String]] name, --[[bool]] isOpen, --[[int]] width, --[[int]] height)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawPropertyPanelSectionHeader (self, g, name, isOpen, width, height)
+end
 
--- function __method_name:drawPropertyComponentBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[PropertyComponent]] component)
+function __method_name:drawPropertyComponentBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[PropertyComponent]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawPropertyComponentBackground (self, g, width, height, component)
+end
 
--- function __method_name:drawPropertyComponentLabel (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[PropertyComponent]] component)
+function __method_name:drawPropertyComponentLabel (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[PropertyComponent]] component)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawPropertyComponentLabel (self, g, width, height, component)
+end
 
--- function __method_name:getPropertyComponentContentPosition (--[[PropertyComponent]] component)
+function __method_name:getPropertyComponentContentPosition (--[[PropertyComponent]] component)
 	--
 	-- Body
 	--
-	-- returnValue = Rectangle()
-	-- return returnValue
---end
+	return LookAndFeel_V3.getPropertyComponentContentPosition (self, component)
+end
 
--- function __method_name:drawCallOutBoxBackground (--[[CallOutBox]] component, --[[Graphics]] g, --[[Path]] path, --[[Image]] cachedImage)
+function __method_name:drawCallOutBoxBackground (--[[CallOutBox]] component, --[[Graphics]] g, --[[Path]] path, --[[Image]] cachedImage)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawCallOutBoxBackground (self, component, g, path, cachedImage)
+end
 
--- function __method_name:drawLevelMeter (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[float]] level)
+function __method_name:drawLevelMeter (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[float]] level)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawLevelMeter (self, g, width, height, level)
+end
 
--- function __method_name:drawKeymapChangeButton (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[Button]] component, --[[String]] keyDescription)
+function __method_name:drawKeymapChangeButton (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[Button]] component, --[[String]] keyDescription)
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.drawKeymapChangeButton (self, g, width, height, component, keyDescription)
+end
 
--- function __method_name:playAlertSound ()
+function __method_name:playAlertSound ()
 	--
 	-- Body
 	--
--- end
+	LookAndFeel_V3.playAlertSound (self)
+end
 

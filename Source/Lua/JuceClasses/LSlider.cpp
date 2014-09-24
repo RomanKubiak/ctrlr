@@ -71,5 +71,35 @@ void LSlider::wrapForLua (lua_State *L)
 			.def("updateText", &Slider::updateText)
 			.def("isHorizontal", &Slider::isHorizontal)
 			.def("isVertical", &Slider::isVertical)
+			.enum_("TextEntryBoxPosition")
+			[
+                value("NoTextBox", Slider::NoTextBox),
+                value("TextBoxLeft", Slider::TextBoxLeft),
+                value("TextBoxRight", Slider::TextBoxRight),
+                value("TextBoxAbove", Slider::TextBoxAbove),
+                value("TextBoxBelow", Slider::TextBoxBelow)
+			]
+			.enum_("SliderStyle")
+			[
+                value("LinearHorizontal", Slider::LinearHorizontal),
+                value("LinearVertical", Slider::LinearVertical),
+                value("LinearBar", Slider::LinearBar),
+                value("LinearBarVertical", Slider::LinearBarVertical),
+                value("Rotary", Slider::Rotary),
+                value("RotaryHorizontalDrag", Slider::RotaryHorizontalDrag),
+                value("RotaryVerticalDrag", Slider::RotaryVerticalDrag),
+                value("RotaryHorizontalVerticalDrag", Slider::RotaryHorizontalVerticalDrag),
+                value("IncDecButtons", Slider::IncDecButtons),
+                value("TwoValueHorizontal", Slider::TwoValueHorizontal),
+                value("TwoValueVertical", Slider::TwoValueVertical),
+                value("ThreeValueHorizontal", Slider::ThreeValueHorizontal),
+                value("ThreeValueVertical", Slider::ThreeValueVertical)
+			]
+			.enum_("DragMode")
+			[
+                value("notDragging", Slider::notDragging),
+                value("absoluteDrag", Slider::absoluteDrag),
+                value("velocityDrag", Slider::velocityDrag)
+			]
 	];
 }

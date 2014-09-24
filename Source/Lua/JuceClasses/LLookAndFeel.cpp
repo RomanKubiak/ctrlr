@@ -1,6 +1,12 @@
 #include "stdafx.h"
 #include "LLookAndFeel.h"
 
+void LLookAndFeel::wrapForLua (lua_State *L)
+{
+	using namespace luabind;
+}
+
+/*
 void setLookAndFeel(Component *c, luabind::object o)
 {
     _DBG("::setLookAndFeel");
@@ -163,3 +169,4 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
 			]
 	];
 }
+*/

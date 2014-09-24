@@ -18,6 +18,11 @@
 					<Add option="-std=gnu++0x" />
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
+					<Add option="-Wno-ignored-qualifiers" />
+					<Add option="-Wno-unused-variable" />
+					<Add option="-Wno-unused-parameter" />
+					<Add option="-Wno-reorder" />
+					<Add option="-Wno-empty-body" />
 					<Add option="-D__MINGW__=1" />
 					<Add option="-D__MINGW_EXTENSION=" />
 					<Add option="-DDEBUG=1" />
@@ -200,12 +205,6 @@
 			<Add option="-Wall" />
 			<Add option="-Wno-strict-aliasing" />
 			<Add option="-Wno-strict-overflow" />
-			<Add option="-Wno-ignored-qualifiers" />
-			<Add option="-Wno-unused-variable" />
-			<Add option="-Wno-unused-parameter" />
-			<Add option="-Wno-reorder" />
-			<Add option="-Wno-empty-body" />
-			<Add option="-Wno-write-strings" />
 		</Compiler>
 		<Unit filename="../../../../Juce/modules/juce_audio_basics/buffers/juce_AudioDataConverters.cpp">
 			<Option compile="0" />
@@ -2244,6 +2243,8 @@
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioThumbnail.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LBigInteger.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LBigInteger.h" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LBorderSize.cpp" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LBorderSize.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LBubbleMessageComponent.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LBubbleMessageComponent.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LButton.cpp" />

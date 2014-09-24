@@ -99,6 +99,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
+  $(OBJDIR)/LBorderSize_ecfcd7ed.o \
   $(OBJDIR)/LButton_b8659fd2.o \
   $(OBJDIR)/LTextButton_e8537f5f.o \
   $(OBJDIR)/LTypeface_963867f7.o \
@@ -481,6 +482,11 @@ $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o: ../../../../Source/Core/StandaloneWr
 $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling stdafx.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LBorderSize_ecfcd7ed.o: ../../../../Source/Lua/JuceClasses/LBorderSize.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LBorderSize.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LButton_b8659fd2.o: ../../../../Source/Lua/JuceClasses/LButton.cpp

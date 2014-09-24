@@ -19,20 +19,27 @@
        luaPanelMidiReceived="-- None" luaPanelLoaded="-- None" luaPanelBeforeLoad="-- None"
        luaPanelSaved="-- None" luaPanelResourcesLoaded="-- None" luaPanelProgramChanged="-- None"
        luaPanelGlobalChanged="-- None" luaPanelMessageHandler="-- None"
-       luaPanelModulatorValueChanged="-- None" panelFilePath="C:\devel\ctrlr\Panels\JoMoX - M.Brane 11.panel"
+       luaPanelModulatorValueChanged="-- None" panelFilePath="/home/r.kubiak/devel/ctrlr/Panels/JoMoX - M.Brane 11.panel"
        panelUID="8.JfP5OBH3gAB" panelInstanceUID="HryD" panelInstanceManufacturerID="sbza"
        panelModulatorListColumns="-- None" panelModulatorListCsvDelimiter=","
        panelModulatorListXmlRoot="ctrlrModulatorList" panelModulatorListXmlModulator="ctrlrModulator"
        panelModulatorListSortOption="1" panelGlobalVariables="-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1"
        panelResources="-- None" panelPropertyDisplayIDs="0" ctrlrMenuItemBackgroundColour="ffffffff"
        ctrlrMenuItemTextColour="ff000000" ctrlrMenuItemHighlightedTextColour="ffffffff"
-       ctrlrMenuItemHighlightColour="ff4364ff" ctrlrMenuItemFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;3"
+       ctrlrMenuItemHighlightColour="ff4364ff" ctrlrMenuItemFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;0"
        ctrlrMenuItemSeparatorColour="44000000" ctrlrMenuItemHeaderColour="ff000000"
        ctrlrMenuBarBackgroundColour1="fff7f7f7" ctrlrMenuBarBackgroundColour2="ffcccccc"
        ctrlrMenuBarTextColour="ff000000" ctrlrMenuBarHighlightedTextColour="ffffffff"
-       ctrlrMenuBarHighlightColour="ff4364ff" ctrlrMenuBarFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;3"
-       ctrlrUseEditorWrapper="0" panelIndex="0">
-  <uiWindowManager/>
+       ctrlrMenuBarHighlightColour="ff4364ff" ctrlrMenuBarFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;0"
+       ctrlrUseEditorWrapper="0" panelIndex="0" uiLuaConsoleSnips="setLookAndFeel (panel:getCanvas(), CustomLookAndFeel())">
+  <uiWindowManager>
+    <uiChildWindow uiChildWindowName="LuaMethodEditor" uiChildWindowState="1920 27 1920 1052">
+      <uiChildWindowContentState luaMethodEditor="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&#13;&#10;&lt;OPEN id=&quot;LUA&quot; scrollPos=&quot;0&quot;&gt;&#13;&#10;  &lt;SELECTED id=&quot;/LUA/CustomLookAndFeel&quot;/&gt;&#13;&#10;&lt;/OPEN&gt;&#13;&#10;;67b7cddc597140ef98739550fa17ead0"/>
+    </uiChildWindow>
+    <uiChildWindow uiChildWindowName="LuaConsole" uiChildWindowState="592 506 800 500">
+      <uiChildWindowContentState/>
+    </uiChildWindow>
+  </uiWindowManager>
   <midiLibrary uuid="8ebcc930a4de49a3ae0c5a8cf8d28dab" luaTransInfo="-- None"
                midiLibraryParameterIndexProperty="modulatorCustomIndex" midiLibraryMidiProgramChangeControl="0"
                midiLibrarySendSnapAfterPChg="0" midiLibraryDefaultBankName="New Bank - %H:%M:%S"
@@ -87,23 +94,26 @@
                    luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000006"
                    luaMethodValid="1"/>
       </luaMethodGroup>
+      <luaMethod luaMethodName="CustomLookAndFeel" luaMethodCode="class 'CustomLookAndFeel' (LookAndFeel_V3)&#13;&#10;&#13;&#10;function CustomLookAndFeel:__init()&#13;&#10;&#9;--&#13;&#10;&#9;-- This is needed for luabind, please don't remove this line&#13;&#10;&#9;-- Add as much code as you like here, just leave this&#13;&#10;&#9;--&#13;&#10;&#9;LookAndFeel_V3.__init(self)&#13;&#10;end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:findColour (--[[int]] colourId)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Colour()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:setColour (--[[int]] colourId, --[[Colour]] colour)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:isColourSpecified (--[[int]] colourId)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = true&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getTypefaceForFont (--[[Font]] font)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Typeface::Ptr()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getMouseCursorFor (--[[Component]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = MouseCursor()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawButtonBackground (--[[Graphics]] g, --[[Button]] b, --[[Colour]] c, --[[bool]] over, --[[bool]] down)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawButtonText (--[[Graphics]] g, --[[TextButton]] button, --[[bool]] isMouseOverButton, --[[bool]] isButtonDown)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawToggleButton (--[[Graphics]] g, --[[ToggleButton]] button, --[[bool]] isMouseOverButton, --[[bool]] isButtonDown)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:changeToggleButtonWidthToFitText (--[[ToggleButton]] button)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawTickBox (--[[Graphics]] g, --[[Component]] component, --[[float]] x, --[[float]] y, --[[float]] w, --[[float]] h, --[[bool]] ticked, --[[bool]] isEnabled, --[[bool]] isMouseOverButton, --[[bool]] isButtonDown)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createAlertWindow (--[[String]] title, --[[String]] message, --[[String]] button1, --[[String]] button2, --[[String]] button3, --[[AlertWindow::AlertIconType]] iconType, --[[int]] numButtons, --[[Component*]] associatedComponent)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = AlertWindow()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawAlertBox (--[[Graphics]] g, --[[AlertWindow]] window, --[[Rectangle]] textArea, --[[TextLayout]] layout)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getAlertBoxWindowFlags ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getAlertWindowButtonHeight ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getAlertWindowMessageFont ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Font()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getAlertWindowFont ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Font()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawProgressBar (--[[Graphics]] g, --[[ProgressBar]] bar, --[[int]] width, --[[int]] height, --[[double]] progress, --[[String]] textToShow)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawSpinningWaitAnimation (--[[Graphics]] g, --[[Colour]] colour, --[[int]] x, --[[int]] y, --[[int]] w, --[[int]] h)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:areScrollbarButtonsVisible ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = true&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getScrollbarEffect ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = ImageEffectFilter()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getMinimumScrollbarThumbSize (--[[ScrollBar]] bar)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getDefaultScrollbarWidth ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getScrollbarButtonSize (--[[ScrollBar]] bar)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getTickShape (--[[float]] height)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Path()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getCrossShape (--[[float]] height)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Path()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawTreeviewPlusMinusBox (--[[Graphics]] g, --[[Rectangle]] area, --[[Colour]] backgroundColour, --[[bool]] isOpen, --[[bool]] isMouseOver)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:fillTextEditorBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[TextEditor]] editor)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawTextEditorOutline (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[TextEditor]] editor)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createCaretComponent (--[[Component*]] keyFocusOwner)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = CaretComponent()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getDefaultFolderImage ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Drawable()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getDefaultDocumentFileImage ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Drawable()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createFileChooserHeaderText (--[[String]] title, --[[String]] instructions)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = AttributedString()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawFileBrowserRow (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[String]] filename, --[[Image*]] icon, --[[String]] fileSizeDescription, --[[String]] fileTimeDescription, --[[bool]] isDirectory, --[[bool]] isItemSelected, --[[int]] itemIndex, --[[DirectoryContentsDisplayComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createFileBrowserGoUpButton ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Button()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:layoutFileBrowserComponent (--[[FileBrowserComponent]] component, --[[DirectoryContentsDisplayComponent*]] contentsComponent, --[[FilePreviewComponent*]] previewComponent, --[[ComboBox*]] currentPathBox, --[[TextEditor*]] filenameBox, --[[Button*]] goUpButton)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawBubble (--[[Graphics]] g, --[[BubbleComponent]] bubble, --[[Point]] tip, --[[Rectangle]] body)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawLasso (--[[Graphics]] g, --[[Component]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawPopupMenuBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawPopupMenuItem (--[[Graphics]] g, --[[Rectangle]] area, --[[bool]] isSeparator, --[[bool]] isActive, --[[bool]] isHighlighted, --[[bool]] isTicked, --[[bool]] hasSubMenu, --[[String]] text, --[[String]] shortcutKeyText, --[[Drawable*]] icon, --[[Colour*]] textColour)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getPopupMenuFont ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Font()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawPopupMenuUpDownArrow (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isScrollUpArrow)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getIdealPopupMenuItemSize (--[[String]] text, --[[bool]] isSeparator, --[[int]] standardMenuItemHeight, --[[int]] idealWidth, --[[int]] idealHeight)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getMenuWindowFlags ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawMenuBarBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isMouseOverBar, --[[MenuBarComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getMenuBarItemWidth (--[[MenuBarComponent]] component, --[[int]] itemIndex, --[[String]] itemText)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getMenuBarFont (--[[MenuBarComponent]] component, --[[int]] itemIndex, --[[String]] itemText)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Font()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawMenuBarItem (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[int]] itemIndex, --[[String]] itemText, --[[bool]] isMouseOverItem, --[[bool]] isMenuOpen, --[[bool]] isMouseOverBar, --[[MenuBarComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawComboBox (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isButtonDown, --[[int]] buttonX, --[[int]] buttonY, --[[int]] buttonW, --[[int]] buttonH, --[[ComboBox]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getComboBoxFont (--[[ComboBox]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Font()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createComboBoxTextBox (--[[ComboBox]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Label()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:positionComboBoxText (--[[ComboBox]] component, --[[Label]] label)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawLabel (--[[Graphics]] g, --[[Label]] label)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawLinearSlider (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPos, --[[float]] minSliderPos, --[[float]] maxSliderPos, --[[Slider::SliderStyle]] style, --[[Slider]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawLinearSliderBackground (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPos, --[[float]] minSliderPos, --[[float]] maxSliderPos, --[[Slider::SliderStyle]] style, --[[Slider]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawLinearSliderThumb (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPos, --[[float]] minSliderPos, --[[float]] maxSliderPos, --[[Slider::SliderStyle]] style, --[[Slider]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getSliderThumbRadius (--[[Slider]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;function CustomLookAndFeel:drawRotarySlider (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[float]] sliderPosProportional, --[[float]] rotaryStartAngle, --[[float]] rotaryEndAngle, --[[Slider]] slider)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;red = Colour(0xffff0000)&#13;&#10;&#9;slider:getTextBoxPosition()&#13;&#10;&#13;&#10;    if slider:getTextBoxPosition () ~= Slider.NoTextBox then&#13;&#10;        slider:setTextBoxStyle (Slider.NoTextBox,false,0,0);&#13;&#10;&#9;end&#13;&#10;&#13;&#10;    radius = (height / 2) - 2.0;&#13;&#10;    centreX = x + width * 0.5;&#13;&#10;    centreY = y + height * 0.5;&#13;&#10;    rx = centreX - radius;&#13;&#10;    ry = centreY - radius;&#13;&#10;    rw = radius * 2.0;&#13;&#10;    angle = rotaryStartAngle + sliderPosProportional * (rotaryEndAngle - rotaryStartAngle);&#13;&#10;    thickness = 0.5;&#13;&#10;    segmentSize = (rotaryEndAngle - rotaryStartAngle) / 20.0;&#13;&#10;&#9;&#13;&#10;&#13;&#10;    for i=rotaryStartAngle,rotaryEndAngle,segmentSize do&#13;&#10;        if i &lt;= angle and angle ~= rotaryStartAngle then&#13;&#10;            g:setColour (red:withAlpha(0.75))&#13;&#10;        else&#13;&#10;            g:setColour (red:withAlpha(0.2))&#13;&#10;&#9;&#9;end&#13;&#10;&#13;&#10;        filledArc = Path()&#13;&#10;        filledArc:addPieSegment (rx, ry, rw, rw, i, (i + segmentSize - (segmentSize * 0.2)), thickness)&#13;&#10;        g:fillPath (filledArc, AffineTransform())&#13;&#10;    end&#13;&#10;&#13;&#10;&#13;&#10;&#9;f = Font (rw * 0.25, Font.plain)&#13;&#10;&#9;g:setFont (f)&#13;&#10;&#9;g:setColour (red:brighter (0.2))&#13;&#10;    g:drawText (string.format (&quot;%.0f&quot;, slider:getValue()), 0, 0, width, height, Justification (Justification.centred), true)&#13;&#10;&#13;&#10;end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createSliderButton (--[[Slider]] component, --[[bool]] isIncrement)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Button()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createSliderTextBox (--[[Slider]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Label()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getSliderEffect (--[[Slider]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = ImageEffectFilter()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getTooltipSize (--[[String]] tipText, --[[int]] width, --[[int]] height)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawTooltip (--[[Graphics]] g, --[[String]] text, --[[int]] width, --[[int]] height)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createFilenameComponentBrowseButton (--[[String]] text)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Button()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:layoutFilenameComponent (--[[FilenameComponent]] component, --[[ComboBox*]] filenameBox, --[[Button*]] browseButton)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawConcertinaPanelHeader (--[[Graphics]] g, --[[Rectangle]] area, --[[bool]] isMouseOver, --[[bool]] isMouseDown, --[[ConcertinaPanel]] component, --[[Component]] panel)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawCornerResizer (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[bool]] isMouseOver, --[[bool]] isMouseDragging)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawResizableFrame (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[BorderSize]] borderSize)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:fillResizableWindowBackground (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[BorderSize]] borderSize, --[[ResizableWindow]] window)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawResizableWindowBorder (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[BorderSize]] borderSize, --[[ResizableWindow]] window)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawDocumentWindowTitleBar (--[[DocumentWindow]] window, --[[Graphics]] g, --[[int]] w, --[[int]] h, --[[int]] titleSpaceX, --[[int]] titleSpaceW, --[[Image*]] icon, --[[bool]] drawTitleTextOnLeft)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createDocumentWindowButton (--[[int]] buttonType)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Button()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:positionDocumentWindowButtons (--[[DocumentWindow]] window, --[[int]] titleBarX, --[[int]] titleBarY, --[[int]] titleBarW, --[[int]] titleBarH, --[[Button*]] minimiseButton, --[[Button*]] maximiseButton, --[[Button*]] closeButton, --[[bool]] positionTitleBarButtonsOnLeft)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getDefaultMenuBarHeight ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createDropShadowerForComponent (--[[Component*]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = DropShadower()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawGroupComponentOutline (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[String]] text, --[[Justification]] justification, --[[GroupComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getTabButtonSpaceAroundImage ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getTabButtonOverlap (--[[int]] tabDepth)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getTabButtonBestWidth (--[[TabBarButton]] component, --[[int]] tabDepth)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue == 1&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getTabButtonExtraComponentBounds (--[[TabBarButton]] component, --[[Rectangle]] textArea, --[[Component]] extraComp)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Rectangle()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawTabButton (--[[TabBarButton]] component, --[[Graphics]] g, --[[bool]] isMouseOver, --[[bool]] isMouseDown)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawTabButtonText (--[[TabBarButton]] component, --[[Graphics]] g, --[[bool]] isMouseOver, --[[bool]] isMouseDown)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawTabAreaBehindFrontButton (--[[TabbedButtonBar]] component, --[[Graphics]] g, --[[int]] w, --[[int]] h)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createTabButtonShape (--[[TabBarButton]] component, --[[Path]] p, --[[bool]] isMouseOver, --[[bool]] isMouseDown)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:fillTabButtonShape (--[[TabBarButton]] component, --[[Graphics]] g, --[[Path]] p, --[[bool]] isMouseOver, --[[bool]] isMouseDown)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createTabBarExtrasButton ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Button()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawImageButton (--[[Graphics]] g, --[[Image*]] image, --[[int]] imageX, --[[int]] imageY, --[[int]] imageW, --[[int]] imageH, --[[Colour]] overlayColour, --[[float]] imageOpacity, --[[ImageButton]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawTableHeaderBackground (--[[Graphics]] g, --[[TableHeaderComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawTableHeaderColumn (--[[Graphics]] g, --[[String]] columnName, --[[int]] columnId, --[[int]] width, --[[int]] height, --[[bool]] isMouseOver, --[[bool]] isMouseDown, --[[int]] columnFlags)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:paintToolbarBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[Toolbar]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:createToolbarMissingItemsButton (--[[Toolbar]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Button()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:paintToolbarButtonBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[bool]] isMouseOver, --[[bool]] isMouseDown, --[[ToolbarItemComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:paintToolbarButtonLabel (--[[Graphics]] g, --[[int]] x, --[[int]] y, --[[int]] width, --[[int]] height, --[[String]] text, --[[ToolbarItemComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawStretchableLayoutResizerBar (--[[Graphics]] g, --[[int]] w, --[[int]] h, --[[bool]] isVerticalBar, --[[bool]] isMouseOver, --[[bool]] isMouseDragging)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawPropertyPanelSectionHeader (--[[Graphics]] g, --[[String]] name, --[[bool]] isOpen, --[[int]] width, --[[int]] height)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawPropertyComponentBackground (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[PropertyComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawPropertyComponentLabel (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[PropertyComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:getPropertyComponentContentPosition (--[[PropertyComponent]] component)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;&#9;-- returnValue = Rectangle()&#13;&#10;&#9;-- return returnValue&#13;&#10;--end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawCallOutBoxBackground (--[[CallOutBox]] component, --[[Graphics]] g, --[[Path]] path, --[[Image]] cachedImage)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawLevelMeter (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[float]] level)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:drawKeymapChangeButton (--[[Graphics]] g, --[[int]] width, --[[int]] height, --[[Button]] component, --[[String]] keyDescription)&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end&#13;&#10;&#13;&#10;-- function CustomLookAndFeel:playAlertSound ()&#13;&#10;&#9;--&#13;&#10;&#9;-- Body&#13;&#10;&#9;--&#13;&#10;-- end"
+                 luaMethodLinkedProperty="" luaMethodSource="0" uuid="67b7cddc597140ef98739550fa17ead0"
+                 luaMethodValid="1"/>
     </luaManagerMethods>
   </luaManager>
   <panelResources/>
   <uiPanelEditor uiPanelCanvasRectangle="0 0 600 399" uiPanelSnapSize="8" uiPanelBackgroundColour="0xffffffff"
                  uiPanelBackgroundColour1="ff4a4a4a" uiPanelBackgroundColour2="ff000000"
                  uiPanelBackgroundGradientType="1" uiPanelImageResource="-- None"
-                 uiPanelEditMode="0" uiPanelLock="0" uiPanelDisabledOnEdit="0"
-                 uiPanelWidth="400" uiPanelHeight="400" name="JoMoX M.Brane 11"
-                 uiPanelImageAlpha="255" uiPanelImageLayout="64" uiPanelSnapActive="1"
-                 uiPanelPropertiesOnRight="0" luaPanelPaintBackground="-- None"
-                 luaPanelResized="-- None" luaPanelFileDragDropHandler="-- None"
+                 uiPanelEditMode="0" uiPanelViewPortSize="1237" uiPanelPropertiesSize="309"
+                 uiPanelLock="0" uiPanelDisabledOnEdit="0" uiPanelWidth="400"
+                 uiPanelHeight="400" name="JoMoX M.Brane 11" uiPanelImageAlpha="255"
+                 uiPanelImageLayout="64" uiPanelSnapActive="1" uiPanelPropertiesOnRight="0"
+                 luaPanelPaintBackground="-- None" luaPanelResized="-- None" luaPanelFileDragDropHandler="-- None"
                  luaPanelFileDragEnterHandler="-- None" luaPanelFileDragExitHandler="-- None"
                  uiPanelInvisibleComponentAlpha="0.5" uiPanelMidiToolbarVisible="0"
                  uiPanelTooltipBackgroundColour="0xffeeeebb" uiPanelTooltipOutlineColour="0xff000000"
                  uiPanelTooltipColour="0xff000000" uiPanelTooltipCornerRound="1"
-                 uiPanelTooltipPlacement="2" uiPanelTooltipFont="&lt;Sans-Serif&gt;;15;1;0;0;0;1;3"
-                 uiPanelZoom="1" uiPanelViewPortSize="1169" uiPanelPropertiesSize="292">
+                 uiPanelTooltipPlacement="2" uiPanelTooltipFont="&lt;Sans-Serif&gt;;15;1;0;0;0;1;0"
+                 uiPanelZoom="1">
     <uiPanelCanvasLayer uiPanelCanvasLayerName="New layer" uiPanelCanvasLayerUid="356c3936160000005b0000006e000000"
                         uiPanelCanvasLayerColour="0x000000" uiPanelCanvasLayerVisibility="1"
                         uiPanelCanvasLayerIndex="0"/>
@@ -117,14 +127,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="decay" modulatorMin="0" modulatorValue="66">
+             name="decay" modulatorMin="0" modulatorValue="14">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="110" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="Decay"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="Decay"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -132,9 +142,9 @@
                componentEffectOffsetX="0" componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
                componentBubbleRoundAngle="10" componentBubbleBackgroundColour1="0x9cffffff"
                componentBubbleBackgroundColour2="0xbab9b9b9" componentBubbleBackgroundGradientType="1"
-               componentBubbleValueColour="0xff000000" componentBubbleValueFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;3"
+               componentBubbleValueColour="0xff000000" componentBubbleValueFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;0"
                componentBubbleValueJustification="centred" componentBubbleNameColour="0xff000000"
-               componentBubbleNameFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;3" componentBubbleNameJustification="centred"
+               componentBubbleNameFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;0" componentBubbleNameJustification="centred"
                componentValueDecimalPlaces="0" uiSliderStyle="RotaryVerticalDrag"
                uiSliderMin="0" uiSliderMax="127" uiSliderInterval="1" uiSliderDoubleClickEnabled="1"
                uiSliderDoubleClickValue="0" uiSliderValuePosition="4" uiSliderValueHeight="12"
@@ -146,12 +156,12 @@
                uiSliderThumbColour="0xffff0000" uiSliderValueHighlightColour="0xff0000ff"
                uiSliderValueOutlineColour="ffffff" uiSliderTrackColour="0xff0f0f0f"
                uiSliderIncDecButtonColour="0xff0000ff" uiSliderIncDecTextColour="0xffffffff"
-               uiSliderValueFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1;3" uiSliderValueTextJustification="centred"
+               uiSliderValueFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1;0" uiSliderValueTextJustification="centred"
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="392 280 80 80"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="392 280 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="2" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -162,14 +172,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="m1Pitch" modulatorMin="0" modulatorValue="132">
+             name="m1Pitch" modulatorMin="0" modulatorValue="127">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,90,-1:CC,ByteValue,LSB7bitValue,91,-1"
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="M1 Pitch"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="M1 Pitch"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -195,8 +205,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="88 8 80 80" uiType="uiSlider"/>
+               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="88 8 80 80"
+               componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="3" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -207,14 +217,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="m1Dampen" modulatorMin="0" modulatorValue="135">
+             name="m1Dampen" modulatorMin="0" modulatorValue="127">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,92,-1:CC,ByteValue,LSB7bitValue,93,-1"
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="M1 Dampen"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="M1 Dampen"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -240,8 +250,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="168 8 80 80"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="168 8 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="4" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -252,14 +262,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="m2Pitch" modulatorMin="0" modulatorValue="131">
+             name="m2Pitch" modulatorMin="0" modulatorValue="49">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,94,-1:CC,ByteValue,LSB7bitValue,95,-1"
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="M2 Pitch"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="M2 Pitch"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -285,8 +295,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="88 96 80 80"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="88 96 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="5" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -297,14 +307,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="m2Dampen" modulatorMin="0" modulatorValue="137">
+             name="m2Dampen" modulatorMin="0" modulatorValue="83">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,96,-1:CC,ByteValue,LSB7bitValue,97,-1"
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="M2 Dampen"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="M2 Dampen"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -330,8 +340,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="168 96 80 80" uiType="uiSlider"/>
+               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="168 96 80 80"
+               componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="6" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -342,14 +352,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="m1_2Couplg" modulatorMin="0" modulatorValue="128">
+             name="m1_2Couplg" modulatorMin="0" modulatorValue="127">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,100,-1:CC,ByteValue,LSB7bitValue,101,-1"
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="M1_2 Couplg"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="M1_2 Couplg"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -375,8 +385,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="8 8 80 80" uiType="uiSlider"/>
+               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="8 8 80 80"
+               componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="7" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -387,14 +397,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="m2_1Couplg" modulatorMin="0" modulatorValue="129">
+             name="m2_1Couplg" modulatorMin="0" modulatorValue="0">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,102,-1:CC,ByteValue,LSB7bitValue,103,-1"
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="M2_1 Couplg"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="M2_1 Couplg"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -420,8 +430,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="8 96 80 80"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="8 96 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="8" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -432,14 +442,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="noise" modulatorMin="0" modulatorValue="66">
+             name="noise" modulatorMin="0" modulatorValue="64">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="109" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="Noise"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="Noise"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -465,8 +475,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="8 192 80 80" uiType="uiSlider"/>
+               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="8 192 80 80"
+               componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="9" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -477,14 +487,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="noiseFilter" modulatorMin="0" modulatorValue="65">
+             name="noiseFilter" modulatorMin="0" modulatorValue="17">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="112" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="Noise Filter"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="Noise Filter"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -510,8 +520,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="8 280 80 80"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="8 280 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="10" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -522,14 +532,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="metaNoiseA" modulatorMin="0" modulatorValue="128">
+             name="metaNoiseA" modulatorMin="0" modulatorValue="65">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,106,-1:CC,ByteValue,LSB7bitValue,107,-1"
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="Metal Noise A"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="Metal Noise A"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -555,8 +565,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="88 192 80 80" uiType="uiSlider"/>
+               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="88 192 80 80"
+               componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="11" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -567,14 +577,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="metaNoiseB" modulatorMin="0" modulatorValue="134">
+             name="metaNoiseB" modulatorMin="0" modulatorValue="29">
     <midi midiMessageType="6" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="1" midiMessageCtrlrValue="0" midiMessageMultiList="CC,ByteValue,MSB7bitValue,115,-1:CC,ByteValue,LSB7bitValue,116,-1"
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="Metal Noise B"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="Metal Noise B"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -600,8 +610,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="88 280 80 80"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="88 280 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="12" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -612,14 +622,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="gate" modulatorMin="0" modulatorValue="62">
+             name="gate" modulatorMin="0" modulatorValue="80">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="114" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="Gate"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="Gate"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -627,9 +637,9 @@
                componentEffectOffsetX="0" componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
                componentBubbleRoundAngle="10" componentBubbleBackgroundColour1="0x9cffffff"
                componentBubbleBackgroundColour2="0xbab9b9b9" componentBubbleBackgroundGradientType="1"
-               componentBubbleValueColour="0xff000000" componentBubbleValueFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;3"
+               componentBubbleValueColour="0xff000000" componentBubbleValueFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;0"
                componentBubbleValueJustification="centred" componentBubbleNameColour="0xff000000"
-               componentBubbleNameFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;3" componentBubbleNameJustification="centred"
+               componentBubbleNameFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;0" componentBubbleNameJustification="centred"
                componentValueDecimalPlaces="0" uiSliderStyle="RotaryVerticalDrag"
                uiSliderMin="0" uiSliderMax="127" uiSliderInterval="1" uiSliderDoubleClickEnabled="1"
                uiSliderDoubleClickValue="0" uiSliderValuePosition="4" uiSliderValueHeight="12"
@@ -641,12 +651,12 @@
                uiSliderThumbColour="0xffff0000" uiSliderValueHighlightColour="0xff0000ff"
                uiSliderValueOutlineColour="ffffff" uiSliderTrackColour="0xff0f0f0f"
                uiSliderIncDecButtonColour="0xff0000ff" uiSliderIncDecTextColour="0xffffffff"
-               uiSliderValueFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1;3" uiSliderValueTextJustification="centred"
+               uiSliderValueFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1;0" uiSliderValueTextJustification="centred"
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="304 280 80 80" uiType="uiSlider"/>
+               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="304 280 80 80"
+               componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="13" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -657,14 +667,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="volume" modulatorMin="0" modulatorValue="65">
+             name="volume" modulatorMin="0" modulatorValue="27">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="117" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="Volume"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="Volume"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -672,9 +682,9 @@
                componentEffectOffsetX="0" componentEffectOffsetY="0" componentExcludedFromLabelDisplay="0"
                componentBubbleRoundAngle="10" componentBubbleBackgroundColour1="0x9cffffff"
                componentBubbleBackgroundColour2="0xbab9b9b9" componentBubbleBackgroundGradientType="1"
-               componentBubbleValueColour="0xff000000" componentBubbleValueFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;3"
+               componentBubbleValueColour="0xff000000" componentBubbleValueFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;0"
                componentBubbleValueJustification="centred" componentBubbleNameColour="0xff000000"
-               componentBubbleNameFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;3" componentBubbleNameJustification="centred"
+               componentBubbleNameFont="&lt;Sans-Serif&gt;;14;0;0;0;0;1;0" componentBubbleNameJustification="centred"
                componentValueDecimalPlaces="0" uiSliderStyle="RotaryVerticalDrag"
                uiSliderMin="0" uiSliderMax="127" uiSliderInterval="1" uiSliderDoubleClickEnabled="1"
                uiSliderDoubleClickValue="0" uiSliderValuePosition="4" uiSliderValueHeight="12"
@@ -686,12 +696,12 @@
                uiSliderThumbColour="0xffff0000" uiSliderValueHighlightColour="0xff0000ff"
                uiSliderValueOutlineColour="ffffff" uiSliderTrackColour="0xff0f0f0f"
                uiSliderIncDecButtonColour="0xff0000ff" uiSliderIncDecTextColour="0xffffffff"
-               uiSliderValueFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1;3" uiSliderValueTextJustification="centred"
+               uiSliderValueFont="&lt;Sans-Serif&gt;;12;0;0;0;0;1;0" uiSliderValueTextJustification="centred"
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="480 280 80 80"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="480 280 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="7" vstIndex="14" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -709,7 +719,7 @@
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="LFO Wave"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="LFO Wave"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -730,8 +740,8 @@
                uiComboMenuBackgroundRibbed="1" uiComboButtonGradient="0" uiComboButtonGradientColour1="ff0000ff"
                uiComboButtonGradientColour2="ff00008b" uiComboButtonWidthOverride="0"
                uiComboButtonWidth="16" uiComboDynamicContent="0" uiComboSelectedId="-1"
-               uiComboSelectedIndex="-1" uiType="uiCombo" componentRectangle="304 8 256 40"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiComboSelectedIndex="-1" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="304 8 256 40" uiType="uiCombo"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="3" vstIndex="15" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -749,7 +759,7 @@
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="LFO Select"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;0;0" componentVisibleName="LFO Select"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -770,8 +780,8 @@
                uiComboMenuBackgroundRibbed="1" uiComboButtonGradient="0" uiComboButtonGradientColour1="ff0000ff"
                uiComboButtonGradientColour2="ff00008b" uiComboButtonWidthOverride="0"
                uiComboButtonWidth="16" uiComboDynamicContent="0" uiComboSelectedId="-1"
-               uiComboSelectedIndex="-1" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="304 64 256 40" uiType="uiCombo"/>
+               uiComboSelectedIndex="-1" uiType="uiCombo" componentRectangle="304 64 256 40"
+               componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="17" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -782,14 +792,14 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="volume-1" modulatorMin="0" modulatorValue="66">
+             name="volume-1" modulatorMin="0" modulatorValue="64">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="121" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="LFO Intensity"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="LFO Intensity"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -815,8 +825,8 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="304 112 80 80" uiType="uiSlider"/>
+               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="304 112 80 80"
+               componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="18" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -834,7 +844,7 @@
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="1"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="LFO Speed"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="LFO Speed"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -860,15 +870,15 @@
                uiSliderVelocitySensitivity="1" uiSliderVelocityThreshold="1"
                uiSliderVelocityOffset="0" uiSliderVelocityMode="0" uiSliderVelocityModeKeyTrigger="1"
                uiSliderSpringMode="0" uiSliderSpringValue="0" uiSliderMouseWheelInterval="1"
-               uiSliderPopupBubble="0" uiType="uiSlider" componentRectangle="384 112 80 80"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="384 112 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorCustomIndex="0" modulatorCustomIndexGroup="0" modulatorIsStatic="1"
              name="modulator-4" modulatorVstExported="0" modulatorValue="0">
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="0"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="0xff000000"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName=""
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName=""
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -887,7 +897,8 @@
                uiLabelInputHighlightColour="0xff0000ff" uiLabelEditOnSingleClick="0"
                uiLabelEditOnDoubleClick="0" uiLabelEditFocusDiscardsChanges="1"
                uiLabelInputAllowedChars="" uiLabelInputMaxLength="1024" uiLabelChangedCbk="-- None"
-               uiType="uiLabel" componentRectangle="166 193 430 67" componentLayerUid="356c3936160000005b0000006e000000"/>
+               componentLayerUid="356c3936160000005b0000006e000000" componentRectangle="166 193 430 67"
+               uiType="uiLabel"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="1" vstIndex="19" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -905,7 +916,7 @@
     <component componentLabelPosition="top" componentLabelJustification="centred"
                componentLabelHeight="14" componentLabelWidth="0" componentLabelVisible="0"
                componentLabelAlwaysOnTop="1" componentSentBack="0" componentLabelColour="ffffffff"
-               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;3" componentVisibleName="modulator-1"
+               componentLabelFont="&lt;Sans-Serif&gt;;12;1;0;0;0;1;0" componentVisibleName="modulator-1"
                componentMouseCursor="2" componentGroupName="" componentGroupped="0"
                componentSnapSize="0" componentIsLocked="0" componentDisabled="0"
                componentRadioGroupId="0" componentRadioGroupNotifyMidi="1" componentVisibility="1"
@@ -919,6 +930,6 @@
                componentValueDecimalPlaces="0" uiButtonTextColourOn="ffffffff"
                uiToggleButtonText="LFO One Shot" uiButtonTrueValue="64" uiButtonFalseValue="0"
                uiButtonColourOff="ffff0000" componentRectangle="464 128 120 48"
-               componentLayerUid="356c3936160000005b0000006e000000" uiType="uiToggleButton"/>
+               uiType="uiToggleButton" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
 </panel>
