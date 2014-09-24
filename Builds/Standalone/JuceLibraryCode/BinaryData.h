@@ -10,10 +10,10 @@
 namespace BinaryData
 {
     extern const char*   gen_LookAndFeel_V3_sh;
-    const int            gen_LookAndFeel_V3_shSize = 3286;
+    const int            gen_LookAndFeel_V3_shSize = 3458;
 
     extern const char*   LookAndFeel_V3_lua;
-    const int            LookAndFeel_V3_luaSize = 23032;
+    const int            LookAndFeel_V3_luaSize = 23749;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;

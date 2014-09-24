@@ -4,10 +4,79 @@
 #include "CtrlrLuaManager.h"
 #include "CtrlrLog.h"
 
-class LLookAndFeel
+void setLookAndFeel (Component *component, luabind::object lookAndFeelObject);
+
+struct ParamWrapper
+{
+	ParamWrapper(Graphics &_g, int _x, int _y, int _width, int _height, float _float_p0, float _float_p1, float _float_p2, Slider &_slider)
+		: g(&_g), x(_x), y(_y), width(_width), height(_height), float_p0(_float_p0), float_p1(_float_p1), float_p2(_float_p2), slider(&_slider) {}
+
+	ParamWrapper(const String &_String_p0, bool _bool_p0, int _height, int &_int_p0, int &_int_p1)
+		: String_p0(_String_p0), bool_p0(_bool_p0), height(_height), int_ptr_p0(_int_p0), int_ptr_p1(_int_p1) {}
+	Graphics *g;
+	int x;
+	int y;
+	int width;
+	int height;
+	int int_ptr_p0, int_ptr_p1;
+	bool bool_p0;
+	float float_p0, float_p1, float_p2, float_p3;
+	Slider *slider;
+	String String_p0; 
+};
+
+class LLookAndFeel;
+
+class LookBase : public LookAndFeel_V3
+{
+	public:
+		LookBase(LLookAndFeel &_owner) : owner(_owner)
+		{}
+
+		LookAndFeel_V3 v3;
+		void getIdealPopupMenuItemSize (const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight);
+		void drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider);
+
+	private:
+		LLookAndFeel &owner;
+		
+};
+
+class LLookAndFeel : public LookBase, public luabind::wrap_base
 {
     public:
-        static void wrapForLua (lua_State *L);
+		LLookAndFeel() : LookBase(*this){}
+		static void wrapForLua (lua_State *L);
+
+		void drawRotarySlider (ParamWrapper &params)
+		{
+			try
+			{
+				call<void>("drawRotarySlider", params);
+			}
+			catch (luabind::error e)
+			{
+				_DBG("drawRotarySlider exception: \""+_STR(e.what())+"\"");
+			}
+		}
+
+		static void def_drawRotarySlider (LLookAndFeel *ptr, ParamWrapper &params)
+		{ ptr->LookBase::v3.drawRotarySlider (*params.g, params.x, params.y, params.width, params.height, params.float_p0, params.float_p1, params.float_p2, *params.slider); }
+
+		void getIdealPopupMenuItemSize (ParamWrapper &params)
+		{
+			try
+			{
+				call<void>("getIdealPopupMenuItemSize", params);
+			}
+			catch (luabind::error e)
+			{
+				_DBG("getIdealPopupMenuItemSize exception: \""+_STR(e.what())+"\"");
+			}
+		}
+
+		static void def_getIdealPopupMenuItemSize (LLookAndFeel *ptr, ParamWrapper &params)
+		{ ptr->LookBase::v3.getIdealPopupMenuItemSize (params.String_p0, params.bool_p0, params.height, params.int_ptr_p0, params.int_ptr_p1); }
 };
 
 /*
@@ -72,15 +141,15 @@ struct DrawPopupMenuItemParams
 
 struct GetIdealPopupMenuItemSizeParams
 {
-    GetIdealPopupMenuItemSizeParams (const String &_text, bool _isSeparator, int _standardMenuItemHeight, int &_idealWidth, int &_idealHeight)
+    GetIdealPopupMenuItemSizeParams (const String &_text, bool _isSeparator, int _standardMenuItemHeight, int _idealWidth, int _idealHeight)
     : text(_text), isSeparator(_isSeparator), standardMenuItemHeight(_standardMenuItemHeight), idealWidth(_idealWidth), idealHeight(_idealHeight)
     {}
 
     String text; String get_text() { return (text); } void set_text(const String &_text) { text = _text; }
     bool isSeparator;
     int standardMenuItemHeight;
-    int &idealWidth;
-    int &idealHeight;
+    int idealWidth;
+    int idealHeight;
 };
 
 class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
@@ -295,10 +364,10 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { ptr->LookAndFeel_V3::drawPopupMenuUpDownArrow (g, width, height, isScrollUpArrow); }
 
         void getIdealPopupMenuItemSize (const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight)
-        { call<void>("getIdealPopupMenuItemSize", GetIdealPopupMenuItemSizeParams (text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight)); }
+        { GetIdealPopupMenuItemSizeParams params(text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight); call<void>("getIdealPopupMenuItemSize", boost::ref(params)); }
         static void def_getIdealPopupMenuItemSize (LookAndFeel_V3 *ptr, const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight)
         { ptr->LookAndFeel_V3::getIdealPopupMenuItemSize (text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight); }
-
+		
         virtual int getMenuWindowFlags ()
         { return (call<int>("getMenuWindowFlags")); }
         static int def_getMenuWindowFlags (LookAndFeel_V3 *ptr)

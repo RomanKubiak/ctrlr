@@ -148,10 +148,7 @@ void CtrlrGroup::resized()
 {
     //label->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
-	if (textMargin > 0)
-	{
-		label->setBounds (textMargin, textMargin, getWidth() - (textMargin*2), getHeight() - (textMargin*2));
-	}
+	label->setBounds (textMargin, textMargin, getWidth() - (textMargin*2), getHeight() - (textMargin*2));
 	content.setBounds(0,0,getWidth(),getHeight());
     //[/UserResized]
 }

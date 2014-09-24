@@ -1,15 +1,67 @@
 #include "stdafx.h"
 #include "LLookAndFeel.h"
 
+void setLookAndFeel (Component *component, luabind::object lookAndFeelObject)
+{
+	_DBG("setLookAndFeel");
+
+	if (component != nullptr && luabind::type (lookAndFeelObject) != LUA_TNIL)
+	{
+		_DBG("\tcomponent and lua lf are valid");
+
+		LookBase *lookAndFeel = luabind::object_cast<LookBase*>(lookAndFeelObject);
+
+		if (lookAndFeel)
+		{
+			_DBG("\tLookBase is valid");
+			component->setLookAndFeel (lookAndFeel);
+		}
+	}
+}
+
 void LLookAndFeel::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
+
+	module(L)
+	[
+		def("setLookAndFeel", &setLookAndFeel)
+		,
+		class_<ParamWrapper>("ParamWrapper")
+			.def_readwrite ("g", &ParamWrapper::g)
+			.def_readonly ("x", &ParamWrapper::x)
+			.def_readonly ("y", &ParamWrapper::y)
+			.def_readonly ("width", &ParamWrapper::width)
+			.def_readonly ("height", &ParamWrapper::height)
+			.def_readwrite ("int_ptr_p0", &ParamWrapper::int_ptr_p0)
+			.def_readwrite ("int_ptr_p1", &ParamWrapper::int_ptr_p1)
+		,
+		class_<LookBase, LLookAndFeel>("LookAndFeel")
+			.def(constructor<>())
+			.def("drawRotarySlider", (void (LLookAndFeel::*)(luabind::object))&LLookAndFeel::drawRotarySlider, &LLookAndFeel::def_drawRotarySlider)
+			.def("getIdealPopupMenuItemSize", (void (LLookAndFeel::*)(luabind::object))&LLookAndFeel::getIdealPopupMenuItemSize, &LLookAndFeel::def_getIdealPopupMenuItemSize)
+	];
+
+//	LLookAndFeel_V3::wrapForLua (L);
 }
 
-/*
-void setLookAndFeel(Component *c, luabind::object o)
+void LookBase::drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider)
 {
-    _DBG("::setLookAndFeel");
+	ParamWrapper wrappedParams (g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider);
+	owner.drawRotarySlider (wrappedParams);
+}
+
+void LookBase::getIdealPopupMenuItemSize (const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight)
+{
+	ParamWrapper wrappedParams (text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight);
+	owner.getIdealPopupMenuItemSize (wrappedParams);
+	idealWidth = wrappedParams.int_ptr_p0;
+	idealHeight = wrappedParams.int_ptr_p1;
+}
+/*
+void setLookAndFeel_V3(Component *c, luabind::object o)
+{
+    _DBG("::setLookAndFeel_V3");
     if (luabind::type (o) != LUA_TNIL)
     {
         LLookAndFeel_V3 *lookAndFeel_V3= luabind::object_cast<LLookAndFeel_V3*>(o);
@@ -46,12 +98,12 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
         ,
         class_<DrawPopupMenuItemParams>("DrawPopupMenuItemParams")
             .def(constructor<Graphics &, const Rectangle<int> &, bool, bool, bool, bool, bool, const String &, const String &, const Drawable *, const Colour *>())
-            .property("g", &DrawPopupMenuItemParams::get_g, &DrawPopupMenuItemParams::set_g)
         ,
         class_<GetIdealPopupMenuItemSizeParams>("GetIdealPopupMenuItemSizeParams")
+			.def(constructor<const String &, bool, int, int, int>())
             .property("text", &GetIdealPopupMenuItemSizeParams::get_text, &GetIdealPopupMenuItemSizeParams::set_text)
         ,
-        def("setLookAndFeel", &setLookAndFeel)
+        def("setLookAndFeel_V3", &setLookAndFeel_V3)
         ,
         class_<LookAndFeel_V3, LLookAndFeel_V3>("LookAndFeel_V3")
             .def(constructor<>())
@@ -99,7 +151,7 @@ void LLookAndFeel_V3::wrapForLua (lua_State *L)
 			.def("drawPopupMenuItem", &LookAndFeel_V3::drawPopupMenuItem, &LLookAndFeel_V3::def_drawPopupMenuItem)
 			.def("getPopupMenuFont", &LookAndFeel_V3::getPopupMenuFont, &LLookAndFeel_V3::def_getPopupMenuFont)
 			.def("drawPopupMenuUpDownArrow", &LookAndFeel_V3::drawPopupMenuUpDownArrow, &LLookAndFeel_V3::def_drawPopupMenuUpDownArrow)
-			.def("getIdealPopupMenuItemSize", &LookAndFeel_V3::getIdealPopupMenuItemSize, &LLookAndFeel_V3::def_getIdealPopupMenuItemSize)
+			//.def("getIdealPopupMenuItemSize", &LookAndFeel_V3::getIdealPopupMenuItemSize, &LLookAndFeel_V3::def_getIdealPopupMenuItemSize)
 			.def("getMenuWindowFlags", &LookAndFeel_V3::getMenuWindowFlags, &LLookAndFeel_V3::def_getMenuWindowFlags)
 			.def("drawMenuBarBackground", &LookAndFeel_V3::drawMenuBarBackground, &LLookAndFeel_V3::def_drawMenuBarBackground)
 			.def("getMenuBarItemWidth", &LookAndFeel_V3::getMenuBarItemWidth, &LLookAndFeel_V3::def_getMenuBarItemWidth)
