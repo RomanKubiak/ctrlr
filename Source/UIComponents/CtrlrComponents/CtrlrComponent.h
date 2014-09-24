@@ -40,7 +40,6 @@ class CtrlrComponent :	public Component,
 		virtual ~CtrlrComponent();
 		void resized();
 		void moved();
-
 		virtual void setComponentValue (const double newValue, const bool sendChangeMessage=false)		= 0;
 		virtual double getComponentValue()														= 0;
 		virtual double getComponentMaxValue()														= 0;

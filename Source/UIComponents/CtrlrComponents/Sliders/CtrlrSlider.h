@@ -11,7 +11,6 @@ class CtrlrSlider  : public CtrlrComponent,
 	public:
 		CtrlrSlider (CtrlrModulator &owner);
 		~CtrlrSlider();
-		void paint(Graphics &g) {}
 		void setComponentValue (const double newValue, const bool sendChangeMessage=false);
 		double getComponentValue();
 		int getComponentMidiValue();

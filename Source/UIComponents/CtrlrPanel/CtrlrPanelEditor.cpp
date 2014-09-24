@@ -255,8 +255,7 @@ void CtrlrPanelEditor::editModeChanged()
 	else
 	{
         if (getSelection())
-
-            getSelection()->deselectAll();
+			getSelection()->deselectAll();
 		spacerComponent->setVisible (false);
 		ctrlrPanelProperties->setVisible (false);
 		getCanvas()->getResizableBorder()->setVisible(false);
