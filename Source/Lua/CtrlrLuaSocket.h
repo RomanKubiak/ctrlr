@@ -2,7 +2,6 @@
 #define CTRLR_LUA_SOCKET
 
 #include "CtrlrMacros.h"
-#include "lua.h"
 
 #ifndef LUAOPEN_API
 #define LUAOPEN_API

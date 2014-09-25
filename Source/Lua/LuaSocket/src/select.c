@@ -9,9 +9,9 @@
 #include "lua.h"
 #include "lauxlib.h"
 
-#include "socket.h"
-#include "timeout.h"
-#include "select.h"
+#include "LuaSocket/include/socket.h"
+#include "LuaSocket/include/timeout.h"
+#include "LuaSocket/include/select.h"
 
 /*=========================================================================*\
 * Internal function prototypes.

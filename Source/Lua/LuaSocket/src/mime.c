@@ -13,7 +13,7 @@
 #include "compat-5.1.h"
 #endif
 
-#include "mime.h"
+#include "LuaSocket/include/mime.h"
 
 /*=========================================================================*\
 * Don't want to trust escape character constants

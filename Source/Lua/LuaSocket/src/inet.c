@@ -10,7 +10,7 @@
 #include "lua.h"
 #include "lauxlib.h"
 
-#include "inet.h"
+#include "LuaSocket/include/inet.h"
 
 /*=========================================================================*\
 * Internal function prototypes.
