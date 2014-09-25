@@ -38,7 +38,9 @@
 					<Add directory="." />
 					<Add directory="../../../Standalone/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />
+					<Add directory="../../../../Source/Lua" />
 					<Add directory="../../../../Source/Lua/luabind" />
+					<Add directory="../../../../Source/Lua/luabind/luabind" />
 					<Add directory="../../../../Source/Misc" />
 					<Add directory="../../../../Source/MIDI" />
 					<Add directory="../../../../Source" />
@@ -46,8 +48,6 @@
 					<Add directory="../../../../Source/Core" />
 					<Add directory="../../../../Source/Plugin" />
 					<Add directory="../../../../Source/Application" />
-					<Add directory="../../../../Source/Lua" />
-					<Add directory="../../../../Source/Lua/lua" />
 					<Add directory="/usr/include/freetype2" />
 				</Compiler>
 				<Linker>
@@ -93,7 +93,9 @@
 					<Add directory="." />
 					<Add directory="../../../Standalone/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />
+					<Add directory="../../../../Source/Lua" />
 					<Add directory="../../../../Source/Lua/luabind" />
+					<Add directory="../../../../Source/Lua/luabind/luabind" />
 					<Add directory="../../../../Source/Misc" />
 					<Add directory="../../../../Source/MIDI" />
 					<Add directory="../../../../Source" />
@@ -101,8 +103,6 @@
 					<Add directory="../../../../Source/Core" />
 					<Add directory="../../../../Source/Plugin" />
 					<Add directory="../../../../Source/Application" />
-					<Add directory="../../../../Source/Lua" />
-					<Add directory="../../../../Source/Lua/lua" />
 					<Add directory="/usr/include/freetype2" />
 				</Compiler>
 				<Linker>
@@ -162,7 +162,9 @@
 					<Add directory="." />
 					<Add directory="../../../Standalone/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />
+					<Add directory="../../../../Source/Lua" />
 					<Add directory="../../../../Source/Lua/luabind" />
+					<Add directory="../../../../Source/Lua/luabind/luabind" />
 					<Add directory="../../../../Source/Misc" />
 					<Add directory="../../../../Source/MIDI" />
 					<Add directory="../../../../Source" />
@@ -170,8 +172,7 @@
 					<Add directory="../../../../Source/Core" />
 					<Add directory="../../../../Source/Plugin" />
 					<Add directory="../../../../Source/Application" />
-					<Add directory="../../../../Source/Lua" />
-					<Add directory="../../../../Source/Lua/lua" />
+					<Add directory="/usr/include/freetype2" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -2214,6 +2215,8 @@
 		<Unit filename="../../../../Source/Lua/CtrlrLuaPanelCanvas.cpp" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaPanelCanvasLayer.cpp" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaPanelEditor.cpp" />
+		<Unit filename="../../../../Source/Lua/CtrlrLuaSocket.cpp" />
+		<Unit filename="../../../../Source/Lua/CtrlrLuaSocket.h" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaUtils.cpp" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaUtils.h" />
 		<Unit filename="../../../../Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp" />
@@ -2353,6 +2356,79 @@
 		<Unit filename="../../../../Source/Lua/JuceClasses/LXmlElement.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LZipFile.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LZipFile.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/LICENSE" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/config" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/makefile" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/auxiliar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/auxiliar.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/buffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/buffer.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/except.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/except.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/ftp.lua" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/http.lua" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/inet.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/inet.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/io.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/io.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/ltn12.lua" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/luasocket.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/luasocket.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/makefile" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/mime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/mime.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/mime.lua" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/options.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/options.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/select.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/select.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/smtp.lua" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/socket.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/socket.lua" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/tcp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/tcp.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/timeout.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/timeout.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/tp.lua" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/udp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/udp.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/unix.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/unix.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/url.lua" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/usocket.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/usocket.h" />
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/wsocket.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Lua/LuaSocket/src/wsocket.h" />
 		<Unit filename="../../../../Source/Lua/Methods/CtrlrLuaMethod.cpp" />
 		<Unit filename="../../../../Source/Lua/Methods/CtrlrLuaMethod.h" />
 		<Unit filename="../../../../Source/Lua/Methods/CtrlrLuaMethodManager.cpp" />
@@ -2767,6 +2843,7 @@
 			<envvars />
 			<code_completion />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

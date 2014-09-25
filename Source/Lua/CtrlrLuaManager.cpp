@@ -31,9 +31,8 @@
 #include "CtrlrComponents/Sliders/CtrlrFixedSlider.h"
 #include "CtrlrComponents/Sliders/CtrlrImageSlider.h"
 #include "CtrlrComponents/Sliders/CtrlrSlider.h"
-
 #include "JuceClasses/LAudioFormat.h"
-
+#include "CtrlrLuaSocket.h"
 // Deprecated classes
 #include "Deprecated/CtrlrLuaBigInteger.h"
 #include "Deprecated/CtrlrLuaFile.h"
@@ -56,6 +55,14 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
     luaopen_table(luaState);
     luaopen_string(luaState);
     luaopen_math(luaState);
+
+    lua_pushcfunction(luaState, luaopen_debug);
+    lua_pushliteral(luaState, "debug");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_package);
+    lua_pushliteral(luaState, "package");
+    lua_call(luaState, 1, 0);
 
 	using namespace luabind;
     open(luaState);
@@ -166,10 +173,12 @@ void CtrlrLuaManager::wrapBasicIO (lua_State* L)
 {
 	using namespace luabind;
 
+    CtrlrLuaSocket::wrapForLua (L);
+
 	module(L)
     [
-		def("assert", &CtrlrLuaManager::assert_),
-		def("debug", &CtrlrLuaManager::debug),
+		//def("assert", &CtrlrLuaManager::assert_),
+		//def("debug", &CtrlrLuaManager::debug),
 		def("sleep", &CtrlrLuaManager::sleep)
 	];
 }
