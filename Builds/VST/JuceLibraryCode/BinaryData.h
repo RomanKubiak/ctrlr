@@ -175,19 +175,46 @@ namespace BinaryData
     const int            CtrlrMIDIVendors_xmlSize = 15061;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 78934;
+    const int            CtrlrIDs_xmlSize = 79061;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 18162;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 18431;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
+
+    extern const char*   LICENSE;
+    const int            LICENSESize = 1102;
+
+    extern const char*   ftp_lua;
+    const int            ftp_luaSize = 9401;
+
+    extern const char*   http_lua;
+    const int            http_luaSize = 12543;
+
+    extern const char*   ltn12_lua;
+    const int            ltn12_luaSize = 8469;
+
+    extern const char*   mime_lua;
+    const int            mime_luaSize = 2520;
+
+    extern const char*   smtp_lua;
+    const int            smtp_luaSize = 8212;
+
+    extern const char*   socket_lua;
+    const int            socket_luaSize = 4194;
+
+    extern const char*   tp_lua;
+    const int            tp_luaSize = 3731;
+
+    extern const char*   url_lua;
+    const int            url_luaSize = 10826;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 58;
+    const int namedResourceListSize = 67;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

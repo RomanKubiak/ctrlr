@@ -38,7 +38,9 @@
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
+          <Add directory="../../../../Source/Lua"/>
           <Add directory="../../../../Source/Lua/luabind"/>
+          <Add directory="../../../../Source/Lua/luabind/luabind"/>
           <Add directory="../../../../Source/Misc"/>
           <Add directory="../../../../Source/MIDI"/>
           <Add directory="../../../../Source"/>
@@ -46,8 +48,6 @@
           <Add directory="../../../../Source/Core"/>
           <Add directory="../../../../Source/Plugin"/>
           <Add directory="../../../../Source/Application"/>
-          <Add directory="../../../../Source/Lua"/>
-          <Add directory="../../../../Source/Lua/lua"/>
           <Add directory="../../../../VST"/>
           <Add directory="/usr/include/freetype2"/>
         </Compiler>
@@ -104,7 +104,9 @@
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
+          <Add directory="../../../../Source/Lua"/>
           <Add directory="../../../../Source/Lua/luabind"/>
+          <Add directory="../../../../Source/Lua/luabind/luabind"/>
           <Add directory="../../../../Source/Misc"/>
           <Add directory="../../../../Source/MIDI"/>
           <Add directory="../../../../Source"/>
@@ -112,8 +114,6 @@
           <Add directory="../../../../Source/Core"/>
           <Add directory="../../../../Source/Plugin"/>
           <Add directory="../../../../Source/Application"/>
-          <Add directory="../../../../Source/Lua"/>
-          <Add directory="../../../../Source/Lua/lua"/>
           <Add directory="../../../../VST"/>
           <Add directory="/usr/include/freetype2"/>
         </Compiler>
@@ -171,7 +171,9 @@
           <Add directory="."/>
           <Add directory="..\..\..\VST\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
+          <Add directory="../../../../Source/Lua"/>
           <Add directory="../../../../Source/Lua/luabind"/>
+          <Add directory="../../../../Source/Lua/luabind/luabind"/>
           <Add directory="../../../../Source/Misc"/>
           <Add directory="../../../../Source/MIDI"/>
           <Add directory="../../../../Source"/>
@@ -179,8 +181,6 @@
           <Add directory="../../../../Source/Core"/>
           <Add directory="../../../../Source/Plugin"/>
           <Add directory="../../../../Source/Application"/>
-          <Add directory="../../../../Source/Lua"/>
-          <Add directory="../../../../Source/Lua/lua"/>
           <Add directory="../../../../VST"/>
           <Add directory="/usr/include/freetype2"/>
         </Compiler>
@@ -605,6 +605,126 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Lua/CtrlrLuaSocket.cpp"/>
+    <Unit filename="../../../../Source/Lua/CtrlrLuaSocket.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/auxiliar.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/buffer.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/except.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/inet.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/io.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/luasocket.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/mime.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/options.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/select.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/socket.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/tcp.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/timeout.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/udp.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/unix.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/usocket.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/include/wsocket.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/LICENSE">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/lua/ftp.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/lua/http.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/lua/ltn12.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/lua/mime.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/lua/smtp.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/lua/socket.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/lua/tp.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/lua/url.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/auxiliar.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/buffer.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/except.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/inet.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/io.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/luasocket.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/mime.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/options.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/select.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/tcp.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/timeout.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/udp.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/unix.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/usocket.c"/>
+    <Unit filename="../../../../Source/Lua/LuaSocket/src/wsocket.c"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LThread.cpp"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LThread.h">
       <Option compile="0"/>
@@ -643,6 +763,11 @@
     </Unit>
     <Unit filename="../../../../Source/Lua/JuceClasses/LAudioFile.cpp"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LAudioFile.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LBorderSize.cpp"/>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LBorderSize.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
