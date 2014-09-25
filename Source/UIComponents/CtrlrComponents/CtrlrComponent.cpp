@@ -2,6 +2,7 @@
 #include "CtrlrComponent.h"
 #include "CtrlrMacros.h"
 #include "CtrlrProcessor.h"
+#include "CtrlrLuaManager.h"
 #include "../CtrlrComponentSelection.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "Groups/CtrlrTabsComponent.h"
@@ -97,6 +98,7 @@ CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
 	setProperty (Ids::componentBubbleNameFont, FONT2STR (Font(14)));
 	setProperty (Ids::componentBubbleNameJustification,"centred");
 	setProperty (Ids::componentValueDecimalPlaces, 0);
+	setProperty (Ids::componentLuaMouseMoved, COMBO_ITEM_NONE);
 }
 
 CtrlrComponent::~CtrlrComponent()
@@ -183,6 +185,17 @@ void CtrlrComponent::moved()
 		return;
 
 	setProperty (Ids::componentRectangle, getBoundsInParent().toString(), true);
+}
+
+void CtrlrComponent::mouseMove (const MouseEvent &e)
+{
+	if (mouseMoveCbk && !mouseMoveCbk.wasObjectDeleted())
+	{
+		if (mouseMoveCbk->isValid())
+		{
+			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseMoveCbk, this, e);
+		}
+	}
 }
 
 void CtrlrComponent::componentMovedOrResized (Component &component, bool wasMoved, bool wasResized)
@@ -367,6 +380,13 @@ void CtrlrComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 		{
 			getChildComponent(i)->setEnabled (!getProperty(property));
 		}
+	}
+	else if (property == Ids::componentLuaMouseMoved)
+	{
+		if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		mouseMoveCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	if (restoreStateInProgress == false)
 	{
