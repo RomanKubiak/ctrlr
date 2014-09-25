@@ -93,13 +93,7 @@ public:
 	void setText(const String &text, const bool dontNotify);
 	ComboBox *getOwnedComboBox() { return (ctrlrCombo); }
 	static void wrapForLua(lua_State *L);
-	void lookAndFeelChanged()
-    {
-        ctrlrCombo->setLookAndFeel (nullptr);
-    }
     //[/UserMethods]
-
-    void paint (Graphics& g);
     void resized();
     void comboBoxChanged (ComboBox* comboBoxThatHasChanged);
     void mouseDown (const MouseEvent& e);

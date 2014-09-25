@@ -47,8 +47,8 @@ CtrlrCombo::CtrlrCombo (CtrlrModulator &owner)
 
 
     //[UserPreSize]
-	setBufferedToImage (true);
-	ctrlrCombo->setBufferedToImage (true);
+	// setBufferedToImage (true);
+	// ctrlrCombo->setBufferedToImage (true);
 	ctrlrCombo->setLookAndFeel (&lf);
 	componentTree.addListener (this);
 
@@ -96,15 +96,6 @@ CtrlrCombo::~CtrlrCombo()
 }
 
 //==============================================================================
-void CtrlrCombo::paint (Graphics& g)
-{
-    //[UserPrePaint] Add your own custom painting code here..
-    //[/UserPrePaint]
-
-    //[UserPaint] Add your own custom painting code here..
-    //[/UserPaint]
-}
-
 void CtrlrCombo::resized()
 {
     //ctrlrCombo->setBounds (2, 2, getWidth() - 4, getHeight() - 4);
@@ -254,7 +245,7 @@ void CtrlrCombo::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 
 	if (restoreStateInProgress == false)
 	{
-		resized();
+        resized();
 	}
 }
 
@@ -330,6 +321,8 @@ void CtrlrCombo::panelEditModeChanged(const bool isInEditMode)
 			fillContent(getProperty(Ids::uiComboDynamicContent));
 		}
 	}
+
+	resized();
 }
 
 Font CtrlrCombo::CtrlrComboLF::getComboBoxFont (ComboBox &box)
