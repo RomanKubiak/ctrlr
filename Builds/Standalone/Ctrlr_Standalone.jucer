@@ -14,19 +14,19 @@
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        osxSDK="10.8 SDK" osxCompatibility="10.7 SDK" osxArchitecture="Native"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;../../../../../Juce"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;LUA_USE_LINUX&#10;LUABIND_CPP0x"
                        binaryPath="" customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        cppLibType=""/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
                        osxSDK="10.8 SDK" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_Standalone&#10;LUA_USE_LINUX"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;../../../../../Juce"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
                        binaryPath="" customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
                        osxSDK="10.8 SDK" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;LUA_USE_LINUX"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua&#10;../../../../../Juce"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
                        binaryPath="" customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -51,20 +51,20 @@
             extraLinkerFlags="" bigIcon="Mln0s5" smallIcon="Pl8W9J" extraDefs="_CRT_SECURE_NO_WARNINGS">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(Platform)$(NATIVE_ARCH)"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
                        defines="CTRLR_NIGHTLY=1 &#10;JucePlugin_Build_Standalone" binaryPath="../../Bin/Standalone/$(Platform)$(NATIVE_ARCH)"
                        winWarningLevel="2" winArchitecture="32-bit" generateManifest="0"
                        prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2010\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\Standalone\Ctrlr_Standalone.jucer"
                        libraryPath="" wholeProgramOptimisation="1" userNotes=""/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_Standalone"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
                        binaryPath="" winWarningLevel="2" winArchitecture="32-bit" generateManifest="1"
                        postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" libraryPath=""
                        userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Lua&#10;../../../../Source/Lua/lua"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
                        binaryPath="" winWarningLevel="2" winArchitecture="32-bit" generateManifest="1"
                        postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" libraryPath=""
                        wholeProgramOptimisation="1" userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"
@@ -92,7 +92,7 @@
                 extraLinkerFlags="-lz&#10;-lbfd&#10;-lGL">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Lua/LuaSocket/include&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone" binaryPath="../../Bin"
                        libraryPath="/usr/X11R6/lib/"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
@@ -390,51 +390,52 @@
       <FILE id="Sd45MO" name="CtrlrLuaSocket.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaSocket.cpp"/>
       <GROUP id="{B6EEDDE9-1198-4B22-62B4-36CE47410C0A}" name="LuaSocket">
-        <FILE id="AgoS2D" name="config" compile="0" resource="1" file="../../Source/Lua/LuaSocket/config"/>
-        <FILE id="hkmKKg" name="LICENSE" compile="0" resource="1" file="../../Source/Lua/LuaSocket/LICENSE"/>
-        <FILE id="bPkRe8" name="makefile" compile="0" resource="1" file="../../Source/Lua/LuaSocket/makefile"/>
-        <GROUP id="{FC42A58B-93F7-9584-8F75-E0D430375F8D}" name="src">
-          <FILE id="mJVl9U" name="auxiliar.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/auxiliar.c"/>
-          <FILE id="hqe31S" name="auxiliar.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/auxiliar.h"/>
-          <FILE id="x68LSW" name="buffer.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/buffer.c"/>
-          <FILE id="UMLpzo" name="buffer.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/buffer.h"/>
-          <FILE id="qahr9w" name="except.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/except.c"/>
-          <FILE id="gKSBb3" name="except.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/except.h"/>
-          <FILE id="Uqhfy9" name="ftp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/src/ftp.lua"/>
-          <FILE id="kpSfo1" name="http.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/src/http.lua"/>
-          <FILE id="LAlqft" name="inet.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/inet.c"/>
-          <FILE id="Celho4" name="inet.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/inet.h"/>
-          <FILE id="rWBj7E" name="io.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/io.c"/>
-          <FILE id="flJ6F7" name="io.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/io.h"/>
-          <FILE id="q0Xm9V" name="ltn12.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/src/ltn12.lua"/>
-          <FILE id="A9oovD" name="luasocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/luasocket.c"/>
-          <FILE id="f4WHsM" name="luasocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/luasocket.h"/>
-          <FILE id="KGpf24" name="makefile" compile="0" resource="1" file="../../Source/Lua/LuaSocket/src/makefile"/>
-          <FILE id="AJI1ki" name="mime.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/mime.c"/>
-          <FILE id="TkW70e" name="mime.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/mime.h"/>
-          <FILE id="Lh1zRA" name="mime.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/src/mime.lua"/>
-          <FILE id="iqu4re" name="options.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/options.c"/>
-          <FILE id="A4bVXs" name="options.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/options.h"/>
-          <FILE id="jt8PoT" name="select.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/select.c"/>
-          <FILE id="dKSTZ1" name="select.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/select.h"/>
-          <FILE id="WD57hf" name="smtp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/src/smtp.lua"/>
-          <FILE id="AWwGyD" name="socket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/socket.h"/>
-          <FILE id="d9THiL" name="socket.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/src/socket.lua"/>
-          <FILE id="tuFLBA" name="tcp.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/tcp.c"/>
-          <FILE id="O0VSt2" name="tcp.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/tcp.h"/>
-          <FILE id="GEdX3E" name="timeout.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/timeout.c"/>
-          <FILE id="QiwkRZ" name="timeout.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/timeout.h"/>
-          <FILE id="OcdvLD" name="tp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/src/tp.lua"/>
-          <FILE id="Stwacb" name="udp.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/udp.c"/>
-          <FILE id="Q70ycZ" name="udp.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/udp.h"/>
-          <FILE id="jfnv3o" name="unix.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/unix.c"/>
-          <FILE id="vNZFfZ" name="unix.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/unix.h"/>
-          <FILE id="X74mv2" name="url.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/src/url.lua"/>
-          <FILE id="ucpgIP" name="usocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/usocket.c"/>
-          <FILE id="IGobMr" name="usocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/usocket.h"/>
-          <FILE id="cgrTl7" name="wsocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/wsocket.c"/>
-          <FILE id="PaOV1M" name="wsocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/src/wsocket.h"/>
+        <GROUP id="{615F5ADF-DA55-0E7D-328A-DBCC40B75713}" name="include">
+          <FILE id="IZAQZE" name="auxiliar.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/auxiliar.h"/>
+          <FILE id="OP2yjh" name="buffer.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/buffer.h"/>
+          <FILE id="oYT6R5" name="except.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/except.h"/>
+          <FILE id="udqJtq" name="inet.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/inet.h"/>
+          <FILE id="f24f0t" name="io.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/io.h"/>
+          <FILE id="aKf4Yg" name="luasocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/luasocket.h"/>
+          <FILE id="Rau1f1" name="mime.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/mime.h"/>
+          <FILE id="Uudone" name="options.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/options.h"/>
+          <FILE id="q92WZo" name="select.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/select.h"/>
+          <FILE id="Ql92D8" name="socket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/socket.h"/>
+          <FILE id="Iqn1Mg" name="tcp.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/tcp.h"/>
+          <FILE id="ZyjkO5" name="timeout.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/timeout.h"/>
+          <FILE id="b3yLJj" name="udp.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/udp.h"/>
+          <FILE id="GfRjvo" name="unix.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/unix.h"/>
+          <FILE id="bHfojM" name="usocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/usocket.h"/>
+          <FILE id="F1oqYX" name="wsocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/wsocket.h"/>
         </GROUP>
+        <GROUP id="{A17BBBF4-5B38-CD7E-F551-CF9FE4190841}" name="lua">
+          <FILE id="eDDYBY" name="ftp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/ftp.lua"/>
+          <FILE id="lCgCGE" name="http.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/http.lua"/>
+          <FILE id="GN2zSd" name="ltn12.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/ltn12.lua"/>
+          <FILE id="cgqms4" name="mime.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/mime.lua"/>
+          <FILE id="VxMIU5" name="smtp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/smtp.lua"/>
+          <FILE id="huGIiq" name="socket.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/socket.lua"/>
+          <FILE id="L880Ft" name="tp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/tp.lua"/>
+          <FILE id="sLYRN5" name="url.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/url.lua"/>
+        </GROUP>
+        <GROUP id="{FC42A58B-93F7-9584-8F75-E0D430375F8D}" name="src">
+          <FILE id="GcqMoG" name="auxiliar.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/auxiliar.c"/>
+          <FILE id="v45SIe" name="buffer.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/buffer.c"/>
+          <FILE id="Te9WxA" name="except.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/except.c"/>
+          <FILE id="VuvYkt" name="inet.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/inet.c"/>
+          <FILE id="Lp7aKC" name="io.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/io.c"/>
+          <FILE id="M3CrjE" name="luasocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/luasocket.c"/>
+          <FILE id="sYoILa" name="mime.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/mime.c"/>
+          <FILE id="z5fjkX" name="options.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/options.c"/>
+          <FILE id="xadNSb" name="select.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/select.c"/>
+          <FILE id="EuCi1S" name="tcp.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/tcp.c"/>
+          <FILE id="u2PzPZ" name="timeout.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/timeout.c"/>
+          <FILE id="sS9gH9" name="udp.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/udp.c"/>
+          <FILE id="APotAz" name="unix.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/unix.c"/>
+          <FILE id="SJxv8z" name="usocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/usocket.c"/>
+          <FILE id="dLXAEv" name="wsocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/wsocket.c"/>
+        </GROUP>
+        <FILE id="HE73dO" name="LICENSE" compile="0" resource="1" file="../../Source/Lua/LuaSocket/LICENSE"/>
       </GROUP>
       <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
         <FILE id="kkBJ3Q" name="LBorderSize.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LBorderSize.cpp"/>

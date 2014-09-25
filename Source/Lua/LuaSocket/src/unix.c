@@ -4,6 +4,7 @@
 *
 * RCS ID: $Id: unix.c,v 1.13 2006/03/13 07:16:39 diego Exp $
 \*=========================================================================*/
+#ifndef _WIN32
 #include <string.h> 
 
 #include "lua.h"
@@ -354,3 +355,4 @@ static int global_create(lua_State *L) {
         return 2;
     }
 }
+#endif

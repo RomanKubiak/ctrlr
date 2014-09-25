@@ -8,9 +8,9 @@
 
 #include "lauxlib.h"
 
-#include "auxiliar.h"
-#include "options.h"
-#include "inet.h"
+#include "LuaSocket/include/auxiliar.h"
+#include "LuaSocket/include/options.h"
+#include "LuaSocket/include/inet.h"
 
 
 /*=========================================================================*\

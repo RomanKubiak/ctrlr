@@ -9,11 +9,11 @@
 #include "lua.h"
 #include "lauxlib.h"
 
-#include "auxiliar.h"
-#include "socket.h"
-#include "inet.h"
-#include "options.h"
-#include "udp.h"
+#include "LuaSocket/include/auxiliar.h"
+#include "LuaSocket/include/socket.h"
+#include "LuaSocket/include/inet.h"
+#include "LuaSocket/include/options.h"
+#include "LuaSocket/include/udp.h"
 
 /* min and max macros */
 #ifndef MIN

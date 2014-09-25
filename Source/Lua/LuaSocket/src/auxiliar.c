@@ -7,7 +7,7 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "auxiliar.h"
+#include "LuaSocket/include/auxiliar.h"
 
 /*=========================================================================*\
 * Exported functions

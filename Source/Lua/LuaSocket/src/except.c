@@ -9,7 +9,7 @@
 #include "lua.h"
 #include "lauxlib.h"
 
-#include "except.h"
+#include "LuaSocket/include/except.h"
 
 /*=========================================================================*\
 * Internal function prototypes.

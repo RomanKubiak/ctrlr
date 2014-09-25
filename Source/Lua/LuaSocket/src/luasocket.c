@@ -27,15 +27,15 @@
 /*=========================================================================*\
 * LuaSocket includes
 \*=========================================================================*/
-#include "luasocket.h"
-#include "auxiliar.h"
-#include "except.h"
-#include "timeout.h"
-#include "buffer.h"
-#include "inet.h"
-#include "tcp.h"
-#include "udp.h"
-#include "select.h"
+#include "LuaSocket/include/luasocket.h"
+#include "LuaSocket/include/auxiliar.h"
+#include "LuaSocket/include/except.h"
+#include "LuaSocket/include/timeout.h"
+#include "LuaSocket/include/buffer.h"
+#include "LuaSocket/include/inet.h"
+#include "LuaSocket/include/tcp.h"
+#include "LuaSocket/include/udp.h"
+#include "LuaSocket/include/select.h"
 
 /*-------------------------------------------------------------------------*\
 * Internal function prototypes

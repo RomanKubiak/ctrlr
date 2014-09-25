@@ -1,5 +1,6 @@
 #ifndef USOCKET_H
 #define USOCKET_H
+#ifndef _WIN32
 /*=========================================================================*\
 * Socket compatibilization module for Unix
 * LuaSocket toolkit
@@ -36,5 +37,5 @@ typedef int t_socket;
 typedef t_socket *p_socket;
 
 #define SOCKET_INVALID (-1)
-
+#endif
 #endif /* USOCKET_H */

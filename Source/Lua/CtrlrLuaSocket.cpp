@@ -3,10 +3,8 @@
 
 extern "C"
 {
-#include "lua.h"
-#include "lauxlib.h"
-#include "LuaSocket/src/luasocket.h"
-#include "LuaSocket/src/mime.h"
+	#include "LuaSocket/include/luasocket.h"
+	#include "LuaSocket/include/mime.h"
 }
 
 #define LUA_LOAD_BUFFER(embed) luaL_loadbuffer (L, BinaryData::embed, BinaryData::embed ## Size, _STR(#embed).replace ("_", ".").toUTF8())

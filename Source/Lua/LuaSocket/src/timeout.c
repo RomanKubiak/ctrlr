@@ -9,8 +9,8 @@
 #include "lua.h"
 #include "lauxlib.h"
 
-#include "auxiliar.h"
-#include "timeout.h"
+#include "LuaSocket/include/auxiliar.h"
+#include "LuaSocket/include/timeout.h"
 
 #ifdef _WIN32
 #include <windows.h>

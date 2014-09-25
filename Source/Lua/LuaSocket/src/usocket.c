@@ -8,6 +8,7 @@
 *
 * RCS ID: $Id: usocket.c,v 1.38 2007/10/13 23:55:20 diego Exp $
 \*=========================================================================*/
+#ifndef _WIN32
 #include <string.h> 
 #include <signal.h>
 
@@ -368,3 +369,4 @@ const char *socket_ioerror(p_socket ps, int err) {
     (void) ps;
     return socket_strerror(err);
 } 
+#endif
