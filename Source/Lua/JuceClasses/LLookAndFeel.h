@@ -22,7 +22,7 @@ struct ParamWrapper
 	bool bool_p0;
 	float float_p0, float_p1, float_p2, float_p3;
 	Slider *slider;
-	String String_p0; 
+	String String_p0;
 };
 
 class LLookAndFeel;
@@ -39,7 +39,7 @@ class LookBase : public LookAndFeel_V3
 
 	private:
 		LLookAndFeel &owner;
-		
+
 };
 
 class LLookAndFeel : public LookBase, public luabind::wrap_base
@@ -367,7 +367,7 @@ class LLookAndFeel_V3 : public LookAndFeel_V3, public luabind::wrap_base
         { GetIdealPopupMenuItemSizeParams params(text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight); call<void>("getIdealPopupMenuItemSize", boost::ref(params)); }
         static void def_getIdealPopupMenuItemSize (LookAndFeel_V3 *ptr, const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight)
         { ptr->LookAndFeel_V3::getIdealPopupMenuItemSize (text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight); }
-		
+
         virtual int getMenuWindowFlags ()
         { return (call<int>("getMenuWindowFlags")); }
         static int def_getMenuWindowFlags (LookAndFeel_V3 *ptr)

@@ -10,10 +10,10 @@
 namespace BinaryData
 {
     extern const char*   gen_LookAndFeel_V3_sh;
-    const int            gen_LookAndFeel_V3_shSize = 3458;
+    const int            gen_LookAndFeel_V3_shSize = 3286;
 
     extern const char*   LookAndFeel_V3_lua;
-    const int            LookAndFeel_V3_luaSize = 23749;
+    const int            LookAndFeel_V3_luaSize = 23032;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
@@ -192,11 +192,47 @@ namespace BinaryData
     extern const char*   CtrlrRevision_template;
     const int            CtrlrRevision_templateSize = 199;
 
+    extern const char*   config;
+    const int            configSize = 1146;
+
+    extern const char*   LICENSE;
+    const int            LICENSESize = 1082;
+
+    extern const char*   makefile;
+    const int            makefileSize = 1137;
+
+    extern const char*   ftp_lua;
+    const int            ftp_luaSize = 9120;
+
+    extern const char*   http_lua;
+    const int            http_luaSize = 12193;
+
+    extern const char*   ltn12_lua;
+    const int            ltn12_luaSize = 8177;
+
+    extern const char*   makefile2;
+    const int            makefile2Size = 1845;
+
+    extern const char*   mime_lua;
+    const int            mime_luaSize = 2433;
+
+    extern const char*   smtp_lua;
+    const int            smtp_luaSize = 7961;
+
+    extern const char*   socket_lua;
+    const int            socket_luaSize = 4061;
+
+    extern const char*   tp_lua;
+    const int            tp_luaSize = 3608;
+
+    extern const char*   url_lua;
+    const int            url_luaSize = 10529;
+
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 61;
+    const int namedResourceListSize = 73;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

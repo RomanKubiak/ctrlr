@@ -45,7 +45,15 @@ void LLookAndFeel::wrapForLua (lua_State *L)
 //	LLookAndFeel_V3::wrapForLua (L);
 }
 
-void LookBase::drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider)
+void LookBase::drawRotarySlider (Graphics &g,
+                                        int x,
+                                        int y,
+                                        int width,
+                                        int height,
+                                        float sliderPosProportional,
+                                        float rotaryStartAngle,
+                                        float rotaryEndAngle,
+                                        Slider &slider)
 {
 	ParamWrapper wrappedParams (g, x, y, width, height, sliderPosProportional, rotaryStartAngle, rotaryEndAngle, slider);
 	owner.drawRotarySlider (wrappedParams);
@@ -55,7 +63,7 @@ void LookBase::getIdealPopupMenuItemSize (const String &text, bool isSeparator, 
 {
 	ParamWrapper wrappedParams (text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight);
 	owner.getIdealPopupMenuItemSize (wrappedParams);
-	idealWidth = wrappedParams.int_ptr_p0;
+	idealWidth  = wrappedParams.int_ptr_p0;
 	idealHeight = wrappedParams.int_ptr_p1;
 }
 /*
