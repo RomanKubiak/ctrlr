@@ -229,6 +229,7 @@ namespace Ids
 	DECLARE_ID (componentBubbleNameFont);
 	DECLARE_ID (componentBubbleNameJustification);
 	DECLARE_ID (componentValueDecimalPlaces);
+	DECLARE_ID (componentLuaMouseMoved);
 
 	DECLARE_ID (uiSliderStyle);
 	DECLARE_ID (uiSliderMin);

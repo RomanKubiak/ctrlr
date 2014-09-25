@@ -102,7 +102,6 @@ void CtrlrCustomComponent::resized()
 
 void CtrlrCustomComponent::mouseMove (const MouseEvent &e)
 {
-    _DBG("CtrlrCustomComponent::mouseMove");
 	if (mouseMoveCbk && !mouseMoveCbk.wasObjectDeleted())
 	{
 		if (mouseMoveCbk->isValid())

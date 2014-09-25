@@ -96,6 +96,7 @@ class CtrlrComponent :	public Component,
 		static void wrapForLua (lua_State *L);
 		double getMaximum();
 		double getMinimum();
+		virtual void mouseMove (const MouseEvent &e);
 		// Deprecated
 		CtrlrLuaRectangle getLuaBounds();
 		void setLuaBounds(CtrlrLuaRectangle newBounds);
@@ -117,5 +118,6 @@ class CtrlrComponent :	public Component,
 		CtrlrComponentBubble bubble;
 		ScopedPointer <GlowEffect> glowEffect;
 		ScopedPointer <DropShadowEffect> shadowEffect;
+		WeakReference <CtrlrLuaMethod> mouseMoveCbk;
 };
 #endif
