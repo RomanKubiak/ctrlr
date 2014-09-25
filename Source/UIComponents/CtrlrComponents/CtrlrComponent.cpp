@@ -262,7 +262,7 @@ Rectangle<int> CtrlrComponent::getUsableRect()
 
 	if (getProperty(Ids::componentLabelPosition) == Ids::left.toString())
 	{
-		return (r.withLeft (componentNameLabel.getWidth()).withWidth(r.getWidth()-componentNameLabel.getWidth()));
+		return (r.withLeft (componentNameLabel.getWidth()).withWidth(r.getWidth() - componentNameLabel.getWidth()));
 	}
 
 	if (getProperty(Ids::componentLabelPosition) == Ids::right.toString())
@@ -371,6 +371,7 @@ void CtrlrComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	if (restoreStateInProgress == false)
 	{
 		repaint();
+		resized();
 	}
 }
 

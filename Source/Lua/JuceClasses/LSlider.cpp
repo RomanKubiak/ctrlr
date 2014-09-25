@@ -1,12 +1,19 @@
 #include "stdafx.h"
 #include "LSlider.h"
 
+struct LNotificationType
+{
+    NotificationType get_dontSendNotification() { return (NotificationType::dontSendNotification); }
+};
+
 void LSlider::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
 
 	module(L)
     [
+        class_<NotificationType>("NotificationType")
+        ,
 		class_<Slider, bases<Component> >("Slider")
 			.def("setSliderStyle", &Slider::setSliderStyle)
 			.def("getSliderStyle", &Slider::getSliderStyle)
