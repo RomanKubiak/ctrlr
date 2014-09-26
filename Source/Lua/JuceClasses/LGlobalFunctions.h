@@ -9,8 +9,13 @@ class LGlobalFunctions
 		LGlobalFunctions();
 		static double double_Pi();
 		static float float_Pi();
+		static void debug(const String &argument);
+		static void debug(const std::string &argument);
+		static void sleep (const int milliseconds);
+		static std::string stringToLua (const String &string);
+		static String toJuceString (const std::string &string);
+		static void console (const String &arg);
 		static void wrapForLua (lua_State *L);
-		
 };
 
 #endif

@@ -33,8 +33,14 @@ void LLookAndFeel::wrapForLua (lua_State *L)
 			.def_readonly ("y", &ParamWrapper::y)
 			.def_readonly ("width", &ParamWrapper::width)
 			.def_readonly ("height", &ParamWrapper::height)
-			.def_readwrite ("int_ptr_p0", &ParamWrapper::int_ptr_p0)
-			.def_readwrite ("int_ptr_p1", &ParamWrapper::int_ptr_p1)
+			.def_readonly ("isSeparator", &ParamWrapper::isSeparator)
+			.def_readonly ("standardMenuItemHeight", &ParamWrapper::standardMenuItemHeight)
+			.def_readonly ("sliderPosProportional", &ParamWrapper::sliderPosProportional)
+			.def_readonly ("rotaryStartAngle", &ParamWrapper::rotaryStartAngle)
+			.def_readonly ("rotaryEndAngle", &ParamWrapper::rotaryEndAngle)
+			.def_readwrite ("slider", &ParamWrapper::slider)
+			.def_readwrite ("idealWidth", &ParamWrapper::idealWidth)
+			.def_readwrite ("idealHeight", &ParamWrapper::idealHeight)
 		,
 		class_<LookBase, LLookAndFeel>("LookAndFeel")
 			.def(constructor<>())
@@ -63,8 +69,8 @@ void LookBase::getIdealPopupMenuItemSize (const String &text, bool isSeparator, 
 {
 	ParamWrapper wrappedParams (text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight);
 	owner.getIdealPopupMenuItemSize (wrappedParams);
-	idealWidth  = wrappedParams.int_ptr_p0;
-	idealHeight = wrappedParams.int_ptr_p1;
+	idealWidth  = wrappedParams.idealWidth;
+	idealHeight = wrappedParams.idealHeight;
 }
 /*
 void setLookAndFeel_V3(Component *c, luabind::object o)

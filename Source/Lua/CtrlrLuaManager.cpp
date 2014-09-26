@@ -33,6 +33,7 @@
 #include "CtrlrComponents/Sliders/CtrlrSlider.h"
 #include "JuceClasses/LAudioFormat.h"
 #include "CtrlrLuaSocket.h"
+#include "JuceClasses/LGlobalFunctions.h"
 // Deprecated classes
 #include "Deprecated/CtrlrLuaBigInteger.h"
 #include "Deprecated/CtrlrLuaFile.h"
@@ -77,8 +78,7 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 
 	{
 		createAudioThreadState();
-
-		wrapBasicIO (luaState);
+		LGlobalFunctions::wrapForLua(luaState);
 		wrapCore (luaState);
 		wrapJuceClasses (luaState);
 		wrapCtrlrClasses (luaState);
@@ -111,44 +111,7 @@ void CtrlrLuaManager::createAudioThreadState()
 
 	using namespace luabind;
     open(audioThreadState);
-
-	wrapBasicIO(audioThreadState);
 	wrapJuceCoreClasses(audioThreadState);
-}
-
-void CtrlrLuaManager::console (const String &arg)
-{
-	_LUA(removeInvalidChars(arg, true));
-}
-
-void CtrlrLuaManager::debug (const String &arg)
-{
-	_LUA(arg);
-}
-
-void CtrlrLuaManager::sleep (const int milliseconds)
-{
-	Thread::sleep(milliseconds);
-}
-
-std::string CtrlrLuaManager::stringToLua (const String &string)
-{
-	return (string.toUTF8().getAddress());
-}
-
-const String CtrlrLuaManager::toJuceString (const std::string &arg)
-{
-	return (String(arg.c_str()));
-}
-
-const double CtrlrLuaManager::int64ToDouble(const int64 value)
-{
-	return ((double)value);
-}
-
-const int CtrlrLuaManager::int64ToInt(const int64 value)
-{
-	return ((int)value);
 }
 
 CtrlrLuaMethodManager &CtrlrLuaManager::getMethodManager()
@@ -164,25 +127,6 @@ void CtrlrLuaManager::wrapUtilities(lua_State* L)
 	}
 }
 
-void CtrlrLuaManager::assert_()
-{
-	jassertfalse; // LUA CALLED THIS
-}
-
-void CtrlrLuaManager::wrapBasicIO (lua_State* L)
-{
-	using namespace luabind;
-
-    CtrlrLuaSocket::wrapForLua (L);
-
-	module(L)
-    [
-		//def("assert", &CtrlrLuaManager::assert_),
-		//def("debug", &CtrlrLuaManager::debug),
-		def("sleep", &CtrlrLuaManager::sleep)
-	];
-}
-
 void CtrlrLuaManager::wrapCore (lua_State* L)
 {
 	using namespace luabind;
@@ -191,14 +135,6 @@ void CtrlrLuaManager::wrapCore (lua_State* L)
 
 	module(L)
     [
-		def("console", &CtrlrLuaManager::console),
-		def("J", (const String (*) (const std::string &)) &CtrlrLuaManager::toJuceString),
-		def("L", &CtrlrLuaManager::stringToLua),
-		def("int64ToDouble", &CtrlrLuaManager::int64ToDouble),
-		def("int64ToInt", &CtrlrLuaManager::int64ToInt),
-		def("log", &CtrlrLuaManager::log),
-		def("jmin", (double (*)(double, double))&jmin),
-		def("jmax", (double (*)(double, double))&jmax),
 		class_<CtrlrLuaObjectWrapper>("CtrlrLuaObjectWrapper")
 			.def(constructor<luabind::object const&>())
 			.def(constructor<>())

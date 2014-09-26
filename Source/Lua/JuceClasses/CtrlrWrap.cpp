@@ -3,7 +3,6 @@
 #include "LButton.h"
 #include "LTextButton.h"
 #include "LToggleButton.h"
-#include "LGlobalFunctions.h"
 #include "LAffineTransform.h"
 #include "LAudioFile.h"
 #include "LAudioFormat.h"
@@ -62,7 +61,6 @@
 
 void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 {
-	LGlobalFunctions::wrapForLua(L);
 	LBigInteger::wrapForLua(L);
 	LXmlElement::wrapForLua(L);
 	LFile::wrapForLua(L);
