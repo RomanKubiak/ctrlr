@@ -10,10 +10,10 @@
 namespace BinaryData
 {
     extern const char*   gen_LookAndFeel_V3_sh;
-    const int            gen_LookAndFeel_V3_shSize = 3458;
+    const int            gen_LookAndFeel_V3_shSize = 3286;
 
     extern const char*   LookAndFeel_V3_lua;
-    const int            LookAndFeel_V3_luaSize = 23749;
+    const int            LookAndFeel_V3_luaSize = 23032;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
@@ -184,7 +184,7 @@ namespace BinaryData
     const int            CtrlrIDs_xmlSize = 79061;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 18431;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 18426;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
@@ -193,31 +193,31 @@ namespace BinaryData
     const int            CtrlrRevision_templateSize = 199;
 
     extern const char*   ftp_lua;
-    const int            ftp_luaSize = 9401;
+    const int            ftp_luaSize = 9120;
 
     extern const char*   http_lua;
-    const int            http_luaSize = 12543;
+    const int            http_luaSize = 12193;
 
     extern const char*   ltn12_lua;
-    const int            ltn12_luaSize = 8469;
+    const int            ltn12_luaSize = 8177;
 
     extern const char*   mime_lua;
-    const int            mime_luaSize = 2520;
+    const int            mime_luaSize = 2433;
 
     extern const char*   smtp_lua;
-    const int            smtp_luaSize = 8212;
+    const int            smtp_luaSize = 7961;
 
     extern const char*   socket_lua;
-    const int            socket_luaSize = 4194;
+    const int            socket_luaSize = 4061;
 
     extern const char*   tp_lua;
-    const int            tp_luaSize = 3731;
+    const int            tp_luaSize = 3608;
 
     extern const char*   url_lua;
-    const int            url_luaSize = 10826;
+    const int            url_luaSize = 10529;
 
     extern const char*   LICENSE;
-    const int            LICENSESize = 1102;
+    const int            LICENSESize = 1082;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

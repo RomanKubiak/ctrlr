@@ -20,7 +20,7 @@ class CtrlrLuaManager : public ValueTree::Listener
 		~CtrlrLuaManager();
 		static void console (const String &arg);
 		static void assert_();
-		static void debug (const String &arg);
+		static void print_d (const String &arg);
 		static void sleep (const int milliseconds);
 		static std::string stringToLua (const String &string);
 		static const String toJuceString (const std::string &arg);

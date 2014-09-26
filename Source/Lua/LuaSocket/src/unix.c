@@ -10,10 +10,10 @@
 #include "lua.h"
 #include "lauxlib.h"
 
-#include "auxiliar.h"
-#include "socket.h"
-#include "options.h"
-#include "unix.h"
+#include "LuaSocket/include/auxiliar.h"
+#include "LuaSocket/include/socket.h"
+#include "LuaSocket/include/options.h"
+#include "LuaSocket/include/unix.h"
 #include <sys/un.h> 
 
 /*=========================================================================*\

@@ -15,12 +15,56 @@ float LGlobalFunctions::float_Pi()
 	return (juce::float_Pi);
 }
 
+void LGlobalFunctions::debug(const String &argument)
+{
+    _DBG(argument);
+}
+
+void LGlobalFunctions::debug(const std::string &argument)
+{
+    _DBG(_STR(argument.c_str()));
+}
+
+std::string LGlobalFunctions::stringToLua (const String &string)
+{
+    return (string.toUTF8().getAddress());
+}
+
+static String LGlobalFunctions::toJuceString (const std::string &string)
+{
+    return (String(string.c_str()));
+}
+
+void LGlobalFunctions::console (const String &arg)
+{
+    _LUA(removeInvalidChars(arg, true));
+}
+
+void LGlobalFunctions::sleep(const int milliseconds)
+{
+    Thread::sleep(milliseconds);
+}
+
 void LGlobalFunctions::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
 
 	module(L)
     [
+        def("console", &LGlobalFunctions::console)
+        ,
+		def("J", (const String (*) (const std::string &)) &LGlobalFunctions::toJuceString),
+		def("toJuceString", (const String (*) (const std::string &)) &LGlobalFunctions::toJuceString)
+		,
+		def("L", &LGlobalFunctions::stringToLua),
+		def("toLuaString", &LGlobalFunctions::stringToLua)
+        ,
+        def("print_debug", (void (*)(const String &))&LGlobalFunctions::debug),
+        def("print_d", (void (*)(const String &))&LGlobalFunctions::debug),
+        def("_DBG", (void (*)(const String &))&LGlobalFunctions::debug)
+        ,
+        def("sleep", &LGlobalFunctions::sleep)
+        ,
 		class_<LGlobalFunctions>("juce")
 			.def(constructor<>())
 			.scope

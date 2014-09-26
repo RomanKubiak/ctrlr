@@ -18,7 +18,7 @@
     __method_name = function(comp, event)
     end
   </luaMethod>
-  
+
   <luaMethod name="uiCustomResizedCallback">
     --
     -- Called when a component is resized
@@ -612,7 +612,7 @@ function what(o)
 		ret = ret .. "\n-----------------------------------------------------------------"
 	end
 
-	debug (ret)
+	_DBG (ret)
 	return ret
 end
     </utility>
@@ -628,7 +628,7 @@ function how()
 		ret = ret .. "\t".. v .. "\n"
 	end
 	ret = ret .. "\n-----------------------------------------------------------------"
-	debug (ret)
+	_DBG (ret)
 	return ret
 end
   </utility>
@@ -647,7 +647,7 @@ function transSYXSendReq(transaction)
 			return
 		end
 
-		debug ("sending file: "..fileToSend:getFullPathName())
+		_DBG ("sending file: "..fileToSend:getFullPathName())
 
 		transaction:setRequest (result)
 	else

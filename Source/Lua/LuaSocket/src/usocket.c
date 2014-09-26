@@ -12,7 +12,7 @@
 #include <string.h> 
 #include <signal.h>
 
-#include "socket.h"
+#include "LuaSocket/include/socket.h"
 
 /*-------------------------------------------------------------------------*\
 * Wait for readable/writable/connected socket with timeout
