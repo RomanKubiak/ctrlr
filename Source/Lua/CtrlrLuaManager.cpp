@@ -217,9 +217,9 @@ int func_panic(lua_State *L)
 	return(0);
 }
 
-bool CtrlrLuaManager::runCode (const String &code)
+bool CtrlrLuaManager::runCode (const String &code, const String name)
 {
-	if (luaL_loadbuffer(luaState, code.toUTF8(), std::strlen(code.toUTF8()), code.toUTF8())
+	if (luaL_loadbuffer(luaState, code.toUTF8(), std::strlen(code.toUTF8()), name.isEmpty() ? "script" : name.toUTF8())
 		|| lua_pcall(luaState, 0, 0, 0))
 	{
 		const char* a = lua_tostring(luaState, -1);

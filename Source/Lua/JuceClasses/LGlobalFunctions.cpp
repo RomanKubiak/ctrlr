@@ -30,7 +30,7 @@ std::string LGlobalFunctions::stringToLua (const String &string)
     return (string.toUTF8().getAddress());
 }
 
-static String LGlobalFunctions::toJuceString (const std::string &string)
+String LGlobalFunctions::toJuceString (const std::string &string)
 {
     return (String(string.c_str()));
 }

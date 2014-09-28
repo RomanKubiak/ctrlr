@@ -33,6 +33,7 @@ class CtrlrSlider  : public CtrlrComponent,
 		{
             ctrlrSlider.setLookAndFeel (nullptr);
 		}
+		
 		JUCE_LEAK_DETECTOR(CtrlrSlider)
 
 	private:
