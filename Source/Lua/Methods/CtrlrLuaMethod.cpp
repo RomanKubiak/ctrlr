@@ -145,7 +145,7 @@ const String CtrlrLuaMethod::getCode()
 
 bool CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
 {
-	bool compileRet			= owner.getOwner().runCode (newMethodCode);
+	bool compileRet			= owner.getOwner().runCode (newMethodCode, owner.getOwner().getOwner().getName()+"/"+getName());
 	errorString.clear();
 	errorString.append ("Compile: "+getName()+" - ", out, Colours::black);
 
