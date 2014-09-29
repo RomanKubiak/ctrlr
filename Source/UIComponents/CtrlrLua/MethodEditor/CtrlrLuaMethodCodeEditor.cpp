@@ -5,8 +5,8 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 
 CtrlrLuaMethodCodeEditor::CtrlrLuaMethodCodeEditor(CtrlrLuaMethodEditor &_owner, CtrlrLuaMethod *_method)
-	:	editorComponent(nullptr), 
-		owner(_owner), 
+	:	editorComponent(nullptr),
+		owner(_owner),
 		method(_method)
 {
 	addAndMakeVisible (editorComponent	= new CodeEditorComponent (document, codeTokeniser = new CtrlrLuaCodeTokeniser()));
@@ -87,22 +87,27 @@ bool CtrlrLuaMethodCodeEditor::keyStateChanged (bool isKeyDown, Component *origi
 
 bool CtrlrLuaMethodCodeEditor::keyPressed (const KeyPress &key, Component *originatingComponent)
 {
-	if (originatingComponent == editorComponent)
+    if (key.getModifiers().isCommandDown() && key.getKeyCode() == 9)
+    {
+        owner.keyPressed (key, originatingComponent);
+        return (true);
+    }
+	if (key.getModifiers().isCommandDown() && key.getKeyCode() == 83) // CTRL + S
 	{
-		if (key.getModifiers().isCommandDown() && key.getKeyCode() == 83) // CTRL + S
-		{
-			saveDocument();
-		}
-		
-		if (key.getKeyCode() == KeyPress::F7Key)
-		{
-			saveAndCompileDocument();
-		}
+		saveDocument();
+		return (true);
+	}
 
-		if (key.getKeyCode() == KeyPress::F8Key)
-		{
-			owner.saveAndCompilAllMethods();
-		}
+	if (key.getKeyCode() == KeyPress::F7Key)
+	{
+		saveAndCompileDocument();
+		return (true);
+	}
+
+	if (key.getKeyCode() == KeyPress::F8Key)
+	{
+		owner.saveAndCompilAllMethods();
+		return (true);
 	}
 
 	CodeDocument::Position pos = editorComponent->getCaretPos();
@@ -181,9 +186,9 @@ const bool CtrlrLuaMethodCodeEditor::isMouseOverUrl(CodeDocument::Position &posi
 	}
 
 	int end = position.getPosition();
-	
+
 	const String word = document.getTextBetween (CodeDocument::Position(document, start), CodeDocument::Position(document, end)).trim();
-	
+
 	if (word.startsWith ("http://"))
 	{
 		if (url)

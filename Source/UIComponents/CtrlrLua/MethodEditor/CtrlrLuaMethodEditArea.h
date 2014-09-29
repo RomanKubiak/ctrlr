@@ -61,6 +61,7 @@ public:
 	void closeTabWithMethod(const ValueTree &item);
 	void messageLogged (CtrlrLog::CtrlrLogMessage message);
 	void mouseDoubleClick (const MouseEvent &e);
+	bool keyPressed (const KeyPress &key, Component *event);
     //[/UserMethods]
 
     void paint (Graphics& g);

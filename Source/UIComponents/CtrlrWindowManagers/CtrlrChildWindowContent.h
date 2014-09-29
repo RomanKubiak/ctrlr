@@ -20,7 +20,7 @@ class CtrlrChildWindowContent :	public Component
 		virtual StringArray getMenuBarNames() { return (StringArray()); }
 		virtual PopupMenu getMenuForIndex(int, const String &) { return (PopupMenu()); }
 		virtual void menuItemSelected(int, int ) {}
-		virtual bool keyPressed (const KeyPress &, Component *) { return (false); }
+		virtual bool keyPressed (const KeyPress &keyPress, Component *event) { return (false); }
 		JUCE_LEAK_DETECTOR(CtrlrChildWindowContent)
 
 	protected:

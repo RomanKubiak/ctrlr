@@ -120,24 +120,42 @@ void CtrlrLuaMethodEditor::resized()
 
 bool CtrlrLuaMethodEditor::keyPressed (const KeyPress& key, Component* originatingComponent)
 {
-	if (key.getModifiers().isCommandDown())
+    if (key.getModifiers().isCommandDown())
 	{
-		if (key.getKeyCode() == 70)
+	    if (key.getKeyCode() == 9)
+        {
+            // CTRL + TAB
+            if (methodEditArea)
+            {
+                return (methodEditArea->keyPressed (key, originatingComponent));
+            }
+        }
+		if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 70)
 		{
 			// CTRL + F
 			methodEditArea->showFindDialog();
+			return (true);
 		}
 
-		if (key.getKeyCode() == 72)
+		if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 72)
 		{
 			methodEditArea->replaceNextMatch();
+			return (true);
 		}
 	}
 
-	if (key.getKeyCode() == 65650) // F3
+	if (key.getKeyCode() == KeyPress::F3Key) // F3
 	{
 		methodEditArea->findNextMatch();
+		return (true);
 	}
+
+    if (getCurrentEditor())
+    {
+        _DBG("\tpass key event to current editor");
+        return (getCurrentEditor()->keyPressed (key,originatingComponent));
+    }
+
     return false;
 }
 

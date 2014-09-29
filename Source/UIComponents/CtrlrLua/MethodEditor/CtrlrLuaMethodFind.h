@@ -1,26 +1,24 @@
 /*
   ==============================================================================
 
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  10 Nov 2012 11:04:16pm
+  This is an automatically generated GUI class created by the Introjucer!
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Jucer version: 1.12
+  Created with Introjucer version: 3.1.0
 
   ------------------------------------------------------------------------------
 
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
+  The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
+  Copyright 2004-13 by Raw Material Software Ltd.
 
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_CTRLRLUAMETHODFIND_CTRLRLUAMETHODFIND_4C687B6E__
-#define __JUCER_HEADER_CTRLRLUAMETHODFIND_CTRLRLUAMETHODFIND_4C687B6E__
+#ifndef __JUCE_HEADER_F8FE78491B09FC26__
+#define __JUCE_HEADER_F8FE78491B09FC26__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "CtrlrMacros.h"
@@ -77,20 +75,22 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    TextEditor* findInput;
-    TextEditor* replaceInput;
-    TextButton* findNext;
-    TextButton* replaceNextButton;
-    TextButton* replaceAllButton;
-    Label* label;
-    ToggleButton* matchCase;
-    Label* label2;
-    ComboBox* whereToFindCombo;
+    ScopedPointer<TextEditor> findInput;
+    ScopedPointer<TextEditor> replaceInput;
+    ScopedPointer<TextButton> findNext;
+    ScopedPointer<TextButton> replaceNextButton;
+    ScopedPointer<TextButton> replaceAllButton;
+    ScopedPointer<Label> label;
+    ScopedPointer<ToggleButton> matchCase;
+    ScopedPointer<Label> label2;
+    ScopedPointer<ComboBox> whereToFindCombo;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrLuaMethodFind);
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrLuaMethodFind)
 };
 
+//[EndFile] You can add extra defines here...
+//[/EndFile]
 
-#endif   // __JUCER_HEADER_CTRLRLUAMETHODFIND_CTRLRLUAMETHODFIND_4C687B6E__
+#endif   // __JUCE_HEADER_F8FE78491B09FC26__

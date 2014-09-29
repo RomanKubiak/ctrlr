@@ -83,6 +83,7 @@ void CtrlrChildWindow::closeButtonPressed()
 
 bool CtrlrChildWindow::keyPressed (const KeyPress &key, Component *originatingComponent)
 {
+    _DBG("CtrlrChildWindow::keyPressed");
 	if (contentComponent)
 	{
 		return (contentComponent->keyPressed (key, originatingComponent));

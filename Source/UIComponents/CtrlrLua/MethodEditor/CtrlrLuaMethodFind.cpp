@@ -1,20 +1,18 @@
 /*
   ==============================================================================
 
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  10 Nov 2012 11:04:16pm
+  This is an automatically generated GUI class created by the Introjucer!
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Jucer version: 1.12
+  Created with Introjucer version: 3.1.0
 
   ------------------------------------------------------------------------------
 
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
+  The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
+  Copyright 2004-13 by Raw Material Software Ltd.
 
   ==============================================================================
 */
@@ -35,18 +33,9 @@
 
 //==============================================================================
 CtrlrLuaMethodFind::CtrlrLuaMethodFind (CtrlrLuaMethodEditor &_owner)
-    : Component (L"Search and Replace"),
-      owner(_owner),
-      findInput (0),
-      replaceInput (0),
-      findNext (0),
-      replaceNextButton (0),
-      replaceAllButton (0),
-      label (0),
-      matchCase (0),
-      label2 (0),
-      whereToFindCombo (0)
+    : owner(_owner)
 {
+    setName ("Search and Replace");
     addAndMakeVisible (findInput = new TextEditor (String::empty));
     findInput->setMultiLine (true);
     findInput->setReturnKeyStartsNewLine (false);
@@ -55,8 +44,8 @@ CtrlrLuaMethodFind::CtrlrLuaMethodFind (CtrlrLuaMethodEditor &_owner)
     findInput->setCaretVisible (true);
     findInput->setPopupMenuEnabled (true);
     findInput->setColour (TextEditor::backgroundColourId, Colours::white);
-    findInput->setColour (TextEditor::outlineColourId, Colour (0x0));
-    findInput->setColour (TextEditor::shadowColourId, Colour (0x0));
+    findInput->setColour (TextEditor::outlineColourId, Colour (0x00000000));
+    findInput->setColour (TextEditor::shadowColourId, Colour (0x00000000));
     findInput->setText (String::empty);
 
     addAndMakeVisible (replaceInput = new TextEditor (String::empty));
@@ -67,56 +56,56 @@ CtrlrLuaMethodFind::CtrlrLuaMethodFind (CtrlrLuaMethodEditor &_owner)
     replaceInput->setCaretVisible (true);
     replaceInput->setPopupMenuEnabled (true);
     replaceInput->setColour (TextEditor::backgroundColourId, Colours::white);
-    replaceInput->setColour (TextEditor::outlineColourId, Colour (0x0));
-    replaceInput->setColour (TextEditor::shadowColourId, Colour (0x0));
+    replaceInput->setColour (TextEditor::outlineColourId, Colour (0x00000000));
+    replaceInput->setColour (TextEditor::shadowColourId, Colour (0x00000000));
     replaceInput->setText (String::empty);
 
     addAndMakeVisible (findNext = new TextButton (String::empty));
-    findNext->setButtonText (L"Find");
+    findNext->setButtonText (TRANS("Find"));
     findNext->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     findNext->addListener (this);
     findNext->setColour (TextButton::buttonColourId, Colour (0xffbababa));
 
     addAndMakeVisible (replaceNextButton = new TextButton (String::empty));
-    replaceNextButton->setButtonText (L"Next");
+    replaceNextButton->setButtonText (TRANS("Next"));
     replaceNextButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     replaceNextButton->addListener (this);
     replaceNextButton->setColour (TextButton::buttonColourId, Colour (0xffcbf2aa));
 
     addAndMakeVisible (replaceAllButton = new TextButton (String::empty));
-    replaceAllButton->setButtonText (L"All");
+    replaceAllButton->setButtonText (TRANS("All"));
     replaceAllButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     replaceAllButton->addListener (this);
     replaceAllButton->setColour (TextButton::buttonColourId, Colour (0xffa9cfff));
 
-    addAndMakeVisible (label = new Label (L"new label",
-                                          L"Find"));
-    label->setFont (Font (12.0000f, Font::bold | Font::italic));
+    addAndMakeVisible (label = new Label ("new label",
+                                          TRANS("Find")));
+    label->setFont (Font (16.00f, Font::bold | Font::italic));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
     label->setColour (TextEditor::textColourId, Colours::black);
-    label->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (matchCase = new ToggleButton (String::empty));
-    matchCase->setButtonText (L"Match Case");
+    matchCase->setButtonText (TRANS("Match Case"));
     matchCase->addListener (this);
 
-    addAndMakeVisible (label2 = new Label (L"new label",
-                                           L"Replace"));
-    label2->setFont (Font (12.0000f, Font::bold | Font::italic));
+    addAndMakeVisible (label2 = new Label ("new label",
+                                           TRANS("Replace")));
+    label2->setFont (Font (16.00f, Font::bold | Font::italic));
     label2->setJustificationType (Justification::centredLeft);
     label2->setEditable (false, false, false);
     label2->setColour (TextEditor::textColourId, Colours::black);
-    label2->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (whereToFindCombo = new ComboBox (String::empty));
     whereToFindCombo->setEditableText (false);
     whereToFindCombo->setJustificationType (Justification::centredLeft);
-    whereToFindCombo->setTextWhenNothingSelected (L"Current");
+    whereToFindCombo->setTextWhenNothingSelected (TRANS("Current"));
     whereToFindCombo->setTextWhenNoChoicesAvailable (String::empty);
-    whereToFindCombo->addItem (L"Current", 1);
-    whereToFindCombo->addItem (L"All Open", 2);
-    whereToFindCombo->addItem (L"All", 3);
+    whereToFindCombo->addItem (TRANS("Current"), 1);
+    whereToFindCombo->addItem (TRANS("All Open"), 2);
+    whereToFindCombo->addItem (TRANS("All"), 3);
     whereToFindCombo->addListener (this);
 
 
@@ -125,11 +114,11 @@ CtrlrLuaMethodFind::CtrlrLuaMethodFind (CtrlrLuaMethodEditor &_owner)
 	findInput->addListener (this);
 
 	lastFoundPosition = -1;
-	findInput->setFont (Font(12));
-	replaceInput->setFont (Font(12));
+	findInput->setFont (Font(16));
+	replaceInput->setFont (Font(16));
     //[/UserPreSize]
 
-    setSize (424, 48);
+    setSize (424, 64);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -141,15 +130,15 @@ CtrlrLuaMethodFind::~CtrlrLuaMethodFind()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    deleteAndZero (findInput);
-    deleteAndZero (replaceInput);
-    deleteAndZero (findNext);
-    deleteAndZero (replaceNextButton);
-    deleteAndZero (replaceAllButton);
-    deleteAndZero (label);
-    deleteAndZero (matchCase);
-    deleteAndZero (label2);
-    deleteAndZero (whereToFindCombo);
+    findInput = nullptr;
+    replaceInput = nullptr;
+    findNext = nullptr;
+    replaceNextButton = nullptr;
+    replaceAllButton = nullptr;
+    label = nullptr;
+    matchCase = nullptr;
+    label2 = nullptr;
+    whereToFindCombo = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -169,15 +158,15 @@ void CtrlrLuaMethodFind::paint (Graphics& g)
 
 void CtrlrLuaMethodFind::resized()
 {
-    findInput->setBounds (4, 4, proportionOfWidth (0.3302f), 24);
-    replaceInput->setBounds (proportionOfWidth (0.4505f), 4, proportionOfWidth (0.3302f), 24);
-    findNext->setBounds ((4) + (proportionOfWidth (0.3302f)), 4, proportionOfWidth (0.0991f), 24);
-    replaceNextButton->setBounds ((proportionOfWidth (0.4505f)) + (proportionOfWidth (0.3302f)), 4, proportionOfWidth (0.0991f), 24);
-    replaceAllButton->setBounds (((proportionOfWidth (0.4505f)) + (proportionOfWidth (0.3302f))) + (proportionOfWidth (0.0991f)), 4, proportionOfWidth (0.0991f), 24);
-    label->setBounds ((4) + 0, 32, 32, 16);
-    matchCase->setBounds ((4) + 36, 32, 80, 16);
-    label2->setBounds ((proportionOfWidth (0.4505f)) + 1, 32, 64, 16);
-    whereToFindCombo->setBounds (120, 32, 64, 16);
+    findInput->setBounds (4, 4, proportionOfWidth (0.3302f), 32);
+    replaceInput->setBounds (proportionOfWidth (0.4505f), 4, proportionOfWidth (0.3302f), 32);
+    findNext->setBounds (4 + proportionOfWidth (0.3302f), 4, proportionOfWidth (0.0991f), 32);
+    replaceNextButton->setBounds (proportionOfWidth (0.4505f) + proportionOfWidth (0.3302f), 4, proportionOfWidth (0.0991f), 32);
+    replaceAllButton->setBounds ((proportionOfWidth (0.4505f) + proportionOfWidth (0.3302f)) + proportionOfWidth (0.0991f), 4, proportionOfWidth (0.0991f), 32);
+    label->setBounds (4 + 0, 40, 64, 24);
+    matchCase->setBounds (4 + 68, 40, 96, 24);
+    label2->setBounds (proportionOfWidth (0.4505f) + 121, 40, 64, 24);
+    whereToFindCombo->setBounds (176, 40, 128, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -267,9 +256,10 @@ bool CtrlrLuaMethodFind::keyPressed (const KeyPress& key)
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void CtrlrLuaMethodFind::textEditorReturnKeyPressed (TextEditor &editor)
 {
+    _DBG("CtrlrLuaMethodFind::textEditorReturnKeyPressed");
 	if (&editor == findInput)
 	{
-		if (whereToFindCombo->getSelectedId() == 1)
+		if (whereToFindCombo->getSelectedId() <= 1)
 		{
 			findNextMatch();
 		}
@@ -367,7 +357,7 @@ void CtrlrLuaMethodFind::findNextMatch()
 
 void CtrlrLuaMethodFind::findInOpened()
 {
-	if (owner.getTabs() == nullptr) 
+	if (owner.getTabs() == nullptr)
 		return;
 
 	StringArray names = owner.getTabs()->getTabNames();
@@ -481,58 +471,59 @@ void CtrlrLuaMethodFind::reportFoundMatch (CodeDocument &document, const String 
 
 //==============================================================================
 #if 0
-/*  -- Jucer information section --
+/*  -- Introjucer information section --
 
-    This is where the Jucer puts all of its metadata, so don't change anything in here!
+    This is where the Introjucer stores the metadata that describe this GUI layout, so
+    make changes in here at your peril!
 
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="CtrlrLuaMethodFind" componentName="Search and Replace"
                  parentClasses="public Component, public TextEditor::Listener"
                  constructorParams="CtrlrLuaMethodEditor &amp;_owner" variableInitialisers="owner(_owner)"
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
-                 fixedSize="1" initialWidth="424" initialHeight="48">
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
+                 fixedSize="1" initialWidth="424" initialHeight="64">
   <METHODS>
     <METHOD name="keyPressed (const KeyPress&amp; key)"/>
     <METHOD name="visibilityChanged()"/>
   </METHODS>
   <BACKGROUND backgroundColour="0"/>
   <TEXTEDITOR name="" id="6f936e948893af75" memberName="findInput" virtualName=""
-              explicitFocusOrder="0" pos="4 4 33.019% 24" bkgcol="ffffffff"
+              explicitFocusOrder="0" pos="4 4 33.019% 32" bkgcol="ffffffff"
               outlinecol="0" shadowcol="0" initialText="" multiline="1" retKeyStartsLine="0"
               readonly="0" scrollbars="1" caret="1" popupmenu="1"/>
   <TEXTEDITOR name="" id="744e2163900608e0" memberName="replaceInput" virtualName=""
-              explicitFocusOrder="0" pos="45.047% 4 33.019% 24" bkgcol="ffffffff"
+              explicitFocusOrder="0" pos="45.047% 4 33.019% 32" bkgcol="ffffffff"
               outlinecol="0" shadowcol="0" initialText="" multiline="1" retKeyStartsLine="0"
               readonly="0" scrollbars="1" caret="1" popupmenu="1"/>
   <TEXTBUTTON name="" id="fa9e37fe9ed18cb8" memberName="findNext" virtualName=""
-              explicitFocusOrder="0" pos="0R 4 9.906% 24" posRelativeX="6f936e948893af75"
+              explicitFocusOrder="0" pos="0R 4 9.906% 32" posRelativeX="6f936e948893af75"
               bgColOff="ffbababa" buttonText="Find" connectedEdges="3" needsCallback="1"
               radioGroupId="0"/>
   <TEXTBUTTON name="" id="c0ea170c8f7a9eba" memberName="replaceNextButton"
-              virtualName="" explicitFocusOrder="0" pos="0R 4 9.906% 24" posRelativeX="744e2163900608e0"
+              virtualName="" explicitFocusOrder="0" pos="0R 4 9.906% 32" posRelativeX="744e2163900608e0"
               bgColOff="ffcbf2aa" buttonText="Next" connectedEdges="3" needsCallback="1"
               radioGroupId="0"/>
   <TEXTBUTTON name="" id="3d16946d31b26786" memberName="replaceAllButton" virtualName=""
-              explicitFocusOrder="0" pos="0R 4 9.906% 24" posRelativeX="c0ea170c8f7a9eba"
+              explicitFocusOrder="0" pos="0R 4 9.906% 32" posRelativeX="c0ea170c8f7a9eba"
               bgColOff="ffa9cfff" buttonText="All" connectedEdges="3" needsCallback="1"
               radioGroupId="0"/>
   <LABEL name="new label" id="3e2e6635ee9aae4e" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="0 32 32 16" posRelativeX="6f936e948893af75"
+         explicitFocusOrder="0" pos="0 40 64 24" posRelativeX="6f936e948893af75"
          edTextCol="ff000000" edBkgCol="0" labelText="Find" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="12" bold="1" italic="1" justification="33"/>
+         fontsize="16" bold="1" italic="1" justification="33"/>
   <TOGGLEBUTTON name="" id="ec465ae4cc0e8e7a" memberName="matchCase" virtualName=""
-                explicitFocusOrder="0" pos="36 32 80 16" posRelativeX="6f936e948893af75"
+                explicitFocusOrder="0" pos="68 40 96 24" posRelativeX="6f936e948893af75"
                 buttonText="Match Case" connectedEdges="0" needsCallback="1"
                 radioGroupId="0" state="0"/>
   <LABEL name="new label" id="846ac0d0c5ae311c" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="1 32 64 16" posRelativeX="744e2163900608e0"
+         explicitFocusOrder="0" pos="121 40 64 24" posRelativeX="744e2163900608e0"
          edTextCol="ff000000" edBkgCol="0" labelText="Replace" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="12" bold="1" italic="1" justification="33"/>
+         fontsize="16" bold="1" italic="1" justification="33"/>
   <COMBOBOX name="" id="d5a9d17b100be8b2" memberName="whereToFindCombo" virtualName=""
-            explicitFocusOrder="0" pos="120 32 64 16" editable="0" layout="33"
+            explicitFocusOrder="0" pos="176 40 128 24" editable="0" layout="33"
             items="Current&#10;All Open&#10;All" textWhenNonSelected="Current"
             textWhenNoItems=""/>
 </JUCER_COMPONENT>
@@ -540,3 +531,7 @@ BEGIN_JUCER_METADATA
 END_JUCER_METADATA
 */
 #endif
+
+
+//[EndFile] You can add extra defines here...
+//[/EndFile]
