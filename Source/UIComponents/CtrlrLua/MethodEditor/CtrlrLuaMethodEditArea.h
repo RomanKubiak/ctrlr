@@ -62,6 +62,7 @@ public:
 	void messageLogged (CtrlrLog::CtrlrLogMessage message);
 	void mouseDoubleClick (const MouseEvent &e);
 	bool keyPressed (const KeyPress &key, Component *event);
+	void setActiveOutputTab();
     //[/UserMethods]
 
     void paint (Graphics& g);

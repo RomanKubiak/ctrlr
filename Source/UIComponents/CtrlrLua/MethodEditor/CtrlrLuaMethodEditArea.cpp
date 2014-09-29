@@ -230,6 +230,14 @@ bool CtrlrLuaMethodEditArea::keyPressed (const KeyPress &key, Component *event)
     }
     return (false);
 }
+
+void CtrlrLuaMethodEditArea::setActiveOutputTab()
+{
+	if (getLowerTabs())
+	{
+		getLowerTabs()->setCurrentTabIndex (0);
+	}
+}
 //[/MiscUserCode]
 
 

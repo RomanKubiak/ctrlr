@@ -256,7 +256,6 @@ bool CtrlrLuaMethodFind::keyPressed (const KeyPress& key)
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void CtrlrLuaMethodFind::textEditorReturnKeyPressed (TextEditor &editor)
 {
-    _DBG("CtrlrLuaMethodFind::textEditorReturnKeyPressed");
 	if (&editor == findInput)
 	{
 		if (whereToFindCombo->getSelectedId() <= 1)

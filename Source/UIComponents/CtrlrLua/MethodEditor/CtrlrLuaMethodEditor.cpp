@@ -152,7 +152,6 @@ bool CtrlrLuaMethodEditor::keyPressed (const KeyPress& key, Component* originati
 
     if (getCurrentEditor())
     {
-        _DBG("\tpass key event to current editor");
         return (getCurrentEditor()->keyPressed (key,originatingComponent));
     }
 
