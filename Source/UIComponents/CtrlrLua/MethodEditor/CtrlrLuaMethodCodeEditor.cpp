@@ -98,6 +98,11 @@ bool CtrlrLuaMethodCodeEditor::keyPressed (const KeyPress &key, Component *origi
 		{
 			saveAndCompileDocument();
 		}
+
+		if (key.getKeyCode() == KeyPress::F8Key)
+		{
+			owner.saveAndCompilAllMethods();
+		}
 	}
 
 	CodeDocument::Position pos = editorComponent->getCaretPos();

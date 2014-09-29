@@ -850,15 +850,7 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 	}
 	else if (menuItemID == 4 && topLevelMenuIndex == 0)
 	{
-		for (int i=0; i<getTabs()->getNumTabs(); i++)
-		{
-			CtrlrLuaMethodCodeEditor *ed = dynamic_cast<CtrlrLuaMethodCodeEditor*> (getTabs()->getTabContentComponent (i));
-
-			if (ed)
-			{
-				ed->saveAndCompileDocument();
-			}
-		}
+		saveAndCompilAllMethods();
 	}
 	else if (menuItemID == 4 && topLevelMenuIndex == 1)
 	{
@@ -871,6 +863,19 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 
 		componentTree.setProperty (Ids::luaMethodEditorFont, owner.getOwner().getFontManager().getStringFromFont (s.getFont()), nullptr);
 		componentTree.setProperty (Ids::luaMethodEditorBgColour, COLOUR2STR (s.getColour()), nullptr);
+	}
+}
+
+void CtrlrLuaMethodEditor::saveAndCompilAllMethods()
+{
+	for (int i=0; i<getTabs()->getNumTabs(); i++)
+	{
+		CtrlrLuaMethodCodeEditor *ed = dynamic_cast<CtrlrLuaMethodCodeEditor*> (getTabs()->getTabContentComponent (i));
+
+		if (ed)
+		{
+			ed->saveAndCompileDocument();
+		}
 	}
 }
 
