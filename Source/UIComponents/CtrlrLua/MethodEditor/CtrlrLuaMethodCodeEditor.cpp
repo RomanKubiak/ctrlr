@@ -139,6 +139,10 @@ void CtrlrLuaMethodCodeEditor::saveDocument()
 	if (method)
 	{
 		method->triggerSourceChangeFromEditor(false);
+		if (owner.getMethodEditArea())
+		{
+			owner.getMethodEditArea()->setActiveOutputTab();
+		}
 	}
 
 	documentChanged(true, false);
@@ -151,6 +155,10 @@ void CtrlrLuaMethodCodeEditor::saveAndCompileDocument()
 	if (method)
 	{
 		method->triggerSourceChangeFromEditor(true);
+		if (owner.getMethodEditArea())
+		{
+			owner.getMethodEditArea()->setActiveOutputTab();
+		}
 	}
 
 	documentChanged(true, true);
