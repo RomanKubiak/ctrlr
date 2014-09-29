@@ -52,7 +52,7 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
 	upperTabs->setTabBarDepth (24);
 
 	output						= new CtrlrTextEditor("Output");
-	output->setFont (Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 14.0f, Font::plain));
+	output->setFont (Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain));
 	output->setMultiLine(true, true);
 	output->setReadOnly (true);
 	output->addMouseListener (this, false);
@@ -152,7 +152,7 @@ CtrlrLuaMethodEditorTabs *CtrlrLuaMethodEditArea::getTabs()
 void CtrlrLuaMethodEditArea::insertOutput(const String &textToInsert, const Colour what)
 {
 	output->setCaretPosition(output->getText().length());
-	output->insertText (textToInsert, Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 14.0f, Font::plain), what);
+	output->insertText (textToInsert, Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain), what);
 }
 
 void CtrlrLuaMethodEditArea::insertOutput(const AttributedString stringToInsert)
@@ -197,12 +197,12 @@ void CtrlrLuaMethodEditArea::messageLogged (CtrlrLog::CtrlrLogMessage message)
 {
 	if (message.level == CtrlrLog::Lua)
 	{
-		output->insertText ("LUA>> "+message.message+"\n", Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 14.0f, Font::plain), Colours::black);
+		output->insertText ("LUA>> "+message.message+"\n", Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain), Colours::black);
 	}
 
 	if (message.level == CtrlrLog::LuaRuntimeError)
 	{
-		output->insertText ("RUNTIME ERROR>> "+message.message+"\n", Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 14.0f, Font::bold), Colours::red);
+		output->insertText ("RUNTIME ERROR>> "+message.message+"\n", Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::bold), Colours::red);
 		owner.updateTabs();
 	}
 }
@@ -210,6 +210,25 @@ void CtrlrLuaMethodEditArea::messageLogged (CtrlrLog::CtrlrLogMessage message)
 TabbedComponent *CtrlrLuaMethodEditArea::getLowerTabs()
 {
 	return (lowerTabs);
+}
+
+bool CtrlrLuaMethodEditArea::keyPressed (const KeyPress &key, Component *event)
+{
+    if (getTabs())
+    {
+        if (getTabs()->getCurrentTabIndex() < (getTabs()->getNumTabs()-1) && getTabs()->getCurrentTabIndex() >= 0)
+        {
+            getTabs()->setCurrentTabIndex(getTabs()->getCurrentTabIndex() + 1);
+            return (true);
+        }
+
+        if (getTabs()->getCurrentTabIndex() >= getTabs()->getNumTabs() - 1)
+        {
+            getTabs()->setCurrentTabIndex(0);
+            return (true);
+        }
+    }
+    return (false);
 }
 //[/MiscUserCode]
 

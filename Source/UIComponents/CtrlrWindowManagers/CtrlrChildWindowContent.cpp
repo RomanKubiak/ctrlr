@@ -7,8 +7,8 @@
 #include "CtrlrIDs.h"
 #include "CtrlrChildWindow.h"
 
-CtrlrChildWindowContent::CtrlrChildWindowContent() 
-	:	container(nullptr), 
+CtrlrChildWindowContent::CtrlrChildWindowContent()
+	:	container(nullptr),
 		componentTree(Ids::uiChildWindowContentState)
 {
 }
