@@ -3161,7 +3161,9 @@
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDITransactions.xml" />
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDIVendors.xml" />
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrIDs.xml" />
-    <None Include="..\..\..\..\Source\Resources\XML\CtrlrLuaMethodTemplates.xml" />
+    <None Include="..\..\..\..\Source\Resources\XML\CtrlrLuaMethodTemplates.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrMidiMultiTemplate.xml" />
     <None Include="..\..\..\..\Source\Core\CtrlrRevision.template" />
     <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\ftp.lua" />

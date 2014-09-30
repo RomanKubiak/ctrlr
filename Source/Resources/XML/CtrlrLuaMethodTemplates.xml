@@ -570,18 +570,19 @@
   </luaMethod>
 
   <utilityMethods>
-  	<utility name="table_dump" description="Dump information about a table" uuid="00000000000000000000000000000001">
+  	<utility name="table_dump" description="Dump information about a table" alwaysUpdate="1" uuid="00000000000000000000000000000001">
+-- @1.1
 --
 -- Print table contents
 --
 function table_dump(table)
 	for key,value in ipairs(table) do
-		debug ("KEY= ["..key.."]")
+		_DBG ("KEY= ["..key.."]")
 
 		if (type(value) == "table") then
 			table_dump(value)
 		elseif (type(value) == "nil") then
-			debug (" = NIL")
+			_DBG (" = NIL")
 		else
 			what (value)
 		end
@@ -589,7 +590,8 @@ function table_dump(table)
 end
 	</utility>
 
-    <utility name="what" description="Prints information on any variable passed in as argument, useful if you need to find out what you are dealing with" uuid="00000000000000000000000000000002">
+    <utility name="what" description="Prints information on any variable passed in as argument, useful if you need to find out what you are dealing with" alwaysUpdate="1" uuid="00000000000000000000000000000002">
+-- @1.1
 --
 -- Print methods for an object
 --
@@ -617,7 +619,8 @@ function what(o)
 end
     </utility>
 
-    <utility name="how" description="Prints all available lua classes bound from Ctrlr" uuid="00000000000000000000000000000003">
+    <utility name="how" description="Prints all available lua classes bound from Ctrlr" alwaysUpdate="1" uuid="00000000000000000000000000000003">
+-- @1.1
 --
 -- Print all available classes
 --
@@ -632,41 +635,5 @@ function how()
 	return ret
 end
   </utility>
-
-  <utility name="transSYXSendReq" description="Request method for sending a SYX file" uuid="00000000000000000000000000000004">
-function transSYXSendReq(transaction)
-	console("transSYXSendReq")
-	fileToSend = utils.openFileWindow("SYX file to send", File.getSpecialLocation(File.userHomeDirectory), "*.*", true)
-
-	if fileToSend:existsAsFile() then
-		result = MemoryBlock (0, true)
-		fileToSend:loadFileAsData (result)
-
-		if result:getSize() &lt;= 0 then
-			utils.warnWindow ("Send SYX File", "Reading the file resultet in 0 data bytes")
-			return
-		end
-
-		_DBG ("sending file: "..fileToSend:getFullPathName())
-
-		transaction:setRequest (result)
-	else
-		utils.warnWindow ("Send SYX File", "Can't read selected file")
-	end
-end
-  </utility>
-
-  <utility name="transSYXRcvReq" description="Request method for receiving a SYX file" uuid="00000000000000000000000000000005">
-function transSYXRcvReq(transaction)
-	console("transSYXRcvReq")
-end
-  </utility>
-
-  <utility name="transSYXRcvProc" description="Process data for when receiving a SYX file" uuid="00000000000000000000000000000006">
-function transSYXRcvProc(transaction)
-	console("transSYXRcvProc")
-end
-  </utility>
-
   </utilityMethods>
 </methods>

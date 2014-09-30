@@ -37,7 +37,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		const bool attachDefaultGroups();
 		ValueTree getGroupByName(const String &groupName);
 		ValueTree findGroupRecursive(ValueTree treeToSearch, const Uuid &groupUuid);
-		void addMethod (ValueTree groupToAddTo, const String &methodName, const String &initialCode, const String &linkedToProperty, const Uuid methodUuid=UID_NULL);
+		void addMethod (ValueTree groupToAddTo, const String &methodName, const String &initialCode, const String &linkedToProperty, const Uuid methodUuid=UID_NULL, const bool forceIfAlreadyExists=false);
 		void addMethodFromFile (ValueTree groupToAddTo, const File &fileToUse, const Uuid methodUuid=UID_NULL);
 		void deleteMethod(const Uuid &methodUuid);
 		void setEditedMethod(const Uuid &methodUid);
@@ -69,6 +69,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		String getUtilityName(const int index);
 		String getUtilityDescription(const int index);
 		String getUtilityUuid(const int index);
+		bool getUtilityAlwaysUpdate(const int index);
 		void wrapUtilities();
 
 		/** Calls */
