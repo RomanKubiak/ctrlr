@@ -76,6 +76,19 @@ String CtrlrLuaMethodManager::getUtilityName(const int index)
 	return ("UNKNOWN");
 }
 
+bool CtrlrLuaMethodManager::getUtilityAlwaysUpdate(const int index)
+{
+	XmlElement *utilityXml = utilityMethods->getChildElement (index);
+
+	if (utilityXml)
+	{
+		if (utilityXml->hasTagName ("utility"))
+			return (utilityXml->getBoolAttribute ("alwaysUpdate", false));
+	}
+
+	return (false);
+}
+
 String CtrlrLuaMethodManager::getUtilityDescription(const int index)
 {
 	XmlElement *utilityXml = utilityMethods->getChildElement (index);
@@ -214,16 +227,21 @@ void CtrlrLuaMethodManager::restoreMethodsRecursivly(const ValueTree &savedState
 	}
 }
 
-void CtrlrLuaMethodManager::addMethod (ValueTree groupToAddTo, const String &methodName, const String &initialCode, const String &linkedToProperty, const Uuid methodUid)
+void CtrlrLuaMethodManager::addMethod (ValueTree groupToAddTo, const String &methodName, const String &initialCode, const String &linkedToProperty, const Uuid methodUid, const bool forceIfAlreadyExists)
 {
+	ValueTree group;
+
 	if (groupToAddTo.isValid())
-	{
-		groupToAddTo.addChild (getDefaultMethodTree (methodName, initialCode, linkedToProperty, methodUid), -1, nullptr);
-	}
+		group = groupToAddTo;
 	else
+		group = managerTree;
+
+	if (group.getChildWithProperty(Ids::uuid, methodUid.toString()).isValid() && forceIfAlreadyExists)
 	{
-		managerTree.addChild (getDefaultMethodTree (methodName, initialCode, linkedToProperty, methodUid), -1, nullptr);
+		group.removeChild (groupToAddTo.getChildWithProperty(Ids::uuid, methodUid.toString()), nullptr);
 	}
+
+	group.addChild (getDefaultMethodTree (methodName, initialCode, linkedToProperty, methodUid), -1, nullptr);
 }
 
 void CtrlrLuaMethodManager::addMethodFromFile (ValueTree groupToAddTo, const File &fileToUse, const Uuid methodUid)
@@ -570,12 +588,9 @@ void CtrlrLuaMethodManager::wrapUtilities()
 {
 	if (getNumUtilities() > 0)
 	{
-		if (attachDefaultGroups())
+		for (int i=0; i<getNumUtilities(); i++)
 		{
-			for (int i=0; i<getNumUtilities(); i++)
-			{
-				addMethod (getGroupByName("Built-In"), getUtilityName(i), getUtilityCode(i).trim(), String::empty, getUtilityUuid(i));
-			}
+			addMethod (getGroupByName("Built-In"), getUtilityName(i), getUtilityCode(i).trim(), String::empty, getUtilityUuid(i), getUtilityAlwaysUpdate(i));
 		}
 	}
 }
