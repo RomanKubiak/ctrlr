@@ -17,12 +17,12 @@ float LGlobalFunctions::float_Pi()
 
 void LGlobalFunctions::debug(const String &argument)
 {
-    _DBG(argument);
+    _LUA(argument);
 }
 
 void LGlobalFunctions::debug(const std::string &argument)
 {
-    _DBG(_STR(argument.c_str()));
+    _LUA(_STR(argument.c_str()));
 }
 
 std::string LGlobalFunctions::stringToLua (const String &string)
@@ -61,7 +61,8 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
         ,
         def("print_debug", (void (*)(const String &))&LGlobalFunctions::debug),
         def("print_d", (void (*)(const String &))&LGlobalFunctions::debug),
-        def("_DBG", (void (*)(const String &))&LGlobalFunctions::debug)
+        def("_DBG", (void (*)(const String &))&LGlobalFunctions::debug),
+        def("_debug", (void (*)(const String &))&LGlobalFunctions::debug)
         ,
         def("sleep", &LGlobalFunctions::sleep)
         ,
