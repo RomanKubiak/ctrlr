@@ -438,6 +438,10 @@
         <FILE id="HE73dO" name="LICENSE" compile="0" resource="1" file="../../Source/Lua/LuaSocket/LICENSE"/>
       </GROUP>
       <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
+        <FILE id="oLVJsP" name="LookAndFeelBase.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LookAndFeelBase.cpp"/>
+        <FILE id="ABKnJo" name="LookAndFeelBase.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LookAndFeelBase.h"/>
         <FILE id="kkBJ3Q" name="LBorderSize.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LBorderSize.cpp"/>
         <FILE id="gtfuym" name="LBorderSize.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LBorderSize.h"/>
         <FILE id="IK8mBP" name="LButton.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LButton.cpp"/>

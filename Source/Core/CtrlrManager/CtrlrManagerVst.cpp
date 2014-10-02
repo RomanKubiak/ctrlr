@@ -30,7 +30,7 @@ void CtrlrManagerVst::set(CtrlrModulator *mod, const int idx)
 	}
 
 	removeIfAlreadyThere (mod);
-	vsti.addUsingDefaultSort (idx);
+	vstIndexes.addUsingDefaultSort (idx);
 	map.insert (CtrlrVstPair(idx,mod));
 }
 
@@ -40,7 +40,7 @@ void CtrlrManagerVst::removeIfAlreadyThere(CtrlrModulator *mod)
 	{
 		if (it->second == mod)
 		{
-			vsti.removeFirstMatchingValue (it->first);
+			vstIndexes.removeFirstMatchingValue (it->first);
 			map.erase (it);
 			return;
 		}
@@ -59,12 +59,13 @@ CtrlrModulator *CtrlrManagerVst::get(const int idx)
 
 int CtrlrManagerVst::getFirstFree()
 {
-	return ((int)map.size());
+    /* kamder fix */
+	return (vstIndexes.getLast() + 1);
 }
 
 int CtrlrManagerVst::getLargestIndex()
 {
-	return (vsti.getLast());
+	return (vstIndexes.getLast());
 }
 
 void CtrlrManagerVst::dumpDebugData()

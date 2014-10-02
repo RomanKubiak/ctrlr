@@ -115,6 +115,7 @@ OBJECTS := \
   $(OBJDIR)/unix_f9728d17.o \
   $(OBJDIR)/usocket_9dc48243.o \
   $(OBJDIR)/wsocket_c64d6045.o \
+  $(OBJDIR)/LookAndFeelBase_f5b48a03.o \
   $(OBJDIR)/LBorderSize_ecfcd7ed.o \
   $(OBJDIR)/LButton_b8659fd2.o \
   $(OBJDIR)/LTextButton_e8537f5f.o \
@@ -579,6 +580,11 @@ $(OBJDIR)/wsocket_c64d6045.o: ../../../../Source/Lua/LuaSocket/src/wsocket.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling wsocket.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LookAndFeelBase_f5b48a03.o: ../../../../Source/Lua/JuceClasses/LookAndFeelBase.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LookAndFeelBase.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LBorderSize_ecfcd7ed.o: ../../../../Source/Lua/JuceClasses/LBorderSize.cpp
 	-@mkdir -p $(OBJDIR)

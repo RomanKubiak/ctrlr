@@ -24,7 +24,7 @@ class CtrlrManagerVst
 		JUCE_LEAK_DETECTOR(CtrlrManagerVst)
 
 	private:
-		Array<int> vsti;
+		Array<int> vstIndexes;
 		CtrlrManager &owner;
 		CtrlrVstMap map;
 };
