@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LGlobalFunctions.h"
+#include "LookAndFeelBase.h"
 
 LGlobalFunctions::LGlobalFunctions()
 {
@@ -45,12 +46,32 @@ void LGlobalFunctions::sleep(const int milliseconds)
     Thread::sleep(milliseconds);
 }
 
+void LGlobalFunctions::setLookAndFeel (Component *component, luabind::object lookAndFeelObject)
+{
+	_DBG("setLookAndFeel");
+
+	if (component != nullptr && luabind::type (lookAndFeelObject) != LUA_TNIL)
+	{
+		_DBG("\tcomponent and lua lf are valid");
+
+		LookAndFeelBase *lookAndFeel = luabind::object_cast<LookAndFeelBase*>(lookAndFeelObject);
+
+		if (lookAndFeel)
+		{
+			_DBG("\tLookBase is valid");
+			component->setLookAndFeel (lookAndFeel);
+		}
+	}
+}
+
 void LGlobalFunctions::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
 
 	module(L)
     [
+        def("setLookAndFeel", &LGlobalFunctions::setLookAndFeel)
+        ,
         def("console", &LGlobalFunctions::console)
         ,
 		def("J", (const String (*) (const std::string &)) &LGlobalFunctions::toJuceString),

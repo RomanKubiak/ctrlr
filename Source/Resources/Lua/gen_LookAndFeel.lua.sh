@@ -51,7 +51,7 @@ cat $HEADER | grep "def_" | awk '{
 		{
 			# Function name
 			methodName = substr ($i,5);
-			printf ("__method_name:%s (", methodName);
+			printf ("__method_name:%s (--[[ ", methodName);
 		}
 		
 		if (i > paramsOffset)
@@ -95,11 +95,11 @@ cat $HEADER | grep "def_" | awk '{
 				if (! (i%2)) 
 				{
 					paramArray[++numParams] = param;
-					printf ("%s", (i == NF ? $param : $param", ")); 
+					printf ("p.%s", (i == NF ? $param : $param", ")); 
 				}
 				else 
 				{
-					printf ("--[[%s]] ", $param);
+					printf ("%s ", $param);
 				}
 			}
 			else
@@ -107,66 +107,24 @@ cat $HEADER | grep "def_" | awk '{
 				if (i%2) 
 				{
 					paramArray[++numParams] = param;
-					printf ("%s", (i == NF ? $param : $param", ")); 
+					printf ("p.%s", (i == NF ? $param : $param", ")); 
 				}
 				else 
 				{
-					printf ("--[[%s]] ", $param);
+					printf ("%s ", $param);
 				}
 			}
 						
 		}
 	}
 	
-	#if (needsToReturn)
-	#{
-		#printf (")\n");
-		#printf ("\t--\n");
-		#printf ("\t-- Body\n");
-		#printf ("\t--\n");
-		
-		#if ($returnType == "bool")
-		#	printf ("\t-- returnValue = true\n");
-		#else if ($returnType == "int")
-		#	printf ("\t-- returnValue == 1\n");
-		#else if ($returnType == "double")
-		#	printf ("\t-- returnValue == 1.0\n");
-		#else
-		#{
-		#	if (index ($returnType, "*"))
-		#		printf ("\t-- returnValue = %s()\n", substr ($returnType, 0, index($returnType, "*") - 1));
-		#	else if (index ($returnType, "<"))
-		#		printf ("\t-- returnValue = %s()\n", substr ($returnType, 0, index($returnType, "<") - 1));
-		#	else
-		#		printf ("\t-- returnValue = %s()\n", $returnType);
-		#}
-		#	
-		#printf ("\t-- return returnValue\n");
-		#printf ("end\n\n");		
-	#}
-	#else
-	#{
-		printf (")\n\t--\n\t-- Body");
-		printf ("\n\t--\n");
-		if (needsToReturn)
-			printf ("\treturn LookAndFeel_V3.");
-		else
-			printf ("\tLookAndFeel_V3.");
+	printf (" --]] p)\n\t--\n\t-- Body");
+	printf ("\n\t--\n");
+
+	if (needsToReturn == 1)
+	{	
+		printf ("\n\t-- return %s\n", $returnType);
+	}
 			
-		printf ("%s (self", methodName);
-		if (numParams > 0)
-			printf (", ");
-			
-		for (x=1; x<=numParams; x++)
-		{
-			if (x == numParams || numParams == 0)
-				printf ("%s", $paramArray[x]);
-			else
-				printf ("%s, ", $paramArray[x]);
-		}
-		printf (")\n")
-		printf ("end\n\n");
-		
-		
-	#}
+	printf ("end\n\n");
 }'

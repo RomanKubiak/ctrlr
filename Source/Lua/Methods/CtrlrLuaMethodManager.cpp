@@ -588,6 +588,8 @@ void CtrlrLuaMethodManager::wrapUtilities()
 {
 	if (getNumUtilities() > 0)
 	{
+	    attachDefaultGroups();
+
 		for (int i=0; i<getNumUtilities(); i++)
 		{
 			addMethod (getGroupByName("Built-In"), getUtilityName(i), getUtilityCode(i).trim(), String::empty, getUtilityUuid(i), getUtilityAlwaysUpdate(i));
