@@ -233,11 +233,15 @@
       <Add library="kernel32"/>
       <Add library="comctl32"/>
     </Linker>
-    <Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeel_V3.sh">
+    <Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.h.sh">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/Resources/Lua/LookAndFeel_V3.lua">
+    <Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeel.lua.sh">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/LookAndFeel.lua">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
