@@ -284,6 +284,13 @@
       <FILE id="GKACXT" name="stdafx.h" compile="0" resource="0" file="../../Source/Core/stdafx.h"/>
     </GROUP>
     <GROUP id="{E4E9D961-652D-2904-F1EC-5C383EEF8FD4}" name="Resources">
+      <GROUP id="{361AA8F0-5152-60E3-3C87-B82611600E05}" name="Lua">
+        <FILE id="La5zGa" name="gen_LLookAndFeel.h.sh" compile="0" resource="1"
+              file="../../Source/Resources/Lua/gen_LLookAndFeel.h.sh"/>
+        <FILE id="cEYsqN" name="gen_LookAndFeel.lua.sh" compile="0" resource="1"
+              file="../../Source/Resources/Lua/gen_LookAndFeel.lua.sh"/>
+        <FILE id="FBSM6H" name="LookAndFeel.lua" compile="0" resource="1" file="../../Source/Resources/Lua/LookAndFeel.lua"/>
+      </GROUP>
       <GROUP id="{E9773117-FC22-2F9F-57AF-6916AC06ED33}" name="Misc">
         <FILE id="Mw6jfB" name="RSRC.zip" compile="0" resource="1" file="../../Source/Resources/Misc/RSRC.zip"/>
       </GROUP>

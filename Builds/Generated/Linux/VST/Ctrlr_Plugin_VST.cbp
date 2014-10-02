@@ -377,6 +377,18 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.h.sh">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeel.lua.sh">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/LookAndFeel.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Resources/Misc/RSRC.zip">
       <Option compile="0"/>
       <Option link="0"/>
