@@ -7,16 +7,16 @@ if [ ! -f "$HEADER" ]; then
 fi
 
 cat << _EOF_
-#ifndef L_LOOK_AND_FEEL
-#define L_LOOK_AND_FEEL
+#include "stdafx.h"
+#include "LLookAndFeel.h"
 
-#include "LookAndFeelBase.h"
-
-class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
+void LLookAndFeel::wrapForLua (lua_State *L)
 {
-	public:
-  		LLookAndFeel() : LookAndFeelBase(*this){}
-	 	static void wrapForLua (lua_State *L);	 	
+	using namespace luabind;	
+	module(L)
+	[			
+		class_<LookAndFeelBase, LLookAndFeel>("LookAndFeel")					
+			.def(constructor<>())
 _EOF_
 
 cat $HEADER | grep "def_" | awk '{
@@ -129,40 +129,11 @@ cat $HEADER | grep "def_" | awk '{
 		}
 	}
 	
-	printf ("\n");
-	printf ("\t\t%s %s ", returnType, methodName);
+	printf ("\t\t\t.def (\"%s\", &LLookAndFeel::%s, &LLookAndFeel::def_%s)", methodName, methodName, methodName);
 	
-	printf ("(ParamWrapper &p)\n");
-	if (needsToReturn)
-		printf ("\t\t{ try { return (call<%s>(\"%s\", p)); } catch (luabind::error e) { _WRN(\"%s \"+_STR(e.what())); } }", returnType, methodName, methodName);
-	else
-		printf ("\t\t{ try { call<void>(\"%s\", p); } catch (luabind::error e) { _WRN(\"%s \"+_STR(e.what())); } }", methodName, methodName);
-	printf ("\n");
-	
-	printf ("\t\tstatic %s def_%s", returnType, methodName);
-	printf ("(LookAndFeelBase *ptr, ParamWrapper &p)\n");
-	printf ("\t\t{ ");
-	if (needsToReturn)
-		printf ("return (ptr->LookAndFeelBase::v3.%s (", methodName);
-	else
-		printf ("ptr->LookAndFeelBase::v3.%s (", methodName);
-
-	for (x=1; x<=numParams; x++)
-	{
-		if (x == numParams || numParams == 0)
-			printf ("p.%s", $paramArray[x]);
-		else
-			printf ("p.%s, ", $paramArray[x]);
-	}
-	
-	if (needsToReturn)
-		printf (")");
-		
-	printf ("); }");	
 	printf ("\n");
 }'
 
+echo -e "\t];"
 echo
-echo "};"
-echo
-echo "#endif"
+echo "}"

@@ -10,13 +10,13 @@
 namespace BinaryData
 {
     extern const char*   gen_LLookAndFeel_h_sh;
-    const int            gen_LLookAndFeel_h_shSize = 3553;
+    const int            gen_LLookAndFeel_h_shSize = 3385;
 
     extern const char*   gen_LookAndFeel_lua_sh;
-    const int            gen_LookAndFeel_lua_shSize = 2351;
+    const int            gen_LookAndFeel_lua_shSize = 2221;
 
     extern const char*   LookAndFeel_lua;
-    const int            LookAndFeel_luaSize = 16389;
+    const int            LookAndFeel_luaSize = 15689;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
@@ -196,37 +196,40 @@ namespace BinaryData
     const int            CtrlrRevision_templateSize = 199;
 
     extern const char*   ftp_lua;
-    const int            ftp_luaSize = 9401;
+    const int            ftp_luaSize = 9120;
 
     extern const char*   http_lua;
-    const int            http_luaSize = 12543;
+    const int            http_luaSize = 12193;
 
     extern const char*   ltn12_lua;
-    const int            ltn12_luaSize = 8469;
+    const int            ltn12_luaSize = 8177;
 
     extern const char*   mime_lua;
-    const int            mime_luaSize = 2520;
+    const int            mime_luaSize = 2433;
 
     extern const char*   smtp_lua;
-    const int            smtp_luaSize = 8212;
+    const int            smtp_luaSize = 7961;
 
     extern const char*   socket_lua;
-    const int            socket_luaSize = 4194;
+    const int            socket_luaSize = 4061;
 
     extern const char*   tp_lua;
-    const int            tp_luaSize = 3731;
+    const int            tp_luaSize = 3608;
 
     extern const char*   url_lua;
-    const int            url_luaSize = 10826;
+    const int            url_luaSize = 10529;
 
     extern const char*   LICENSE;
-    const int            LICENSESize = 1102;
+    const int            LICENSESize = 1082;
+
+    extern const char*   lf_template;
+    const int            lf_templateSize = 43839;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 71;
+    const int namedResourceListSize = 72;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
