@@ -843,6 +843,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Lua/JuceClasses/lf.template">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Lua/JuceClasses/LColour.cpp"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LColour.h">
       <Option compile="0"/>
@@ -950,6 +954,10 @@
     </Unit>
     <Unit filename="../../../../Source/Lua/JuceClasses/LLine.cpp"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LLine.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

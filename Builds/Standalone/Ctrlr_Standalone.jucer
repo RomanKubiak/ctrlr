@@ -492,6 +492,7 @@
               file="../../Source/Lua/JuceClasses/LBubbleMessageComponent.cpp"/>
         <FILE id="Qawz4y" name="LBubbleMessageComponent.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LBubbleMessageComponent.h"/>
+        <FILE id="rPiK9m" name="lf.template" compile="0" resource="1" file="../../Source/Lua/JuceClasses/lf.template"/>
         <FILE id="KROM22" name="LColour.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LColour.cpp"/>
         <FILE id="t8NDxd" name="LColour.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LColour.h"/>
         <FILE id="DmwWUf" name="LComboBox.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.cpp"/>
@@ -554,6 +555,8 @@
         <FILE id="oqFjRG" name="LMouseCursor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseCursor.h"/>
         <FILE id="Rtwaug" name="LLine.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLine.cpp"/>
         <FILE id="glbv0u" name="LLine.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLine.h"/>
+        <FILE id="Xv8Nh5" name="LookAndFeelParamWrapper.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h"/>
         <FILE id="u0mGw1" name="LLookAndFeel.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LLookAndFeel.cpp"/>
         <FILE id="VEVZZ3" name="LLookAndFeel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLookAndFeel.h"/>
