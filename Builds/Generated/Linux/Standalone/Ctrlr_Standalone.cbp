@@ -2359,7 +2359,6 @@
 		<Unit filename="../../../../Source/Lua/JuceClasses/LookAndFeelBase.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LookAndFeelBase.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/lf.template" />
 		<Unit filename="../../../../Source/Lua/LuaSocket/LICENSE" />
 		<Unit filename="../../../../Source/Lua/LuaSocket/include/auxiliar.h" />
 		<Unit filename="../../../../Source/Lua/LuaSocket/include/buffer.h" />
@@ -2639,8 +2638,10 @@
 		<Unit filename="../../../../Source/Resources/Icons/ico_waveform.png" />
 		<Unit filename="../../../../Source/Resources/Images/tile.gif" />
 		<Unit filename="../../../../Source/Resources/Lua/LookAndFeel.lua" />
+		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.h.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeel.lua.sh" />
+		<Unit filename="../../../../Source/Resources/Lua/lf.template" />
 		<Unit filename="../../../../Source/Resources/Misc/RSRC.zip" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrIDs.xml" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrLuaMethodTemplates.xml" />

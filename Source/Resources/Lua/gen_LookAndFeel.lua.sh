@@ -6,14 +6,14 @@ if [ ! -f "$HEADER" ]; then
 	exit 1
 fi
 
-echo "class '__method_name' (LookAndFeel_V3)"
+echo "class '__method_name' (LookAndFeel)"
 echo
 echo "function __method_name:__init()"
 echo -e "\t--"
 echo -e "\t-- This is needed for luabind, please don't remove this line"
 echo -e "\t-- Add as much code as you like here, just leave this"
 echo -e "\t--"
-echo -e "\tLookAndFeel_V3.__init(self)"
+echo -e "\tLookAndFeel.__init(self)"
 echo "end"
 echo
 

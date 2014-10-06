@@ -95,7 +95,7 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 
 			@return the MIDI channel of this message
 		*/
-		int getChannel() const ;
+		virtual int getChannel() const ;
 
 		/** @brief Get the number of MIDI messages that make this one
 

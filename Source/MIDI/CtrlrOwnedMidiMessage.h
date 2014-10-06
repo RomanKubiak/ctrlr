@@ -19,17 +19,18 @@ class CtrlrOwnedMidiMessage : public CtrlrMidiMessage
 		CtrlrOwnedMidiMessage (CtrlrMidiMessageOwner &_owner);
 		~CtrlrOwnedMidiMessage();
 		void setControllerNumber(const int controllerNumber);
-		void setMidiMessageType (const CtrlrMidiMessageType newType);		
+		void setMidiMessageType (const CtrlrMidiMessageType newType);
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void patternChanged();
 		void setChannel(const int midiChannel);
+		int getChannel() const;
 		void compilePattern(); /* same as above but does not trigger owner rehash */
 		const Array<int,CriticalSection> &getGlobalVariables();
 		CtrlrSysexProcessor *getSysexProcessor();
 
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrOwnedMidiMessage)
 
-	private:		
+	private:
 		CtrlrMidiMessageOwner &owner;
 };
 

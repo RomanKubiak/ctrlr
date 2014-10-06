@@ -2321,8 +2321,10 @@
     <ClInclude Include="..\..\..\Standalone\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.cpp.sh"/>
     <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.h.sh"/>
     <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeel.lua.sh"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\lf.template"/>
     <None Include="..\..\..\..\Source\Resources\Lua\LookAndFeel.lua"/>
     <None Include="..\..\..\..\Source\Resources\Misc\RSRC.zip"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.ttf"/>
@@ -2392,7 +2394,6 @@
     <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\tp.lua"/>
     <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\url.lua"/>
     <None Include="..\..\..\..\Source\Lua\LuaSocket\LICENSE"/>
-    <None Include="..\..\..\..\Source\Lua\JuceClasses\lf.template"/>
     <None Include="..\..\..\..\Juce\modules\juce_audio_basics\juce_module_info"/>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\juce_module_info"/>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\juce_module_info"/>

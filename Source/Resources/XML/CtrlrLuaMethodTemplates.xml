@@ -566,7 +566,7 @@
       end
   </luaMethod>
 
-  <luaMethod name="LookAndFeel_V3" resource="LookAndFeel_V3_lua">
+  <luaMethod name="LookAndFeel" resource="LookAndFeel_lua">
   </luaMethod>
 
   <utilityMethods>

@@ -1,12 +1,17 @@
 #include "stdafx.h"
 #include "LLookAndFeel.h"
+#include "LookAndFeelParamWrapper.h"
 
 void LLookAndFeel::wrapForLua (lua_State *L)
 {
-	using namespace luabind;	
+	using namespace luabind;
+	LookAndFeelParamWrapper::wrapForLua(L);
+
 	module(L)
-	[			
-		class_<LookAndFeelBase, LLookAndFeel>("LookAndFeel")					
+	[
+        class_<LLookAndFeel>("LLookAndFeel")
+        ,
+		class_<LookAndFeelBase, LLookAndFeel>("LookAndFeel")
 			.def(constructor<>())
 			.def ("findColour", &LLookAndFeel::findColour, &LLookAndFeel::def_findColour)
 			.def ("setColour", &LLookAndFeel::setColour, &LLookAndFeel::def_setColour)
