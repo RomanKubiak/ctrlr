@@ -113,7 +113,6 @@ void LLookAndFeel::wrapForLua (lua_State *L)
 			.def ("drawCallOutBoxBackground", &LLookAndFeel::drawCallOutBoxBackground, &LLookAndFeel::def_drawCallOutBoxBackground)
 			.def ("drawLevelMeter", &LLookAndFeel::drawLevelMeter, &LLookAndFeel::def_drawLevelMeter)
 			.def ("drawKeymapChangeButton", &LLookAndFeel::drawKeymapChangeButton, &LLookAndFeel::def_drawKeymapChangeButton)
-			.def ("playAlertSound", &LLookAndFeel::playAlertSound, &LLookAndFeel::def_playAlertSound)
 	];
 
 }

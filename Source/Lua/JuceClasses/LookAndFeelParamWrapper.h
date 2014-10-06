@@ -17,7 +17,7 @@ struct LookAndFeelParamWrapper
             slider(&_slider) {}
 
 	LookAndFeelParamWrapper(const String &_text, bool _isSeparator, int _standardMenuItemHeight, int &_idealWidth, int &_idealHeight)
-		:   text(_text),
+		:   text(&_text),
             isSeparator(_isSeparator),
             standardMenuItemHeight(_standardMenuItemHeight),
             idealWidth(_idealWidth),
@@ -58,7 +58,7 @@ struct LookAndFeelParamWrapper
     float imageOpacity;
     float level;
 
-	Font font;
+	Font *font;
 	Component *component;
 	Button *button;
 	ImageButton *imageButton;
@@ -90,20 +90,20 @@ struct LookAndFeelParamWrapper
     bool positionTitleBarButtonsOnLeft;
     bool isVerticalBar;
 
-    String keyDescription;
-    String name;
-    String text;
-	String title;
-	String message;
-	String button1;
-	String button2;
-	String button3;
-	String instructions;
-	String filename;
-	String shortcutKeyText;
-	String itemText;
-	String tipText;
-    String columnName;
+    const String *keyDescription;
+    const String *name;
+    const String *text;
+	const String *title;
+	const String *message;
+	const String *button1;
+	const String *button2;
+	const String *button3;
+	const String *instructions;
+	const String *filename;
+	const String *shortcutKeyText;
+	const String *itemText;
+	const String *tipText;
+    const String *columnName;
 
 	Image *icon;
 	Image *image;
@@ -130,29 +130,29 @@ struct LookAndFeelParamWrapper
 
     /* drawAlertBox */
     AlertWindow *window;
-    Rectangle<int> textArea;
+    Rectangle<int> *textArea;
     TextLayout *layout;
     /* drawAlertBox */
 
     /* drawProgressBar */
     ProgressBar *progressBar;
     double progress;
-    String textToShow;
+    String *textToShow;
     /* drawProgressBar */
 
     ScrollBar *scrollBar;
 
-    Rectangle<float> area;
-    Rectangle<int> areaInt;
+    Rectangle<float> *area;
+    Rectangle<int> *areaInt;
 
-    TextEditor *textEditor;
+    TextEditor *textEditor, *editor;
 
     Component *keyFocusOwner;
 
     /* def_drawFileBrowserRow */
     DirectoryContentsDisplayComponent *directoryContentsDisplayComponent;
-    String fileSizeDescription;
-    String fileTimeDescription;
+    String *fileSizeDescription;
+    String *fileTimeDescription;
     bool isDirectory;
     bool isItemSelected;
     int itemIndex;
@@ -164,9 +164,9 @@ struct LookAndFeelParamWrapper
     TextEditor *filenameBox;
     Button *goUpButton;
 
-    BubbleComponent *bubble;
-    const Point<float> tip;
-    const Rectangle<float> body;
+    BubbleComponent *bubble, *bubbleComponent;
+    const Point<float> *tip;
+    const Rectangle<float> *body;
 
     MenuBarComponent *menuBarComponent;
 
@@ -179,7 +179,7 @@ struct LookAndFeelParamWrapper
 
     ConcertinaPanel *concertinaPanel;
 
-    BorderSize<int> borderSize;
+    BorderSize<int> *borderSize;
 
     ResizableWindow *resizableWindow;
     DocumentWindow *documentWindow;
@@ -193,7 +193,7 @@ struct LookAndFeelParamWrapper
 
     TabBarButton *tabBarButton;
     TabbedButtonBar *tabbedButtonBar;
-    Path *p;
+    Path *p, *path;
 
     TableHeaderComponent *tableHeaderComponent;
 
