@@ -23,6 +23,7 @@ cat $HEADER | grep "def_" | awk '{
 	constNow 	= 0;
 	hack 		= 0;
 	numParams	= 0;
+	numRefParams	= 0;
 	retTypeOffset  	= 2;
 	funcNameOffset 	= 3;
 	paramsOffset   	= 5;
@@ -66,23 +67,100 @@ cat $HEADER | grep "def_" | awk '{
 		}
 		if (i > paramsOffset)
 		{
-			printf ("[params] offset %d value %s\n", i, $i);
+			# printf ("[params] offset %d value %s\n", i, $i);
+			isReference 	= 0;
+			
+			if ($i == "const" && constNow == 0)
+			{
+				constNow = 1;
+				continue;
+			}
+			
+			if (constNow == 1)
+			{
+				if ($i == "const")
+				{
+					hack = 0;
+					constNow = 0;
+					continue;
+				}
+				else
+				{
+					hack = 1;
+				}
+			}
+				
+			param = i;
+			
+			if (index($param, ","))
+				$param = substr ($param, 0, index($param, ",") - 1);
+				
+			if (index($param, ")"))
+				$param = substr ($param, 0, index($param, ")") - 1);
+				
+			if (index($param, "&"))
+			{
+				isReference = 1;
+				$param = substr ($param, 2);
+			}
+			
+			if (index($param, "*"))
+			{
+				$param = substr ($param, 2);
+			}
+			
+			if (index($param, "<"))
+				$param = substr ($param, 0, index($param, "<") - 1);
+			
+			
+			if (hack)
+			{
+				if (! (i%2)) 
+				{
+					paramArray[++numParams] 	= param;
+					paramRefArray[numParams] 	= isReference;
+				}
+			}
+			else
+			{
+				if (i%2) 
+				{
+					paramArray[++numParams] 	= param;
+					paramRefArray[numParams]	= isReference;
+				}
+			}			
 		}
 	}
 	
 	printf ("\n");
+	
 	printf ("\t\t%s %s ", returnType, methodName);
 	
-	printf ("(ParamWrapper &p)\n");
+	printf ("(LookAndFeelParamWrapper &p)\n");
 	if (needsToReturn)
-		printf ("\t\t{ try { return (call<%s>(\"%s\", p)); } catch (luabind::error e) { _WRN(\"%s \"+_STR(e.what())); return (LookAndFeelBase::v3.%s())} }", returnType, methodName, methodName, methodName);
+	{
+		printf ("\t\t{ try { return (call<%s>(\"%s\", p)); } catch (luabind::error e) { _WRN(\"%s \"+_STR(e.what())); return (LookAndFeelBase::v3.%s (", returnType, methodName, methodName, methodName);
+
+		for (x=1; x<=numParams; x++)
+		{
+			if (x == numParams || numParams == 0)
+				printf ("%sp.%s", paramRefArray[x] == 1 ? "*" : "", $paramArray[x]);
+			else
+				printf ("%sp.%s, ", paramRefArray[x] == 1 ? "*" : "", $paramArray[x]);
+		}
+		printf (")); } }");
+	}
 	else
+	{
 		printf ("\t\t{ try { call<void>(\"%s\", p); } catch (luabind::error e) { _WRN(\"%s \"+_STR(e.what())); } }", methodName, methodName);
+	}
+	
 	printf ("\n");
 	
 	printf ("\t\tstatic %s def_%s", returnType, methodName);
-	printf ("(LookAndFeelBase *ptr, ParamWrapper &p)\n");
+	printf ("(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)\n");
 	printf ("\t\t{ ");
+	
 	if (needsToReturn)
 		printf ("return (ptr->LookAndFeelBase::v3.%s (", methodName);
 	else
@@ -91,9 +169,9 @@ cat $HEADER | grep "def_" | awk '{
 	for (x=1; x<=numParams; x++)
 	{
 		if (x == numParams || numParams == 0)
-			printf ("p.%s", $paramArray[x]);
+			printf ("%sp.%s", paramRefArray[x] == 1 ? "*" : "", $paramArray[x]);
 		else
-			printf ("p.%s, ", $paramArray[x]);
+			printf ("%sp.%s, ", paramRefArray[x] == 1 ? "*" : "", $paramArray[x]);
 	}
 	
 	if (needsToReturn)
