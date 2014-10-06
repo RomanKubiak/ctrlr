@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Ctrlr_Plugin_VST">
@@ -44,6 +43,9 @@
     <Filter Include="Ctrlr_Plugin_VST\Lua">
       <UniqueIdentifier>{5960E9B6-946D-930A-BD89-9086FD48C5FB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Lua\JuceClasses">
+      <UniqueIdentifier>{36FE6DF2-30CD-B360-C7E6-CC66C74580E3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Lua\LuaSocket">
       <UniqueIdentifier>{23F91F99-0926-FA10-5ECE-EAFD2D071607}</UniqueIdentifier>
     </Filter>
@@ -55,9 +57,6 @@
     </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Lua\LuaSocket\src">
       <UniqueIdentifier>{F9AEFBB1-1170-1DA6-DDD6-629D70C6B446}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Lua\JuceClasses">
-      <UniqueIdentifier>{36FE6DF2-30CD-B360-C7E6-CC66C74580E3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Lua\Deprecated">
       <UniqueIdentifier>{CBE62F3E-FE56-1471-D24A-A74DB6ECFB39}</UniqueIdentifier>
@@ -526,6 +525,201 @@
     <ClCompile Include="..\..\..\..\Source\Core\stdafx.cpp">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\CtrlrWrap.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFile.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBigInteger.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LButton.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColour.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColourGradient.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComboBox.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponentPeer.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LDrawable.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LExpression.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFile.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFont.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlobalFunctions.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlyphArrangement.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGraphics.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LImage.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLine.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiMessage.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPath.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRandom.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRange.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRectangle.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRelativeCoordinate.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LResult.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSlider.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSparseSet.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LString.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextEditor.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTime.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTimer.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LToggleButton.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LURL.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValue.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaSocket.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
     </ClCompile>
@@ -573,198 +767,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\wsocket.c">
       <Filter>Ctrlr_Plugin_VST\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSparseSet.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\CtrlrWrap.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFile.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LButton.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBigInteger.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColour.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComboBox.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColourGradient.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponentPeer.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LDrawable.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LExpression.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFile.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFont.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlobalFunctions.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlyphArrangement.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGraphics.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LImage.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLine.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiMessage.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPath.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRandom.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRange.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRectangle.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRelativeCoordinate.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LResult.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSlider.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LString.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextEditor.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTime.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTimer.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LToggleButton.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LURL.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValue.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
@@ -1330,12 +1332,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_devices\native\juce_linux_Midi.cpp">
       <Filter>Juce Modules\juce_audio_devices\native</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_devices\native\juce_mac_AudioCDBurner.mm">
-      <Filter>Juce Modules\juce_audio_devices\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_devices\native\juce_mac_AudioCDReader.mm">
-      <Filter>Juce Modules\juce_audio_devices\native</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_devices\native\juce_mac_CoreAudio.cpp">
       <Filter>Juce Modules\juce_audio_devices\native</Filter>
     </ClCompile>
@@ -1411,21 +1407,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_formats\sampler\juce_Sampler.cpp">
       <Filter>Juce Modules\juce_audio_formats\sampler</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\AU\juce_AU_Wrapper.mm">
-      <Filter>Juce Modules\juce_audio_plugin_client\AU</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\RTAS\juce_RTAS_MacUtilities.mm">
-      <Filter>Juce Modules\juce_audio_plugin_client\RTAS</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.mm">
-      <Filter>Juce Modules\juce_audio_plugin_client\VST</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.mm">
-      <Filter>Juce Modules\juce_audio_plugin_client\VST3</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\AAX\juce_AAX_Wrapper.mm">
-      <Filter>Juce Modules\juce_audio_plugin_client\AAX</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_processors\processors\juce_AudioProcessor.cpp">
       <Filter>Juce Modules\juce_audio_processors\processors</Filter>
     </ClCompile>
@@ -1446,9 +1427,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_processors\format\juce_AudioPluginFormatManager.cpp">
       <Filter>Juce Modules\juce_audio_processors\format</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_processors\format_types\juce_AudioUnitPluginFormat.mm">
-      <Filter>Juce Modules\juce_audio_processors\format_types</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_processors\format_types\juce_LADSPAPluginFormat.cpp">
       <Filter>Juce Modules\juce_audio_processors\format_types</Filter>
@@ -1690,21 +1668,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_linux_Threads.cpp">
       <Filter>Juce Modules\juce_core\native</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_Files.mm">
-      <Filter>Juce Modules\juce_core\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_Network.mm">
-      <Filter>Juce Modules\juce_core\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_Strings.mm">
-      <Filter>Juce Modules\juce_core\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_SystemStats.mm">
-      <Filter>Juce Modules\juce_core\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_Threads.mm">
-      <Filter>Juce Modules\juce_core\native</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_posix_NamedPipe.cpp">
       <Filter>Juce Modules\juce_core\native</Filter>
     </ClCompile>
@@ -1792,13 +1755,7 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_android_Messaging.cpp">
       <Filter>Juce Modules\juce_events\native</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_ios_MessageManager.mm">
-      <Filter>Juce Modules\juce_events\native</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_linux_Messaging.cpp">
-      <Filter>Juce Modules\juce_events\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_mac_MessageManager.mm">
       <Filter>Juce Modules\juce_events\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_win32_Messaging.cpp">
@@ -1898,12 +1855,6 @@
       <Filter>Juce Modules\juce_graphics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\native\juce_linux_Fonts.cpp">
-      <Filter>Juce Modules\juce_graphics\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\native\juce_mac_CoreGraphicsContext.mm">
-      <Filter>Juce Modules\juce_graphics\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\native\juce_mac_Fonts.mm">
       <Filter>Juce Modules\juce_graphics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\native\juce_win32_Direct2DGraphicsContext.cpp">
@@ -2254,12 +2205,6 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_android_Windowing.cpp">
       <Filter>Juce Modules\juce_gui_basics\native</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_ios_UIViewComponentPeer.mm">
-      <Filter>Juce Modules\juce_gui_basics\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_ios_Windowing.mm">
-      <Filter>Juce Modules\juce_gui_basics\native</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_linux_Clipboard.cpp">
       <Filter>Juce Modules\juce_gui_basics\native</Filter>
     </ClCompile>
@@ -2267,21 +2212,6 @@
       <Filter>Juce Modules\juce_gui_basics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_linux_Windowing.cpp">
-      <Filter>Juce Modules\juce_gui_basics\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_FileChooser.mm">
-      <Filter>Juce Modules\juce_gui_basics\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_MainMenu.mm">
-      <Filter>Juce Modules\juce_gui_basics\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_MouseCursor.mm">
-      <Filter>Juce Modules\juce_gui_basics\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_NSViewComponentPeer.mm">
-      <Filter>Juce Modules\juce_gui_basics\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_Windowing.mm">
       <Filter>Juce Modules\juce_gui_basics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_win32_DragAndDrop.cpp">
@@ -2338,25 +2268,13 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_android_WebBrowserComponent.cpp">
       <Filter>Juce Modules\juce_gui_extra\native</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_ios_UIViewComponent.mm">
-      <Filter>Juce Modules\juce_gui_extra\native</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_linux_SystemTrayIcon.cpp">
       <Filter>Juce Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_linux_WebBrowserComponent.cpp">
       <Filter>Juce Modules\juce_gui_extra\native</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_AppleRemote.mm">
-      <Filter>Juce Modules\juce_gui_extra\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_NSViewComponent.mm">
-      <Filter>Juce Modules\juce_gui_extra\native</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_SystemTrayIcon.cpp">
-      <Filter>Juce Modules\juce_gui_extra\native</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_WebBrowserComponent.mm">
       <Filter>Juce Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_win32_ActiveXComponent.cpp">
@@ -2556,6 +2474,201 @@
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFile.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBigInteger.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LButton.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LColour.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LColourGradient.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LComboBox.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LComponent.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LComponentPeer.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LDrawable.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LExpression.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFile.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFont.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LGlobalFunctions.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LGlyphArrangement.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LGraphics.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LImage.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLine.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiMessage.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelParamWrapper.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPath.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LRandom.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LRange.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LRectangle.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LRelativeCoordinate.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LResult.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LSlider.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LSparseSet.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LString.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextEditor.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThread.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTime.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTimer.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LToggleButton.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LURL.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LValue.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaSocket.h">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
     </ClInclude>
@@ -2606,195 +2719,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\wsocket.h">
       <Filter>Ctrlr_Plugin_VST\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThread.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LSparseSet.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFile.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LButton.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBigInteger.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LColour.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LComboBox.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LColourGradient.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LComponent.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LComponentPeer.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LDrawable.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LExpression.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFile.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFont.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LGlobalFunctions.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LGlyphArrangement.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LGraphics.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LImage.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLine.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiMessage.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPath.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LRandom.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LRange.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LRectangle.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LRelativeCoordinate.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LResult.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LSlider.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LString.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextEditor.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTime.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTimer.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LToggleButton.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LURL.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LValue.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.h">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
@@ -4802,10 +4726,16 @@
     <None Include="..\..\..\..\Source\Core\CtrlrRevision.template">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.cpp.sh">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.h.sh">
       <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeel.lua.sh">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\lf.template">
       <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Lua\LookAndFeel.lua">
