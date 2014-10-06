@@ -9,11 +9,17 @@
 
 namespace BinaryData
 {
+    extern const char*   gen_LLookAndFeel_cpp_sh;
+    const int            gen_LLookAndFeel_cpp_shSize = 2533;
+
     extern const char*   gen_LLookAndFeel_h_sh;
     const int            gen_LLookAndFeel_h_shSize = 3385;
 
     extern const char*   gen_LookAndFeel_lua_sh;
     const int            gen_LookAndFeel_lua_shSize = 2221;
+
+    extern const char*   lf_template;
+    const int            lf_templateSize = 13499;
 
     extern const char*   LookAndFeel_lua;
     const int            LookAndFeel_luaSize = 15689;
@@ -187,7 +193,7 @@ namespace BinaryData
     const int            CtrlrIDs_xmlSize = 79061;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 17302;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 17296;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
@@ -222,14 +228,11 @@ namespace BinaryData
     extern const char*   LICENSE;
     const int            LICENSESize = 1082;
 
-    extern const char*   lf_template;
-    const int            lf_templateSize = 43839;
-
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 72;
+    const int namedResourceListSize = 73;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

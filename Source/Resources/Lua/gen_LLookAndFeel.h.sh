@@ -66,66 +66,7 @@ cat $HEADER | grep "def_" | awk '{
 		}
 		if (i > paramsOffset)
 		{
-			# printf ("[params] offset %d value %s\n", i, $i);
-			if ($i == "const" && constNow == 0)
-			{
-				constNow = 1;
-				continue;
-			}
-			
-			if (constNow == 1)
-			{
-				if ($i == "const")
-				{
-					hack = 0;
-					constNow = 0;
-					continue;
-				}
-				else
-				{
-					hack = 1;
-				}
-			}
-				
-			param = i;
-			
-			if (index($param, ","))
-				$param = substr ($param, 0, index($param, ",") - 1);	
-				
-			if (index($param, ")"))
-				$param = substr ($param, 0, index($param, ")") - 1);
-				
-			if (index($param, "&"))
-				$param = substr ($param, 2);
-				
-			if (index($param, "<"))
-				$param = substr ($param, 0, index($param, "<") - 1);
-			
-			if (hack)
-			{
-				if (! (i%2)) 
-				{
-					paramArray[++numParams] = param;
-					# printf ("p.%s", (i == NF ? $param : $param", ")); 
-				}
-				else 
-				{
-					# printf ("%s ", $param);
-				}
-			}
-			else
-			{
-				if (i%2) 
-				{
-					paramArray[++numParams] = param;
-					# printf ("p.%s", (i == NF ? $param : $param", ")); 
-				}
-				else 
-				{
-					# printf ("%s ", $param);
-				}
-			}
-						
+			printf ("[params] offset %d value %s\n", i, $i);
 		}
 	}
 	
@@ -134,7 +75,7 @@ cat $HEADER | grep "def_" | awk '{
 	
 	printf ("(ParamWrapper &p)\n");
 	if (needsToReturn)
-		printf ("\t\t{ try { return (call<%s>(\"%s\", p)); } catch (luabind::error e) { _WRN(\"%s \"+_STR(e.what())); } }", returnType, methodName, methodName);
+		printf ("\t\t{ try { return (call<%s>(\"%s\", p)); } catch (luabind::error e) { _WRN(\"%s \"+_STR(e.what())); return (LookAndFeelBase::v3.%s())} }", returnType, methodName, methodName, methodName);
 	else
 		printf ("\t\t{ try { call<void>(\"%s\", p); } catch (luabind::error e) { _WRN(\"%s \"+_STR(e.what())); } }", methodName, methodName);
 	printf ("\n");

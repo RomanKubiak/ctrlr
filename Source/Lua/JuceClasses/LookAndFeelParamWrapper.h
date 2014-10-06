@@ -3,9 +3,9 @@
 
 #include "CtrlrMacros.h"
 
-struct ParamWrapper
+struct LookAndFeelParamWrapper
 {
-	ParamWrapper(Graphics &_g, int _x, int _y, int _width, int _height, float _sliderPosProportional, float _rotaryStartAngle, float _rotaryEndAngle, Slider &_slider)
+	LookAndFeelParamWrapper(Graphics &_g, int _x, int _y, int _width, int _height, float _sliderPosProportional, float _rotaryStartAngle, float _rotaryEndAngle, Slider &_slider)
 		:   g(&_g),
             x(_x),
             y(_y),
@@ -16,7 +16,7 @@ struct ParamWrapper
             rotaryEndAngle(_rotaryEndAngle),
             slider(&_slider) {}
 
-	ParamWrapper(const String &_text, bool _isSeparator, int _standardMenuItemHeight, int &_idealWidth, int &_idealHeight)
+	LookAndFeelParamWrapper(const String &_text, bool _isSeparator, int _standardMenuItemHeight, int &_idealWidth, int &_idealHeight)
 		:   text(_text),
             isSeparator(_isSeparator),
             standardMenuItemHeight(_standardMenuItemHeight),
@@ -209,20 +209,20 @@ struct ParamWrapper
         using namespace luabind;
         module(L)
         [
-            class_<ParamWrapper>("ParamWrapper")
-                .def_readwrite ("g", &ParamWrapper::g)
-                .def_readonly ("x", &ParamWrapper::x)
-                .def_readonly ("y", &ParamWrapper::y)
-                .def_readonly ("width", &ParamWrapper::width)
-                .def_readonly ("height", &ParamWrapper::height)
-                .def_readonly ("isSeparator", &ParamWrapper::isSeparator)
-                .def_readonly ("standardMenuItemHeight", &ParamWrapper::standardMenuItemHeight)
-                .def_readonly ("sliderPosProportional", &ParamWrapper::sliderPosProportional)
-                .def_readonly ("rotaryStartAngle", &ParamWrapper::rotaryStartAngle)
-                .def_readonly ("rotaryEndAngle", &ParamWrapper::rotaryEndAngle)
-                .def_readwrite ("slider", &ParamWrapper::slider)
-                .def_readwrite ("idealWidth", &ParamWrapper::idealWidth)
-                .def_readwrite ("idealHeight", &ParamWrapper::idealHeight)
+            class_<LookAndFeelParamWrapper>("LookAndFeelParamWrapper")
+                .def_readwrite ("g", &LookAndFeelParamWrapper::g)
+                .def_readonly ("x", &LookAndFeelParamWrapper::x)
+                .def_readonly ("y", &LookAndFeelParamWrapper::y)
+                .def_readonly ("width", &LookAndFeelParamWrapper::width)
+                .def_readonly ("height", &LookAndFeelParamWrapper::height)
+                .def_readonly ("isSeparator", &LookAndFeelParamWrapper::isSeparator)
+                .def_readonly ("standardMenuItemHeight", &LookAndFeelParamWrapper::standardMenuItemHeight)
+                .def_readonly ("sliderPosProportional", &LookAndFeelParamWrapper::sliderPosProportional)
+                .def_readonly ("rotaryStartAngle", &LookAndFeelParamWrapper::rotaryStartAngle)
+                .def_readonly ("rotaryEndAngle", &LookAndFeelParamWrapper::rotaryEndAngle)
+                .def_readwrite ("slider", &LookAndFeelParamWrapper::slider)
+                .def_readwrite ("idealWidth", &LookAndFeelParamWrapper::idealWidth)
+                .def_readwrite ("idealHeight", &LookAndFeelParamWrapper::idealHeight)
         ];
     }
 };

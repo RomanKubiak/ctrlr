@@ -160,10 +160,13 @@
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
       <GROUP id="{9AA7A95B-18B0-8AB1-FF2C-719D1130345F}" name="Lua">
+        <FILE id="rejJtR" name="gen_LLookAndFeel.cpp.sh" compile="0" resource="1"
+              file="../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh"/>
         <FILE id="v16HHl" name="gen_LLookAndFeel.h.sh" compile="0" resource="1"
               file="../../Source/Resources/Lua/gen_LLookAndFeel.h.sh"/>
         <FILE id="vq9FWX" name="gen_LookAndFeel.lua.sh" compile="0" resource="1"
               file="../../Source/Resources/Lua/gen_LookAndFeel.lua.sh"/>
+        <FILE id="qNpZ1K" name="lf.template" compile="0" resource="1" file="../../Source/Resources/Lua/lf.template"/>
         <FILE id="taWS6C" name="LookAndFeel.lua" compile="0" resource="1" file="../../Source/Resources/Lua/LookAndFeel.lua"/>
       </GROUP>
       <GROUP id="{675B9675-5157-95D4-7C42-61D020DD23E6}" name="Misc">
@@ -492,7 +495,6 @@
               file="../../Source/Lua/JuceClasses/LBubbleMessageComponent.cpp"/>
         <FILE id="Qawz4y" name="LBubbleMessageComponent.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LBubbleMessageComponent.h"/>
-        <FILE id="rPiK9m" name="lf.template" compile="0" resource="1" file="../../Source/Lua/JuceClasses/lf.template"/>
         <FILE id="KROM22" name="LColour.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LColour.cpp"/>
         <FILE id="t8NDxd" name="LColour.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LColour.h"/>
         <FILE id="DmwWUf" name="LComboBox.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.cpp"/>

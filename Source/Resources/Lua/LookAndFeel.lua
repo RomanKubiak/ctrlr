@@ -1,11 +1,11 @@
-class '__method_name' (LookAndFeel_V3)
+class '__method_name' (LookAndFeel)
 
 function __method_name:__init()
 	--
 	-- This is needed for luabind, please don't remove this line
 	-- Add as much code as you like here, just leave this
 	--
-	LookAndFeel_V3.__init(self)
+	LookAndFeel.__init(self)
 end
 
 function __method_name:findColour (--[[ int p.colourId --]] p)
@@ -46,25 +46,25 @@ function __method_name:getMouseCursorFor (--[[ Component p.component --]] p)
 	-- return MouseCursor
 end
 
-function __method_name:drawButtonBackground (--[[ Graphics p.g, Button p.b, Colour p.c, bool p.over, bool p.down --]] p)
+function __method_name:drawButtonBackground (--[[ Graphics p.g, Button p.button, Colour p.backgroundColour, bool p.isMouseOverButton, bool p.isButtonDown --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawButtonText (--[[ Graphics p.g, TextButton p.button, bool p.isMouseOverButton, bool p.isButtonDown --]] p)
+function __method_name:drawButtonText (--[[ Graphics p.g, TextButton p.textButton, bool p.isMouseOverButton, bool p.isButtonDown --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawToggleButton (--[[ Graphics p.g, ToggleButton p.button, bool p.isMouseOverButton, bool p.isButtonDown --]] p)
+function __method_name:drawToggleButton (--[[ Graphics p.g, ToggleButton p.toggleButton, bool p.isMouseOverButton, bool p.isButtonDown --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:changeToggleButtonWidthToFitText (--[[ ToggleButton p.button --]] p)
+function __method_name:changeToggleButtonWidthToFitText (--[[ ToggleButton p.toggleButton --]] p)
 	--
 	-- Body
 	--
@@ -76,7 +76,7 @@ function __method_name:drawTickBox (--[[ Graphics p.g, Component p.component, fl
 	--
 end
 
-function __method_name:createAlertWindow (--[[ String p.title, String p.message, String p.button1, String p.button2, String p.button3, AlertWindow::AlertIconType p.iconType, int p.numButtons, Component* p.associatedComponent --]] p)
+function __method_name:createAlertWindow (--[[ String p.title, String p.message, String p.button1, String p.button2, String p.button3, AlertWindow::AlertIconType p.iconType, int p.numButtons, Component* p.component --]] p)
 	--
 	-- Body
 	--
@@ -122,7 +122,7 @@ function __method_name:getAlertWindowFont (--[[  --]] p)
 	-- return Font
 end
 
-function __method_name:drawProgressBar (--[[ Graphics p.g, ProgressBar p.bar, int p.width, int p.height, double p.progress, String p.textToShow --]] p)
+function __method_name:drawProgressBar (--[[ Graphics p.g, ProgressBar p.progressBar, int p.width, int p.height, double p.progress, String p.textToShow --]] p)
 	--
 	-- Body
 	--
@@ -150,7 +150,7 @@ function __method_name:getScrollbarEffect (--[[  --]] p)
 	-- return ImageEffectFilter*
 end
 
-function __method_name:getMinimumScrollbarThumbSize (--[[ ScrollBar p.bar --]] p)
+function __method_name:getMinimumScrollbarThumbSize (--[[ ScrollBar p.scrollBar --]] p)
 	--
 	-- Body
 	--
@@ -166,7 +166,7 @@ function __method_name:getDefaultScrollbarWidth (--[[  --]] p)
 	-- return int
 end
 
-function __method_name:getScrollbarButtonSize (--[[ ScrollBar p.bar --]] p)
+function __method_name:getScrollbarButtonSize (--[[ ScrollBar p.scrollBar --]] p)
 	--
 	-- Body
 	--
@@ -208,7 +208,7 @@ function __method_name:drawTextEditorOutline (--[[ Graphics p.g, int p.width, in
 	--
 end
 
-function __method_name:createCaretComponent (--[[ Component* p.keyFocusOwner --]] p)
+function __method_name:createCaretComponent (--[[ Component* p.component --]] p)
 	--
 	-- Body
 	--
@@ -240,7 +240,7 @@ function __method_name:createFileChooserHeaderText (--[[ String p.title, String 
 	-- return AttributedString
 end
 
-function __method_name:drawFileBrowserRow (--[[ Graphics p.g, int p.width, int p.height, String p.filename, Image* p.icon, String p.fileSizeDescription, String p.fileTimeDescription, bool p.isDirectory, bool p.isItemSelected, int p.itemIndex, DirectoryContentsDisplayComponent p.component --]] p)
+function __method_name:drawFileBrowserRow (--[[ Graphics p.g, int p.width, int p.height, String p.filename, Image* p.icon, String p.fileSizeDescription, String p.fileTimeDescription, bool p.isDirectory, bool p.isItemSelected, int p.itemIndex, DirectoryContentsDisplayComponent p.directoryContentsDisplayComponent --]] p)
 	--
 	-- Body
 	--
@@ -254,13 +254,13 @@ function __method_name:createFileBrowserGoUpButton (--[[  --]] p)
 	-- return Button*
 end
 
-function __method_name:layoutFileBrowserComponent (--[[ FileBrowserComponent p.component, DirectoryContentsDisplayComponent* p.contentsComponent, FilePreviewComponent* p.previewComponent, ComboBox* p.currentPathBox, TextEditor* p.filenameBox, Button* p.goUpButton --]] p)
+function __method_name:layoutFileBrowserComponent (--[[ FileBrowserComponent p.fileBrowserComponent, DirectoryContentsDisplayComponent p.*directoryContentsDisplayComponent, FilePreviewComponent p.*filePreviewComponent, ComboBox p.*comboBox, TextEditor p.*textEditor, Button p.*goUpButton --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawBubble (--[[ Graphics p.g, BubbleComponent p.bubble, Point p.tip, Rectangle p.body --]] p)
+function __method_name:drawBubble (--[[ Graphics p.g, BubbleComponent p.bubbleComponent, Point p.tip, Rectangle p.body --]] p)
 	--
 	-- Body
 	--
@@ -278,7 +278,7 @@ function __method_name:drawPopupMenuBackground (--[[ Graphics p.g, int p.width, 
 	--
 end
 
-function __method_name:drawPopupMenuItem (--[[ Graphics p.g, Rectangle p.area, bool p.isSeparator, bool p.isActive, bool p.isHighlighted, bool p.isTicked, bool p.hasSubMenu, String p.text, String p.shortcutKeyText, Drawable* p.icon, Colour* p.textColour --]] p)
+function __method_name:drawPopupMenuItem (--[[ Graphics p.g, Rectangle p.areaInt, bool p.isSeparator, bool p.isActive, bool p.isHighlighted, bool p.isTicked, bool p.hasSubMenu, String p.text, String p.shortcutKeyText, Drawable* p.drawableIcon, Colour* p.textColour --]] p)
 	--
 	-- Body
 	--
@@ -312,13 +312,13 @@ function __method_name:getMenuWindowFlags (--[[  --]] p)
 	-- return int
 end
 
-function __method_name:drawMenuBarBackground (--[[ Graphics p.g, int p.width, int p.height, bool p.isMouseOverBar, MenuBarComponent p.component --]] p)
+function __method_name:drawMenuBarBackground (--[[ Graphics p.g, int p.width, int p.height, bool p.isMouseOverBar, MenuBarComponent p.menuBarComponent --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:getMenuBarItemWidth (--[[ MenuBarComponent p.component, int p.itemIndex, String p.itemText --]] p)
+function __method_name:getMenuBarItemWidth (--[[ MenuBarComponent p.menuBarComponent, int p.itemIndex, String p.itemText --]] p)
 	--
 	-- Body
 	--
@@ -326,7 +326,7 @@ function __method_name:getMenuBarItemWidth (--[[ MenuBarComponent p.component, i
 	-- return int
 end
 
-function __method_name:getMenuBarFont (--[[ MenuBarComponent p.component, int p.itemIndex, String p.itemText --]] p)
+function __method_name:getMenuBarFont (--[[ MenuBarComponent p.menuBarComponent, int p.itemIndex, String p.itemText --]] p)
 	--
 	-- Body
 	--
@@ -334,19 +334,19 @@ function __method_name:getMenuBarFont (--[[ MenuBarComponent p.component, int p.
 	-- return Font
 end
 
-function __method_name:drawMenuBarItem (--[[ Graphics p.g, int p.width, int p.height, int p.itemIndex, String p.itemText, bool p.isMouseOverItem, bool p.isMenuOpen, bool p.isMouseOverBar, MenuBarComponent p.component --]] p)
+function __method_name:drawMenuBarItem (--[[ Graphics p.g, int p.width, int p.height, int p.itemIndex, String p.itemText, bool p.isMouseOverItem, bool p.isMenuOpen, bool p.isMouseOverBar, MenuBarComponent p.menuBarComponent --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawComboBox (--[[ Graphics p.g, int p.width, int p.height, bool p.isButtonDown, int p.buttonX, int p.buttonY, int p.buttonW, int p.buttonH, ComboBox p.component --]] p)
+function __method_name:drawComboBox (--[[ Graphics p.g, int p.width, int p.height, bool p.isButtonDown, int p.buttonX, int p.buttonY, int p.buttonW, int p.buttonH, ComboBox p.comobBox --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:getComboBoxFont (--[[ ComboBox p.component --]] p)
+function __method_name:getComboBoxFont (--[[ ComboBox p.comobBox --]] p)
 	--
 	-- Body
 	--
@@ -354,7 +354,7 @@ function __method_name:getComboBoxFont (--[[ ComboBox p.component --]] p)
 	-- return Font
 end
 
-function __method_name:createComboBoxTextBox (--[[ ComboBox p.component --]] p)
+function __method_name:createComboBoxTextBox (--[[ ComboBox p.comobBox --]] p)
 	--
 	-- Body
 	--
@@ -362,7 +362,7 @@ function __method_name:createComboBoxTextBox (--[[ ComboBox p.component --]] p)
 	-- return Label*
 end
 
-function __method_name:positionComboBoxText (--[[ ComboBox p.component, Label p.label --]] p)
+function __method_name:positionComboBoxText (--[[ ComboBox p.comboBox, Label p.label --]] p)
 	--
 	-- Body
 	--
@@ -374,25 +374,25 @@ function __method_name:drawLabel (--[[ Graphics p.g, Label p.label --]] p)
 	--
 end
 
-function __method_name:drawLinearSlider (--[[ Graphics p.g, int p.x, int p.y, int p.width, int p.height, float p.sliderPos, float p.minSliderPos, float p.maxSliderPos, Slider::SliderStyle p.style, Slider p.component --]] p)
+function __method_name:drawLinearSlider (--[[ Graphics p.g, int p.x, int p.y, int p.width, int p.height, float p.sliderPos, float p.minSliderPos, float p.maxSliderPos, Slider::SliderStyle p.sliderStyle, Slider p.slider --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawLinearSliderBackground (--[[ Graphics p.g, int p.x, int p.y, int p.width, int p.height, float p.sliderPos, float p.minSliderPos, float p.maxSliderPos, Slider::SliderStyle p.style, Slider p.component --]] p)
+function __method_name:drawLinearSliderBackground (--[[ Graphics p.g, int p.x, int p.y, int p.width, int p.height, float p.sliderPos, float p.minSliderPos, float p.maxSliderPos, Slider::SliderStyle p.sliderStyle, Slider p.slider --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawLinearSliderThumb (--[[ Graphics p.g, int p.x, int p.y, int p.width, int p.height, float p.sliderPos, float p.minSliderPos, float p.maxSliderPos, Slider::SliderStyle p.style, Slider p.component --]] p)
+function __method_name:drawLinearSliderThumb (--[[ Graphics p.g, int p.x, int p.y, int p.width, int p.height, float p.sliderPos, float p.minSliderPos, float p.maxSliderPos, Slider::SliderStyle p.sliderStyle, Slider p.slider --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:getSliderThumbRadius (--[[ Slider p.component --]] p)
+function __method_name:getSliderThumbRadius (--[[ Slider p.slider --]] p)
 	--
 	-- Body
 	--
@@ -406,7 +406,7 @@ function __method_name:drawRotarySlider (--[[ Graphics p.g, int p.x, int p.y, in
 	--
 end
 
-function __method_name:createSliderButton (--[[ Slider p.component, bool p.isIncrement --]] p)
+function __method_name:createSliderButton (--[[ Slider p.slider, bool p.isIncrement --]] p)
 	--
 	-- Body
 	--
@@ -414,7 +414,7 @@ function __method_name:createSliderButton (--[[ Slider p.component, bool p.isInc
 	-- return Button*
 end
 
-function __method_name:createSliderTextBox (--[[ Slider p.component --]] p)
+function __method_name:createSliderTextBox (--[[ Slider p.slider --]] p)
 	--
 	-- Body
 	--
@@ -422,7 +422,7 @@ function __method_name:createSliderTextBox (--[[ Slider p.component --]] p)
 	-- return Label*
 end
 
-function __method_name:getSliderEffect (--[[ Slider p.component --]] p)
+function __method_name:getSliderEffect (--[[ Slider p.slider --]] p)
 	--
 	-- Body
 	--
@@ -450,13 +450,13 @@ function __method_name:createFilenameComponentBrowseButton (--[[ String p.text -
 	-- return Button*
 end
 
-function __method_name:layoutFilenameComponent (--[[ FilenameComponent p.component, ComboBox* p.filenameBox, Button* p.browseButton --]] p)
+function __method_name:layoutFilenameComponent (--[[ FilenameComponent p.filenameComponent, ComboBox* p.comboBox, Button* p.button --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawConcertinaPanelHeader (--[[ Graphics p.g, Rectangle p.area, bool p.isMouseOver, bool p.isMouseDown, ConcertinaPanel p.component, Component p.panel --]] p)
+function __method_name:drawConcertinaPanelHeader (--[[ Graphics p.g, Rectangle p.area, bool p.isMouseOver, bool p.isMouseDown, ConcertinaPanel p.concertinaPanel, Component p.component --]] p)
 	--
 	-- Body
 	--
@@ -474,19 +474,19 @@ function __method_name:drawResizableFrame (--[[ Graphics p.g, int p.w, int p.h, 
 	--
 end
 
-function __method_name:fillResizableWindowBackground (--[[ Graphics p.g, int p.w, int p.h, BorderSize p.borderSize, ResizableWindow p.window --]] p)
+function __method_name:fillResizableWindowBackground (--[[ Graphics p.g, int p.w, int p.h, BorderSize p.borderSize, ResizableWindow p.resizableWindow --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawResizableWindowBorder (--[[ Graphics p.g, int p.w, int p.h, BorderSize p.borderSize, ResizableWindow p.window --]] p)
+function __method_name:drawResizableWindowBorder (--[[ Graphics p.g, int p.w, int p.h, BorderSize p.borderSize, ResizableWindow p.resizableWindow --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawDocumentWindowTitleBar (--[[ DocumentWindow p.window, Graphics p.g, int p.w, int p.h, int p.titleSpaceX, int p.titleSpaceW, Image* p.icon, bool p.drawTitleTextOnLeft --]] p)
+function __method_name:drawDocumentWindowTitleBar (--[[ DocumentWindow p.documentWindow, Graphics p.g, int p.w, int p.h, int p.titleSpaceX, int p.titleSpaceW, Image* p.icon, bool p.drawTitleTextOnLeft --]] p)
 	--
 	-- Body
 	--
@@ -500,7 +500,7 @@ function __method_name:createDocumentWindowButton (--[[ int p.buttonType --]] p)
 	-- return Button*
 end
 
-function __method_name:positionDocumentWindowButtons (--[[ DocumentWindow p.window, int p.titleBarX, int p.titleBarY, int p.titleBarW, int p.titleBarH, Button* p.minimiseButton, Button* p.maximiseButton, Button* p.closeButton, bool p.positionTitleBarButtonsOnLeft --]] p)
+function __method_name:positionDocumentWindowButtons (--[[ DocumentWindow p.documentWindow, int p.titleBarX, int p.titleBarY, int p.titleBarW, int p.titleBarH, Button* p.minimiseButton, Button* p.maximiseButton, Button* p.closeButton, bool p.positionTitleBarButtonsOnLeft --]] p)
 	--
 	-- Body
 	--
@@ -522,7 +522,7 @@ function __method_name:createDropShadowerForComponent (--[[ Component* p.compone
 	-- return DropShadower*
 end
 
-function __method_name:drawGroupComponentOutline (--[[ Graphics p.g, int p.w, int p.h, String p.text, Justification p.justification, GroupComponent p.component --]] p)
+function __method_name:drawGroupComponentOutline (--[[ Graphics p.g, int p.w, int p.h, String p.text, Justification p.justification, GroupComponent p.groupComponent --]] p)
 	--
 	-- Body
 	--
@@ -544,7 +544,7 @@ function __method_name:getTabButtonOverlap (--[[ int p.tabDepth --]] p)
 	-- return int
 end
 
-function __method_name:getTabButtonBestWidth (--[[ TabBarButton p.component, int p.tabDepth --]] p)
+function __method_name:getTabButtonBestWidth (--[[ TabBarButton p.tabBarButton, int p.tabDepth --]] p)
 	--
 	-- Body
 	--
@@ -552,7 +552,7 @@ function __method_name:getTabButtonBestWidth (--[[ TabBarButton p.component, int
 	-- return int
 end
 
-function __method_name:getTabButtonExtraComponentBounds (--[[ TabBarButton p.component, Rectangle p.textArea, Component p.extraComp --]] p)
+function __method_name:getTabButtonExtraComponentBounds (--[[ TabBarButton p.tabBarButton, Rectangle p.areaInt, Component p.component --]] p)
 	--
 	-- Body
 	--
@@ -560,31 +560,31 @@ function __method_name:getTabButtonExtraComponentBounds (--[[ TabBarButton p.com
 	-- return Rectangle<int>
 end
 
-function __method_name:drawTabButton (--[[ TabBarButton p.component, Graphics p.g, bool p.isMouseOver, bool p.isMouseDown --]] p)
+function __method_name:drawTabButton (--[[ TabBarButton p.tabBarButton, Graphics p.g, bool p.isMouseOver, bool p.isMouseDown --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawTabButtonText (--[[ TabBarButton p.component, Graphics p.g, bool p.isMouseOver, bool p.isMouseDown --]] p)
+function __method_name:drawTabButtonText (--[[ TabBarButton p.tabBarButton, Graphics p.g, bool p.isMouseOver, bool p.isMouseDown --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawTabAreaBehindFrontButton (--[[ TabbedButtonBar p.component, Graphics p.g, int p.w, int p.h --]] p)
+function __method_name:drawTabAreaBehindFrontButton (--[[ TabbedButtonBar p.tabbedButtonBar, Graphics p.g, int p.w, int p.h --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:createTabButtonShape (--[[ TabBarButton p.component, Path p.p, bool p.isMouseOver, bool p.isMouseDown --]] p)
+function __method_name:createTabButtonShape (--[[ TabBarButton p.tabBarButton, Path p.p, bool p.isMouseOver, bool p.isMouseDown --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:fillTabButtonShape (--[[ TabBarButton p.component, Graphics p.g, Path p.p, bool p.isMouseOver, bool p.isMouseDown --]] p)
+function __method_name:fillTabButtonShape (--[[ TabBarButton p.tabBarButton, Graphics p.g, Path p.p, bool p.isMouseOver, bool p.isMouseDown --]] p)
 	--
 	-- Body
 	--
@@ -598,7 +598,7 @@ function __method_name:createTabBarExtrasButton (--[[  --]] p)
 	-- return Button*
 end
 
-function __method_name:drawImageButton (--[[ Graphics p.g, Image* p.image, int p.imageX, int p.imageY, int p.imageW, int p.imageH, Colour p.overlayColour, float p.imageOpacity, ImageButton p.component --]] p)
+function __method_name:drawImageButton (--[[ Graphics p.g, Image* p.image, int p.imageX, int p.imageY, int p.imageW, int p.imageH, Colour p.overlayColour, float p.imageOpacity, ImageButton p.imageButton --]] p)
 	--
 	-- Body
 	--
@@ -616,13 +616,13 @@ function __method_name:drawTableHeaderColumn (--[[ Graphics p.g, String p.column
 	--
 end
 
-function __method_name:paintToolbarBackground (--[[ Graphics p.g, int p.width, int p.height, Toolbar p.component --]] p)
+function __method_name:paintToolbarBackground (--[[ Graphics p.g, int p.width, int p.height, Toolbar p.toolbar --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:createToolbarMissingItemsButton (--[[ Toolbar p.component --]] p)
+function __method_name:createToolbarMissingItemsButton (--[[ Toolbar p.toolbar --]] p)
 	--
 	-- Body
 	--
@@ -630,13 +630,13 @@ function __method_name:createToolbarMissingItemsButton (--[[ Toolbar p.component
 	-- return Button*
 end
 
-function __method_name:paintToolbarButtonBackground (--[[ Graphics p.g, int p.width, int p.height, bool p.isMouseOver, bool p.isMouseDown, ToolbarItemComponent p.component --]] p)
+function __method_name:paintToolbarButtonBackground (--[[ Graphics p.g, int p.width, int p.height, bool p.isMouseOver, bool p.isMouseDown, ToolbarItemComponent p.toolbarItemComponent --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:paintToolbarButtonLabel (--[[ Graphics p.g, int p.x, int p.y, int p.width, int p.height, String p.text, ToolbarItemComponent p.component --]] p)
+function __method_name:paintToolbarButtonLabel (--[[ Graphics p.g, int p.x, int p.y, int p.width, int p.height, String p.text, ToolbarItemComponent p.toolbarItemComponent --]] p)
 	--
 	-- Body
 	--
@@ -654,19 +654,19 @@ function __method_name:drawPropertyPanelSectionHeader (--[[ Graphics p.g, String
 	--
 end
 
-function __method_name:drawPropertyComponentBackground (--[[ Graphics p.g, int p.width, int p.height, PropertyComponent p.component --]] p)
+function __method_name:drawPropertyComponentBackground (--[[ Graphics p.g, int p.width, int p.height, PropertyComponent p.propertyComponent --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:drawPropertyComponentLabel (--[[ Graphics p.g, int p.width, int p.height, PropertyComponent p.component --]] p)
+function __method_name:drawPropertyComponentLabel (--[[ Graphics p.g, int p.width, int p.height, PropertyComponent p.propertyComponent --]] p)
 	--
 	-- Body
 	--
 end
 
-function __method_name:getPropertyComponentContentPosition (--[[ PropertyComponent p.component --]] p)
+function __method_name:getPropertyComponentContentPosition (--[[ PropertyComponent p.propertyComponent --]] p)
 	--
 	-- Body
 	--
@@ -674,7 +674,7 @@ function __method_name:getPropertyComponentContentPosition (--[[ PropertyCompone
 	-- return Rectangle<int>
 end
 
-function __method_name:drawCallOutBoxBackground (--[[ CallOutBox p.component, Graphics p.g, Path p.path, Image p.cachedImage --]] p)
+function __method_name:drawCallOutBoxBackground (--[[ CallOutBox p.callOutBox, Graphics p.g, Path p.path, Image p.image --]] p)
 	--
 	-- Body
 	--
@@ -686,13 +686,7 @@ function __method_name:drawLevelMeter (--[[ Graphics p.g, int p.width, int p.hei
 	--
 end
 
-function __method_name:drawKeymapChangeButton (--[[ Graphics p.g, int p.width, int p.height, Button p.component, String p.keyDescription --]] p)
-	--
-	-- Body
-	--
-end
-
-function __method_name:playAlertSound (--[[  --]] p)
+function __method_name:drawKeymapChangeButton (--[[ Graphics p.g, int p.width, int p.height, Button p.button, String p.keyDescription --]] p)
 	--
 	-- Body
 	--

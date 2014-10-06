@@ -36,6 +36,18 @@ void CtrlrOwnedMidiMessage::setChannel(const int midiChannel)
 	}
 }
 
+int CtrlrOwnedMidiMessage::getChannel() const
+{
+    if ((bool)getProperty(Ids::midiMessageChannelOverride) == true)
+    {
+        return (getProperty(Ids::midiMessageChannel));
+    }
+    else
+    {
+        return (jlimit(1,16,owner.getMidiChannelForOwnedMidiMessages()));
+    }
+}
+
 void CtrlrOwnedMidiMessage::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
 {
 	CtrlrMidiMessage::valueTreePropertyChanged (treeWhosePropertyHasChanged, property);

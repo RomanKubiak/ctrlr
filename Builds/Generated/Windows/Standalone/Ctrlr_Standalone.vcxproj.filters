@@ -4718,10 +4718,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.cpp.sh">
+      <Filter>Ctrlr_Standalone\Resources\Lua</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.h.sh">
       <Filter>Ctrlr_Standalone\Resources\Lua</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeel.lua.sh">
+      <Filter>Ctrlr_Standalone\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\lf.template">
       <Filter>Ctrlr_Standalone\Resources\Lua</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Lua\LookAndFeel.lua">
@@ -4930,9 +4936,6 @@
     </None>
     <None Include="..\..\..\..\Source\Lua\LuaSocket\LICENSE">
       <Filter>Ctrlr_Standalone\Lua\LuaSocket</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\JuceClasses\lf.template">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </None>
     <None Include="..\..\..\..\Juce\modules\juce_audio_basics\juce_module_info">
       <Filter>Juce Modules\juce_audio_basics</Filter>
