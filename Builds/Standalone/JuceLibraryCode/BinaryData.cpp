@@ -485,7 +485,7 @@ static const unsigned char temp_binary_data_3[] =
 "        static bool def_isColourSpecified (LookAndFeel_V3 *ptr, int colourId)\r\n"
 "        static Typeface::Ptr def_getTypefaceForFont (LookAndFeel_V3 *ptr, const Font &font)\r\n"
 "        static MouseCursor def_getMouseCursorFor (LookAndFeel_V3 *ptr, Component &component)\r\n"
-"        static void def_drawButtonBackground (LookAndFeel_V3 *ptr, Graphics &g, Button &button, const Colour &backgroundColour, bool isMouseOverButton, bool isButtonDown)\r\n"
+"        static void def_drawButtonBackground (LookAndFeel_V3 *ptr, Graphics &g, Button &button, const Colour &backgroundColourRef, bool isMouseOverButton, bool isButtonDown)\r\n"
 "        static void def_drawButtonText (LookAndFeel_V3 *ptr, Graphics &g, TextButton &textButton, bool isMouseOverButton, bool isButtonDown)\r\n"
 "        static void def_drawToggleButton (LookAndFeel_V3 *ptr, Graphics &g, ToggleButton &toggleButton, bool isMouseOverButton, bool isButtonDown)\r\n"
 "        static void def_changeToggleButtonWidthToFitText (LookAndFeel_V3 *ptr, ToggleButton &toggleButton)\r\n"
@@ -498,7 +498,7 @@ static const unsigned char temp_binary_data_3[] =
 "        static Font def_getAlertWindowMessageFont (LookAndFeel_V3 *ptr)\r\n"
 "        static Font def_getAlertWindowFont (LookAndFeel_V3 *ptr)\r\n"
 "        static void def_drawProgressBar (LookAndFeel_V3 *ptr, Graphics &g, ProgressBar &progressBar, int width, int height, double progress, const String &textToShow)\r\n"
-"        static void def_drawSpinningWaitAnimation (LookAndFeel_V3 *ptr, Graphics &g, const Colour &colour, int x, int y, int w, int h)\r\n"
+"        static void def_drawSpinningWaitAnimation (LookAndFeel_V3 *ptr, Graphics &g, const Colour &colourRef, int x, int y, int w, int h)\r\n"
 "        static bool def_areScrollbarButtonsVisible (LookAndFeel_V3 *ptr)\r\n"
 "        static ImageEffectFilter* def_getScrollbarEffect (LookAndFeel_V3 *ptr)\r\n"
 "        static int def_getMinimumScrollbarThumbSize (LookAndFeel_V3 *ptr, ScrollBar &scrollBar)\r\n"
@@ -522,7 +522,7 @@ static const unsigned char temp_binary_data_3[] =
 "        static void def_drawLasso (LookAndFeel_V3 *ptr, Graphics &g, Component &component)\r\n"
 "        static void def_drawPopupMenuBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height)\r\n"
 "        static void def_drawPopupMenuItem (LookAndFeel_V3 *ptr, Graphics &g, const Rectangle<int> &areaInt, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const "
-"Drawable* drawableIcon, const Colour* textColour)\r\n"
+"Drawable* drawableIcon, const Colour *textColourPtr)\r\n"
 "        static Font def_getPopupMenuFont (LookAndFeel_V3 *ptr)\r\n"
 "        static void def_drawPopupMenuUpDownArrow (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, bool isScrollUpArrow)\r\n"
 "        static void def_getIdealPopupMenuItemSize (LookAndFeel_V3 *ptr, const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight)\r\n"
@@ -570,7 +570,7 @@ static const unsigned char temp_binary_data_3[] =
 "        static void def_createTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &tabBarButton, Path &p, bool isMouseOver, bool isMouseDown)\r\n"
 "        static void def_fillTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &tabBarButton, Graphics &g, const Path &p, bool isMouseOver, bool isMouseDown)\r\n"
 "        static Button* def_createTabBarExtrasButton (LookAndFeel_V3 *ptr)\r\n"
-"        static void def_drawImageButton (LookAndFeel_V3 *ptr, Graphics &g, Image* image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColour, float imageOpacity, ImageButton &imageButton)\r\n"
+"        static void def_drawImageButton (LookAndFeel_V3 *ptr, Graphics &g, Image* image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColourRef, float imageOpacity, ImageButton &imageButton)\r\n"
 "        static void def_drawTableHeaderBackground (LookAndFeel_V3 *ptr, Graphics &g, TableHeaderComponent &tableHeaderComponent)\r\n"
 "        static void def_drawTableHeaderColumn (LookAndFeel_V3 *ptr, Graphics &g, const String &columnName, int columnId, int width, int height, bool isMouseOver, bool isMouseDown, int columnFlags)\r\n"
 "        static void def_paintToolbarBackground (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, Toolbar &toolbar)\r\n"
@@ -21010,7 +21010,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0x9d40934f:  numBytes = 2671; return gen_LLookAndFeel_cpp_sh;
         case 0xc3b381ea:  numBytes = 4001; return gen_LLookAndFeel_h_sh;
         case 0x44b2d04c:  numBytes = 2345; return gen_LookAndFeel_lua_sh;
-        case 0xdc5e799f:  numBytes = 13613; return lf_template;
+        case 0xdc5e799f:  numBytes = 13625; return lf_template;
         case 0xe7991c97:  numBytes = 16561; return LookAndFeel_lua;
         case 0xfc902594:  numBytes = 49800; return RSRC_zip;
         case 0x97c5c86b:  numBytes = 97264; return FONT_60sekuntia_ttf;

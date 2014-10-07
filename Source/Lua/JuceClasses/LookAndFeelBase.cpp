@@ -3,7 +3,7 @@
 #include "LLookAndFeel.h"
 #include "LookAndFeelParamWrapper.h"
 
-
+/*
 Colour LookAndFeelBase::findColour(int colourId)
 {
 	LookAndFeelParamWrapper p (colourId);
@@ -604,3 +604,4 @@ void LookAndFeelBase::drawKeymapChangeButton(Graphics &g, int width, int height,
 	owner.drawKeymapChangeButton(p);
 }
 
+*/
