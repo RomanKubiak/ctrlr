@@ -2641,6 +2641,9 @@
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.h.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeel.lua.sh" />
+		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeelBase.cpp.sh" />
+		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeelBase.h.sh" />
+		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeelParamWrapper.h.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/lf.template" />
 		<Unit filename="../../../../Source/Resources/Misc/RSRC.zip" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrIDs.xml" />

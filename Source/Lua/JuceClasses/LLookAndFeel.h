@@ -37,7 +37,7 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		void drawButtonBackground (LookAndFeelParamWrapper &p)
 		{ try { call<void>("drawButtonBackground", p); } catch (luabind::error e) { _WRN("drawButtonBackground "+_STR(e.what())); } }
 		static void def_drawButtonBackground(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
-		{ ptr->LookAndFeelBase::v3.drawButtonBackground (*p.g, *p.button, p.backgroundColour, p.isMouseOverButton, p.isButtonDown); }
+		{ ptr->LookAndFeelBase::v3.drawButtonBackground (*p.g, *p.button, *p.backgroundColourRef, p.isMouseOverButton, p.isButtonDown); }
 
 		void drawButtonText (LookAndFeelParamWrapper &p)
 		{ try { call<void>("drawButtonText", p); } catch (luabind::error e) { _WRN("drawButtonText "+_STR(e.what())); } }
@@ -97,7 +97,7 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		void drawSpinningWaitAnimation (LookAndFeelParamWrapper &p)
 		{ try { call<void>("drawSpinningWaitAnimation", p); } catch (luabind::error e) { _WRN("drawSpinningWaitAnimation "+_STR(e.what())); } }
 		static void def_drawSpinningWaitAnimation(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
-		{ ptr->LookAndFeelBase::v3.drawSpinningWaitAnimation (*p.g, p.colour, p.x, p.y, p.w, p.h); }
+		{ ptr->LookAndFeelBase::v3.drawSpinningWaitAnimation (*p.g, *p.colourRef, p.x, p.y, p.w, p.h); }
 
 		bool areScrollbarButtonsVisible (LookAndFeelParamWrapper &p)
 		{ try { return (call<bool>("areScrollbarButtonsVisible", p)); } catch (luabind::error e) { _WRN("areScrollbarButtonsVisible "+_STR(e.what())); return (LookAndFeelBase::v3.areScrollbarButtonsVisible ()); } }
@@ -202,7 +202,7 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		void drawPopupMenuItem (LookAndFeelParamWrapper &p)
 		{ try { call<void>("drawPopupMenuItem", p); } catch (luabind::error e) { _WRN("drawPopupMenuItem "+_STR(e.what())); } }
 		static void def_drawPopupMenuItem(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
-		{ ptr->LookAndFeelBase::v3.drawPopupMenuItem (*p.g, *p.areaInt, p.isSeparator, p.isActive, p.isHighlighted, p.isTicked, p.hasSubMenu, *p.text, *p.shortcutKeyText, p.drawableIcon, &p.textColour); }
+		{ ptr->LookAndFeelBase::v3.drawPopupMenuItem (*p.g, *p.areaInt, p.isSeparator, p.isActive, p.isHighlighted, p.isTicked, p.hasSubMenu, *p.text, *p.shortcutKeyText, p.drawableIcon, p.textColourPtr); }
 
 		Font getPopupMenuFont (LookAndFeelParamWrapper &p)
 		{ try { return (call<Font>("getPopupMenuFont", p)); } catch (luabind::error e) { _WRN("getPopupMenuFont "+_STR(e.what())); return (LookAndFeelBase::v3.getPopupMenuFont ()); } }
@@ -437,7 +437,7 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		void drawImageButton (LookAndFeelParamWrapper &p)
 		{ try { call<void>("drawImageButton", p); } catch (luabind::error e) { _WRN("drawImageButton "+_STR(e.what())); } }
 		static void def_drawImageButton(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
-		{ ptr->LookAndFeelBase::v3.drawImageButton (*p.g, p.image, p.imageX, p.imageY, p.imageW, p.imageH, p.overlayColour, p.imageOpacity, *p.imageButton); }
+		{ ptr->LookAndFeelBase::v3.drawImageButton (*p.g, p.image, p.imageX, p.imageY, p.imageW, p.imageH, *p.overlayColourRef, p.imageOpacity, *p.imageButton); }
 
 		void drawTableHeaderBackground (LookAndFeelParamWrapper &p)
 		{ try { call<void>("drawTableHeaderBackground", p); } catch (luabind::error e) { _WRN("drawTableHeaderBackground "+_STR(e.what())); } }
