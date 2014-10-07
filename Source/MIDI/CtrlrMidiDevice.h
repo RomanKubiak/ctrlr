@@ -74,6 +74,7 @@ class CtrlrMidiDevice : public ValueTree::Listener, public MidiInputCallback
 		MidiInput *inJucePtr;
 		int deviceIndex;
         bool lastMessageWasSysex;
+		double lastMessageSentTime;
 		MidiBuffer throwBuffer;
 		ListenerList	<CtrlrMidiDevice::Listener,
 							Array<CtrlrMidiDevice::Listener*,CriticalSection>

@@ -174,7 +174,7 @@ struct LookAndFeelParamWrapper
 	CallOutBox *callOutBox;
 
 
-	LookAndFeelParamWrapper (int colourId) : colourId(_colourId) {}
+	/*LookAndFeelParamWrapper (int colourId) : colourId(_colourId) {}
 	LookAndFeelParamWrapper (int colourId, Colour colour) : colourId(_colourId), colour(_colour) {}
 	LookAndFeelParamWrapper (Font &font) : font(_font) {}
 	LookAndFeelParamWrapper (Component &component) : component(_component) {}
@@ -253,7 +253,7 @@ struct LookAndFeelParamWrapper
 	LookAndFeelParamWrapper (CallOutBox &callOutBox, Graphics &g, Path &path, Image &image) : callOutBox(_callOutBox), g(_g), path(_path), image(_image) {}
 	LookAndFeelParamWrapper (Graphics &g, int width, int height, float level) : g(_g), width(_width), height(_height), level(_level) {}
 	LookAndFeelParamWrapper (Graphics &g, int width, int height, Button &button, String &keyDescription) : g(_g), width(_width), height(_height), button(_button), keyDescription(_keyDescription) {}
-
+	*/
 	static void wrapForLua (lua_State *L)
 	{
 		using namespace luabind;

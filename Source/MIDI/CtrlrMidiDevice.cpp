@@ -9,7 +9,8 @@ CtrlrMidiDevice::CtrlrMidiDevice(CtrlrMidiDeviceManager &_owner, const int idx, 
 	:	deviceTree(Ids::midiDev),
 		owner(_owner),
 		outJucePtr(nullptr),
-		inJucePtr(nullptr)
+		inJucePtr(nullptr),
+		lastMessageSentTime(0)
 {
 	throwBuffer.ensureSize (8192);
 
@@ -189,7 +190,14 @@ void CtrlrMidiDevice::sendMidiBuffer (const MidiBuffer &buffer, double milliseco
 	{
 		{
 			const ScopedLock sl(deviceLock);
-			outJucePtr->sendBlockOfMessages (buffer, Time::getMillisecondCounter() + millisecondCounterToStartAt + 1, SAMPLERATE);
+			if (lastMessageSentTime == 0 || (lastMessageSentTime + millisecondCounterToStartAt) < Time::getMillisecondCounter())
+			{
+				lastMessageSentTime = Time::getMillisecondCounter();
+			}
+
+			outJucePtr->sendBlockOfMessages (buffer, lastMessageSentTime + millisecondCounterToStartAt, SAMPLERATE);
+
+			lastMessageSentTime = lastMessageSentTime + millisecondCounterToStartAt;
 		}
 		_MOUT(getProperty(Ids::name).toString() + "[JUCE]", buffer);
 	}
@@ -201,9 +209,17 @@ void CtrlrMidiDevice::sendMidiMessage (const MidiMessage &message, double millis
 	{
 		{
 			const ScopedLock sl(deviceLock);
+
+			if (lastMessageSentTime == 0 || (lastMessageSentTime + millisecondCounterToStartAt) < Time::getMillisecondCounter())
+			{
+				lastMessageSentTime = Time::getMillisecondCounter();
+			}
+
 			throwBuffer.clear();
 			throwBuffer.addEvent (message, 1);
-			outJucePtr->sendBlockOfMessages (throwBuffer, Time::getMillisecondCounter() + millisecondCounterToStartAt + 1, SAMPLERATE);
+			outJucePtr->sendBlockOfMessages (throwBuffer, lastMessageSentTime + millisecondCounterToStartAt, SAMPLERATE);
+			
+			lastMessageSentTime = lastMessageSentTime + millisecondCounterToStartAt;
 		}
 
 		_MOUT(getProperty(Ids::name).toString() + "[JUCE]", message);
