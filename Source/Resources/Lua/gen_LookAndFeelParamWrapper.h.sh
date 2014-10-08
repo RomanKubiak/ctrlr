@@ -184,7 +184,12 @@ struct LookAndFeelParamWrapper
 
 _EOF_
 
-cat $HEADER | grep "def_" | awk '{
+cat $HEADER | grep "def_" | awk '
+function rindex(str,c)
+{
+	return (match(str,"\\" c "[^" c "]*$") ? RSTART : 0);
+}
+{
 	constNow 	= 0;
 	hack 		= 0;
 	numParams	= 0;
@@ -234,12 +239,11 @@ cat $HEADER | grep "def_" | awk '{
 		if (i > paramsOffset)
 		{
 			#printf ("[params] offset %d value [%s]\n", i, $i);
-
-
 			isReference 	= 0;
 
 			if ($i == "const" && constNow == 0)
 			{
+				rawParams[++numRawParams] = sprintf ("const");
 				constNow = 1;
 				continue;
 			}
@@ -248,6 +252,7 @@ cat $HEADER | grep "def_" | awk '{
 			{
 				if ($i == "const")
 				{
+					rawParams[++numRawParams] = sprintf ("const");
 					hack = 0;
 					constNow = 0;
 					continue;
@@ -303,26 +308,43 @@ cat $HEADER | grep "def_" | awk '{
 		}
 	}
 
-	printf ("\n");
-	printf ("\tLookAndFeelParamWrapper (");
-	for (x=1;x<=numRawParams;x++)
+	if (numParams > 0)
 	{
-		if (x == numRawParams || numRawParams == 0)
-			printf ("%s", rawParams[x])
-		else
-			printf ("%s ", rawParams[x]);
-	}
+		printf ("\n");
+		printf ("\tLookAndFeelParamWrapper (");
+		for (x=1;x<=numRawParams;x++)
+		{
+			if (x == numRawParams || numRawParams == 0)
+			{
+				printf ("%s_", rawParams[x])
+			}
+			else
+			{
+				if (rindex(rawParams[x], ",") > 0)
+				{
+					printf ("%s_, ", substr (rawParams[x], 0, index (rawParams[x], ",") - 1));
+				}
+				else
+				{
+					printf ("%s ", rawParams[x]);
+				}
+			}
+		}
 
-	printf (") : ");
-	for (x=1;x<=numParams;x++)
-	{
-		if (x==numParams || numParams==0)
-			printf ("%s(_%s)", $paramArray[x], $paramArray[x]);
-		else
-			printf ("%s(_%s), ", $paramArray[x], $paramArray[x]);
+		printf (") : ");
+		for (x=1;x<=numParams;x++)
+		{
+			if (x==numParams || numParams==0)
+			{
+				printf ("%s(%s%s_)", $paramArray[x], paramRefArray[x] ? "&" : "", $paramArray[x]);
+			}
+			else
+			{
+				printf ("%s(%s%s_), ", $paramArray[x], paramRefArray[x] ? "&" : "", $paramArray[x]);
+			}
+		}
+		printf (" {}");
 	}
-	printf (" {}");
-
 
 }'
 

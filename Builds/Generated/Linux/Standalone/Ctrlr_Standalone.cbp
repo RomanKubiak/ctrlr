@@ -203,7 +203,6 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-Wall" />
 			<Add option="-Wno-strict-aliasing" />
 			<Add option="-Wno-strict-overflow" />
 		</Compiler>

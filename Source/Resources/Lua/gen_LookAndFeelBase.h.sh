@@ -71,7 +71,7 @@ cat $HEADER | grep "def_" | awk '{
 		}
 		if (i > paramsOffset)
 		{
-			#printf ("\n[params] offset %d value [%s]\n", i, $i);
+			printf ("\n[params] offset %d value [%s]\n", i, $i);
 			
 			param = i;
 			

@@ -69,6 +69,10 @@ public:
 	void setResource();
 	Slider *getOwnedSlider() { return (ctrlrSlider); }
 	static void wrapForLua(lua_State *L);
+	void lookAndFeelChanged()
+    {
+        ctrlrSlider->setLookAndFeel (&getLookAndFeel());
+    }
     //[/UserMethods]
 
     void paint (Graphics& g);
