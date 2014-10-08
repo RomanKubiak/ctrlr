@@ -6,7 +6,7 @@ void LLookAndFeel::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
 	LookAndFeelParamWrapper::wrapForLua(L);
-	/*
+
 	module(L)
 	[
         class_<LLookAndFeel>("LLookAndFeel")
@@ -114,5 +114,4 @@ void LLookAndFeel::wrapForLua (lua_State *L)
 			.def ("drawLevelMeter", &LLookAndFeel::drawLevelMeter, &LLookAndFeel::def_drawLevelMeter)
 			.def ("drawKeymapChangeButton", &LLookAndFeel::drawKeymapChangeButton, &LLookAndFeel::def_drawKeymapChangeButton)
 	];
-	*/
 }

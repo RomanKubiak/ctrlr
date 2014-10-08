@@ -31,9 +31,9 @@ class CtrlrSlider  : public CtrlrComponent,
 		void mouseDoubleClick (const MouseEvent& e);
 		void lookAndFeelChanged()
 		{
-            ctrlrSlider.setLookAndFeel (nullptr);
+            ctrlrSlider.setLookAndFeel (&getLookAndFeel());
 		}
-		
+
 		JUCE_LEAK_DETECTOR(CtrlrSlider)
 
 	private:

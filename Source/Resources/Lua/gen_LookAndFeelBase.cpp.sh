@@ -142,17 +142,34 @@ cat $HEADER | grep "def_" | awk '{
 			printf ("%s ", rawParams[x]);
 	}
 	
-	printf ("\n{\n\tLookAndFeelParamWrapper p (");
-	
-	for (x=1; x<=numParams; x++)
+	if (numRawParams == 0)
 	{
-		if (x == numParams || numParams == 0)
-			printf ("%s", $paramArray[x]);
-		else
-			printf ("%s, ", $paramArray[x]);
+		printf (")");
 	}
-	printf (");\n");
-	printf ("\towner.%s(p);\n", methodName);
+	
+	printf ("\n{\n\tLookAndFeelParamWrapper p");
+	
+	if (numParams > 0)
+	{
+		printf ("(");
+		for (x=1; x<=numParams; x++)
+		{
+			if (x == numParams || numParams == 0)
+				printf ("%s", $paramArray[x]);
+			else
+				printf ("%s, ", $paramArray[x]);
+		}
+		printf (");\n");
+	}
+	else
+	{
+		printf (";\n");
+	}
+	if (needsToReturn)
+		printf ("\treturn (owner.%s(p));\n", methodName);
+	else
+		printf ("\towner.%s(p);\n", methodName);
+		
 	printf ("}\n");	
 }'
 

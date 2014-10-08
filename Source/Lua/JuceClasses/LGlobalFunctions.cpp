@@ -48,20 +48,30 @@ void LGlobalFunctions::sleep(const int milliseconds)
 
 void LGlobalFunctions::setLookAndFeel (Component *component, luabind::object lookAndFeelObject)
 {
-	_DBG("setLookAndFeel");
-
-	if (component != nullptr && luabind::type (lookAndFeelObject) != LUA_TNIL)
+	if (component != nullptr)
 	{
-		_DBG("\tcomponent and lua lf are valid");
-
-		LookAndFeelBase *lookAndFeel = luabind::object_cast<LookAndFeelBase*>(lookAndFeelObject);
-
-		if (lookAndFeel)
-		{
-			_DBG("\tLookBase is valid");
-			component->setLookAndFeel (lookAndFeel);
-		}
+	    if (luabind::type (lookAndFeelObject) != LUA_TNIL)
+        {
+            LookAndFeelBase *lookAndFeel = luabind::object_cast<LookAndFeelBase*>(lookAndFeelObject);
+            if (lookAndFeel)
+            {
+                _DBG("LookAndFeelParamWrapper::setLookAndFeel success, setting now");
+                component->setLookAndFeel (lookAndFeel);
+            }
+            else
+            {
+                _DBG("LookAndFeelParamWrapper::setLookAndFeel failed to cast LookAndFeel object to base class LookAndFeelbase (internal error?)");
+            }
+        }
+        else
+        {
+            _DBG("LookAndFeelParamWrapper::setLookAndFeel lookAndFeel object passed is invalid");
+        }
 	}
+	else
+    {
+        _DBG("LookAndFeelParamWrapper::setLookAndFeel component is invalid");
+    }
 }
 
 void LGlobalFunctions::wrapForLua (lua_State *L)
