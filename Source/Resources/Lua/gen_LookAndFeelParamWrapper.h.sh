@@ -345,18 +345,18 @@ function rindex(str,c)
 		}
 		printf (" {}");
 	}
-
 }'
 
 cat << _EOF_
 	
-
 	static void wrapForLua (lua_State *L)
 	{
 		using namespace luabind;
 		module(L)
 		[
 	            class_<LookAndFeelParamWrapper>("LookAndFeelParamWrapper")
+	            	.def_readwrite ("idealWidth", &LookAndFeelParamWrapper::idealWidth)
+	                .def_readwrite ("idealHeight", &LookAndFeelParamWrapper::idealHeight)
         	        .def_readwrite ("g", &LookAndFeelParamWrapper::g)
 	                .def_readonly ("x", &LookAndFeelParamWrapper::x)
 	                .def_readonly ("y", &LookAndFeelParamWrapper::y)
@@ -368,8 +368,7 @@ cat << _EOF_
 	                .def_readonly ("rotaryStartAngle", &LookAndFeelParamWrapper::rotaryStartAngle)
 	                .def_readonly ("rotaryEndAngle", &LookAndFeelParamWrapper::rotaryEndAngle)
 	                .def_readwrite ("slider", &LookAndFeelParamWrapper::slider)
-	                .def_readwrite ("idealWidth", &LookAndFeelParamWrapper::idealWidth)
-	                .def_readwrite ("idealHeight", &LookAndFeelParamWrapper::idealHeight)
+	                
 	        ];
 	}
 _EOF_

@@ -52,22 +52,55 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 	}
 
 	luaState = lua_open();
-	luaopen_base(luaState);
-    luaopen_table(luaState);
-    luaopen_string(luaState);
-    luaopen_math(luaState);
+
+    lua_pushcfunction(luaState, luaopen_base);
+    lua_pushliteral(luaState, "base");
+    _INF("CtrlrLuaManager::ctor luaopen_base");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_table);
+    _INF("CtrlrLuaManager::ctor luaopen_table");
+    lua_pushliteral(luaState, "table");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_string);
+    _INF("CtrlrLuaManager::ctor luaopen_string");
+    lua_pushliteral(luaState, "string");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_math);
+    _INF("CtrlrLuaManager::ctor luaopen_math");
+    lua_pushliteral(luaState, "math");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_io);
+    _INF("CtrlrLuaManager::ctor luaopen_io");
+    lua_pushliteral(luaState, "io");
+    lua_call(luaState, 1, 0);
 
     lua_pushcfunction(luaState, luaopen_debug);
+    _INF("CtrlrLuaManager::ctor luaopen_debug");
     lua_pushliteral(luaState, "debug");
     lua_call(luaState, 1, 0);
 
     lua_pushcfunction(luaState, luaopen_package);
+    _INF("CtrlrLuaManager::ctor luaopen_package");
     lua_pushliteral(luaState, "package");
     lua_call(luaState, 1, 0);
 
+    lua_pushcfunction(luaState, luaopen_os);
+    _INF("CtrlrLuaManager::ctor luaopen_os");
+    lua_pushliteral(luaState, "os");
+    lua_call(luaState, 1, 0);
+
 	using namespace luabind;
+
+	_INF("CtrlrLuaManager::ctor luabind open");
     open(luaState);
+
+    _INF("CtrlrLuaManager::ctor luabind bind_class_info");
 	luabind::bind_class_info(luaState);
+
 	set_pcall_callback (add_file_and_line);
 
 	luaManagerTree.addListener (this);
