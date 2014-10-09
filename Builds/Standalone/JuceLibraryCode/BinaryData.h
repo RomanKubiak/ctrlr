@@ -19,7 +19,7 @@ namespace BinaryData
     const int            gen_LookAndFeel_lua_shSize = 2345;
 
     extern const char*   lf_template;
-    const int            lf_templateSize = 13625;
+    const int            lf_templateSize = 13631;
 
     extern const char*   LookAndFeel_lua;
     const int            LookAndFeel_luaSize = 16561;

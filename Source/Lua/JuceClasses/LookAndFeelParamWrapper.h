@@ -106,7 +106,7 @@ struct LookAndFeelParamWrapper
 	ScrollBar *scrollBar;
 	const Rectangle<float> *area;
 	Rectangle<int> *areaInt;
-	Rectangle<int> areaIntConst;
+	const Rectangle<int> *areaIntConst;
 	TextEditor *textEditor, *editor;
 	Component *keyFocusOwner;
 	DirectoryContentsDisplayComponent *directoryContentsDisplayComponent;
@@ -138,6 +138,7 @@ struct LookAndFeelParamWrapper
 	const Justification *justification;
 	GroupComponent *groupComponent;
 	TabBarButton *tabBarButton;
+	const TabBarButton *tabBarButtonConst;
 	TabbedButtonBar *tabbedButtonBar;
 	Path *p;
 	const Path *path;
@@ -175,7 +176,7 @@ struct LookAndFeelParamWrapper
 	LookAndFeelParamWrapper (Graphics &g_, BubbleComponent &bubbleComponent_, const Point<float> &tip_, const Rectangle<float> &body_) : g(&g_), bubbleComponent(&bubbleComponent_), tip(&tip_), body(&body_) {}
 	LookAndFeelParamWrapper (Graphics &g_, Component &component_) : g(&g_), component(&component_) {}
 	LookAndFeelParamWrapper (Graphics &g_, int width_, int height_) : g(&g_), width(width_), height(height_) {}
-	LookAndFeelParamWrapper (Graphics &g_, const Rectangle<int> &areaInt_, bool isSeparator_, bool isActive_, bool isHighlighted_, bool isTicked_, bool hasSubMenu_, const String &text_, const String &shortcutKeyText_, const Drawable* drawableIcon_, const Colour *textColourPtr_) : g(&g_), areaInt(&areaInt_), isSeparator(isSeparator_), isActive(isActive_), isHighlighted(isHighlighted_), isTicked(isTicked_), hasSubMenu(hasSubMenu_), text(&text_), shortcutKeyText(&shortcutKeyText_), drawableIcon(drawableIcon_), textColourPtr(textColourPtr_) {}
+	LookAndFeelParamWrapper (Graphics &g_, const Rectangle<int> &areaInt_, bool isSeparator_, bool isActive_, bool isHighlighted_, bool isTicked_, bool hasSubMenu_, const String &text_, const String &shortcutKeyText_, const Drawable* drawableIcon_, const Colour *textColourPtr_) : g(&g_), areaIntConst(&areaInt_), isSeparator(isSeparator_), isActive(isActive_), isHighlighted(isHighlighted_), isTicked(isTicked_), hasSubMenu(hasSubMenu_), text(&text_), shortcutKeyText(&shortcutKeyText_), drawableIcon(drawableIcon_), textColourPtr(textColourPtr_) {}
 	LookAndFeelParamWrapper (Graphics &g_, int width_, int height_, bool isScrollUpArrow_) : g(&g_), width(width_), height(height_), isScrollUpArrow(isScrollUpArrow_) {}
 	LookAndFeelParamWrapper (const String &text_, bool isSeparator_, int standardMenuItemHeight_, int &idealWidth_, int &idealHeight_) : text(&text_), isSeparator(isSeparator_), standardMenuItemHeight(standardMenuItemHeight_), idealWidth(idealWidth_), idealHeight(idealHeight_) {}
 	LookAndFeelParamWrapper (Graphics &g_, int width_, int height_, bool isMouseOverBar_, MenuBarComponent &menuBarComponent_) : g(&g_), width(width_), height(height_), isMouseOverBar(isMouseOverBar_), menuBarComponent(&menuBarComponent_) {}
@@ -193,7 +194,7 @@ struct LookAndFeelParamWrapper
 	LookAndFeelParamWrapper (Graphics &g_, const String &text_, int width_, int height_) : g(&g_), text(&text_), width(width_), height(height_) {}
 	LookAndFeelParamWrapper (const String &text_) : text(&text_) {}
 	LookAndFeelParamWrapper (FilenameComponent &filenameComponent_, ComboBox* comboBox_, Button* button_) : filenameComponent(&filenameComponent_), comboBox(comboBox_), button(button_) {}
-	LookAndFeelParamWrapper (Graphics &g_, const Rectangle<int> &areaInt_, bool isMouseOver_, bool isMouseDown_, ConcertinaPanel &concertinaPanel_, Component &component_) : g(&g_), areaInt(&areaInt_), isMouseOver(isMouseOver_), isMouseDown(isMouseDown_), concertinaPanel(&concertinaPanel_), component(&component_) {}
+	LookAndFeelParamWrapper (Graphics &g_, const Rectangle<int> &areaInt_, bool isMouseOver_, bool isMouseDown_, ConcertinaPanel &concertinaPanel_, Component &component_) : g(&g_), areaIntConst(&areaInt_), isMouseOver(isMouseOver_), isMouseDown(isMouseDown_), concertinaPanel(&concertinaPanel_), component(&component_) {}
 	LookAndFeelParamWrapper (Graphics &g_, int w_, int h_, bool isMouseOver_, bool isMouseDragging_) : g(&g_), w(w_), h(h_), isMouseOver(isMouseOver_), isMouseDragging(isMouseDragging_) {}
 	LookAndFeelParamWrapper (Graphics &g_, int w_, int h_, const BorderSize<int> &borderSize_) : g(&g_), w(w_), h(h_), borderSize(&borderSize_) {}
 	LookAndFeelParamWrapper (Graphics &g_, int w_, int h_, const BorderSize<int> &borderSize_, ResizableWindow &resizableWindow_) : g(&g_), w(w_), h(h_), borderSize(&borderSize_), resizableWindow(&resizableWindow_) {}
@@ -201,7 +202,7 @@ struct LookAndFeelParamWrapper
 	LookAndFeelParamWrapper (DocumentWindow &documentWindow_, int titleBarX_, int titleBarY_, int titleBarW_, int titleBarH_, Button* minimiseButton_, Button* maximiseButton_, Button* closeButton_, bool positionTitleBarButtonsOnLeft_) : documentWindow(&documentWindow_), titleBarX(titleBarX_), titleBarY(titleBarY_), titleBarW(titleBarW_), titleBarH(titleBarH_), minimiseButton(minimiseButton_), maximiseButton(maximiseButton_), closeButton(closeButton_), positionTitleBarButtonsOnLeft(positionTitleBarButtonsOnLeft_) {}
 	LookAndFeelParamWrapper (Graphics &g_, int w_, int h_, const String &text_, const Justification &justification_, GroupComponent &groupComponent_) : g(&g_), w(w_), h(h_), text(&text_), justification(&justification_), groupComponent(&groupComponent_) {}
 	LookAndFeelParamWrapper (TabBarButton &tabBarButton_, int tabDepth_) : tabBarButton(&tabBarButton_), tabDepth(tabDepth_) {}
-	LookAndFeelParamWrapper (const TabBarButton &tabBarButton_, Rectangle<int> &areaInt_, Component &component_) : tabBarButton(&tabBarButton_), areaInt(&areaInt_), component(&component_) {}
+	LookAndFeelParamWrapper (const TabBarButton &tabBarButton_, Rectangle<int> &areaInt_, Component &component_) : tabBarButtonConst(&tabBarButton_), areaInt(&areaInt_), component(&component_) {}
 	LookAndFeelParamWrapper (TabBarButton &tabBarButton_, Graphics &g_, bool isMouseOver_, bool isMouseDown_) : tabBarButton(&tabBarButton_), g(&g_), isMouseOver(isMouseOver_), isMouseDown(isMouseDown_) {}
 	LookAndFeelParamWrapper (TabbedButtonBar &tabbedButtonBar_, Graphics &g_, int w_, int h_) : tabbedButtonBar(&tabbedButtonBar_), g(&g_), w(w_), h(h_) {}
 	LookAndFeelParamWrapper (TabBarButton &tabBarButton_, Path &path_, bool isMouseOver_, bool isMouseDown_) : tabBarButton(&tabBarButton_), path(&path_), isMouseOver(isMouseOver_), isMouseDown(isMouseDown_) {}

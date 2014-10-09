@@ -172,7 +172,7 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		void drawFileBrowserRow (LookAndFeelParamWrapper &p)
 		{ try { call<void>("drawFileBrowserRow", p); } catch (luabind::error e) { _WRN("drawFileBrowserRow "+_STR(e.what())); } }
 		static void def_drawFileBrowserRow(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
-		{ ptr->LookAndFeelBase::v3.drawFileBrowserRow (*p.g, p.width, p.height, *p.filename, p.icon, *p.fileSizeDescription, *p.fileTimeDescription, p.isDirectory, p.isItemSelected, p.itemIndex, *p.directoryContentsDisplayComponent); }
+		{ ptr->LookAndFeelBase::v3.drawFileBrowserRow (*p.g, p.width, p.height, *p.filename, p.image, *p.fileSizeDescription, *p.fileTimeDescription, p.isDirectory, p.isItemSelected, p.itemIndex, *p.directoryContentsDisplayComponent); }
 
 		Button* createFileBrowserGoUpButton (LookAndFeelParamWrapper &p)
 		{ try { return (call<Button*>("createFileBrowserGoUpButton", p)); } catch (luabind::error e) { _WRN("createFileBrowserGoUpButton "+_STR(e.what())); return (LookAndFeelBase::v3.createFileBrowserGoUpButton ()); } }
