@@ -567,8 +567,8 @@ static const unsigned char temp_binary_data_3[] =
 "        static void def_drawTabButton (LookAndFeel_V3 *ptr, TabBarButton &tabBarButton, Graphics &g, bool isMouseOver, bool isMouseDown)\r\n"
 "        static void def_drawTabButtonText (LookAndFeel_V3 *ptr, TabBarButton &tabBarButton, Graphics &g, bool isMouseOver, bool isMouseDown)\r\n"
 "        static void def_drawTabAreaBehindFrontButton (LookAndFeel_V3 *ptr, TabbedButtonBar &tabbedButtonBar, Graphics &g, int w, int h)\r\n"
-"        static void def_createTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &tabBarButton, Path &p, bool isMouseOver, bool isMouseDown)\r\n"
-"        static void def_fillTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &tabBarButton, Graphics &g, const Path &p, bool isMouseOver, bool isMouseDown)\r\n"
+"        static void def_createTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &tabBarButton, Path &path, bool isMouseOver, bool isMouseDown)\r\n"
+"        static void def_fillTabButtonShape (LookAndFeel_V3 *ptr, TabBarButton &tabBarButton, Graphics &g, const Path &path, bool isMouseOver, bool isMouseDown)\r\n"
 "        static Button* def_createTabBarExtrasButton (LookAndFeel_V3 *ptr)\r\n"
 "        static void def_drawImageButton (LookAndFeel_V3 *ptr, Graphics &g, Image* image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColourRef, float imageOpacity, ImageButton &imageButton)\r\n"
 "        static void def_drawTableHeaderBackground (LookAndFeel_V3 *ptr, Graphics &g, TableHeaderComponent &tableHeaderComponent)\r\n"
@@ -21010,7 +21010,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0x9d40934f:  numBytes = 2671; return gen_LLookAndFeel_cpp_sh;
         case 0xc3b381ea:  numBytes = 4001; return gen_LLookAndFeel_h_sh;
         case 0x44b2d04c:  numBytes = 2345; return gen_LookAndFeel_lua_sh;
-        case 0xdc5e799f:  numBytes = 13625; return lf_template;
+        case 0xdc5e799f:  numBytes = 13631; return lf_template;
         case 0xe7991c97:  numBytes = 16561; return LookAndFeel_lua;
         case 0xfc902594:  numBytes = 49800; return RSRC_zip;
         case 0x97c5c86b:  numBytes = 97264; return FONT_60sekuntia_ttf;
