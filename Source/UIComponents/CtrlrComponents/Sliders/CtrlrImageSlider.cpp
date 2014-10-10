@@ -27,6 +27,7 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrLog.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"
+#include "Lua/JuceClasses/LookAndFeelBase.h"
 //[/Headers]
 
 #include "CtrlrImageSlider.h"
@@ -53,7 +54,7 @@ CtrlrImageSlider::CtrlrImageSlider (CtrlrModulator &owner)
 	ctrlrSlider->setSliderStyle (Slider::RotaryVerticalDrag);
 	ctrlrSlider->setLookAndFeel (&lf);
 	setProperty (Ids::uiSliderStyle, "RotaryVerticalDrag");
-	setProperty (Ids::uiImageSliderResource, "");
+	setProperty (Ids::uiImageSliderResource, COMBO_ITEM_NONE);
 	setProperty (Ids::resourceImageWidth, 32);
 	setProperty (Ids::resourceImageHeight, 32);
 	setProperty (Ids::resourceImagePaintMode, 36);
@@ -327,6 +328,22 @@ void CtrlrImageSlider::reloadResources(Array <CtrlrPanelResource*> resourcesThat
 			setResource();
 		}
 	}
+}
+
+void CtrlrImageSlider::lookAndFeelChanged()
+{
+    LookAndFeel &currentLookAndFeel = getLookAndFeel();
+
+    LookAndFeelBase *check = dynamic_cast<LookAndFeelBase *>(&currentLookAndFeel);
+
+    if (check == nullptr)
+    {
+        _DBG("CtrlrImageSlider::lookAndFeelChanged new look and feel is NOT LookAndFeelBase based");
+    }
+    else
+    {
+        _DBG("CtrlrImageSlider::lookAndFeelChanged new look and feel is LookAndFeelBase based");
+    }
 }
 //[/MiscUserCode]
 
