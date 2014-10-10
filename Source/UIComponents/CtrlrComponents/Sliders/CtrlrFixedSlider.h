@@ -68,7 +68,8 @@ public:
 	static void wrapForLua(lua_State *L);
 	void lookAndFeelChanged()
     {
-        ctrlrSlider->setLookAndFeel (&getLookAndFeel());
+        if (&getLookAndFeel() != &lf)
+            ctrlrSlider->setLookAndFeel (&getLookAndFeel());
     }
     //[/UserMethods]
 

@@ -30,7 +30,7 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		{ return (ptr->LookAndFeelBase::v3.getTypefaceForFont (*p.font)); }
 
 		MouseCursor getMouseCursorFor (LookAndFeelParamWrapper &p)
-		{ try { return (call<MouseCursor>("getMouseCursorFor", p)); } catch (luabind::error e) { _WRN("getMouseCursorFor "+_STR(e.what())); return (LookAndFeelBase::v3.getMouseCursorFor (*p.component)); } }
+		{ try { return (MouseCursor (call<MouseCursor>("getMouseCursorFor", p))); } catch (luabind::error e) { _WRN("getMouseCursorFor "+_STR(e.what())); return (LookAndFeelBase::v3.getMouseCursorFor (*p.component)); } }
 		static MouseCursor def_getMouseCursorFor(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
 		{ return (ptr->LookAndFeelBase::v3.getMouseCursorFor (*p.component)); }
 

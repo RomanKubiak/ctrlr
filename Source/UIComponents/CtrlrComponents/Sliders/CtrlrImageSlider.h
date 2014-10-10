@@ -66,10 +66,12 @@ public:
 	void reloadResources(Array <CtrlrPanelResource*> resourcesThatChanged);
 	void setResource();
 	static void wrapForLua(lua_State *L);
-	void lookAndFeelChanged()
+	void lookAndFeelChanged();
+	/*void lookAndFeelChanged()
     {
-        ctrlrSlider->setLookAndFeel (&getLookAndFeel());
-    }
+        if (&getLookAndFeel() != &lf)
+            ctrlrSlider->setLookAndFeel (&getLookAndFeel());
+    }*/
     //[/UserMethods]
 
     void paint (Graphics& g);
