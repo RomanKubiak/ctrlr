@@ -211,6 +211,7 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrFixedSlider::wrapForLua (L);
 	CtrlrSlider::wrapForLua (L);
 	CtrlrGroup::wrapForLua (L);
+	CtrlrLuaSocket::wrapForLua(L);
 }
 
 void CtrlrLuaManager::assignDefaultObjects(lua_State* L)
