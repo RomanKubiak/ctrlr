@@ -32,6 +32,7 @@
 //[MiscUserDefs] You can add your own user definitions and misc code here...
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
+#include "Lua/JuceClasses/LookAndFeelBase.h"
 //[/MiscUserDefs]
 
 //==============================================================================
@@ -347,6 +348,15 @@ void CtrlrFixedImageSlider::reloadResources(Array <CtrlrPanelResource*> resource
 			setResource();
 		}
 	}
+}
+
+void CtrlrFixedImageSlider::lookAndFeelChanged()
+{
+    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
+    if (lfb != nullptr)
+    {
+        ctrlrSlider->setLookAndFeel (lfb);
+    }
 }
 //[/MiscUserCode]
 

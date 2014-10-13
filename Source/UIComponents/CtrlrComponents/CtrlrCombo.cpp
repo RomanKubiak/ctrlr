@@ -31,6 +31,7 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrComponentTypeManager.h"
 #include "CtrlrLog.h"
+#include "Lua/JuceClasses/LookAndFeelBase.h"
 //[/MiscUserDefs]
 
 //==============================================================================
@@ -605,6 +606,15 @@ void CtrlrCombo::wrapForLua(lua_State *L)
 			.def("getText", &CtrlrCombo::getText)
 			.def("setText", &CtrlrCombo::setText)
 	];
+}
+
+void CtrlrCombo::lookAndFeelChanged()
+{
+    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
+    if (lfb != nullptr)
+    {
+        ctrlrCombo->setLookAndFeel (lfb);
+    }
 }
 //[/MiscUserCode]
 

@@ -31,6 +31,7 @@
 #include "../CtrlrComponentTypeManager.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrModulator/CtrlrModulator.h"
+#include "Lua/JuceClasses/LookAndFeelBase.h"
 //[/MiscUserDefs]
 
 //==============================================================================
@@ -291,6 +292,15 @@ void CtrlrFixedSlider::wrapForLua(lua_State *L)
 		class_<CtrlrFixedSlider, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrSlider")
 			.def("getOwnedSlider", &CtrlrFixedSlider::getOwnedSlider)
 	];
+}
+
+void CtrlrFixedSlider::lookAndFeelChanged()
+{
+    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
+    if (lfb != nullptr)
+    {
+        ctrlrSlider->setLookAndFeel (lfb);
+    }
 }
 //[/MiscUserCode]
 
