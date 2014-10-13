@@ -44,7 +44,7 @@ cat $HEADER | grep "def_" | awk '{
 				returnType = i;
 			}
 				
-			printf ("function ");
+			printf ("-- function ");
 		}
 		
 		if (i == funcNameOffset)
@@ -118,13 +118,12 @@ cat $HEADER | grep "def_" | awk '{
 		}
 	}
 	
-	printf (" --]] p)\n\t--\n\t-- Body");
-	printf ("\n\t--\n");
+	printf (" --]] p)\n");
 
 	if (needsToReturn == 1)
 	{	
-		printf ("\n\t-- return %s\n", $returnType);
+		printf ("--\t return %s\n", $returnType);
 	}
 			
-	printf ("end\n\n");
+	printf ("-- end\n\n");
 }'

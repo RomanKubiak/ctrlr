@@ -332,17 +332,10 @@ void CtrlrImageSlider::reloadResources(Array <CtrlrPanelResource*> resourcesThat
 
 void CtrlrImageSlider::lookAndFeelChanged()
 {
-    LookAndFeel &currentLookAndFeel = getLookAndFeel();
-
-    LookAndFeelBase *check = dynamic_cast<LookAndFeelBase *>(&currentLookAndFeel);
-
-    if (check == nullptr)
+    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
+    if (lfb != nullptr)
     {
-        _DBG("CtrlrImageSlider::lookAndFeelChanged new look and feel is NOT LookAndFeelBase based");
-    }
-    else
-    {
-        _DBG("CtrlrImageSlider::lookAndFeelChanged new look and feel is LookAndFeelBase based");
+        ctrlrSlider->setLookAndFeel (lfb);
     }
 }
 //[/MiscUserCode]
