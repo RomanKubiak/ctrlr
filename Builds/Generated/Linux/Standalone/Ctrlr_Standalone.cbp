@@ -203,6 +203,7 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-Wall" />
 			<Add option="-Wno-strict-aliasing" />
 			<Add option="-Wno-strict-overflow" />
 		</Compiler>
@@ -2201,6 +2202,8 @@
 		<Unit filename="../../../../Source/Lua/CtrlrLuaAudioConverter.h" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaConverters.h" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaCustomComponent.cpp" />
+		<Unit filename="../../../../Source/Lua/CtrlrLuaDebugger.cpp" />
+		<Unit filename="../../../../Source/Lua/CtrlrLuaDebugger.h" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaManager.cpp" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaManager.h" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaModulator.cpp" />
@@ -2637,12 +2640,12 @@
 		<Unit filename="../../../../Source/Resources/Icons/ico_waveform.png" />
 		<Unit filename="../../../../Source/Resources/Images/tile.gif" />
 		<Unit filename="../../../../Source/Resources/Lua/LookAndFeel.lua" />
+		<Unit filename="../../../../Source/Resources/Lua/debugger.lua/README.md" />
+		<Unit filename="../../../../Source/Resources/Lua/debugger.lua/debugger.lua" />
+		<Unit filename="../../../../Source/Resources/Lua/debugger.lua/tutorial.lua" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.h.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeel.lua.sh" />
-		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeelBase.cpp.sh" />
-		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeelBase.h.sh" />
-		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeelParamWrapper.h.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/lf.template" />
 		<Unit filename="../../../../Source/Resources/Misc/RSRC.zip" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrIDs.xml" />
@@ -2725,6 +2728,8 @@
 		<Unit filename="../../../../Source/UIComponents/CtrlrLogViewer.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.h" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.cpp" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniserFunctions.h" />

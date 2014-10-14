@@ -12,6 +12,7 @@ class CtrlrPanelWindowManager : public CtrlrWindowManager
 		{
 			LuaConsole,
 			LuaMethodEditor,
+			LuaDebugger,
 			ModulatorList,
 			LayerEditor,
 			MIDILibrary,

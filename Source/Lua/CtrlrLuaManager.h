@@ -8,6 +8,7 @@
 #include "CtrlrLuaUtils.h"
 #include "CtrlrLuaMultiTimer.h"
 #include "CtrlrLuaAudioConverter.h"
+#include "CtrlrLuaDebugger.h"
 
 class LAudioFormatManager;
 class CtrlrPanel;
@@ -73,6 +74,7 @@ class CtrlrLuaManager : public ValueTree::Listener
 		CtrlrLuaUtils utils;
 		CtrlrLuaMultiTimer *multiTimer;
 		CtrlrLuaAudioConverter audioConverter;
+		CtrlrLuaDebugger *ctrlrLuaDebugger;
 		LAudioFormatManager *luaAudioFormatManager;
 };
 

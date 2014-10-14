@@ -19,6 +19,7 @@ CtrlrLuaMethodManager::CtrlrLuaMethodManager(CtrlrLuaManager &_owner)
 		utilityMethods(nullptr)
 {
 	XmlDocument methodsDocument(String(BinaryData::CtrlrLuaMethodTemplates_xml, BinaryData::CtrlrLuaMethodTemplates_xmlSize));
+
 	ScopedPointer <XmlElement> methodsXml (methodsDocument.getDocumentElement());
 
 	if (methodsXml)

@@ -99,6 +99,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
+  $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
   $(OBJDIR)/CtrlrLuaSocket_782cfb64.o \
   $(OBJDIR)/auxiliar_13cd51e2.o \
   $(OBJDIR)/buffer_1d95fb4f.o \
@@ -275,6 +276,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrArrow_1c791f44.o \
   $(OBJDIR)/CtrlrComponentSelection_b1d830ba.o \
   $(OBJDIR)/CtrlrLogViewer_61075cf5.o \
+  $(OBJDIR)/CtrlrLuaDebuggerUI_c537fda8.o \
   $(OBJDIR)/CtrlrLuaConsole_70f9824e.o \
   $(OBJDIR)/CtrlrLuaCodeTokeniser_e22d95d3.o \
   $(OBJDIR)/CtrlrLuaMethodCodeEditor_94898995.o \
@@ -499,6 +501,11 @@ $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o: ../../../../Source/Core/StandaloneWr
 $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling stdafx.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaDebugger.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaSocket_782cfb64.o: ../../../../Source/Lua/CtrlrLuaSocket.cpp
@@ -1379,6 +1386,11 @@ $(OBJDIR)/CtrlrComponentSelection_b1d830ba.o: ../../../../Source/UIComponents/Ct
 $(OBJDIR)/CtrlrLogViewer_61075cf5.o: ../../../../Source/UIComponents/CtrlrLogViewer.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLogViewer.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaDebuggerUI_c537fda8.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaDebuggerUI.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaConsole_70f9824e.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp

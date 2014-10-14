@@ -10,6 +10,7 @@
 #include "CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h"
 #include "CtrlrMIDI/CtrlrMIDILibraryEditor.h"
 #include "CtrlrMIDI/CtrlrMIDIBufferEditor.h"
+#include "CtrlrLua/CtrlrLuaDebuggerUI.h"
 
 CtrlrPanelWindowManager::CtrlrPanelWindowManager(CtrlrPanel &_owner)
 	: owner(_owner), managerTree(Ids::uiWindowManager)
@@ -113,6 +114,8 @@ const String CtrlrPanelWindowManager::getWindowName(const CtrlrPanelWindowManage
 			return ("LuaConsole");
 		case LuaMethodEditor:
 			return ("LuaMethodEditor");
+        case LuaDebugger:
+            return ("LuaDebugger");
 		case ModulatorList:
 			return ("ModulatorList");
 		case LayerEditor:
@@ -132,6 +135,8 @@ CtrlrPanelWindowManager::WindowType CtrlrPanelWindowManager::getWindowType(const
 		return (LuaConsole);
 	if (windowName == "LuaMethodEditor")
 		return (LuaMethodEditor);
+    if (windowName == "LuaDebugger")
+        return (LuaDebugger);
 	if (windowName == "ModulatorList")
 		return (ModulatorList);
 	if (windowName == "LayerEditor")
@@ -140,6 +145,7 @@ CtrlrPanelWindowManager::WindowType CtrlrPanelWindowManager::getWindowType(const
 		return (MIDILibrary);
 	if (windowName == "BufferEditor")
 		return (BufferEditor);
+
 	return (LuaConsole);
 }
 
@@ -161,6 +167,10 @@ CtrlrChildWindow *CtrlrPanelWindowManager::createWindow(const CtrlrPanelWindowMa
 		case CtrlrPanelWindowManager::LuaMethodEditor:
 			w->setContent (new CtrlrLuaMethodEditor (owner));
 			break;
+
+        case CtrlrPanelWindowManager::LuaDebugger:
+            w->setContent (new CtrlrLuaDebuggerUI (&owner));
+            break;
 
 		case CtrlrPanelWindowManager::ModulatorList:
 			w->setContent (new CtrlrPanelModulatorList(owner));
