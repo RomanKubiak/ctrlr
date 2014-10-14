@@ -44,7 +44,8 @@
 CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 	:	owner(_owner),
 		luaManagerTree(Ids::luaManager),
-		luaAudioFormatManager(nullptr)
+		luaAudioFormatManager(nullptr),
+		ctrlrLuaDebugger(nullptr)
 {
 	if ((bool)owner.getCtrlrManager().getProperty (Ids::ctrlrLuaDisabled))
 	{
@@ -121,6 +122,8 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 		assignDefaultObjects (luaState);
 	}
 
+    ctrlrLuaDebugger        = new CtrlrLuaDebugger (*this);
+
 	luaManagerTree.addChild (methodManager->getManagerTree(), -1, 0);
 }
 
@@ -131,20 +134,11 @@ CtrlrLuaManager::~CtrlrLuaManager()
 	deleteAndZero (multiTimer);
 	deleteAndZero (luaAudioFormatManager);
 	lua_close(luaState);
-	lua_close(audioThreadState);
+	deleteAndZero (ctrlrLuaDebugger);
 }
 
 void CtrlrLuaManager::createAudioThreadState()
 {
-	audioThreadState = lua_open();
-	luaopen_base(audioThreadState);
-    luaopen_table(audioThreadState);
-    luaopen_string(audioThreadState);
-    luaopen_math(audioThreadState);
-
-	using namespace luabind;
-    open(audioThreadState);
-	wrapJuceCoreClasses(audioThreadState);
 }
 
 CtrlrLuaMethodManager &CtrlrLuaManager::getMethodManager()

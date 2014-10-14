@@ -160,6 +160,11 @@
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
       <GROUP id="{9AA7A95B-18B0-8AB1-FF2C-719D1130345F}" name="Lua">
+        <GROUP id="{780B07F7-BE7E-D6EE-3053-03CEBD9A03AB}" name="debugger.lua">
+          <FILE id="vXGpeM" name="debugger.lua" compile="0" resource="1" file="../../Source/Resources/Lua/debugger.lua/debugger.lua"/>
+          <FILE id="gZPDMy" name="README.md" compile="0" resource="1" file="../../Source/Resources/Lua/debugger.lua/README.md"/>
+          <FILE id="RoRW97" name="tutorial.lua" compile="0" resource="1" file="../../Source/Resources/Lua/debugger.lua/tutorial.lua"/>
+        </GROUP>
         <FILE id="rejJtR" name="gen_LLookAndFeel.cpp.sh" compile="0" resource="1"
               file="../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh"/>
         <FILE id="v16HHl" name="gen_LLookAndFeel.h.sh" compile="0" resource="1"
@@ -389,6 +394,10 @@
       <FILE id="pKNw8c" name="stdafx.h" compile="0" resource="0" file="../../Source/Core/stdafx.h"/>
     </GROUP>
     <GROUP id="{BF1AE96C-84FC-3E33-914B-08E0062FCD5B}" name="Lua">
+      <FILE id="m0xItC" name="CtrlrLuaDebugger.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaDebugger.cpp"/>
+      <FILE id="z7iSMw" name="CtrlrLuaDebugger.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaDebugger.h"/>
       <FILE id="SYQFvE" name="CtrlrLuaSocket.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaSocket.h"/>
       <FILE id="Sd45MO" name="CtrlrLuaSocket.cpp" compile="1" resource="0"
@@ -1067,6 +1076,10 @@
       <FILE id="dkrsB9" name="CtrlrLogViewer.h" compile="0" resource="0"
             file="../../Source/UIComponents/CtrlrLogViewer.h"/>
       <GROUP id="{FA9E6A1C-3083-EBC2-A5A8-7ADA90B08E5D}" name="CtrlrLua">
+        <FILE id="D4v7r6" name="CtrlrLuaDebuggerUI.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.cpp"/>
+        <FILE id="TqKiYL" name="CtrlrLuaDebuggerUI.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.h"/>
         <FILE id="ZVjLPQ" name="CtrlrLuaConsole.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp"/>
         <FILE id="ruKwDH" name="CtrlrLuaConsole.h" compile="0" resource="0"

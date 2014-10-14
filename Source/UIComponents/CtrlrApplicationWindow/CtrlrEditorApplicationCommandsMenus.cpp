@@ -164,6 +164,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		if (!isRestricted()) menu.addCommandItem (commandManager, showLayers);
 		menu.addCommandItem (commandManager, showLuaEditor);
 		menu.addCommandItem (commandManager, showLuaConsole);
+		menu.addCommandItem (commandManager, showLuaDebugger);
 		menu.addCommandItem (commandManager, showBufferEditor);
 	}
 	else if (topLevelMenuIndex == MenuMidi) // MIDI
