@@ -28,8 +28,7 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-CtrlrLuaDebuggerUI::CtrlrLuaDebuggerUI ()
-    : debuggerOwner(nullptr), panelOwner(nullptr)
+CtrlrLuaDebuggerUI::CtrlrLuaDebuggerUI (CtrlrPanel *_owner) : owner(_owner), debugger(nullptr)
 {
     addAndMakeVisible (debuggerOutput = new TextEditor (String::empty));
     debuggerOutput->setMultiLine (true);
@@ -98,13 +97,6 @@ void CtrlrLuaDebuggerUI::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-CtrlrLuaDebuggerUI::CtrlrLuaDebuggerUI(CtrlrPanel *_panelOwner) : panelOwner(_panelOwner), debuggerOwner(nullptr)
-{
-}
-
-CtrlrLuaDebuggerUI::CtrlrLuaDebuggerUI(CtrlrLuaDebugger *_debuggerOwner) : panelOwner(nullptr), debuggerOwner(_debuggerOwner)
-{
-}
 //[/MiscUserCode]
 
 
@@ -118,8 +110,8 @@ CtrlrLuaDebuggerUI::CtrlrLuaDebuggerUI(CtrlrLuaDebugger *_debuggerOwner) : panel
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="CtrlrLuaDebuggerUI" componentName=""
-                 parentClasses="public CtrlrChildWindowContent" constructorParams=""
-                 variableInitialisers="debuggerOwner(nullptr), panelOwner(nullptr)"
+                 parentClasses="public CtrlrChildWindowContent" constructorParams="CtrlrPanel *_owner"
+                 variableInitialisers="debugger(nullptr), owner(_owner)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffff"/>
