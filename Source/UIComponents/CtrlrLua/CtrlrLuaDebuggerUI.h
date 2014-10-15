@@ -43,13 +43,11 @@ class CtrlrLuaDebuggerUI  : public CtrlrChildWindowContent
 {
 public:
     //==============================================================================
-    CtrlrLuaDebuggerUI ();
+    CtrlrLuaDebuggerUI (CtrlrPanel *_owner);
     ~CtrlrLuaDebuggerUI();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    CtrlrLuaDebuggerUI(CtrlrPanel *_panelOwner);
-    CtrlrLuaDebuggerUI(CtrlrLuaDebugger *_debuggerOwner);
     uint8 getType()							{ return (CtrlrPanelWindowManager::LuaDebugger); }
 	String getContentName()					{ return ("LUA Debugger"); }
     //[/UserMethods]
@@ -61,8 +59,8 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    CtrlrPanel *panelOwner;
-    CtrlrLuaDebugger *debuggerOwner;
+    CtrlrPanel *owner;
+    CtrlrLuaDebugger *debugger;
     //[/UserVariables]
 
     //==============================================================================

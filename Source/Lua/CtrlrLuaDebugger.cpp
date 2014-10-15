@@ -23,7 +23,7 @@ CtrlrLuaDebugger::CtrlrLuaDebugger(CtrlrLuaManager &_owner) : owner(_owner)
     String debugLua(String(BinaryData::debugger_lua, BinaryData::debugger_luaSize));
     owner.runCode(debugLua, "debugger.lua");
 
-    ui = new CtrlrLuaDebuggerUI(this);
+    ui = new CtrlrLuaDebuggerUI(nullptr);
 }
 
 CtrlrLuaDebugger::~CtrlrLuaDebugger()
