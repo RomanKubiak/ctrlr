@@ -2730,6 +2730,10 @@
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.h" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUIControls.cpp" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUIControls.h" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUITopContainer.cpp" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUITopContainer.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniserFunctions.h" />
