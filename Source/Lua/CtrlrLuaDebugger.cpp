@@ -37,9 +37,9 @@ void CtrlrLuaDebugger::dbgWrite(String data)
 
 std::string CtrlrLuaDebugger::dbgRead(String prompt)
 {
-    CtrlrDialogWindow::showModalDialog ("Title", ui, false, nullptr);
+    CtrlrDialogWindow::showModalDialog ("Title", ui, true, nullptr);
 
-    return ("");
+    return ("c");
 }
 
 void CtrlrLuaDebugger::wrapForLua(lua_State *L)

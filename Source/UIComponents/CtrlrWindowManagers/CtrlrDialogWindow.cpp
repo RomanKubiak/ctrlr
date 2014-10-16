@@ -34,6 +34,7 @@ public:
 	}
 
 private:
+    TooltipWindow tooltip;
     JUCE_DECLARE_NON_COPYABLE (CtrlrTempDialogWindow);
 };
 

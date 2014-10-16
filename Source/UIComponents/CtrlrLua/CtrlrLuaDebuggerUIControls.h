@@ -17,19 +17,15 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_3D1464627E358A00__
-#define __JUCE_HEADER_3D1464627E358A00__
+#ifndef __JUCE_HEADER_E324BEAF6C5B7BB0__
+#define __JUCE_HEADER_E324BEAF6C5B7BB0__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "CtrlrWindowManagers/CtrlrChildWindowContent.h"
-#include "CtrlrWindowManagers/CtrlrPanelWindowManager.h"
-#include "CtrlrLog.h"
+#include "JuceHeader.h"
+class CtrlrLuaDebuggerUI;
 
-class CtrlrPanel;
-class CtrlrLuaDebugger;
 //[/Headers]
 
-#include "CtrlrLuaDebuggerUITopContainer.h"
 
 
 //==============================================================================
@@ -40,42 +36,43 @@ class CtrlrLuaDebugger;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class CtrlrLuaDebuggerUI  : public CtrlrChildWindowContent
+class CtrlrLuaDebuggerUIControls  : public Component,
+                                    public ButtonListener
 {
 public:
     //==============================================================================
-    CtrlrLuaDebuggerUI (CtrlrPanel *_owner);
-    ~CtrlrLuaDebuggerUI();
+    CtrlrLuaDebuggerUIControls (CtrlrLuaDebuggerUI &_owner);
+    ~CtrlrLuaDebuggerUIControls();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    uint8 getType()							{ return (CtrlrPanelWindowManager::LuaDebugger); }
-	String getContentName()					{ return ("LUA Debugger"); }
     //[/UserMethods]
 
     void paint (Graphics& g);
     void resized();
+    void buttonClicked (Button* buttonThatWasClicked);
 
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    CtrlrPanel *owner;
-    CtrlrLuaDebugger *debugger;
-    StretchableLayoutManager layout;
+    CtrlrLuaDebuggerUI &owner;
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<TextEditor> debuggerInput;
-    ScopedPointer<StretchableLayoutResizerBar> stretcher;
-    ScopedPointer<CtrlrLuaDebuggerUITopContainer> topContainer;
+    ScopedPointer<TextButton> continueExec;
+    ScopedPointer<TextButton> stepOver;
+    ScopedPointer<TextEditor> textEditor;
+    ScopedPointer<TextButton> stepInto;
+    ScopedPointer<TextButton> finish;
+    ScopedPointer<TextButton> execute;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrLuaDebuggerUI)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrLuaDebuggerUIControls)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_3D1464627E358A00__
+#endif   // __JUCE_HEADER_E324BEAF6C5B7BB0__

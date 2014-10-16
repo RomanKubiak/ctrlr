@@ -28,17 +28,9 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-CtrlrLuaDebuggerUI::CtrlrLuaDebuggerUI (CtrlrPanel *_owner) : owner(_owner), debugger(nullptr)
+CtrlrLuaDebuggerUI::CtrlrLuaDebuggerUI (CtrlrPanel *_owner)
+    : debugger(nullptr), owner(_owner)
 {
-    addAndMakeVisible (debuggerOutput = new TextEditor (String::empty));
-    debuggerOutput->setMultiLine (true);
-    debuggerOutput->setReturnKeyStartsNewLine (false);
-    debuggerOutput->setReadOnly (true);
-    debuggerOutput->setScrollbarsShown (true);
-    debuggerOutput->setCaretVisible (false);
-    debuggerOutput->setPopupMenuEnabled (true);
-    debuggerOutput->setText (String::empty);
-
     addAndMakeVisible (debuggerInput = new TextEditor (String::empty));
     debuggerInput->setMultiLine (false);
     debuggerInput->setReturnKeyStartsNewLine (false);
@@ -47,13 +39,20 @@ CtrlrLuaDebuggerUI::CtrlrLuaDebuggerUI (CtrlrPanel *_owner) : owner(_owner), deb
     debuggerInput->setCaretVisible (true);
     debuggerInput->setPopupMenuEnabled (true);
     debuggerInput->setColour (TextEditor::backgroundColourId, Colour (0x97ffffff));
-    debuggerInput->setColour (TextEditor::outlineColourId, Colour (0x79000000));
+    debuggerInput->setColour (TextEditor::outlineColourId, Colours::black);
+    debuggerInput->setColour (TextEditor::shadowColourId, Colour (0x00000000));
     debuggerInput->setText (String::empty);
 
+    addAndMakeVisible (stretcher = new StretchableLayoutResizerBar (&layout, 1, false));
+
+    addAndMakeVisible (topContainer = new CtrlrLuaDebuggerUITopContainer (*this));
 
     //[UserPreSize]
+    layout.setItemLayout (0, -0.001, -1.0, -0.69);
+ 	layout.setItemLayout (1, 8, 8, 8);
+ 	layout.setItemLayout (2, -0.001, -1.0, -0.29);
+
     debuggerInput->setFont (Font (Font::getDefaultMonospacedFontName(), 14.0f, Font::plain));
-    debuggerOutput->setFont (Font (Font::getDefaultMonospacedFontName(), 14.0f, Font::plain));
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -68,8 +67,9 @@ CtrlrLuaDebuggerUI::~CtrlrLuaDebuggerUI()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    debuggerOutput = nullptr;
     debuggerInput = nullptr;
+    stretcher = nullptr;
+    topContainer = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -88,9 +88,12 @@ void CtrlrLuaDebuggerUI::paint (Graphics& g)
 
 void CtrlrLuaDebuggerUI::resized()
 {
-    debuggerOutput->setBounds (0, 0, proportionOfWidth (0.8000f), proportionOfHeight (0.8000f));
-    debuggerInput->setBounds (0, proportionOfHeight (0.8000f), proportionOfWidth (0.8000f), proportionOfHeight (0.2000f));
+    debuggerInput->setBounds (0, proportionOfHeight (0.7000f), proportionOfWidth (1.0000f), proportionOfHeight (0.3000f));
+    stretcher->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.6900f), proportionOfWidth (1.0000f), proportionOfHeight (0.0100f));
+    topContainer->setBounds (0, 0, getWidth() - 0, proportionOfHeight (0.6900f));
     //[UserResized] Add your own custom resize handling here..
+    Component* comps[] = { topContainer, stretcher,  debuggerInput};
+	layout.layOutComponents (comps, 3, 0, 0, getWidth(), getHeight(), true, true);
     //[/UserResized]
 }
 
@@ -111,17 +114,20 @@ BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="CtrlrLuaDebuggerUI" componentName=""
                  parentClasses="public CtrlrChildWindowContent" constructorParams="CtrlrPanel *_owner"
-                 variableInitialisers="debugger(nullptr), owner(_owner)"
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="600" initialHeight="400">
+                 variableInitialisers="debugger(nullptr), owner(_owner)" snapPixels="8"
+                 snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
+                 initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffff"/>
-  <TEXTEDITOR name="" id="f40d746c15284a53" memberName="debuggerOutput" virtualName=""
-              explicitFocusOrder="0" pos="0 0 80% 80%" initialText="" multiline="1"
-              retKeyStartsLine="0" readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTEDITOR name="" id="4ed2b347c585c588" memberName="debuggerInput" virtualName=""
-              explicitFocusOrder="0" pos="0 80% 80% 20%" bkgcol="97ffffff"
-              outlinecol="79000000" initialText="" multiline="0" retKeyStartsLine="0"
-              readonly="0" scrollbars="1" caret="1" popupmenu="1"/>
+              explicitFocusOrder="0" pos="0 70% 100% 30%" bkgcol="97ffffff"
+              outlinecol="ff000000" shadowcol="0" initialText="" multiline="0"
+              retKeyStartsLine="0" readonly="0" scrollbars="1" caret="1" popupmenu="1"/>
+  <GENERICCOMPONENT name="" id="f56f3b59ce17a97b" memberName="stretcher" virtualName=""
+                    explicitFocusOrder="0" pos="0% 69% 100% 1%" class="StretchableLayoutResizerBar"
+                    params="&amp;layout, 1, false"/>
+  <JUCERCOMP name="" id="4c015b173c60c9d3" memberName="topContainer" virtualName=""
+             explicitFocusOrder="0" pos="0 0 0M 69%" sourceFile="CtrlrLuaDebuggerUITopContainer.cpp"
+             constructorParams="*this"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
