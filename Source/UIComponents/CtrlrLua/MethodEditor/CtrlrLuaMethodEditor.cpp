@@ -17,7 +17,12 @@ CtrlrLuaMethodEditor::CtrlrLuaMethodEditor (CtrlrPanel &_owner)
     : owner(_owner),
       methodEditArea (nullptr),
 	  methodTree(nullptr),
-	  resizer(nullptr)
+	  resizer(nullptr),
+	  caseCansitive(true),
+	  lookInString("Current"),
+	  searchInString("Editor"),
+	  findDialogActive(false),
+	  currentSearchString(String::empty)
 {
 	addAndMakeVisible (resizer			= new StretchableLayoutResizerBar (&layoutManager, 1, true));
 	addAndMakeVisible (methodTree		= new CtrlrValueTreeEditorTree ("LUA METHOD TREE"));
@@ -133,13 +138,38 @@ bool CtrlrLuaMethodEditor::keyPressed (const KeyPress& key, Component* originati
 		if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 70)
 		{
 			// CTRL + F
-			methodEditArea->showFindDialog();
+			if (getCurrentEditor())
+			{
+				getCurrentEditor()->getCodeComponent()->showFindPanel(false);
+			}
+			else
+			{
+				methodEditArea->showFindDialog();
+			}
+			return (true);
+		}
+
+		if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 71)
+		{
+			// CTRL + G
+			if (getCurrentEditor())
+			{
+				getCurrentEditor()->getCodeComponent()->showGoTOPanel();
+			}
 			return (true);
 		}
 
 		if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 72)
 		{
-			methodEditArea->replaceNextMatch();
+			// CTRL + H
+			if (getCurrentEditor())
+			{
+				getCurrentEditor()->getCodeComponent()->showFindPanel(true);
+			}
+			else
+			{
+				methodEditArea->replaceNextMatch();
+			}
 			return (true);
 		}
 	}
@@ -337,7 +367,7 @@ void CtrlrLuaMethodEditor::closeTab(const int tabIndex)
 			methodEditArea->getTabs()->removeTab (tabIndex);
 		}
 
-		methodEditArea->getTabs()->setCurrentTabIndex (tabIndex, false);
+		methodEditArea->getTabs()->setCurrentTabIndex (tabIndex == 0 ? tabIndex+1 : tabIndex-1 , false);
 
 		saveSettings();
 	}

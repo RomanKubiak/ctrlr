@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "CtrlrLuaMethodEditorTabs.h"
+#include "CtrlrLuaMethodEditor.h"
+#include "CtrlrLuaMethodCodeEditor.h"
 
 CtrlrLuaMethodEditorTabsLF::CtrlrLuaMethodEditorTabsLF()
 {
@@ -135,5 +137,20 @@ TabBarButton *CtrlrLuaMethodEditorTabs::createTabButton (const String &tabName, 
 	close->setSize (20,20);
 	btn->setExtraComponent (close, TabBarButton::afterText);
 	return (btn);
+}
+
+void CtrlrLuaMethodEditorTabs::currentTabChanged(int newCurrentTabIndex, const String &newCurrentTabName)
+{
+	CtrlrLuaMethodCodeEditor * codeEditor = dynamic_cast<CtrlrLuaMethodCodeEditor*> (getCurrentContentComponent());
+	if (owner.findDialogActive == true)
+	{
+		if (codeEditor)
+			codeEditor->getCodeComponent()->showFindPanel(false);
+	}
+	else
+	{
+		if (codeEditor)
+			codeEditor->getCodeComponent()->hideFindPanel();
+	}
 }
 
