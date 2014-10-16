@@ -219,7 +219,7 @@ void CtrlrLuaMethod::triggerSourceChangeFromEditor(const bool recompile)
 	else
 	{
 		// replace the contents of the property with the editors content
-		methodTree.setProperty (Ids::luaMethodCode, methodCodeEditor->getCodeDocument().getAllContent(), nullptr);
+		methodTree.setProperty (Ids::luaMethodCode, methodCodeEditor.get()->getCodeDocument().getAllContent(), nullptr);
 	}
 
 	if (recompile)
