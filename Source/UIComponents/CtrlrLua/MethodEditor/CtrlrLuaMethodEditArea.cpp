@@ -187,6 +187,7 @@ void CtrlrLuaMethodEditArea::closeTabWithMethod(const ValueTree &item)
 			if (ed->getMethod()->getUuid() == item.getProperty(Ids::uuid).toString())
 			{
 				upperTabs->removeTab (i);
+				upperTabs->setCurrentTabIndex(i == 0 ? i+1 : i-1 , true);
 				break;
 			}
 		}

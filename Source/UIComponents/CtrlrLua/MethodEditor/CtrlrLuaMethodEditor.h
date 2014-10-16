@@ -106,6 +106,9 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethodEditor)
 
+		bool caseCansitive, findDialogActive;
+		String lookInString, searchInString, currentSearchString;
+
 	private:
 		WeakReference<CtrlrLuaMethodEditor>::Master masterReference;
 		friend class WeakReference<CtrlrLuaMethodEditor>;

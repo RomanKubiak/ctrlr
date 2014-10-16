@@ -3,7 +3,7 @@
 
 #include "CtrlrMacros.h"
 
-class CtrlrLuaCodeTokeniser : public CodeTokeniser
+class CtrlrLuaCodeTokeniser : public LuaTokeniser
 {
 	public:
 		CtrlrLuaCodeTokeniser();
