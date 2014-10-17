@@ -160,6 +160,10 @@
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
       <GROUP id="{9AA7A95B-18B0-8AB1-FF2C-719D1130345F}" name="Lua">
+        <GROUP id="{825484F5-21B2-3593-5389-D5FB656C7D64}" name="json4lua">
+          <FILE id="lFdLLV" name="json.lua" compile="0" resource="1" file="../../Source/Resources/Lua/json4lua/json.lua"/>
+          <FILE id="u9Di5q" name="LICENCE.txt" compile="0" resource="1" file="../../Source/Resources/Lua/json4lua/LICENCE.txt"/>
+        </GROUP>
         <GROUP id="{780B07F7-BE7E-D6EE-3053-03CEBD9A03AB}" name="debugger.lua">
           <FILE id="vXGpeM" name="debugger.lua" compile="0" resource="1" file="../../Source/Resources/Lua/debugger.lua/debugger.lua"/>
           <FILE id="gZPDMy" name="README.md" compile="0" resource="1" file="../../Source/Resources/Lua/debugger.lua/README.md"/>

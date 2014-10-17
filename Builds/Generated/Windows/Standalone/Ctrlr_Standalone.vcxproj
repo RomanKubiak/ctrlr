@@ -2329,6 +2329,8 @@
     <ClInclude Include="..\..\..\Standalone\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\json.lua"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\LICENCE.txt"/>
     <None Include="..\..\..\..\Source\Resources\Lua\debugger.lua\debugger.lua"/>
     <None Include="..\..\..\..\Source\Resources\Lua\debugger.lua\README.md"/>
     <None Include="..\..\..\..\Source\Resources\Lua\debugger.lua\tutorial.lua"/>

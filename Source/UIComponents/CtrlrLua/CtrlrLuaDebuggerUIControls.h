@@ -21,7 +21,7 @@
 #define __JUCE_HEADER_E324BEAF6C5B7BB0__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "JuceHeader.h"
+#include "CtrlrMacros.h"
 class CtrlrLuaDebuggerUI;
 
 //[/Headers]

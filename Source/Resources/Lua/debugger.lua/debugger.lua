@@ -91,7 +91,7 @@ end
 
 local function formatStackLocation(info)
 	local fname = (info.name or string.format("<%s:%d>", info.short_src, info.linedefined))
-	return string.format("%s:%d in function '%s'", info.short_src, info.currentline, fname)
+	return string.format("%s:%d in function '%s'\n{ ctrlr: %s}", info.short_src, info.currentline, fname, json.encode (info))
 end
 
 local repl

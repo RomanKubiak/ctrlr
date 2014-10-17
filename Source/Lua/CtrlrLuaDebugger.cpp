@@ -11,6 +11,7 @@
 #include "CtrlrLuaDebugger.h"
 #include "CtrlrLuaManager.h"
 #include "CtrlrWindowManagers/CtrlrDialogWindow.h"
+#include "CtrlrPanel/CtrlrPanel.h"
 
 CtrlrLuaDebugger::CtrlrLuaDebugger(CtrlrLuaManager &_owner) : owner(_owner)
 {
@@ -22,8 +23,6 @@ CtrlrLuaDebugger::CtrlrLuaDebugger(CtrlrLuaManager &_owner) : owner(_owner)
 
     String debugLua(String(BinaryData::debugger_lua, BinaryData::debugger_luaSize));
     owner.runCode(debugLua, "debugger.lua");
-
-    ui = new CtrlrLuaDebuggerUI(nullptr);
 }
 
 CtrlrLuaDebugger::~CtrlrLuaDebugger()
@@ -32,13 +31,35 @@ CtrlrLuaDebugger::~CtrlrLuaDebugger()
 
 void CtrlrLuaDebugger::dbgWrite(String data)
 {
-    _DBG("CtrlrLuaDebugger::dbgWrite data \""+data.trim()+"\"");
+    owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaDebugger);
+
+    CtrlrLuaDebuggerUI *ui = dynamic_cast<CtrlrLuaDebuggerUI *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaDebugger));
+
+    if (ui)
+    {
+        return (ui->setOutputFromDebugger(data));
+    }
 }
 
 std::string CtrlrLuaDebugger::dbgRead(String prompt)
 {
-    CtrlrDialogWindow::showModalDialog ("Title", ui, true, nullptr);
+    owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaDebugger);
 
+    CtrlrLuaDebuggerUI *ui = dynamic_cast<CtrlrLuaDebuggerUI *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaDebugger));
+    if (ui)
+    {
+        if (ui->waitForCommand())
+        {
+            return ((lastCommandSentToDebugger = ui->getLastCommand()).toStdString());
+        }
+        else
+        {
+            _WRN("CtrlrLuaDebugger::dbgRead debugger UI didn't return any commands, restarting debugger");
+            return ("");
+        }
+    }
+
+    _WRN("CtrlrLuaDebugger::dbgRead debugger window is invalid, continuing");
     return ("c");
 }
 

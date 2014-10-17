@@ -170,7 +170,7 @@ CtrlrChildWindow *CtrlrPanelWindowManager::createWindow(const CtrlrPanelWindowMa
 			break;
 
         case CtrlrPanelWindowManager::LuaDebugger:
-            w->setContent (new CtrlrLuaDebuggerUI (&owner));
+            w->setContent (new CtrlrLuaDebuggerUI (owner));
             break;
 
 		case CtrlrPanelWindowManager::ModulatorList:
