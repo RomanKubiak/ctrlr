@@ -7,6 +7,7 @@ class CtrlrManager;
 class CtrlrFontManager;
 class CtrlrEditor;
 class CtrlrPanelEditor;
+class CtrlrPanel;
 
 class CtrlrMenuBarLookAndFeel : public LookAndFeel_V2
 {

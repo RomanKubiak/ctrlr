@@ -49,7 +49,7 @@
 #define MENU_OFFSET_PROGRAM_LIST		0x80000
 
 #define WARN(x)													AlertWindow::showMessageBox (AlertWindow::WarningIcon, "WARNING", x, "OK", nullptr)
-#define INFO(x,y)													AlertWindow::showMessageBox (AlertWindow::InfoIcon, x, y, "OK", nullptr)
+#define INFO(x,y)												AlertWindow::showMessageBox (AlertWindow::InfoIcon, x, y, "OK", nullptr)
 #define SURE(x,y)												AlertWindow::showOkCancelBox (AlertWindow::QuestionIcon, "Are you sure?", x, "Yes", "No", y, nullptr)
 #define _STR(x)													String(x)
 #define STR(x)													String(x)
@@ -191,7 +191,7 @@ class DragAndDropSourceDetails
 		}
 
 		DragAndDropSourceDetails (const String &_description, Component *_sourceComponent, int _localPositionX, int _localPositionY)
-			: description(_description), sourceComponent(_sourceComponent), localPositionX(_localPositionX), localPositionY(_localPositionY), 
+			: description(_description), sourceComponent(_sourceComponent), localPositionX(_localPositionX), localPositionY(_localPositionY),
 				dragImage(Image::null), imageOffsetX(-1), imageOffsetY(-1)
 		{
 		}
@@ -201,8 +201,8 @@ class DragAndDropSourceDetails
 		{
 		}
 
-		DragAndDropSourceDetails () 
-			: dragImage(Image::null), imageOffsetX(-1), imageOffsetY(-1), 
+		DragAndDropSourceDetails ()
+			: dragImage(Image::null), imageOffsetX(-1), imageOffsetY(-1),
 				sourceComponent(nullptr), localPositionX(-1), localPositionY(-1)
 		{
 		}

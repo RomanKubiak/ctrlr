@@ -24,6 +24,7 @@
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
+#include "CtrlrLuaDebuggerUI.h"
 //[/MiscUserDefs]
 
 //==============================================================================
@@ -131,6 +132,7 @@ void CtrlrLuaDebuggerUIControls::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == continueExec)
     {
         //[UserButtonCode_continueExec] -- add your button handler code here..
+        owner.setCommand ("c");
         //[/UserButtonCode_continueExec]
     }
     else if (buttonThatWasClicked == stepOver)

@@ -2646,6 +2646,8 @@
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.h.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeel.lua.sh" />
+		<Unit filename="../../../../Source/Resources/Lua/json4lua/LICENCE.txt" />
+		<Unit filename="../../../../Source/Resources/Lua/json4lua/json.lua" />
 		<Unit filename="../../../../Source/Resources/Lua/lf.template" />
 		<Unit filename="../../../../Source/Resources/Misc/RSRC.zip" />
 		<Unit filename="../../../../Source/Resources/XML/CtrlrIDs.xml" />
@@ -2857,7 +2859,6 @@
 			<envvars />
 			<code_completion />
 			<debugger />
-			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

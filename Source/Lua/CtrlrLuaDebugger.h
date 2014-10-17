@@ -27,7 +27,7 @@ class CtrlrLuaDebugger
 
     private:
         CtrlrLuaManager &owner;
-        ScopedPointer <CtrlrLuaDebuggerUI> ui;
+        String lastCommandSentToDebugger;
 };
 
 #endif  // CTRLRLUADEBUGGER_H_INCLUDED

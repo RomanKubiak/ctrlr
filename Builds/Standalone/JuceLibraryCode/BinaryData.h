@@ -9,8 +9,14 @@
 
 namespace BinaryData
 {
+    extern const char*   json_lua;
+    const int            json_luaSize = 17174;
+
+    extern const char*   LICENCE_txt;
+    const int            LICENCE_txtSize = 1077;
+
     extern const char*   debugger_lua;
-    const int            debugger_luaSize = 10832;
+    const int            debugger_luaSize = 10866;
 
     extern const char*   README_md;
     const int            README_mdSize = 6079;
@@ -202,7 +208,7 @@ namespace BinaryData
     const int            CtrlrIDs_xmlSize = 79061;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 17296;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 17438;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
@@ -241,7 +247,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 76;
+    const int namedResourceListSize = 78;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

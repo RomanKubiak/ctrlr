@@ -44,13 +44,17 @@ class CtrlrLuaDebuggerUI  : public CtrlrChildWindowContent
 {
 public:
     //==============================================================================
-    CtrlrLuaDebuggerUI (CtrlrPanel *_owner);
+    CtrlrLuaDebuggerUI (CtrlrPanel &_owner);
     ~CtrlrLuaDebuggerUI();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
     uint8 getType()							{ return (CtrlrPanelWindowManager::LuaDebugger); }
 	String getContentName()					{ return ("LUA Debugger"); }
+	int waitForCommand();
+	void setOutputFromDebugger(const String &output);
+	String getLastCommand();
+	void setCommand(const String command);
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -60,13 +64,14 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    CtrlrPanel *owner;
+    CtrlrPanel &owner;
     CtrlrLuaDebugger *debugger;
     StretchableLayoutManager layout;
+    String lastCommand;
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<TextEditor> debuggerInput;
+    ScopedPointer<TextEditor> debuggerState;
     ScopedPointer<StretchableLayoutResizerBar> stretcher;
     ScopedPointer<CtrlrLuaDebuggerUITopContainer> topContainer;
 

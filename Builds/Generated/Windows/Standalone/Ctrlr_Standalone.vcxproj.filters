@@ -11,6 +11,9 @@
     <Filter Include="Ctrlr_Standalone\Resources\Lua">
       <UniqueIdentifier>{1B415979-DBE4-F0F5-9792-B03F9E654755}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ctrlr_Standalone\Resources\Lua\json4lua">
+      <UniqueIdentifier>{6586952B-0F6F-DA64-2090-4A3BA43F5227}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Ctrlr_Standalone\Resources\Lua\debugger.lua">
       <UniqueIdentifier>{BD462A2B-9E29-7E80-8BBA-55758A51A3FC}</UniqueIdentifier>
     </Filter>
@@ -4745,6 +4748,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\json.lua">
+      <Filter>Ctrlr_Standalone\Resources\Lua\json4lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\LICENCE.txt">
+      <Filter>Ctrlr_Standalone\Resources\Lua\json4lua</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\Lua\debugger.lua\debugger.lua">
       <Filter>Ctrlr_Standalone\Resources\Lua\debugger.lua</Filter>
     </None>

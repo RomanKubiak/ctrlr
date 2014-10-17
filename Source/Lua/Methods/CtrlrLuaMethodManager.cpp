@@ -58,7 +58,18 @@ String CtrlrLuaMethodManager::getUtilityCode(const int index)
 	if (utilityXml)
 	{
 		if (utilityXml->hasTagName("utility"))
-			return (utilityXml->getAllSubText());
+        {
+            if (utilityXml->hasAttribute("resource"))
+            {
+                int resourceSize;
+                const char *resourceData = BinaryData::getNamedResource (utilityXml->getStringAttribute("resource").toUTF8(), resourceSize);
+                return (String (resourceData, resourceSize));
+            }
+            else
+            {
+                return (utilityXml->getAllSubText());
+            }
+        }
 	}
 
 	return  ("-- No code for utility index "+String(index));
@@ -230,6 +241,7 @@ void CtrlrLuaMethodManager::restoreMethodsRecursivly(const ValueTree &savedState
 
 void CtrlrLuaMethodManager::addMethod (ValueTree groupToAddTo, const String &methodName, const String &initialCode, const String &linkedToProperty, const Uuid methodUid, const bool forceIfAlreadyExists)
 {
+    _DBG("CtrlrLuaMethodManager::addMethod "+methodName+" uuid="+methodUid.toString());
 	ValueTree group;
 
 	if (groupToAddTo.isValid())
