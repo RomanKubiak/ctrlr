@@ -27,7 +27,7 @@ class CtrlrLuaDebugger
 
     private:
         CtrlrLuaManager &owner;
-        String lastCommandSentToDebugger;
+        String commandQueue;
 };
 
 #endif  // CTRLRLUADEBUGGER_H_INCLUDED

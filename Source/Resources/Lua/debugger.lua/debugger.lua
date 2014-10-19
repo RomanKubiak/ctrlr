@@ -83,9 +83,9 @@ end
 local function dbg_read(prompt)
 	dbg_write(prompt)
 	-- return io.read()
-	console ("RETURNING TO DEBUGGER")
+	-- console ("RETURNING TO DEBUGGER")
 	ret = ctrlrDebugger:dbg_read_ctrlr(prompt)
-	console (ret)
+	-- console (ret)
 	return ret
 end
 
@@ -399,16 +399,16 @@ end
 if jit and
 	jit.version == "LuaJIT 2.0.0-beta10"
 then
-	dbg_writeln("debugger.lua loaded for "..jit.version)
+	-- dbg_writeln("debugger.lua loaded for "..jit.version)
 	pcall(luajit_load_readline_support)
 elseif
 	 _VERSION == "Lua 5.2" or
 	 _VERSION == "Lua 5.1"
 then
-	dbg_writeln("debugger.lua loaded for ".._VERSION)
+	-- dbg_writeln("debugger.lua loaded for ".._VERSION)
 else
-	dbg_writeln("debugger.lua not tested against ".._VERSION)
-	dbg_writeln("Please send me feedback!")
+	-- dbg_writeln("debugger.lua not tested against ".._VERSION)
+	-- dbg_writeln("Please send me feedback!")
 end
 
 return dbg
