@@ -43,6 +43,14 @@ void CtrlrLuaDebugger::dbgWrite(String data)
 
 std::string CtrlrLuaDebugger::dbgRead(String prompt)
 {
+	if (commandQueue.length() > 0)
+	{
+		const String sendNow = commandQueue.substring(0,1);
+		commandQueue = commandQueue.substring(1);
+
+		return (sendNow.toStdString());
+	}
+
     owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaDebugger);
 
     CtrlrLuaDebuggerUI *ui = dynamic_cast<CtrlrLuaDebuggerUI *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaDebugger));
@@ -50,7 +58,8 @@ std::string CtrlrLuaDebugger::dbgRead(String prompt)
     {
         if (ui->waitForCommand())
         {
-            return ((lastCommandSentToDebugger = ui->getLastCommand()).toStdString());
+			commandQueue = ui->getLastCommand().substring(1);
+			return (ui->getLastCommand().substring(0,1).toStdString());
         }
         else
         {

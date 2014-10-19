@@ -18,6 +18,7 @@
 */
 
 //[Headers] You can add your own extra header files here...
+#include "stdafx.h"
 //[/Headers]
 
 #include "CtrlrLuaDebuggerUIControls.h"
@@ -138,11 +139,13 @@ void CtrlrLuaDebuggerUIControls::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == stepOver)
     {
         //[UserButtonCode_stepOver] -- add your button handler code here..
+		owner.setCommand ("nt");
         //[/UserButtonCode_stepOver]
     }
     else if (buttonThatWasClicked == stepInto)
     {
         //[UserButtonCode_stepInto] -- add your button handler code here..
+		owner.setCommand ("st");
         //[/UserButtonCode_stepInto]
     }
     else if (buttonThatWasClicked == finish)

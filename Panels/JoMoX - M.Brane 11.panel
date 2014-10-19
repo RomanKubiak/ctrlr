@@ -26,20 +26,26 @@
        panelModulatorListSortOption="1" panelGlobalVariables="-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1:-1"
        panelResources="-- None" panelPropertyDisplayIDs="0" ctrlrMenuItemBackgroundColour="ffffffff"
        ctrlrMenuItemTextColour="ff000000" ctrlrMenuItemHighlightedTextColour="ffffffff"
-       ctrlrMenuItemHighlightColour="ff4364ff" ctrlrMenuItemFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;0"
+       ctrlrMenuItemHighlightColour="ff4364ff" ctrlrMenuItemFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;3"
        ctrlrMenuItemSeparatorColour="44000000" ctrlrMenuItemHeaderColour="ff000000"
        ctrlrMenuBarBackgroundColour1="fff7f7f7" ctrlrMenuBarBackgroundColour2="ffcccccc"
        ctrlrMenuBarTextColour="ff000000" ctrlrMenuBarHighlightedTextColour="ffffffff"
-       ctrlrMenuBarHighlightColour="ff4364ff" ctrlrMenuBarFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;0"
+       ctrlrMenuBarHighlightColour="ff4364ff" ctrlrMenuBarFont="&lt;Sans-Serif&gt;;18;0;0;0;0;1;3"
        ctrlrUseEditorWrapper="0" panelIndex="0" uiLuaConsoleSnips="setLookAndFeel_V3 (panel:getCanvas(), CustomLookAndFeel())">
   <uiWindowManager>
-    <uiChildWindow uiChildWindowName="LuaMethodEditor" uiChildWindowState="1924 27 1912 1049">
-      <uiChildWindowContentState luaMethodEditor="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&#13;&#10;&lt;OPEN id=&quot;LUA&quot; scrollPos=&quot;0&quot;&gt;&#13;&#10;  &lt;SELECTED id=&quot;/LUA/panelLoaded&quot;/&gt;&#13;&#10;&lt;/OPEN&gt;&#13;&#10;;ff3960e6c6c44f0e84826cbd19973d0e:573612fff86e428eb80609bd18d6c373:79211f0c786541969198f92c373e8b03"/>
+    <uiChildWindow uiChildWindowName="LuaDebugger" uiChildWindowState="32 66 614 643">
+      <uiChildWindowContentState/>
+    </uiChildWindow>
+    <uiChildWindow uiChildWindowName="LuaMethodEditor" uiChildWindowState="fs 701 30 800 500">
+      <uiChildWindowContentState luaMethodEditor="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&#13;&#10;&lt;OPEN id=&quot;LUA&quot; scrollPos=&quot;0&quot;&gt;&#13;&#10;  &lt;OPEN id=&quot;Built-In&quot;/&gt;&#13;&#10;  &lt;SELECTED id=&quot;/LUA/Built-In/json4lua&quot;/&gt;&#13;&#10;&lt;/OPEN&gt;&#13;&#10;;"/>
     </uiChildWindow>
     <uiChildWindow uiChildWindowName="LuaConsole" uiChildWindowState="1088 534 797 502">
       <uiChildWindowContentState/>
     </uiChildWindow>
     <uiChildWindow uiChildWindowName="LayerEditor" uiChildWindowState="564 317 800 500">
+      <uiChildWindowContentState/>
+    </uiChildWindow>
+    <uiChildWindow uiChildWindowName="LuaDebugger" uiChildWindowState="560 270 800 500">
       <uiChildWindowContentState/>
     </uiChildWindow>
   </uiWindowManager>
@@ -87,6 +93,9 @@
         <luaMethod luaMethodName="how" luaMethodCode="-- @1.1&#13;&#10;--&#13;&#10;-- Print all available classes&#13;&#10;--&#13;&#10;function how()&#13;&#10;&#9;ret = &quot;Available classes:\n&quot;&#13;&#10;&#9;ret = ret .. &quot;\n-----------------------------------------------------------------&quot;&#13;&#10;&#9;for i,v in ipairs(class_names()) do&#13;&#10;&#9;&#9;ret = ret .. &quot;\t&quot;.. v .. &quot;\n&quot;&#13;&#10;&#9;end&#13;&#10;&#9;ret = ret .. &quot;\n-----------------------------------------------------------------&quot;&#13;&#10;&#9;_DBG (ret)&#13;&#10;&#9;return ret&#13;&#10;end"
                    luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000003"
                    luaMethodValid="1"/>
+        <luaMethod luaMethodName="json4lua" luaMethodCode="-----------------------------------------------------------------------------&#13;&#10;-- JSON4Lua: JSON encoding / decoding support for the Lua language.&#13;&#10;-- json Module.&#13;&#10;-- Author: Craig Mason-Jones&#13;&#10;-- Homepage: http://json.luaforge.net/&#13;&#10;-- Version: 0.9.40&#13;&#10;-- This module is released under the MIT License (MIT).&#13;&#10;-- Please see LICENCE.txt for details.&#13;&#10;--&#13;&#10;-- USAGE:&#13;&#10;-- This module exposes two functions:&#13;&#10;--   encode(o)&#13;&#10;--     Returns the table / string / boolean / number / nil / json.null value as a JSON-encoded string.&#13;&#10;--   decode(json_string)&#13;&#10;--     Returns a Lua object populated with the data encoded in the JSON string json_string.&#13;&#10;--&#13;&#10;-- REQUIREMENTS:&#13;&#10;--   compat-5.1 if using Lua 5.0&#13;&#10;--&#13;&#10;-- CHANGELOG&#13;&#10;--   0.9.20 Introduction of local Lua functions for private functions (removed _ function prefix). &#13;&#10;--          Fixed Lua 5.1 compatibility issues.&#13;&#10;--   &#9;&#9;Introduced json.null to have null values in associative arrays.&#13;&#10;--          encode() performance improvement (more than 50%) through table.concat rather than ..&#13;&#10;--          Introduced decode ability to ignore /**/ comments in the JSON string.&#13;&#10;--   0.9.10 Fix to array encoding / decoding to correctly manage nil/null values in arrays.&#13;&#10;-----------------------------------------------------------------------------&#13;&#10;&#13;&#10;-----------------------------------------------------------------------------&#13;&#10;-- Imports and dependencies&#13;&#10;-----------------------------------------------------------------------------&#13;&#10;local math = require('math')&#13;&#10;local string = require(&quot;string&quot;)&#13;&#10;local table = require(&quot;table&quot;)&#13;&#10;&#13;&#10;local base = _G&#13;&#10;&#13;&#10;-----------------------------------------------------------------------------&#13;&#10;-- Module declaration&#13;&#10;-----------------------------------------------------------------------------&#13;&#10;module(&quot;json&quot;)&#13;&#10;&#13;&#10;-- Public functions&#13;&#10;&#13;&#10;-- Private functions&#13;&#10;local decode_scanArray&#13;&#10;local decode_scanComment&#13;&#10;local decode_scanConstant&#13;&#10;local decode_scanNumber&#13;&#10;local decode_scanObject&#13;&#10;local decode_scanString&#13;&#10;local decode_scanWhitespace&#13;&#10;local encodeString&#13;&#10;local isArray&#13;&#10;local isEncodable&#13;&#10;&#13;&#10;-----------------------------------------------------------------------------&#13;&#10;-- PUBLIC FUNCTIONS&#13;&#10;-----------------------------------------------------------------------------&#13;&#10;--- Encodes an arbitrary Lua object / variable.&#13;&#10;-- @param v The Lua object / variable to be JSON encoded.&#13;&#10;-- @return String containing the JSON encoding in internal Lua string format (i.e. not unicode)&#13;&#10;function encode (v)&#13;&#10;  -- Handle nil values&#13;&#10;  if v==nil then&#13;&#10;    return &quot;null&quot;&#13;&#10;  end&#13;&#10;  &#13;&#10;  local vtype = base.type(v)  &#13;&#10;&#13;&#10;  -- Handle strings&#13;&#10;  if vtype=='string' then    &#13;&#10;    return '&quot;' .. encodeString(v) .. '&quot;'&#9;    -- Need to handle encoding in string&#13;&#10;  end&#13;&#10;  &#13;&#10;  -- Handle booleans&#13;&#10;  if vtype=='number' or vtype=='boolean' then&#13;&#10;    return base.tostring(v)&#13;&#10;  end&#13;&#10;  &#13;&#10;  -- Handle tables&#13;&#10;  if vtype=='table' then&#13;&#10;    local rval = {}&#13;&#10;    -- Consider arrays separately&#13;&#10;    local bArray, maxCount = isArray(v)&#13;&#10;    if bArray then&#13;&#10;      for i = 1,maxCount do&#13;&#10;        table.insert(rval, encode(v[i]))&#13;&#10;      end&#13;&#10;    else&#9;-- An object, not an array&#13;&#10;      for i,j in base.pairs(v) do&#13;&#10;        if isEncodable(i) and isEncodable(j) then&#13;&#10;          table.insert(rval, '&quot;' .. encodeString(i) .. '&quot;:' .. encode(j))&#13;&#10;        end&#13;&#10;      end&#13;&#10;    end&#13;&#10;    if bArray then&#13;&#10;      return '[' .. table.concat(rval,',') ..']'&#13;&#10;    else&#13;&#10;      return '{' .. table.concat(rval,',') .. '}'&#13;&#10;    end&#13;&#10;  end&#13;&#10;  &#13;&#10;  -- Handle null values&#13;&#10;  if vtype=='function' and v==null then&#13;&#10;    return 'null'&#13;&#10;  end&#13;&#10;  &#13;&#10;  base.assert(false,'encode attempt to encode unsupported type ' .. vtype .. ':' .. base.tostring(v))&#13;&#10;end&#13;&#10;&#13;&#10;&#13;&#10;--- Decodes a JSON string and returns the decoded value as a Lua data structure / value.&#13;&#10;-- @param s The string to scan.&#13;&#10;-- @param [startPos] Optional starting position where the JSON string is located. Defaults to 1.&#13;&#10;-- @param Lua object, number The object that was scanned, as a Lua table / string / number / boolean or nil,&#13;&#10;-- and the position of the first character after&#13;&#10;-- the scanned JSON object.&#13;&#10;function decode(s, startPos)&#13;&#10;  startPos = startPos and startPos or 1&#13;&#10;  startPos = decode_scanWhitespace(s,startPos)&#13;&#10;  base.assert(startPos&lt;=string.len(s), 'Unterminated JSON encoded object found at position in [' .. s .. ']')&#13;&#10;  local curChar = string.sub(s,startPos,startPos)&#13;&#10;  -- Object&#13;&#10;  if curChar=='{' then&#13;&#10;    return decode_scanObject(s,startPos)&#13;&#10;  end&#13;&#10;  -- Array&#13;&#10;  if curChar=='[' then&#13;&#10;    return decode_scanArray(s,startPos)&#13;&#10;  end&#13;&#10;  -- Number&#13;&#10;  if string.find(&quot;+-0123456789.e&quot;, curChar, 1, true) then&#13;&#10;    return decode_scanNumber(s,startPos)&#13;&#10;  end&#13;&#10;  -- String&#13;&#10;  if curChar==[[&quot;]] or curChar==[[']] then&#13;&#10;    return decode_scanString(s,startPos)&#13;&#10;  end&#13;&#10;  if string.sub(s,startPos,startPos+1)=='/*' then&#13;&#10;    return decode(s, decode_scanComment(s,startPos))&#13;&#10;  end&#13;&#10;  -- Otherwise, it must be a constant&#13;&#10;  return decode_scanConstant(s,startPos)&#13;&#10;end&#13;&#10;&#13;&#10;--- The null function allows one to specify a null value in an associative array (which is otherwise&#13;&#10;-- discarded if you set the value with 'nil' in Lua. Simply set t = { first=json.null }&#13;&#10;function null()&#13;&#10;  return null -- so json.null() will also return null ;-)&#13;&#10;end&#13;&#10;-----------------------------------------------------------------------------&#13;&#10;-- Internal, PRIVATE functions.&#13;&#10;-- Following a Python-like convention, I have prefixed all these 'PRIVATE'&#13;&#10;-- functions with an underscore.&#13;&#10;-----------------------------------------------------------------------------&#13;&#10;&#13;&#10;--- Scans an array from JSON into a Lua object&#13;&#10;-- startPos begins at the start of the array.&#13;&#10;-- Returns the array and the next starting position&#13;&#10;-- @param s The string being scanned.&#13;&#10;-- @param startPos The starting position for the scan.&#13;&#10;-- @return table, int The scanned array as a table, and the position of the next character to scan.&#13;&#10;function decode_scanArray(s,startPos)&#13;&#10;  local array = {}&#9;-- The return value&#13;&#10;  local stringLen = string.len(s)&#13;&#10;  base.assert(string.sub(s,startPos,startPos)=='[','decode_scanArray called but array does not start at position ' .. startPos .. ' in string:\n'..s )&#13;&#10;  startPos = startPos + 1&#13;&#10;  -- Infinite loop for array elements&#13;&#10;  repeat&#13;&#10;    startPos = decode_scanWhitespace(s,startPos)&#13;&#10;    base.assert(startPos&lt;=stringLen,'JSON String ended unexpectedly scanning array.')&#13;&#10;    local curChar = string.sub(s,startPos,startPos)&#13;&#10;    if (curChar==']') then&#13;&#10;      return array, startPos+1&#13;&#10;    end&#13;&#10;    if (curChar==',') then&#13;&#10;      startPos = decode_scanWhitespace(s,startPos+1)&#13;&#10;    end&#13;&#10;    base.assert(startPos&lt;=stringLen, 'JSON String ended unexpectedly scanning array.')&#13;&#10;    object, startPos = decode(s,startPos)&#13;&#10;    table.insert(array,object)&#13;&#10;  until false&#13;&#10;end&#13;&#10;&#13;&#10;--- Scans a comment and discards the comment.&#13;&#10;-- Returns the position of the next character following the comment.&#13;&#10;-- @param string s The JSON string to scan.&#13;&#10;-- @param int startPos The starting position of the comment&#13;&#10;function decode_scanComment(s, startPos)&#13;&#10;  base.assert( string.sub(s,startPos,startPos+1)=='/*', &quot;decode_scanComment called but comment does not start at position &quot; .. startPos)&#13;&#10;  local endPos = string.find(s,'*/',startPos+2)&#13;&#10;  base.assert(endPos~=nil, &quot;Unterminated comment in string at &quot; .. startPos)&#13;&#10;  return endPos+2  &#13;&#10;end&#13;&#10;&#13;&#10;--- Scans for given constants: true, false or null&#13;&#10;-- Returns the appropriate Lua type, and the position of the next character to read.&#13;&#10;-- @param s The string being scanned.&#13;&#10;-- @param startPos The position in the string at which to start scanning.&#13;&#10;-- @return object, int The object (true, false or nil) and the position at which the next character should be &#13;&#10;-- scanned.&#13;&#10;function decode_scanConstant(s, startPos)&#13;&#10;  local consts = { [&quot;true&quot;] = true, [&quot;false&quot;] = false, [&quot;null&quot;] = nil }&#13;&#10;  local constNames = {&quot;true&quot;,&quot;false&quot;,&quot;null&quot;}&#13;&#10;&#13;&#10;  for i,k in base.pairs(constNames) do&#13;&#10;    --print (&quot;[&quot; .. string.sub(s,startPos, startPos + string.len(k) -1) ..&quot;]&quot;, k)&#13;&#10;    if string.sub(s,startPos, startPos + string.len(k) -1 )==k then&#13;&#10;      return consts[k], startPos + string.len(k)&#13;&#10;    end&#13;&#10;  end&#13;&#10;  base.assert(nil, 'Failed to scan constant from string ' .. s .. ' at starting position ' .. startPos)&#13;&#10;end&#13;&#10;&#13;&#10;--- Scans a number from the JSON encoded string.&#13;&#10;-- (in fact, also is able to scan numeric +- eqns, which is not&#13;&#10;-- in the JSON spec.)&#13;&#10;-- Returns the number, and the position of the next character&#13;&#10;-- after the number.&#13;&#10;-- @param s The string being scanned.&#13;&#10;-- @param startPos The position at which to start scanning.&#13;&#10;-- @return number, int The extracted number and the position of the next character to scan.&#13;&#10;function decode_scanNumber(s,startPos)&#13;&#10;  local endPos = startPos+1&#13;&#10;  local stringLen = string.len(s)&#13;&#10;  local acceptableChars = &quot;+-0123456789.e&quot;&#13;&#10;  while (string.find(acceptableChars, string.sub(s,endPos,endPos), 1, true)&#13;&#10;&#9;and endPos&lt;=stringLen&#13;&#10;&#9;) do&#13;&#10;    endPos = endPos + 1&#13;&#10;  end&#13;&#10;  local stringValue = 'return ' .. string.sub(s,startPos, endPos-1)&#13;&#10;  local stringEval = base.loadstring(stringValue)&#13;&#10;  base.assert(stringEval, 'Failed to scan number [ ' .. stringValue .. '] in JSON string at position ' .. startPos .. ' : ' .. endPos)&#13;&#10;  return stringEval(), endPos&#13;&#10;end&#13;&#10;&#13;&#10;--- Scans a JSON object into a Lua object.&#13;&#10;-- startPos begins at the start of the object.&#13;&#10;-- Returns the object and the next starting position.&#13;&#10;-- @param s The string being scanned.&#13;&#10;-- @param startPos The starting position of the scan.&#13;&#10;-- @return table, int The scanned object as a table and the position of the next character to scan.&#13;&#10;function decode_scanObject(s,startPos)&#13;&#10;  local object = {}&#13;&#10;  local stringLen = string.len(s)&#13;&#10;  local key, value&#13;&#10;  base.assert(string.sub(s,startPos,startPos)=='{','decode_scanObject called but object does not start at position ' .. startPos .. ' in string:\n' .. s)&#13;&#10;  startPos = startPos + 1&#13;&#10;  repeat&#13;&#10;    startPos = decode_scanWhitespace(s,startPos)&#13;&#10;    base.assert(startPos&lt;=stringLen, 'JSON string ended unexpectedly while scanning object.')&#13;&#10;    local curChar = string.sub(s,startPos,startPos)&#13;&#10;    if (curChar=='}') then&#13;&#10;      return object,startPos+1&#13;&#10;    end&#13;&#10;    if (curChar==',') then&#13;&#10;      startPos = decode_scanWhitespace(s,startPos+1)&#13;&#10;    end&#13;&#10;    base.assert(startPos&lt;=stringLen, 'JSON string ended unexpectedly scanning object.')&#13;&#10;    -- Scan the key&#13;&#10;    key, startPos = decode(s,startPos)&#13;&#10;    base.assert(startPos&lt;=stringLen, 'JSON string ended unexpectedly searching for value of key ' .. key)&#13;&#10;    startPos = decode_scanWhitespace(s,startPos)&#13;&#10;    base.assert(startPos&lt;=stringLen, 'JSON string ended unexpectedly searching for value of key ' .. key)&#13;&#10;    base.assert(string.sub(s,startPos,startPos)==':','JSON object key-value assignment mal-formed at ' .. startPos)&#13;&#10;    startPos = decode_scanWhitespace(s,startPos+1)&#13;&#10;    base.assert(startPos&lt;=stringLen, 'JSON string ended unexpectedly searching for value of key ' .. key)&#13;&#10;    value, startPos = decode(s,startPos)&#13;&#10;    object[key]=value&#13;&#10;  until false&#9;-- infinite loop while key-value pairs are found&#13;&#10;end&#13;&#10;&#13;&#10;-- START SoniEx2&#13;&#10;-- Initialize some things used by decode_scanString&#13;&#10;-- You know, for efficiency&#13;&#10;local escapeSequences = {&#13;&#10;  [&quot;\\t&quot;] = &quot;\t&quot;,&#13;&#10;  [&quot;\\f&quot;] = &quot;\f&quot;,&#13;&#10;  [&quot;\\r&quot;] = &quot;\r&quot;,&#13;&#10;  [&quot;\\n&quot;] = &quot;\n&quot;,&#13;&#10;  [&quot;\\b&quot;] = &quot;\b&quot;&#13;&#10;}&#13;&#10;base.setmetatable(escapeSequences, {__index = function(t,k)&#13;&#10;  -- skip &quot;\&quot; aka strip escape&#13;&#10;  return string.sub(k,2)&#13;&#10;end})&#13;&#10;-- END SoniEx2&#13;&#10;&#13;&#10;--- Scans a JSON string from the opening inverted comma or single quote to the&#13;&#10;-- end of the string.&#13;&#10;-- Returns the string extracted as a Lua string,&#13;&#10;-- and the position of the next non-string character&#13;&#10;-- (after the closing inverted comma or single quote).&#13;&#10;-- @param s The string being scanned.&#13;&#10;-- @param startPos The starting position of the scan.&#13;&#10;-- @return string, int The extracted string as a Lua string, and the next character to parse.&#13;&#10;function decode_scanString(s,startPos)&#13;&#10;  base.assert(startPos, 'decode_scanString(..) called without start position')&#13;&#10;  local startChar = string.sub(s,startPos,startPos)&#13;&#10;  -- START SoniEx2&#13;&#10;  -- PS: I don't think single quotes are valid JSON&#13;&#10;  base.assert(startChar == [[&quot;]] or startChar == [[']],'decode_scanString called for a non-string')&#13;&#10;  --base.assert(startPos, &quot;String decoding failed: missing closing &quot; .. startChar .. &quot; for string at position &quot; .. oldStart)&#13;&#10;  local t = {}&#13;&#10;  local i,j = startPos,startPos&#13;&#10;  while string.find(s, startChar, j+1) ~= j+1 do&#13;&#10;    local oldj = j&#13;&#10;    i,j = string.find(s, &quot;\\.&quot;, j+1)&#13;&#10;    local x,y = string.find(s, startChar, oldj+1)&#13;&#10;    if not i or x &lt; i then&#13;&#10;      base.print(s, startPos, string.sub(s,startPos,oldj))&#13;&#10;      i,j = x,y-1&#13;&#10;      if not x then base.print(s, startPos, string.sub(s,startPos,oldj)) end&#13;&#10;    end&#13;&#10;    table.insert(t, string.sub(s, oldj+1, i-1))&#13;&#10;    if string.sub(s, i, j) == &quot;\\u&quot; then&#13;&#10;      local a = string.sub(s,j+1,j+4)&#13;&#10;      j = j + 4&#13;&#10;      local n = base.tonumber(a, 16)&#13;&#10;      base.assert(n, &quot;String decoding failed: bad Unicode escape &quot; .. a .. &quot; at position &quot; .. i .. &quot; : &quot; .. j)&#13;&#10;      -- math.floor(x/2&#94;y) == lazy right shift&#13;&#10;      -- a % 2&#94;b == bitwise_and(a, (2&#94;b)-1)&#13;&#10;      -- 64 = 2&#94;6&#13;&#10;      -- 4096 = 2&#94;12 (or 2&#94;6 * 2&#94;6)&#13;&#10;      local x&#13;&#10;      if n &lt; 0x80 then&#13;&#10;        x = string.char(n % 0x80)&#13;&#10;      elseif n &lt; 0x800 then&#13;&#10;        -- [110x xxxx] [10xx xxxx]&#13;&#10;        x = string.char(0xC0 + (math.floor(n/64) % 0x20), 0x80 + (n % 0x40))&#13;&#10;      else&#13;&#10;        -- [1110 xxxx] [10xx xxxx] [10xx xxxx]&#13;&#10;        x = string.char(0xE0 + (math.floor(n/4096) % 0x10), 0x80 + (math.floor(n/64) % 0x40), 0x80 + (n % 0x40))&#13;&#10;      end&#13;&#10;      table.insert(t, x)&#13;&#10;    else&#13;&#10;      table.insert(t, escapeSequences[string.sub(s, i, j)])&#13;&#10;    end&#13;&#10;  end&#13;&#10;  table.insert(t,string.sub(j, j+1))&#13;&#10;  base.assert(string.find(s, startChar, j+1), &quot;String decoding failed: missing closing &quot; .. startChar .. &quot; at position &quot; .. j .. &quot;(for string at position &quot; .. startPos .. &quot;)&quot;)&#13;&#10;  return table.concat(t,&quot;&quot;), j+2&#13;&#10;  -- END SoniEx2&#13;&#10;end&#13;&#10;&#13;&#10;--- Scans a JSON string skipping all whitespace from the current start position.&#13;&#10;-- Returns the position of the first non-whitespace character, or nil if the whole end of string is reached.&#13;&#10;-- @param s The string being scanned&#13;&#10;-- @param startPos The starting position where we should begin removing whitespace.&#13;&#10;-- @return int The first position where non-whitespace was encountered, or string.len(s)+1 if the end of string&#13;&#10;-- was reached.&#13;&#10;function decode_scanWhitespace(s,startPos)&#13;&#10;  local whitespace=&quot; \n\r\t&quot;&#13;&#10;  local stringLen = string.len(s)&#13;&#10;  while ( string.find(whitespace, string.sub(s,startPos,startPos), 1, true)  and startPos &lt;= stringLen) do&#13;&#10;    startPos = startPos + 1&#13;&#10;  end&#13;&#10;  return startPos&#13;&#10;end&#13;&#10;&#13;&#10;--- Encodes a string to be JSON-compatible.&#13;&#10;-- This just involves back-quoting inverted commas, back-quotes and newlines, I think ;-)&#13;&#10;-- @param s The string to return as a JSON encoded (i.e. backquoted string)&#13;&#10;-- @return The string appropriately escaped.&#13;&#10;&#13;&#10;local escapeList = {&#13;&#10;    ['&quot;']  = '\\&quot;',&#13;&#10;    ['\\'] = '\\\\',&#13;&#10;    ['/']  = '\\/', &#13;&#10;    ['\b'] = '\\b',&#13;&#10;    ['\f'] = '\\f',&#13;&#10;    ['\n'] = '\\n',&#13;&#10;    ['\r'] = '\\r',&#13;&#10;    ['\t'] = '\\t'&#13;&#10;}&#13;&#10;&#13;&#10;function encodeString(s)&#13;&#10; return s:gsub(&quot;.&quot;, function(c) return escapeList[c] end) -- SoniEx2: 5.0 compat&#13;&#10;end&#13;&#10;&#13;&#10;-- Determines whether the given Lua type is an array or a table / dictionary.&#13;&#10;-- We consider any table an array if it has indexes 1..n for its n items, and no&#13;&#10;-- other data in the table.&#13;&#10;-- I think this method is currently a little 'flaky', but can't think of a good way around it yet...&#13;&#10;-- @param t The table to evaluate as an array&#13;&#10;-- @return boolean, number True if the table can be represented as an array, false otherwise. If true,&#13;&#10;-- the second returned value is the maximum&#13;&#10;-- number of indexed elements in the array. &#13;&#10;function isArray(t)&#13;&#10;  -- Next we count all the elements, ensuring that any non-indexed elements are not-encodable &#13;&#10;  -- (with the possible exception of 'n')&#13;&#10;  local maxIndex = 0&#13;&#10;  for k,v in base.pairs(t) do&#13;&#10;    if (base.type(k)=='number' and math.floor(k)==k and 1&lt;=k) then&#9;-- k,v is an indexed pair&#13;&#10;      if (not isEncodable(v)) then return false end&#9;-- All array elements must be encodable&#13;&#10;      maxIndex = math.max(maxIndex,k)&#13;&#10;    else&#13;&#10;      if (k=='n') then&#13;&#10;        if v ~= table.getn(t) then return false end  -- False if n does not hold the number of elements&#13;&#10;      else -- Else of (k=='n')&#13;&#10;        if isEncodable(v) then return false end&#13;&#10;      end  -- End of (k~='n')&#13;&#10;    end -- End of k,v not an indexed pair&#13;&#10;  end  -- End of loop across all pairs&#13;&#10;  return true, maxIndex&#13;&#10;end&#13;&#10;&#13;&#10;--- Determines whether the given Lua object / table / variable can be JSON encoded. The only&#13;&#10;-- types that are JSON encodable are: string, boolean, number, nil, table and json.null.&#13;&#10;-- In this implementation, all other types are ignored.&#13;&#10;-- @param o The object to examine.&#13;&#10;-- @return boolean True if the object should be JSON encoded, false if it should be ignored.&#13;&#10;function isEncodable(o)&#13;&#10;  local t = base.type(o)&#13;&#10;  return (t=='string' or t=='boolean' or t=='number' or t=='nil' or t=='table') or (t=='function' and o==null) &#13;&#10;end"
+                   luaMethodLinkedProperty="" luaMethodSource="0" uuid="00000000000000000000000000000004"
+                   luaMethodValid="1"/>
       </luaMethodGroup>
       <luaMethod luaMethodName="CustomLookAndFeel" luaMethodCode="class 'CustomLookAndFeel' (LookAndFeel)&#13;&#10;&#13;&#10;function CustomLookAndFeel:__init()&#13;&#10;&#9;LookAndFeel.__init(self)&#13;&#10;&#13;&#10;&#9;console (&quot;CustomLookAndFeel:init&quot;)&#13;&#10;end&#13;&#10;&#13;&#10;function CustomLookAndFeel:drawRotarySlider (p)&#13;&#10;&#9;local g = p.g;&#13;&#10;&#9;local slider = p.slider;&#13;&#10;&#13;&#10;&#9;red = Colour(0xffff0000)&#13;&#10;&#13;&#10;    radius = (p.height / 2) - 2.0;&#13;&#10;    centreX = p.x + p.width * 0.5;&#13;&#10;    centreY = p.y + p.height * 0.5;&#13;&#10;    rx = centreX - radius;&#13;&#10;    ry = centreY - radius;&#13;&#10;    rw = radius * 2.0;&#13;&#10;    angle = p.rotaryStartAngle + p.sliderPosProportional * (p.rotaryEndAngle - p.rotaryStartAngle);&#13;&#10;    thickness = 0.5;&#13;&#10;    segmentSize = (p.rotaryEndAngle - p.rotaryStartAngle) / 20.0;&#13;&#10;&#13;&#10;    for i=p.rotaryStartAngle,p.rotaryEndAngle,segmentSize do&#13;&#10;        if i &lt;= angle and angle ~= p.rotaryStartAngle then&#13;&#10;            g:setColour (red:withAlpha(0.75))&#13;&#10;        else&#13;&#10;            g:setColour (red:withAlpha(0.2))&#13;&#10;&#9;&#9;end&#13;&#10;&#13;&#10;        filledArc = Path()&#13;&#10;        filledArc:addPieSegment (rx, ry, rw, rw, i, (i + segmentSize - (segmentSize * 0.2)), thickness)&#13;&#10;        g:fillPath (filledArc, AffineTransform())&#13;&#10;    end&#13;&#10;&#13;&#10;&#13;&#10;&#9;f = Font (rw * 0.25, Font.plain)&#13;&#10;&#9;g:setFont (f)&#13;&#10;&#9;g:setColour (red:brighter (0.2))&#13;&#10;    g:drawText (string.format (&quot;%.0f&quot;, slider:getValue()), 0, 0, p.width, p.height, Justification (Justification.centred), true)&#13;&#10;&#13;&#10;end&#13;&#10;&#13;&#10;function CustomLookAndFeel:drawToggleButton (p)&#13;&#10;&#9;width = p.toggleButton:getWidth()&#13;&#10;&#9;height  = p.toggleButton:getHeight()&#13;&#10;&#9;fontSize = jmin (15.0, p.toggleButton:getHeight() * 0.75)&#13;&#10;    tickWidth = fontSize * 1.1&#13;&#10;&#13;&#10;&#9;p.g:setColour (Colour (0xffff0000))&#13;&#10;    p.g:drawRoundedRectangle (1, 1, width - 2, height - 2, 3.0, 2.0);&#13;&#10;&#9;if p.toggleButton:getToggleState() then&#13;&#10;&#9;&#9;p.g:setColour (Colour (0xffff0000):withAlpha(0.75));&#13;&#10;&#9;else&#13;&#10;&#9;&#9;p.g:setColour (Colour (0xffff0000):withAlpha(0.2));&#13;&#10;&#9;end&#13;&#10;&#9;p.g:fillRoundedRectangle (1, 1, width - 2, height - 2 ,3.0)&#13;&#10;    p.g:setFont (fontSize)&#13;&#10;&#13;&#10;    if not p.toggleButton:isEnabled() then&#13;&#10;        p.g:setOpacity (0.5)&#13;&#10;&#9;end&#13;&#10;&#13;&#10;    textX = tickWidth + 5&#13;&#10;&#13;&#10;&#9;p.g:setColour (Colour (0xffffffff))&#13;&#10;&#9;j = Justification (Justification.left)&#13;&#10;&#13;&#10;&#9;if not p.toggleButton:getToggleState() then&#13;&#10;&#9;&#9;p.g:setColour (Colour (0xffffffff):overlaidWith(Colour(0xffff0000)))&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;p.g:drawText (p.toggleButton:getButtonText(), textX, height / 4, p.toggleButton:getWidth() - textX - 2, tickWidth, j, true)&#13;&#10;end&#13;&#10;&#13;&#10;function CustomLookAndFeel:drawComboBox (p)&#13;&#10;&#9;p.g:fillAll (Colour (0xffff0000):withAlpha(0.2))&#13;&#10;&#9;p.g:setColour (Colour (0xffff0000))&#13;&#10;&#9;p.g:drawRoundedRectangle (1, 1, p.width - 2, p.height - 2, 3.0, 2.0);&#13;&#10;&#13;&#10;&#9;if p.comboBox:isEnabled() then&#13;&#10;        arrowX = 0.3&#13;&#10;        arrowH = 0.2&#13;&#10;&#13;&#10;&#9;&#9;path = Path()&#13;&#10;&#9;&#9;path:addTriangle (p.buttonX + p.buttonW * 0.5,            p.buttonY + p.buttonH * (0.45 - arrowH),&#13;&#10;                       p.buttonX + p.buttonW * (1.0 - arrowX), p.buttonY + p.buttonH * 0.45,&#13;&#10;                       p.buttonX + p.buttonW * arrowX,         p.buttonY + p.buttonH * 0.45);&#13;&#10;&#13;&#10;&#9;&#9;path:addTriangle (p.buttonX + p.buttonW * 0.5,            p.buttonY + p.buttonH * (0.55 + arrowH),&#13;&#10;                       p.buttonX + p.buttonW * (1.0 - arrowX), p.buttonY + p.buttonH * 0.55,&#13;&#10;                       p.buttonX + p.buttonW * arrowX,          p.buttonY + p.buttonH * 0.55);&#13;&#10;&#13;&#10;&#9;&#9;p.g:setColour (Colour (0xffff0000))&#13;&#10;        p.g:fillPath (path, AffineTransform())&#13;&#10;&#9;end&#13;&#10;end&#13;&#10;&#13;&#10;function CustomLookAndFeel:drawPopupMenuBackground(p)&#13;&#10;&#9;p.g:fillAll (Colour (0xff000000))&#13;&#10;&#9;p.g:fillAll (Colour (0xffff0000):withAlpha(0.3))&#13;&#10;&#9;p.g:setColour (Colour (0xff000000))&#13;&#10;&#13;&#10;&#9;for i=0,p.height,6 do&#13;&#10;&#9;&#9;p.g:fillRect (0, i, p.width, 1);&#13;&#10;&#9;end&#13;&#10;&#13;&#10;&#9;p.g:setColour (Colour (0xffff0000):darker(0.4))&#13;&#10;&#9;p.g:drawRoundedRectangle (1, 1, p.width - 2, p.height - 2, 3.0, 2.0)&#13;&#10;end"
                  luaMethodLinkedProperty="" luaMethodSource="0" uuid="ff3960e6c6c44f0e84826cbd19973d0e"
@@ -112,17 +121,17 @@
   <uiPanelEditor uiPanelCanvasRectangle="0 0 613 380" uiPanelSnapSize="8" uiPanelBackgroundColour="0xffffffff"
                  uiPanelBackgroundColour1="ff4a4a4a" uiPanelBackgroundColour2="ff000000"
                  uiPanelBackgroundGradientType="1" uiPanelImageResource="-- None"
-                 uiPanelEditMode="0" uiPanelViewPortSize="1192" uiPanelPropertiesSize="297"
-                 uiPanelLock="0" uiPanelDisabledOnEdit="0" uiPanelWidth="400"
-                 uiPanelHeight="400" name="JoMoX M.Brane 11" uiPanelImageAlpha="255"
-                 uiPanelImageLayout="64" uiPanelSnapActive="1" uiPanelPropertiesOnRight="0"
-                 luaPanelPaintBackground="-- None" luaPanelResized="-- None" luaPanelFileDragDropHandler="-- None"
+                 uiPanelEditMode="0" uiPanelLock="0" uiPanelDisabledOnEdit="0"
+                 uiPanelWidth="400" uiPanelHeight="400" name="JoMoX M.Brane 11"
+                 uiPanelImageAlpha="255" uiPanelImageLayout="64" uiPanelSnapActive="1"
+                 uiPanelPropertiesOnRight="0" luaPanelPaintBackground="-- None"
+                 luaPanelResized="-- None" luaPanelFileDragDropHandler="-- None"
                  luaPanelFileDragEnterHandler="-- None" luaPanelFileDragExitHandler="-- None"
                  uiPanelInvisibleComponentAlpha="0.5" uiPanelMidiToolbarVisible="0"
                  uiPanelTooltipBackgroundColour="0xffeeeebb" uiPanelTooltipOutlineColour="0xff000000"
                  uiPanelTooltipColour="0xff000000" uiPanelTooltipCornerRound="1"
-                 uiPanelTooltipPlacement="2" uiPanelTooltipFont="&lt;Sans-Serif&gt;;15;1;0;0;0;1;0"
-                 uiPanelZoom="1">
+                 uiPanelTooltipPlacement="2" uiPanelTooltipFont="&lt;Sans-Serif&gt;;15;1;0;0;0;1;3"
+                 uiPanelZoom="1" uiPanelPropertiesSize="236" uiPanelViewPortSize="948">
     <uiPanelCanvasLayer uiPanelCanvasLayerName="New layer" uiPanelCanvasLayerUid="356c3936160000005b0000006e000000"
                         uiPanelCanvasLayerColour="0x000000" uiPanelCanvasLayerVisibility="1"
                         uiPanelCanvasLayerIndex="0"/>
@@ -169,8 +178,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="392 280 80 80" uiType="uiSlider"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
+               componentRectangle="392 280 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="2" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -214,8 +223,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
-               componentRectangle="88 8 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="88 8 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="3" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -259,8 +268,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="168 8 80 80" uiType="uiSlider"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
+               componentRectangle="168 8 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="4" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -304,8 +313,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="88 96 80 80" uiType="uiSlider"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
+               componentRectangle="88 96 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="5" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -349,8 +358,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
-               componentRectangle="168 96 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="168 96 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="6" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -394,8 +403,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
-               componentRectangle="8 8 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="8 8 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="7" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -439,8 +448,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="8 96 80 80" uiType="uiSlider"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
+               componentRectangle="8 96 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="8" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -484,8 +493,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
-               componentRectangle="8 192 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="8 192 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="9" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -529,8 +538,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="8 280 80 80" uiType="uiSlider"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
+               componentRectangle="8 280 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="10" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -574,8 +583,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
-               componentRectangle="88 192 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="88 192 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="255" vstIndex="11" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -619,8 +628,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="88 280 80 80" uiType="uiSlider"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
+               componentRectangle="88 280 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="12" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -631,7 +640,7 @@
              modulatorLinkedToComponent="0" modulatorBaseValue="0" modulatorCustomIndex="0"
              modulatorCustomName="" modulatorCustomIndexGroup="0" modulatorCustomNameGroup=""
              modulatorVstNameFormat="%n" luaModulatorValueChange="-- None"
-             name="gate" modulatorMin="0" modulatorValue="61">
+             name="gate" modulatorMin="0" modulatorValue="107">
     <midi midiMessageType="0" midiMessageChannelOverride="0" midiMessageChannel="1"
           midiMessageCtrlrNumber="114" midiMessageCtrlrValue="0" midiMessageMultiList=""
           midiMessageSysExFormula=""/>
@@ -664,8 +673,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
-               componentRectangle="304 280 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="304 280 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="13" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -709,8 +718,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="480 280 80 80" uiType="uiSlider"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
+               componentRectangle="480 280 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="7" vstIndex="14" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -750,8 +759,8 @@
                uiComboMenuBackgroundRibbed="1" uiComboButtonGradient="0" uiComboButtonGradientColour1="ff0000ff"
                uiComboButtonGradientColour2="ff00008b" uiComboButtonWidthOverride="0"
                uiComboButtonWidth="16" uiComboDynamicContent="0" uiComboSelectedId="-1"
-               uiComboSelectedIndex="-1" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="304 8 256 40" uiType="uiCombo"/>
+               uiComboSelectedIndex="-1" uiType="uiCombo" componentRectangle="304 8 256 40"
+               componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="3" vstIndex="15" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -791,8 +800,8 @@
                uiComboMenuBackgroundRibbed="1" uiComboButtonGradient="0" uiComboButtonGradientColour1="ff0000ff"
                uiComboButtonGradientColour2="ff00008b" uiComboButtonWidthOverride="0"
                uiComboButtonWidth="16" uiComboDynamicContent="0" uiComboSelectedId="-1"
-               uiComboSelectedIndex="-1" uiType="uiCombo" componentRectangle="304 64 256 40"
-               componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiComboSelectedIndex="-1" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="304 64 256 40" uiType="uiCombo"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="17" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -836,8 +845,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
-               componentRectangle="304 112 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
+               componentRectangle="304 112 80 80" uiType="uiSlider"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="127" vstIndex="18" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -881,8 +890,8 @@
                uiSliderValueTextJustification="centred" uiSliderVelocitySensitivity="1"
                uiSliderVelocityThreshold="1" uiSliderVelocityOffset="0" uiSliderVelocityMode="0"
                uiSliderVelocityModeKeyTrigger="1" uiSliderSpringMode="0" uiSliderSpringValue="0"
-               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" componentLayerUid="356c3936160000005b0000006e000000"
-               componentRectangle="384 112 80 80" uiType="uiSlider"/>
+               uiSliderMouseWheelInterval="1" uiSliderPopupBubble="0" uiType="uiSlider"
+               componentRectangle="384 112 80 80" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorCustomIndex="0" modulatorCustomIndexGroup="0" modulatorIsStatic="1"
              name="modulator-4" modulatorVstExported="0" modulatorValue="0">
@@ -908,8 +917,7 @@
                uiLabelInputHighlightTextColour="0xffffffff" uiLabelInputHighlightColour="0xff0000ff"
                uiLabelEditOnSingleClick="0" uiLabelEditOnDoubleClick="0" uiLabelEditFocusDiscardsChanges="1"
                uiLabelInputAllowedChars="" uiLabelInputMaxLength="1024" uiLabelChangedCbk="-- None"
-               componentLayerUid="356c3936160000005b0000006e000000" componentRectangle="166 193 430 67"
-               uiType="uiLabel"/>
+               uiType="uiLabel" componentRectangle="166 193 430 67" componentLayerUid="356c3936160000005b0000006e000000"/>
   </modulator>
   <modulator modulatorVstExported="1" modulatorMax="1" vstIndex="19" modulatorIsStatic="0"
              modulatorGlobalVariable="-1" modulatorMuteOnStart="0" modulatorExcludeFromSnapshot="0"
@@ -941,6 +949,7 @@
                componentValueDecimalPlaces="0" componentLuaMouseMoved="-- None"
                uiButtonTextColourOn="ffffffff" uiToggleButtonText="LFO One Shot"
                uiButtonTrueValue="64" uiButtonFalseValue="0" uiButtonColourOff="ffff0000"
-               componentRectangle="464 128 120 26" uiType="uiToggleButton" componentLayerUid="356c3936160000005b0000006e000000"/>
+               componentRectangle="464 128 120 26" componentLayerUid="356c3936160000005b0000006e000000"
+               uiType="uiToggleButton"/>
   </modulator>
 </panel>
