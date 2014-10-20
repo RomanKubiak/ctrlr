@@ -49,8 +49,6 @@ CtrlrImageSlider::CtrlrImageSlider (CtrlrModulator &owner)
 
 
     //[UserPreSize]
-	ctrlrSlider->setBufferedToImage (true);
-	setBufferedToImage (true);
 	ctrlrSlider->setSliderStyle (Slider::RotaryVerticalDrag);
 	ctrlrSlider->setLookAndFeel (&lf);
 	setProperty (Ids::uiSliderStyle, "RotaryVerticalDrag");

@@ -48,8 +48,6 @@ CtrlrCombo::CtrlrCombo (CtrlrModulator &owner)
 
 
     //[UserPreSize]
-	// setBufferedToImage (true);
-	// ctrlrCombo->setBufferedToImage (true);
 	ctrlrCombo->setLookAndFeel (&lf);
 	componentTree.addListener (this);
 

@@ -72,6 +72,9 @@ public:
             ListBox localVarsList;
             CtrlrLuaDebuggerUITopContainer &owner;
     };
+
+    void setDebuggerJsonOutput (const String &jsonEncodedData);
+    void setTracebackData(var tracebackData);
     //[/UserMethods]
 
     void paint (Graphics& g);

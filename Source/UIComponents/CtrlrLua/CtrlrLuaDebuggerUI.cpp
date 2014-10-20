@@ -108,7 +108,16 @@ int CtrlrLuaDebuggerUI::waitForCommand()
 
 void CtrlrLuaDebuggerUI::setOutputFromDebugger(const String &output)
 {
-    debuggerState->insertTextAtCaret (output.trim() + "\n");
+    if (output.contains("{ ctrlr:"))
+    {
+        debuggerState->insertTextAtCaret (output.upToFirstOccurrenceOf("{ ctrlr:",false, true).trim() + "\n");
+
+        setDebuggerJsonOutput (output.fromFirstOccurrenceOf ("{ ctrlr:", true, true));
+    }
+    else
+    {
+        debuggerState->insertTextAtCaret (output.trim() + "\n");
+    }
 }
 
 String CtrlrLuaDebuggerUI::getLastCommand()
@@ -120,6 +129,14 @@ void CtrlrLuaDebuggerUI::setCommand(const String command)
 {
     lastCommand = command;
     exitModalState(1);
+}
+
+void CtrlrLuaDebuggerUI::setDebuggerJsonOutput (const String &jsonEncodedData)
+{
+    if (topContainer)
+    {
+        topContainer->setDebuggerJsonOutput (jsonEncodedData);
+    }
 }
 //[/MiscUserCode]
 

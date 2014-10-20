@@ -41,7 +41,6 @@ CtrlrButton::CtrlrButton (CtrlrModulator &owner)
 
 
     //[UserPreSize]
-	setBufferedToImage (true);
 	ctrlrButton->setBufferedToImage (true);
 	setProperty (Ids::uiButtonTrueValue, 1);
 	setProperty (Ids::uiButtonFalseValue, 0);

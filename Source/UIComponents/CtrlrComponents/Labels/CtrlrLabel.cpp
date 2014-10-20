@@ -35,7 +35,6 @@
 CtrlrLabelInternal::CtrlrLabelInternal(CtrlrLabel &_owner, const String &componentName, const String &labelText)
 	: Label (componentName, labelText), owner(_owner)
 {
-	setBufferedToImage (true);
 }
 
 TextEditor *CtrlrLabelInternal::createEditorComponent()

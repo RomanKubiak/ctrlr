@@ -41,7 +41,6 @@ CtrlrImageButton::CtrlrImageButton (CtrlrModulator &owner)
     addAndMakeVisible (ctrlrButton = new CtrlrCustomButtonInternal (*this));
 
     //[UserPreSize]
-	ctrlrButton->setBufferedToImage (true);
 	setBufferedToImage (true);
 	ctrlrButton->addListener (this);
 	setProperty (Ids::uiImageButtonMode, 0);
