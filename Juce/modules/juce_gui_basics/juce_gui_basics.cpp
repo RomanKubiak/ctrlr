@@ -57,6 +57,7 @@
   #undef Component
  #endif
 
+
 //==============================================================================
 #elif JUCE_WINDOWS
  #include <windowsx.h>

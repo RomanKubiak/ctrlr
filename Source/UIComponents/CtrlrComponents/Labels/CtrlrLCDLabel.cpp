@@ -50,8 +50,6 @@ CtrlrLCDLabel::CtrlrLCDLabel (CtrlrModulator &owner)
 
 
     //[UserPreSize]
-	setBufferedToImage (true);
-	ctrlrLabel->setBufferedToImage (true);
 	owner.setProperty (Ids::modulatorIsStatic, true);
 	owner.setProperty (Ids::modulatorVstExported, false);
 

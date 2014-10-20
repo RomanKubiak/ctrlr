@@ -45,9 +45,6 @@ CtrlrFixedImageSlider::CtrlrFixedImageSlider (CtrlrModulator &owner)
 
 
     //[UserPreSize]
-	setBufferedToImage (true);
-	ctrlrSlider->setBufferedToImage (true);
-
 	ctrlrSlider->addListener (this);
 	ctrlrSlider->setLookAndFeel(&lf);
 	componentTree.addListener (this);

@@ -25,8 +25,7 @@
 	* Do coroutines work as expected?
 ]]
 
-function load_debugger()
-
+function load_lua_debugger()
 local function pretty(obj, non_recursive)
 	if type(obj) == "string" then
 		return string.format("%q", obj)
@@ -72,8 +71,7 @@ local stack_offset = 0
 -- Override if you don't want to use stdin
 -- Override if you don't want to use stdout.
 local function dbg_write(str, ...)
-	-- io.write(string.format(str, ...))
-	ctrlrDebugger:dbg_write_ctrlr (string.format (str, ...))
+	io.write(string.format(str, ...))
 end
 
 local function dbg_writeln(str, ...)
@@ -82,16 +80,12 @@ end
 
 local function dbg_read(prompt)
 	dbg_write(prompt)
-	-- return io.read()
-	-- console ("RETURNING TO DEBUGGER")
-	ret = ctrlrDebugger:dbg_read_ctrlr(prompt)
-	-- console (ret)
-	return ret
+	return ctrlrDebugger:dbg_read_ctrlr(prompt)
 end
 
 local function formatStackLocation(info)
 	local fname = (info.name or string.format("<%s:%d>", info.short_src, info.linedefined))
-	return string.format("%s:%d in function '%s'\n{ ctrlr: %s}", info.short_src, info.currentline, fname, json.encode (info))
+	return string.format("%s:%d in function '%s'", info.short_src, info.currentline, fname)
 end
 
 local repl
@@ -247,7 +241,7 @@ local function cmd_trace()
 	local offset = stack_offset - stack_top
 	local message = string.format("Inspecting frame: %d - (%s)", offset, location)
 	dbg_writeln(debug.traceback(message, stack_offset + LOCAL_STACK_LEVEL))
-
+    ctrlrDebugger:dbg_write_ctrlr_json (json.encode ({ traceback = debug.traceback (stack_offset + LOCAL_STACK_LEVEL) }))
 	return false
 end
 
@@ -399,19 +393,19 @@ end
 if jit and
 	jit.version == "LuaJIT 2.0.0-beta10"
 then
-	-- dbg_writeln("debugger.lua loaded for "..jit.version)
+	dbg_writeln("debugger.lua loaded for "..jit.version)
 	pcall(luajit_load_readline_support)
 elseif
 	 _VERSION == "Lua 5.2" or
 	 _VERSION == "Lua 5.1"
 then
-	-- dbg_writeln("debugger.lua loaded for ".._VERSION)
+	dbg_writeln("debugger.lua loaded for ".._VERSION)
 else
-	-- dbg_writeln("debugger.lua not tested against ".._VERSION)
-	-- dbg_writeln("Please send me feedback!")
+	dbg_writeln("debugger.lua not tested against ".._VERSION)
+	dbg_writeln("Please send me feedback!")
 end
 
 return dbg
 end
 
-dbg = load_debugger()
+dbg = load_lua_debugger()

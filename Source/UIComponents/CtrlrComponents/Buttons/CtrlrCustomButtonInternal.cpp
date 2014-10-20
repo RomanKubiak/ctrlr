@@ -42,7 +42,6 @@ CtrlrCustomButtonInternal::CtrlrCustomButtonInternal (CtrlrImageButton &_owner)
 	  paintMode(RectanglePlacement::stretchToFit)
 {
     //[UserPreSize]
-	setBufferedToImage (true);
     //[/UserPreSize]
 
     setSize (128, 32);
@@ -108,7 +107,7 @@ void CtrlrCustomButtonInternal::setImage (const Image imageToSet, const int _fra
 	else
 	{
 		totalSpace		= filmStripImage.getWidth()/frameWidth;
-		for (int x=0; x<totalSpace; x++)		
+		for (int x=0; x<totalSpace; x++)
 		{
 			Rectangle<int> rect(x*frameWidth, 0, frameWidth, frameHeight);
 			possibleValues.add (rect);
@@ -130,7 +129,7 @@ const Rectangle<int> CtrlrCustomButtonInternal::getFrameDestinationRect()
 	else if (textBoxPosition == "bottom")
 	{
 		frameDestinationRectangle = Rectangle<int>(0, 0, getWidth(), getHeight() - textBoxHeight);
-	}	
+	}
 	else if (textBoxPosition == "left")
 	{
 		frameDestinationRectangle = Rectangle<int>(textBoxWidth, 0, getWidth() - textBoxWidth, getHeight());
@@ -143,7 +142,7 @@ const Rectangle<int> CtrlrCustomButtonInternal::getFrameDestinationRect()
 	{
 		frameDestinationRectangle = Rectangle<int>(0,0,getWidth(),getHeight());
 	}
-	
+
 	return (frameDestinationRectangle);
 }
 
@@ -229,23 +228,23 @@ void CtrlrCustomButtonInternal::drawTextBoxText(Graphics &g, const Rectangle<int
 	g.setColour (VAR2COLOUR(owner.getProperty(::Ids::uiImageButtonTextColour)));
 	g.setFont (owner.getOwner().getOwner().getOwner().getFontManager().getFontFromString(owner.getProperty(::Ids::uiButtonTextFont)));
 
-	g.drawFittedText (getButtonText(), 
-							destination.getX(), 
-							destination.getY(), 
-							destination.getWidth(), 
-							destination.getHeight(), 
+	g.drawFittedText (getButtonText(),
+							destination.getX(),
+							destination.getY(),
+							destination.getWidth(),
+							destination.getHeight(),
 							justificationFromProperty (owner.getProperty(::Ids::uiButtonTextJustification)),
 							2);
 }
 
 void CtrlrCustomButtonInternal::drawFrame(Graphics &g, const Rectangle<int> &destinationRect, const bool isMouseOver, const bool isMouseDown)
 {
-	g.drawImageWithin (filmStripImage.getClippedImage(getFrameCoordsFromStrip(isMouseOver, isMouseDown)), 
-						destinationRect.getX(), 
-						destinationRect.getY(), 
-						destinationRect.getWidth(), 
-						destinationRect.getHeight(), 
-						relativePostionFromProperty (owner.getProperty(::Ids::resourceImagePaintMode)), 
+	g.drawImageWithin (filmStripImage.getClippedImage(getFrameCoordsFromStrip(isMouseOver, isMouseDown)),
+						destinationRect.getX(),
+						destinationRect.getY(),
+						destinationRect.getWidth(),
+						destinationRect.getHeight(),
+						relativePostionFromProperty (owner.getProperty(::Ids::resourceImagePaintMode)),
 						false);
 }
 //[/MiscUserCode]

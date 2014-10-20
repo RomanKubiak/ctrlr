@@ -55,6 +55,7 @@ public:
 	void setOutputFromDebugger(const String &output);
 	String getLastCommand();
 	void setCommand(const String command);
+	void setDebuggerJsonOutput (const String &jsonEncodedData);
     //[/UserMethods]
 
     void paint (Graphics& g);
