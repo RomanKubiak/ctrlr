@@ -42,7 +42,6 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
 								doAllProgramsRequest,
 								showLuaEditor,
 								showLuaConsole,
-								showLuaDebugger,
 								showComparatorTables,
 								showMidiLibrary,
 								showModulatorList,
@@ -242,11 +241,6 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 
 		case showLuaConsole:
 			result.setInfo ("LUA Console", "Show/hide the LUA console", panelCategory, 0);
-			result.setActive (isPanelActive(true));
-			break;
-
-        case showLuaDebugger:
-            result.setInfo ("LUA Debugger", "Show/hide the LUA debugger", panelCategory, 0);
 			result.setActive (isPanelActive(true));
 			break;
 

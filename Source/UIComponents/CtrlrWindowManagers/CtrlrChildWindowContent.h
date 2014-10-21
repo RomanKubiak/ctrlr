@@ -21,6 +21,7 @@ class CtrlrChildWindowContent :	public Component
 		virtual PopupMenu getMenuForIndex(int, const String &) { return (PopupMenu()); }
 		virtual void menuItemSelected(int, int ) {}
 		virtual bool keyPressed (const KeyPress &keyPress, Component *event) { return (false); }
+		CtrlrChildWindowContainer *getChildWindowContainer();
 		JUCE_LEAK_DETECTOR(CtrlrChildWindowContent)
 
 	protected:

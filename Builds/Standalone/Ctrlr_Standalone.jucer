@@ -1080,18 +1080,6 @@
       <FILE id="dkrsB9" name="CtrlrLogViewer.h" compile="0" resource="0"
             file="../../Source/UIComponents/CtrlrLogViewer.h"/>
       <GROUP id="{FA9E6A1C-3083-EBC2-A5A8-7ADA90B08E5D}" name="CtrlrLua">
-        <FILE id="Om0wPA" name="CtrlrLuaDebuggerUIControls.cpp" compile="1"
-              resource="0" file="../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUIControls.cpp"/>
-        <FILE id="LiyrGH" name="CtrlrLuaDebuggerUIControls.h" compile="0" resource="0"
-              file="../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUIControls.h"/>
-        <FILE id="hzAJGx" name="CtrlrLuaDebuggerUITopContainer.cpp" compile="1"
-              resource="0" file="../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUITopContainer.cpp"/>
-        <FILE id="ykuhEx" name="CtrlrLuaDebuggerUITopContainer.h" compile="0"
-              resource="0" file="../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUITopContainer.h"/>
-        <FILE id="D4v7r6" name="CtrlrLuaDebuggerUI.cpp" compile="1" resource="0"
-              file="../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.cpp"/>
-        <FILE id="TqKiYL" name="CtrlrLuaDebuggerUI.h" compile="0" resource="0"
-              file="../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.h"/>
         <FILE id="ZVjLPQ" name="CtrlrLuaConsole.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp"/>
         <FILE id="ruKwDH" name="CtrlrLuaConsole.h" compile="0" resource="0"

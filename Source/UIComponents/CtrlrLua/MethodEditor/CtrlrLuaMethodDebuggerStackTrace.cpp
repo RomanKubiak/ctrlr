@@ -18,6 +18,7 @@
 */
 
 //[Headers] You can add your own extra header files here...
+#include "stdafx.h"
 //[/Headers]
 
 #include "CtrlrLuaMethodDebuggerStackTrace.h"

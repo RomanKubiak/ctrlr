@@ -12,7 +12,7 @@
 #define CTRLRLUADEBUGGER_H_INCLUDED
 
 #include "CtrlrMacros.h"
-#include "CtrlrLua/CtrlrLuaDebuggerUI.h"
+#include "CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h"
 
 class CtrlrLuaManager;
 

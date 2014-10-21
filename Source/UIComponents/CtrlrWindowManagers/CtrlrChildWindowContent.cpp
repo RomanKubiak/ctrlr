@@ -31,3 +31,8 @@ String CtrlrChildWindowContent::getContentName()
 {
 	return ("Unknown");
 }
+
+CtrlrChildWindowContainer *CtrlrChildWindowContent::getChildWindowContainer()
+{
+	return (container);
+}

@@ -1833,21 +1833,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUIControls.cpp"/>
-    <Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUIControls.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUITopContainer.cpp"/>
-    <Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUITopContainer.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.cpp"/>
-    <Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp"/>
     <Unit filename="../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.h">
       <Option compile="0"/>

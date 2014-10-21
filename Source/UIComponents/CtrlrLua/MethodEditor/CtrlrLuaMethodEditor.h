@@ -101,8 +101,13 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		PopupMenu getMenuForIndex(int topLevelMenuIndex, const String &menuName);
 		void menuItemSelected(int menuItemID, int topLevelMenuIndex);
 		void searchResultClicked (const String &methodName, const int lineNumber, const int resultPositionStart, const int resultPositionEnd);
-
 		void saveAndCompilAllMethods();
+		/* Debugger stuff
+		*/
+		void setRawDebuggerOutput(const String &debuggerOutput);
+		void setJsonDebuggerOutput(const String &jsonData);
+		const String getLastDebuggerCommand();
+		int waitForCommand();
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethodEditor)
 

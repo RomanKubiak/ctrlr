@@ -187,9 +187,6 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 		case showLuaConsole:
 			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::LuaConsole, true);
 			break;
-        case showLuaDebugger:
-            if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::LuaDebugger, true);
-			break;
 
 		case showComparatorTables:
 			if (getActivePanel()) getActivePanel()->dumpComparatorTables();
