@@ -398,6 +398,9 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaDebuggerUITopContainer.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaDebuggerUI.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerStackTrace.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerPrompt.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerControls.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniser.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodCodeEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodCodeEditorSettings.cpp"/>
@@ -1827,6 +1830,9 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaDebuggerUITopContainer.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaDebuggerUI.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerStackTrace.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerPrompt.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerControls.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniser.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniserFunctions.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodCodeEditor.h"/>

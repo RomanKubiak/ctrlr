@@ -2,7 +2,7 @@
 #define __CTRLR_LUA_OBJECT_WRAPPER__
 
 
-#include "JuceHeader.h"
+#include "stdafx.h"
 
 //==============================================================================
 /** \brief A wrapper class for luabind::object class
@@ -17,21 +17,21 @@ class CtrlrLuaObjectWrapper
 			o = other;
 		}
 		operator luabind::object &()
-		{ 
-			return o; 
+		{
+			return o;
 		}
 		operator luabind::object ()
-		{ 
-			return o; 
+		{
+			return o;
 		}
 
 		/** @brief Get the original object
 
 			@return the luabind::object inside the wrapper
 		*/
-		const luabind::object &getLuabindObject() const 
-		{ 
-			return o; 
+		const luabind::object &getLuabindObject() const
+		{
+			return o;
 		}
 
 		/** @brief Get the original object

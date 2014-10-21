@@ -1,26 +1,24 @@
-#include "stdafx.h"
 /*
   ==============================================================================
 
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  2 Oct 2012 4:05:42pm
+  This is an automatically generated GUI class created by the Introjucer!
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Jucer version: 1.12
+  Created with Introjucer version: 3.1.0
 
   ------------------------------------------------------------------------------
 
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
+  The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
+  Copyright 2004-13 by Raw Material Software Ltd.
 
   ==============================================================================
 */
 
 //[Headers] You can add your own extra header files here...
+#include "stdafx.h"
 #include "CtrlrIDs.h"
 #include "CtrlrLuaMethodEditor.h"
 #include "CtrlrPanel/CtrlrPanel.h"
@@ -35,9 +33,7 @@
 
 //==============================================================================
 CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
-    : owner(_owner),
-      lowerTabs (0),
-      upperTabs (0)
+    : owner(_owner)
 {
     addAndMakeVisible (lowerTabs = new TabbedComponent (TabbedButtonBar::TabsAtBottom));
     lowerTabs->setTabBarDepth (20);
@@ -84,8 +80,8 @@ CtrlrLuaMethodEditArea::~CtrlrLuaMethodEditArea()
 	deleteAndZero (resizer);
     //[/Destructor_pre]
 
-    deleteAndZero (lowerTabs);
-    deleteAndZero (upperTabs);
+    lowerTabs = nullptr;
+    upperTabs = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -104,8 +100,8 @@ void CtrlrLuaMethodEditArea::paint (Graphics& g)
 
 void CtrlrLuaMethodEditArea::resized()
 {
-    lowerTabs->setBounds (0, proportionOfHeight (0.6999f), getWidth() - 0, proportionOfHeight (0.3001f));
-    upperTabs->setBounds (0, 0, getWidth() - 0, proportionOfHeight (0.6999f));
+    lowerTabs->setBounds (0, proportionOfHeight (0.6995f), getWidth() - 0, proportionOfHeight (0.3005f));
+    upperTabs->setBounds (0, 0, getWidth() - 0, proportionOfHeight (0.6995f));
     //[UserResized] Add your own custom resize handling here..
 	Component* comps[] = { upperTabs, resizer, lowerTabs  };
 	layoutManager.layOutComponents (comps, 3, 0, 0, getWidth(), getHeight(), true, true);
@@ -244,26 +240,31 @@ void CtrlrLuaMethodEditArea::setActiveOutputTab()
 
 //==============================================================================
 #if 0
-/*  -- Jucer information section --
+/*  -- Introjucer information section --
 
-    This is where the Jucer puts all of its metadata, so don't change anything in here!
+    This is where the Introjucer stores the metadata that describe this GUI layout, so
+    make changes in here at your peril!
 
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="CtrlrLuaMethodEditArea" componentName=""
                  parentClasses="public Component, public CtrlrLog::Listener" constructorParams="CtrlrLuaMethodEditor &amp;_owner"
                  variableInitialisers="owner(_owner)" snapPixels="8" snapActive="1"
-                 snapShown="1" overlayOpacity="0.330000013" fixedSize="0" initialWidth="600"
+                 snapShown="1" overlayOpacity="0.330" fixedSize="0" initialWidth="600"
                  initialHeight="400">
   <BACKGROUND backgroundColour="0"/>
   <TABBEDCOMPONENT name="" id="efc1426cbb2876d0" memberName="lowerTabs" virtualName=""
-                   explicitFocusOrder="0" pos="0 69.989% 0M 30.011%" orientation="bottom"
+                   explicitFocusOrder="0" pos="0 69.947% 0M 30.053%" orientation="bottom"
                    tabBarDepth="20" initialTab="-1"/>
   <GENERICCOMPONENT name="" id="87b2c9d03de9339d" memberName="upperTabs" virtualName=""
-                    explicitFocusOrder="0" pos="0 0 0M 69.989%" class="CtrlrLuaMethodEditorTabs"
+                    explicitFocusOrder="0" pos="0 0 0M 69.947%" class="CtrlrLuaMethodEditorTabs"
                     params="owner"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
 */
 #endif
+
+
+//[EndFile] You can add extra defines here...
+//[/EndFile]

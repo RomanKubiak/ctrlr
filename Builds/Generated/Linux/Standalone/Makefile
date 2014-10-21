@@ -280,6 +280,9 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaDebuggerUITopContainer_ab8891f4.o \
   $(OBJDIR)/CtrlrLuaDebuggerUI_c537fda8.o \
   $(OBJDIR)/CtrlrLuaConsole_70f9824e.o \
+  $(OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o \
+  $(OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o \
+  $(OBJDIR)/CtrlrLuaMethodDebuggerControls_7bab86d2.o \
   $(OBJDIR)/CtrlrLuaCodeTokeniser_e22d95d3.o \
   $(OBJDIR)/CtrlrLuaMethodCodeEditor_94898995.o \
   $(OBJDIR)/CtrlrLuaMethodCodeEditorSettings_5be9f058.o \
@@ -1408,6 +1411,21 @@ $(OBJDIR)/CtrlrLuaDebuggerUI_c537fda8.o: ../../../../Source/UIComponents/CtrlrLu
 $(OBJDIR)/CtrlrLuaConsole_70f9824e.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLuaConsole.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodDebuggerStackTrace.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodDebuggerPrompt.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaMethodDebuggerControls_7bab86d2.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodDebuggerControls.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaCodeTokeniser_e22d95d3.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.cpp
