@@ -94,16 +94,23 @@ void CtrlrLuaDebuggerUITopContainer::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+CtrlrLuaDebuggerUITopContainer::StackLocation::StackLocation(const String &location)
+{
+    // [string "test"]:13: in function 'func2'
+    // [string "test"]:8: in function 'func1'
+    // [string "test"]:20: in function <[string "test"]:19>
+    _DBG("---------------------------------------------");
+    _DBG(location);
+    _DBG("---------------------------------------------");
+}
+
 void CtrlrLuaDebuggerUITopContainer::setDebuggerJsonOutput (const String &jsonEncodedData)
 {
-    _DBG("CtrlrLuaDebuggerUITopContainer::setDebuggerJsonOutput");
     var result;
     JSON::parse (jsonEncodedData, result);
 
     if (result.isObject())
     {
-        _DBG("\tresult is an object");
-
         if (result.getProperty("traceback", var::null) != var::null)
         {
             setTracebackData (result.getProperty("traceback", var::null));
@@ -113,12 +120,17 @@ void CtrlrLuaDebuggerUITopContainer::setDebuggerJsonOutput (const String &jsonEn
 
 void CtrlrLuaDebuggerUITopContainer::setTracebackData(var tracebackData)
 {
-    _DBG("CtrlrLuaDebuggerUITopContainer::setTracebackData(");
+    stackState.clear();
+
     StringArray stack = StringArray::fromLines (tracebackData.toString());
+
     for (int i=0; i<stack.size(); i++)
     {
-        // [string "debugger.lua"]:109: in function <[string "debugger.lua"]:95>
-        _DBG("\tline "+_STR(i)+stack[i].trim());
+        if (stack[i].contains ("in function") && !stack[i].contains("debugger.lua"))
+        {
+            stackState.add (new StackLocation (stack[i]));
+        }
+
     }
 }
 

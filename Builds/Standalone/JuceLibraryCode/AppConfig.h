@@ -151,15 +151,15 @@
 #endif
 
 #ifndef    JUCE_USE_XSHM
- #define   JUCE_USE_XSHM 0
+ #define   JUCE_USE_XSHM 1
 #endif
 
 #ifndef    JUCE_USE_XRENDER
- #define   JUCE_USE_XRENDER 0
+ #define   JUCE_USE_XRENDER 1
 #endif
 
 #ifndef    JUCE_USE_XCURSOR
- #define   JUCE_USE_XCURSOR 0
+ #define   JUCE_USE_XCURSOR 1
 #endif
 
 //==============================================================================
@@ -170,7 +170,7 @@
 #endif
 
 #ifndef    JUCE_ENABLE_LIVE_CONSTANT_EDITOR
- //#define JUCE_ENABLE_LIVE_CONSTANT_EDITOR
+ #define   JUCE_ENABLE_LIVE_CONSTANT_EDITOR 0
 #endif
 
 

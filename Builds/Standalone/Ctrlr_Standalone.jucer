@@ -1097,6 +1097,18 @@
         <FILE id="ruKwDH" name="CtrlrLuaConsole.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.h"/>
         <GROUP id="{ED46B240-9D98-EDDA-E08B-6D5ED482C020}" name="MethodEditor">
+          <FILE id="Wbnm7G" name="CtrlrLuaMethodDebuggerStackTrace.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp"/>
+          <FILE id="L2mAac" name="CtrlrLuaMethodDebuggerStackTrace.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.h"/>
+          <FILE id="f63gIy" name="CtrlrLuaMethodDebuggerPrompt.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp"/>
+          <FILE id="qvf5ND" name="CtrlrLuaMethodDebuggerPrompt.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.h"/>
+          <FILE id="Kpu4pC" name="CtrlrLuaMethodDebuggerControls.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp"/>
+          <FILE id="GPP0Ej" name="CtrlrLuaMethodDebuggerControls.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.h"/>
           <FILE id="cNF9m9" name="CtrlrLuaCodeTokeniser.cpp" compile="1" resource="0"
                 file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.cpp"/>
           <FILE id="P7Hkou" name="CtrlrLuaCodeTokeniser.h" compile="0" resource="0"
@@ -1356,10 +1368,11 @@
                JUCE_USE_CDREADER="disabled" JUCE_USE_CDBURNER="disabled" JUCE_ENABLE_REPAINT_DEBUGGING="disabled"
                JUCE_USE_MP3AUDIOFORMAT="enabled" JUCE_JACK="disabled" JUCE_ASIO="disabled"
                JUCE_WASAPI="disabled" JUCE_DIRECTSOUND="disabled" JUCE_ALSA="enabled"
-               JUCE_USE_XSHM="disabled" JUCE_USE_XRENDER="disabled" JUCE_USE_XCURSOR="disabled"
+               JUCE_USE_XSHM="enabled" JUCE_USE_XRENDER="enabled" JUCE_USE_XCURSOR="enabled"
                JUCE_LOG_ASSERTIONS="enabled" JUCE_CHECK_MEMORY_LEAKS="enabled"
                JUCE_USE_COREIMAGE_LOADER="enabled" JUCE_USE_DIRECTWRITE="enabled"
                JUCE_USE_WINDOWS_MEDIA_FORMAT="enabled" JUCE_USE_ANDROID_OPENSLES="disabled"
                DROWAUDIO_USE_FFTREAL="disabled" DROWAUDIO_USE_SOUNDTOUCH="disabled"
-               DROWAUDIO_USE_CURL="disabled" JUCE_USE_LAME_AUDIO_FORMAT="disabled"/>
+               DROWAUDIO_USE_CURL="disabled" JUCE_USE_LAME_AUDIO_FORMAT="disabled"
+               JUCE_ENABLE_LIVE_CONSTANT_EDITOR="disabled"/>
 </JUCERPROJECT>

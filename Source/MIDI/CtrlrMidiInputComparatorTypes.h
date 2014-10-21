@@ -1,6 +1,8 @@
 #ifndef __CTRLR_MIDI_INPUT_COMPARATOR_TYPES_H__
 #define __CTRLR_MIDI_INPUT_COMPARATOR_TYPES_H__
 
+class CtrlrModulator;
+
 class CtrlrMapData
 {
 	public:

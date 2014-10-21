@@ -45,6 +45,13 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    struct StackLocation
+    {
+        StackLocation(const String &location);
+        int lineNumber;
+        String methodName;
+    };
+
     class StackTracePanel : public ListBoxModel, public Component
     {
         public:
@@ -88,6 +95,7 @@ private:
     CodeDocument currentDocument;
     CtrlrLuaCodeTokeniser luaTokeniser;
     CtrlrLuaDebuggerUI &owner;
+    OwnedArray <StackLocation> stackState;
     //[/UserVariables]
 
     //==============================================================================
