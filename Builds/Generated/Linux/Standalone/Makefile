@@ -276,9 +276,6 @@ OBJECTS := \
   $(OBJDIR)/CtrlrArrow_1c791f44.o \
   $(OBJDIR)/CtrlrComponentSelection_b1d830ba.o \
   $(OBJDIR)/CtrlrLogViewer_61075cf5.o \
-  $(OBJDIR)/CtrlrLuaDebuggerUIControls_826daa7e.o \
-  $(OBJDIR)/CtrlrLuaDebuggerUITopContainer_ab8891f4.o \
-  $(OBJDIR)/CtrlrLuaDebuggerUI_c537fda8.o \
   $(OBJDIR)/CtrlrLuaConsole_70f9824e.o \
   $(OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o \
   $(OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o \
@@ -1391,21 +1388,6 @@ $(OBJDIR)/CtrlrComponentSelection_b1d830ba.o: ../../../../Source/UIComponents/Ct
 $(OBJDIR)/CtrlrLogViewer_61075cf5.o: ../../../../Source/UIComponents/CtrlrLogViewer.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLogViewer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrLuaDebuggerUIControls_826daa7e.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUIControls.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrLuaDebuggerUIControls.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrLuaDebuggerUITopContainer_ab8891f4.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUITopContainer.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrLuaDebuggerUITopContainer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrLuaDebuggerUI_c537fda8.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaDebuggerUI.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrLuaDebuggerUI.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaConsole_70f9824e.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp

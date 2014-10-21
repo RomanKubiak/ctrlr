@@ -881,6 +881,13 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 
 void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 {
+	if (menuItemID == 1 && topLevelMenuIndex == 0)
+	{
+		if (isCurrentlyModal())
+			exitModalState(-1);
+
+		owner.getWindowManager().toggle (CtrlrPanelWindowManager::LuaMethodEditor, false);
+	}
 	if (menuItemID == 2 && topLevelMenuIndex == 0)
 	{
 		if (getCurrentEditor())
@@ -956,4 +963,22 @@ void CtrlrLuaMethodEditor::searchResultClicked (const String &methodName, const 
 			}
 		}
 	}
+}
+
+void CtrlrLuaMethodEditor::setRawDebuggerOutput(const String &debuggerOutput)
+{
+}
+
+void CtrlrLuaMethodEditor::setJsonDebuggerOutput(const String &jsonData)
+{
+}
+
+const String CtrlrLuaMethodEditor::getLastDebuggerCommand()
+{
+	return (String::empty);
+}
+
+int CtrlrLuaMethodEditor::waitForCommand()
+{
+	return (getParentComponent()->runModalLoop());
 }

@@ -31,23 +31,23 @@ CtrlrLuaDebugger::~CtrlrLuaDebugger()
 
 void CtrlrLuaDebugger::dbgWrite(String data)
 {
-    owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaDebugger);
+    owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaMethodEditor);
 
-    CtrlrLuaDebuggerUI *ui = dynamic_cast<CtrlrLuaDebuggerUI *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaDebugger));
+    CtrlrLuaMethodEditor *ui = dynamic_cast<CtrlrLuaMethodEditor *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaMethodEditor));
 
     if (ui)
     {
-        return (ui->setOutputFromDebugger(data));
+        return (ui->setRawDebuggerOutput(data));
     }
 }
 
 void CtrlrLuaDebugger::dbgWriteJson(String jsonData)
 {
-    CtrlrLuaDebuggerUI *ui = dynamic_cast<CtrlrLuaDebuggerUI *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaDebugger));
+    CtrlrLuaMethodEditor *ui = dynamic_cast<CtrlrLuaMethodEditor *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaMethodEditor));
 
     if (ui)
     {
-        return (ui->setDebuggerJsonOutput(jsonData));
+        return (ui->setJsonDebuggerOutput(jsonData));
     }
 }
 
@@ -62,22 +62,22 @@ std::string CtrlrLuaDebugger::dbgRead(String prompt)
 		return (sendNow.toStdString());
 	}
 
-    owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaDebugger);
+	owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaMethodEditor);
 
-    CtrlrLuaDebuggerUI *ui = dynamic_cast<CtrlrLuaDebuggerUI *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaDebugger));
+    CtrlrLuaMethodEditor *ui = dynamic_cast<CtrlrLuaMethodEditor *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaMethodEditor));
     if (ui)
     {
         if (ui->waitForCommand())
         {
-            const String sendNow = ui->getLastCommand().substring(0,1);
-			commandQueue = ui->getLastCommand().substring(1);
+            const String sendNow = ui->getLastDebuggerCommand().substring(0,1);
+			commandQueue = ui->getLastDebuggerCommand().substring(1);
 			_DBG("to debugger->" + sendNow);
 			return (sendNow.toStdString());
         }
         else
         {
-            _WRN("CtrlrLuaDebugger::dbgRead debugger UI didn't return any commands, restarting debugger");
-            return ("");
+            _WRN("CtrlrLuaDebugger::dbgRead debugger UI didn't return any commands, continuing");
+            return ("c");
         }
     }
 
