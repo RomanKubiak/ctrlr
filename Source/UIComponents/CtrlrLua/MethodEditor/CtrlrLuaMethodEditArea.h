@@ -25,6 +25,7 @@
 #include "CtrlrLuaMethodFind.h"
 #include "CtrlrTextEditor.h"
 #include "CtrlrLuaMethodCodeEditor.h"
+#include "CtrlrLuaMethodDebuggerPrompt.h"
 
 class CtrlrLuaMethodEditor;
 //[/Headers]
@@ -75,6 +76,7 @@ private:
 	StretchableLayoutResizerBar *resizer;
 	CtrlrTextEditor *output;
 	CtrlrLuaMethodFind *find;
+	CtrlrLuaMethodDebuggerPrompt *debuggerPrompt;
     //[/UserVariables]
 
     //==============================================================================

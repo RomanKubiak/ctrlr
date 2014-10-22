@@ -21,7 +21,8 @@
 #define __JUCE_HEADER_95CA9179E9D52EC2__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "JuceHeader.h"
+#include "CtrlrMacros.h"
+class CtrlrLuaMethodEditor;
 //[/Headers]
 
 
@@ -38,7 +39,7 @@ class CtrlrLuaMethodDebuggerPrompt  : public Component
 {
 public:
     //==============================================================================
-    CtrlrLuaMethodDebuggerPrompt ();
+    CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor &_owner);
     ~CtrlrLuaMethodDebuggerPrompt();
 
     //==============================================================================
@@ -52,9 +53,12 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    CtrlrLuaMethodEditor &owner;
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<TextEditor> debuggerOutput;
+    ScopedPointer<TextEditor> debuggerInput;
 
 
     //==============================================================================
