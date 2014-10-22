@@ -57,9 +57,11 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
 
 	find						= new CtrlrLuaMethodFind(owner);
 	addAndMakeVisible (resizer	= new StretchableLayoutResizerBar (&layoutManager, 1, false));
+    debuggerPrompt              = new CtrlrLuaMethodDebuggerPrompt(owner);
 
 	lowerTabs->addTab ("Output", Colours::lightgrey, output, true);
 	lowerTabs->addTab ("Find and replace", Colours::lightgrey, find, true);
+    lowerTabs->addTab ("Debugger output", Colours::lightgrey, debuggerPrompt, true);
 
 	layoutManager.setItemLayout (0, -0.001, -1.0, -0.79);
  	layoutManager.setItemLayout (1, -0.001, -0.01, -0.01);

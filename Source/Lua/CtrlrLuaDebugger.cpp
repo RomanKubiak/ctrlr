@@ -21,8 +21,8 @@ CtrlrLuaDebugger::CtrlrLuaDebugger(CtrlrLuaManager &_owner) : owner(_owner)
 
     luabind::globals(owner.getLuaState())["ctrlrDebugger"]            = this;
 
-    String debugLua(String(BinaryData::debugger_lua, BinaryData::debugger_luaSize));
-    owner.runCode(debugLua, "debugger.lua");
+    // String debugLua(String(BinaryData::debugger_lua, BinaryData::debugger_luaSize));
+    // owner.runCode(debugLua, "debugger.lua");
 }
 
 CtrlrLuaDebugger::~CtrlrLuaDebugger()
@@ -77,12 +77,17 @@ std::string CtrlrLuaDebugger::dbgRead(String prompt)
         else
         {
             _WRN("CtrlrLuaDebugger::dbgRead debugger UI didn't return any commands, continuing");
-            return ("c");
+            return ("run");
         }
     }
 
     _WRN("CtrlrLuaDebugger::dbgRead debugger window is invalid, continuing");
-    return ("c");
+    return ("run");
+}
+
+std::string CtrlrLuaDebugger::dbgRead()
+{
+    return (dbgRead (String::empty));
 }
 
 void CtrlrLuaDebugger::wrapForLua(lua_State *L)
@@ -92,7 +97,8 @@ void CtrlrLuaDebugger::wrapForLua(lua_State *L)
     [
         class_<CtrlrLuaDebugger>("CtrlrLuaDebugger")
             .def("dbg_write_ctrlr", &CtrlrLuaDebugger::dbgWrite)
-            .def("dbg_read_ctrlr", &CtrlrLuaDebugger::dbgRead)
+            .def("dbg_read_ctrlr", (std::string (CtrlrLuaDebugger::*)(String)) &CtrlrLuaDebugger::dbgRead)
+            .def("dbg_read_ctrlr", (std::string (CtrlrLuaDebugger::*)(void)) &CtrlrLuaDebugger::dbgRead)
             .def("dbg_write_ctrlr_json", &CtrlrLuaDebugger::dbgWriteJson)
     ];
 }

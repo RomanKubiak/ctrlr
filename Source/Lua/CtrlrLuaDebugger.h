@@ -22,6 +22,7 @@ class CtrlrLuaDebugger
         CtrlrLuaDebugger(CtrlrLuaManager &_owner);
         ~CtrlrLuaDebugger();
         std::string dbgRead(String prompt);
+        std::string dbgRead();
         void dbgWrite(String data);
         void dbgWriteJson(String jsonData);
         static void wrapForLua(lua_State *L);
