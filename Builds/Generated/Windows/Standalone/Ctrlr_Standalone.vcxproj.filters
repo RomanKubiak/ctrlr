@@ -1048,6 +1048,9 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditorConsole.cpp">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerStackTrace.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>
     </ClCompile>
@@ -3239,6 +3242,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditorConsole.h">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerStackTrace.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>

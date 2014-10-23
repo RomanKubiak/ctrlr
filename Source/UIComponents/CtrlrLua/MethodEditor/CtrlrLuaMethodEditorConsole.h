@@ -17,16 +17,12 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_1BD9D118493E65A2__
-#define __JUCE_HEADER_1BD9D118493E65A2__
+#ifndef __JUCE_HEADER_3E9CF5DC92DE5CF8__
+#define __JUCE_HEADER_3E9CF5DC92DE5CF8__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "CtrlrLuaMethodEditorTabs.h"
-#include "CtrlrLuaMethodFind.h"
-#include "CtrlrTextEditor.h"
-#include "CtrlrLuaMethodCodeEditor.h"
-#include "CtrlrLuaMethodDebuggerPrompt.h"
-#include "CtrlrLuaMethodEditorConsole.h"
+#include "CtrlrMacros.h"
+
 class CtrlrLuaMethodEditor;
 //[/Headers]
 
@@ -35,33 +31,20 @@ class CtrlrLuaMethodEditor;
 //==============================================================================
 /**
                                                                     //[Comments]
-    An auto-generated component, created by the Jucer.
+    An auto-generated component, created by the Introjucer.
 
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class CtrlrLuaMethodEditArea  : public Component,
-                                public CtrlrLog::Listener
+class CtrlrLuaMethodEditorConsole  : public Component
 {
 public:
     //==============================================================================
-    CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner);
-    ~CtrlrLuaMethodEditArea();
+    CtrlrLuaMethodEditorConsole (CtrlrLuaMethodEditor &_owner);
+    ~CtrlrLuaMethodEditorConsole();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-	CtrlrLuaMethodEditorTabs *getTabs();
-	TabbedComponent *getLowerTabs();
-	void insertOutput(const String &textToInsert, const Colour what);
-	void insertOutput(const AttributedString stringToInsert);
-	void showFindDialog();
-	void findNextMatch();
-	void replaceNextMatch();
-	void closeTabWithMethod(const ValueTree &item);
-	void messageLogged (CtrlrLog::CtrlrLogMessage message);
-	void mouseDoubleClick (const MouseEvent &e);
-	bool keyPressed (const KeyPress &key, Component *event);
-	void setActiveOutputTab();
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -71,25 +54,17 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-	CtrlrLuaMethodEditor &owner;
-	StretchableLayoutManager layoutManager;
-	StretchableLayoutResizerBar *resizer;
-	CtrlrTextEditor *output;
-	CtrlrLuaMethodFind *find;
-	CtrlrLuaMethodDebuggerPrompt *debuggerPrompt;
-	CtrlrLuaMethodEditorConsole *luaConsole;
+    CtrlrLuaMethodEditor &owner;
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<TabbedComponent> lowerTabs;
-    ScopedPointer<CtrlrLuaMethodEditorTabs> upperTabs;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrLuaMethodEditArea)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrLuaMethodEditorConsole)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_1BD9D118493E65A2__
+#endif   // __JUCE_HEADER_3E9CF5DC92DE5CF8__

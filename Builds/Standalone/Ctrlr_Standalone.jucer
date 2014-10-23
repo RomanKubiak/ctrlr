@@ -1090,6 +1090,10 @@
         <FILE id="ruKwDH" name="CtrlrLuaConsole.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.h"/>
         <GROUP id="{ED46B240-9D98-EDDA-E08B-6D5ED482C020}" name="MethodEditor">
+          <FILE id="Zrils0" name="CtrlrLuaMethodEditorConsole.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp"/>
+          <FILE id="qlYp7L" name="CtrlrLuaMethodEditorConsole.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.h"/>
           <FILE id="Wbnm7G" name="CtrlrLuaMethodDebuggerStackTrace.cpp" compile="1"
                 resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp"/>
           <FILE id="L2mAac" name="CtrlrLuaMethodDebuggerStackTrace.h" compile="0"

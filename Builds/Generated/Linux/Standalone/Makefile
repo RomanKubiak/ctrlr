@@ -277,6 +277,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrComponentSelection_b1d830ba.o \
   $(OBJDIR)/CtrlrLogViewer_61075cf5.o \
   $(OBJDIR)/CtrlrLuaConsole_70f9824e.o \
+  $(OBJDIR)/CtrlrLuaMethodEditorConsole_5d42ecf9.o \
   $(OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o \
   $(OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o \
   $(OBJDIR)/CtrlrLuaMethodDebuggerControls_7bab86d2.o \
@@ -1393,6 +1394,11 @@ $(OBJDIR)/CtrlrLogViewer_61075cf5.o: ../../../../Source/UIComponents/CtrlrLogVie
 $(OBJDIR)/CtrlrLuaConsole_70f9824e.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLuaConsole.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaMethodEditorConsole_5d42ecf9.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodEditorConsole.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp

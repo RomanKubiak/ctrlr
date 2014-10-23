@@ -36,7 +36,7 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
     : owner(_owner)
 {
     addAndMakeVisible (lowerTabs = new TabbedComponent (TabbedButtonBar::TabsAtBottom));
-    lowerTabs->setTabBarDepth (20);
+    lowerTabs->setTabBarDepth (24);
     lowerTabs->setCurrentTabIndex (-1);
 
     addAndMakeVisible (upperTabs = new CtrlrLuaMethodEditorTabs (owner));
@@ -58,10 +58,12 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
 	find						= new CtrlrLuaMethodFind(owner);
 	addAndMakeVisible (resizer	= new StretchableLayoutResizerBar (&layoutManager, 1, false));
     debuggerPrompt              = new CtrlrLuaMethodDebuggerPrompt(owner);
+    luaConsole                  = new CtrlrLuaMethodEditorConsole (owner);
 
 	lowerTabs->addTab ("Output", Colours::lightgrey, output, true);
 	lowerTabs->addTab ("Find and replace", Colours::lightgrey, find, true);
     lowerTabs->addTab ("Debugger output", Colours::lightgrey, debuggerPrompt, true);
+    lowerTabs->addTab ("Console", Colours::lightgrey, luaConsole, true);
 
 	layoutManager.setItemLayout (0, -0.001, -1.0, -0.79);
  	layoutManager.setItemLayout (1, -0.001, -0.01, -0.01);
