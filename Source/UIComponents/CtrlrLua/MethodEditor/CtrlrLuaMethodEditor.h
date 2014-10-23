@@ -104,10 +104,11 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		void saveAndCompilAllMethods();
 		/* Debugger stuff
 		*/
+		void insertRawDebuggerOutput(const String &debuggerOutput);
 		void setRawDebuggerOutput(const String &debuggerOutput);
 		void setJsonDebuggerOutput(const String &jsonData);
-		const String getLastDebuggerCommand();
 		int waitForCommand();
+		const String getCurrentDebuggerCommand(const bool clearTheReturnedCommand=true);
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethodEditor)
 

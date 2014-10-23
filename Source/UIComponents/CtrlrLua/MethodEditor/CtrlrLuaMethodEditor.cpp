@@ -965,17 +965,30 @@ void CtrlrLuaMethodEditor::searchResultClicked (const String &methodName, const 
 	}
 }
 
+void CtrlrLuaMethodEditor::insertRawDebuggerOutput(const String &debuggerOutput)
+{
+    if (methodEditArea->getLuaDebuggerPrompt())
+        methodEditArea->getLuaDebuggerPrompt(true)->insertRawDebuggerOutput (debuggerOutput);
+}
+
 void CtrlrLuaMethodEditor::setRawDebuggerOutput(const String &debuggerOutput)
 {
+    if (methodEditArea->getLuaDebuggerPrompt())
+        methodEditArea->getLuaDebuggerPrompt(true)->setRawDebuggerOutput (debuggerOutput);
 }
 
 void CtrlrLuaMethodEditor::setJsonDebuggerOutput(const String &jsonData)
 {
 }
 
-const String CtrlrLuaMethodEditor::getLastDebuggerCommand()
+const String CtrlrLuaMethodEditor::getCurrentDebuggerCommand(const bool clearTheReturnedCommand)
 {
-	return (String::empty);
+    if (methodEditArea->getLuaDebuggerPrompt())
+    {
+        return (methodEditArea->getLuaDebuggerPrompt()->getCurrentDebuggerCommand(clearTheReturnedCommand));
+    }
+
+    return (String::empty);
 }
 
 int CtrlrLuaMethodEditor::waitForCommand()

@@ -10,7 +10,7 @@
 namespace BinaryData
 {
     extern const char*   debugger_lua;
-    const int            debugger_luaSize = 41826;
+    const int            debugger_luaSize = 42825;
 
     extern const char*   LICENSE;
     const int            LICENSESize = 1079;
@@ -83,6 +83,24 @@ namespace BinaryData
 
     extern const char*   FONT_ZX81_ttf;
     const int            FONT_ZX81_ttfSize = 17176;
+
+    extern const char*   appbar_control_play_png;
+    const int            appbar_control_play_pngSize = 434;
+
+    extern const char*   appbar_debug_restart_png;
+    const int            appbar_debug_restart_pngSize = 436;
+
+    extern const char*   appbar_debug_step_into_png;
+    const int            appbar_debug_step_into_pngSize = 492;
+
+    extern const char*   appbar_debug_step_out_png;
+    const int            appbar_debug_step_out_pngSize = 469;
+
+    extern const char*   appbar_debug_step_over_png;
+    const int            appbar_debug_step_over_pngSize = 489;
+
+    extern const char*   appbar_debug_stop_png;
+    const int            appbar_debug_stop_pngSize = 218;
 
     extern const char*   ico_box_png;
     const int            ico_box_pngSize = 3869;
@@ -256,7 +274,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 81;
+    const int namedResourceListSize = 87;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

@@ -39,6 +39,7 @@ class CtrlrChildWindow  : public DocumentWindow, public KeyListener
 		CtrlrChildWindowContainer *containerComponent;
 		CtrlrChildWindowContent *contentComponent;
 		CtrlrWindowManager &owner;
+		TooltipWindow window;
 };
 
 

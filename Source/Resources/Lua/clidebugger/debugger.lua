@@ -393,7 +393,7 @@ end
 --{{{  local function indented( level, ... )
 
 local function indented( level, ... )
-  io.write( string.rep('  ',level), table.concat({...}), '\n' )
+  ctrlrDebugger:dbg_write_ctrlr( string.format ("%s%s\n", string.rep('  ',level), table.concat({...}) ))
 end
 
 --}}}
@@ -432,12 +432,13 @@ local function dumpval( level, name, value, limit )
   else
     if type(value) == 'string' then
       if string.len(value) > 40 then
-        indented( level, index, '[[', value, ']];' )
+      -- ONE OF THEESE CAUSES ERRORS
+        -- indented( level, index, '[[', value, ']];' )
       else
-        indented( level, index, string.format('%q',value), ';' )
+        -- indented( level, index, string.format('%q',value), ';' )
       end
     else
-      indented( level, index, tostring(value), ';' )
+      -- indented( level, index, tostring(value), ';' )
     end
   end
 end
@@ -481,7 +482,7 @@ local function show(file,line,before,after)
 
     --}}}
     if not f then
-      io.write('Cannot find '..file..'\n')
+      ctrlrDebugger:dbg_write_ctrlr('Cannot find '..file..'\n')
       return
     end
   end
@@ -492,9 +493,9 @@ local function show(file,line,before,after)
     if i >= (line-before) then
       if i > (line+after) then break end
       if i == line then
-        io.write(i..'***\t'..l..'\n')
+        ctrlrDebugger:dbg_write_ctrlr(i..'***\t'..l..'\n')
       else
-        io.write(i..'\t'..l..'\n')
+        ctrlrDebugger:dbg_write_ctrlr(i..'\t'..l..'\n')
       end
     end
   end
@@ -568,14 +569,16 @@ local function trace(set)
     else
       mark = ''
     end
-    io.write('['..level..']'..mark..'\t'..(ar.name or ar.what)..' in '..ar.short_src..':'..ar.currentline..'\n')
+    ctrlrDebugger:dbg_write_ctrlr('['..level..']'..mark..'\t'..(ar.name or ar.what)..' in '..ar.short_src..':'..ar.currentline..'\n')
   end
 end
 
 --}}}
 --{{{  local function info()
 
-local function info() dumpvar( traceinfo, 0, 'traceinfo' ) end
+local function info()
+    dumpvar( traceinfo, 0, 'traceinfo' )
+end
 
 --}}}
 
@@ -784,7 +787,7 @@ local function print_trace(level,depth,event,file,line,name)
   local prefix = ''
   if current_thread ~= 'main' then prefix = '['..tostring(current_thread)..'] ' end
 
-  io.write(prefix..
+  ctrlrDebugger:dbg_write_ctrlr(prefix..
            string.format('%08.2f:%02i.',os.clock(),depth)..
            string.rep('.',depth%32)..
            (file or '')..' ('..(line or '')..') '..
@@ -834,18 +837,18 @@ local function report(ev, vars, file, line, idx_watch)
   local prefix = ''
   if current_thread ~= 'main' then prefix = '['..tostring(current_thread)..'] ' end
   if ev == events.STEP then
-    io.write(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..')\n')
+    ctrlrDebugger:dbg_write_ctrlr(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..')\n')
   elseif ev == events.BREAK then
-    io.write(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..') (breakpoint)\n')
+    ctrlrDebugger:dbg_write_ctrlr(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..') (breakpoint)\n')
   elseif ev == events.WATCH then
-    io.write(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..')'.." (watch expression "..idx_watch.. ": ["..watches[idx_watch].exp.."])\n")
+    ctrlrDebugger:dbg_write_ctrlr(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..')'.." (watch expression "..idx_watch.. ": ["..watches[idx_watch].exp.."])\n")
   elseif ev == events.SET then
     --do nothing
   else
-    io.write(prefix.."Error in application: "..file.." line "..line.."\n")
+    ctrlrDebugger:dbg_write_ctrlr(prefix.."Error in application: "..file.." line "..line.."\n")
   end
   if ev ~= events.SET then
-    if pausemsg and pausemsg ~= '' then io.write('Message: '..pausemsg..'\n') end
+    if pausemsg and pausemsg ~= '' then ctrlrDebugger:dbg_write_ctrlr('Message: '..pausemsg..'\n') end
     pausemsg = ''
   end
   return vars, file, line
@@ -914,7 +917,7 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
     ctrlrDebugger:dbg_write_ctrlr("[DEBUG]> ")
     -- local line = io.read("*line")
     local line = ctrlrDebugger:dbg_read_ctrlr()
-    if line == nil then io.write('\n'); line = 'exit' end
+    if line == nil then ctrlrDebugger:dbg_write_ctrlr('\n'); line = 'exit' end
 
     if string.find(line, "^[a-z]+") then
       command = string.sub(line, string.find(line, "^[a-z]+"))
@@ -929,9 +932,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
       local line, filename  = getargs('LF')
       if filename ~= '' and line ~= '' then
         set_breakpoint(filename,line)
-        io.write("Breakpoint set in file "..filename..' line '..line..'\n')
+        ctrlrDebugger:dbg_write_ctrlr("Breakpoint set in file "..filename..' line '..line..'\n')
       else
-        io.write("Bad request\n")
+        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
       end
 
       --}}}
@@ -942,9 +945,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
       local line, filename = getargs('LF')
       if filename ~= '' and line ~= '' then
         remove_breakpoint(filename, line)
-        io.write("Breakpoint deleted from file "..filename..' line '..line.."\n")
+        ctrlrDebugger:dbg_write_ctrlr("Breakpoint deleted from file "..filename..' line '..line.."\n")
       else
-        io.write("Bad request\n")
+        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
       end
 
       --}}}
@@ -952,14 +955,14 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
     elseif command == "delallb" then
       --{{{  delete all breakpoints
       breakpoints = {}
-      io.write('All breakpoints deleted\n')
+      ctrlrDebugger:dbg_write_ctrlr('All breakpoints deleted\n')
       --}}}
 
     elseif command == "listb" then
       --{{{  list breakpoints
       for i, v in pairs(breakpoints) do
         for ii, vv in pairs(v) do
-          io.write("Break at: "..i..' in '..ii..'\n')
+          ctrlrDebugger:dbg_write_ctrlr("Break at: "..i..' in '..ii..'\n')
         end
       end
       --}}}
@@ -971,9 +974,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
         local func = loadstring("return(" .. args .. ")")
         local newidx = #watches + 1
         watches[newidx] = {func = func, exp = args}
-        io.write("Set watch exp no. " .. newidx..'\n')
+        ctrlrDebugger:dbg_write_ctrlr("Set watch exp no. " .. newidx..'\n')
       else
-        io.write("Bad request\n")
+        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
       end
 
       --}}}
@@ -984,9 +987,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
       local index = tonumber(args)
       if index then
         watches[index] = nil
-        io.write("Watch expression deleted\n")
+        ctrlrDebugger:dbg_write_ctrlr("Watch expression deleted\n")
       else
-        io.write("Bad request\n")
+        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
       end
 
       --}}}
@@ -994,13 +997,13 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
     elseif command == "delallw" then
       --{{{  delete all watch expressions
       watches = {}
-      io.write('All watch expressions deleted\n')
+      ctrlrDebugger:dbg_write_ctrlr('All watch expressions deleted\n')
       --}}}
 
     elseif command == "listw" then
       --{{{  list watch expressions
       for i, v in pairs(watches) do
-        io.write("Watch exp. " .. i .. ": " .. v.exp..'\n')
+        ctrlrDebugger:dbg_write_ctrlr("Watch exp. " .. i .. ": " .. v.exp..'\n')
       end
       --}}}
 
@@ -1053,7 +1056,7 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
           return 'cont'
         end
       else
-        io.write("Bad request\n")
+        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
       end
       --}}}
 
@@ -1111,15 +1114,15 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
         if type(v) == 'function' then
           local def = debug.getinfo(v,'S')
           if def then
-            io.write(def.what..' in '..def.short_src..' '..def.linedefined..'..'..def.lastlinedefined..'\n')
+            ctrlrDebugger:dbg_write_ctrlr(def.what..' in '..def.short_src..' '..def.linedefined..'..'..def.lastlinedefined..'\n')
           else
-            io.write('Cannot get info for '..v..'\n')
+            ctrlrDebugger:dbg_write_ctrlr('Cannot get info for '..v..'\n')
           end
         else
-          io.write(v..' is not a function\n')
+          ctrlrDebugger:dbg_write_ctrlr(v..' is not a function\n')
         end
       else
-        io.write("Bad request\n")
+        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
       end
       --}}}
 
@@ -1142,7 +1145,7 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
         end
         dumpvar(v,depth+1,n)
       else
-        io.write("Bad request\n")
+        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
       end
       --}}}
 
@@ -1156,7 +1159,7 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
       if file ~= '' and file ~= "=stdin" then
         show(file,line,before,after)
       else
-        io.write('Nothing to show\n')
+        ctrlrDebugger:dbg_write_ctrlr('Nothing to show\n')
       end
 
       --}}}
@@ -1194,18 +1197,18 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
 
     elseif command == "pause" then
       --{{{  not allowed in here
-      io.write('pause() should only be used in the script you are debugging\n')
+      ctrlrDebugger:dbg_write_ctrlr('pause() should only be used in the script you are debugging\n')
       --}}}
 
     elseif command == "help" then
       --{{{  help
       local command = getargs('S')
       if command ~= '' and hints[command] then
-        io.write(hints[command]..'\n')
+        ctrlrDebugger:dbg_write_ctrlr(hints[command]..'\n')
       else
         for _,v in pairs(hints) do
           local _,_,h = string.find(v,"(.+)|")
-          io.write(h..'\n')
+          ctrlrDebugger:dbg_write_ctrlr(h..'\n')
         end
       end
       --}}}
@@ -1223,9 +1226,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
 
       local ok, func = pcall(loadstring,line)
       if func == nil then                             --Michael.Bringmann@lsi.com
-        io.write("Compile error: "..line..'\n')
+        ctrlrDebugger:dbg_write_ctrlr("Compile error: "..line..'\n')
       elseif not ok then
-        io.write("Compile error: "..func..'\n')
+        ctrlrDebugger:dbg_write_ctrlr("Compile error: "..func..'\n')
       else
         setfenv(func, eval_env)
         local res = {pcall(func)}
@@ -1233,15 +1236,15 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
           if res[2] then
             table.remove(res,1)
             for _,v in ipairs(res) do
-              io.write(tostring(v))
-              io.write('\t')
+              ctrlrDebugger:dbg_write_ctrlr(tostring(v))
+              ctrlrDebugger:dbg_write_ctrlr('\t')
             end
-            io.write('\n')
+            ctrlrDebugger:dbg_write_ctrlr('\n')
           end
           --update in the context
           return 0
         else
-          io.write("Run error: "..res[2]..'\n')
+          ctrlrDebugger:dbg_write_ctrlr("Run error: "..res[2]..'\n')
         end
       end
 
@@ -1293,9 +1296,9 @@ local function debug_hook(event, line, level, thread)
       return
     end
     if not coro_debugger then
-      io.write("Lua Debugger\n")
+      ctrlrDebugger:dbg_write_ctrlr("Lua Debugger\n")
       vars, file, line = report(ev, vars, file, line, idx)
-      io.write("Type 'help' for commands\n")
+      ctrlrDebugger:dbg_write_ctrlr("Type 'help' for commands\n")
       coro_debugger = true
     else
       vars, file, line = report(ev, vars, file, line, idx)
@@ -1322,16 +1325,16 @@ local function debug_hook(event, line, level, thread)
         vars, file, line = capture_vars(level,next)
         if not silent then
           if vars and vars.__VARSLEVEL__ then
-            io.write('Level: '..vars.__VARSLEVEL__..'\n')
+            ctrlrDebugger:dbg_write_ctrlr('Level: '..vars.__VARSLEVEL__..'\n')
           else
-            io.write('No level set\n')
+            ctrlrDebugger:dbg_write_ctrlr('No level set\n')
           end
         end
         ev = events.SET
         next = 'ask'
       else
-        io.write('Unknown command from debugger_loop: '..tostring(next)..'\n')
-        io.write('Stopping debugger\n')
+        ctrlrDebugger:dbg_write_ctrlr('Unknown command from debugger_loop: '..tostring(next)..'\n')
+        ctrlrDebugger:dbg_write_ctrlr('Stopping debugger\n')
         next = 'stop'
       end
     end

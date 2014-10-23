@@ -4832,6 +4832,24 @@
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.ttf">
       <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
     </None>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.control.play.png">
+      <Filter>Ctrlr_Standalone\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.restart.png">
+      <Filter>Ctrlr_Standalone\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.step.into.png">
+      <Filter>Ctrlr_Standalone\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.step.out.png">
+      <Filter>Ctrlr_Standalone\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.step.over.png">
+      <Filter>Ctrlr_Standalone\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.stop.png">
+      <Filter>Ctrlr_Standalone\Resources\Icons</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_box.png">
       <Filter>Ctrlr_Standalone\Resources\Icons</Filter>
     </None>
