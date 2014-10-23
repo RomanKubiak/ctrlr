@@ -239,6 +239,14 @@ void CtrlrLuaMethodEditArea::setActiveOutputTab()
 		getLowerTabs()->setCurrentTabIndex (0);
 	}
 }
+
+CtrlrLuaMethodDebuggerPrompt *CtrlrLuaMethodEditArea::getLuaDebuggerPrompt(const bool activateDebuggerNow)
+{
+    if (activateDebuggerNow)
+        lowerTabs->setCurrentTabIndex (2, true);
+
+    return (debuggerPrompt);
+}
 //[/MiscUserCode]
 
 

@@ -62,6 +62,7 @@ public:
 	void mouseDoubleClick (const MouseEvent &e);
 	bool keyPressed (const KeyPress &key, Component *event);
 	void setActiveOutputTab();
+	CtrlrLuaMethodDebuggerPrompt *getLuaDebuggerPrompt(const bool activateDebuggerNow=false);
     //[/UserMethods]
 
     void paint (Graphics& g);

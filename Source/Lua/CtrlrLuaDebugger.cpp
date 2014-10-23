@@ -29,7 +29,7 @@ CtrlrLuaDebugger::~CtrlrLuaDebugger()
 {
 }
 
-void CtrlrLuaDebugger::dbgWrite(String data)
+void CtrlrLuaDebugger::dbgWrite(std::string data)
 {
     owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaMethodEditor);
 
@@ -37,11 +37,11 @@ void CtrlrLuaDebugger::dbgWrite(String data)
 
     if (ui)
     {
-        return (ui->setRawDebuggerOutput(data));
+        return (ui->insertRawDebuggerOutput(_STR(data)));
     }
 }
 
-void CtrlrLuaDebugger::dbgWriteJson(String jsonData)
+void CtrlrLuaDebugger::dbgWriteJson(std::string jsonData)
 {
     CtrlrLuaMethodEditor *ui = dynamic_cast<CtrlrLuaMethodEditor *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaMethodEditor));
 
@@ -51,14 +51,13 @@ void CtrlrLuaDebugger::dbgWriteJson(String jsonData)
     }
 }
 
-std::string CtrlrLuaDebugger::dbgRead(String prompt)
+std::string CtrlrLuaDebugger::dbgRead(std::string prompt)
 {
 	if (commandQueue.length() > 0)
 	{
 		const String sendNow = commandQueue.substring(0,1);
 		commandQueue = commandQueue.substring(1);
 
-        _DBG("to debugger->" +sendNow);
 		return (sendNow.toStdString());
 	}
 
@@ -69,10 +68,7 @@ std::string CtrlrLuaDebugger::dbgRead(String prompt)
     {
         if (ui->waitForCommand())
         {
-            const String sendNow = ui->getLastDebuggerCommand().substring(0,1);
-			commandQueue = ui->getLastDebuggerCommand().substring(1);
-			_DBG("to debugger->" + sendNow);
-			return (sendNow.toStdString());
+            return (ui->getCurrentDebuggerCommand (true).toStdString());
         }
         else
         {
@@ -87,7 +83,7 @@ std::string CtrlrLuaDebugger::dbgRead(String prompt)
 
 std::string CtrlrLuaDebugger::dbgRead()
 {
-    return (dbgRead (String::empty));
+    return (dbgRead (std::string()));
 }
 
 void CtrlrLuaDebugger::wrapForLua(lua_State *L)
@@ -97,7 +93,7 @@ void CtrlrLuaDebugger::wrapForLua(lua_State *L)
     [
         class_<CtrlrLuaDebugger>("CtrlrLuaDebugger")
             .def("dbg_write_ctrlr", &CtrlrLuaDebugger::dbgWrite)
-            .def("dbg_read_ctrlr", (std::string (CtrlrLuaDebugger::*)(String)) &CtrlrLuaDebugger::dbgRead)
+            .def("dbg_read_ctrlr", (std::string (CtrlrLuaDebugger::*)(std::string)) &CtrlrLuaDebugger::dbgRead)
             .def("dbg_read_ctrlr", (std::string (CtrlrLuaDebugger::*)(void)) &CtrlrLuaDebugger::dbgRead)
             .def("dbg_write_ctrlr_json", &CtrlrLuaDebugger::dbgWriteJson)
     ];

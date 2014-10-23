@@ -35,7 +35,9 @@ class CtrlrLuaMethodEditor;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class CtrlrLuaMethodDebuggerPrompt  : public Component
+class CtrlrLuaMethodDebuggerPrompt  : public Component,
+                                      public TextEditor::Listener,
+                                      public ButtonListener
 {
 public:
     //==============================================================================
@@ -44,21 +46,32 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    void setRawDebuggerOutput(const String &debuggerOutput);
+    void insertRawDebuggerOutput(const String &debuggerOutput);
+    void sendCommand (const String &text);
+    void textEditorReturnKeyPressed (TextEditor &editor);
+    StringArray &getCommandQueue();
+    const String getCurrentDebuggerCommand(const bool clearTheReturnedCommand=true);
     //[/UserMethods]
 
     void paint (Graphics& g);
     void resized();
+    void buttonClicked (Button* buttonThatWasClicked);
 
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     CtrlrLuaMethodEditor &owner;
+    StringArray commandQueue;
     //[/UserVariables]
 
     //==============================================================================
     ScopedPointer<TextEditor> debuggerOutput;
     ScopedPointer<TextEditor> debuggerInput;
+    ScopedPointer<ImageButton> debugContinue;
+    ScopedPointer<ImageButton> debugStepOver;
+    ScopedPointer<ImageButton> debugStepInto;
 
 
     //==============================================================================

@@ -2356,6 +2356,12 @@
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.ttf"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Warenhaus-Standard.ttf"/>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.control.play.png"/>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.restart.png"/>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.step.into.png"/>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.step.out.png"/>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.step.over.png"/>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.stop.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_box.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_bug.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_copy.png"/>
