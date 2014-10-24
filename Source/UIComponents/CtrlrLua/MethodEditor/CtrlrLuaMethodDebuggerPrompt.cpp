@@ -62,7 +62,7 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
 
     debugContinue->setImages (false, true, true,
                               Image(), 0.550f, Colour (0x00000000),
-                              Image(), 0.750f, Colour (0x00000000),
+                              Image(), 0.850f, Colour (0x00000000),
                               Image(), 1.000f, Colour (0x00000000));
     addAndMakeVisible (debugStepOver = new ImageButton ("Step Over"));
     debugStepOver->setTooltip (TRANS("Step Over"));
@@ -70,7 +70,7 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
 
     debugStepOver->setImages (false, true, true,
                               Image(), 0.550f, Colour (0x00000000),
-                              Image(), 0.750f, Colour (0x00000000),
+                              Image(), 0.850f, Colour (0x00000000),
                               Image(), 1.000f, Colour (0x00000000));
     addAndMakeVisible (debugStepInto = new ImageButton ("Step Into"));
     debugStepInto->setTooltip (TRANS("Step Into"));
@@ -78,10 +78,47 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
 
     debugStepInto->setImages (false, true, true,
                               Image(), 0.550f, Colour (0x00000000),
-                              Image(), 0.750f, Colour (0x00000000),
+                              Image(), 0.850f, Colour (0x00000000),
                               Image(), 1.000f, Colour (0x00000000));
+    addAndMakeVisible (debuggerInfo = new ConcertinaPanel());
+    debuggerInfo->setExplicitFocusOrder (50);
+    debuggerInfo->setName ("Realtime information");
+
+    addAndMakeVisible (debugStepOut = new ImageButton ("Step Out"));
+    debugStepOut->setTooltip (TRANS("Step Out"));
+    debugStepOut->addListener (this);
+
+    debugStepOut->setImages (false, true, true,
+                             Image(), 0.550f, Colour (0x00000000),
+                             Image(), 0.850f, Colour (0x00000000),
+                             Image(), 1.000f, Colour (0x00000000));
+    addAndMakeVisible (debugRestart = new ImageButton ("Restart"));
+    debugRestart->setTooltip (TRANS("Restart"));
+    debugRestart->addListener (this);
+
+    debugRestart->setImages (false, true, true,
+                             Image(), 0.550f, Colour (0x00000000),
+                             Image(), 0.850f, Colour (0x00000000),
+                             Image(), 1.000f, Colour (0x00000000));
+    addAndMakeVisible (debugStop = new ImageButton ("Stop"));
+    debugStop->setTooltip (TRANS("Stop"));
+    debugStop->addListener (this);
+
+    debugStop->setImages (false, true, true,
+                          Image(), 0.550f, Colour (0x00000000),
+                          Image(), 0.850f, Colour (0x00000000),
+                          Image(), 1.000f, Colour (0x00000000));
 
     //[UserPreSize]
+    addAndMakeVisible (resizer	= new StretchableLayoutResizerBar (&layoutManager, 1, true));
+
+    layoutManager.setItemLayout (0, -0.001, -1.0, -0.59);
+ 	layoutManager.setItemLayout (1, 8, 8, 8);
+ 	layoutManager.setItemLayout (2, -0.001, -1.0, -0.39);
+
+    debuggerInfo->addPanel (0, new CtrlrLuaMethodDebuggerStackTrace(owner), true);
+    debuggerInfo->addPanel (1, new CtrlrLuaMethodDebuggerVars(owner), true);
+
     debuggerOutput->setFont (Font (Font::getDefaultMonospacedFontName(), 14.0f, Font::plain));
     debuggerInput->setFont (Font (Font::getDefaultMonospacedFontName(), 14.0f, Font::plain));
     debuggerInput->addListener (this);
@@ -103,6 +140,24 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
                               IMAGE(appbar_debug_step_over_png), 0.850f, Colour (0x00000000),
                               IMAGE(appbar_debug_step_over_png), 1.000f, Colour (0x00000000));
     debugStepOver->setMouseCursor (MouseCursor::PointingHandCursor);
+
+    debugRestart->setImages (false, true, true,
+                              IMAGE(appbar_debug_restart_png), 0.550f, Colour (0x00000000),
+                              IMAGE(appbar_debug_restart_png), 0.850f, Colour (0x00000000),
+                              IMAGE(appbar_debug_restart_png), 1.000f, Colour (0x00000000));
+    debugRestart->setMouseCursor (MouseCursor::PointingHandCursor);
+
+    debugStepOut->setImages (false, true, true,
+                              IMAGE(appbar_debug_step_out_png), 0.550f, Colour (0x00000000),
+                              IMAGE(appbar_debug_step_out_png), 0.850f, Colour (0x00000000),
+                              IMAGE(appbar_debug_step_out_png), 1.000f, Colour (0x00000000));
+    debugStepOut->setMouseCursor (MouseCursor::PointingHandCursor);
+
+    debugStop->setImages (false, true, true,
+                              IMAGE(appbar_debug_stop_png), 0.550f, Colour (0x00000000),
+                              IMAGE(appbar_debug_stop_png), 0.850f, Colour (0x00000000),
+                              IMAGE(appbar_debug_stop_png), 1.000f, Colour (0x00000000));
+    debugStop->setMouseCursor (MouseCursor::PointingHandCursor);
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -122,6 +177,10 @@ CtrlrLuaMethodDebuggerPrompt::~CtrlrLuaMethodDebuggerPrompt()
     debugContinue = nullptr;
     debugStepOver = nullptr;
     debugStepInto = nullptr;
+    debuggerInfo = nullptr;
+    debugStepOut = nullptr;
+    debugRestart = nullptr;
+    debugStop = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -140,12 +199,18 @@ void CtrlrLuaMethodDebuggerPrompt::paint (Graphics& g)
 
 void CtrlrLuaMethodDebuggerPrompt::resized()
 {
-    debuggerOutput->setBounds (0, 32, getWidth() - 0, getHeight() - 50);
+    debuggerOutput->setBounds (0, 32, proportionOfWidth (0.7000f), getHeight() - 50);
     debuggerInput->setBounds (0, getHeight() - 18, getWidth() - 0, 18);
     debugContinue->setBounds (0, 0, 32, 32);
     debugStepOver->setBounds (40, 0, 32, 32);
     debugStepInto->setBounds (80, 0, 32, 32);
+    debuggerInfo->setBounds (proportionOfWidth (0.7000f), 32, proportionOfWidth (0.3000f), getHeight() - 50);
+    debugStepOut->setBounds (120, 0, 32, 32);
+    debugRestart->setBounds (160, 0, 32, 32);
+    debugStop->setBounds (200, 0, 32, 32);
     //[UserResized] Add your own custom resize handling here..
+    Component* comps[] = { debuggerOutput, resizer, debuggerInfo  };
+	layoutManager.layOutComponents (comps, 3, 0, 32, getWidth(), getHeight() - 50, false, true);
     //[/UserResized]
 }
 
@@ -157,6 +222,7 @@ void CtrlrLuaMethodDebuggerPrompt::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == debugContinue)
     {
         //[UserButtonCode_debugContinue] -- add your button handler code here..
+        sendCommand ("run");
         //[/UserButtonCode_debugContinue]
     }
     else if (buttonThatWasClicked == debugStepOver)
@@ -168,6 +234,21 @@ void CtrlrLuaMethodDebuggerPrompt::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_debugStepInto] -- add your button handler code here..
         //[/UserButtonCode_debugStepInto]
+    }
+    else if (buttonThatWasClicked == debugStepOut)
+    {
+        //[UserButtonCode_debugStepOut] -- add your button handler code here..
+        //[/UserButtonCode_debugStepOut]
+    }
+    else if (buttonThatWasClicked == debugRestart)
+    {
+        //[UserButtonCode_debugRestart] -- add your button handler code here..
+        //[/UserButtonCode_debugRestart]
+    }
+    else if (buttonThatWasClicked == debugStop)
+    {
+        //[UserButtonCode_debugStop] -- add your button handler code here..
+        //[/UserButtonCode_debugStop]
     }
 
     //[UserbuttonClicked_Post]
@@ -222,6 +303,14 @@ const String CtrlrLuaMethodDebuggerPrompt::getCurrentDebuggerCommand(const bool 
     commandQueue.remove (commandQueue.size() - 1);
     return (ret);
 }
+
+void CtrlrLuaMethodDebuggerPrompt::visibilityChanged()
+{
+    if (isVisible())
+    {
+        debuggerInput->grabKeyboardFocus ();
+    }
+}
 //[/MiscUserCode]
 
 
@@ -241,7 +330,7 @@ BEGIN_JUCER_METADATA
                  fixedSize="1" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffff"/>
   <TEXTEDITOR name="Debugger output" id="2220af475a8f6614" memberName="debuggerOutput"
-              virtualName="" explicitFocusOrder="0" pos="0 32 0M 50M" textcol="ff5c5c5c"
+              virtualName="" explicitFocusOrder="0" pos="0 32 70% 50M" textcol="ff5c5c5c"
               outlinecol="0" shadowcol="0" initialText="" multiline="1" retKeyStartsLine="0"
               readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTEDITOR name="Debugger input" id="b2b8220d7f2d2565" memberName="debuggerInput"
@@ -266,6 +355,27 @@ BEGIN_JUCER_METADATA
                keepProportions="1" resourceNormal="" opacityNormal="0.55000001192092895508"
                colourNormal="0" resourceOver="" opacityOver="0.85000002384185791016"
                colourOver="0" resourceDown="" opacityDown="1" colourDown="0"/>
+  <GENERICCOMPONENT name="Realtime information" id="f9beea3d026db326" memberName="debuggerInfo"
+                    virtualName="" explicitFocusOrder="50" pos="70% 32 30% 50M" class="ConcertinaPanel"
+                    params=""/>
+  <IMAGEBUTTON name="Step Out" id="b5b0a5654ecfc920" memberName="debugStepOut"
+               virtualName="" explicitFocusOrder="0" pos="120 0 32 32" tooltip="Step Out"
+               buttonText="Step Out" connectedEdges="0" needsCallback="1" radioGroupId="0"
+               keepProportions="1" resourceNormal="" opacityNormal="0.55000001192092895508"
+               colourNormal="0" resourceOver="" opacityOver="0.85000002384185791016"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="0"/>
+  <IMAGEBUTTON name="Restart" id="d692f318070f2b5a" memberName="debugRestart"
+               virtualName="" explicitFocusOrder="0" pos="160 0 32 32" tooltip="Restart"
+               buttonText="Restart" connectedEdges="0" needsCallback="1" radioGroupId="0"
+               keepProportions="1" resourceNormal="" opacityNormal="0.55000001192092895508"
+               colourNormal="0" resourceOver="" opacityOver="0.85000002384185791016"
+               colourOver="0" resourceDown="" opacityDown="1" colourDown="0"/>
+  <IMAGEBUTTON name="Stop" id="337404b10168d0f4" memberName="debugStop" virtualName=""
+               explicitFocusOrder="0" pos="200 0 32 32" tooltip="Stop" buttonText="Stop"
+               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
+               resourceNormal="" opacityNormal="0.55000001192092895508" colourNormal="0"
+               resourceOver="" opacityOver="0.85000002384185791016" colourOver="0"
+               resourceDown="" opacityDown="1" colourDown="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

@@ -2649,9 +2649,6 @@
 		<Unit filename="../../../../Source/Resources/Lua/clidebugger/LICENSE" />
 		<Unit filename="../../../../Source/Resources/Lua/clidebugger/README.md" />
 		<Unit filename="../../../../Source/Resources/Lua/clidebugger/debugger.lua" />
-		<Unit filename="../../../../Source/Resources/Lua/debugger.lua/README.md" />
-		<Unit filename="../../../../Source/Resources/Lua/debugger.lua/debugger.lua" />
-		<Unit filename="../../../../Source/Resources/Lua/debugger.lua/tutorial.lua" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.h.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeel.lua.sh" />
@@ -2748,10 +2745,14 @@
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.h" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.cpp" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.h" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp" />
+		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp" />

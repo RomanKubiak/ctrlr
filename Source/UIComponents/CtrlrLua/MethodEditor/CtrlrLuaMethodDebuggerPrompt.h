@@ -22,6 +22,8 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "CtrlrMacros.h"
+#include "CtrlrLuaMethodDebuggerStackTrace.h"
+#include "CtrlrLuaMethodDebuggerVars.h"
 class CtrlrLuaMethodEditor;
 //[/Headers]
 
@@ -52,6 +54,7 @@ public:
     void textEditorReturnKeyPressed (TextEditor &editor);
     StringArray &getCommandQueue();
     const String getCurrentDebuggerCommand(const bool clearTheReturnedCommand=true);
+    void visibilityChanged();
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -64,6 +67,8 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     CtrlrLuaMethodEditor &owner;
     StringArray commandQueue;
+    StretchableLayoutManager layoutManager;
+	ScopedPointer <StretchableLayoutResizerBar> resizer;
     //[/UserVariables]
 
     //==============================================================================
@@ -72,6 +77,10 @@ private:
     ScopedPointer<ImageButton> debugContinue;
     ScopedPointer<ImageButton> debugStepOver;
     ScopedPointer<ImageButton> debugStepInto;
+    ScopedPointer<ConcertinaPanel> debuggerInfo;
+    ScopedPointer<ImageButton> debugStepOut;
+    ScopedPointer<ImageButton> debugRestart;
+    ScopedPointer<ImageButton> debugStop;
 
 
     //==============================================================================

@@ -169,11 +169,6 @@
           <FILE id="lFdLLV" name="json.lua" compile="0" resource="1" file="../../Source/Resources/Lua/json4lua/json.lua"/>
           <FILE id="u9Di5q" name="LICENCE.txt" compile="0" resource="1" file="../../Source/Resources/Lua/json4lua/LICENCE.txt"/>
         </GROUP>
-        <GROUP id="{780B07F7-BE7E-D6EE-3053-03CEBD9A03AB}" name="debugger.lua">
-          <FILE id="vXGpeM" name="debugger.lua" compile="0" resource="1" file="../../Source/Resources/Lua/debugger.lua/debugger.lua"/>
-          <FILE id="gZPDMy" name="README.md" compile="0" resource="1" file="../../Source/Resources/Lua/debugger.lua/README.md"/>
-          <FILE id="RoRW97" name="tutorial.lua" compile="0" resource="1" file="../../Source/Resources/Lua/debugger.lua/tutorial.lua"/>
-        </GROUP>
         <FILE id="rejJtR" name="gen_LLookAndFeel.cpp.sh" compile="0" resource="1"
               file="../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh"/>
         <FILE id="v16HHl" name="gen_LLookAndFeel.h.sh" compile="0" resource="1"
@@ -1102,6 +1097,14 @@
         <FILE id="ruKwDH" name="CtrlrLuaConsole.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.h"/>
         <GROUP id="{ED46B240-9D98-EDDA-E08B-6D5ED482C020}" name="MethodEditor">
+          <FILE id="UR2DG9" name="CtrlrLuaMethodDebuggerVars.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp"/>
+          <FILE id="qTFLsu" name="CtrlrLuaMethodDebuggerVars.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.h"/>
+          <FILE id="uU6QRF" name="CtrlrLuaMethodDebuggerInfo.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.cpp"/>
+          <FILE id="sCVQ17" name="CtrlrLuaMethodDebuggerInfo.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.h"/>
           <FILE id="Zrils0" name="CtrlrLuaMethodEditorConsole.cpp" compile="1"
                 resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp"/>
           <FILE id="qlYp7L" name="CtrlrLuaMethodEditorConsole.h" compile="0"

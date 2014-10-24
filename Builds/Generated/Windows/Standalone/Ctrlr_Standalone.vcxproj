@@ -395,6 +395,8 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerVars.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerInfo.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditorConsole.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerStackTrace.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerPrompt.cpp"/>
@@ -1825,6 +1827,8 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerVars.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerInfo.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditorConsole.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerStackTrace.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerPrompt.h"/>
@@ -2336,9 +2340,6 @@
     <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\README.md"/>
     <None Include="..\..\..\..\Source\Resources\Lua\json4lua\json.lua"/>
     <None Include="..\..\..\..\Source\Resources\Lua\json4lua\LICENCE.txt"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\debugger.lua\debugger.lua"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\debugger.lua\README.md"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\debugger.lua\tutorial.lua"/>
     <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.cpp.sh"/>
     <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.h.sh"/>
     <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeel.lua.sh"/>
