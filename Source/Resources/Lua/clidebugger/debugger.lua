@@ -562,6 +562,7 @@ end
 --{{{  local function trace()
 
 local function trace(set)
+  ctrlrDebugger:dbg_write_ctrlr ("::stacktrace start\n")
   local mark
   for level,ar in ipairs(traceinfo) do
     if level == set then
@@ -571,6 +572,8 @@ local function trace(set)
     end
     ctrlrDebugger:dbg_write_ctrlr('['..level..']'..mark..'\t'..(ar.name or ar.what)..' in '..ar.short_src..':'..ar.currentline..'\n')
   end
+
+  ctrlrDebugger:dbg_write_ctrlr ("::stacktrace end\n")
 end
 
 --}}}

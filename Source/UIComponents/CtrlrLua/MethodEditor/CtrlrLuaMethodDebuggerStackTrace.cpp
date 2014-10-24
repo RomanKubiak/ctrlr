@@ -28,10 +28,12 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-CtrlrLuaMethodDebuggerStackTrace::CtrlrLuaMethodDebuggerStackTrace ()
+CtrlrLuaMethodDebuggerStackTrace::CtrlrLuaMethodDebuggerStackTrace (CtrlrLuaMethodEditor &_owner)
+    : owner(_owner)
 {
 
     //[UserPreSize]
+    setName ("Stack trace");
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -86,9 +88,10 @@ void CtrlrLuaMethodDebuggerStackTrace::resized()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="CtrlrLuaMethodDebuggerStackTrace"
-                 componentName="" parentClasses="public Component" constructorParams=""
-                 variableInitialisers="" snapPixels="8" snapActive="1" snapShown="1"
-                 overlayOpacity="0.330" fixedSize="0" initialWidth="600" initialHeight="400">
+                 componentName="" parentClasses="public Component" constructorParams="CtrlrLuaMethodEditor &amp;_owner"
+                 variableInitialisers="owner(_owner)" snapPixels="8" snapActive="1"
+                 snapShown="1" overlayOpacity="0.330" fixedSize="0" initialWidth="600"
+                 initialHeight="400">
   <BACKGROUND backgroundColour="ffffffff"/>
 </JUCER_COMPONENT>
 

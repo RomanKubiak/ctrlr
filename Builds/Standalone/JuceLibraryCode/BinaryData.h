@@ -10,7 +10,7 @@
 namespace BinaryData
 {
     extern const char*   debugger_lua;
-    const int            debugger_luaSize = 42825;
+    const int            debugger_luaSize = 42975;
 
     extern const char*   LICENSE;
     const int            LICENSESize = 1079;
@@ -23,15 +23,6 @@ namespace BinaryData
 
     extern const char*   LICENCE_txt;
     const int            LICENCE_txtSize = 1077;
-
-    extern const char*   debugger_lua2;
-    const int            debugger_lua2Size = 10817;
-
-    extern const char*   README_md2;
-    const int            README_md2Size = 6079;
-
-    extern const char*   tutorial_lua;
-    const int            tutorial_luaSize = 6476;
 
     extern const char*   gen_LLookAndFeel_cpp_sh;
     const int            gen_LLookAndFeel_cpp_shSize = 2533;
@@ -274,7 +265,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 87;
+    const int namedResourceListSize = 84;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

@@ -21,7 +21,8 @@
 #define __JUCE_HEADER_521ABF2E90F95418__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "JuceHeader.h"
+#include "CtrlrMacros.h"
+class CtrlrLuaMethodEditor;
 //[/Headers]
 
 
@@ -38,7 +39,7 @@ class CtrlrLuaMethodDebuggerStackTrace  : public Component
 {
 public:
     //==============================================================================
-    CtrlrLuaMethodDebuggerStackTrace ();
+    CtrlrLuaMethodDebuggerStackTrace (CtrlrLuaMethodEditor &_owner);
     ~CtrlrLuaMethodDebuggerStackTrace();
 
     //==============================================================================
@@ -52,6 +53,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    CtrlrLuaMethodEditor &owner;
     //[/UserVariables]
 
     //==============================================================================
