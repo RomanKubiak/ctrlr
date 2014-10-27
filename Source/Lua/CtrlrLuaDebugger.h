@@ -29,7 +29,7 @@ class CtrlrLuaDebugger
 
     private:
         CtrlrLuaManager &owner;
-        String commandQueue;
+        Array <String> commandQueue;
 };
 
 #endif  // CTRLRLUADEBUGGER_H_INCLUDED
