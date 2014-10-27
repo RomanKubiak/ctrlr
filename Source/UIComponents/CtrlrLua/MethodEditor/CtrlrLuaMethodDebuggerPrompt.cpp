@@ -228,21 +228,25 @@ void CtrlrLuaMethodDebuggerPrompt::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == debugStepOver)
     {
         //[UserButtonCode_debugStepOver] -- add your button handler code here..
+        sendCommand ("over");
         //[/UserButtonCode_debugStepOver]
     }
     else if (buttonThatWasClicked == debugStepInto)
     {
         //[UserButtonCode_debugStepInto] -- add your button handler code here..
+        sendCommand ("step");
         //[/UserButtonCode_debugStepInto]
     }
     else if (buttonThatWasClicked == debugStepOut)
     {
         //[UserButtonCode_debugStepOut] -- add your button handler code here..
+        sendCommand ("out");
         //[/UserButtonCode_debugStepOut]
     }
     else if (buttonThatWasClicked == debugRestart)
     {
         //[UserButtonCode_debugRestart] -- add your button handler code here..
+        sendCommand ("exit");
         //[/UserButtonCode_debugRestart]
     }
     else if (buttonThatWasClicked == debugStop)
@@ -270,13 +274,20 @@ void CtrlrLuaMethodDebuggerPrompt::setRawDebuggerOutput(const String &debuggerOu
 
 void CtrlrLuaMethodDebuggerPrompt::sendCommand (const String &command)
 {
-    commandQueue.add (command);
-
-    debuggerOutput->insertTextAtCaret (command.trim() + "\n");
-
     if (owner.getParentComponent()->isCurrentlyModal())
     {
-        owner.getParentComponent()->exitModalState(1);
+        commandQueue.add (command);
+
+        debuggerOutput->insertTextAtCaret (command.trim() + "\n");
+
+        if (owner.getParentComponent()->isCurrentlyModal())
+        {
+            owner.getParentComponent()->exitModalState(1);
+        }
+    }
+    else
+    {
+        _WRN("CtrlrLuaMethodDebuggerPrompt::sendCommand debugger is not active");
     }
 }
 

@@ -53,12 +53,9 @@ void CtrlrLuaDebugger::dbgWriteJson(std::string jsonData)
 
 std::string CtrlrLuaDebugger::dbgRead(std::string prompt)
 {
-	if (commandQueue.length() > 0)
+	if (commandQueue.size() > 0)
 	{
-		const String sendNow = commandQueue.substring(0,1);
-		commandQueue = commandQueue.substring(1);
-
-		return (sendNow.toStdString());
+	    return (commandQueue.remove (commandQueue.size() - 1).toStdString());
 	}
 
 	owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaMethodEditor);
@@ -68,7 +65,10 @@ std::string CtrlrLuaDebugger::dbgRead(std::string prompt)
     {
         if (ui->waitForCommand())
         {
-            return (ui->getCurrentDebuggerCommand (true).toStdString());
+            commandQueue.add ("trace");
+            commandQueue.add ("vars");
+            commandQueue.add (ui->getCurrentDebuggerCommand (true).toStdString());
+            return (commandQueue.remove (commandQueue.size() - 1).toStdString());
         }
         else
         {

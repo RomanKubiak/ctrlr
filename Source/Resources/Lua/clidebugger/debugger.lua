@@ -447,8 +447,10 @@ end
 --{{{  local function dumpvar( value, limit, name )
 
 local function dumpvar( value, limit, name )
+  ctrlrDebugger:dbg_write_ctrlr ("::var dump start\n")
   dumpvisited = {}
   dumpval( 0, name or tostring(value), value, limit )
+  ctrlrDebugger:dbg_write_ctrlr ("::var dump end\n")
 end
 
 --}}}
