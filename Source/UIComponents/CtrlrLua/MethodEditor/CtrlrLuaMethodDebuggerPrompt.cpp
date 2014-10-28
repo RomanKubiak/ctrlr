@@ -124,39 +124,39 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
     debuggerInput->addListener (this);
 
     debugContinue->setImages (false, true, true,
-                              IMAGE(appbar_control_play_png), 0.550f, Colour (0x00000000),
-                              IMAGE(appbar_control_play_png), 0.850f, Colour (0x00000000),
-                              IMAGE(appbar_control_play_png), 1.000f, Colour (0x00000000));
+                              ImageCache::getFromMemory(BinaryData::appbar_control_play_png, BinaryData::appbar_control_play_pngSize), 0.550f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_control_play_png, BinaryData::appbar_control_play_pngSize), 0.850f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_control_play_png, BinaryData::appbar_control_play_pngSize), 1.000f, Colour (0x00000000));
     debugContinue->setMouseCursor (MouseCursor::PointingHandCursor);
 
     debugStepInto->setImages (false, true, true,
-                              IMAGE(appbar_debug_step_into_png), 0.550f, Colour (0x00000000),
-                              IMAGE(appbar_debug_step_into_png), 0.850f, Colour (0x00000000),
-                              IMAGE(appbar_debug_step_into_png), 1.000f, Colour (0x00000000));
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_step_into_png, BinaryData::appbar_debug_step_into_pngSize), 0.550f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_step_into_png, BinaryData::appbar_debug_step_into_pngSize), 0.850f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_step_into_png, BinaryData::appbar_debug_step_into_pngSize), 1.000f, Colour (0x00000000));
     debugStepInto->setMouseCursor (MouseCursor::PointingHandCursor);
 
     debugStepOver->setImages (false, true, true,
-                              IMAGE(appbar_debug_step_over_png), 0.550f, Colour (0x00000000),
-                              IMAGE(appbar_debug_step_over_png), 0.850f, Colour (0x00000000),
-                              IMAGE(appbar_debug_step_over_png), 1.000f, Colour (0x00000000));
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_step_over_png, BinaryData::appbar_debug_step_over_pngSize), 0.550f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_step_over_png, BinaryData::appbar_debug_step_over_pngSize), 0.850f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_step_over_png, BinaryData::appbar_debug_step_over_pngSize), 1.000f, Colour (0x00000000));
     debugStepOver->setMouseCursor (MouseCursor::PointingHandCursor);
 
     debugRestart->setImages (false, true, true,
-                              IMAGE(appbar_debug_restart_png), 0.550f, Colour (0x00000000),
-                              IMAGE(appbar_debug_restart_png), 0.850f, Colour (0x00000000),
-                              IMAGE(appbar_debug_restart_png), 1.000f, Colour (0x00000000));
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_restart_png, BinaryData::appbar_debug_restart_pngSize), 0.550f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_restart_png, BinaryData::appbar_debug_restart_pngSize), 0.850f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_restart_png, BinaryData::appbar_debug_restart_pngSize), 1.000f, Colour (0x00000000));
     debugRestart->setMouseCursor (MouseCursor::PointingHandCursor);
 
     debugStepOut->setImages (false, true, true,
-                              IMAGE(appbar_debug_step_out_png), 0.550f, Colour (0x00000000),
-                              IMAGE(appbar_debug_step_out_png), 0.850f, Colour (0x00000000),
-                              IMAGE(appbar_debug_step_out_png), 1.000f, Colour (0x00000000));
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_step_out_png, BinaryData::appbar_debug_step_out_pngSize), 0.550f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_step_out_png, BinaryData::appbar_debug_step_out_pngSize), 0.850f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::appbar_debug_step_out_png, BinaryData::appbar_debug_step_out_pngSize), 1.000f, Colour (0x00000000));
     debugStepOut->setMouseCursor (MouseCursor::PointingHandCursor);
 
     debugStop->setImages (false, true, true,
-                              IMAGE(appbar_debug_stop_png), 0.550f, Colour (0x00000000),
-                              IMAGE(appbar_debug_stop_png), 0.850f, Colour (0x00000000),
-                              IMAGE(appbar_debug_stop_png), 1.000f, Colour (0x00000000));
+		ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 0.550f, Colour (0x00000000),
+		ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 0.850f, Colour (0x00000000),
+		ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 1.000f, Colour (0x00000000));
     debugStop->setMouseCursor (MouseCursor::PointingHandCursor);
     //[/UserPreSize]
 
