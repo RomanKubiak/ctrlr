@@ -28,7 +28,7 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-CtrlrLuaMethodDebuggerVars::CtrlrLuaMethodDebuggerVars (CtrlrLuaMethodEditor &_owner)
+CtrlrLuaMethodDebuggerVars::CtrlrLuaMethodDebuggerVars (CtrlrLuaMethodEditor &_owner): owner(_owner)
 {
 
     //[UserPreSize]
