@@ -188,6 +188,21 @@ bool CtrlrLuaMethodEditor::keyPressed (const KeyPress& key, Component* originati
     return false;
 }
 
+void CtrlrLuaMethodEditor::highlightCode (const String &methodName, const int lineNumber)
+{
+    CtrlrLuaMethod *method = setEditedMethod(methodName);
+
+    if (method)
+    {
+        CtrlrLuaMethodCodeEditor *editor = getEditorForMethod (method);
+
+        if (editor)
+        {
+            editor->gotoLine (lineNumber);
+        }
+    }
+}
+
 CtrlrLuaMethod *CtrlrLuaMethodEditor::setEditedMethod (const String &methodName)
 {
 	CtrlrLuaMethod *method = getMethodManager().getMethodByName(methodName);
@@ -472,6 +487,23 @@ void CtrlrLuaMethodEditor::setCurrentTab (CtrlrLuaMethod *methodToSetAsCurrent)
 			}
 		}
 	}
+}
+
+CtrlrLuaMethodCodeEditor *CtrlrLuaMethodEditor::getEditorForMethod (CtrlrLuaMethod *method)
+{
+    for (int i=0; i<methodEditArea->getTabs()->getNumTabs(); i++)
+    {
+        if (methodEditArea->getTabs()->getTabContentComponent(i))
+        {
+            CtrlrLuaMethodCodeEditor *editor = dynamic_cast<CtrlrLuaMethodCodeEditor *>(methodEditArea->getTabs()->getTabContentComponent(i));
+			if (editor)
+			{
+				if (editor->getMethod() == method)
+                    return (editor);
+			}
+        }
+    }
+    return (nullptr);
 }
 
 void CtrlrLuaMethodEditor::createNewTab (CtrlrLuaMethod *method)

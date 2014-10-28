@@ -55,6 +55,7 @@ public:
     StringArray &getCommandQueue();
     const String getCurrentDebuggerCommand(const bool clearTheReturnedCommand=true);
     void visibilityChanged();
+    void insertToOutput(const String &what, const Colour textColour=Colour (0xff5c5c5c));
     //[/UserMethods]
 
     void paint (Graphics& g);

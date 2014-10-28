@@ -49,6 +49,8 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 
 		CtrlrLuaMethod *setEditedMethod (const Uuid &methodUuid);
 		CtrlrLuaMethod *setEditedMethod (const String &methodName);
+		CtrlrLuaMethodCodeEditor *getEditorForMethod (CtrlrLuaMethod *method);
+		void highlightCode (const String &methodName, const int lineNumber);
 		void createNewTab (CtrlrLuaMethod *method);
 		CtrlrLuaMethodCodeEditor *getCurrentEditor();
 		CtrlrLuaMethodEditArea *getMethodEditArea();
