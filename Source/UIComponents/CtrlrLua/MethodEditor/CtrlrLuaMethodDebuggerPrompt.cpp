@@ -264,7 +264,18 @@ void CtrlrLuaMethodDebuggerPrompt::buttonClicked (Button* buttonThatWasClicked)
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void CtrlrLuaMethodDebuggerPrompt::insertRawDebuggerOutput(const String &output)
 {
-    debuggerOutput->insertTextAtCaret (output);
+    if (output.contains("Paused at file"))
+    {
+        /* Debugger tells us we paused at some location in the code
+            get the method name, and highlight the relevant code in
+            the editor
+        */
+        const String file = output.fromFirstOccurrenceOf("Paused at file ", false, true).upToFirstOccurrenceOf(" ", false, true);
+        const int line = output.fromFirstOccurrenceOf(" line ", false, true).getIntValue();
+
+        owner.highlightCode (file, line);
+    }
+    insertToOutput (output);
 }
 
 void CtrlrLuaMethodDebuggerPrompt::setRawDebuggerOutput(const String &debuggerOutput)
@@ -278,7 +289,7 @@ void CtrlrLuaMethodDebuggerPrompt::sendCommand (const String &command)
     {
         commandQueue.add (command);
 
-        debuggerOutput->insertTextAtCaret (command.trim() + "\n");
+        insertToOutput (command.trim() + "\n", Colours::black);
 
         if (owner.getParentComponent()->isCurrentlyModal())
         {
@@ -321,6 +332,16 @@ void CtrlrLuaMethodDebuggerPrompt::visibilityChanged()
     {
         debuggerInput->grabKeyboardFocus ();
     }
+}
+
+void CtrlrLuaMethodDebuggerPrompt::insertToOutput(const String &what, Colour textColour)
+{
+    const Colour lastColourUsed = debuggerOutput->findColour(TextEditor::textColourId);
+
+    debuggerOutput->setColour (TextEditor::textColourId, textColour);
+    debuggerOutput->setCaretPosition (debuggerOutput->getText().length());
+    debuggerOutput->insertTextAtCaret (what);
+    debuggerOutput->setColour (TextEditor::textColourId, lastColourUsed);
 }
 //[/MiscUserCode]
 

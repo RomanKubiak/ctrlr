@@ -410,7 +410,7 @@ local function dumpval( level, name, value, limit )
     --ignore these, they are debugger generated
     return
   elseif type(name) == 'string' and string.find(name,'^[_%a][_.%w]*$') then
-    index = name ..' = '
+    index = name ..': '
   else
     index = string.format('[%q] = ',tostring(name))
   end
@@ -418,27 +418,26 @@ local function dumpval( level, name, value, limit )
     if dumpvisited[value] then
       indented( level, index, string.format('ref%q;',dumpvisited[value]) )
     else
-      dumpvisited[value] = tostring(value)
+      dumpvisited[value] = string.format ("%s,", tostring(value))
       if (limit or 0) > 0 and level+1 >= limit then
         indented( level, index, dumpvisited[value] )
       else
-        indented( level, index, '{  -- ', dumpvisited[value] )
+        indented( level, index, '[\n', dumpvisited[value] )
         for n,v in pairs(value) do
           dumpval( level+1, n, v, limit )
         end
-        indented( level, '};' )
+        indented( level, ']' )
       end
     end
   else
     if type(value) == 'string' then
-      if string.len(value) > 40 then
-      -- ONE OF THEESE CAUSES ERRORS
-        -- indented( level, index, '[[', value, ']];' )
-      else
-        -- indented( level, index, string.format('%q',value), ';' )
-      end
-    else
-      -- indented( level, index, tostring(value), ';' )
+        indented( level, index, string.format('%q',value), ',' )
+    end
+    if type(value) == 'userdata' then
+      indented( level, index, type(value), ',' )
+    end
+    if type(value) == 'number' then
+      indented( level, index, tostring(value), ',' )
     end
   end
 end
@@ -447,10 +446,10 @@ end
 --{{{  local function dumpvar( value, limit, name )
 
 local function dumpvar( value, limit, name )
-  ctrlrDebugger:dbg_write_ctrlr ("::var dump start\n")
+  ctrlrDebugger:dbg_write_ctrlr ("\n::start\n")
   dumpvisited = {}
   dumpval( 0, name or tostring(value), value, limit )
-  ctrlrDebugger:dbg_write_ctrlr ("::var dump end\n")
+  ctrlrDebugger:dbg_write_ctrlr ("::end\n")
 end
 
 --}}}
@@ -564,7 +563,7 @@ end
 --{{{  local function trace()
 
 local function trace(set)
-  ctrlrDebugger:dbg_write_ctrlr ("::stacktrace start\n")
+  ctrlrDebugger:dbg_write_ctrlr ("\n::start\n")
   local mark
   for level,ar in ipairs(traceinfo) do
     if level == set then
@@ -575,7 +574,7 @@ local function trace(set)
     ctrlrDebugger:dbg_write_ctrlr('['..level..']'..mark..'\t'..(ar.name or ar.what)..' in '..ar.short_src..':'..ar.currentline..'\n')
   end
 
-  ctrlrDebugger:dbg_write_ctrlr ("::stacktrace end\n")
+  ctrlrDebugger:dbg_write_ctrlr ("::end\n")
 end
 
 --}}}
