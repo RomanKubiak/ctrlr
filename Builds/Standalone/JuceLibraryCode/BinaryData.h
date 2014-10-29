@@ -10,34 +10,34 @@
 namespace BinaryData
 {
     extern const char*   debugger_lua;
-    const int            debugger_luaSize = 43038;
+    const int            debugger_luaSize = 44501;
 
     extern const char*   LICENSE;
-    const int            LICENSESize = 1079;
+    const int            LICENSESize = 1099;
 
     extern const char*   README_md;
-    const int            README_mdSize = 266;
+    const int            README_mdSize = 272;
 
     extern const char*   json_lua;
     const int            json_luaSize = 17174;
 
     extern const char*   LICENCE_txt;
-    const int            LICENCE_txtSize = 1077;
+    const int            LICENCE_txtSize = 1097;
 
     extern const char*   gen_LLookAndFeel_cpp_sh;
-    const int            gen_LLookAndFeel_cpp_shSize = 2533;
+    const int            gen_LLookAndFeel_cpp_shSize = 2671;
 
     extern const char*   gen_LLookAndFeel_h_sh;
-    const int            gen_LLookAndFeel_h_shSize = 3815;
+    const int            gen_LLookAndFeel_h_shSize = 4001;
 
     extern const char*   gen_LookAndFeel_lua_sh;
-    const int            gen_LookAndFeel_lua_shSize = 2182;
+    const int            gen_LookAndFeel_lua_shSize = 2311;
 
     extern const char*   lf_template;
-    const int            lf_templateSize = 13531;
+    const int            lf_templateSize = 13631;
 
     extern const char*   LookAndFeel_lua;
-    const int            LookAndFeel_luaSize = 14757;
+    const int            LookAndFeel_luaSize = 15109;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
@@ -238,31 +238,31 @@ namespace BinaryData
     const int            CtrlrRevision_templateSize = 199;
 
     extern const char*   ftp_lua;
-    const int            ftp_luaSize = 9120;
+    const int            ftp_luaSize = 9401;
 
     extern const char*   http_lua;
-    const int            http_luaSize = 12193;
+    const int            http_luaSize = 12543;
 
     extern const char*   ltn12_lua;
-    const int            ltn12_luaSize = 8177;
+    const int            ltn12_luaSize = 8469;
 
     extern const char*   mime_lua;
-    const int            mime_luaSize = 2433;
+    const int            mime_luaSize = 2520;
 
     extern const char*   smtp_lua;
-    const int            smtp_luaSize = 7961;
+    const int            smtp_luaSize = 8212;
 
     extern const char*   socket_lua;
-    const int            socket_luaSize = 4061;
+    const int            socket_luaSize = 4194;
 
     extern const char*   tp_lua;
-    const int            tp_luaSize = 3608;
+    const int            tp_luaSize = 3731;
 
     extern const char*   url_lua;
-    const int            url_luaSize = 10529;
+    const int            url_luaSize = 10826;
 
     extern const char*   LICENSE2;
-    const int            LICENSE2Size = 1082;
+    const int            LICENSE2Size = 1102;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
