@@ -172,6 +172,13 @@ bool CtrlrLuaMethodEditor::keyPressed (const KeyPress& key, Component* originati
 			}
 			return (true);
 		}
+
+		if (key.getKeyCode() == KeyPress::deleteKey)
+		{
+			// CTRL + delete
+			methodEditArea->clearOutputText();
+			return (true);
+		}
 	}
 
 	if (key.getKeyCode() == KeyPress::F3Key) // F3
@@ -905,8 +912,9 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 	else if (topLevelMenuIndex == 1)
 	{
 		menu.addItem (4, "Find and replace");
+		menu.addItem (5, "Clear Output");
 		menu.addSeparator();
-		menu.addItem (5, "Settings");
+		menu.addItem (6, "Settings");
 	}
 	return (menu);
 }
@@ -943,6 +951,10 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 		methodEditArea->showFindDialog();
 	}
 	else if (menuItemID == 5 && topLevelMenuIndex == 1)
+	{
+		methodEditArea->clearOutputText();
+	}
+	else if (menuItemID == 6 && topLevelMenuIndex == 1)
 	{
 		CtrlrLuaMethodCodeEditorSettings s(*this);
 		CtrlrDialogWindow::showModalDialog ("Code editor settings", &s, false, this);

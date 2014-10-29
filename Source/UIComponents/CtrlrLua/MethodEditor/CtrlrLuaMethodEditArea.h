@@ -63,7 +63,8 @@ public:
 	bool keyPressed (const KeyPress &key, Component *event);
 	void setActiveOutputTab();
 	CtrlrLuaMethodDebuggerPrompt *getLuaDebuggerPrompt(const bool activateDebuggerNow=false);
-    //[/UserMethods]
+    void clearOutputText();
+	//[/UserMethods]
 
     void paint (Graphics& g);
     void resized();

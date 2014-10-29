@@ -537,9 +537,7 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerInfo.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditorConsole.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerStackTrace.cpp" />
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerPrompt.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerPrompt.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodDebuggerControls.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniser.cpp" />
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodCodeEditor.cpp" />
@@ -2553,6 +2551,7 @@
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.ttf" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Warenhaus-Standard.ttf" />
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.ttf" />
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.clean.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.control.play.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.restart.png" />
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.step.into.png" />

@@ -247,6 +247,12 @@ CtrlrLuaMethodDebuggerPrompt *CtrlrLuaMethodEditArea::getLuaDebuggerPrompt(const
 
     return (debuggerPrompt);
 }
+
+void CtrlrLuaMethodEditArea::clearOutputText()
+{
+	output->setText("");
+}
+
 //[/MiscUserCode]
 
 
