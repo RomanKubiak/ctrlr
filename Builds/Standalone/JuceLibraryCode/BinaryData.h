@@ -75,6 +75,9 @@ namespace BinaryData
     extern const char*   FONT_ZX81_ttf;
     const int            FONT_ZX81_ttfSize = 17176;
 
+    extern const char*   appbar_debug_clean_png;
+    const int            appbar_debug_clean_pngSize = 723;
+
     extern const char*   appbar_control_play_png;
     const int            appbar_control_play_pngSize = 434;
 
@@ -265,7 +268,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 84;
+    const int namedResourceListSize = 85;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

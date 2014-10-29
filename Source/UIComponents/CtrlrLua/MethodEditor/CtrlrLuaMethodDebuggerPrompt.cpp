@@ -109,12 +109,21 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
                           Image(), 0.850f, Colour (0x00000000),
                           Image(), 1.000f, Colour (0x00000000));
 
+    addAndMakeVisible (clearOutput = new ImageButton ("Clear"));
+    clearOutput->setTooltip (TRANS("Clear"));
+    clearOutput->addListener (this);
+    
+    clearOutput->setImages (false, true, true,
+        Image(), 0.550f, Colour (0x00000000),
+        Image(), 0.850f, Colour (0x00000000),
+        Image(), 1.000f, Colour (0x00000000));
+
     //[UserPreSize]
     addAndMakeVisible (resizer	= new StretchableLayoutResizerBar (&layoutManager, 1, true));
 
     layoutManager.setItemLayout (0, -0.001, -1.0, -0.59);
- 	layoutManager.setItemLayout (1, 8, 8, 8);
- 	layoutManager.setItemLayout (2, -0.001, -1.0, -0.39);
+    layoutManager.setItemLayout (1, 8, 8, 8);
+    layoutManager.setItemLayout (2, -0.001, -1.0, -0.39);
 
     debuggerInfo->addPanel (0, new CtrlrLuaMethodDebuggerStackTrace(owner), true);
     debuggerInfo->addPanel (1, new CtrlrLuaMethodDebuggerVars(owner), true);
@@ -154,10 +163,17 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
     debugStepOut->setMouseCursor (MouseCursor::PointingHandCursor);
 
     debugStop->setImages (false, true, true,
-		ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 0.550f, Colour (0x00000000),
-		ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 0.850f, Colour (0x00000000),
-		ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 1.000f, Colour (0x00000000));
+								ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 0.550f, Colour (0x00000000),
+								ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 0.850f, Colour (0x00000000),
+								ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 1.000f, Colour (0x00000000));
     debugStop->setMouseCursor (MouseCursor::PointingHandCursor);
+
+    clearOutput->setImages (false, true, true,
+								ImageCache::getFromMemory(BinaryData::appbar_debug_clean_png, BinaryData::appbar_debug_clean_pngSize), 0.550f, Colour (0x00000000),
+								ImageCache::getFromMemory(BinaryData::appbar_debug_clean_png, BinaryData::appbar_debug_clean_pngSize), 0.850f, Colour (0x00000000),
+								ImageCache::getFromMemory(BinaryData::appbar_debug_clean_png, BinaryData::appbar_debug_clean_pngSize), 1.000f, Colour (0x00000000));
+    clearOutput->setMouseCursor (MouseCursor::PointingHandCursor);
+    
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -181,6 +197,7 @@ CtrlrLuaMethodDebuggerPrompt::~CtrlrLuaMethodDebuggerPrompt()
     debugStepOut = nullptr;
     debugRestart = nullptr;
     debugStop = nullptr;
+	clearOutput = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -208,6 +225,7 @@ void CtrlrLuaMethodDebuggerPrompt::resized()
     debugStepOut->setBounds (120, 0, 32, 32);
     debugRestart->setBounds (160, 0, 32, 32);
     debugStop->setBounds (200, 0, 32, 32);
+	clearOutput->setBounds (240, 0, 32, 32);
     //[UserResized] Add your own custom resize handling here..
     Component* comps[] = { debuggerOutput, resizer, debuggerInfo  };
 	layoutManager.layOutComponents (comps, 3, 0, 32, getWidth(), getHeight() - 50, false, true);
@@ -254,6 +272,12 @@ void CtrlrLuaMethodDebuggerPrompt::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_debugStop] -- add your button handler code here..
         //[/UserButtonCode_debugStop]
     }
+	else if (buttonThatWasClicked == clearOutput)
+	{
+		//[UserButtonCode_clearOutput] -- add your button handler code here..
+		debuggerOutput->setText("");
+		//[/UserButtonCode_clearOutput]
+	}
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -404,6 +428,12 @@ BEGIN_JUCER_METADATA
                colourOver="0" resourceDown="" opacityDown="1" colourDown="0"/>
   <IMAGEBUTTON name="Stop" id="337404b10168d0f4" memberName="debugStop" virtualName=""
                explicitFocusOrder="0" pos="200 0 32 32" tooltip="Stop" buttonText="Stop"
+               connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
+               resourceNormal="" opacityNormal="0.55000001192092895508" colourNormal="0"
+               resourceOver="" opacityOver="0.85000002384185791016" colourOver="0"
+               resourceDown="" opacityDown="1" colourDown="0"/>
+  <IMAGEBUTTON name="Clear" id="337404b1016253f4" memberName="clearOutput" virtualName=""
+               explicitFocusOrder="0" pos="240 0 32 32" tooltip="Clear debug output" buttonText="Clear"
                connectedEdges="0" needsCallback="1" radioGroupId="0" keepProportions="1"
                resourceNormal="" opacityNormal="0.55000001192092895508" colourNormal="0"
                resourceOver="" opacityOver="0.85000002384185791016" colourOver="0"

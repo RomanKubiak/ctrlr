@@ -203,6 +203,8 @@
         <FILE id="wv3Jgu" name="FONT_ZX81.ttf" compile="0" resource="1" file="../../Source/Resources/Fonts/FONT_ZX81.ttf"/>
       </GROUP>
       <GROUP id="{2F493420-39C3-10F9-9A38-AC40F42455E5}" name="Icons">
+        <FILE id="U3IXb9" name="appbar.debug.clean.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.clean.png"/>
         <FILE id="pqCS5f" name="appbar.control.play.png" compile="0" resource="1"
               file="../../Source/Resources/Icons/appbar.control.play.png"/>
         <FILE id="wGBZsn" name="appbar.debug.restart.png" compile="0" resource="1"

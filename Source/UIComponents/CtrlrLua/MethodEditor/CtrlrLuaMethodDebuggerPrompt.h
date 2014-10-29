@@ -82,6 +82,7 @@ private:
     ScopedPointer<ImageButton> debugStepOut;
     ScopedPointer<ImageButton> debugRestart;
     ScopedPointer<ImageButton> debugStop;
+	ScopedPointer<ImageButton> clearOutput;
 
 
     //==============================================================================

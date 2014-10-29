@@ -90,53 +90,56 @@ bool CtrlrLuaMethodCodeEditor::keyStateChanged (bool isKeyDown, Component *origi
 
 bool CtrlrLuaMethodCodeEditor::keyPressed (const KeyPress &key, Component *originatingComponent)
 {
-    if (key.getModifiers().isCommandDown() && key.getKeyCode() == 9)
-    {
-        owner.keyPressed (key, originatingComponent);
-        return (true);
-    }
-	if (key.getModifiers().isCommandDown() && key.getKeyCode() == 83) // CTRL + S
+    if (key.getModifiers().isCommandDown() )
 	{
-		saveDocument();
-		return (true);
-	}
+		if(key.getKeyCode() == 9)
+		{
+			owner.keyPressed (key, originatingComponent);
+			return (true);
+		}
+		if (key.getKeyCode() == 83) // CTRL + S
+		{
+			saveDocument();
+			return (true);
+		}
+		if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 70) // CTRL + F
+		{
+			// Show search Dialog
+			editorComponent->showFindPanel();
+			return (true);
+		}
+		if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 71) // CTRL + G
+		{
+			// Show Go To Dialog
+			editorComponent->showGoTOPanel();
+			return (true);
+		}
+		if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 72) // CTRL + H
+		{
+			// Show search Dialog
+			editorComponent->showFindPanel(true);
+			return (true);
+		}
 
-	if (key.getModifiers().isCommandDown() && 
-		CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 70) // CTRL + F
-	{
-		// Show search Dialog
-		editorComponent->showFindPanel();
-		return (true);
-	}
+		if (key.getKeyCode() == KeyPress::deleteKey) // CTRL + Delete
+		{
+			owner.keyPressed(key, originatingComponent);
+			return (true);
+		}
 
-	if (key.getModifiers().isCommandDown() &&
-		CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 71) // CTRL + G
-	{
-		// Show Go To Dialog
-		editorComponent->showGoTOPanel();
-		return (true);
-	}
-
-	if (key.getModifiers().isCommandDown() &&
-		CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 72) // CTRL + H
-	{
-		// Show search Dialog
-		editorComponent->showFindPanel(true);
-		return (true);
-	}
+		// search selected previous in current
+		if (key.getModifiers().isShiftDown() 
+			&& key.getKeyCode() == KeyPress::F3Key) // CTRL + SHIFT + F3
+		{
+			editorComponent->findSelection(false);
+			return (true);
+		}
+	}	
 
 	// search selected next in current
 	if (key.getModifiers().isShiftDown() && key.getKeyCode() == KeyPress::F3Key) // SHIFT + F3
 	{
 		editorComponent->findSelection(true);
-		return (true);
-	}
-
-	// search selected previous in current
-	if (key.getModifiers().isCtrlDown() && key.getModifiers().isShiftDown() 
-					&& key.getKeyCode() == KeyPress::F3Key) // CTRL + SHIFT + F3
-	{
-		editorComponent->findSelection(false);
 		return (true);
 	}
 

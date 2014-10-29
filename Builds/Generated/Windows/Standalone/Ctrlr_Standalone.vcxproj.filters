@@ -4762,6 +4762,9 @@
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.ttf">
       <Filter>Ctrlr_Standalone\Resources\Fonts</Filter>
     </None>
+    <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.clean.png">
+      <Filter>Ctrlr_Standalone\Resources\Icons</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.control.play.png">
       <Filter>Ctrlr_Standalone\Resources\Icons</Filter>
     </None>
