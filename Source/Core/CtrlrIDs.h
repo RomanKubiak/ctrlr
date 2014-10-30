@@ -185,6 +185,7 @@ namespace Ids
 	DECLARE_ID (panelCaps);
 	DECLARE_ID (panelPropertyDisplayIDs);
 	DECLARE_ID (panelMessageTime);
+	DECLARE_ID (panelCustomData);
 
 	DECLARE_ID (componentRectangle);
 	DECLARE_ID (componentSentBack);
@@ -778,6 +779,8 @@ namespace Ids
 	DECLARE_ID (luaPanelFileDragEnterHandler);
 	DECLARE_ID (luaPanelFileDragExitHandler);
     DECLARE_ID (luaPanelResourcesLoaded);
+	DECLARE_ID (luaPanelSaveState);
+	DECLARE_ID (luaPanelRestoreState);
 
 	DECLARE_ID (luaMidiLibrarySend);
 	DECLARE_ID (luaMidiLibraryRequest);
@@ -794,6 +797,8 @@ namespace Ids
 	DECLARE_ID (luaTransInfo);
 	DECLARE_ID (luaTransTimeout);
 	DECLARE_ID (luaTransNameData);
+	DECLARE_ID (luaCtrlrSaveState);
+	DECLARE_ID (luaCtrlrRestoreState);
 
 	DECLARE_ID (midiLibrary);
 	DECLARE_ID (midiLibraryData);

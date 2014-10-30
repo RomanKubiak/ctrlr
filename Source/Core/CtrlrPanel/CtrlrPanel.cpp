@@ -10,6 +10,7 @@
 #include "CtrlrLog.h"
 #include "CtrlrPanel/CtrlrPanelCanvas.h"
 #include "CtrlrComponents/CtrlrComponentTypeManager.h"
+#include "JuceClasses/LMemoryBlock.h"
 
 CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		: owner(_owner),
@@ -119,6 +120,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::luaPanelGlobalChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelMessageHandler, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelModulatorValueChanged, COMBO_ITEM_NONE);
+	setProperty (Ids::luaPanelSaveState, COMBO_ITEM_NONE);
+	setProperty (Ids::luaPanelRestoreState, COMBO_ITEM_NONE);
 
 	setProperty (Ids::panelFilePath, String::empty);
 	setProperty (Ids::panelUID, generateRandomUnique());
@@ -263,6 +266,10 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 	if (savedState.getChildWithName(Ids::uiWindowManager).isValid())
 	{
 		panelWindowManager.restoreState (savedState.getChildWithName(Ids::uiWindowManager));
+	}
+	if (savedState.getChildWithName(Ids::panelCustomData).isValid())
+	{
+		setCustomData (savedState.getChildWithName(Ids::panelCustomData));
 	}
 
 	setRestoreState (false);
@@ -495,6 +502,20 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 
 		luaPanelModulatorValueChangedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
+	else if (property == Ids::luaPanelSaveState)
+	{
+		if (getProperty(property) == String::empty)
+			return;
+
+		luaPanelSaveStateCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::luaPanelRestoreState)
+	{
+		if (getProperty(property) == String::empty)
+			return;
+
+		luaPanelRestoreStateCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
 	else if (property == Ids::panelGlobalVariables)
 	{
 		globalVariables = globalsFromString (getProperty(property));
@@ -706,6 +727,8 @@ void CtrlrPanel::setInitialProgramValue (const String &modulatorName, const var 
 
 ValueTree CtrlrPanel::getProgram(ValueTree treeToWriteTo)
 {
+	_DBG("CtrlrPanel::getProgram");
+
 	if (treeToWriteTo.isValid())
 	{
 		treeToWriteTo.removeAllChildren(0);
@@ -738,11 +761,51 @@ ValueTree CtrlrPanel::getProgram(ValueTree treeToWriteTo)
 		}
 	}
 
+	_DBG(ScopedPointer <XmlElement> (program.createXml())->createDocument(String::empty));
 	return (program);
+}
+
+ValueTree CtrlrPanel::getCustomData()
+{
+	ValueTree customData (Ids::panelCustomData);
+
+	if (luaPanelSaveStateCbk && !luaPanelSaveStateCbk.wasObjectDeleted())
+	{
+		if (luaPanelSaveStateCbk->isValid())
+		{
+			getCtrlrLuaManager().getMethodManager().call (luaPanelSaveStateCbk, customData);
+		}
+	}
+
+	return (customData);
+}
+
+void CtrlrPanel::generateCustomData()
+{
+	if (panelTree.getChildWithName (Ids::panelCustomData).isValid())
+	{
+		panelTree.removeChild (panelTree.getChildWithName(Ids::panelCustomData), nullptr);
+	}
+
+	panelTree.addChild (getCustomData(), -1, nullptr);
+}
+
+void CtrlrPanel::setCustomData (const ValueTree &customData)
+{
+	_DBG("CtrlrPanel::setCustomData");
+	if (luaPanelRestoreStateCbk && !luaPanelRestoreStateCbk.wasObjectDeleted())
+	{
+		if (luaPanelRestoreStateCbk->isValid())
+		{
+			getCtrlrLuaManager().getMethodManager().call (luaPanelRestoreStateCbk, customData);
+		}
+	}
 }
 
 void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 {
+	_DBG("CtrlrPanel::setProgram");
+
 	ValueTree program;
 
 	if (programTree.hasType(Ids::panelState))
@@ -758,6 +821,7 @@ void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 	}
 
 	setProgramState (true);
+
 	if (program.isValid())
 	{
 		for (int i=0; i<program.getNumChildren(); i++)
@@ -1376,7 +1440,7 @@ int CtrlrPanel::getModulatorIndex (const String &modulatorToFind) const
 
 void CtrlrPanel::setInstanceProperties(const ValueTree &instanceState)
 {
-	// _DBG("CtrlrPanel::setInstanceProperties "+instanceState.getType().toString());
+	_DBG("CtrlrPanel::setInstanceProperties "+instanceState.getType().toString());
 	/* here we need to set all the MIDI properties for the instance */
 	if (instanceState.hasType (Ids::panelState))
 	{

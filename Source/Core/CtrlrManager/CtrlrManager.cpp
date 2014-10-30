@@ -89,6 +89,8 @@ void CtrlrManager::setDefaults()
 	setProperty (Ids::ctrlrPrivateKey, String::empty);
 	setProperty (Ids::ctrlrUsingOpenGL, false);
 	setProperty (Ids::uiLuaConsoleInputRemoveAfterRun, true);
+	setProperty (Ids::luaCtrlrSaveState, COMBO_ITEM_NONE);
+	setProperty (Ids::luaCtrlrRestoreState, COMBO_ITEM_NONE);
 }
 
 CtrlrManagerVst &CtrlrManager::getVstManager()

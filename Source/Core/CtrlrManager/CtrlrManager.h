@@ -339,6 +339,7 @@ class CtrlrManager :    public ValueTree::Listener,
 		CtrlrUpdateManager updateManager;
 		CtrlrModulator *invalidModulator;
 		RSAKey ctrlrMasterPrivateKey, ctrlrMasterPublicKey;
+		WeakReference <CtrlrLuaMethod> luaCtrlrSaveState, luaCtrlrRestoreState;
 };
 
 #endif

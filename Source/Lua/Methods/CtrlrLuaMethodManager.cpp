@@ -241,7 +241,6 @@ void CtrlrLuaMethodManager::restoreMethodsRecursivly(const ValueTree &savedState
 
 void CtrlrLuaMethodManager::addMethod (ValueTree groupToAddTo, const String &methodName, const String &initialCode, const String &linkedToProperty, const Uuid methodUid, const bool forceIfAlreadyExists)
 {
-    _DBG("CtrlrLuaMethodManager::addMethod "+methodName+" uuid="+methodUid.toString());
 	ValueTree group;
 
 	if (groupToAddTo.isValid())
@@ -388,8 +387,6 @@ ValueTree CtrlrLuaMethodManager::findGroupRecursive(ValueTree treeToSearch, cons
 
 const String CtrlrLuaMethodManager::cleanupMethod(XmlElement *methodElement, const String &methodName)
 {
-    _DBG("CtrlrLuaMethodManager::cleanupMethod methodName="+methodName);
-    _DBG(methodElement->createDocument(String::empty));
     String methodCode = String::empty;
     String value;
     StringArray lines;
