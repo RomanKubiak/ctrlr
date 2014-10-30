@@ -9,6 +9,7 @@
 #include "CtrlrComponents/Specials/CtrlrWaveform.h"
 #include "CtrlrPanel/CtrlrPanelCanvas.h"
 #include "CtrlrComponents/CtrlrComponent.h"
+#include "JuceClasses/LMemoryBlock.h"
 
 #define CATCH_METHOD_EXCEPTION \
 catch (luabind::error &e)\
@@ -851,4 +852,70 @@ DragAndDropSourceDetails CtrlrLuaMethodManager::callWithRet (CtrlrLuaMethod *o, 
 	CATCH_METHOD_EXCEPTION_DAD
 
 	return (DragAndDropSourceDetails());
+}
+
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, LMemoryBlock *param1)
+{
+	const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1);
+		}
+	}
+
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
+}
+
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, ValueTree &param1)
+{
+	const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1);
+		}
+	}
+
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
+}
+
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const ValueTree &param1)
+{
+	const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1);
+		}
+	}
+
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
 }

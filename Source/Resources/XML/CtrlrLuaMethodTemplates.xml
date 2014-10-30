@@ -566,6 +566,35 @@
       end
   </luaMethod>
 
+  <luaMethod name="luaCtrlrSaveState">
+    --
+    -- Called when data needs saving
+    --
+    __method_name = function(stateData)
+    end
+  </luaMethod>
+  <luaMethod name="luaCtrlrResoreState">
+    --
+    -- Called when data is restored
+    --
+    __method_name = function(stateData)
+    end
+  </luaMethod>
+  <luaMethod name="luaPanelSaveState">
+    --
+    -- Called when data needs saving
+    --
+    __method_name = function(stateData)
+    end
+  </luaMethod>
+  <luaMethod name="luaPanelRestoreState">
+    --
+    -- Called when data is restored
+    --
+    __method_name = function(stateData)
+    end
+  </luaMethod>
+  
   <luaMethod name="LookAndFeel" resource="LookAndFeel_lua">
   </luaMethod>
 

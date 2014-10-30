@@ -131,6 +131,9 @@ class CtrlrPanel:	public ValueTree::Listener,
 		ValueTree getProgram(ValueTree treeToWriteTo=ValueTree::invalid);
 		ValueTree getProgramVar(ValueTree programTree=ValueTree::invalid);
 		void setProgram(ValueTree programTree, const bool sendSnapshotNow=false);
+		ValueTree getCustomData();
+		void setCustomData (const ValueTree &customData);
+		void generateCustomData();
 		int getCurrentProgramNumber();
 		int getCurrentBankNumber();
 		Result savePanel();
@@ -263,7 +266,6 @@ class CtrlrPanel:	public ValueTree::Listener,
 		void notify (const String &notification, CtrlrNotificationCallback *callback=nullptr, const CtrlrNotificationType ctrlrNotificationType = NotifyInformation);
 		bool getDialogStatus();
 		void upgradeScheme();
-
 		const String getPanelInstanceID();
 		const String getPanelInstanceManufacturerID();
 		const String getPanelInstanceVersionString();
@@ -315,7 +317,9 @@ class CtrlrPanel:	public ValueTree::Listener,
 			luaPanelMessageHandlerCbk,
 			luaPanelMidiChannelChangedCbk,
 			luaPanelResourcesLoadedCbk,
-			luaPanelModulatorValueChangedCbk;
+			luaPanelModulatorValueChangedCbk,
+			luaPanelSaveStateCbk,
+			luaPanelRestoreStateCbk;
 		CtrlrPanelWindowManager panelWindowManager;
 		CtrlrSysexProcessorOwned ctrlrSysexProcessor;
 		CtrlrPanelMIDIInputThread midiInputThread;

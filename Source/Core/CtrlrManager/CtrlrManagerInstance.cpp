@@ -171,6 +171,7 @@ Result CtrlrManager::importInstanceResources(CtrlrNative *native)
 
 void CtrlrManager::restoreInstanceState(const ValueTree &instanceState)
 {
+	_DBG("CtrlrManager::restoreInstanceState");
 	if (ctrlrEditor)
 	{
 		restoreEditorState();
@@ -191,6 +192,16 @@ XmlElement *CtrlrManager::saveState()
 {
 	if (getInstanceMode() == InstanceMulti)
 	{
+		for (int i=0; i<getNumPanels(); i++)
+		{
+			CtrlrPanel *panel = getPanel (i);
+
+			if (panel != nullptr)
+			{
+				panel->generateCustomData();
+			}
+		}
+
 		return (managerTree.createXml());
 	}
 	else
