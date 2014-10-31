@@ -11,7 +11,7 @@ CtrlrLuaMethodCodeEditor::CtrlrLuaMethodCodeEditor(CtrlrLuaMethodEditor &_owner,
 		method(_method),
 		lastFoundPosition(-1)
 {
-	addAndMakeVisible (editorComponent	= new GenericCodeEditorComponent (*this, 
+	addAndMakeVisible (editorComponent	= new GenericCodeEditorComponent (*this,
 															document, codeTokeniser = new CtrlrLuaCodeTokeniser()));
 
 	editorComponent->grabKeyboardFocus();
@@ -128,13 +128,13 @@ bool CtrlrLuaMethodCodeEditor::keyPressed (const KeyPress &key, Component *origi
 		}
 
 		// search selected previous in current
-		if (key.getModifiers().isShiftDown() 
+		if (key.getModifiers().isShiftDown()
 			&& key.getKeyCode() == KeyPress::F3Key) // CTRL + SHIFT + F3
 		{
 			editorComponent->findSelection(false);
 			return (true);
 		}
-	}	
+	}
 
 	// search selected next in current
 	if (key.getModifiers().isShiftDown() && key.getKeyCode() == KeyPress::F3Key) // SHIFT + F3
@@ -381,7 +381,7 @@ const Array<Range<int> > CtrlrLuaMethodCodeEditor::searchForMatchesInDocument(Co
 				position = documentContent.indexOf (lastFoundPosition+1, search);
 			}
 		}
-		
+
 
 		if (position >= 0)
 		{
@@ -417,10 +417,14 @@ void CtrlrLuaMethodCodeEditor::reportFoundMatch (CodeDocument &document, const S
 	owner.getMethodEditArea()->insertOutput (as);
 }
 
-void CtrlrLuaMethodCodeEditor::gotoLine(int position)
+void CtrlrLuaMethodCodeEditor::gotoLine(int position, const bool selectLine)
 {
 	editorComponent->scrollToLine(position-3);
 	editorComponent->moveCaretTo(CodeDocument::Position(document, position - 1, 0), false);
+	if (selectLine)
+    {
+        editorComponent->selectRegion (CodeDocument::Position (document, position - 1, 0), CodeDocument::Position (document, position - 1, 1024));
+    }
 	//editorComponent->selectRegion(CodeDocument::Position(document, position - 1, 0), CodeDocument::Position(document, position - 1, 1));
 	editorComponent->grabKeyboardFocus();
 	editorComponent->hideGoTOPanel();
@@ -529,7 +533,7 @@ public:
 		label.setText ("Find:", dontSendNotification);
 		label.setColour (Label::textColourId, Colours::white);
 		label.attachToComponent (&editor, true);
-		
+
 		searchInComboBox.setEditableText (false);
 		searchInComboBox.setJustificationType (Justification::centredLeft);
 		searchInComboBox.addItem (TRANS("Editor"), 1);
@@ -539,7 +543,7 @@ public:
 		searchInComboBox.addListener(this);
 		searchInComboBox.setEnabled(false);
 		addAndMakeVisible(searchInComboBox);
-		
+
 		addAndMakeVisible (caseButton);
 		caseButton.setColour (ToggleButton::textColourId, Colours::white);
 		caseButton.setToggleState (false, dontSendNotification);
@@ -677,13 +681,13 @@ public:
 				break;
 			}
 			if(GenericCodeEditorComponent* ed = getOwner())
-				ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().searchInString= 
+				ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().searchInString=
 				searchInComboBox.getText();
 		}
 		else if (combo == &lookInComboBox)
 		{
 			if(GenericCodeEditorComponent* ed = getOwner())
-				ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().lookInString = 
+				ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().lookInString =
 				lookInComboBox.getText();
 		}
 	}
@@ -715,7 +719,7 @@ public:
 			}
 			else if (button == &caseButton)
 			{
-				ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().caseCansitive = 
+				ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().caseCansitive =
 					caseButton.getToggleState();
 			}
 		}
@@ -770,7 +774,7 @@ public:
 					break;
 				case 2: // Lua method tree
 					break;
-				default: 
+				default:
 					jassertfalse;
 				}
 				break;
@@ -780,7 +784,7 @@ public:
 			case 2: // All methods
 				ed->findInAll(editor.getText());
 				break;
-			default: 
+			default:
 				jassertfalse;
 			}
 		}
@@ -814,9 +818,10 @@ GenericCodeEditorComponent::GenericCodeEditorComponent (CtrlrLuaMethodCodeEditor
 	CodeTokeniser* tokeniser)	: CodeEditorComponent (codeDocument, tokeniser), owner(_owner), bSensitive(false),
 	lookUpString("")
 {
+    setColour (CodeEditorComponent::lineNumberTextId, Colours::black);
 }
 
-GenericCodeEditorComponent::~GenericCodeEditorComponent() 
+GenericCodeEditorComponent::~GenericCodeEditorComponent()
 {
 }
 

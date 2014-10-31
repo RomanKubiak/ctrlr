@@ -205,7 +205,7 @@ void CtrlrLuaMethodEditor::highlightCode (const String &methodName, const int li
 
         if (editor)
         {
-            editor->gotoLine (lineNumber);
+            editor->gotoLine (lineNumber, true);
         }
     }
 }
@@ -1013,12 +1013,6 @@ void CtrlrLuaMethodEditor::insertRawDebuggerOutput(const String &debuggerOutput)
 {
     if (methodEditArea->getLuaDebuggerPrompt())
         methodEditArea->getLuaDebuggerPrompt(true)->insertRawDebuggerOutput (debuggerOutput);
-}
-
-void CtrlrLuaMethodEditor::setRawDebuggerOutput(const String &debuggerOutput)
-{
-    if (methodEditArea->getLuaDebuggerPrompt())
-        methodEditArea->getLuaDebuggerPrompt(true)->setRawDebuggerOutput (debuggerOutput);
 }
 
 void CtrlrLuaMethodEditor::setJsonDebuggerOutput(const String &jsonData)

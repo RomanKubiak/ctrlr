@@ -33,8 +33,8 @@ public:
 	void handleAsyncUpdate();
 	void setErrorLine (const int lineNumber);
 	void setFontAndColour (const Font newFont, const Colour newColour);
-	
-	void gotoLine(int position);
+
+	void gotoLine(int position, const bool selectLine=false);
 	void replaceAllMatches(const String &search, const String &replace);
 	void replaceNextMatch(const String &search, const String &replace);
 	void findInAll(const String &search);
