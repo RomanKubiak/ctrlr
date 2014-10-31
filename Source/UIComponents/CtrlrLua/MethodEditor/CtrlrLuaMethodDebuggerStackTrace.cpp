@@ -75,6 +75,11 @@ void CtrlrLuaMethodDebuggerStackTrace::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void CtrlrLuaMethodDebuggerStackTrace::setData(const String &data)
+{
+    _DBG("CtrlrLuaMethodDebuggerStackTrace::setData");
+    _DBG(data);
+}
 //[/MiscUserCode]
 
 

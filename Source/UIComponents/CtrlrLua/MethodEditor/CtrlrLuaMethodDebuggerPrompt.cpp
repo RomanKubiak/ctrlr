@@ -112,21 +112,23 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
     addAndMakeVisible (clearOutput = new ImageButton ("Clear"));
     clearOutput->setTooltip (TRANS("Clear"));
     clearOutput->addListener (this);
-    
+
     clearOutput->setImages (false, true, true,
         Image(), 0.550f, Colour (0x00000000),
         Image(), 0.850f, Colour (0x00000000),
         Image(), 1.000f, Colour (0x00000000));
 
     //[UserPreSize]
+    collectionState = Ended;
+
     addAndMakeVisible (resizer	= new StretchableLayoutResizerBar (&layoutManager, 1, true));
 
     layoutManager.setItemLayout (0, -0.001, -1.0, -0.59);
     layoutManager.setItemLayout (1, 8, 8, 8);
     layoutManager.setItemLayout (2, -0.001, -1.0, -0.39);
 
-    debuggerInfo->addPanel (0, new CtrlrLuaMethodDebuggerStackTrace(owner), true);
-    debuggerInfo->addPanel (1, new CtrlrLuaMethodDebuggerVars(owner), true);
+    debuggerInfo->addPanel (0, stackTracePanel = new CtrlrLuaMethodDebuggerStackTrace(owner), true);
+    debuggerInfo->addPanel (1, varsPanel = new CtrlrLuaMethodDebuggerVars(owner), true);
 
     debuggerOutput->setFont (Font (Font::getDefaultMonospacedFontName(), 14.0f, Font::plain));
     debuggerInput->setFont (Font (Font::getDefaultMonospacedFontName(), 14.0f, Font::plain));
@@ -173,7 +175,7 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
 								ImageCache::getFromMemory(BinaryData::appbar_debug_clean_png, BinaryData::appbar_debug_clean_pngSize), 0.850f, Colour (0x00000000),
 								ImageCache::getFromMemory(BinaryData::appbar_debug_clean_png, BinaryData::appbar_debug_clean_pngSize), 1.000f, Colour (0x00000000));
     clearOutput->setMouseCursor (MouseCursor::PointingHandCursor);
-    
+
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -288,6 +290,8 @@ void CtrlrLuaMethodDebuggerPrompt::buttonClicked (Button* buttonThatWasClicked)
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void CtrlrLuaMethodDebuggerPrompt::insertRawDebuggerOutput(const String &output)
 {
+    insertToOutput (output);
+
     if (output.contains("Paused at file"))
     {
         /* Debugger tells us we paused at some location in the code
@@ -299,12 +303,43 @@ void CtrlrLuaMethodDebuggerPrompt::insertRawDebuggerOutput(const String &output)
 
         owner.highlightCode (file, line);
     }
-    insertToOutput (output);
+
+    if (output.contains ("::start trace"))
+    {
+        collectedData = String::empty;
+        collectionState = Trace;
+        return;
+    }
+
+    if (output.contains ("::start values"))
+    {
+        collectedData = String::empty;
+        collectionState = Values;
+        return;
+    }
+
+    if (output.contains("::end"))
+    {
+        finishDataCollection();
+    }
+
+    if (collectionState != Ended)
+        collectedData << output;
 }
 
-void CtrlrLuaMethodDebuggerPrompt::setRawDebuggerOutput(const String &debuggerOutput)
+void CtrlrLuaMethodDebuggerPrompt::finishDataCollection()
 {
-    _DBG("CtrlrLuaMethodDebuggerPrompt::setRawDebuggerOutput " + debuggerOutput);
+    switch (collectionState)
+    {
+        case Trace:
+            stackTracePanel->setData(collectedData);
+            break;
+        case Values:
+        default:
+            break;
+    }
+
+    collectionState = Ended;
 }
 
 void CtrlrLuaMethodDebuggerPrompt::sendCommand (const String &command)

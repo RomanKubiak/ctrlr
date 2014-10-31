@@ -44,6 +44,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    void setData (const String &data);
     //[/UserMethods]
 
     void paint (Graphics& g);

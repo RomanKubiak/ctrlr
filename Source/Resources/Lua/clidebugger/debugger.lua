@@ -446,7 +446,7 @@ end
 --{{{  local function dumpvar( value, limit, name )
 
 local function dumpvar( value, limit, name )
-  ctrlrDebugger:dbg_write_ctrlr ("\n::start\n")
+  ctrlrDebugger:dbg_write_ctrlr ("\n::start dumpvar\n")
   dumpvisited = {}
   dumpval( 0, name or tostring(value), value, limit )
   ctrlrDebugger:dbg_write_ctrlr ("::end\n")
@@ -563,7 +563,7 @@ end
 --{{{  local function trace()
 
 local function trace(set)
-  ctrlrDebugger:dbg_write_ctrlr ("\n::start\n")
+  ctrlrDebugger:dbg_write_ctrlr ("\n::start trace\n")
   local mark
   for level,ar in ipairs(traceinfo) do
     if level == set then

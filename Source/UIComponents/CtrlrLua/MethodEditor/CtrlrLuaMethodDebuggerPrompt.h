@@ -48,7 +48,12 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    void setRawDebuggerOutput(const String &debuggerOutput);
+    enum CollectionState
+    {
+        Ended,
+        Trace,
+        Values
+    };
     void insertRawDebuggerOutput(const String &debuggerOutput);
     void sendCommand (const String &text);
     void textEditorReturnKeyPressed (TextEditor &editor);
@@ -56,6 +61,7 @@ public:
     const String getCurrentDebuggerCommand(const bool clearTheReturnedCommand=true);
     void visibilityChanged();
     void insertToOutput(const String &what, const Colour textColour=Colour (0xff5c5c5c));
+    void finishDataCollection();
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -70,6 +76,10 @@ private:
     StringArray commandQueue;
     StretchableLayoutManager layoutManager;
 	ScopedPointer <StretchableLayoutResizerBar> resizer;
+	CollectionState collectionState;
+	String collectedData;
+	CtrlrLuaMethodDebuggerStackTrace *stackTracePanel;
+    CtrlrLuaMethodDebuggerVars *varsPanel;
     //[/UserVariables]
 
     //==============================================================================
