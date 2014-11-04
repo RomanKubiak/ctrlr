@@ -6,7 +6,7 @@
 class CtrlrEditor;
 class CtrlrManager;
 
-class CtrlrDocumentPanel  : public MultiDocumentPanel
+class CtrlrDocumentPanel  : public MultiDocumentPanel, public Button::Listener
 {
 	public:
 		CtrlrDocumentPanel (CtrlrManager &_owner);
@@ -16,6 +16,7 @@ class CtrlrDocumentPanel  : public MultiDocumentPanel
 		void setEditor (CtrlrEditor *_editorToSet);
 		void paint (Graphics& g);
 		void resized();
+		void buttonClicked (Button *button);
 		JUCE_LEAK_DETECTOR(CtrlrDocumentPanel)
 
 	private:
