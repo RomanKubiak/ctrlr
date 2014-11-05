@@ -241,6 +241,7 @@ void CtrlrLuaMethodManager::restoreMethodsRecursivly(const ValueTree &savedState
 
 void CtrlrLuaMethodManager::addMethod (ValueTree groupToAddTo, const String &methodName, const String &initialCode, const String &linkedToProperty, const Uuid methodUid, const bool forceIfAlreadyExists)
 {
+    _DBG("CtrlrLuaMethodManager::addMethod");
 	ValueTree group;
 
 	if (groupToAddTo.isValid())
@@ -248,9 +249,12 @@ void CtrlrLuaMethodManager::addMethod (ValueTree groupToAddTo, const String &met
 	else
 		group = managerTree;
 
+    _DBG("\tgroup has methods: "+_STR(group.getNumChildren()));
+
 	if (group.getChildWithProperty(Ids::uuid, methodUid.toString()).isValid() && forceIfAlreadyExists)
 	{
-		group.removeChild (groupToAddTo.getChildWithProperty(Ids::uuid, methodUid.toString()), nullptr);
+	    _DBG("\tforceIfAlreadyExists && group.getChildWithProperty("+methodUid.toDashedString()+")");
+		group.removeChild (group.getChildWithProperty(Ids::uuid, methodUid.toString()), nullptr);
 	}
 
 	group.addChild (getDefaultMethodTree (methodName, initialCode, linkedToProperty, methodUid), -1, nullptr);
@@ -282,6 +286,10 @@ void CtrlrLuaMethodManager::deleteMethod(const Uuid &methodUuid)
 
 void CtrlrLuaMethodManager::valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child)
 {
+    if (child.hasType(Ids::luaMethod))
+    {
+        methods.removeObject (getMethodByUuid(child.getProperty(Ids::uuid).toString()));
+    }
 }
 
 void CtrlrLuaMethodManager::setEditedMethod(const Uuid &methodUuid)
@@ -596,12 +604,15 @@ const bool CtrlrLuaMethodManager::attachDefaultGroups()
 
 void CtrlrLuaMethodManager::wrapUtilities()
 {
+    _DBG("CtrlrLuaMethodManager::wrapUtilities");
 	if (getNumUtilities() > 0)
 	{
+	    _DBG("\tgetNumUtilities() > 0");
 	    attachDefaultGroups();
 
 		for (int i=0; i<getNumUtilities(); i++)
 		{
+		    _DBG("\t\taddMethod: "+getUtilityName(i));
 			addMethod (getGroupByName("Built-In"), getUtilityName(i), getUtilityCode(i).trim(), String::empty, getUtilityUuid(i), getUtilityAlwaysUpdate(i));
 		}
 	}

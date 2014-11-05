@@ -61,7 +61,7 @@
 #define COLOUR2STR(x)											x.toString()
 #define STR2LUASTR(x)											x.toUTF8().getAddress()
 #define XML2STR(x)												ScopedPointer <XmlElement> (x.createXml())->createDocument(String::empty)
-
+#define DUMPTREE(x,y)                                           ScopedPointer <XmlElement> (x.createXml())->createDocument(String::empty).substring(0,y)
 #define STR2FONT(x)												getFontManager().getFontFromString(x)
 #define STR2FONTM(m,x)											m.getFontFromString(x)
 #define FONT2STR(x)												getFontManager().getStringFromFont(x)
