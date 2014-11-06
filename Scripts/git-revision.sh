@@ -1,7 +1,4 @@
 #!/bin/bash
-revisioncount=`git log --oneline | wc -l | tr -d ' '`
-projectversion=`git describe --tags --long`
-cleanversion=${projectversion%%-*}
-
-#echo "$projectversion-$revisioncount"
-echo "$cleanversion.$revisioncount"
+projecttag=`git describe --tags --long | cut -f1 -d'-'`
+revisioncount=`git log "$projecttag".. --oneline | wc -l | tr -d ' '`
+echo "$projecttag.$revisioncount"
