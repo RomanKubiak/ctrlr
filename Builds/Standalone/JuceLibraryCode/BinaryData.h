@@ -237,38 +237,11 @@ namespace BinaryData
     extern const char*   CtrlrRevision_template;
     const int            CtrlrRevision_templateSize = 199;
 
-    extern const char*   ftp_lua;
-    const int            ftp_luaSize = 9120;
-
-    extern const char*   http_lua;
-    const int            http_luaSize = 12193;
-
-    extern const char*   ltn12_lua;
-    const int            ltn12_luaSize = 8177;
-
-    extern const char*   mime_lua;
-    const int            mime_luaSize = 2433;
-
-    extern const char*   smtp_lua;
-    const int            smtp_luaSize = 7961;
-
-    extern const char*   socket_lua;
-    const int            socket_luaSize = 4061;
-
-    extern const char*   tp_lua;
-    const int            tp_luaSize = 3608;
-
-    extern const char*   url_lua;
-    const int            url_luaSize = 10529;
-
-    extern const char*   LICENSE2;
-    const int            LICENSE2Size = 1082;
-
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 85;
+    const int namedResourceListSize = 76;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

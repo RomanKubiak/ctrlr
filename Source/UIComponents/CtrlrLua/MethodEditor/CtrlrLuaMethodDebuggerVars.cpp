@@ -28,8 +28,10 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-CtrlrLuaMethodDebuggerVars::CtrlrLuaMethodDebuggerVars (CtrlrLuaMethodEditor &_owner): owner(_owner)
+CtrlrLuaMethodDebuggerVars::CtrlrLuaMethodDebuggerVars (CtrlrLuaMethodEditor &_owner)
 {
+    addAndMakeVisible (valueList = new TableListBox());
+
 
     //[UserPreSize]
     setName ("Variables");
@@ -47,6 +49,7 @@ CtrlrLuaMethodDebuggerVars::~CtrlrLuaMethodDebuggerVars()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
+    valueList = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -67,6 +70,7 @@ void CtrlrLuaMethodDebuggerVars::paint (Graphics& g)
 
 void CtrlrLuaMethodDebuggerVars::resized()
 {
+    valueList->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -74,6 +78,35 @@ void CtrlrLuaMethodDebuggerVars::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void CtrlrLuaMethodDebuggerVars::setData (const String &data)
+{
+    _DBG("CtrlrLuaMethodDebuggerVars::setData");
+    _DBG(data);
+}
+
+void CtrlrLuaMethodDebuggerVars::paintRowBackground (Graphics &g, int rowNumber, int width, int height, bool rowIsSelected)
+{
+}
+
+void CtrlrLuaMethodDebuggerVars::paintCell (Graphics &g, int rowNumber, int columnId, int width, int height, bool rowIsSelected)
+{
+}
+
+void CtrlrLuaMethodDebuggerVars::cellDoubleClicked (int rowNumber, int columnId, const MouseEvent &e)
+{
+}
+
+int CtrlrLuaMethodDebuggerVars::getNumRows()
+{
+    return (currentVars.size());
+}
+
+CtrlrLuaMethodDebuggerVars::Variable CtrlrLuaMethodDebuggerVars::getVariable(const String &variableAsString)
+{
+    Variable v;
+
+    return (v);
+}
 //[/MiscUserCode]
 
 
@@ -87,10 +120,13 @@ void CtrlrLuaMethodDebuggerVars::resized()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="CtrlrLuaMethodDebuggerVars"
-                 componentName="" parentClasses="public Component" constructorParams="CtrlrLuaMethodEditor &amp;_owner"
-                 variableInitialisers="" snapPixels="8" snapActive="1" snapShown="1"
-                 overlayOpacity="0.330" fixedSize="0" initialWidth="600" initialHeight="400">
+                 componentName="" parentClasses="public Component, public TableListBoxModel"
+                 constructorParams="CtrlrLuaMethodEditor &amp;_owner" variableInitialisers=""
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
+                 fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffffff"/>
+  <GENERICCOMPONENT name="" id="e62042fbd323c112" memberName="valueList" virtualName=""
+                    explicitFocusOrder="0" pos="0 0 0M 0M" class="TableListBox" params=""/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
