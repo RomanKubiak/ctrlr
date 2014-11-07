@@ -35,7 +35,8 @@ class CtrlrLuaMethodEditor;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class CtrlrLuaMethodDebuggerVars  : public Component
+class CtrlrLuaMethodDebuggerVars  : public Component,
+                                    public TableListBoxModel
 {
 public:
     //==============================================================================
@@ -44,6 +45,18 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    struct Variable
+    {
+        String varName;
+        var value;
+    };
+
+    int getNumRows();
+    void paintRowBackground (Graphics &g, int rowNumber, int width, int height, bool rowIsSelected);
+    void paintCell (Graphics &g, int rowNumber, int columnId, int width, int height, bool rowIsSelected);
+    void cellDoubleClicked (int rowNumber, int columnId, const MouseEvent &e);
+    void setData (const String &data);
+    Variable getVariable(const String &variableAsString);
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -54,9 +67,11 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     CtrlrLuaMethodEditor &owner;
+    Array <Variable> currentVars;
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<TableListBox> valueList;
 
 
     //==============================================================================

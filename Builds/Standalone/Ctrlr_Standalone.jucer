@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.2.0"
+<JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.3.0"
               bundleIdentifier="com.instigator.Ctrlr" jucerVersion="3.1.0"
               defines="" companyName="Instigator" includeBinaryInAppConfig="1"
               companyWebsite="http://ctrlr.org" companyEmail="ctrlr@ctrlr.org">
@@ -420,54 +420,6 @@
             file="../../Source/Lua/CtrlrLuaSocket.h"/>
       <FILE id="Sd45MO" name="CtrlrLuaSocket.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaSocket.cpp"/>
-      <GROUP id="{B6EEDDE9-1198-4B22-62B4-36CE47410C0A}" name="LuaSocket">
-        <GROUP id="{615F5ADF-DA55-0E7D-328A-DBCC40B75713}" name="include">
-          <FILE id="IZAQZE" name="auxiliar.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/auxiliar.h"/>
-          <FILE id="OP2yjh" name="buffer.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/buffer.h"/>
-          <FILE id="oYT6R5" name="except.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/except.h"/>
-          <FILE id="udqJtq" name="inet.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/inet.h"/>
-          <FILE id="f24f0t" name="io.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/io.h"/>
-          <FILE id="aKf4Yg" name="luasocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/luasocket.h"/>
-          <FILE id="Rau1f1" name="mime.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/mime.h"/>
-          <FILE id="Uudone" name="options.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/options.h"/>
-          <FILE id="q92WZo" name="select.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/select.h"/>
-          <FILE id="Ql92D8" name="socket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/socket.h"/>
-          <FILE id="Iqn1Mg" name="tcp.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/tcp.h"/>
-          <FILE id="ZyjkO5" name="timeout.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/timeout.h"/>
-          <FILE id="b3yLJj" name="udp.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/udp.h"/>
-          <FILE id="GfRjvo" name="unix.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/unix.h"/>
-          <FILE id="bHfojM" name="usocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/usocket.h"/>
-          <FILE id="F1oqYX" name="wsocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/wsocket.h"/>
-        </GROUP>
-        <GROUP id="{A17BBBF4-5B38-CD7E-F551-CF9FE4190841}" name="lua">
-          <FILE id="eDDYBY" name="ftp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/ftp.lua"/>
-          <FILE id="lCgCGE" name="http.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/http.lua"/>
-          <FILE id="GN2zSd" name="ltn12.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/ltn12.lua"/>
-          <FILE id="cgqms4" name="mime.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/mime.lua"/>
-          <FILE id="VxMIU5" name="smtp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/smtp.lua"/>
-          <FILE id="huGIiq" name="socket.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/socket.lua"/>
-          <FILE id="L880Ft" name="tp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/tp.lua"/>
-          <FILE id="sLYRN5" name="url.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/url.lua"/>
-        </GROUP>
-        <GROUP id="{FC42A58B-93F7-9584-8F75-E0D430375F8D}" name="src">
-          <FILE id="GcqMoG" name="auxiliar.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/auxiliar.c"/>
-          <FILE id="v45SIe" name="buffer.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/buffer.c"/>
-          <FILE id="Te9WxA" name="except.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/except.c"/>
-          <FILE id="VuvYkt" name="inet.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/inet.c"/>
-          <FILE id="Lp7aKC" name="io.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/io.c"/>
-          <FILE id="M3CrjE" name="luasocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/luasocket.c"/>
-          <FILE id="sYoILa" name="mime.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/mime.c"/>
-          <FILE id="z5fjkX" name="options.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/options.c"/>
-          <FILE id="xadNSb" name="select.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/select.c"/>
-          <FILE id="EuCi1S" name="tcp.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/tcp.c"/>
-          <FILE id="u2PzPZ" name="timeout.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/timeout.c"/>
-          <FILE id="sS9gH9" name="udp.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/udp.c"/>
-          <FILE id="APotAz" name="unix.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/unix.c"/>
-          <FILE id="SJxv8z" name="usocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/usocket.c"/>
-          <FILE id="dLXAEv" name="wsocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/wsocket.c"/>
-        </GROUP>
-        <FILE id="HE73dO" name="LICENSE" compile="0" resource="1" file="../../Source/Lua/LuaSocket/LICENSE"/>
-      </GROUP>
       <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
         <FILE id="oLVJsP" name="LookAndFeelBase.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LookAndFeelBase.cpp"/>

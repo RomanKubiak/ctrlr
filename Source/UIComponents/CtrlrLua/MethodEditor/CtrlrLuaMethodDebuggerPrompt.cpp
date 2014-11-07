@@ -311,7 +311,7 @@ void CtrlrLuaMethodDebuggerPrompt::insertRawDebuggerOutput(const String &output)
         return;
     }
 
-    if (output.contains ("::start values"))
+    if (output.contains ("::start dumpvar"))
     {
         collectedData = String::empty;
         collectionState = Values;
@@ -335,6 +335,8 @@ void CtrlrLuaMethodDebuggerPrompt::finishDataCollection()
             stackTracePanel->setData(collectedData);
             break;
         case Values:
+            varsPanel->setData(collectedData);
+            break;
         default:
             break;
     }

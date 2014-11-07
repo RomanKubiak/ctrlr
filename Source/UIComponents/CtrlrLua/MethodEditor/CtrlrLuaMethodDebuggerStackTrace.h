@@ -35,7 +35,8 @@ class CtrlrLuaMethodEditor;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class CtrlrLuaMethodDebuggerStackTrace  : public Component
+class CtrlrLuaMethodDebuggerStackTrace  : public Component,
+                                          public TableListBoxModel
 {
 public:
     //==============================================================================
@@ -44,7 +45,20 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    struct StackFrame
+    {
+        int lineNumber;
+        int positionOnTheStack;
+        String methodName;
+        String scriptName;
+        bool isCurrent;
+    };
     void setData (const String &data);
+    int getNumRows();
+    void paintRowBackground (Graphics &g, int rowNumber, int width, int height, bool rowIsSelected);
+    void paintCell (Graphics &g, int rowNumber, int columnId, int width, int height, bool rowIsSelected);
+    void cellDoubleClicked (int rowNumber, int columnId, const MouseEvent &e);
+    StackFrame getStackFrame(const String &stackTraceInfoAsString);
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -55,9 +69,12 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     CtrlrLuaMethodEditor &owner;
+    StringArray traceLines;
+    Array<StackFrame> currentFrames;
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<TableListBox> stackTraceList;
 
 
     //==============================================================================

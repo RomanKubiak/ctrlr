@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Ctrlr_Standalone">
@@ -48,18 +49,6 @@
     </Filter>
     <Filter Include="Ctrlr_Standalone\Lua">
       <UniqueIdentifier>{671ADFB1-E595-DD9A-EDB5-B9285BCA52B6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Standalone\Lua\LuaSocket">
-      <UniqueIdentifier>{E1898D03-1D21-4041-EFDB-A4E961A6EF4C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Standalone\Lua\LuaSocket\include">
-      <UniqueIdentifier>{38F7BBEC-DD11-B7E0-274A-B5A497B76DD9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Standalone\Lua\LuaSocket\lua">
-      <UniqueIdentifier>{B2E136F1-3067-15DD-388D-301ACBF60518}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Standalone\Lua\LuaSocket\src">
-      <UniqueIdentifier>{C9AD7104-997B-1013-161D-92555B82C779}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Standalone\Lua\JuceClasses">
       <UniqueIdentifier>{3D1544D5-A22C-DF3A-4435-9A51988F5F7B}</UniqueIdentifier>
@@ -421,6 +410,9 @@
     <Filter Include="Juce Modules\juce_opengl\opengl">
       <UniqueIdentifier>{2D8D0E19-E676-83EB-38D9-F73500DD6B79}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\juce_opengl\geometry">
+      <UniqueIdentifier>{B3141847-8F13-F67D-45B2-E3ECF6E09088}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\juce_opengl\native">
       <UniqueIdentifier>{151B49D8-6102-F802-1C07-D59931BC0574}</UniqueIdentifier>
     </Filter>
@@ -515,51 +507,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaSocket.cpp">
       <Filter>Ctrlr_Standalone\Lua</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\auxiliar.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\buffer.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\except.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\inet.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\io.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\luasocket.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\mime.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\options.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\select.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\tcp.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\timeout.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\udp.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\unix.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\usocket.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\LuaSocket\src\wsocket.c">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.cpp">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
@@ -1338,6 +1285,12 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_devices\native\juce_linux_Midi.cpp">
       <Filter>Juce Modules\juce_audio_devices\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_devices\native\juce_mac_AudioCDBurner.mm">
+      <Filter>Juce Modules\juce_audio_devices\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_devices\native\juce_mac_AudioCDReader.mm">
+      <Filter>Juce Modules\juce_audio_devices\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_devices\native\juce_mac_CoreAudio.cpp">
       <Filter>Juce Modules\juce_audio_devices\native</Filter>
     </ClCompile>
@@ -1433,6 +1386,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_processors\format\juce_AudioPluginFormatManager.cpp">
       <Filter>Juce Modules\juce_audio_processors\format</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_processors\format_types\juce_AudioUnitPluginFormat.mm">
+      <Filter>Juce Modules\juce_audio_processors\format_types</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_processors\format_types\juce_LADSPAPluginFormat.cpp">
       <Filter>Juce Modules\juce_audio_processors\format_types</Filter>
@@ -1674,6 +1630,21 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_linux_Threads.cpp">
       <Filter>Juce Modules\juce_core\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_Files.mm">
+      <Filter>Juce Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_Network.mm">
+      <Filter>Juce Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_Strings.mm">
+      <Filter>Juce Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_SystemStats.mm">
+      <Filter>Juce Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_mac_Threads.mm">
+      <Filter>Juce Modules\juce_core\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_core\native\juce_posix_NamedPipe.cpp">
       <Filter>Juce Modules\juce_core\native</Filter>
     </ClCompile>
@@ -1761,7 +1732,13 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_android_Messaging.cpp">
       <Filter>Juce Modules\juce_events\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_ios_MessageManager.mm">
+      <Filter>Juce Modules\juce_events\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_linux_Messaging.cpp">
+      <Filter>Juce Modules\juce_events\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_mac_MessageManager.mm">
       <Filter>Juce Modules\juce_events\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_events\native\juce_win32_Messaging.cpp">
@@ -1861,6 +1838,12 @@
       <Filter>Juce Modules\juce_graphics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\native\juce_linux_Fonts.cpp">
+      <Filter>Juce Modules\juce_graphics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\native\juce_mac_CoreGraphicsContext.mm">
+      <Filter>Juce Modules\juce_graphics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\native\juce_mac_Fonts.mm">
       <Filter>Juce Modules\juce_graphics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_graphics\native\juce_win32_Direct2DGraphicsContext.cpp">
@@ -2211,6 +2194,12 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_android_Windowing.cpp">
       <Filter>Juce Modules\juce_gui_basics\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_ios_UIViewComponentPeer.mm">
+      <Filter>Juce Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_ios_Windowing.mm">
+      <Filter>Juce Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_linux_Clipboard.cpp">
       <Filter>Juce Modules\juce_gui_basics\native</Filter>
     </ClCompile>
@@ -2218,6 +2207,21 @@
       <Filter>Juce Modules\juce_gui_basics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_linux_Windowing.cpp">
+      <Filter>Juce Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_FileChooser.mm">
+      <Filter>Juce Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_MainMenu.mm">
+      <Filter>Juce Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_MouseCursor.mm">
+      <Filter>Juce Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_NSViewComponentPeer.mm">
+      <Filter>Juce Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_mac_Windowing.mm">
       <Filter>Juce Modules\juce_gui_basics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_basics\native\juce_win32_DragAndDrop.cpp">
@@ -2274,13 +2278,25 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_android_WebBrowserComponent.cpp">
       <Filter>Juce Modules\juce_gui_extra\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_ios_UIViewComponent.mm">
+      <Filter>Juce Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_linux_SystemTrayIcon.cpp">
       <Filter>Juce Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_linux_WebBrowserComponent.cpp">
       <Filter>Juce Modules\juce_gui_extra\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_AppleRemote.mm">
+      <Filter>Juce Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_NSViewComponent.mm">
+      <Filter>Juce Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_SystemTrayIcon.cpp">
+      <Filter>Juce Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_mac_WebBrowserComponent.mm">
       <Filter>Juce Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_gui_extra\native\juce_win32_ActiveXComponent.cpp">
@@ -2458,54 +2474,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaSocket.h">
       <Filter>Ctrlr_Standalone\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\auxiliar.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\buffer.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\except.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\inet.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\io.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\luasocket.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\mime.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\options.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\select.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\socket.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\tcp.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\timeout.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\udp.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\unix.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\usocket.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\LuaSocket\include\wsocket.h">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
@@ -3665,6 +3633,9 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\maths\juce_MathsFunctions.h">
       <Filter>Juce Modules\juce_core\maths</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\maths\juce_NormalisableRange.h">
+      <Filter>Juce Modules\juce_core\maths</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\maths\juce_Random.h">
       <Filter>Juce Modules\juce_core\maths</Filter>
     </ClInclude>
@@ -3884,6 +3855,9 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\logging\juce_Logger.h">
       <Filter>Juce Modules\juce_core\logging</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\system\juce_CompilerSupport.h">
+      <Filter>Juce Modules\juce_core\system</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_core\system\juce_PlatformDefs.h">
       <Filter>Juce Modules\juce_core\system</Filter>
     </ClInclude>
@@ -4005,6 +3979,9 @@
       <Filter>Juce Modules\juce_events\messages</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_events\messages\juce_MessageManager.h">
+      <Filter>Juce Modules\juce_events\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_events\messages\juce_MountedVolumeListChangeDetector.h">
       <Filter>Juce Modules\juce_events\messages</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_events\messages\juce_NotificationType.h">
@@ -4661,6 +4638,18 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\opengl\juce_Vector3D.h">
       <Filter>Juce Modules\juce_opengl\opengl</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\geometry\juce_Draggable3DOrientation.h">
+      <Filter>Juce Modules\juce_opengl\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\geometry\juce_Matrix3D.h">
+      <Filter>Juce Modules\juce_opengl\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\geometry\juce_Quaternion.h">
+      <Filter>Juce Modules\juce_opengl\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\geometry\juce_Vector3D.h">
+      <Filter>Juce Modules\juce_opengl\geometry</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\native\juce_MissingGLDefinitions.h">
       <Filter>Juce Modules\juce_opengl\native</Filter>
     </ClInclude>
@@ -4923,33 +4912,6 @@
     </None>
     <None Include="..\..\..\..\Source\Core\CtrlrRevision.template">
       <Filter>Ctrlr_Standalone\Core</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\ftp.lua">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\lua</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\http.lua">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\lua</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\ltn12.lua">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\lua</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\mime.lua">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\lua</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\smtp.lua">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\lua</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\socket.lua">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\lua</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\tp.lua">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\lua</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\LuaSocket\lua\url.lua">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket\lua</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Lua\LuaSocket\LICENSE">
-      <Filter>Ctrlr_Standalone\Lua\LuaSocket</Filter>
     </None>
     <None Include="..\..\..\..\Juce\modules\juce_audio_basics\juce_module_info">
       <Filter>Juce Modules\juce_audio_basics</Filter>
