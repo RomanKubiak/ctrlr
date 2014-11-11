@@ -35,13 +35,11 @@
  using namespace juce;
 #endif
 
-#if ! JUCE_DONT_DECLARE_PROJECTINFO
 namespace ProjectInfo
 {
     const char* const  projectName    = "Ctrlr_Standalone";
     const char* const  versionString  = "5.3.0";
     const int          versionNumber  = 0x50300;
 }
-#endif
 
 #endif   // __APPHEADERFILE_ZB9E8M__

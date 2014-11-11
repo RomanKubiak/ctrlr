@@ -416,10 +416,6 @@
             file="../../Source/Lua/CtrlrLuaDebugger.cpp"/>
       <FILE id="z7iSMw" name="CtrlrLuaDebugger.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaDebugger.h"/>
-      <FILE id="SYQFvE" name="CtrlrLuaSocket.h" compile="0" resource="0"
-            file="../../Source/Lua/CtrlrLuaSocket.h"/>
-      <FILE id="Sd45MO" name="CtrlrLuaSocket.cpp" compile="1" resource="0"
-            file="../../Source/Lua/CtrlrLuaSocket.cpp"/>
       <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
         <FILE id="oLVJsP" name="LookAndFeelBase.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LookAndFeelBase.cpp"/>

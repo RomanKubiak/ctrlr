@@ -377,6 +377,30 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/json4lua/json.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/json4lua/LICENCE.txt">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/clidebugger/debugger.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/clidebugger/LICENSE">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/clidebugger/README.md">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Lua/clidebugger/test.lua">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh">
       <Option compile="0"/>
       <Option link="0"/>
@@ -401,6 +425,34 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/appbar.control.play.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/appbar.debug.clean.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/appbar.debug.restart.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/appbar.debug.step.into.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/appbar.debug.step.out.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/appbar.debug.step.over.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/appbar.debug.stop.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_transaction.png">
       <Option compile="0"/>
       <Option link="0"/>
@@ -410,6 +462,10 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Source/Resources/Icons/ico_bug.png">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Resources/Icons/ico_ctrlr_mac.icns">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -622,6 +678,11 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Source/Resources/XML/CtrlrMidiMultiTemplate.xml">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Lua/CtrlrLuaDebugger.cpp"/>
+    <Unit filename="../../../../Source/Lua/CtrlrLuaDebugger.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -950,126 +1011,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/Lua/CtrlrLuaSocket.cpp"/>
-    <Unit filename="../../../../Source/Lua/CtrlrLuaSocket.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/auxiliar.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/buffer.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/except.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/inet.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/io.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/luasocket.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/mime.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/options.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/select.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/socket.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/tcp.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/timeout.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/udp.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/unix.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/usocket.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/include/wsocket.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/LICENSE">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/lua/ftp.lua">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/lua/http.lua">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/lua/ltn12.lua">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/lua/mime.lua">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/lua/smtp.lua">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/lua/socket.lua">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/lua/tp.lua">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/lua/url.lua">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/auxiliar.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/buffer.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/except.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/inet.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/io.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/luasocket.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/mime.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/options.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/select.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/tcp.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/timeout.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/udp.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/unix.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/usocket.c"/>
-    <Unit filename="../../../../Source/Lua/LuaSocket/src/wsocket.c"/>
     <Unit filename="../../../../Source/Lua/CtrlrLuaAudioConverter.cpp"/>
     <Unit filename="../../../../Source/Lua/CtrlrLuaAudioConverter.h">
       <Option compile="0"/>
@@ -1817,6 +1758,31 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp"/>
     <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.h">
       <Option compile="0"/>
@@ -1824,6 +1790,11 @@
     </Unit>
     <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp"/>
     <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -2924,6 +2895,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_core/maths/juce_NormalisableRange.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/maths/juce_Random.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -3368,6 +3343,10 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_core/system/juce_CompilerSupport.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_core/system/juce_PlatformDefs.h">
       <Option compile="0"/>
       <Option link="0"/>
@@ -3725,6 +3704,10 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_events/messages/juce_MessageManager.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_events/messages/juce_MountedVolumeListChangeDetector.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -5449,6 +5432,22 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_Vector3D.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/geometry/juce_Draggable3DOrientation.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/geometry/juce_Matrix3D.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/geometry/juce_Quaternion.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/geometry/juce_Vector3D.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

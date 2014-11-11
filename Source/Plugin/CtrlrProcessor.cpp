@@ -12,11 +12,13 @@ const uint32 magicXmlNumber = 0x00001040;
 
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
+	_DBG("createPluginFilter");
     return new CtrlrProcessor();
 }
 
 CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrManager(nullptr)
 {
+	_DBG("CtrlrProcessor::ctor");
 	midiCollector.reset (SAMPLERATE);
 
 	currentExec		= File::getSpecialLocation(File::currentApplicationFile);

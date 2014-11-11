@@ -99,6 +99,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
+  $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
   $(OBJDIR)/CtrlrWrap_382e7425.o \
   $(OBJDIR)/LAffineTransform_2319dc77.o \
   $(OBJDIR)/LAlertWindow_465bd516.o \
@@ -164,22 +165,6 @@ OBJECTS := \
   $(OBJDIR)/LValueTree_87eff119.o \
   $(OBJDIR)/LXmlElement_f51e885.o \
   $(OBJDIR)/LZipFile_9ce5b2e7.o \
-  $(OBJDIR)/CtrlrLuaSocket_782cfb64.o \
-  $(OBJDIR)/auxiliar_13cd51e2.o \
-  $(OBJDIR)/buffer_1d95fb4f.o \
-  $(OBJDIR)/except_eec499e8.o \
-  $(OBJDIR)/inet_e4f68523.o \
-  $(OBJDIR)/io_15486fb5.o \
-  $(OBJDIR)/luasocket_1d540146.o \
-  $(OBJDIR)/mime_eb86dcc3.o \
-  $(OBJDIR)/options_ff7f0f39.o \
-  $(OBJDIR)/select_bf545d0b.o \
-  $(OBJDIR)/tcp_945c06bc.o \
-  $(OBJDIR)/timeout_9491313c.o \
-  $(OBJDIR)/udp_946a929c.o \
-  $(OBJDIR)/unix_f9728d17.o \
-  $(OBJDIR)/usocket_9dc48243.o \
-  $(OBJDIR)/wsocket_c64d6045.o \
   $(OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o \
   $(OBJDIR)/CtrlrLuaCustomComponent_32c93605.o \
   $(OBJDIR)/CtrlrLuaManager_5810d0a6.o \
@@ -279,8 +264,14 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaCodeTokeniser_e22d95d3.o \
   $(OBJDIR)/CtrlrLuaMethodCodeEditor_94898995.o \
   $(OBJDIR)/CtrlrLuaMethodCodeEditorSettings_5be9f058.o \
+  $(OBJDIR)/CtrlrLuaMethodDebuggerControls_7bab86d2.o \
+  $(OBJDIR)/CtrlrLuaMethodDebuggerInfo_76e344a.o \
+  $(OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o \
+  $(OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o \
+  $(OBJDIR)/CtrlrLuaMethodDebuggerVars_b2defec8.o \
   $(OBJDIR)/CtrlrLuaMethodEditArea_d6845c92.o \
   $(OBJDIR)/CtrlrLuaMethodEditor_7c70c6c8.o \
+  $(OBJDIR)/CtrlrLuaMethodEditorConsole_5d42ecf9.o \
   $(OBJDIR)/CtrlrLuaMethodEditorTabs_9f9d2de6.o \
   $(OBJDIR)/CtrlrLuaMethodFind_e941a694.o \
   $(OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o \
@@ -502,6 +493,11 @@ $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o: ../../../../Source/Core/StandaloneWr
 $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling stdafx.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaDebugger.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrWrap_382e7425.o: ../../../../Source/Lua/JuceClasses/CtrlrWrap.cpp
@@ -828,86 +824,6 @@ $(OBJDIR)/LZipFile_9ce5b2e7.o: ../../../../Source/Lua/JuceClasses/LZipFile.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LZipFile.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrLuaSocket_782cfb64.o: ../../../../Source/Lua/CtrlrLuaSocket.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrLuaSocket.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/auxiliar_13cd51e2.o: ../../../../Source/Lua/LuaSocket/src/auxiliar.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling auxiliar.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/buffer_1d95fb4f.o: ../../../../Source/Lua/LuaSocket/src/buffer.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling buffer.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/except_eec499e8.o: ../../../../Source/Lua/LuaSocket/src/except.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling except.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/inet_e4f68523.o: ../../../../Source/Lua/LuaSocket/src/inet.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling inet.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/io_15486fb5.o: ../../../../Source/Lua/LuaSocket/src/io.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling io.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/luasocket_1d540146.o: ../../../../Source/Lua/LuaSocket/src/luasocket.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling luasocket.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/mime_eb86dcc3.o: ../../../../Source/Lua/LuaSocket/src/mime.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling mime.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/options_ff7f0f39.o: ../../../../Source/Lua/LuaSocket/src/options.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling options.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/select_bf545d0b.o: ../../../../Source/Lua/LuaSocket/src/select.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling select.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/tcp_945c06bc.o: ../../../../Source/Lua/LuaSocket/src/tcp.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling tcp.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/timeout_9491313c.o: ../../../../Source/Lua/LuaSocket/src/timeout.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling timeout.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/udp_946a929c.o: ../../../../Source/Lua/LuaSocket/src/udp.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling udp.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/unix_f9728d17.o: ../../../../Source/Lua/LuaSocket/src/unix.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling unix.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/usocket_9dc48243.o: ../../../../Source/Lua/LuaSocket/src/usocket.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling usocket.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/wsocket_c64d6045.o: ../../../../Source/Lua/LuaSocket/src/wsocket.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling wsocket.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o: ../../../../Source/Lua/CtrlrLuaAudioConverter.cpp
 	-@mkdir -p $(OBJDIR)
@@ -1404,6 +1320,31 @@ $(OBJDIR)/CtrlrLuaMethodCodeEditorSettings_5be9f058.o: ../../../../Source/UIComp
 	@echo "Compiling CtrlrLuaMethodCodeEditorSettings.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/CtrlrLuaMethodDebuggerControls_7bab86d2.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodDebuggerControls.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaMethodDebuggerInfo_76e344a.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodDebuggerInfo.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodDebuggerPrompt.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodDebuggerStackTrace.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaMethodDebuggerVars_b2defec8.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodDebuggerVars.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/CtrlrLuaMethodEditArea_d6845c92.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLuaMethodEditArea.cpp"
@@ -1412,6 +1353,11 @@ $(OBJDIR)/CtrlrLuaMethodEditArea_d6845c92.o: ../../../../Source/UIComponents/Ctr
 $(OBJDIR)/CtrlrLuaMethodEditor_7c70c6c8.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLuaMethodEditor.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaMethodEditorConsole_5d42ecf9.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaMethodEditorConsole.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaMethodEditorTabs_9f9d2de6.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp

@@ -12,6 +12,24 @@ namespace BinaryData
     extern const char*   CtrlrRevision_template;
     const int            CtrlrRevision_templateSize = 199;
 
+    extern const char*   json_lua;
+    const int            json_luaSize = 17174;
+
+    extern const char*   LICENCE_txt;
+    const int            LICENCE_txtSize = 1097;
+
+    extern const char*   debugger_lua;
+    const int            debugger_luaSize = 44515;
+
+    extern const char*   LICENSE;
+    const int            LICENSESize = 1099;
+
+    extern const char*   README_md;
+    const int            README_mdSize = 272;
+
+    extern const char*   test_lua;
+    const int            test_luaSize = 77;
+
     extern const char*   gen_LLookAndFeel_cpp_sh;
     const int            gen_LLookAndFeel_cpp_shSize = 2671;
 
@@ -19,16 +37,37 @@ namespace BinaryData
     const int            gen_LLookAndFeel_h_shSize = 4001;
 
     extern const char*   gen_LookAndFeel_lua_sh;
-    const int            gen_LookAndFeel_lua_shSize = 2345;
+    const int            gen_LookAndFeel_lua_shSize = 2311;
 
     extern const char*   lf_template;
-    const int            lf_templateSize = 13613;
+    const int            lf_templateSize = 13631;
 
     extern const char*   LookAndFeel_lua;
-    const int            LookAndFeel_luaSize = 16561;
+    const int            LookAndFeel_luaSize = 15109;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
+
+    extern const char*   appbar_control_play_png;
+    const int            appbar_control_play_pngSize = 434;
+
+    extern const char*   appbar_debug_clean_png;
+    const int            appbar_debug_clean_pngSize = 723;
+
+    extern const char*   appbar_debug_restart_png;
+    const int            appbar_debug_restart_pngSize = 436;
+
+    extern const char*   appbar_debug_step_into_png;
+    const int            appbar_debug_step_into_pngSize = 492;
+
+    extern const char*   appbar_debug_step_out_png;
+    const int            appbar_debug_step_out_pngSize = 469;
+
+    extern const char*   appbar_debug_step_over_png;
+    const int            appbar_debug_step_over_pngSize = 489;
+
+    extern const char*   appbar_debug_stop_png;
+    const int            appbar_debug_stop_pngSize = 218;
 
     extern const char*   ico_transaction_png;
     const int            ico_transaction_pngSize = 3798;
@@ -38,6 +77,9 @@ namespace BinaryData
 
     extern const char*   ico_bug_png;
     const int            ico_bug_pngSize = 4091;
+
+    extern const char*   ico_ctrlr_mac_icns;
+    const int            ico_ctrlr_mac_icnsSize = 64064;
 
     extern const char*   ico_copy_png;
     const int            ico_copy_pngSize = 3721;
@@ -190,46 +232,19 @@ namespace BinaryData
     const int            CtrlrMIDIVendors_xmlSize = 15061;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 79061;
+    const int            CtrlrIDs_xmlSize = 79876;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 17296;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 18229;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
-
-    extern const char*   LICENSE;
-    const int            LICENSESize = 1102;
-
-    extern const char*   ftp_lua;
-    const int            ftp_luaSize = 9401;
-
-    extern const char*   http_lua;
-    const int            http_luaSize = 12543;
-
-    extern const char*   ltn12_lua;
-    const int            ltn12_luaSize = 8469;
-
-    extern const char*   mime_lua;
-    const int            mime_luaSize = 2520;
-
-    extern const char*   smtp_lua;
-    const int            smtp_luaSize = 8212;
-
-    extern const char*   socket_lua;
-    const int            socket_luaSize = 4194;
-
-    extern const char*   tp_lua;
-    const int            tp_luaSize = 3731;
-
-    extern const char*   url_lua;
-    const int            url_luaSize = 10826;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 72;
+    const int namedResourceListSize = 77;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

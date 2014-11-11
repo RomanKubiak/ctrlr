@@ -285,6 +285,16 @@
     </GROUP>
     <GROUP id="{E4E9D961-652D-2904-F1EC-5C383EEF8FD4}" name="Resources">
       <GROUP id="{361AA8F0-5152-60E3-3C87-B82611600E05}" name="Lua">
+        <GROUP id="{19334BC3-377D-0D29-9CB3-9585B7076037}" name="json4lua">
+          <FILE id="piHAX5" name="json.lua" compile="0" resource="1" file="../../Source/Resources/Lua/json4lua/json.lua"/>
+          <FILE id="ZCbYpd" name="LICENCE.txt" compile="0" resource="1" file="../../Source/Resources/Lua/json4lua/LICENCE.txt"/>
+        </GROUP>
+        <GROUP id="{F780E281-67A8-084E-A5ED-31AA6725D88D}" name="clidebugger">
+          <FILE id="wcAMtq" name="debugger.lua" compile="0" resource="1" file="../../Source/Resources/Lua/clidebugger/debugger.lua"/>
+          <FILE id="BaDFre" name="LICENSE" compile="0" resource="1" file="../../Source/Resources/Lua/clidebugger/LICENSE"/>
+          <FILE id="g4MniW" name="README.md" compile="0" resource="1" file="../../Source/Resources/Lua/clidebugger/README.md"/>
+          <FILE id="PYiYeM" name="test.lua" compile="0" resource="1" file="../../Source/Resources/Lua/clidebugger/test.lua"/>
+        </GROUP>
         <FILE id="WmIAhJ" name="gen_LLookAndFeel.cpp.sh" compile="0" resource="1"
               file="../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh"/>
         <FILE id="La5zGa" name="gen_LLookAndFeel.h.sh" compile="0" resource="1"
@@ -298,10 +308,26 @@
         <FILE id="Mw6jfB" name="RSRC.zip" compile="0" resource="1" file="../../Source/Resources/Misc/RSRC.zip"/>
       </GROUP>
       <GROUP id="{D36DF736-203E-4694-9E23-E7107A73D2FE}" name="Icons">
+        <FILE id="xXN7Vd" name="appbar.control.play.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.control.play.png"/>
+        <FILE id="M1DpaP" name="appbar.debug.clean.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.clean.png"/>
+        <FILE id="ocN1Zc" name="appbar.debug.restart.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.restart.png"/>
+        <FILE id="EP7fTM" name="appbar.debug.step.into.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.step.into.png"/>
+        <FILE id="bQhiQ6" name="appbar.debug.step.out.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.step.out.png"/>
+        <FILE id="kVvsoM" name="appbar.debug.step.over.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.step.over.png"/>
+        <FILE id="ScazA2" name="appbar.debug.stop.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.stop.png"/>
         <FILE id="qNvTKP" name="ico_transaction.png" compile="0" resource="1"
               file="../../Source/Resources/Icons/ico_transaction.png"/>
         <FILE id="quL6iv" name="ico_box.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_box.png"/>
         <FILE id="dYirVf" name="ico_bug.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_bug.png"/>
+        <FILE id="HlWm7t" name="ico_ctrlr_mac.icns" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_ctrlr_mac.icns"/>
         <FILE id="IlMvLa" name="ico_copy.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_copy.png"/>
         <FILE id="AeE7xM" name="ico_cut.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_cut.png"/>
         <FILE id="SmPehI" name="ico_delete.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_delete.png"/>
@@ -396,6 +422,10 @@
       </GROUP>
     </GROUP>
     <GROUP id="{517FC7AC-6281-2CF2-641B-6E8F1713A044}" name="Lua">
+      <FILE id="uaFp50" name="CtrlrLuaDebugger.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaDebugger.cpp"/>
+      <FILE id="WCGsg7" name="CtrlrLuaDebugger.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaDebugger.h"/>
       <GROUP id="{6F54E534-320B-AA8C-9A9C-377ED0644CD1}" name="JuceClasses">
         <FILE id="z5bASp" name="CtrlrWrap.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/CtrlrWrap.cpp"/>
         <FILE id="hQrbLr" name="LAffineTransform.cpp" compile="1" resource="0"
@@ -571,58 +601,6 @@
         <FILE id="SyOGsU" name="LXmlElement.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.h"/>
         <FILE id="F3U4CZ" name="LZipFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.cpp"/>
         <FILE id="yxL3KZ" name="LZipFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.h"/>
-      </GROUP>
-      <FILE id="E9WvoE" name="CtrlrLuaSocket.cpp" compile="1" resource="0"
-            file="../../Source/Lua/CtrlrLuaSocket.cpp"/>
-      <FILE id="T2NNpr" name="CtrlrLuaSocket.h" compile="0" resource="0"
-            file="../../Source/Lua/CtrlrLuaSocket.h"/>
-      <GROUP id="{0436FC13-36A2-EC54-FCFC-7D3D05F166DB}" name="LuaSocket">
-        <GROUP id="{BE8565A6-A035-DD5D-FC03-81321FFABAC8}" name="include">
-          <FILE id="vxiE8E" name="auxiliar.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/auxiliar.h"/>
-          <FILE id="Hw6l8M" name="buffer.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/buffer.h"/>
-          <FILE id="eiAyKh" name="except.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/except.h"/>
-          <FILE id="O5DzFu" name="inet.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/inet.h"/>
-          <FILE id="p1uW6X" name="io.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/io.h"/>
-          <FILE id="koOJD8" name="luasocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/luasocket.h"/>
-          <FILE id="Z70kqD" name="mime.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/mime.h"/>
-          <FILE id="n5upS3" name="options.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/options.h"/>
-          <FILE id="z1azCa" name="select.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/select.h"/>
-          <FILE id="nHsI1r" name="socket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/socket.h"/>
-          <FILE id="fi7iNl" name="tcp.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/tcp.h"/>
-          <FILE id="SSY53D" name="timeout.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/timeout.h"/>
-          <FILE id="DxKkzZ" name="udp.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/udp.h"/>
-          <FILE id="jcMREU" name="unix.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/unix.h"/>
-          <FILE id="BRESHB" name="usocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/usocket.h"/>
-          <FILE id="PLQU1f" name="wsocket.h" compile="0" resource="0" file="../../Source/Lua/LuaSocket/include/wsocket.h"/>
-        </GROUP>
-        <FILE id="h4j2ke" name="LICENSE" compile="0" resource="1" file="../../Source/Lua/LuaSocket/LICENSE"/>
-        <GROUP id="{C8F9EC3D-FC90-E5FA-589F-179CEA2FB2FE}" name="lua">
-          <FILE id="C0sDqy" name="ftp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/ftp.lua"/>
-          <FILE id="e4aRZR" name="http.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/http.lua"/>
-          <FILE id="yTVa2L" name="ltn12.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/ltn12.lua"/>
-          <FILE id="k3rUMA" name="mime.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/mime.lua"/>
-          <FILE id="b7lxJO" name="smtp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/smtp.lua"/>
-          <FILE id="hRuxxk" name="socket.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/socket.lua"/>
-          <FILE id="eNK1UM" name="tp.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/tp.lua"/>
-          <FILE id="shH24l" name="url.lua" compile="0" resource="1" file="../../Source/Lua/LuaSocket/lua/url.lua"/>
-        </GROUP>
-        <GROUP id="{BC12CEC5-EC79-1F9D-88B4-3C70AC8F3ACD}" name="src">
-          <FILE id="uetGLL" name="auxiliar.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/auxiliar.c"/>
-          <FILE id="mUFcoi" name="buffer.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/buffer.c"/>
-          <FILE id="lvuMjL" name="except.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/except.c"/>
-          <FILE id="YLVbkv" name="inet.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/inet.c"/>
-          <FILE id="pfa4Dc" name="io.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/io.c"/>
-          <FILE id="vqj2dM" name="luasocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/luasocket.c"/>
-          <FILE id="UnGzQU" name="mime.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/mime.c"/>
-          <FILE id="flFdww" name="options.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/options.c"/>
-          <FILE id="kBP6g6" name="select.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/select.c"/>
-          <FILE id="CehsHe" name="tcp.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/tcp.c"/>
-          <FILE id="cMOkR6" name="timeout.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/timeout.c"/>
-          <FILE id="aXTPIo" name="udp.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/udp.c"/>
-          <FILE id="UXCC2c" name="unix.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/unix.c"/>
-          <FILE id="lUM2WF" name="usocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/usocket.c"/>
-          <FILE id="C8xy2P" name="wsocket.c" compile="1" resource="0" file="../../Source/Lua/LuaSocket/src/wsocket.c"/>
-        </GROUP>
       </GROUP>
       <FILE id="YBzYuP" name="CtrlrLuaAudioConverter.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaAudioConverter.cpp"/>
@@ -1093,6 +1071,26 @@
                 resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.cpp"/>
           <FILE id="jH0W7S" name="CtrlrLuaMethodCodeEditorSettings.h" compile="0"
                 resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.h"/>
+          <FILE id="T3auez" name="CtrlrLuaMethodDebuggerControls.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp"/>
+          <FILE id="cgumEf" name="CtrlrLuaMethodDebuggerControls.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.h"/>
+          <FILE id="LE2VDv" name="CtrlrLuaMethodDebuggerInfo.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.cpp"/>
+          <FILE id="kIiWuV" name="CtrlrLuaMethodDebuggerInfo.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.h"/>
+          <FILE id="vzv23w" name="CtrlrLuaMethodDebuggerPrompt.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp"/>
+          <FILE id="wtdsys" name="CtrlrLuaMethodDebuggerPrompt.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.h"/>
+          <FILE id="hmjgzk" name="CtrlrLuaMethodDebuggerStackTrace.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp"/>
+          <FILE id="pu3Uu1" name="CtrlrLuaMethodDebuggerStackTrace.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.h"/>
+          <FILE id="qjy1Cr" name="CtrlrLuaMethodDebuggerVars.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp"/>
+          <FILE id="lbmEuG" name="CtrlrLuaMethodDebuggerVars.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.h"/>
           <FILE id="o5qzxQ" name="CtrlrLuaMethodEditArea.cpp" compile="1" resource="0"
                 file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp"/>
           <FILE id="bIWTSx" name="CtrlrLuaMethodEditArea.h" compile="0" resource="0"
@@ -1101,6 +1099,10 @@
                 file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp"/>
           <FILE id="T9OOT6" name="CtrlrLuaMethodEditor.h" compile="0" resource="0"
                 file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h"/>
+          <FILE id="yL0liH" name="CtrlrLuaMethodEditorConsole.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp"/>
+          <FILE id="mFWKoe" name="CtrlrLuaMethodEditorConsole.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.h"/>
           <FILE id="mx76lz" name="CtrlrLuaMethodEditorTabs.cpp" compile="1" resource="0"
                 file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp"/>
           <FILE id="Kx9Ewe" name="CtrlrLuaMethodEditorTabs.h" compile="0" resource="0"

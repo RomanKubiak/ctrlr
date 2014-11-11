@@ -109,6 +109,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::panelMidiProgramCalloutOnprogramChange, false);
 	setProperty (Ids::panelMidiMatchCacheSize, 32);
 	setProperty (Ids::panelMidiGlobalDelay, 0);
+	setProperty (Ids::panelMidiPauseOut, false);
+	setProperty (Ids::panelMidiPauseIn, false);
 
     setProperty (Ids::luaPanelMidiChannelChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelMidiReceived, COMBO_ITEM_NONE);
@@ -995,6 +997,13 @@ void CtrlrPanel::handleAsyncUpdate()
 
 	midiMessageCollector.removeNextBlockOfMessages (buffer, SAMPLERATE * 512);
 
+	/* We mute here, so we don't have to lock the value tree in the MIDI thread
+		we need to empty the queue so it doesn't grow */
+	if (isMidiInPaused())
+	{
+		return;
+	}
+
 	MidiBuffer::Iterator i(buffer);
 	int time;
 	MidiMessage m;
@@ -1014,6 +1023,10 @@ void CtrlrPanel::handleAsyncUpdate()
 
 void CtrlrPanel::queueMessageForHostOutput(const CtrlrMidiMessage &m)
 {
+	if (isMidiInPaused())
+	{
+		return;
+	}
 	owner.getOwner()->addMidiToOutputQueue (m);
 }
 
@@ -1289,6 +1302,9 @@ bool CtrlrPanel::getBootstrapState()
 /** MIDI Stuff */
 void CtrlrPanel::sendMidi (const MidiBuffer &buffer, double millisecondCounterToStartAt)
 {
+	if (isMidiOutPaused())
+		return;
+
 	if (outputDevice)
 	{
 		if (millisecondCounterToStartAt == -1)
@@ -1300,6 +1316,9 @@ void CtrlrPanel::sendMidi (const MidiBuffer &buffer, double millisecondCounterTo
 
 void CtrlrPanel::sendMidi (const MidiMessage &message, double millisecondCounterToStartAt)
 {
+	if (isMidiOutPaused())
+		return;
+
 	if (outputDevice)
 	{
 		if (millisecondCounterToStartAt == -1)
@@ -1311,6 +1330,9 @@ void CtrlrPanel::sendMidi (const MidiMessage &message, double millisecondCounter
 
 void CtrlrPanel::sendMidi (CtrlrMidiMessage &m, double millisecondCounterToStartAt)
 {
+	if (isMidiOutPaused())
+		return;
+
 	if (outputDevice)
 	{
 		if (millisecondCounterToStartAt == -1)
@@ -1318,6 +1340,16 @@ void CtrlrPanel::sendMidi (CtrlrMidiMessage &m, double millisecondCounterToStart
 		else
 			outputDevice->sendMidiBuffer (m.getMidiBuffer(), millisecondCounterToStartAt);
 	}
+}
+
+bool CtrlrPanel::isMidiOutPaused()
+{
+	return (getProperty (Ids::panelMidiPauseOut));
+}
+
+bool CtrlrPanel::isMidiInPaused()
+{
+	return (getProperty (Ids::panelMidiPauseIn));
 }
 
 void CtrlrPanel::luaSavePanel(const CtrlrPanelFileType fileType, const File &file)
