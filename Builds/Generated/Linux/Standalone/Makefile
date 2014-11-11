@@ -100,7 +100,6 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
   $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
-  $(OBJDIR)/CtrlrLuaSocket_782cfb64.o \
   $(OBJDIR)/LookAndFeelBase_f5b48a03.o \
   $(OBJDIR)/LBorderSize_ecfcd7ed.o \
   $(OBJDIR)/LButton_b8659fd2.o \
@@ -496,11 +495,6 @@ $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 $(OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLuaDebugger.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrLuaSocket_782cfb64.o: ../../../../Source/Lua/CtrlrLuaSocket.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrLuaSocket.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LookAndFeelBase_f5b48a03.o: ../../../../Source/Lua/JuceClasses/LookAndFeelBase.cpp

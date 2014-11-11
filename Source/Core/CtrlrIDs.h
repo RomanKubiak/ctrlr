@@ -115,6 +115,8 @@ namespace Ids
 	DECLARE_ID (panelMidiSnapshotAfterProgramChange);
 	DECLARE_ID (panelMidiSnapshotDelay);
 	DECLARE_ID (panelMidiInputThreadPriority);
+	DECLARE_ID (panelMidiPauseOut);
+	DECLARE_ID (panelMidiPauseIn);
 
 	/* device input */
 	DECLARE_ID (panelMidiInputChannelDevice);

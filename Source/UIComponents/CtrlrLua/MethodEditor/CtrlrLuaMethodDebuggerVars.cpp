@@ -28,7 +28,7 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-CtrlrLuaMethodDebuggerVars::CtrlrLuaMethodDebuggerVars (CtrlrLuaMethodEditor &_owner)
+CtrlrLuaMethodDebuggerVars::CtrlrLuaMethodDebuggerVars (CtrlrLuaMethodEditor &_owner) : owner(_owner)
 {
     addAndMakeVisible (valueList = new TableListBox());
 
@@ -121,7 +121,7 @@ BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="CtrlrLuaMethodDebuggerVars"
                  componentName="" parentClasses="public Component, public TableListBoxModel"
-                 constructorParams="CtrlrLuaMethodEditor &amp;_owner" variableInitialisers=""
+                 constructorParams="CtrlrLuaMethodEditor &amp;_owner" variableInitialisers="owner(_owner)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffffff"/>

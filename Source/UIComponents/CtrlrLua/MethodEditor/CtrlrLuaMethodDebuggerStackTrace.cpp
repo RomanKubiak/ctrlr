@@ -101,10 +101,10 @@ void CtrlrLuaMethodDebuggerStackTrace::setData(const String &data)
     traceLines = StringArray::fromLines (data);
     currentFrames.clear();
 
-    for (auto line : traceLines)
+    for (int i=0; i<traceLines.size(); i++)
     {
-        if (!line.trim().isEmpty())
-            currentFrames.add (getStackFrame(line));
+        if (!traceLines[i].trim().isEmpty())
+            currentFrames.add (getStackFrame(traceLines[i]));
     }
 
     stackTraceList->updateContent ();

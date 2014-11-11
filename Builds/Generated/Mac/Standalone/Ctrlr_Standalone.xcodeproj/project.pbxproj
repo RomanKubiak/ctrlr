@@ -47,7 +47,6 @@
 		D0969ECACD588811A0980588 = {isa = PBXBuildFile; fileRef = F6EB10843005C5CE71871129; };
 		4353E2FB0DA43A9F67AE76D9 = {isa = PBXBuildFile; fileRef = 264046B5DACACAE8077556C5; };
 		E3CB86E33D8DC7C9C4A6F749 = {isa = PBXBuildFile; fileRef = DE66E5AB2B7EABA98F8F59A2; };
-		9A3365657F9C8EF7821813FF = {isa = PBXBuildFile; fileRef = 1A90C2776866B1B3B46D10D8; };
 		168D61A1A61EABD53E858B66 = {isa = PBXBuildFile; fileRef = D3018EFB7D0DCB51C97553F1; };
 		00897CF1A5C9C796A6F838A8 = {isa = PBXBuildFile; fileRef = C46C55C342B40F919BDF45B2; };
 		8CCB9EB0DB220033F7D92AED = {isa = PBXBuildFile; fileRef = EA3FCA2012FF6BF5E4FF60F2; };
@@ -441,7 +440,6 @@
 		1955E7BD361A9821F0028734 = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico_midi_plug.png"; path = "../../../../Source/Resources/Icons/ico_midi_plug.png"; sourceTree = "SOURCE_ROOT"; };
 		1A2C732D3C127FAE1AC8842B = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrMIDILibraryEditor.cpp; path = ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDILibraryEditor.cpp; sourceTree = "SOURCE_ROOT"; };
 		1A7C2BF70730711F47EAE1C9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrMidiKeyboard.h; path = ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrMidiKeyboard.h; sourceTree = "SOURCE_ROOT"; };
-		1A90C2776866B1B3B46D10D8 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaSocket.cpp; path = ../../../../Source/Lua/CtrlrLuaSocket.cpp; sourceTree = "SOURCE_ROOT"; };
 		1AAAD1705C2CC38710B2FF1C = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_PerformanceCounter.h"; path = "../../../../Juce/modules/juce_core/time/juce_PerformanceCounter.h"; sourceTree = "SOURCE_ROOT"; };
 		1AD1CD8180E15449EE00F39A = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrViewport.cpp; path = ../../../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp; sourceTree = "SOURCE_ROOT"; };
 		1B226AE116D60152D97C657F = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_AudioFormatReaderSource.cpp"; path = "../../../../Juce/modules/juce_audio_formats/format/juce_AudioFormatReaderSource.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -1485,7 +1483,6 @@
 		CB0BAB23FA52E33DE7351890 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LBorderSize.h; path = ../../../../Source/Lua/JuceClasses/LBorderSize.h; sourceTree = "SOURCE_ROOT"; };
 		CB2A9C60ED7833EED52ABA89 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = constructor.hpp; path = ../../../../Source/Lua/luabind/luabind/detail/constructor.hpp; sourceTree = "SOURCE_ROOT"; };
 		CB2E1EE98E3C0966C450047D = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico_edit_document.png"; path = "../../../../Source/Resources/Icons/ico_edit_document.png"; sourceTree = "SOURCE_ROOT"; };
-		CB6D9C86A4C3D4517E302AAB = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrLuaSocket.h; path = ../../../../Source/Lua/CtrlrLuaSocket.h; sourceTree = "SOURCE_ROOT"; };
 		CB88ECA891597E8982A8292E = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "call_operator_iterate.hpp"; path = "../../../../Source/Lua/luabind/luabind/detail/call_operator_iterate.hpp"; sourceTree = "SOURCE_ROOT"; };
 		CB9DFF97E004CE2D669C481B = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_WildcardFileFilter.h"; path = "../../../../Juce/modules/juce_core/files/juce_WildcardFileFilter.h"; sourceTree = "SOURCE_ROOT"; };
 		CBA68118569B6FDBFA5EBA5C = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaMethodCodeEditorSettings.cpp; path = ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.cpp; sourceTree = "SOURCE_ROOT"; };
@@ -2234,8 +2231,6 @@
 		369764A75E8CD0D7565E7D78 = {isa = PBXGroup; children = (
 					DE66E5AB2B7EABA98F8F59A2,
 					AC70F3AD34BD7A3DC14B7D42,
-					CB6D9C86A4C3D4517E302AAB,
-					1A90C2776866B1B3B46D10D8,
 					D6323E6E44CD175AD8F556B3,
 					187784F2C1D5384D459DB8B7,
 					9324BDF1E0EE327A9354CBC2,
@@ -3803,7 +3798,6 @@
 					D0969ECACD588811A0980588,
 					4353E2FB0DA43A9F67AE76D9,
 					E3CB86E33D8DC7C9C4A6F749,
-					9A3365657F9C8EF7821813FF,
 					168D61A1A61EABD53E858B66,
 					00897CF1A5C9C796A6F838A8,
 					8CCB9EB0DB220033F7D92AED,
