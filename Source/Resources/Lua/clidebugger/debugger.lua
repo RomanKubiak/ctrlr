@@ -402,44 +402,50 @@ end
 local dumpvisited
 
 local function dumpval( level, name, value, limit )
-  local index
-  if type(name) == 'number' then
-    index = string.format('[%d] = ',name)
-  elseif type(name) == 'string'
-     and (name == '__VARSLEVEL__' or name == '__ENVIRONMENT__' or name == '__GLOBALS__' or name == '__UPVALUES__' or name == '__LOCALS__') then
-    --ignore these, they are debugger generated
-    return
-  elseif type(name) == 'string' and string.find(name,'^[_%a][_.%w]*$') then
-    index = name ..': '
-  else
-    index = string.format('[%q] = ',tostring(name))
-  end
-  if type(value) == 'table' then
-    if dumpvisited[value] then
-      indented( level, index, string.format('ref%q;',dumpvisited[value]) )
+    local index
+
+    if type(name) == 'number' then
+        index = string.format("%q,",name)
+    elseif type(name) == 'string' and (name == '__VARSLEVEL__' or name == '__ENVIRONMENT__' or name == '__GLOBALS__' or name == '__UPVALUES__' or name == '__LOCALS__') then
+        --ignore these, they are debugger generated
+        return
+    elseif type(name) == 'string' and string.find(name,'^[_%a][_.%w]*$') then
+        index = string.format ("%q: ", name);
     else
-      dumpvisited[value] = string.format ("%s,", tostring(value))
-      if (limit or 0) > 0 and level+1 >= limit then
-        indented( level, index, dumpvisited[value] )
-      else
-        indented( level, index, '[\n', dumpvisited[value] )
-        for n,v in pairs(value) do
-          dumpval( level+1, n, v, limit )
+        index = string.format ("%q,", tostring(name))
+    end
+
+    if type(value) == 'table' then
+        if dumpvisited[value] then
+            indented (level, index, string.format("%q", dumpvisited[value]))
+        else
+            dumpvisited[value] = string.format ("\"table\": %q,", string.gsub (tostring (value), "table: ", ""))
+            if (limit or 0) > 0 and level+1 >= limit then
+                indented (level, index, string.format ("%s", string.gsub (dumpvisited[value], "\"table\": \"", "\"table: ")))
+            else
+                indented (level, index, "{\n", dumpvisited[value])
+
+                for n,v in pairs(value) do
+                    dumpval (level+1, n, v, limit)
+                end
+
+                indented (level, "}")
+            end
         end
-        indented( level, ']' )
-      end
+    else
+        if type(value) == 'string' then
+            indented (level, index, string.format("%q",value), ',')
+        end
+
+        if type(value) == 'userdata' then
+            info = class_info (value)
+            indented (level, index, string.format ("%q", info.name) , ',')
+        end
+
+        if type(value) == 'number' then
+            indented (level, index, string.format ("%q",tostring(value)), ',')
+        end
     end
-  else
-    if type(value) == 'string' then
-        indented( level, index, string.format('%q',value), ',' )
-    end
-    if type(value) == 'userdata' then
-      indented( level, index, type(value), ',' )
-    end
-    if type(value) == 'number' then
-      indented( level, index, tostring(value), ',' )
-    end
-  end
 end
 
 --}}}

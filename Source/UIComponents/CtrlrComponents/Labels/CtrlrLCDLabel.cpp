@@ -50,6 +50,7 @@ CtrlrLCDLabel::CtrlrLCDLabel (CtrlrModulator &owner)
 
 
     //[UserPreSize]
+    ctrlrLabel->addListener (this);
 	owner.setProperty (Ids::modulatorIsStatic, true);
 	owner.setProperty (Ids::modulatorVstExported, false);
 
@@ -169,7 +170,7 @@ void CtrlrLCDLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 	}
 	else if (property == Ids::uiLabelText)
 	{
-		ctrlrLabel->setText (getProperty(Ids::uiLabelText), dontSendNotification);
+		ctrlrLabel->setText (getProperty(Ids::uiLabelText), sendNotification);
 	}
 	else if (property == Ids::uiLabelBgColour)
 	{
@@ -247,7 +248,9 @@ void CtrlrLCDLabel::modulatorChanged (CtrlrModulator *modulatorThatChanged)
 
 void CtrlrLCDLabel::labelTextChanged (Label* labelThatHasChanged)
 {
-	setProperty (Ids::uiLabelText, labelThatHasChanged->getText(), false);
+	if (getProperty (Ids::uiLabelText).toString() != labelThatHasChanged->getText())
+        setProperty (Ids::uiLabelText, labelThatHasChanged->getText(), false);
+
 	setComponentValue(0, true);
 
 	if (labelChangedCbk && !labelChangedCbk.wasObjectDeleted())

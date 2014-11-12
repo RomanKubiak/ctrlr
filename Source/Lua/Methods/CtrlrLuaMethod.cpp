@@ -13,7 +13,8 @@ CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner)
 		methodTree(Ids::luaMethod),
 		owner(_owner),
 		methodCodeEditor(nullptr),
-		audioThreadMethod(false)
+		audioThreadMethod(false),
+		luaObject(nullptr)
 {
 	luaObject = new CtrlrLuaObjectWrapper();
 	methodTree.addListener (this);
@@ -26,7 +27,8 @@ CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner, ValueTree &_method
 		methodTree(_methodTree),
 		owner(_owner),
 		methodCodeEditor(nullptr),
-		audioThreadMethod(false)
+		audioThreadMethod(false),
+		luaObject(nullptr)
 {
 	luaObject = new CtrlrLuaObjectWrapper();
 
@@ -48,10 +50,14 @@ void CtrlrLuaMethod::remove() // this is called by the manager to remove us perm
 {
 	setValid (false);
 
-	if (luaObject->getObject().is_valid())
-	{
-		luabind::globals (owner.getOwner().getLuaState()) [(const char *)getName().toUTF8()] = 0;
-	}
+    if (luaObject && luaObject->getObject())
+    {
+        if (luaObject->getObject().is_valid())
+        {
+            luabind::globals (owner.getOwner().getLuaState()) [(const char *)getName().toUTF8()] = 0;
+        }
+    }
+
 	methodTree.removeListener (this);
 	masterReference.clear();
 	deleteAndZero (luaObject);
