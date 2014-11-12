@@ -400,7 +400,7 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		{ return (ptr->LookAndFeelBase::v3.getTabButtonBestWidth (*p.tabBarButton, p.tabDepth)); }
 
 		Rectangle<int> getTabButtonExtraComponentBounds (LookAndFeelParamWrapper &p)
-		{ try { return (call<Rectangle<int>>("getTabButtonExtraComponentBounds", p)); } catch (luabind::error e) { _WRN("getTabButtonExtraComponentBounds "+_STR(e.what())); return (LookAndFeelBase::v3.getTabButtonExtraComponentBounds (*p.tabBarButton, *p.areaInt, *p.component)); } }
+		{ try { return (call<Rectangle<int> >("getTabButtonExtraComponentBounds", p)); } catch (luabind::error e) { _WRN("getTabButtonExtraComponentBounds "+_STR(e.what())); return (LookAndFeelBase::v3.getTabButtonExtraComponentBounds (*p.tabBarButton, *p.areaInt, *p.component)); } }
 		static Rectangle<int> def_getTabButtonExtraComponentBounds(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
 		{ return (ptr->LookAndFeelBase::v3.getTabButtonExtraComponentBounds (*p.tabBarButton, *p.areaInt, *p.component)); }
 
@@ -490,7 +490,7 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		{ ptr->LookAndFeelBase::v3.drawPropertyComponentLabel (*p.g, p.width, p.height, *p.propertyComponent); }
 
 		Rectangle<int> getPropertyComponentContentPosition (LookAndFeelParamWrapper &p)
-		{ try { return (call<Rectangle<int>>("getPropertyComponentContentPosition", p)); } catch (luabind::error e) { _WRN("getPropertyComponentContentPosition "+_STR(e.what())); return (LookAndFeelBase::v3.getPropertyComponentContentPosition (*p.propertyComponent)); } }
+		{ try { return (call<Rectangle<int> >("getPropertyComponentContentPosition", p)); } catch (luabind::error e) { _WRN("getPropertyComponentContentPosition "+_STR(e.what())); return (LookAndFeelBase::v3.getPropertyComponentContentPosition (*p.propertyComponent)); } }
 		static Rectangle<int> def_getPropertyComponentContentPosition(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
 		{ return (ptr->LookAndFeelBase::v3.getPropertyComponentContentPosition (*p.propertyComponent)); }
 

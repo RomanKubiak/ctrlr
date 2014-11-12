@@ -1333,7 +1333,7 @@ public:
             }
             else
             {
-                jassertfalse // can't get a pointer to our effect
+                jassertfalse; // can't get a pointer to our effect
             }
         }
 

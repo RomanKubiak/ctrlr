@@ -21,7 +21,7 @@
                prebuildCommand="" extraLinkerFlags="-L$PROJECT_DIR -L/usr/lib -L/usr/local/lib -lau_wrapper">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
-                       osxSDK="10.8 SDK" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
+                       osxSDK="10.8 SDK" osxCompatibility="10.7 SDK" osxArchitecture="Native"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua/lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Lua&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Lua&#10;../../../../Source/Application"
                        binaryPath="" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_AU&#10;JUCE_DEBUG=1&#10;LUA_USE_LINUX"
                        customXcodeFlags="EXCLUDED_SOURCE_FILE_NAMES=&quot;*AU*.cpp Carbon*.cpp ComponentBase.cpp MusicDeviceBase.cpp&quot;,GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
@@ -183,398 +183,410 @@
       <FILE id="rzSjih" name="stdafx.h" compile="0" resource="0" file="../../Source/Core/stdafx.h"/>
     </GROUP>
     <GROUP id="{517FC7AC-6281-2CF2-641B-6E8F1713A044}" name="Lua">
-      <FILE id="lIJo7k" name="CtrlrLuaAudioConverter.cpp" compile="1" resource="0"
+      <FILE id="HFetXP" name="CtrlrLuaAudioConverter.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaAudioConverter.cpp"/>
-      <FILE id="kJXuik" name="CtrlrLuaAudioConverter.h" compile="0" resource="0"
+      <FILE id="v44sAH" name="CtrlrLuaAudioConverter.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaAudioConverter.h"/>
-      <FILE id="be9KZB" name="CtrlrLuaConverters.h" compile="0" resource="0"
+      <FILE id="t9NrDa" name="CtrlrLuaConverters.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaConverters.h"/>
-      <FILE id="wWk8Sn" name="CtrlrLuaCustomComponent.cpp" compile="1" resource="0"
+      <FILE id="FgI5T4" name="CtrlrLuaCustomComponent.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaCustomComponent.cpp"/>
-      <FILE id="ocdVnt" name="CtrlrLuaManager.cpp" compile="1" resource="0"
+      <FILE id="wx4AFW" name="CtrlrLuaDebugger.cpp" compile="1" resource="0"
+            file="../../Source/Lua/CtrlrLuaDebugger.cpp"/>
+      <FILE id="fTFtR4" name="CtrlrLuaDebugger.h" compile="0" resource="0"
+            file="../../Source/Lua/CtrlrLuaDebugger.h"/>
+      <FILE id="uB9Ix7" name="CtrlrLuaManager.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaManager.cpp"/>
-      <FILE id="uXA8tg" name="CtrlrLuaManager.h" compile="0" resource="0"
+      <FILE id="RUMbHK" name="CtrlrLuaManager.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaManager.h"/>
-      <FILE id="mb2iGN" name="CtrlrLuaModulator.cpp" compile="1" resource="0"
+      <FILE id="K5VHYm" name="CtrlrLuaModulator.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaModulator.cpp"/>
-      <FILE id="WTsN9t" name="CtrlrLuaMultiTimer.cpp" compile="1" resource="0"
+      <FILE id="yPCnm6" name="CtrlrLuaMultiTimer.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaMultiTimer.cpp"/>
-      <FILE id="m937Pk" name="CtrlrLuaMultiTimer.h" compile="0" resource="0"
+      <FILE id="s02v9o" name="CtrlrLuaMultiTimer.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaMultiTimer.h"/>
-      <FILE id="xpXMD3" name="CtrlrLuaObject.cpp" compile="1" resource="0"
+      <FILE id="jAry9a" name="CtrlrLuaObject.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaObject.cpp"/>
-      <FILE id="IpjAgJ" name="CtrlrLuaObject.h" compile="0" resource="0"
+      <FILE id="Si2noH" name="CtrlrLuaObject.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaObject.h"/>
-      <FILE id="Ggq28X" name="CtrlrLuaObjectWrapper.cpp" compile="1" resource="0"
+      <FILE id="hzMOFg" name="CtrlrLuaObjectWrapper.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaObjectWrapper.cpp"/>
-      <FILE id="eSeZSp" name="CtrlrLuaObjectWrapper.h" compile="0" resource="0"
+      <FILE id="fKM6R0" name="CtrlrLuaObjectWrapper.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaObjectWrapper.h"/>
-      <FILE id="Hf9ibB" name="CtrlrLuaPanel.cpp" compile="1" resource="0"
+      <FILE id="vfM2ID" name="CtrlrLuaPanel.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaPanel.cpp"/>
-      <FILE id="s08r3S" name="CtrlrLuaPanelCanvas.cpp" compile="1" resource="0"
+      <FILE id="RYZ18j" name="CtrlrLuaPanelCanvas.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaPanelCanvas.cpp"/>
-      <FILE id="gw9DyJ" name="CtrlrLuaPanelCanvasLayer.cpp" compile="1" resource="0"
+      <FILE id="T1EHg8" name="CtrlrLuaPanelCanvasLayer.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaPanelCanvasLayer.cpp"/>
-      <FILE id="rLbfmp" name="CtrlrLuaPanelEditor.cpp" compile="1" resource="0"
+      <FILE id="MLq4j4" name="CtrlrLuaPanelEditor.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaPanelEditor.cpp"/>
-      <FILE id="LHzmtq" name="CtrlrLuaUtils.cpp" compile="1" resource="0"
+      <FILE id="cI4bWq" name="CtrlrLuaUtils.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaUtils.cpp"/>
-      <FILE id="KYyw1u" name="CtrlrLuaUtils.h" compile="0" resource="0" file="../../Source/Lua/CtrlrLuaUtils.h"/>
+      <FILE id="AJCkfr" name="CtrlrLuaUtils.h" compile="0" resource="0" file="../../Source/Lua/CtrlrLuaUtils.h"/>
       <GROUP id="{E0DBCD0A-E4EE-79A0-F297-E2BE511E72CF}" name="Deprecated">
-        <FILE id="fZNsqq" name="CtrlrLuaBigInteger.cpp" compile="1" resource="0"
+        <FILE id="yUuUfm" name="CtrlrLuaBigInteger.cpp" compile="1" resource="0"
               file="../../Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp"/>
-        <FILE id="hzkNDA" name="CtrlrLuaBigInteger.h" compile="0" resource="0"
+        <FILE id="qT1PT3" name="CtrlrLuaBigInteger.h" compile="0" resource="0"
               file="../../Source/Lua/Deprecated/CtrlrLuaBigInteger.h"/>
-        <FILE id="U9RscU" name="CtrlrLuaComponentAnimator.cpp" compile="1"
+        <FILE id="LYV0cP" name="CtrlrLuaComponentAnimator.cpp" compile="1"
               resource="0" file="../../Source/Lua/Deprecated/CtrlrLuaComponentAnimator.cpp"/>
-        <FILE id="TmEtAU" name="CtrlrLuaComponentAnimator.h" compile="0" resource="0"
+        <FILE id="psoT7k" name="CtrlrLuaComponentAnimator.h" compile="0" resource="0"
               file="../../Source/Lua/Deprecated/CtrlrLuaComponentAnimator.h"/>
-        <FILE id="Kz8Qjh" name="CtrlrLuaFile.cpp" compile="1" resource="0"
+        <FILE id="elkTwZ" name="CtrlrLuaFile.cpp" compile="1" resource="0"
               file="../../Source/Lua/Deprecated/CtrlrLuaFile.cpp"/>
-        <FILE id="QGASLe" name="CtrlrLuaFile.h" compile="0" resource="0" file="../../Source/Lua/Deprecated/CtrlrLuaFile.h"/>
-        <FILE id="UJOoZO" name="CtrlrLuaMemoryBlock.cpp" compile="1" resource="0"
+        <FILE id="sWAAq9" name="CtrlrLuaFile.h" compile="0" resource="0" file="../../Source/Lua/Deprecated/CtrlrLuaFile.h"/>
+        <FILE id="EFjQYI" name="CtrlrLuaMemoryBlock.cpp" compile="1" resource="0"
               file="../../Source/Lua/Deprecated/CtrlrLuaMemoryBlock.cpp"/>
-        <FILE id="VzbwtL" name="CtrlrLuaMemoryBlock.h" compile="0" resource="0"
+        <FILE id="bHmY4y" name="CtrlrLuaMemoryBlock.h" compile="0" resource="0"
               file="../../Source/Lua/Deprecated/CtrlrLuaMemoryBlock.h"/>
-        <FILE id="swnJIH" name="CtrlrLuaRectangle.cpp" compile="1" resource="0"
+        <FILE id="C5r4pp" name="CtrlrLuaRectangle.cpp" compile="1" resource="0"
               file="../../Source/Lua/Deprecated/CtrlrLuaRectangle.cpp"/>
-        <FILE id="EFvLZr" name="CtrlrLuaRectangle.h" compile="0" resource="0"
+        <FILE id="smEfba" name="CtrlrLuaRectangle.h" compile="0" resource="0"
               file="../../Source/Lua/Deprecated/CtrlrLuaRectangle.h"/>
       </GROUP>
       <GROUP id="{2F024239-B6C9-D070-182A-3FA0F87BDCCF}" name="JuceClasses">
-        <FILE id="uYhtsa" name="LThread.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LThread.cpp"/>
-        <FILE id="y8YiKv" name="LThread.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LThread.h"/>
-        <FILE id="OKpDTE" name="LThreadWithProgressWindow.cpp" compile="1"
-              resource="0" file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.cpp"/>
-        <FILE id="udKuw8" name="LThreadWithProgressWindow.h" compile="0" resource="0"
-              file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.h"/>
-        <FILE id="re3UvL" name="CtrlrWrap.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/CtrlrWrap.cpp"/>
-        <FILE id="xTbHEV" name="LAffineTransform.cpp" compile="1" resource="0"
+        <FILE id="Ym3LMb" name="CtrlrWrap.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/CtrlrWrap.cpp"/>
+        <FILE id="xuzcse" name="LAffineTransform.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAffineTransform.cpp"/>
-        <FILE id="q2O4ON" name="LAffineTransform.h" compile="0" resource="0"
+        <FILE id="Z6PcFy" name="LAffineTransform.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LAffineTransform.h"/>
-        <FILE id="KlYldv" name="LAlertWindow.cpp" compile="1" resource="0"
+        <FILE id="NOdyHz" name="LAlertWindow.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAlertWindow.cpp"/>
-        <FILE id="isvEK9" name="LAlertWindow.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAlertWindow.h"/>
-        <FILE id="p1dVnO" name="LAttributedString.cpp" compile="1" resource="0"
+        <FILE id="c4TQhF" name="LAlertWindow.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAlertWindow.h"/>
+        <FILE id="eBcxs7" name="LAttributedString.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAttributedString.cpp"/>
-        <FILE id="E6r495" name="LAttributedString.h" compile="0" resource="0"
+        <FILE id="ONuaG2" name="LAttributedString.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LAttributedString.h"/>
-        <FILE id="twekWO" name="LAudioFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LAudioFile.cpp"/>
-        <FILE id="dCqQvr" name="LAudioFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAudioFile.h"/>
-        <FILE id="uqgJ2I" name="LAudioFormat.cpp" compile="1" resource="0"
+        <FILE id="S4D63R" name="LAudioFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LAudioFile.cpp"/>
+        <FILE id="jK1IVK" name="LAudioFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAudioFile.h"/>
+        <FILE id="r9yW7p" name="LAudioFormat.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAudioFormat.cpp"/>
-        <FILE id="PVACKm" name="LAudioFormat.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAudioFormat.h"/>
-        <FILE id="qBfADC" name="LAudioSampleBuffer.cpp" compile="1" resource="0"
+        <FILE id="s4UMT7" name="LAudioFormat.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAudioFormat.h"/>
+        <FILE id="qbBulI" name="LAudioSampleBuffer.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAudioSampleBuffer.cpp"/>
-        <FILE id="abBDtC" name="LAudioSampleBuffer.h" compile="0" resource="0"
+        <FILE id="trWrHs" name="LAudioSampleBuffer.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LAudioSampleBuffer.h"/>
-        <FILE id="MHlfql" name="LAudioThumbnail.cpp" compile="1" resource="0"
+        <FILE id="W5t9Te" name="LAudioThumbnail.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAudioThumbnail.cpp"/>
-        <FILE id="Xb3K7u" name="LAudioThumbnail.h" compile="0" resource="0"
+        <FILE id="wCT1HQ" name="LAudioThumbnail.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LAudioThumbnail.h"/>
-        <FILE id="tNuBdz" name="LButton.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LButton.cpp"/>
-        <FILE id="opLget" name="LButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LButton.h"/>
-        <FILE id="RSqRJ1" name="LBigInteger.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LBigInteger.cpp"/>
-        <FILE id="REY6sH" name="LBigInteger.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LBigInteger.h"/>
-        <FILE id="tNTVW4" name="LBubbleMessageComponent.cpp" compile="1" resource="0"
+        <FILE id="XluhRl" name="LBigInteger.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LBigInteger.cpp"/>
+        <FILE id="UPKhkz" name="LBigInteger.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LBigInteger.h"/>
+        <FILE id="pxka6n" name="LBorderSize.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LBorderSize.cpp"/>
+        <FILE id="IkvLUi" name="LBorderSize.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LBorderSize.h"/>
+        <FILE id="ceBfAL" name="LBubbleMessageComponent.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LBubbleMessageComponent.cpp"/>
-        <FILE id="kiRlWE" name="LBubbleMessageComponent.h" compile="0" resource="0"
+        <FILE id="fWJgsp" name="LBubbleMessageComponent.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LBubbleMessageComponent.h"/>
-        <FILE id="YRGOyd" name="LColour.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LColour.cpp"/>
-        <FILE id="HQhtJi" name="LColour.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LColour.h"/>
-        <FILE id="JjIOkm" name="LColourGradient.cpp" compile="1" resource="0"
+        <FILE id="wNBHML" name="LButton.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LButton.cpp"/>
+        <FILE id="AXSWpQ" name="LButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LButton.h"/>
+        <FILE id="orpHj7" name="LColour.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LColour.cpp"/>
+        <FILE id="rZMy4z" name="LColour.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LColour.h"/>
+        <FILE id="CdZdu5" name="LColourGradient.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LColourGradient.cpp"/>
-        <FILE id="oUdy0J" name="LColourGradient.h" compile="0" resource="0"
+        <FILE id="WHgIX4" name="LColourGradient.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LColourGradient.h"/>
-        <FILE id="DKi0tV" name="LComboBox.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.cpp"/>
-        <FILE id="F1ji1P" name="LComboBox.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.h"/>
-        <FILE id="mNAV4n" name="LComponent.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComponent.cpp"/>
-        <FILE id="NxxD0n" name="LComponent.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LComponent.h"/>
-        <FILE id="KlMCGS" name="LComponentPeer.cpp" compile="1" resource="0"
+        <FILE id="OIcugl" name="LComboBox.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.cpp"/>
+        <FILE id="hQlhDg" name="LComboBox.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LComboBox.h"/>
+        <FILE id="WuAVsR" name="LComponent.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComponent.cpp"/>
+        <FILE id="rFqb4m" name="LComponent.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LComponent.h"/>
+        <FILE id="rJzotC" name="LComponentPeer.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LComponentPeer.cpp"/>
-        <FILE id="wRHGjY" name="LComponentPeer.h" compile="0" resource="0"
+        <FILE id="ay9MmE" name="LComponentPeer.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LComponentPeer.h"/>
-        <FILE id="i87QK7" name="LDrawable.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LDrawable.cpp"/>
-        <FILE id="iSHJcO" name="LDrawable.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LDrawable.h"/>
-        <FILE id="HzwedE" name="LFileListComponent.cpp" compile="1" resource="0"
+        <FILE id="Be2nAO" name="LDrawable.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LDrawable.cpp"/>
+        <FILE id="O8IDj6" name="LDrawable.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LDrawable.h"/>
+        <FILE id="z9f6Nq" name="LExpression.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LExpression.cpp"/>
+        <FILE id="QV8mTV" name="LExpression.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LExpression.h"/>
+        <FILE id="Fv9ZUJ" name="LFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LFile.cpp"/>
+        <FILE id="cg07S1" name="LFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LFile.h"/>
+        <FILE id="n5VdcB" name="LFileListComponent.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LFileListComponent.cpp"/>
-        <FILE id="F8EpkW" name="LFileListComponent.h" compile="0" resource="0"
+        <FILE id="aUm3ra" name="LFileListComponent.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LFileListComponent.h"/>
-        <FILE id="rfL55d" name="LFileTreeComponent.cpp" compile="1" resource="0"
+        <FILE id="W1jHhb" name="LFileTreeComponent.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LFileTreeComponent.cpp"/>
-        <FILE id="ANfKUU" name="LFileTreeComponent.h" compile="0" resource="0"
+        <FILE id="Ep7e9u" name="LFileTreeComponent.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LFileTreeComponent.h"/>
-        <FILE id="gQLUBA" name="LExpression.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LExpression.cpp"/>
-        <FILE id="C59Z6o" name="LExpression.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LExpression.h"/>
-        <FILE id="L6lQ50" name="LFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LFile.cpp"/>
-        <FILE id="dAyMXx" name="LFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LFile.h"/>
-        <FILE id="NaAxbc" name="LFont.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LFont.cpp"/>
-        <FILE id="p2x4bs" name="LFont.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LFont.h"/>
-        <FILE id="ROVNrp" name="LGlobalFunctions.cpp" compile="1" resource="0"
+        <FILE id="aemZgt" name="LFont.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LFont.cpp"/>
+        <FILE id="W4zDWb" name="LFont.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LFont.h"/>
+        <FILE id="NzF2NE" name="LGlobalFunctions.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LGlobalFunctions.cpp"/>
-        <FILE id="KNkS6D" name="LGlobalFunctions.h" compile="0" resource="0"
+        <FILE id="fkrODw" name="LGlobalFunctions.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LGlobalFunctions.h"/>
-        <FILE id="AlpuE2" name="LGlyphArrangement.cpp" compile="1" resource="0"
+        <FILE id="m73G2j" name="LGlyphArrangement.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LGlyphArrangement.cpp"/>
-        <FILE id="auHW1C" name="LGlyphArrangement.h" compile="0" resource="0"
+        <FILE id="FOVgJ6" name="LGlyphArrangement.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LGlyphArrangement.h"/>
-        <FILE id="Uls0JH" name="LGraphics.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LGraphics.cpp"/>
-        <FILE id="poy9KK" name="LGraphics.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LGraphics.h"/>
-        <FILE id="AQ39IX" name="LImage.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LImage.cpp"/>
-        <FILE id="iCAMkc" name="LImage.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LImage.h"/>
-        <FILE id="Uba1aK" name="LInputStream.cpp" compile="1" resource="0"
+        <FILE id="O0B6fu" name="LGraphics.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LGraphics.cpp"/>
+        <FILE id="msCivC" name="LGraphics.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LGraphics.h"/>
+        <FILE id="zmwN6e" name="LImage.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LImage.cpp"/>
+        <FILE id="m4pKeO" name="LImage.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LImage.h"/>
+        <FILE id="i2KIrA" name="LInputStream.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LInputStream.cpp"/>
-        <FILE id="oxhtcg" name="LInputStream.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LInputStream.h"/>
-        <FILE id="SWJAdR" name="LJustification.cpp" compile="1" resource="0"
+        <FILE id="vtEQEA" name="LInputStream.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LInputStream.h"/>
+        <FILE id="XekhiH" name="LJustification.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LJustification.cpp"/>
-        <FILE id="BlxU1G" name="LJustification.h" compile="0" resource="0"
+        <FILE id="OyzAPB" name="LJustification.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LJustification.h"/>
-        <FILE id="Hm2Fxl" name="LKeyPress.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LKeyPress.cpp"/>
-        <FILE id="PZg6aP" name="LKeyPress.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LKeyPress.h"/>
-        <FILE id="hCb0PW" name="LLabel.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLabel.cpp"/>
-        <FILE id="RUky5A" name="LLabel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLabel.h"/>
-        <FILE id="X7ax4g" name="LLine.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLine.cpp"/>
-        <FILE id="XAgxJF" name="LLine.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLine.h"/>
-        <FILE id="gXUo8t" name="LLookAndFeel.cpp" compile="1" resource="0"
+        <FILE id="u3J9bF" name="LKeyPress.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LKeyPress.cpp"/>
+        <FILE id="r2rSGn" name="LKeyPress.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LKeyPress.h"/>
+        <FILE id="pZaO5o" name="LLabel.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLabel.cpp"/>
+        <FILE id="rDABPu" name="LLabel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLabel.h"/>
+        <FILE id="nQQUGS" name="LLine.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLine.cpp"/>
+        <FILE id="ag263A" name="LLine.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLine.h"/>
+        <FILE id="MrSowR" name="LLookAndFeel.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LLookAndFeel.cpp"/>
-        <FILE id="YHkEFe" name="LLookAndFeel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLookAndFeel.h"/>
-        <FILE id="g1rTav" name="LMidiKeyboardComponent.cpp" compile="1" resource="0"
-              file="../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp"/>
-        <FILE id="t1RSAx" name="LMidiKeyboardComponent.h" compile="0" resource="0"
-              file="../../Source/Lua/JuceClasses/LMidiKeyboardComponent.h"/>
-        <FILE id="fy2Gpn" name="LMemoryBlock.cpp" compile="1" resource="0"
+        <FILE id="QXO0OA" name="LLookAndFeel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLookAndFeel.h"/>
+        <FILE id="ZCMkgE" name="LMemoryBlock.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LMemoryBlock.cpp"/>
-        <FILE id="IpDImC" name="LMemoryBlock.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMemoryBlock.h"/>
-        <FILE id="xsKOwr" name="LMemoryInputStream.cpp" compile="1" resource="0"
+        <FILE id="Zs4b24" name="LMemoryBlock.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMemoryBlock.h"/>
+        <FILE id="clLV6c" name="LMemoryInputStream.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LMemoryInputStream.cpp"/>
-        <FILE id="Zq6rr6" name="LMemoryInputStream.h" compile="0" resource="0"
+        <FILE id="NU1HbM" name="LMemoryInputStream.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LMemoryInputStream.h"/>
-        <FILE id="xr0OVs" name="LMouseCursor.cpp" compile="1" resource="0"
-              file="../../Source/Lua/JuceClasses/LMouseCursor.cpp"/>
-        <FILE id="Ny9Zs3" name="LMouseCursor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseCursor.h"/>
-        <FILE id="CQfqyq" name="LMidiMessage.cpp" compile="1" resource="0"
+        <FILE id="G1XfR6" name="LMidiKeyboardComponent.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp"/>
+        <FILE id="jW439R" name="LMidiKeyboardComponent.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LMidiKeyboardComponent.h"/>
+        <FILE id="YT9qQS" name="LMidiMessage.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LMidiMessage.cpp"/>
-        <FILE id="sJQkdr" name="LMidiMessage.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMidiMessage.h"/>
-        <FILE id="vTtxPM" name="LModifierKeys.cpp" compile="1" resource="0"
+        <FILE id="s5c7V8" name="LMidiMessage.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMidiMessage.h"/>
+        <FILE id="ZGY1QN" name="LModifierKeys.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LModifierKeys.cpp"/>
-        <FILE id="JDeABL" name="LModifierKeys.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LModifierKeys.h"/>
-        <FILE id="VRHUfU" name="LMouseEvent.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LMouseEvent.cpp"/>
-        <FILE id="p5395V" name="LMouseEvent.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseEvent.h"/>
-        <FILE id="oTSHZ2" name="LPath.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPath.cpp"/>
-        <FILE id="guIdZA" name="LPath.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPath.h"/>
-        <FILE id="s6LIWN" name="LPoint.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPoint.cpp"/>
-        <FILE id="rYcoEh" name="LPoint.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPoint.h"/>
-        <FILE id="g5DyX8" name="LPopupMenu.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPopupMenu.cpp"/>
-        <FILE id="wTnq2w" name="LPopupMenu.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPopupMenu.h"/>
-        <FILE id="epwK2N" name="LRandom.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LRandom.cpp"/>
-        <FILE id="s77jQM" name="LRandom.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LRandom.h"/>
-        <FILE id="NPyI4t" name="LRange.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LRange.cpp"/>
-        <FILE id="ZO4RyB" name="LRange.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LRange.h"/>
-        <FILE id="pL0EaB" name="LRectangle.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LRectangle.cpp"/>
-        <FILE id="e7Txjo" name="LRectangle.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LRectangle.h"/>
-        <FILE id="af3efy" name="LRelativeCoordinate.cpp" compile="1" resource="0"
+        <FILE id="Tie1AP" name="LModifierKeys.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LModifierKeys.h"/>
+        <FILE id="w1r7uG" name="LMouseCursor.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LMouseCursor.cpp"/>
+        <FILE id="gplewe" name="LMouseCursor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseCursor.h"/>
+        <FILE id="xl776o" name="LMouseEvent.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LMouseEvent.cpp"/>
+        <FILE id="X8tMWl" name="LMouseEvent.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseEvent.h"/>
+        <FILE id="vfpLHk" name="LookAndFeelBase.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LookAndFeelBase.cpp"/>
+        <FILE id="v33Lrc" name="LookAndFeelBase.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LookAndFeelBase.h"/>
+        <FILE id="NThxxs" name="LookAndFeelParamWrapper.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h"/>
+        <FILE id="tDp3fY" name="LPath.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPath.cpp"/>
+        <FILE id="aMQUNk" name="LPath.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPath.h"/>
+        <FILE id="gyl5Dn" name="LPoint.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPoint.cpp"/>
+        <FILE id="O395yo" name="LPoint.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPoint.h"/>
+        <FILE id="ozkZdB" name="LPopupMenu.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPopupMenu.cpp"/>
+        <FILE id="goIIjM" name="LPopupMenu.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPopupMenu.h"/>
+        <FILE id="nGqtlh" name="LRandom.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LRandom.cpp"/>
+        <FILE id="AGHZix" name="LRandom.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LRandom.h"/>
+        <FILE id="v8S88O" name="LRange.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LRange.cpp"/>
+        <FILE id="LbJDbM" name="LRange.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LRange.h"/>
+        <FILE id="omVLYb" name="LRectangle.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LRectangle.cpp"/>
+        <FILE id="CkdrZ2" name="LRectangle.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LRectangle.h"/>
+        <FILE id="jHOi9v" name="LRelativeCoordinate.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LRelativeCoordinate.cpp"/>
-        <FILE id="J8x0s9" name="LRelativeCoordinate.h" compile="0" resource="0"
+        <FILE id="h0xG7t" name="LRelativeCoordinate.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LRelativeCoordinate.h"/>
-        <FILE id="xeJ33z" name="LResult.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LResult.cpp"/>
-        <FILE id="woEjWs" name="LResult.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LResult.h"/>
-        <FILE id="iT6Y1s" name="LSlider.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LSlider.cpp"/>
-        <FILE id="oRUQCO" name="LSlider.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LSlider.h"/>
-        <FILE id="eRe4UQ" name="LTextButton.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTextButton.cpp"/>
-        <FILE id="y4AapW" name="LTextButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTextButton.h"/>
-        <FILE id="OtKKa3" name="LSparseSet.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LSparseSet.cpp"/>
-        <FILE id="rCBnAu" name="LSparseSet.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LSparseSet.h"/>
-        <FILE id="Xh7ukD" name="LString.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LString.cpp"/>
-        <FILE id="Ifh0W3" name="LString.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LString.h"/>
-        <FILE id="XN7aHU" name="LTextEditor.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTextEditor.cpp"/>
-        <FILE id="P19ZiG" name="LTextEditor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTextEditor.h"/>
-        <FILE id="hSRqIC" name="LTime.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTime.cpp"/>
-        <FILE id="p1i86b" name="LTime.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTime.h"/>
-        <FILE id="WhXSED" name="LTimer.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTimer.cpp"/>
-        <FILE id="tSsUwS" name="LTimer.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTimer.h"/>
-        <FILE id="XO6uN3" name="LToggleButton.cpp" compile="1" resource="0"
+        <FILE id="agmMds" name="LResult.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LResult.cpp"/>
+        <FILE id="o3t0QJ" name="LResult.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LResult.h"/>
+        <FILE id="aCxLW7" name="LSlider.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LSlider.cpp"/>
+        <FILE id="YgrG8N" name="LSlider.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LSlider.h"/>
+        <FILE id="syCQCf" name="LSparseSet.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LSparseSet.cpp"/>
+        <FILE id="WLkn9K" name="LSparseSet.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LSparseSet.h"/>
+        <FILE id="DPIS0l" name="LString.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LString.cpp"/>
+        <FILE id="JKSUQr" name="LString.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LString.h"/>
+        <FILE id="nwJSqo" name="LTextButton.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTextButton.cpp"/>
+        <FILE id="gJ4a7x" name="LTextButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTextButton.h"/>
+        <FILE id="GnDgjH" name="LTextEditor.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTextEditor.cpp"/>
+        <FILE id="tfBuYh" name="LTextEditor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTextEditor.h"/>
+        <FILE id="Sm6wrA" name="LThread.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LThread.cpp"/>
+        <FILE id="uvnupF" name="LThread.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LThread.h"/>
+        <FILE id="YTWa6X" name="LThreadWithProgressWindow.cpp" compile="1"
+              resource="0" file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.cpp"/>
+        <FILE id="jEiHCx" name="LThreadWithProgressWindow.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LThreadWithProgressWindow.h"/>
+        <FILE id="B2L4v6" name="LTime.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTime.cpp"/>
+        <FILE id="kFf0Sa" name="LTime.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTime.h"/>
+        <FILE id="HAfOQH" name="LTimer.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTimer.cpp"/>
+        <FILE id="flRJ8p" name="LTimer.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTimer.h"/>
+        <FILE id="fXJDtM" name="LToggleButton.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LToggleButton.cpp"/>
-        <FILE id="iPFTpZ" name="LToggleButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LToggleButton.h"/>
-        <FILE id="OSgLC9" name="LTypeface.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTypeface.cpp"/>
-        <FILE id="VSWGId" name="LTypeface.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTypeface.h"/>
-        <FILE id="VyDMDb" name="LURL.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LURL.cpp"/>
-        <FILE id="sxn9vw" name="LURL.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LURL.h"/>
-        <FILE id="st426w" name="LValue.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LValue.cpp"/>
-        <FILE id="UMKZEV" name="LValue.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValue.h"/>
-        <FILE id="OX4CQR" name="LValueTree.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.cpp"/>
-        <FILE id="lNla0Q" name="LValueTree.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.h"/>
-        <FILE id="XxdoAR" name="LXmlElement.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.cpp"/>
-        <FILE id="FuSvYr" name="LXmlElement.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.h"/>
-        <FILE id="zWi5Xj" name="LZipFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.cpp"/>
-        <FILE id="mI7fAB" name="LZipFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.h"/>
+        <FILE id="V79NUV" name="LToggleButton.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LToggleButton.h"/>
+        <FILE id="Qh8GTL" name="LTypeface.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LTypeface.cpp"/>
+        <FILE id="gV975S" name="LTypeface.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LTypeface.h"/>
+        <FILE id="VOJ5IA" name="LURL.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LURL.cpp"/>
+        <FILE id="jaEdn0" name="LURL.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LURL.h"/>
+        <FILE id="JVpVCV" name="LValue.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LValue.cpp"/>
+        <FILE id="SxEn0G" name="LValue.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValue.h"/>
+        <FILE id="sULHiC" name="LValueTree.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.cpp"/>
+        <FILE id="u4krSY" name="LValueTree.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LValueTree.h"/>
+        <FILE id="BtjcXw" name="LXmlElement.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.cpp"/>
+        <FILE id="OUITw6" name="LXmlElement.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.h"/>
+        <FILE id="lN5Epw" name="LZipFile.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.cpp"/>
+        <FILE id="NhJPHy" name="LZipFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.h"/>
       </GROUP>
       <GROUP id="{D4EC5E80-A3AD-7E51-615D-DFB48B7A73A5}" name="luabind">
         <GROUP id="{85B98256-518E-C192-1A36-19908CA8F512}" name="luabind">
-          <FILE id="JA40dU" name="adopt_policy.hpp" compile="0" resource="0"
+          <FILE id="kMgo9u" name="adopt_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/adopt_policy.hpp"/>
-          <FILE id="ClhsSz" name="back_reference.hpp" compile="0" resource="0"
+          <FILE id="cPOIqE" name="back_reference.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/back_reference.hpp"/>
-          <FILE id="Csih9l" name="back_reference_fwd.hpp" compile="0" resource="0"
+          <FILE id="tlLe2V" name="back_reference_fwd.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/back_reference_fwd.hpp"/>
-          <FILE id="RBegyS" name="class.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class.hpp"/>
-          <FILE id="wGHPxZ" name="class_info.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class_info.hpp"/>
-          <FILE id="tvSqXA" name="config.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/config.hpp"/>
-          <FILE id="vwwt1k" name="container_policy.hpp" compile="0" resource="0"
+          <FILE id="VtJqxS" name="class.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class.hpp"/>
+          <FILE id="WcaJE1" name="class_info.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class_info.hpp"/>
+          <FILE id="AHSLTK" name="config.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/config.hpp"/>
+          <FILE id="qgiwwU" name="container_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/container_policy.hpp"/>
-          <FILE id="b64TiO" name="copy_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/copy_policy.hpp"/>
-          <FILE id="qrqbCE" name="dependency_policy.hpp" compile="0" resource="0"
+          <FILE id="vNpphX" name="copy_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/copy_policy.hpp"/>
+          <FILE id="QYfUSe" name="dependency_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/dependency_policy.hpp"/>
           <GROUP id="{A46B5831-C77F-B9C0-6BEC-461FEC708E48}" name="detail">
-            <FILE id="ZjPx9P" name="calc_arity.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/calc_arity.hpp"/>
-            <FILE id="wlEtGY" name="call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call.hpp"/>
-            <FILE id="NNx4Kb" name="call_function.hpp" compile="0" resource="0"
+            <FILE id="dgyhel" name="calc_arity.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/calc_arity.hpp"/>
+            <FILE id="lL8oDz" name="call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call.hpp"/>
+            <FILE id="iHVS9U" name="call_function.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/call_function.hpp"/>
-            <FILE id="IkfWO7" name="call_member.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call_member.hpp"/>
-            <FILE id="ZDxp9f" name="call_operator_iterate.hpp" compile="0" resource="0"
+            <FILE id="Q4ybiR" name="call_member.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call_member.hpp"/>
+            <FILE id="meD1ys" name="call_operator_iterate.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/call_operator_iterate.hpp"/>
-            <FILE id="fkkTj3" name="class_cache.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_cache.hpp"/>
-            <FILE id="Kp3nfk" name="class_registry.hpp" compile="0" resource="0"
+            <FILE id="U1uIJw" name="class_cache.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_cache.hpp"/>
+            <FILE id="w8Zspk" name="class_registry.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/class_registry.hpp"/>
-            <FILE id="GpHSUc" name="class_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_rep.hpp"/>
-            <FILE id="Wbt8Kd" name="compute_score.hpp" compile="0" resource="0"
+            <FILE id="NwbQDl" name="class_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_rep.hpp"/>
+            <FILE id="dziI09" name="compute_score.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/compute_score.hpp"/>
-            <FILE id="d6CWOF" name="constructor.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/constructor.hpp"/>
-            <FILE id="dnLkjx" name="conversion_storage.hpp" compile="0" resource="0"
+            <FILE id="vOZQ7X" name="constructor.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/constructor.hpp"/>
+            <FILE id="jtEC5G" name="conversion_storage.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/conversion_storage.hpp"/>
-            <FILE id="O5SiyH" name="convert_to_lua.hpp" compile="0" resource="0"
+            <FILE id="CyQGxC" name="convert_to_lua.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/convert_to_lua.hpp"/>
-            <FILE id="D3GbXZ" name="debug.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/debug.hpp"/>
-            <FILE id="XuMDno" name="decorate_type.hpp" compile="0" resource="0"
+            <FILE id="F3JSnL" name="debug.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/debug.hpp"/>
+            <FILE id="PIAapq" name="decorate_type.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/decorate_type.hpp"/>
-            <FILE id="EOPj42" name="deduce_signature.hpp" compile="0" resource="0"
+            <FILE id="LvR56z" name="deduce_signature.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/deduce_signature.hpp"/>
-            <FILE id="d2pJXa" name="enum_maker.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/enum_maker.hpp"/>
-            <FILE id="iYBIPp" name="format_signature.hpp" compile="0" resource="0"
+            <FILE id="TCoknn" name="enum_maker.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/enum_maker.hpp"/>
+            <FILE id="WxlUii" name="format_signature.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/format_signature.hpp"/>
-            <FILE id="wBNyKL" name="garbage_collector.hpp" compile="0" resource="0"
+            <FILE id="AhR3yc" name="garbage_collector.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/garbage_collector.hpp"/>
-            <FILE id="fNHycN" name="has_get_pointer.hpp" compile="0" resource="0"
+            <FILE id="iUn8wf" name="has_get_pointer.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/has_get_pointer.hpp"/>
-            <FILE id="OBfIsD" name="inheritance.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/inheritance.hpp"/>
-            <FILE id="XefAF2" name="instance_holder.hpp" compile="0" resource="0"
+            <FILE id="VdIq2m" name="inheritance.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/inheritance.hpp"/>
+            <FILE id="Vcsl4H" name="instance_holder.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/instance_holder.hpp"/>
-            <FILE id="zXI751" name="is_indirect_const.hpp" compile="0" resource="0"
+            <FILE id="aH0jsb" name="is_indirect_const.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/is_indirect_const.hpp"/>
-            <FILE id="A7628F" name="link_compatibility.hpp" compile="0" resource="0"
+            <FILE id="WRtk4C" name="link_compatibility.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/link_compatibility.hpp"/>
-            <FILE id="AyPHmq" name="make_instance.hpp" compile="0" resource="0"
+            <FILE id="bu4JZv" name="make_instance.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/make_instance.hpp"/>
-            <FILE id="VfOSVq" name="most_derived.hpp" compile="0" resource="0"
+            <FILE id="XxnTT1" name="most_derived.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/most_derived.hpp"/>
-            <FILE id="k2wYun" name="object_call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_call.hpp"/>
-            <FILE id="IFw6Av" name="object_funs.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_funs.hpp"/>
-            <FILE id="kOKaaN" name="object_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_rep.hpp"/>
-            <FILE id="sFP19p" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/open.hpp"/>
-            <FILE id="GSAsIa" name="operator_id.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/operator_id.hpp"/>
-            <FILE id="paFGKs" name="other.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/other.hpp"/>
-            <FILE id="OapUkW" name="pcall.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/pcall.hpp"/>
-            <FILE id="oghe8d" name="pointee_sizeof.hpp" compile="0" resource="0"
+            <FILE id="SCb6NP" name="object_call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_call.hpp"/>
+            <FILE id="i9PI87" name="object_funs.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_funs.hpp"/>
+            <FILE id="X5fEAs" name="object_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_rep.hpp"/>
+            <FILE id="tCfVCf" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/open.hpp"/>
+            <FILE id="x0ugWP" name="operator_id.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/operator_id.hpp"/>
+            <FILE id="b41oa0" name="other.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/other.hpp"/>
+            <FILE id="UPdsdK" name="pcall.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/pcall.hpp"/>
+            <FILE id="XHAF4k" name="pointee_sizeof.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/pointee_sizeof.hpp"/>
-            <FILE id="UIOiTd" name="pointee_typeid.hpp" compile="0" resource="0"
+            <FILE id="dH675R" name="pointee_typeid.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/pointee_typeid.hpp"/>
-            <FILE id="Y7BPdg" name="policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/policy.hpp"/>
-            <FILE id="GbFHQy" name="primitives.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/primitives.hpp"/>
-            <FILE id="CWP7Ta" name="property.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/property.hpp"/>
-            <FILE id="IcwZWu" name="ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/ref.hpp"/>
-            <FILE id="fbpk3g" name="signature_match.hpp" compile="0" resource="0"
+            <FILE id="mpASox" name="policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/policy.hpp"/>
+            <FILE id="o1UZfR" name="primitives.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/primitives.hpp"/>
+            <FILE id="eh8OFr" name="property.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/property.hpp"/>
+            <FILE id="XAHNbO" name="ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/ref.hpp"/>
+            <FILE id="F9xBKM" name="signature_match.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/signature_match.hpp"/>
-            <FILE id="LV8Ki0" name="stack_utils.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/stack_utils.hpp"/>
-            <FILE id="ypCsa4" name="typetraits.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/typetraits.hpp"/>
-            <FILE id="LMukWc" name="yes_no.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/yes_no.hpp"/>
+            <FILE id="mwOZBr" name="stack_utils.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/stack_utils.hpp"/>
+            <FILE id="F7uz2E" name="typetraits.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/typetraits.hpp"/>
+            <FILE id="aqrzJz" name="yes_no.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/yes_no.hpp"/>
           </GROUP>
-          <FILE id="RXvsFf" name="discard_result_policy.hpp" compile="0" resource="0"
+          <FILE id="dqbR5h" name="discard_result_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/discard_result_policy.hpp"/>
-          <FILE id="baEr29" name="error.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/error.hpp"/>
-          <FILE id="DirLzf" name="exception_handler.hpp" compile="0" resource="0"
+          <FILE id="oOFb7N" name="error.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/error.hpp"/>
+          <FILE id="DZPun9" name="exception_handler.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/exception_handler.hpp"/>
-          <FILE id="wndenB" name="from_stack.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/from_stack.hpp"/>
-          <FILE id="nNrY84" name="function.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/function.hpp"/>
-          <FILE id="o70y6r" name="get_main_thread.hpp" compile="0" resource="0"
+          <FILE id="twCqUh" name="from_stack.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/from_stack.hpp"/>
+          <FILE id="fTmKSp" name="function.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/function.hpp"/>
+          <FILE id="MJeYO4" name="get_main_thread.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/get_main_thread.hpp"/>
-          <FILE id="XYj8M7" name="get_pointer.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/get_pointer.hpp"/>
-          <FILE id="pNCg0D" name="handle.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/handle.hpp"/>
-          <FILE id="ZWFqkP" name="iterator_policy.hpp" compile="0" resource="0"
+          <FILE id="MuaIG2" name="get_pointer.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/get_pointer.hpp"/>
+          <FILE id="AuumVE" name="handle.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/handle.hpp"/>
+          <FILE id="TPdSJ7" name="iterator_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/iterator_policy.hpp"/>
-          <FILE id="DMNrgA" name="lauxlib.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lauxlib.h"/>
-          <FILE id="G8MMdA" name="lua.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua.h"/>
-          <FILE id="i5AjYx" name="lua.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua.hpp"/>
-          <FILE id="DoH926" name="lua_include.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua_include.hpp"/>
-          <FILE id="VxvRYN" name="luabind.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luabind.hpp"/>
-          <FILE id="gWcKfk" name="luaconf.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luaconf.h"/>
-          <FILE id="k4tCxa" name="lualib.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lualib.h"/>
-          <FILE id="RDMTid" name="make_function.hpp" compile="0" resource="0"
+          <FILE id="Jejotp" name="lauxlib.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lauxlib.h"/>
+          <FILE id="YRM0yi" name="lua.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua.h"/>
+          <FILE id="AdwIyd" name="lua.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua.hpp"/>
+          <FILE id="LtvIZd" name="lua_include.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua_include.hpp"/>
+          <FILE id="esYH8Q" name="luabind.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luabind.hpp"/>
+          <FILE id="KE5ohB" name="luaconf.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luaconf.h"/>
+          <FILE id="FO1cfp" name="lualib.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lualib.h"/>
+          <FILE id="K9vKWJ" name="make_function.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/make_function.hpp"/>
-          <FILE id="MXaol3" name="nil.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/nil.hpp"/>
-          <FILE id="QCLEFt" name="no_dependency.hpp" compile="0" resource="0"
+          <FILE id="yy2zt6" name="nil.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/nil.hpp"/>
+          <FILE id="ZKAZnE" name="no_dependency.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/no_dependency.hpp"/>
-          <FILE id="Hv1I8Q" name="object.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/object.hpp"/>
-          <FILE id="gU1OJp" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/open.hpp"/>
-          <FILE id="XMNwdR" name="operator.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/operator.hpp"/>
-          <FILE id="KFaNu6" name="out_value_policy.hpp" compile="0" resource="0"
+          <FILE id="jDxbX4" name="object.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/object.hpp"/>
+          <FILE id="n2MPlh" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/open.hpp"/>
+          <FILE id="jFaFiv" name="operator.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/operator.hpp"/>
+          <FILE id="GGEkRD" name="out_value_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/out_value_policy.hpp"/>
-          <FILE id="JmBTyN" name="prefix.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/prefix.hpp"/>
-          <FILE id="LnOsRL" name="raw_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/raw_policy.hpp"/>
-          <FILE id="vEmFdK" name="return_reference_to_policy.hpp" compile="0"
+          <FILE id="YDaX6q" name="prefix.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/prefix.hpp"/>
+          <FILE id="LEDrku" name="raw_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/raw_policy.hpp"/>
+          <FILE id="hgtxsa" name="return_reference_to_policy.hpp" compile="0"
                 resource="0" file="../../Source/Lua/luabind/luabind/return_reference_to_policy.hpp"/>
-          <FILE id="QfgLKv" name="scope.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/scope.hpp"/>
-          <FILE id="MpvmPb" name="shared_ptr_converter.hpp" compile="0" resource="0"
+          <FILE id="GEoi0C" name="scope.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/scope.hpp"/>
+          <FILE id="Khp1tc" name="shared_ptr_converter.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/shared_ptr_converter.hpp"/>
-          <FILE id="MfbpMm" name="tag_function.hpp" compile="0" resource="0"
+          <FILE id="if9PWD" name="tag_function.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/tag_function.hpp"/>
-          <FILE id="lFKcBQ" name="typeid.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/typeid.hpp"/>
-          <FILE id="smKWrn" name="value_wrapper.hpp" compile="0" resource="0"
+          <FILE id="fDWnF2" name="typeid.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/typeid.hpp"/>
+          <FILE id="UFzsjv" name="value_wrapper.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/value_wrapper.hpp"/>
-          <FILE id="hvhYBu" name="vector.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/vector.hpp"/>
-          <FILE id="LC2wdg" name="version.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/version.hpp"/>
-          <FILE id="MyZsU3" name="weak_ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/weak_ref.hpp"/>
-          <FILE id="lVpyt4" name="wrapper_base.hpp" compile="0" resource="0"
+          <FILE id="WLOq7B" name="vector.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/vector.hpp"/>
+          <FILE id="TIKqbJ" name="version.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/version.hpp"/>
+          <FILE id="yAFKo7" name="weak_ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/weak_ref.hpp"/>
+          <FILE id="cIASeJ" name="wrapper_base.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/wrapper_base.hpp"/>
-          <FILE id="Jd0Rz0" name="yield_policy.hpp" compile="0" resource="0"
+          <FILE id="mi3OTO" name="yield_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/yield_policy.hpp"/>
         </GROUP>
         <GROUP id="{5B95DD71-4B0D-D446-3431-09AE329899C1}" name="src">
-          <FILE id="DRH068" name="class.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class.cpp"/>
-          <FILE id="uwx1ju" name="class_info.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class_info.cpp"/>
-          <FILE id="ceSKBO" name="class_registry.cpp" compile="1" resource="0"
+          <FILE id="cg6cdf" name="class.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class.cpp"/>
+          <FILE id="RL9el0" name="class_info.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class_info.cpp"/>
+          <FILE id="Kof3ua" name="class_registry.cpp" compile="1" resource="0"
                 file="../../Source/Lua/luabind/src/class_registry.cpp"/>
-          <FILE id="H7siQL" name="class_rep.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class_rep.cpp"/>
-          <FILE id="AW0SVO" name="create_class.cpp" compile="1" resource="0"
+          <FILE id="cEXHBF" name="class_rep.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class_rep.cpp"/>
+          <FILE id="a9FYef" name="create_class.cpp" compile="1" resource="0"
                 file="../../Source/Lua/luabind/src/create_class.cpp"/>
-          <FILE id="MwmSOR" name="error.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/error.cpp"/>
-          <FILE id="dSIB0C" name="exception_handler.cpp" compile="1" resource="0"
+          <FILE id="TEhCa1" name="error.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/error.cpp"/>
+          <FILE id="Y1NKbm" name="exception_handler.cpp" compile="1" resource="0"
                 file="../../Source/Lua/luabind/src/exception_handler.cpp"/>
-          <FILE id="bppCm3" name="function.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/function.cpp"/>
-          <FILE id="uev3Q5" name="inheritance.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/inheritance.cpp"/>
-          <FILE id="M09uD2" name="link_compatibility.cpp" compile="1" resource="0"
+          <FILE id="eVmJOM" name="function.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/function.cpp"/>
+          <FILE id="ualWLB" name="inheritance.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/inheritance.cpp"/>
+          <FILE id="vLUxAH" name="link_compatibility.cpp" compile="1" resource="0"
                 file="../../Source/Lua/luabind/src/link_compatibility.cpp"/>
-          <FILE id="GGdiRM" name="lua.c" compile="1" resource="0" file="../../Source/Lua/luabind/src/lua.c"/>
-          <FILE id="Jwi1qD" name="object_rep.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/object_rep.cpp"/>
-          <FILE id="Da8t75" name="open.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/open.cpp"/>
-          <FILE id="EmJYnL" name="pcall.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/pcall.cpp"/>
-          <FILE id="dshbax" name="scope.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/scope.cpp"/>
-          <FILE id="IarNBb" name="stack_content_by_name.cpp" compile="1" resource="0"
+          <FILE id="WUzixW" name="lua.c" compile="1" resource="0" file="../../Source/Lua/luabind/src/lua.c"/>
+          <FILE id="kH2nCY" name="object_rep.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/object_rep.cpp"/>
+          <FILE id="l4ZAG0" name="open.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/open.cpp"/>
+          <FILE id="jeZnM0" name="pcall.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/pcall.cpp"/>
+          <FILE id="ij380f" name="scope.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/scope.cpp"/>
+          <FILE id="CvJIYf" name="stack_content_by_name.cpp" compile="1" resource="0"
                 file="../../Source/Lua/luabind/src/stack_content_by_name.cpp"/>
-          <FILE id="GAWl3w" name="weak_ref.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/weak_ref.cpp"/>
-          <FILE id="TMb3uT" name="wrapper_base.cpp" compile="1" resource="0"
+          <FILE id="Soy6Kf" name="weak_ref.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/weak_ref.cpp"/>
+          <FILE id="MrSe8x" name="wrapper_base.cpp" compile="1" resource="0"
                 file="../../Source/Lua/luabind/src/wrapper_base.cpp"/>
         </GROUP>
       </GROUP>
       <GROUP id="{57C69A3E-7CA3-5A7E-92CA-8FF67F586816}" name="Methods">
-        <FILE id="xrCADP" name="CtrlrLuaMethod.cpp" compile="1" resource="0"
+        <FILE id="bpH6k7" name="CtrlrLuaMethod.cpp" compile="1" resource="0"
               file="../../Source/Lua/Methods/CtrlrLuaMethod.cpp"/>
-        <FILE id="a8pyP7" name="CtrlrLuaMethod.h" compile="0" resource="0"
+        <FILE id="xRbY8J" name="CtrlrLuaMethod.h" compile="0" resource="0"
               file="../../Source/Lua/Methods/CtrlrLuaMethod.h"/>
-        <FILE id="VsSTmR" name="CtrlrLuaMethodManager.cpp" compile="1" resource="0"
+        <FILE id="TxEOkf" name="CtrlrLuaMethodManager.cpp" compile="1" resource="0"
               file="../../Source/Lua/Methods/CtrlrLuaMethodManager.cpp"/>
-        <FILE id="d20D7p" name="CtrlrLuaMethodManager.h" compile="0" resource="0"
+        <FILE id="Qa9FIk" name="CtrlrLuaMethodManager.h" compile="0" resource="0"
               file="../../Source/Lua/Methods/CtrlrLuaMethodManager.h"/>
-        <FILE id="D6piks" name="CtrlrLuaMethodManagerCalls.cpp" compile="1"
+        <FILE id="VLBBrC" name="CtrlrLuaMethodManagerCalls.cpp" compile="1"
               resource="0" file="../../Source/Lua/Methods/CtrlrLuaMethodManagerCalls.cpp"/>
       </GROUP>
     </GROUP>
@@ -659,10 +671,26 @@
         <FILE id="rrcBlS" name="RSRC.zip" compile="0" resource="1" file="../../Source/Resources/Misc/RSRC.zip"/>
       </GROUP>
       <GROUP id="{5A224694-9F55-9179-D979-927BC5002604}" name="Icons">
+        <FILE id="mdCnxn" name="appbar.control.play.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.control.play.png"/>
+        <FILE id="qftWBP" name="appbar.debug.clean.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.clean.png"/>
+        <FILE id="vIo7dn" name="appbar.debug.restart.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.restart.png"/>
+        <FILE id="vNFTTl" name="appbar.debug.step.into.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.step.into.png"/>
+        <FILE id="tTIg8K" name="appbar.debug.step.out.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.step.out.png"/>
+        <FILE id="zukPNl" name="appbar.debug.step.over.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.step.over.png"/>
+        <FILE id="kgOBPm" name="appbar.debug.stop.png" compile="0" resource="1"
+              file="../../Source/Resources/Icons/appbar.debug.stop.png"/>
         <FILE id="eEA2r4" name="ico_transaction.png" compile="0" resource="1"
               file="../../Source/Resources/Icons/ico_transaction.png"/>
         <FILE id="l0Yecx" name="ico_box.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_box.png"/>
         <FILE id="DV3Evx" name="ico_bug.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_bug.png"/>
+        <FILE id="zi4POR" name="ico_ctrlr_mac.icns" compile="0" resource="1"
+              file="../../Source/Resources/Icons/ico_ctrlr_mac.icns"/>
         <FILE id="Ixav4n" name="ico_copy.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_copy.png"/>
         <FILE id="LelZe1" name="ico_cut.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_cut.png"/>
         <FILE id="cdQslG" name="ico_delete.png" compile="0" resource="1" file="../../Source/Resources/Icons/ico_delete.png"/>
@@ -917,6 +945,26 @@
                 resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.cpp"/>
           <FILE id="dz8CSU" name="CtrlrLuaMethodCodeEditorSettings.h" compile="0"
                 resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.h"/>
+          <FILE id="DceSTz" name="CtrlrLuaMethodDebuggerControls.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp"/>
+          <FILE id="VsPvC2" name="CtrlrLuaMethodDebuggerControls.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.h"/>
+          <FILE id="e61pfF" name="CtrlrLuaMethodDebuggerInfo.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.cpp"/>
+          <FILE id="ueUJbH" name="CtrlrLuaMethodDebuggerInfo.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.h"/>
+          <FILE id="YbV2V3" name="CtrlrLuaMethodDebuggerPrompt.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp"/>
+          <FILE id="txmSgd" name="CtrlrLuaMethodDebuggerPrompt.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.h"/>
+          <FILE id="GvZFJD" name="CtrlrLuaMethodDebuggerStackTrace.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp"/>
+          <FILE id="a7EkDp" name="CtrlrLuaMethodDebuggerStackTrace.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.h"/>
+          <FILE id="QmhJ5h" name="CtrlrLuaMethodDebuggerVars.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp"/>
+          <FILE id="jBGw20" name="CtrlrLuaMethodDebuggerVars.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.h"/>
           <FILE id="fwAANC" name="CtrlrLuaMethodEditArea.cpp" compile="1" resource="0"
                 file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp"/>
           <FILE id="vhQkcO" name="CtrlrLuaMethodEditArea.h" compile="0" resource="0"
@@ -925,6 +973,10 @@
                 file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp"/>
           <FILE id="JG9hi7" name="CtrlrLuaMethodEditor.h" compile="0" resource="0"
                 file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h"/>
+          <FILE id="ItoDbo" name="CtrlrLuaMethodEditorConsole.cpp" compile="1"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp"/>
+          <FILE id="x9ZNHG" name="CtrlrLuaMethodEditorConsole.h" compile="0"
+                resource="0" file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.h"/>
           <FILE id="fCbo3a" name="CtrlrLuaMethodEditorTabs.cpp" compile="1" resource="0"
                 file="../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp"/>
           <FILE id="AZBtk8" name="CtrlrLuaMethodEditorTabs.h" compile="0" resource="0"

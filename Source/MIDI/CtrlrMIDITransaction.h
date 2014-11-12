@@ -11,7 +11,7 @@ class CtrlrMIDITransaction : public ValueTree::Listener, public AsyncUpdater, pu
 	public:
 		CtrlrMIDITransaction (CtrlrMIDILibrary &_owner);
 		~CtrlrMIDITransaction();
-		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ transactionState.setProperty (name, newValue, isUndoable ? nullptr : nullptr); }
+		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ transactionState.setProperty (name, newValue, nullptr); }
 		const var &getProperty (const Identifier& name) const											{ return transactionState.getProperty (name); }
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return transactionState.getProperty (name, defaultReturnValue); }
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
