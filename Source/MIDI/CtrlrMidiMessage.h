@@ -117,7 +117,7 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 		void restoreState (const ValueTree &stateTree);
 		ValueTree &getMidiTree()																		{ return (midiTree); }
 
-		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ midiTree.setProperty (name, newValue, isUndoable ? nullptr : nullptr); }
+		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ midiTree.setProperty (name, newValue, nullptr); }
 		const var &getProperty (const Identifier& name) const											{ return midiTree.getProperty (name); }
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return midiTree.getProperty (name, defaultReturnValue); }
 		virtual void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);

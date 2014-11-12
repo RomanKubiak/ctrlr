@@ -4,6 +4,9 @@
 
 */
 
+#ifndef BINARYDATA_H_53207093_INCLUDED
+#define BINARYDATA_H_53207093_INCLUDED
+
 namespace BinaryData
 {
     extern const char*   CtrlrRevision_template;
@@ -11,6 +14,27 @@ namespace BinaryData
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
+
+    extern const char*   appbar_control_play_png;
+    const int            appbar_control_play_pngSize = 434;
+
+    extern const char*   appbar_debug_clean_png;
+    const int            appbar_debug_clean_pngSize = 723;
+
+    extern const char*   appbar_debug_restart_png;
+    const int            appbar_debug_restart_pngSize = 436;
+
+    extern const char*   appbar_debug_step_into_png;
+    const int            appbar_debug_step_into_pngSize = 492;
+
+    extern const char*   appbar_debug_step_out_png;
+    const int            appbar_debug_step_out_pngSize = 469;
+
+    extern const char*   appbar_debug_step_over_png;
+    const int            appbar_debug_step_over_pngSize = 489;
+
+    extern const char*   appbar_debug_stop_png;
+    const int            appbar_debug_stop_pngSize = 218;
 
     extern const char*   ico_transaction_png;
     const int            ico_transaction_pngSize = 3798;
@@ -20,6 +44,9 @@ namespace BinaryData
 
     extern const char*   ico_bug_png;
     const int            ico_bug_pngSize = 4091;
+
+    extern const char*   ico_ctrlr_mac_icns;
+    const int            ico_ctrlr_mac_icnsSize = 64064;
 
     extern const char*   ico_copy_png;
     const int            ico_copy_pngSize = 3721;
@@ -169,10 +196,10 @@ namespace BinaryData
     const int            CtrlrMIDITransactions_xmlSize = 1963;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 78807;
+    const int            CtrlrIDs_xmlSize = 79876;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 17877;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 18229;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
@@ -184,9 +211,11 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    extern const int namedResourceListSize;
+    const int namedResourceListSize = 66;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
     const char* getNamedResource (const char* resourceNameUTF8, int& dataSizeInBytes) throw();
 }
+
+#endif
