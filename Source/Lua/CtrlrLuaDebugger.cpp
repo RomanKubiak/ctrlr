@@ -35,6 +35,12 @@ void CtrlrLuaDebugger::dbgWrite(std::string data)
 
     CtrlrLuaMethodEditor *ui = dynamic_cast<CtrlrLuaMethodEditor *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaMethodEditor));
 
+    if (_STR(data).contains ("Paused at"))
+    {
+        commandQueue.add ("trace");
+        commandQueue.add ("vars");
+    }
+
     if (ui)
     {
         return (ui->insertRawDebuggerOutput(_STR(data)));

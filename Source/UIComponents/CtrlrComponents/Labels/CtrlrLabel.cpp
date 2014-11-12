@@ -196,7 +196,7 @@ void CtrlrLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	}
 	else if (property == Ids::uiLabelText)
 	{
-		ctrlrLabel->setText (getProperty(Ids::uiLabelText), dontSendNotification);
+		ctrlrLabel->setText (getProperty(Ids::uiLabelText), sendNotification);
 	}
 	else if (property == Ids::uiLabelBgColour)
 	{
@@ -281,7 +281,9 @@ void CtrlrLabel::modulatorChanged (CtrlrModulator *modulatorThatChanged)
 
 void CtrlrLabel::labelTextChanged (Label* labelThatHasChanged)
 {
-	setProperty (Ids::uiLabelText, labelThatHasChanged->getText(), false);
+	if (getProperty (Ids::uiLabelText).toString() != labelThatHasChanged->getText())
+        setProperty (Ids::uiLabelText, labelThatHasChanged->getText(), false);
+
 	setComponentValue(0, true);
 
 	if (labelChangedCbk && !labelChangedCbk.wasObjectDeleted())

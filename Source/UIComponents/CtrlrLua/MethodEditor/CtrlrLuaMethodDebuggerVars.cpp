@@ -80,8 +80,26 @@ void CtrlrLuaMethodDebuggerVars::resized()
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void CtrlrLuaMethodDebuggerVars::setData (const String &data)
 {
-    _DBG("CtrlrLuaMethodDebuggerVars::setData");
-    _DBG(data);
+    _DBG("CtrlrLuaMethodDebuggerVars::setData {"+data+"}");
+    var result;
+    JSON::parse ("{" + data + "}", result);
+
+    if (result.isObject())
+    {
+        DynamicObject *o = result.getDynamicObject();
+
+        if (o)
+        {
+            if (o->getProperty(o->getProperties().getName(0)).isObject())
+            {
+                DynamicObject *variables = o->getProperty(o->getProperties().getName(0)).getDynamicObject();
+                if (variables)
+                {
+                    _DBG("\t\t props:"+_STR(variables->getProperties().size()));
+                }
+            }
+        }
+    }
 }
 
 void CtrlrLuaMethodDebuggerVars::paintRowBackground (Graphics &g, int rowNumber, int width, int height, bool rowIsSelected)
