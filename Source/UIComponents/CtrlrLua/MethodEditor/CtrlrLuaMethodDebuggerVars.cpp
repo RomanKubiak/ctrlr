@@ -19,6 +19,7 @@
 
 //[Headers] You can add your own extra header files here...
 #include "stdafx.h"
+#include "CtrlrInlineUtilitiesGUI.h"
 //[/Headers]
 
 #include "CtrlrLuaMethodDebuggerVars.h"
@@ -35,6 +36,10 @@ CtrlrLuaMethodDebuggerVars::CtrlrLuaMethodDebuggerVars (CtrlrLuaMethodEditor &_o
 
     //[UserPreSize]
     setName ("Variables");
+    valueList->setModel (this);
+    valueList->getHeader().addColumn ("Name", 1, 120, 120, -1);
+    valueList->getHeader().addColumn ("Type", 2, 120, 120, -1);
+    valueList->getHeader().addColumn ("Value", 3, 140, 140, -1);
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -80,12 +85,14 @@ void CtrlrLuaMethodDebuggerVars::resized()
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void CtrlrLuaMethodDebuggerVars::setData (const String &data)
 {
-    _DBG("CtrlrLuaMethodDebuggerVars::setData {"+data+"}");
+    // _DBG("CtrlrLuaMethodDebuggerVars::setData {"+data+"}");
     var result;
     JSON::parse ("{" + data + "}", result);
 
     if (result.isObject())
     {
+        currentVars.clear();
+
         DynamicObject *o = result.getDynamicObject();
 
         if (o)
@@ -95,8 +102,49 @@ void CtrlrLuaMethodDebuggerVars::setData (const String &data)
                 DynamicObject *variables = o->getProperty(o->getProperties().getName(0)).getDynamicObject();
                 if (variables)
                 {
-                    _DBG("\t\t props:"+_STR(variables->getProperties().size()));
+                    for (int i=0; i<variables->getProperties().size(); i++)
+                    {
+                        Variable v;
+                        if (variables->getProperties().getName(i).toString() == "table")
+                            continue;
+
+                        v.varName   = variables->getProperties().getName(i).toString();
+                        if (variables->getProperties().getValueAt(i).isObject())
+                        {
+                            DynamicObject *varDesc = variables->getProperties().getValueAt(i).getDynamicObject();
+
+                            if (varDesc->getProperties().getName(0).toString() == "userdata")
+                            {
+                                if (isupper (varDesc->getProperties().getValueAt(0).toString()[0]))
+                                {
+                                    v.varType = _STR ("(" + varDesc->getProperties().getValueAt(0).toString() + ")");
+                                }
+                                else
+                                {
+                                    v.varType = varDesc->getProperties().getValueAt(0);
+                                }
+                            }
+                            else if (varDesc->getProperties().getName(0).toString() == "table")
+                            {
+                                v.varType   = varDesc->getProperties().getName(0).toString();
+                                v.varValue  = _STR("["+varDesc->getProperties().getValueAt(0).toString()+"]");
+                            }
+                            else
+                            {
+                                v.varType   = varDesc->getProperties().getName(0).toString();
+                                v.varValue  = varDesc->getProperties().getValueAt(0);
+                            }
+                        }
+                        else
+                        {
+                            v.varValue = variables->getProperties().getValueAt(i);
+                        }
+
+                        currentVars.add (v);
+                    }
                 }
+
+                valueList->updateContent();
             }
         }
     }
@@ -104,10 +152,26 @@ void CtrlrLuaMethodDebuggerVars::setData (const String &data)
 
 void CtrlrLuaMethodDebuggerVars::paintRowBackground (Graphics &g, int rowNumber, int width, int height, bool rowIsSelected)
 {
+    if (rowIsSelected)
+    {
+        drawSelectionRectangle(g, width, height);
+    }
+    else
+    {
+        g.fillAll (Colours::white);
+    }
 }
 
 void CtrlrLuaMethodDebuggerVars::paintCell (Graphics &g, int rowNumber, int columnId, int width, int height, bool rowIsSelected)
 {
+    if (columnId == 1)
+        g.drawText (currentVars[rowNumber].varName, 0, 0, width, height, Justification::left, true);
+
+    if (columnId == 2)
+        g.drawText (currentVars[rowNumber].varType, 0, 0, width, height, Justification::left, true);
+
+    if (columnId == 3)
+        g.drawText (currentVars[rowNumber].varValue.toString(), 0, 0, width, height, Justification::left, true);
 }
 
 void CtrlrLuaMethodDebuggerVars::cellDoubleClicked (int rowNumber, int columnId, const MouseEvent &e)
@@ -117,13 +181,6 @@ void CtrlrLuaMethodDebuggerVars::cellDoubleClicked (int rowNumber, int columnId,
 int CtrlrLuaMethodDebuggerVars::getNumRows()
 {
     return (currentVars.size());
-}
-
-CtrlrLuaMethodDebuggerVars::Variable CtrlrLuaMethodDebuggerVars::getVariable(const String &variableAsString)
-{
-    Variable v;
-
-    return (v);
 }
 //[/MiscUserCode]
 

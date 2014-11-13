@@ -361,6 +361,16 @@ what <func>         -- show where <func> is defined (if known)|
 }
 --}}}
 
+local function tsize(t)
+    local count=0
+
+    for k,v in pairs(t) do
+        count = count + 1
+    end
+
+    return count
+end
+
 --{{{  local function getinfo(level,field)
 
 --like debug.getinfo but copes with no activation record at the given level
@@ -419,9 +429,9 @@ local function dumpval( level, name, value, limit )
         if dumpvisited[value] then
             indented (level, index, string.format("%q", dumpvisited[value]))
         else
-            dumpvisited[value] = string.format ("\"table\": %q,", string.gsub (tostring (value), "table: ", ""))
+            dumpvisited[value] = string.format ("\"table\": \"%d\",", tsize (value))
             if (limit or 0) > 0 and level+1 >= limit then
-                indented (level, index, string.format ("%s", string.gsub (dumpvisited[value], "\"table\": \"", "\"table: ")))
+                indented (level, index, string.format ("{%s", string.gsub(dumpvisited[value], ",", "},")))
             else
                 indented (level, index, "{\n", dumpvisited[value])
 
@@ -434,16 +444,16 @@ local function dumpval( level, name, value, limit )
         end
     else
         if type(value) == 'string' then
-            indented (level, index, string.format("%q",value), ',')
+            indented (level, index, string.format("{\"string\": %q}",value), ',')
         end
 
         if type(value) == 'userdata' then
             info = class_info (value)
-            indented (level, index, string.format ("%q", info.name) , ',')
+            indented (level, index, string.format ("{\"userdata\": %q}", info.name) , ',')
         end
 
         if type(value) == 'number' then
-            indented (level, index, string.format ("%q",tostring(value)), ',')
+            indented (level, index, string.format ("{\"number\": %q}",tostring(value)), ',')
         end
     end
 end
