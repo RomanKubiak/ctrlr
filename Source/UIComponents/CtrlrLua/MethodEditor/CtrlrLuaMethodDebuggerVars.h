@@ -48,7 +48,8 @@ public:
     struct Variable
     {
         String varName;
-        var value;
+        String varType;
+        var varValue;
     };
 
     int getNumRows();
@@ -56,7 +57,6 @@ public:
     void paintCell (Graphics &g, int rowNumber, int columnId, int width, int height, bool rowIsSelected);
     void cellDoubleClicked (int rowNumber, int columnId, const MouseEvent &e);
     void setData (const String &data);
-    Variable getVariable(const String &variableAsString);
     //[/UserMethods]
 
     void paint (Graphics& g);
