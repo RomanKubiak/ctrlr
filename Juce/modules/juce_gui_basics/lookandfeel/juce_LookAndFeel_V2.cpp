@@ -188,6 +188,8 @@ LookAndFeel_V2::LookAndFeel_V2()
         0x1004503, /*CodeEditorComponent::defaultTextColourId*/               0xff000000,
         0x1004504, /*CodeEditorComponent::lineNumberBackgroundId*/            0x44999999,
         0x1004505, /*CodeEditorComponent::lineNumberTextId*/                  0x44000000,
+        0x1004506, /*CodeEditorComponent::markedLineNumberBackroundId */      0x80ff0000,
+        0x1004507, /*CodeEditorComponent::markedLineNumberTextId */           0xff000000,
 
         0x1007000, /*ColourSelector::backgroundColourId*/                     0xffe5e5e5,
         0x1007001, /*ColourSelector::labelTextColourId*/                      0xff000000,

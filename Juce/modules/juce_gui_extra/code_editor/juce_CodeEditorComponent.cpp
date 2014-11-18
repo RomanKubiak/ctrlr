@@ -294,6 +294,7 @@ public:
                     .overlaidWith (editor.findColour (lineNumberBackgroundId)));
 
         const Rectangle<int> clip (g.getClipBounds());
+        const Array<int> markedLines = editor.getMarkedLines();
         const int lineH = editor.lineHeight;
         const float lineHeightFloat = (float) lineH;
         const int firstLineToDraw = jmax (0, clip.getY() / lineH);
@@ -304,10 +305,26 @@ public:
         const float w = getWidth() - 2.0f;
 
         GlyphArrangement ga;
+
+        // We can set the font now so we don't need to call it in the loop
+        g.setFont (lineNumberFont);
+
         for (int i = firstLineToDraw; i < lastLineToDraw; ++i)
-            ga.addFittedText (lineNumberFont, String (editor.firstLineOnScreen + i + 1),
+        {
+            if (markedLines.contains (editor.firstLineOnScreen + i + 1))
+            {
+                g.setColour (editor.findColour (markedLineNumberBackroundId));
+                g.fillRect (0.0f, (float) (lineH * i), w, lineHeightFloat);
+                g.setColour (editor.findColour (markedLineNumberTextId));
+                g.drawText (String (editor.firstLineOnScreen + i + 1), 0, (float) (lineH * i), w, lineHeightFloat, Justification::centredRight);
+            }
+            else
+            {
+                ga.addFittedText (lineNumberFont, String (editor.firstLineOnScreen + i + 1),
                               0, (float) (lineH * i), w, lineHeightFloat,
                               Justification::centredRight, 1, 0.2f);
+            }
+        }
 
         g.setColour (editor.findColour (lineNumberTextId));
         ga.draw (g);
@@ -323,6 +340,15 @@ public:
             lastNumLines = newNumLines;
             repaint();
         }
+    }
+
+    void mouseDoubleClick(const MouseEvent &e)
+    {
+        jassert (dynamic_cast<CodeEditorComponent*> (getParentComponent()) != nullptr);
+        CodeEditorComponent& editor = *static_cast<CodeEditorComponent*> (getParentComponent());
+
+        CodeDocument::Position position (editor.getPositionAt (e.x, e.y));
+        editor.toggleLineMark (position.getLineNumber() + 1);
     }
 
 private:
@@ -1538,6 +1564,35 @@ Colour CodeEditorComponent::getColourForTokenType (const int tokenType) const
     return isPositiveAndBelow (tokenType, colourScheme.types.size())
                 ? colourScheme.types.getReference (tokenType).colour
                 : findColour (CodeEditorComponent::defaultTextColourId);
+}
+
+void CodeEditorComponent::setMarkedLine (int lineNumber, bool shouldBeMarked)
+{
+    if (shouldBeMarked)
+    {
+        markedLines.addIfNotAlreadyThere (lineNumber);
+    }
+    else
+    {
+        markedLines.removeAllInstancesOf (lineNumber);
+    }
+
+    repaint();
+}
+
+Array<int> CodeEditorComponent::getMarkedLines() const
+{
+    return (markedLines);
+}
+
+void CodeEditorComponent::toggleLineMark(int lineNumber)
+{
+    if (markedLines.contains(lineNumber))
+        markedLines.removeAllInstancesOf(lineNumber);
+    else
+        markedLines.add (lineNumber);
+
+    repaint();
 }
 
 void CodeEditorComponent::clearCachedIterators (const int firstLineToBeInvalid)
