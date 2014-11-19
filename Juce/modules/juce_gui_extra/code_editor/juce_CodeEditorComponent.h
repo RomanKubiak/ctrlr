@@ -288,6 +288,8 @@ public:
     virtual void handleTabKey();
     /** Called when the escape key is pressed - this can be overridden for custom behaviour. */
     virtual void handleEscapeKey();
+    /** Called when the list of marked lines changes. */
+    virtual void markedLinesChanged(int lineNumber, bool isNowMarked);
 
     //==============================================================================
     /** This adds the items to the popup menu.
