@@ -1255,6 +1255,10 @@ void CodeEditorComponent::handleEscapeKey()
     newTransaction();
 }
 
+void CodeEditorComponent::markedLinesChanged(int lineNumber, bool isNowMarked)
+{
+}
+
 //==============================================================================
 ApplicationCommandTarget* CodeEditorComponent::getNextCommandTarget()
 {
@@ -1577,6 +1581,7 @@ void CodeEditorComponent::setMarkedLine (int lineNumber, bool shouldBeMarked)
         markedLines.removeAllInstancesOf (lineNumber);
     }
 
+    markedLinesChanged(lineNumber, shouldBeMarked);
     repaint();
 }
 
@@ -1591,6 +1596,8 @@ void CodeEditorComponent::toggleLineMark(int lineNumber)
         markedLines.removeAllInstancesOf(lineNumber);
     else
         markedLines.add (lineNumber);
+
+    markedLinesChanged(lineNumber, markedLines.contains(lineNumber));
 
     repaint();
 }
