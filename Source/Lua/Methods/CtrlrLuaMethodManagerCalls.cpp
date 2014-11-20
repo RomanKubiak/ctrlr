@@ -19,6 +19,8 @@ catch (luabind::error &e)\
 	lastExecutionError = String(a);\
 	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(e.what()) + "\n" + lastExecutionError + "\n\nMethod disabled");\
 	_LERR("Callback error: [" + o->getName() + "] " + String(e.what())+" "+lastExecutionError+".\nMethod disabled");\
+	if (currentMethodEditor)\
+		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \
 	return (false);\
 }
 
@@ -30,6 +32,8 @@ catch (luabind::error &e)\
 	lastExecutionError = String(a);\
 	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(e.what()) + "\n" + lastExecutionError + "\n\nMethod disabled");\
 	_LERR("Callback error: [" + o->getName() + "] " + String(e.what())+" "+lastExecutionError+".\nMethod disabled");\
+	if (currentMethodEditor)\
+		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \
 	return (String::empty);\
 }
 
@@ -41,6 +45,8 @@ catch (luabind::error &e)\
 	lastExecutionError = String(a);\
 	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(e.what()) + "\n" + lastExecutionError + "\n\nMethod disabled");\
 	_LERR("Callback error: [" + o->getName() + "] " + String(e.what())+" "+lastExecutionError+".\nMethod disabled");\
+	if (currentMethodEditor)\
+		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \
 }
 
 #define CATCH_METHOD_EXCEPTION_NO_DIALOG \
@@ -50,6 +56,8 @@ catch (luabind::error &e)\
 	const char* a = lua_tostring(e.state(), -1);\
 	lastExecutionError = String(a);\
 	_LERR("Callback error: [" + o->getName() + "]\n" + lastExecutionError.fromLastOccurrenceOf("Error message:\n",false,false) + ".\nMethod disabled");\
+	if (currentMethodEditor)\
+		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \
 	return (false);\
 }
 
