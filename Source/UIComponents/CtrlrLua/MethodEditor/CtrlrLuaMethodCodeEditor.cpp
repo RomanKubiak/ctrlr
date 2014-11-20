@@ -273,8 +273,40 @@ void CtrlrLuaMethodCodeEditor::setFontAndColour (const Font newFont, const Colou
 	editorComponent->setFont (newFont);
 }
 
+void CtrlrLuaMethodCodeEditor::findNextMatch(const String & search, bool bMatchCase)
+{
+	if (owner.getCurrentEditor() == nullptr)
+	{
+		return;
+	}
 
-void CtrlrLuaMethodCodeEditor::replaceNextMatch(const String &search, const String &replace)
+	CodeDocument &doc = owner.getCurrentEditor()->getCodeDocument();
+	int position = -1;
+
+	if (bMatchCase)
+	{
+		position = document.getAllContent().indexOfIgnoreCase(lastFoundPosition + 1, search);
+	}
+	else
+	{
+		position = document.getAllContent().indexOf(lastFoundPosition + 1, search);
+	}
+
+	if (position >= 0)
+	{
+		lastFoundPosition = position;
+		if (editorComponent)
+		{
+			editorComponent->selectRegion(CodeDocument::Position(document, lastFoundPosition), CodeDocument::Position(doc, lastFoundPosition + search.length()));
+		}
+	}
+	else
+	{
+		lastFoundPosition = -1;
+	}
+}
+
+void CtrlrLuaMethodCodeEditor::replaceNextMatch(const String &search, const String &replace, bool bMatchCase)
 {
 	if (owner.getCurrentEditor() == nullptr)
 	{
@@ -282,22 +314,21 @@ void CtrlrLuaMethodCodeEditor::replaceNextMatch(const String &search, const Stri
 	}
 
 	CodeDocument &doc		= owner.getCurrentEditor()->getCodeDocument();
+	findNextMatch(search, bMatchCase);
 	if (lastFoundPosition >= 0)
 	{
 		doc.newTransaction();
 		doc.deleteSection (lastFoundPosition, lastFoundPosition+search.length());
 		doc.insertText (lastFoundPosition, replace);
 	}
-
-	editorComponent->findNext(true, true);
 }
 
-void CtrlrLuaMethodCodeEditor::replaceAllMatches(const String &search, const String &replace)
+void CtrlrLuaMethodCodeEditor::replaceAllMatches(const String &search, const String &replace,bool bMatchCase)
 {
 	lastFoundPosition = -1;
 	do
 	{
-		replaceNextMatch(search, replace);
+		replaceNextMatch(search, replace, bMatchCase);
 	}
 	while (lastFoundPosition >= 0);
 }
@@ -707,11 +738,11 @@ public:
 			}
 			else if (button == replaceButton)
 			{
-				ed->replaceNextMatch (editor.getText(), replaceEditor->getText());
+				ed->replaceNextMatch (editor.getText(), replaceEditor->getText(), caseButton.getToggleState());
 			}
 			else if (button == replaceAllButton)
 			{
-				ed->replaceAllMatches(editor.getText(), replaceEditor->getText());
+				ed->replaceAllMatches(editor.getText(), replaceEditor->getText(), caseButton.getToggleState());
 			}
 			else if (button == &searchButton)
 			{
@@ -753,7 +784,7 @@ public:
 		{
 			if (GenericCodeEditorComponent* ed = getOwner())
 			{
-				ed->replaceNextMatch(editor.getText(), replaceEditor->getText());
+				ed->replaceNextMatch(editor.getText(), replaceEditor->getText(), caseButton.getToggleState());
 			}
 		}
 	}
@@ -991,13 +1022,13 @@ void GenericCodeEditorComponent::gotoLine(int position)
 	owner.gotoLine(position);
 }
 
-void GenericCodeEditorComponent::replaceAllMatches(const String &search, const String &replace)
+void GenericCodeEditorComponent::replaceAllMatches(const String &search, const String &replace, bool bMatchCase)
 {
-	owner.replaceAllMatches(search,replace);
+	owner.replaceAllMatches(search,replace,bMatchCase);
 }
-void GenericCodeEditorComponent::replaceNextMatch(const String &search, const String &replace)
+void GenericCodeEditorComponent::replaceNextMatch(const String &search, const String &replace, bool bMatchCase)
 {
-	owner.replaceNextMatch(search, replace);
+	owner.replaceNextMatch(search, replace,bMatchCase);
 }
 void GenericCodeEditorComponent::findInAll(const String &search)
 {
