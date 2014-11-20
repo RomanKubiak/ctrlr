@@ -293,14 +293,13 @@ void CtrlrLuaMethodFind::replaceNextMatch()
 	const String search		= findInput->getText();
 	const String replace	= replaceInput->getText();
 
+	findNextMatch(); // correction to find and replace on first time also
 	if (lastFoundPosition >= 0)
 	{
 		doc.newTransaction();
 		doc.deleteSection (lastFoundPosition, lastFoundPosition+search.length());
 		doc.insertText (lastFoundPosition, replace);
 	}
-
-	findNextMatch();
 }
 
 void CtrlrLuaMethodFind::replaceAllMatches()
