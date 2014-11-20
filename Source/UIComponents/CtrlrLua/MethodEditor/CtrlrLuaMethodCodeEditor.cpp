@@ -264,7 +264,7 @@ void CtrlrLuaMethodCodeEditor::setErrorLine (const int lineNumber)
 	editorComponent->scrollToLine (lineNumber-1);
 	CodeDocument::Position start(document, lineNumber-1,0);
 	CodeDocument::Position end(document,lineNumber-1,document.getLine (lineNumber-1).length());
-	editorComponent->setHighlightedRegion (Range<int>(start.getPosition(), end.getPosition()));
+	editorComponent->setHighlightedRegion(Range<int>(start.getPosition(), end.getPosition()));
 }
 
 void CtrlrLuaMethodCodeEditor::setFontAndColour (const Font newFont, const Colour newColour)

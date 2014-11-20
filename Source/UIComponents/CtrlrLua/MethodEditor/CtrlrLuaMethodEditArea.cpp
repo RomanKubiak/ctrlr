@@ -124,7 +124,7 @@ void CtrlrLuaMethodEditArea::mouseDoubleClick (const MouseEvent &e)
 
 	//_DBG(line);
 
-	if (line.startsWith("ERROR"))
+	if (line.startsWithIgnoreCase("ERROR"))
 	{
 		const int errorInLine = line.fromFirstOccurrenceOf ("]:", false, true).getIntValue();
 
@@ -133,7 +133,7 @@ void CtrlrLuaMethodEditArea::mouseDoubleClick (const MouseEvent &e)
 			owner.getCurrentEditor()->setErrorLine(errorInLine);
 		}
 	}
-	else if (line.startsWith("Method: "))
+	else if (line.startsWithIgnoreCase("Method: "))
 	{
 		const String methodName	= line.fromFirstOccurrenceOf ("Method: ", false, false).upToFirstOccurrenceOf("line: ", false, true).trim();
 		const int errorInLine	= line.fromFirstOccurrenceOf ("line: ", false, true).getIntValue();
