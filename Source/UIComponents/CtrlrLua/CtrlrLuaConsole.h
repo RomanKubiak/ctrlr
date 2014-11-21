@@ -59,6 +59,13 @@ public:
 		clearOutput
 	};
 
+	enum MoveDirection
+	{
+		NONE,
+		UP,
+		DOWN
+	};
+
 	void messageLogged (CtrlrLog::CtrlrLogMessage message);
 	bool keyPressed (const KeyPress& key, Component* originatingComponent);
 	void runCode(const String &code);
@@ -91,11 +98,16 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 	CtrlrPanel &owner;
-	StringArray inputHistory;
-	int lastHistoryElement;
 	StringArray snips;
 	CodeDocument outputDocument, inputDocument;
 	StretchableLayoutManager layoutManager;
+
+	// Maintain console history and allow user to explore it via up/down keys
+	bool nextUpKeyPressWillbeFirst;
+	int lastMoveDirection;
+	int lastCommandNumInHistory;
+	String currentInputString;
+	StringArray inputHistory;
     //[/UserVariables]
 
     //==============================================================================
