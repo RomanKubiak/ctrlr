@@ -70,7 +70,10 @@ CtrlrLuaConsole::CtrlrLuaConsole (CtrlrPanel &_owner)
 
 	luaConsoleInput->addKeyListener (this);
 	owner.getOwner().getCtrlrLog().addListener (this);
-	lastHistoryElement = 0;
+	nextUpKeyPressWillbeFirst = true;
+	lastCommandNumInHistory = -1;
+	lastMoveDirection = NONE;
+	currentInputString = String::empty;
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -142,6 +145,42 @@ bool CtrlrLuaConsole::keyPressed (const KeyPress& key, Component* originatingCom
 	else if (key.getKeyCode() == 13 && originatingComponent == luaConsoleInput && key.getModifiers().isCtrlDown())
 	{
 		luaConsoleInput->insertTextAtCaret ("\n");
+		return (true);
+	}
+	else if (key.getKeyCode() == KeyPress::upKey && key.getModifiers().isCtrlDown() && originatingComponent == luaConsoleInput )
+	{
+		if(inputHistory.size())
+		{
+			// Prev command
+			if (nextUpKeyPressWillbeFirst) {
+				currentInputString = inputDocument.getAllContent();
+				nextUpKeyPressWillbeFirst = false;
+			}
+
+			luaConsoleInput->loadContent(inputHistory[lastCommandNumInHistory]);  /* Put text at pointer into console */
+			lastCommandNumInHistory = ( ((lastCommandNumInHistory - 1) < 0) ? 0 : (lastCommandNumInHistory - 1) );
+			lastMoveDirection = UP;
+		}
+		return (true);
+	}
+	else if (key.getKeyCode() == KeyPress::downKey && key.getModifiers().isCtrlDown() && originatingComponent == luaConsoleInput)
+	{
+		if(inputHistory.size())
+		{
+			// next command
+			if (lastCommandNumInHistory == (inputHistory.size() - 1)) // at last command only
+			{
+				if (!currentInputString.isEmpty()) {
+					luaConsoleInput->loadContent(currentInputString);
+					nextUpKeyPressWillbeFirst = true;              // if user changes this restored text we need to capture it at up key again
+				}
+				return true;
+			}
+			lastCommandNumInHistory += 1;
+			luaConsoleInput->loadContent(inputHistory[lastCommandNumInHistory]);  /* Put text at pointer into console */
+			lastMoveDirection = DOWN;
+		}
+		return (true);
 	}
 	return (false);
 }
@@ -151,7 +190,14 @@ void CtrlrLuaConsole::runCode(const String &code)
 	luaConsoleOutput->moveCaretToEnd(false);
 	luaConsoleOutput->insertTextAtCaret ("\n");
 	luaConsoleOutput->insertTextAtCaret (">>> " + code + "\n");
-	inputHistory.add (code);
+	// add running code into history
+	if (code.isNotEmpty()){
+		inputHistory.add(code);
+		nextUpKeyPressWillbeFirst = true;
+		lastCommandNumInHistory = inputHistory.size() - 1;
+		lastMoveDirection = NONE;
+		currentInputString = String::empty;
+	}
 	owner.getCtrlrLuaManager().runCode(code);
 	// luaConsoleInput->clear();
 }
