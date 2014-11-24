@@ -58,7 +58,7 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
 	find						= new CtrlrLuaMethodFind(owner);
 	addAndMakeVisible (resizer	= new StretchableLayoutResizerBar (&layoutManager, 1, false));
     debuggerPrompt              = new CtrlrLuaMethodDebuggerPrompt(owner);
-    luaConsole                  = new CtrlrLuaMethodEditorConsole (owner);
+	luaConsole                  = new CtrlrLuaConsole (owner.getOwner());
 
 	lowerTabs->addTab ("Output", Colours::lightgrey, output, true);
 	lowerTabs->addTab ("Find and replace", Colours::lightgrey, find, true);
@@ -165,6 +165,16 @@ void CtrlrLuaMethodEditArea::showFindDialog()
 {
 	lowerTabs->setCurrentTabIndex (1, true);
 	find->setFocusOnFindInput();
+}
+
+void CtrlrLuaMethodEditArea::showDebuggerTab()
+{
+	lowerTabs->setCurrentTabIndex (2, true);
+}
+
+void CtrlrLuaMethodEditArea::showConsoleTab()
+{
+	lowerTabs->setCurrentTabIndex (3, true);
 }
 
 void CtrlrLuaMethodEditArea::findNextMatch()

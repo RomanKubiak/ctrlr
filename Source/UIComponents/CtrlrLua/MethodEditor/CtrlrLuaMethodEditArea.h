@@ -26,7 +26,7 @@
 #include "CtrlrTextEditor.h"
 #include "CtrlrLuaMethodCodeEditor.h"
 #include "CtrlrLuaMethodDebuggerPrompt.h"
-#include "CtrlrLuaMethodEditorConsole.h"
+#include "../CtrlrLuaConsole.h"
 class CtrlrLuaMethodEditor;
 //[/Headers]
 
@@ -55,6 +55,8 @@ public:
 	void insertOutput(const String &textToInsert, const Colour what);
 	void insertOutput(const AttributedString stringToInsert);
 	void showFindDialog();
+	void showDebuggerTab();
+	void showConsoleTab();
 	void findNextMatch();
 	void replaceNextMatch();
 	void closeTabWithMethod(const ValueTree &item);
@@ -79,7 +81,7 @@ private:
 	CtrlrTextEditor *output;
 	CtrlrLuaMethodFind *find;
 	CtrlrLuaMethodDebuggerPrompt *debuggerPrompt;
-	CtrlrLuaMethodEditorConsole *luaConsole;
+	CtrlrLuaConsole *luaConsole;
     //[/UserVariables]
 
     //==============================================================================

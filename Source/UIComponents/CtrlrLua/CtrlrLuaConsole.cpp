@@ -74,6 +74,9 @@ CtrlrLuaConsole::CtrlrLuaConsole (CtrlrPanel &_owner)
 	lastCommandNumInHistory = -1;
 	lastMoveDirection = NONE;
 	currentInputString = String::empty;
+
+	luaConsoleOutput->setWantsKeyboardFocus(false);
+	luaConsoleInput->grabKeyboardFocus();
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -300,6 +303,11 @@ void CtrlrLuaConsole::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 		owner.setProperty (Ids::uiLuaConsoleInputRemoveAfterRun, !owner.getProperty(Ids::uiLuaConsoleInputRemoveAfterRun));
 	}
 	owner.setProperty (Ids::uiLuaConsoleSnips, snips.joinIntoString("$"));
+}
+
+void CtrlrLuaConsole::focusGained(FocusChangeType cause)
+{
+	luaConsoleInput->grabKeyboardFocus();
 }
 //[/MiscUserCode]
 

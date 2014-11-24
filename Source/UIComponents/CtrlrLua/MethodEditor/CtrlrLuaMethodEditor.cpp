@@ -186,7 +186,19 @@ bool CtrlrLuaMethodEditor::keyPressed (const KeyPress& key, Component* originati
 		methodEditArea->findNextMatch();
 		return (true);
 	}
-
+	if (key.getModifiers().isAltDown())
+	{
+		if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 68) // alt+d
+		{
+			methodEditArea->showDebuggerTab();
+			return (true);
+		}
+		else if (CharacterFunctions::toUpperCase ((juce_wchar) (key.getKeyCode())) == 67) // alt+c
+		{
+			methodEditArea->showConsoleTab();
+			return (true);
+		}
+	}
     if (getCurrentEditor())
     {
         return (getCurrentEditor()->keyPressed (key,originatingComponent));
@@ -912,6 +924,9 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 	else if (topLevelMenuIndex == 1)
 	{
 		menu.addItem (4, "Find and replace");
+		menu.addItem (7, "Debugger");
+		menu.addItem (8, "Console");
+
 		menu.addItem (5, "Clear Output");
 		menu.addSeparator();
 		menu.addItem (6, "Settings");
@@ -961,6 +976,14 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 
 		componentTree.setProperty (Ids::luaMethodEditorFont, owner.getOwner().getFontManager().getStringFromFont (s.getFont()), nullptr);
 		componentTree.setProperty (Ids::luaMethodEditorBgColour, COLOUR2STR (s.getColour()), nullptr);
+	}
+	else if (menuItemID == 7 && topLevelMenuIndex == 1)
+	{
+		methodEditArea->showDebuggerTab();
+	}
+	else if (menuItemID == 8 && topLevelMenuIndex == 1)
+	{
+		methodEditArea->showConsoleTab();
 	}
 }
 
