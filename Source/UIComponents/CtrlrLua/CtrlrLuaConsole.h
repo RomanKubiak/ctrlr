@@ -84,6 +84,7 @@ public:
 	StringArray getMenuBarNames();
 	PopupMenu getMenuForIndex(int topLevelMenuIndex, const String &menuName);
 	void menuItemSelected(int menuItemID, int topLevelMenuIndex);
+	void focusGained(FocusChangeType cause);
     //[/UserMethods]
 
     void paint (Graphics& g);
