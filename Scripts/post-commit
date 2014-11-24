@@ -266,6 +266,20 @@ function build_now_linux {
 	rm -f $CTRLR_ROOT/Bin/libCtrlr-*.so
 	rm -f $CTRLR_ROOT/Bin/Ctrlr-*
 	
+	echo "CTRLR: check if boost is unpacked"
+	if [ ! -d $CTRLR_ROOT/Boost/boost ]; then
+		echo "CTRLR: need to unpack boost.zip"
+		cd $CTRLR_ROOT/Boost
+		if [ -e boost.zip ]; then
+			unzip boost.zip
+		else
+			echo "CTRLR: boost.zip file does not exist, exiting now"
+			exit 1
+		fi
+	else
+		echo "CTRLR: boot directory exists"
+	fi
+	
 	echo "CTRLR: Build Standalone"
 	echo -n > $BUILD_LOG
 	
