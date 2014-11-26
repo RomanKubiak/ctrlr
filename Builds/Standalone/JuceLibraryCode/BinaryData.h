@@ -10,10 +10,10 @@
 namespace BinaryData
 {
     extern const char*   inspect_lua;
-    const int            inspect_luaSize = 9234;
+    const int            inspect_luaSize = 9233;
 
     extern const char*   debugger_lua;
-    const int            debugger_luaSize = 43535;
+    const int            debugger_luaSize = 43529;
 
     extern const char*   LICENSE;
     const int            LICENSESize = 1079;
