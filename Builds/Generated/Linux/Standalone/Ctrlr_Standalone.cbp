@@ -15,7 +15,6 @@
 					<Add option="-std=c++0x" />
 					<Add option="-g" />
 					<Add option="-O0" />
-					<Add option="-std=gnu++0x" />
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
 					<Add option="-Wno-ignored-qualifiers" />
@@ -70,7 +69,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-Os" />
-					<Add option="-std=gnu++0x" />
+					<Add option="-std=c++11" />
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
 					<Add option="-std=c++0x" />
@@ -139,7 +138,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-Os" />
-					<Add option="-std=gnu++0x" />
+					<Add option="-std=c++11" />
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
 					<Add option="-std=c++0x" />
@@ -2588,6 +2587,7 @@
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.cpp.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LLookAndFeel.h.sh" />
 		<Unit filename="../../../../Source/Resources/Lua/gen_LookAndFeel.lua.sh" />
+		<Unit filename="../../../../Source/Resources/Lua/inspect.lua" />
 		<Unit filename="../../../../Source/Resources/Lua/json4lua/LICENCE.txt" />
 		<Unit filename="../../../../Source/Resources/Lua/json4lua/json.lua" />
 		<Unit filename="../../../../Source/Resources/Lua/lf.template" />
@@ -2807,6 +2807,7 @@
 			<envvars />
 			<code_completion />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

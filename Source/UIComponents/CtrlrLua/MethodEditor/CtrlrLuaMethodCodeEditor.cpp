@@ -1038,3 +1038,8 @@ void GenericCodeEditorComponent::findInOpened(const String &search)
 {
 	owner.findInOpened(search);
 }
+
+void GenericCodeEditorComponent::markedLinesChanged(int lineNumber, bool isNowSelected)
+{
+    _DBG("GenericCodeEditorComponent::markedLinesChanged line="+_STR(lineNumber)+" selected? "+_STR(isNowSelected));
+}

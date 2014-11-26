@@ -160,6 +160,7 @@
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
       <GROUP id="{9AA7A95B-18B0-8AB1-FF2C-719D1130345F}" name="Lua">
+        <FILE id="gOXicT" name="inspect.lua" compile="0" resource="1" file="../../Source/Resources/Lua/inspect.lua"/>
         <GROUP id="{F279AC1A-AA44-FB6A-BACF-E2EE0B23C1C5}" name="clidebugger">
           <FILE id="Q4eWsN" name="debugger.lua" compile="0" resource="1" file="../../Source/Resources/Lua/clidebugger/debugger.lua"/>
           <FILE id="sgWSrG" name="LICENSE" compile="0" resource="1" file="../../Source/Resources/Lua/clidebugger/LICENSE"/>

@@ -33,7 +33,7 @@ public:
 	void handleAsyncUpdate();
 	void setErrorLine (const int lineNumber);
 	void setFontAndColour (const Font newFont, const Colour newColour);
-	
+
 	void findNextMatch(const String & search, bool bMatchCase);
 	void gotoLine(int position, const bool selectLine=false);
 	void replaceAllMatches(const String &search, const String &replace, bool bMatchCase);
@@ -79,7 +79,7 @@ public:
 	void findSelection(bool forward = true);
 	void findNext (bool forwards, bool skipCurrentSelection);
 	void handleEscapeKey() override;
-
+    void markedLinesChanged(int lineNumber, bool isNowSelected);
 	void replaceAllMatches(const String &search, const String &replace, bool bMatchCase);
 	void replaceNextMatch(const String &search, const String &replace, bool bMatchCase);
 	void findInAll(const String &search);
