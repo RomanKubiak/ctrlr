@@ -53,7 +53,7 @@ local IsWindows = string.find(string.lower(os.getenv('OS') or ''),'^windows')
 
 local coro_debugger
 local events = { BREAK = 1, WATCH = 2, STEP = 3, SET = 4 }
-local breakpoints = {}
+breakpoints = {}
 local watches = {}
 local step_into   = false
 local step_over   = false
