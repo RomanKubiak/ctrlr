@@ -29,7 +29,8 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-CtrlrLuaMethodDebuggerVars::CtrlrLuaMethodDebuggerVars (CtrlrLuaMethodEditor &_owner) : owner(_owner)
+CtrlrLuaMethodDebuggerVars::CtrlrLuaMethodDebuggerVars (CtrlrLuaMethodEditor &_owner)
+    : owner(_owner)
 {
     addAndMakeVisible (valueList = new TableListBox());
 

@@ -63,7 +63,7 @@ String CtrlrLuaMethodManager::getUtilityCode(const int index)
             {
                 int resourceSize;
                 const char *resourceData = BinaryData::getNamedResource (utilityXml->getStringAttribute("resource").toUTF8(), resourceSize);
-                return (String (resourceData, resourceSize));
+                return (String (CharPointer_UTF8(resourceData)));
             }
             else
             {
@@ -403,14 +403,13 @@ const String CtrlrLuaMethodManager::cleanupMethod(XmlElement *methodElement, con
 
         if (resourceData && resourceSize > 0)
         {
-            value = String (resourceData, resourceSize);
+            value = String (CharPointer_UTF8(resourceData));
         }
     }
     else
     {
         methodCode = methodElement->getAllSubText();
         lines.addTokens (methodCode, "\n", String::empty);
-
 
         for (int i=0; i<lines.size(); i++)
         {

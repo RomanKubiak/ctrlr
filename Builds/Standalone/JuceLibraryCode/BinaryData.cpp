@@ -7,8 +7,344 @@
 namespace BinaryData
 {
 
-//================== debugger.lua ==================
+//================== inspect.lua ==================
 static const unsigned char temp_binary_data_0[] =
+"function getInspect()\n"
+"local inspect ={\n"
+"  _VERSION = 'inspect.lua 3.0.0',\n"
+"  _URL     = 'http://github.com/kikito/inspect.lua',\n"
+"  _DESCRIPTION = 'human-readable representations of tables',\n"
+"  _LICENSE = [[\n"
+"    MIT LICENSE\n"
+"\n"
+"    Copyright (c) 2013 Enrique Garc\xc3\xad""a Cota\n"
+"\n"
+"    Permission is hereby granted, free of charge, to any person obtaining a\n"
+"    copy of this software and associated documentation files (the\n"
+"    \"Software\"), to deal in the Software without restriction, including\n"
+"    without limitation the rights to use, copy, modify, merge, publish,\n"
+"    distribute, sublicense, and/or sell copies of the Software, and to\n"
+"    permit persons to whom the Software is furnished to do so, subject to\n"
+"    the following conditions:\n"
+"\n"
+"    The above copyright notice and this permission notice shall be included\n"
+"    in all copies or substantial portions of the Software.\n"
+"\n"
+"    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n"
+"    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n"
+"    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\n"
+"    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\n"
+"    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\n"
+"    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\n"
+"    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n"
+"  ]]\n"
+"}\n"
+"\n"
+"inspect.KEY       = setmetatable({}, {__tostring = function() return 'inspect.KEY' end})\n"
+"inspect.METATABLE = setmetatable({}, {__tostring = function() return 'inspect.METATABLE' end})\n"
+"\n"
+"-- Apostrophizes the string if it has quotes, but not aphostrophes\n"
+"-- Otherwise, it returns a regular quoted string\n"
+"local function smartQuote(str)\n"
+"  if str:match('\"') and not str:match(\"'\") then\n"
+"    return \"'\" .. str .. \"'\"\n"
+"  end\n"
+"  return '\"' .. str:gsub('\"', '\\\\\"') .. '\"'\n"
+"end\n"
+"\n"
+"local controlCharsTranslation = {\n"
+"  [\"\\a\"] = \"\\\\a\",  [\"\\b\"] = \"\\\\b\", [\"\\f\"] = \"\\\\f\",  [\"\\n\"] = \"\\\\n\",\n"
+"  [\"\\r\"] = \"\\\\r\",  [\"\\t\"] = \"\\\\t\", [\"\\v\"] = \"\\\\v\"\n"
+"}\n"
+"\n"
+"local function escape(str)\n"
+"  local result = str:gsub(\"\\\\\", \"\\\\\\\\\"):gsub(\"(%c)\", controlCharsTranslation)\n"
+"  return result\n"
+"end\n"
+"\n"
+"local function isIdentifier(str)\n"
+"  return type(str) == 'string' and str:match( \"^[_%a][_%a%d]*$\" )\n"
+"end\n"
+"\n"
+"local function isSequenceKey(k, length)\n"
+"  return type(k) == 'number'\n"
+"     and 1 <= k\n"
+"     and k <= length\n"
+"     and math.floor(k) == k\n"
+"end\n"
+"\n"
+"local defaultTypeOrders = {\n"
+"  ['number']   = 1, ['boolean']  = 2, ['string'] = 3, ['table'] = 4,\n"
+"  ['function'] = 5, ['userdata'] = 6, ['thread'] = 7\n"
+"}\n"
+"\n"
+"local function sortKeys(a, b)\n"
+"  local ta, tb = type(a), type(b)\n"
+"\n"
+"  -- strings and numbers are sorted numerically/alphabetically\n"
+"  if ta == tb and (ta == 'string' or ta == 'number') then return a < b end\n"
+"\n"
+"  local dta, dtb = defaultTypeOrders[ta], defaultTypeOrders[tb]\n"
+"  -- Two default types are compared according to the defaultTypeOrders table\n"
+"  if dta and dtb then return defaultTypeOrders[ta] < defaultTypeOrders[tb]\n"
+"  elseif dta     then return true  -- default types before custom ones\n"
+"  elseif dtb     then return false -- custom types after default ones\n"
+"  end\n"
+"\n"
+"  -- custom types are sorted out alphabetically\n"
+"  return ta < tb\n"
+"end\n"
+"\n"
+"local function getNonSequentialKeys(t)\n"
+"  local keys, length = {}, #t\n"
+"  for k,_ in pairs(t) do\n"
+"    if not isSequenceKey(k, length) then table.insert(keys, k) end\n"
+"  end\n"
+"  table.sort(keys, sortKeys)\n"
+"  return keys\n"
+"end\n"
+"\n"
+"local function getToStringResultSafely(t, mt)\n"
+"  local __tostring = type(mt) == 'table' and rawget(mt, '__tostring')\n"
+"  local str, ok\n"
+"  if type(__tostring) == 'function' then\n"
+"    ok, str = pcall(__tostring, t)\n"
+"    str = ok and str or 'error: ' .. tostring(str)\n"
+"  end\n"
+"  if type(str) == 'string' and #str > 0 then return str end\n"
+"end\n"
+"\n"
+"local maxIdsMetaTable = {\n"
+"  __index = function(self, typeName)\n"
+"    rawset(self, typeName, 0)\n"
+"    return 0\n"
+"  end\n"
+"}\n"
+"\n"
+"local idsMetaTable = {\n"
+"  __index = function (self, typeName)\n"
+"    local col = setmetatable({}, {__mode = \"kv\"})\n"
+"    rawset(self, typeName, col)\n"
+"    return col\n"
+"  end\n"
+"}\n"
+"\n"
+"local function countTableAppearances(t, tableAppearances)\n"
+"  tableAppearances = tableAppearances or setmetatable({}, {__mode = \"k\"})\n"
+"\n"
+"  if type(t) == 'table' then\n"
+"    if not tableAppearances[t] then\n"
+"      tableAppearances[t] = 1\n"
+"      for k,v in pairs(t) do\n"
+"        countTableAppearances(k, tableAppearances)\n"
+"        countTableAppearances(v, tableAppearances)\n"
+"      end\n"
+"      countTableAppearances(getmetatable(t), tableAppearances)\n"
+"    else\n"
+"      tableAppearances[t] = tableAppearances[t] + 1\n"
+"    end\n"
+"  end\n"
+"\n"
+"  return tableAppearances\n"
+"end\n"
+"\n"
+"local copySequence = function(s)\n"
+"  local copy, len = {}, #s\n"
+"  for i=1, len do copy[i] = s[i] end\n"
+"  return copy, len\n"
+"end\n"
+"\n"
+"local function makePath(path, ...)\n"
+"  local keys = {...}\n"
+"  local newPath, len = copySequence(path)\n"
+"  for i=1, #keys do\n"
+"    newPath[len + i] = keys[i]\n"
+"  end\n"
+"  return newPath\n"
+"end\n"
+"\n"
+"local function processRecursive(process, item, path)\n"
+"  if item == nil then return nil end\n"
+"\n"
+"  local processed = process(item, path)\n"
+"  if type(processed) == 'table' then\n"
+"    local processedCopy = {}\n"
+"    local processedKey\n"
+"\n"
+"    for k,v in pairs(processed) do\n"
+"      processedKey = processRecursive(process, k, makePath(path, k, inspect.KEY))\n"
+"      if processedKey ~= nil then\n"
+"        processedCopy[processedKey] = processRecursive(process, v, makePath(path, processedKey))\n"
+"      end\n"
+"    end\n"
+"\n"
+"    local mt  = processRecursive(process, getmetatable(processed), makePath(path, inspect.METATABLE))\n"
+"    setmetatable(processedCopy, mt)\n"
+"    processed = processedCopy\n"
+"  end\n"
+"  return processed\n"
+"end\n"
+"\n"
+"\n"
+"-------------------------------------------------------------------\n"
+"\n"
+"local Inspector = {}\n"
+"local Inspector_mt = {__index = Inspector}\n"
+"\n"
+"function Inspector:puts(...)\n"
+"  local args   = {...}\n"
+"  local buffer = self.buffer\n"
+"  local len    = #buffer\n"
+"  for i=1, #args do\n"
+"    len = len + 1\n"
+"    buffer[len] = tostring(args[i])\n"
+"  end\n"
+"end\n"
+"\n"
+"function Inspector:down(f)\n"
+"  self.level = self.level + 1\n"
+"  f()\n"
+"  self.level = self.level - 1\n"
+"end\n"
+"\n"
+"function Inspector:tabify()\n"
+"  self:puts(self.newline, string.rep(self.indent, self.level))\n"
+"end\n"
+"\n"
+"function Inspector:alreadyVisited(v)\n"
+"  return self.ids[type(v)][v] ~= nil\n"
+"end\n"
+"\n"
+"function Inspector:getId(v)\n"
+"  local tv = type(v)\n"
+"  local id = self.ids[tv][v]\n"
+"  if not id then\n"
+"    id              = self.maxIds[tv] + 1\n"
+"    self.maxIds[tv] = id\n"
+"    self.ids[tv][v] = id\n"
+"  end\n"
+"  return id\n"
+"end\n"
+"\n"
+"function Inspector:putKey(k)\n"
+"  if isIdentifier(k) then return self:puts(k) end\n"
+"  self:puts(\"[\")\n"
+"  self:putValue(k)\n"
+"  self:puts(\"]\")\n"
+"end\n"
+"\n"
+"function Inspector:putTable(t)\n"
+"  if t == inspect.KEY or t == inspect.METATABLE then\n"
+"    self:puts(tostring(t))\n"
+"  elseif self:alreadyVisited(t) then\n"
+"    self:puts('<table ', self:getId(t), '>')\n"
+"  elseif self.level >= self.depth then\n"
+"    self:puts('{...}')\n"
+"  else\n"
+"    if self.tableAppearances[t] > 1 then self:puts('<', self:getId(t), '>') end\n"
+"\n"
+"    local nonSequentialKeys = getNonSequentialKeys(t)\n"
+"    local length            = #t\n"
+"    local mt                = getmetatable(t)\n"
+"    local toStringResult    = getToStringResultSafely(t, mt)\n"
+"\n"
+"    self:puts('{')\n"
+"    self:down(function()\n"
+"      if toStringResult then\n"
+"        self:puts(' -- ', escape(toStringResult))\n"
+"        if length >= 1 then self:tabify() end\n"
+"      end\n"
+"\n"
+"      local count = 0\n"
+"      for i=1, length do\n"
+"        if count > 0 then self:puts(',') end\n"
+"        self:puts(' ')\n"
+"        self:putValue(t[i])\n"
+"        count = count + 1\n"
+"      end\n"
+"\n"
+"      for _,k in ipairs(nonSequentialKeys) do\n"
+"        if count > 0 then self:puts(',') end\n"
+"        self:tabify()\n"
+"        self:putKey(k)\n"
+"        self:puts(' = ')\n"
+"        self:putValue(t[k])\n"
+"        count = count + 1\n"
+"      end\n"
+"\n"
+"      if mt then\n"
+"        if count > 0 then self:puts(',') end\n"
+"        self:tabify()\n"
+"        self:puts('<metatable> = ')\n"
+"        self:putValue(mt)\n"
+"      end\n"
+"    end)\n"
+"\n"
+"    if #nonSequentialKeys > 0 or mt then -- result is multi-lined. Justify closing }\n"
+"      self:tabify()\n"
+"    elseif length > 0 then -- array tables have one extra space before closing }\n"
+"      self:puts(' ')\n"
+"    end\n"
+"\n"
+"    self:puts('}')\n"
+"  end\n"
+"end\n"
+"\n"
+"function Inspector:putValue(v)\n"
+"  local tv = type(v)\n"
+"\n"
+"  if tv == 'string' then\n"
+"    self:puts(smartQuote(escape(v)))\n"
+"  elseif tv == 'number' or tv == 'boolean' or tv == 'nil' then\n"
+"    self:puts(tostring(v))\n"
+"  elseif tv == 'table' then\n"
+"    self:putTable(v)\n"
+"  else\n"
+"    self:puts('<',tv,' ',self:getId(v),'>')\n"
+"  end\n"
+"end\n"
+"\n"
+"-------------------------------------------------------------------\n"
+"\n"
+"function inspect.inspect(root, options)\n"
+"  options       = options or {}\n"
+"\n"
+"  local depth   = options.depth   or math.huge\n"
+"  local newline = options.newline or '\\n'\n"
+"  local indent  = options.indent  or '  '\n"
+"  local process = options.process\n"
+"\n"
+"  if process then\n"
+"    root = processRecursive(process, root, {})\n"
+"  end\n"
+"\n"
+"  local inspector = setmetatable({\n"
+"    depth            = depth,\n"
+"    buffer           = {},\n"
+"    level            = 0,\n"
+"    ids              = setmetatable({}, idsMetaTable),\n"
+"    maxIds           = setmetatable({}, maxIdsMetaTable),\n"
+"    newline          = newline,\n"
+"    indent           = indent,\n"
+"    tableAppearances = countTableAppearances(root)\n"
+"  }, Inspector_mt)\n"
+"\n"
+"  inspector:putValue(root)\n"
+"\n"
+"  return table.concat(inspector.buffer)\n"
+"end\n"
+"\n"
+"setmetatable(inspect, { __call = function(_, ...) return inspect.inspect(...) end })\n"
+"\n"
+"return inspect\n"
+"end\n"
+"\n"
+"inspect = getInspect()\n";
+
+const char* inspect_lua = (const char*) temp_binary_data_0;
+
+//================== debugger.lua ==================
+static const unsigned char temp_binary_data_1[] =
 { 10,45,45,123,123,123,32,32,104,105,115,116,111,114,121,10,10,45,45,49,53,47,48,51,47,48,54,32,68,67,78,32,67,114,101,97,116,101,100,32,98,97,115,101,100,32,111,110,32,82,101,109,68,101,98,117,103,10,45,45,50,56,47,48,52,47,48,54,32,68,67,78,32,85,112,
 100,97,116,101,32,102,111,114,32,76,117,97,32,53,46,49,10,45,45,48,49,47,48,54,47,48,54,32,68,67,78,32,70,105,120,32,99,111,109,109,97,110,100,32,97,114,103,117,109,101,110,116,32,112,97,114,115,105,110,103,10,45,45,32,32,32,32,32,32,32,32,32,32,32,32,
 32,65,100,100,32,115,116,101,112,47,111,118,101,114,32,78,32,102,97,99,105,108,105,116,121,10,45,45,32,32,32,32,32,32,32,32,32,32,32,32,32,65,100,100,32,116,114,97,99,101,32,108,105,110,101,115,32,102,97,99,105,108,105,116,121,10,45,45,48,53,47,48,54,
@@ -621,10 +957,10 @@ static const unsigned char temp_binary_data_0[] =
 116,117,102,102,10,32,32,114,101,116,117,114,110,32,97,115,115,101,114,116,109,115,103,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,45,45,99,97,114,114,121,32,111,110,10,101,110,100,10,10,95,84,82,65,67,69,66,65,67,75,32,61,32,
 100,101,98,117,103,46,116,114,97,99,101,98,97,99,107,32,32,32,32,32,32,32,32,32,32,32,32,32,45,45,76,117,97,32,53,46,48,32,102,117,110,99,116,105,111,110,10,10,45,45,125,125,125,10,0,0 };
 
-const char* debugger_lua = (const char*) temp_binary_data_0;
+const char* debugger_lua = (const char*) temp_binary_data_1;
 
 //================== LICENSE ==================
-static const unsigned char temp_binary_data_1[] =
+static const unsigned char temp_binary_data_2[] =
 "The MIT License (MIT)\n"
 "\n"
 "Copyright (c) 2006 Dave Nichols\n"
@@ -646,10 +982,10 @@ static const unsigned char temp_binary_data_1[] =
 "IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\n"
 "CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n";
 
-const char* LICENSE = (const char*) temp_binary_data_1;
+const char* LICENSE = (const char*) temp_binary_data_2;
 
 //================== README.md ==================
-static const unsigned char temp_binary_data_2[] =
+static const unsigned char temp_binary_data_3[] =
 "clidebugger\n"
 "===========\n"
 "\n"
@@ -657,10 +993,10 @@ static const unsigned char temp_binary_data_2[] =
 "\n"
 "Author is Dave Nichols.\n";
 
-const char* README_md = (const char*) temp_binary_data_2;
+const char* README_md = (const char*) temp_binary_data_3;
 
 //================== json.lua ==================
-static const unsigned char temp_binary_data_3[] =
+static const unsigned char temp_binary_data_4[] =
 "-----------------------------------------------------------------------------\r\n"
 "-- JSON4Lua: JSON encoding / decoding support for the Lua language.\r\n"
 "-- json Module.\r\n"
@@ -1081,10 +1417,10 @@ static const unsigned char temp_binary_data_3[] =
 "end\r\n"
 "\r\n";
 
-const char* json_lua = (const char*) temp_binary_data_3;
+const char* json_lua = (const char*) temp_binary_data_4;
 
 //================== LICENCE.txt ==================
-static const unsigned char temp_binary_data_4[] =
+static const unsigned char temp_binary_data_5[] =
 "The MIT License\n"
 "\n"
 "Copyright (c) 2009 Craig Mason-Jones\n"
@@ -1107,10 +1443,10 @@ static const unsigned char temp_binary_data_4[] =
 "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n"
 "THE SOFTWARE.";
 
-const char* LICENCE_txt = (const char*) temp_binary_data_4;
+const char* LICENCE_txt = (const char*) temp_binary_data_5;
 
 //================== gen_LLookAndFeel.cpp.sh ==================
-static const unsigned char temp_binary_data_5[] =
+static const unsigned char temp_binary_data_6[] =
 "#!/bin/bash\n"
 "HEADER=\"$1\"\n"
 "\n"
@@ -1251,10 +1587,10 @@ static const unsigned char temp_binary_data_5[] =
 "echo\n"
 "echo \"}\"";
 
-const char* gen_LLookAndFeel_cpp_sh = (const char*) temp_binary_data_5;
+const char* gen_LLookAndFeel_cpp_sh = (const char*) temp_binary_data_6;
 
 //================== gen_LLookAndFeel.h.sh ==================
-static const unsigned char temp_binary_data_6[] =
+static const unsigned char temp_binary_data_7[] =
 "#!/bin/bash\n"
 "HEADER=\"$1\"\n"
 "\n"
@@ -1443,10 +1779,10 @@ static const unsigned char temp_binary_data_6[] =
 "echo\n"
 "echo \"#endif\"";
 
-const char* gen_LLookAndFeel_h_sh = (const char*) temp_binary_data_6;
+const char* gen_LLookAndFeel_h_sh = (const char*) temp_binary_data_7;
 
 //================== gen_LookAndFeel.lua.sh ==================
-static const unsigned char temp_binary_data_7[] =
+static const unsigned char temp_binary_data_8[] =
 "#!/bin/bash\n"
 "HEADER=\"$1\"\n"
 "\n"
@@ -1577,10 +1913,10 @@ static const unsigned char temp_binary_data_7[] =
 "\tprintf (\"-- end\\n\\n\");\n"
 "}'\n";
 
-const char* gen_LookAndFeel_lua_sh = (const char*) temp_binary_data_7;
+const char* gen_LookAndFeel_lua_sh = (const char*) temp_binary_data_8;
 
 //================== lf.template ==================
-static const unsigned char temp_binary_data_8[] =
+static const unsigned char temp_binary_data_9[] =
 "        static Colour def_findColour (LookAndFeel_V3 *ptr, int colourId)\n"
 "        static void def_setColour (LookAndFeel_V3 *ptr, int colourId, Colour colour)\n"
 "        static bool def_isColourSpecified (LookAndFeel_V3 *ptr, int colourId)\n"
@@ -1687,10 +2023,10 @@ static const unsigned char temp_binary_data_8[] =
 "        static void def_drawLevelMeter (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, float level)\n"
 "        static void def_drawKeymapChangeButton (LookAndFeel_V3 *ptr, Graphics &g, int width, int height, Button &button, const String &keyDescription)\n";
 
-const char* lf_template = (const char*) temp_binary_data_8;
+const char* lf_template = (const char*) temp_binary_data_9;
 
 //================== LookAndFeel.lua ==================
-static const unsigned char temp_binary_data_9[] =
+static const unsigned char temp_binary_data_10[] =
 "class '__method_name' (LookAndFeel)\n"
 "\n"
 "function __method_name:__init()\n"
@@ -2048,10 +2384,10 @@ static const unsigned char temp_binary_data_9[] =
 "-- end\n"
 "\n";
 
-const char* LookAndFeel_lua = (const char*) temp_binary_data_9;
+const char* LookAndFeel_lua = (const char*) temp_binary_data_10;
 
 //================== RSRC.zip ==================
-static const unsigned char temp_binary_data_10[] =
+static const unsigned char temp_binary_data_11[] =
 { 80,75,3,4,20,0,0,0,8,0,202,128,4,69,232,71,224,189,228,0,0,0,217,2,0,0,13,0,28,0,114,101,115,117,108,116,95,49,46,114,115,114,99,85,84,9,0,3,92,147,223,83,92,147,223,83,117,120,11,0,1,4,245,1,0,0,4,20,0,0,0,99,96,96,100,96,96,96,82,97,96,96,4,98,134,
 173,12,35,15,176,178,248,90,41,248,1,25,156,28,206,37,69,57,69,186,142,161,64,14,47,152,237,24,234,154,87,82,84,9,82,22,148,88,154,91,234,28,18,228,227,233,23,28,130,106,66,112,72,144,2,243,11,48,249,18,102,40,19,136,228,4,179,153,4,128,68,74,78,78,42,
 243,11,6,54,36,54,7,144,41,37,233,153,87,92,146,153,158,88,146,95,100,165,0,179,95,33,44,51,181,156,160,172,32,212,137,32,46,178,51,203,202,113,59,147,253,2,152,188,136,207,153,236,23,16,206,4,178,57,112,134,156,12,195,52,6,38,144,121,12,204,12,82,32,
@@ -2685,10 +3021,10 @@ static const unsigned char temp_binary_data_10[] =
 82,25,142,119,233,0,0,0,155,3,0,0,14,0,24,0,0,0,0,0,0,0,0,0,164,129,252,149,0,0,114,101,115,117,108,116,95,57,56,46,114,115,114,99,85,84,5,0,3,100,147,223,83,117,120,11,0,1,4,245,1,0,0,4,20,0,0,0,80,75,1,2,30,3,20,0,0,0,8,0,207,128,4,69,212,116,58,233,
 233,0,0,0,157,3,0,0,14,0,24,0,0,0,0,0,0,0,0,0,164,129,45,151,0,0,114,101,115,117,108,116,95,57,57,46,114,115,114,99,85,84,5,0,3,101,147,223,83,117,120,11,0,1,4,245,1,0,0,4,20,0,0,0,80,75,5,6,0,0,0,0,128,0,128,0,20,42,0,0,94,152,0,0,0,0,0,0 };
 
-const char* RSRC_zip = (const char*) temp_binary_data_10;
+const char* RSRC_zip = (const char*) temp_binary_data_11;
 
 //================== FONT_60sekuntia.ttf ==================
-static const unsigned char temp_binary_data_11[] =
+static const unsigned char temp_binary_data_12[] =
 { 0,1,0,0,0,11,0,128,0,3,0,48,79,83,47,50,187,66,137,76,0,0,1,56,0,0,0,86,99,109,97,112,208,126,62,230,0,0,11,196,0,0,5,210,103,97,115,112,255,255,0,3,0,1,123,232,0,0,0,8,103,108,121,102,164,1,94,212,0,0,22,180,0,1,76,100,104,101,97,100,253,121,184,158,
 0,0,0,188,0,0,0,54,104,104,101,97,34,189,16,24,0,0,0,244,0,0,0,36,104,109,116,120,72,11,115,49,0,0,1,144,0,0,10,50,108,111,99,97,34,212,132,218,0,0,17,152,0,0,5,28,109,97,120,112,7,100,6,57,0,0,1,24,0,0,0,32,110,97,109,101,229,216,3,168,0,1,99,24,0,0,
 5,99,112,111,115,116,231,89,28,243,0,1,104,124,0,0,19,108,0,1,0,0,0,1,0,0,31,86,32,40,95,15,60,245,0,11,8,0,0,0,0,0,193,130,28,114,0,0,0,0,193,160,81,151,249,0,253,113,34,57,8,38,0,0,0,9,0,1,0,0,0,0,0,0,0,1,0,0,7,62,254,78,0,67,34,127,249,0,236,190,34,
@@ -3798,10 +4134,10 @@ static const unsigned char temp_binary_data_11[] =
 99,105,114,99,108,101,10,111,112,101,110,98,117,108,108,101,116,9,115,109,105,108,101,102,97,99,101,12,105,110,118,115,109,105,108,101,102,97,99,101,3,115,117,110,6,102,101,109,97,108,101,4,109,97,108,101,5,115,112,97,100,101,4,99,108,117,98,5,104,101,
 97,114,116,7,100,105,97,109,111,110,100,11,109,117,115,105,99,97,108,110,111,116,101,14,109,117,115,105,99,97,108,110,111,116,101,100,98,108,7,117,110,105,70,48,48,52,7,117,110,105,70,48,48,53,0,0,0,1,255,255,0,2,0,0 };
 
-const char* FONT_60sekuntia_ttf = (const char*) temp_binary_data_11;
+const char* FONT_60sekuntia_ttf = (const char*) temp_binary_data_12;
 
 //================== FONT_Computerfont.ttf ==================
-static const unsigned char temp_binary_data_12[] =
+static const unsigned char temp_binary_data_13[] =
 { 0,1,0,0,0,14,0,48,0,3,0,176,79,83,47,50,129,226,112,210,0,0,140,40,0,0,0,78,99,109,97,112,54,22,85,178,0,0,132,168,0,0,4,4,99,118,116,32,22,109,18,149,0,0,139,180,0,0,0,114,102,112,103,109,167,217,94,147,0,0,4,68,0,0,0,100,103,108,121,102,21,160,26,237,
 0,0,5,136,0,0,122,106,104,100,109,120,24,204,16,222,0,0,140,120,0,0,12,72,104,101,97,100,89,194,190,111,0,0,0,236,0,0,0,54,104,104,101,97,12,180,10,157,0,0,1,36,0,0,0,36,104,109,116,120,145,229,20,195,0,0,136,172,0,0,3,8,108,111,99,97,0,41,133,194,0,
 0,127,244,0,0,3,12,109,97,120,112,1,250,2,203,0,0,1,72,0,0,0,32,110,97,109,101,14,126,196,195,0,0,1,104,0,0,2,217,112,111,115,116,37,39,36,187,0,0,131,0,0,0,1,166,112,114,101,112,0,52,244,146,0,0,4,168,0,0,0,221,0,1,0,0,0,1,0,0,92,199,79,28,95,15,60,
@@ -4245,10 +4581,10 @@ static const unsigned char temp_binary_data_12[] =
 11,9,11,8,11,11,18,11,11,11,9,8,9,12,13,13,14,12,13,13,13,11,11,11,11,11,11,11,11,11,11,11,6,6,7,8,11,11,11,11,11,11,11,11,11,11,7,8,12,14,11,11,14,13,10,9,12,8,11,15,20,21,20,13,10,10,15,14,12,15,17,17,9,11,11,16,18,12,5,10,9,12,14,15,15,24,12,13,13,
 13,21,19,13,17,13,13,7,7,13,15,11,26,1,18,20,20,20,31,24,18,0,0 };
 
-const char* FONT_Computerfont_ttf = (const char*) temp_binary_data_12;
+const char* FONT_Computerfont_ttf = (const char*) temp_binary_data_13;
 
 //================== FONT_Digit.ttf ==================
-static const unsigned char temp_binary_data_13[] =
+static const unsigned char temp_binary_data_14[] =
 { 0,1,0,0,0,10,0,128,0,3,0,32,79,83,47,50,18,194,51,33,0,0,1,40,0,0,0,78,99,109,97,112,37,61,92,120,0,0,2,220,0,0,3,148,103,108,121,102,34,72,29,159,0,0,7,36,0,0,43,18,104,101,97,100,31,57,44,195,0,0,0,172,0,0,0,54,104,104,101,97,14,240,7,76,0,0,0,228,
 0,0,0,36,104,109,116,120,105,80,89,98,0,0,1,120,0,0,1,100,108,111,99,97,215,86,226,48,0,0,6,112,0,0,0,180,109,97,120,112,0,99,0,72,0,0,1,8,0,0,0,32,110,97,109,101,49,105,64,255,0,0,50,56,0,0,0,138,112,111,115,116,0,3,0,0,0,0,50,196,0,0,0,32,0,1,0,0,0,
 0,0,0,175,201,68,23,95,15,60,245,0,3,8,0,136,196,239,79,48,194,239,79,0,0,1,6,0,0,0,1,0,242,0,81,5,171,7,208,0,0,0,8,0,1,0,0,0,0,0,0,0,1,0,0,7,208,0,81,0,129,8,0,0,242,254,161,5,171,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,0,1,0,0,0,89,0,55,0,9,0,0,0,0,0,
@@ -4402,10 +4738,10 @@ static const unsigned char temp_binary_data_13[] =
 1,0,0,0,0,0,3,0,5,0,0,0,1,0,0,0,0,0,4,0,5,0,0,0,3,0,1,4,9,0,1,0,10,0,12,0,3,0,1,4,9,0,2,0,14,0,22,0,3,0,1,4,9,0,3,0,10,0,12,0,3,0,1,4,9,0,4,0,10,0,12,68,105,103,105,116,82,101,103,117,108,97,114,0,68,0,105,0,103,0,105,0,116,0,82,0,101,0,103,0,117,0,108,
 0,97,0,114,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
 
-const char* FONT_Digit_ttf = (const char*) temp_binary_data_13;
+const char* FONT_Digit_ttf = (const char*) temp_binary_data_14;
 
 //================== FONT_Digital-7.ttf ==================
-static const unsigned char temp_binary_data_14[] =
+static const unsigned char temp_binary_data_15[] =
 { 0,1,0,0,0,18,1,0,0,4,0,32,76,84,83,72,240,166,166,191,0,0,3,180,0,0,0,111,79,83,47,50,103,42,240,61,0,0,1,168,0,0,0,96,80,67,76,84,205,150,238,76,0,0,134,0,0,0,0,54,86,68,77,88,107,106,115,5,0,0,4,36,0,0,5,224,99,109,97,112,144,91,213,101,0,0,20,28,0,
 0,2,80,99,118,116,32,18,117,12,61,0,0,42,140,0,0,0,102,102,112,103,109,52,68,22,133,0,0,22,108,0,0,19,59,103,97,115,112,0,23,0,9,0,0,133,240,0,0,0,16,103,108,121,102,222,233,125,16,0,0,42,244,0,0,82,192,104,100,109,120,175,52,50,25,0,0,10,4,0,0,10,24,
 104,101,97,100,240,54,239,57,0,0,1,44,0,0,0,54,104,104,101,97,5,121,3,190,0,0,1,100,0,0,0,36,104,109,116,120,191,130,20,80,0,0,2,8,0,0,1,172,108,111,99,97,79,38,102,12,0,0,125,180,0,0,0,216,109,97,120,112,3,14,19,209,0,0,1,136,0,0,0,32,110,97,109,101,
@@ -4805,10 +5141,10 @@ static const unsigned char temp_binary_data_14[] =
 0,80,0,81,0,82,0,83,0,84,0,85,0,86,0,87,0,88,0,89,0,90,0,91,0,92,0,93,0,94,0,95,0,96,0,97,0,198,0,182,0,183,0,180,0,181,0,135,0,178,0,179,0,139,4,78,85,76,76,0,0,0,0,0,0,3,0,8,0,2,0,16,0,1,255,255,0,3,0,1,0,0,0,0,0,0,1,4,2,188,0,0,111,28,2,188,1,53,68,
 105,103,105,116,97,108,45,55,32,32,32,32,32,32,32,0,0,0,0,0,0,0,0,68,105,103,105,116,97,0,0,1,0,0,0,0,0 };
 
-const char* FONT_Digital7_ttf = (const char*) temp_binary_data_14;
+const char* FONT_Digital7_ttf = (const char*) temp_binary_data_15;
 
 //================== FONT_DottyShadow.ttf ==================
-static const unsigned char temp_binary_data_15[] =
+static const unsigned char temp_binary_data_16[] =
 { 0,1,0,0,0,16,1,0,0,4,0,0,76,84,83,72,226,202,227,159,0,0,1,12,0,0,0,247,79,83,47,50,16,178,186,192,0,0,2,4,0,0,0,78,99,109,97,112,66,223,164,63,0,0,2,84,0,0,1,244,99,118,116,32,3,239,0,55,0,0,4,72,0,0,0,20,102,112,103,109,249,199,205,28,0,0,4,92,0,0,
 0,233,103,108,121,102,5,107,181,21,0,0,5,72,0,8,12,218,104,100,109,120,95,216,39,44,0,8,18,36,0,0,15,136,104,101,97,100,222,27,36,190,0,8,33,172,0,0,0,54,104,104,101,97,8,129,5,76,0,8,33,228,0,0,0,36,104,109,116,120,145,175,71,206,0,8,34,8,0,0,3,204,
 107,101,114,110,80,34,98,201,0,8,37,212,0,0,130,74,108,111,99,97,3,172,239,90,0,8,168,32,0,0,3,208,109,97,120,112,3,65,9,82,0,8,171,240,0,0,0,32,110,97,109,101,203,104,244,237,0,8,172,16,0,0,2,28,112,111,115,116,205,60,191,240,0,8,174,44,0,0,2,36,112,
@@ -10942,10 +11278,10 @@ static const unsigned char temp_binary_data_15[] =
 0,149,0,152,0,153,0,154,0,155,0,156,0,159,0,165,0,167,1,4,0,185,6,109,97,99,114,111,110,14,112,101,114,105,111,100,99,101,110,116,101,114,101,100,5,68,101,108,116,97,187,0,0,0,2,0,2,0,0,43,43,187,0,1,0,32,0,54,0,5,43,187,0,0,0,32,0,54,0,5,43,186,0,2,
 0,4,0,7,43,0,0,0 };
 
-const char* FONT_DottyShadow_ttf = (const char*) temp_binary_data_15;
+const char* FONT_DottyShadow_ttf = (const char*) temp_binary_data_16;
 
 //================== FONT_Electronic Highway Sign.ttf ==================
-static const unsigned char temp_binary_data_16[] =
+static const unsigned char temp_binary_data_17[] =
 { 0,1,0,0,0,14,1,0,0,4,0,16,79,83,47,50,90,147,135,16,0,0,0,236,0,0,0,96,80,67,76,84,46,137,233,28,0,0,1,76,0,0,0,54,99,109,97,112,241,125,54,61,0,0,1,132,0,0,2,184,99,118,116,32,0,29,0,0,0,0,4,60,0,0,0,2,102,112,103,109,6,83,156,49,0,0,4,64,0,0,1,115,
 103,108,121,102,173,38,71,227,0,0,5,180,0,1,12,84,104,101,97,100,228,81,129,31,0,1,18,8,0,0,0,54,104,104,101,97,8,42,2,231,0,1,18,64,0,0,0,36,104,109,116,120,3,235,61,192,0,1,18,100,0,0,2,86,108,111,99,97,39,227,228,152,0,1,20,188,0,0,1,206,109,97,120,
 112,3,5,2,173,0,1,22,140,0,0,0,32,110,97,109,101,172,10,101,115,0,1,22,172,0,0,3,106,112,111,115,116,72,90,235,165,0,1,26,24,0,0,3,71,112,114,101,112,184,0,0,43,0,1,29,96,0,0,0,4,0,3,3,84,1,144,0,5,0,0,3,212,3,142,0,0,0,200,3,212,3,142,0,0,2,122,0,70,
@@ -11810,10 +12146,10 @@ static const unsigned char temp_binary_data_16[] =
 103,108,121,112,104,49,50,50,8,103,108,121,112,104,49,50,51,8,103,108,121,112,104,49,50,52,8,103,108,121,112,104,49,50,53,8,103,108,121,112,104,49,50,54,8,103,108,121,112,104,49,50,55,8,103,108,121,112,104,49,50,56,8,103,108,121,112,104,49,50,57,8,103,
 108,121,112,104,49,51,48,8,103,108,121,112,104,49,51,49,8,103,108,121,112,104,49,52,52,4,69,117,114,111,0,184,0,0,43,0,0 };
 
-const char* FONT_Electronic_Highway_Sign_ttf = (const char*) temp_binary_data_16;
+const char* FONT_Electronic_Highway_Sign_ttf = (const char*) temp_binary_data_17;
 
 //================== FONT_Invasion2000.ttf ==================
-static const unsigned char temp_binary_data_17[] =
+static const unsigned char temp_binary_data_18[] =
 { 0,1,0,0,0,15,0,48,0,3,0,192,79,83,47,50,81,90,92,221,0,0,119,104,0,0,0,86,80,67,76,84,50,40,123,31,0,0,119,192,0,0,0,54,99,109,97,112,60,222,65,145,0,0,109,92,0,0,3,66,99,118,116,32,96,249,97,40,0,0,3,224,0,0,0,36,102,112,103,109,131,51,194,79,0,0,3,
 204,0,0,0,20,103,108,121,102,54,55,104,32,0,0,4,84,0,0,100,170,104,100,109,120,95,52,139,50,0,0,112,160,0,0,6,200,104,101,97,100,215,186,157,2,0,0,119,248,0,0,0,54,104,104,101,97,6,252,3,168,0,0,120,48,0,0,0,36,104,109,116,120,244,135,246,38,0,0,106,
 168,0,0,1,164,108,111,99,97,0,20,229,240,0,0,105,0,0,0,1,168,109,97,120,112,1,74,1,202,0,0,120,84,0,0,0,32,110,97,109,101,141,240,84,235,0,0,0,252,0,0,2,208,112,111,115,116,4,125,241,95,0,0,108,76,0,0,1,14,112,114,101,112,171,141,32,159,0,0,4,4,0,0,0,
@@ -12157,10 +12493,10 @@ static const unsigned char temp_binary_data_17[] =
 255,255,255,55,255,255,254,65,65,66,82,48,48,0,0,0,0,0,0,0,1,0,0,0,1,0,0,25,103,136,128,95,15,60,245,0,0,3,232,0,0,0,0,186,107,44,219,0,0,0,0,186,107,44,219,255,186,255,66,4,22,3,41,0,0,0,3,0,2,0,1,0,0,0,0,0,1,0,0,3,41,255,56,0,0,4,40,255,186,255,222,
 4,22,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,105,0,1,0,0,0,105,0,36,0,5,0,0,0,0,0,2,0,8,0,64,0,10,0,0,0,200,1,99,0,1,0,1,0,0 };
 
-const char* FONT_Invasion2000_ttf = (const char*) temp_binary_data_17;
+const char* FONT_Invasion2000_ttf = (const char*) temp_binary_data_18;
 
 //================== FONT_Karmatic Arcade.ttf ==================
-static const unsigned char temp_binary_data_18[] =
+static const unsigned char temp_binary_data_19[] =
 { 0,1,0,0,0,11,0,128,0,3,0,48,79,83,47,50,187,66,138,151,0,0,1,56,0,0,0,86,99,109,97,112,208,126,62,230,0,0,11,196,0,0,5,210,103,97,115,112,255,255,0,3,0,0,222,68,0,0,0,8,103,108,121,102,171,112,136,1,0,0,22,180,0,0,178,104,104,101,97,100,228,150,235,65,
 0,0,0,188,0,0,0,54,104,104,101,97,15,82,8,210,0,0,0,244,0,0,0,36,104,109,116,120,152,253,1,201,0,0,1,144,0,0,10,50,108,111,99,97,6,6,50,200,0,0,17,152,0,0,5,28,109,97,120,112,7,80,1,193,0,0,1,24,0,0,0,32,110,97,109,101,94,157,70,174,0,0,201,28,0,0,1,
 186,112,111,115,116,231,89,28,243,0,0,202,216,0,0,19,108,0,1,0,0,0,1,0,0,15,108,241,63,95,15,60,245,0,11,8,0,0,0,0,0,190,213,72,134,0,0,0,0,190,213,89,10,0,0,254,116,7,206,6,63,0,0,0,9,0,1,0,0,0,0,0,0,0,1,0,0,7,62,254,78,0,67,8,192,0,0,255,55,7,206,0,
@@ -12899,10 +13235,10 @@ static const unsigned char temp_binary_data_18[] =
 108,101,10,111,112,101,110,98,117,108,108,101,116,9,115,109,105,108,101,102,97,99,101,12,105,110,118,115,109,105,108,101,102,97,99,101,3,115,117,110,6,102,101,109,97,108,101,4,109,97,108,101,5,115,112,97,100,101,4,99,108,117,98,5,104,101,97,114,116,7,
 100,105,97,109,111,110,100,11,109,117,115,105,99,97,108,110,111,116,101,14,109,117,115,105,99,97,108,110,111,116,101,100,98,108,7,117,110,105,70,48,48,52,7,117,110,105,70,48,48,53,0,0,0,1,255,255,0,2,0,0 };
 
-const char* FONT_Karmatic_Arcade_ttf = (const char*) temp_binary_data_18;
+const char* FONT_Karmatic_Arcade_ttf = (const char*) temp_binary_data_19;
 
 //================== FONT_LCD.ttf ==================
-static const unsigned char temp_binary_data_19[] =
+static const unsigned char temp_binary_data_20[] =
 { 0,1,0,0,0,14,0,48,0,3,0,176,79,83,47,50,129,250,111,201,0,0,107,68,0,0,0,78,99,109,97,112,21,80,71,96,0,0,99,64,0,0,2,60,99,118,116,32,245,27,90,45,0,0,3,248,0,0,0,40,102,112,103,109,131,51,194,79,0,0,3,228,0,0,0,20,103,108,121,102,205,139,241,112,0,
 0,4,76,0,0,91,70,104,100,109,120,27,116,61,4,0,0,101,124,0,0,5,200,104,101,97,100,14,225,31,17,0,0,107,148,0,0,0,54,104,104,101,97,6,179,2,240,0,0,107,204,0,0,0,36,104,109,116,120,156,133,1,126,0,0,97,0,0,0,1,104,108,111,99,97,0,15,81,72,0,0,95,148,0,
 0,1,108,109,97,120,112,0,251,1,131,0,0,107,240,0,0,0,32,110,97,109,101,199,61,183,151,0,0,0,236,0,0,2,247,112,111,115,116,8,197,8,134,0,0,98,104,0,0,0,214,112,114,101,112,161,251,91,153,0,0,4,32,0,0,0,44,0,0,0,21,1,2,0,0,0,0,0,0,0,0,0,126,0,63,0,0,0,
@@ -13214,10 +13550,10 @@ static const unsigned char temp_binary_data_19[] =
 0,37,0,0,0,1,0,0,0,1,0,0,199,91,191,169,95,15,60,245,0,0,3,232,0,1,0,0,180,64,109,136,67,224,0,0,180,64,109,136,255,236,255,219,3,127,3,69,0,0,0,3,0,2,0,1,0,0,0,0,0,1,0,0,3,69,255,56,0,0,3,113,255,236,255,236,3,127,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,
 0,1,0,0,0,90,0,66,0,10,0,0,0,0,0,2,0,8,0,64,0,10,0,0,0,131,0,254,0,1,0,1,0,0 };
 
-const char* FONT_LCD_ttf = (const char*) temp_binary_data_19;
+const char* FONT_LCD_ttf = (const char*) temp_binary_data_20;
 
 //================== FONT_Warenhaus-Standard.ttf ==================
-static const unsigned char temp_binary_data_20[] =
+static const unsigned char temp_binary_data_21[] =
 { 0,1,0,0,0,14,0,128,0,3,0,96,70,70,84,77,105,128,130,247,0,0,110,24,0,0,0,28,71,68,69,70,0,15,0,30,0,0,109,248,0,0,0,30,79,83,47,50,89,148,1,247,0,0,1,104,0,0,0,96,99,109,97,112,14,130,53,233,0,0,6,168,0,0,4,246,99,118,116,32,0,34,2,136,0,0,11,160,0,0,
 0,4,103,97,115,112,255,255,0,3,0,0,109,240,0,0,0,8,103,108,121,102,198,77,146,139,0,0,14,32,0,0,84,252,104,101,97,100,4,209,39,252,0,0,0,236,0,0,0,54,104,104,101,97,9,10,6,95,0,0,1,36,0,0,0,36,104,109,116,120,124,60,48,167,0,0,1,200,0,0,4,224,108,111,
 99,97,155,182,135,36,0,0,11,164,0,0,2,122,109,97,120,112,1,132,0,167,0,0,1,72,0,0,0,32,110,97,109,101,231,107,138,167,0,0,99,28,0,0,4,117,112,111,115,116,111,92,139,1,0,0,103,148,0,0,6,92,0,1,0,0,0,1,0,0,32,210,222,71,95,15,60,245,0,11,4,0,0,0,0,0,207,
@@ -13528,10 +13864,10 @@ static const unsigned char temp_binary_data_20[] =
 117,110,105,50,48,65,54,7,117,110,105,50,48,65,57,4,69,117,114,111,7,117,110,105,50,48,65,68,7,117,110,105,50,48,66,49,7,117,110,105,50,48,66,51,0,0,0,1,255,255,0,2,0,1,0,0,0,0,0,0,0,14,0,22,0,0,0,4,0,0,0,2,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,201,
 137,111,49,0,0,0,0,207,248,33,100,0,0,0,0,207,254,242,97,0,0 };
 
-const char* FONT_WarenhausStandard_ttf = (const char*) temp_binary_data_20;
+const char* FONT_WarenhausStandard_ttf = (const char*) temp_binary_data_21;
 
 //================== FONT_ZX81.ttf ==================
-static const unsigned char temp_binary_data_21[] =
+static const unsigned char temp_binary_data_22[] =
 { 0,1,0,0,0,14,0,128,0,3,0,96,79,83,47,50,24,153,64,49,0,0,66,200,0,0,0,78,80,67,76,84,97,64,65,46,0,0,11,92,0,0,0,54,99,109,97,112,24,127,221,58,0,0,0,236,0,0,2,232,99,118,116,32,56,18,62,107,0,0,3,212,0,0,0,76,102,112,103,109,2,17,194,97,0,0,4,32,0,0,
 1,216,103,108,121,102,181,113,24,251,0,0,11,148,0,0,52,250,104,101,97,100,202,133,83,130,0,0,5,248,0,0,0,54,104,104,101,97,15,233,8,81,0,0,66,164,0,0,0,36,104,109,116,120,202,22,52,63,0,0,64,144,0,0,1,244,108,111,99,97,0,12,168,82,0,0,6,48,0,0,1,248,
 109,97,120,112,1,108,0,151,0,0,66,132,0,0,0,32,110,97,109,101,94,15,186,63,0,0,9,104,0,0,1,242,112,111,115,116,18,227,19,125,0,0,8,76,0,0,1,28,112,114,101,112,224,34,204,185,0,0,8,40,0,0,0,36,0,0,0,2,0,1,0,0,0,0,0,20,0,3,0,1,0,0,1,26,0,0,1,6,0,0,1,0,
@@ -13717,10 +14053,10 @@ static const unsigned char temp_binary_data_21[] =
 0,0,7,231,0,0,7,231,0,0,7,231,0,0,0,1,0,0,0,125,0,44,0,4,0,0,0,0,0,2,0,12,0,6,0,22,0,0,0,196,0,98,0,4,0,1,0,1,0,0,8,0,255,236,0,0,7,231,0,0,0,0,7,231,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,125,0,0,7,231,1,244,0,5,0,6,1,154,1,113,0,0,0,0,1,154,1,113,0,0,7,
 128,0,102,2,18,0,0,2,11,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,0,32,38,107,8,0,0,0,0,0,8,0,0,0,0,0,0,0 };
 
-const char* FONT_ZX81_ttf = (const char*) temp_binary_data_21;
+const char* FONT_ZX81_ttf = (const char*) temp_binary_data_22;
 
 //================== appbar.debug.clean.png ==================
-static const unsigned char temp_binary_data_22[] =
+static const unsigned char temp_binary_data_23[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,76,0,0,0,76,8,6,0,0,0,199,151,81,43,0,0,0,1,115,82,71,66,0,174,206,28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,0,9,112,72,89,115,0,0,14,195,0,0,14,195,1,199,111,168,100,0,0,2,104,73,68,65,
 84,120,94,237,217,61,104,212,96,28,199,241,211,138,224,187,131,182,58,184,136,160,32,58,249,66,193,161,118,104,7,69,112,112,112,16,84,112,208,81,16,119,193,65,112,113,112,19,17,220,28,186,137,224,162,34,8,58,181,20,17,68,20,116,16,221,68,69,17,223,190,
 191,94,2,15,225,73,47,105,175,151,187,228,247,133,15,185,198,59,208,191,79,114,73,218,114,206,57,231,156,115,206,57,231,156,115,206,185,186,117,0,247,147,173,43,144,134,245,47,161,215,43,224,114,210,170,74,135,37,119,224,230,41,92,93,191,177,3,46,39,
@@ -13732,10 +14068,10 @@ static const unsigned char temp_binary_data_22[] =
 191,12,57,135,147,24,133,202,91,97,183,112,34,161,199,71,218,215,149,21,214,237,178,127,241,133,120,13,253,131,207,99,31,116,184,230,149,55,48,237,79,123,9,237,171,237,192,98,244,37,161,67,248,57,158,64,231,64,13,246,11,98,239,111,252,192,202,90,178,
 129,85,117,210,31,216,234,58,176,107,208,97,44,121,95,36,11,170,174,3,91,139,205,137,33,237,232,86,62,36,75,230,129,57,231,156,115,206,57,231,156,115,206,57,231,156,115,131,80,171,245,31,72,250,134,55,9,166,3,108,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* appbar_debug_clean_png = (const char*) temp_binary_data_22;
+const char* appbar_debug_clean_png = (const char*) temp_binary_data_23;
 
 //================== appbar.control.play.png ==================
-static const unsigned char temp_binary_data_23[] =
+static const unsigned char temp_binary_data_24[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,76,0,0,0,76,8,6,0,0,0,199,151,81,43,0,0,0,1,115,82,71,66,0,174,206,28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,0,9,112,72,89,115,0,0,14,195,0,0,14,195,1,199,111,168,100,0,0,1,71,73,68,65,
 84,120,94,237,216,61,74,3,81,20,134,225,65,33,22,22,118,130,173,96,111,37,184,4,91,59,59,113,5,130,149,224,6,236,220,130,149,43,176,115,1,150,214,22,46,64,65,176,72,147,34,250,157,241,94,144,97,238,204,157,31,9,153,243,62,240,18,39,88,125,228,64,72,1,
 0,0,0,0,0,0,0,0,0,172,212,141,154,253,254,137,28,239,234,89,237,151,79,104,101,131,125,171,79,117,106,111,160,89,28,44,118,167,56,209,6,213,193,44,78,180,65,221,96,22,39,154,144,26,44,198,137,86,180,13,102,113,162,127,228,12,102,113,162,65,238,96,49,
@@ -13743,10 +14079,10 @@ static const unsigned char temp_binary_data_23[] =
 114,99,200,96,247,106,91,185,210,103,176,47,117,166,92,234,58,152,251,159,122,114,7,91,170,91,229,254,199,196,156,193,236,127,78,20,164,109,176,39,181,167,16,164,6,179,239,86,215,202,197,119,171,46,234,6,123,83,199,10,53,170,131,61,168,29,133,132,56,
 216,92,93,216,27,104,102,131,189,168,131,242,105,77,108,134,215,85,216,82,231,234,163,124,2,0,0,0,0,0,0,0,0,0,214,68,81,252,0,150,189,63,123,37,44,12,118,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* appbar_control_play_png = (const char*) temp_binary_data_23;
+const char* appbar_control_play_png = (const char*) temp_binary_data_24;
 
 //================== appbar.debug.restart.png ==================
-static const unsigned char temp_binary_data_24[] =
+static const unsigned char temp_binary_data_25[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,76,0,0,0,76,8,6,0,0,0,199,151,81,43,0,0,0,1,115,82,71,66,0,174,206,28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,0,9,112,72,89,115,0,0,14,195,0,0,14,195,1,199,111,168,100,0,0,1,73,73,68,65,
 84,120,94,237,216,177,73,5,81,16,133,225,213,204,84,176,1,83,65,140,172,195,64,48,19,49,179,0,67,27,176,19,109,64,176,2,43,48,176,4,83,49,49,80,207,192,46,44,151,179,143,59,193,202,27,252,63,248,89,120,94,46,206,32,184,188,1,0,0,0,0,0,0,0,0,0,0,86,182,
 51,62,215,244,51,62,255,202,170,51,237,142,79,116,98,97,73,44,44,137,133,37,177,176,164,109,92,216,221,248,252,183,226,181,162,183,91,21,220,207,122,43,207,13,213,246,173,110,212,196,157,233,173,60,55,212,188,88,214,181,154,115,231,122,43,207,13,53,245,
@@ -13754,10 +14090,10 @@ static const unsigned char temp_binary_data_24[] =
 121,110,168,121,75,255,37,63,213,179,58,142,15,140,39,213,222,21,149,231,134,106,219,244,30,246,161,142,84,235,74,205,207,77,149,231,134,90,106,233,77,255,81,181,98,137,237,185,168,60,55,212,166,98,105,237,103,239,170,117,160,218,115,209,170,42,125,69,
 237,126,87,119,55,95,81,111,19,22,150,196,194,146,88,88,18,11,75,98,97,73,44,44,137,133,1,0,0,0,0,0,0,0,0,0,192,86,25,134,95,71,167,239,137,131,56,135,16,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* appbar_debug_restart_png = (const char*) temp_binary_data_24;
+const char* appbar_debug_restart_png = (const char*) temp_binary_data_25;
 
 //================== appbar.debug.step.into.png ==================
-static const unsigned char temp_binary_data_25[] =
+static const unsigned char temp_binary_data_26[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,76,0,0,0,76,8,6,0,0,0,199,151,81,43,0,0,0,1,115,82,71,66,0,174,206,28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,0,9,112,72,89,115,0,0,14,195,0,0,14,195,1,199,111,168,100,0,0,1,129,73,68,65,
 84,120,94,237,216,49,74,196,64,24,134,225,104,161,182,138,8,118,226,17,60,128,149,104,103,35,118,94,197,11,120,1,59,177,19,59,79,96,103,99,47,90,217,88,120,0,27,173,244,27,54,35,195,240,15,155,152,25,25,157,247,129,151,44,100,216,77,126,150,108,54,29,
 0,0,0,0,0,0,0,0,0,0,160,46,11,253,54,183,61,117,164,118,213,166,90,85,78,234,243,62,251,109,105,165,206,247,199,182,213,173,114,3,176,74,177,214,150,168,42,59,234,85,89,7,234,75,177,214,150,168,26,91,106,222,176,92,41,214,218,18,85,227,78,89,7,24,151,
@@ -13766,10 +14102,10 @@ static const unsigned char temp_binary_data_25[] =
 214,228,170,42,67,158,135,165,58,85,158,181,63,87,213,153,247,196,213,170,217,111,88,104,95,157,171,39,245,166,172,131,119,197,195,114,172,117,185,250,115,194,131,111,250,87,114,40,134,53,146,27,22,127,143,70,72,13,203,127,243,74,55,89,142,231,97,57,
 100,57,153,1,120,30,246,219,24,216,72,12,12,0,0,0,0,0,0,0,0,0,24,169,235,190,0,29,91,147,129,227,74,136,41,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* appbar_debug_step_into_png = (const char*) temp_binary_data_25;
+const char* appbar_debug_step_into_png = (const char*) temp_binary_data_26;
 
 //================== appbar.debug.step.out.png ==================
-static const unsigned char temp_binary_data_26[] =
+static const unsigned char temp_binary_data_27[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,76,0,0,0,76,8,6,0,0,0,199,151,81,43,0,0,0,1,115,82,71,66,0,174,206,28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,0,9,112,72,89,115,0,0,14,195,0,0,14,195,1,199,111,168,100,0,0,1,106,73,68,65,
 84,120,94,237,217,63,74,196,64,24,134,241,104,161,214,178,88,139,71,240,12,162,157,157,157,87,241,2,94,192,78,236,196,206,19,216,217,216,139,86,54,22,118,219,216,104,165,239,224,6,134,225,155,144,100,38,59,193,121,126,240,176,203,238,16,146,143,253,147,
 236,54,0,0,0,0,0,0,0,0,0,192,90,93,174,110,209,211,143,98,104,3,184,129,185,174,213,166,123,0,221,218,129,49,52,207,145,186,82,207,106,169,252,33,133,221,169,45,85,165,3,245,160,172,193,116,117,175,170,27,218,161,250,80,214,64,250,116,161,170,177,175,
@@ -13778,10 +14114,10 @@ static const unsigned char temp_binary_data_26[] =
 141,98,172,181,185,154,133,177,23,223,49,214,218,92,205,198,152,159,119,98,172,181,185,154,157,99,229,126,64,124,85,159,202,218,233,182,24,107,109,174,0,252,47,69,175,173,60,235,250,124,73,62,94,254,234,26,136,129,13,196,192,6,98,96,0,0,0,0,0,0,0,0,0,
 0,48,43,77,243,11,47,213,156,14,120,145,79,154,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* appbar_debug_step_out_png = (const char*) temp_binary_data_26;
+const char* appbar_debug_step_out_png = (const char*) temp_binary_data_27;
 
 //================== appbar.debug.step.over.png ==================
-static const unsigned char temp_binary_data_27[] =
+static const unsigned char temp_binary_data_28[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,76,0,0,0,76,8,6,0,0,0,199,151,81,43,0,0,0,1,115,82,71,66,0,174,206,28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,0,9,112,72,89,115,0,0,14,195,0,0,14,195,1,199,111,168,100,0,0,1,126,73,68,65,
 84,120,94,237,218,191,46,5,65,24,134,241,69,226,79,68,226,50,92,131,90,73,167,209,185,29,10,151,160,81,81,233,36,116,46,67,161,17,149,66,161,33,18,188,195,74,38,147,239,200,124,118,71,102,205,243,75,158,28,178,89,217,253,178,231,216,179,187,29,0,0,0,
 0,0,0,0,0,0,80,204,146,218,85,39,234,70,61,170,119,5,195,142,186,85,97,64,105,136,204,171,3,245,166,172,97,133,16,57,82,214,144,226,208,219,83,214,128,210,32,171,234,94,89,3,186,84,219,106,93,253,196,90,183,68,85,216,87,214,198,29,170,92,214,250,37,170,
@@ -13790,18 +14126,18 @@ static const unsigned char temp_binary_data_27[] =
 84,16,47,107,122,104,185,55,114,211,78,213,162,106,82,206,163,2,86,231,106,50,67,91,232,95,199,112,165,86,212,166,242,156,81,111,168,87,117,253,249,91,131,194,115,97,179,30,119,178,154,212,17,86,74,252,64,93,24,222,147,98,88,191,16,15,171,233,255,146,
 185,24,150,83,24,22,95,143,28,24,22,0,0,0,0,0,0,48,25,93,247,1,62,94,2,242,227,172,124,82,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* appbar_debug_step_over_png = (const char*) temp_binary_data_27;
+const char* appbar_debug_step_over_png = (const char*) temp_binary_data_28;
 
 //================== appbar.debug.stop.png ==================
-static const unsigned char temp_binary_data_28[] =
+static const unsigned char temp_binary_data_29[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,76,0,0,0,76,8,6,0,0,0,199,151,81,43,0,0,0,1,115,82,71,66,0,174,206,28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,0,9,112,72,89,115,0,0,14,195,0,0,14,195,1,199,111,168,100,0,0,0,111,73,68,65,
 84,120,94,237,208,161,21,128,48,20,4,193,64,255,61,7,147,2,88,241,121,136,25,115,250,118,1,0,0,0,0,0,0,12,187,206,78,218,103,191,50,250,233,62,203,75,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,
 69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,69,130,1,0,0,0,0,0,0,252,202,90,15,184,253,1,56,154,182,116,99,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* appbar_debug_stop_png = (const char*) temp_binary_data_28;
+const char* appbar_debug_stop_png = (const char*) temp_binary_data_29;
 
 //================== ico_box.png ==================
-static const unsigned char temp_binary_data_29[] =
+static const unsigned char temp_binary_data_30[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\x0b'iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin=\"\xef\xbb\xbf\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n"
@@ -13895,10 +14231,10 @@ static const unsigned char temp_binary_data_29[] =
 "@\xd9l6\xc2""F$\x12""9%\x05&\x1e\xd5xd\xaf\xd7k\xeb\xe8\x7f""A8\x1c\xbe\xa7\x1b\x91\xe3\x91\xba\xddnU\x92\xe5G.'m\x90\xedz+\x94P\x88\x01^\0\x1f\0.C\x92\xe1\x9f\xf0""A:L9W\x0b\x06\x83\x1a\xa0\x19\x08\x04\xde\x01\x1c\xb1\x9f\xdb\xf7q\x0e""eP\xf6\xb2\x7f"
 "\xb5\xaa\x8a\xbfk\xcfR\xff\x19\xc7\xdc\xda\xf9+\xc0\0\x93\x86\xab \xec\x8e\x04h\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_box_png = (const char*) temp_binary_data_29;
+const char* ico_box_png = (const char*) temp_binary_data_30;
 
 //================== ico_bug.png ==================
-static const unsigned char temp_binary_data_30[] =
+static const unsigned char temp_binary_data_31[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\x0b'iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin=\"\xef\xbb\xbf\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n"
@@ -13996,10 +14332,10 @@ static const unsigned char temp_binary_data_30[] =
 "\x8e\x8e\x86\x87#\xb4\xfc""3\xae\x8a\xf5\xd3\x1f\xaf\x9c\x82\x18\x84\xba\x81\x13\xb4\x9d\x98\xcb|>o\x03.\xe0s\r\x14\xb8J\xfb!$=?\x02\x95.W\xb5\x13###\x1d\xc0\x07\\\xc0\x8e\xf0l\xc0\x11\xfc\x01$\x9e/\xc1Q\xe8\xba\x82\xdfQ\x7f\x1cr\xb9\n"
 "\x0b\x0f\xab\xad\xe0[\xc0""6d\x8e\x80\xd0\x01>s\x8f<\xca(tma;\x1c\xf3\xff\x05\x18\0\x9d\x80\xc3\x90\xea\xbd\x7fW\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_bug_png = (const char*) temp_binary_data_30;
+const char* ico_bug_png = (const char*) temp_binary_data_31;
 
 //================== ico_copy.png ==================
-static const unsigned char temp_binary_data_31[] =
+static const unsigned char temp_binary_data_32[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\x0b'iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin=\"\xef\xbb\xbf\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n"
@@ -14092,10 +14428,10 @@ static const unsigned char temp_binary_data_31[] =
 "2a\0\0L\"\xc0O\t \xfd\x9b""2\0""5lB\xb2\xddng|\xfb""F\xff\x1e&4'\xe7\xbc""5\x03j\xa1P\xf0\x99n\x13\xf7""2`jV\"\xd4\xcf\xac\xbf\x94\x13^U\x8f\xf9\x16\x8c\xa0\x19\xde""B\x84\xa8\xaf\xa1h\xa8\xaa\x1a\xa6\xca\x80h\xa4\xc5\xc0\xff\x05\x90\xba\x08\xef\x0c\xdc"
 "E\xf8WK\x90\x93""11\0""ab\xff\xa4.\xe4\xe8(\xc0\0\x1f\xb9\x8e\x96\x95\xe4\xb7`\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_copy_png = (const char*) temp_binary_data_31;
+const char* ico_copy_png = (const char*) temp_binary_data_32;
 
 //================== ico_ctrlr_mac.icns ==================
-static const unsigned char temp_binary_data_32[] =
+static const unsigned char temp_binary_data_33[] =
 { 105,99,110,115,0,0,250,64,84,79,67,32,0,0,0,88,105,99,48,57,0,0,90,211,105,99,48,56,0,0,41,101,105,116,51,50,0,0,23,228,116,56,109,107,0,0,64,8,105,104,51,50,0,0,8,70,104,56,109,107,0,0,9,8,105,108,51,50,0,0,5,63,108,56,109,107,0,0,4,8,105,115,51,50,
 0,0,2,31,115,56,109,107,0,0,1,8,105,99,48,57,0,0,90,211,137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,2,0,0,0,2,0,8,6,0,0,0,244,120,212,250,0,0,4,36,105,67,67,80,73,67,67,32,80,114,111,102,105,108,101,0,0,56,17,133,85,223,111,219,84,20,62,137,111,
 82,164,22,63,32,88,71,135,138,197,175,85,83,91,185,27,26,173,198,6,73,147,165,237,74,22,165,233,216,42,36,228,58,55,137,169,27,7,219,233,182,170,79,123,129,55,6,252,1,64,217,3,15,72,60,33,13,6,98,123,217,246,192,180,73,83,135,42,170,73,72,123,232,196,
@@ -14927,10 +15263,10 @@ static const unsigned char temp_binary_data_32[] =
 112,0,0,0,0,255,255,255,0,0,0,255,255,175,32,143,175,48,0,0,0,0,0,0,0,0,0,191,255,255,32,239,255,175,112,112,0,0,0,0,0,0,0,96,255,255,191,128,239,143,255,255,64,0,0,0,0,0,0,0,207,255,255,191,32,32,223,223,32,32,207,207,16,0,0,0,32,239,255,255,255,175,
 128,128,175,255,255,255,175,0,0,0,0,32,207,255,255,255,255,255,255,255,255,207,32,0,0,0,0,0,0,96,175,255,255,255,255,175,96,0,0,0,0,0,0 };
 
-const char* ico_ctrlr_mac_icns = (const char*) temp_binary_data_32;
+const char* ico_ctrlr_mac_icns = (const char*) temp_binary_data_33;
 
 //================== ico_cut.png ==================
-static const unsigned char temp_binary_data_33[] =
+static const unsigned char temp_binary_data_34[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\x0b'iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin=\"\xef\xbb\xbf\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n"
@@ -15029,10 +15365,10 @@ static const unsigned char temp_binary_data_33[] =
 "\n"
 "\xff\xcf\x08.\x8f""1\xe9!\xd7\xeb\xaa\xb3m\xdb\xa5\xfa""EOH$\xc4""4~@x\xf3\xff\x8a\x88""A,4\x14\xcd\0\xb9\x04\xef\xa7\0\x03\0\x85\x80.\x06\x02i\xfcj\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_cut_png = (const char*) temp_binary_data_33;
+const char* ico_cut_png = (const char*) temp_binary_data_34;
 
 //================== ico_delete.png ==================
-static const unsigned char temp_binary_data_34[] =
+static const unsigned char temp_binary_data_35[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -15124,10 +15460,10 @@ static const unsigned char temp_binary_data_34[] =
 "-9\x1c\x0e\xa2\x0c\xc1:\x16\xd6\xb7t|D\x98""7\xce\x90\xcd""f\xe3""A\xf2\x9d\xa8\x0e(\xacgA\xad;\x0f\x11""DvF\xacV+\x0f\x92/2\xd5\x17`\x1f\x0bj]<D\x10\xdd\x95\x0eu\xfa\x01\xfa\xfe\xe2\x97\x10\x0b\xfa\tJj\xcd\xff\x15`\0\xbc*\x95""F/\x95S\x05\0\0\0\0IEN"
 "D\xae""B`\x82";
 
-const char* ico_delete_png = (const char*) temp_binary_data_34;
+const char* ico_delete_png = (const char*) temp_binary_data_35;
 
 //================== ico_document.png ==================
-static const unsigned char temp_binary_data_35[] =
+static const unsigned char temp_binary_data_36[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -15212,10 +15548,10 @@ static const unsigned char temp_binary_data_35[] =
 "\x0e\x18\r\x81\xd1\x10\x18\x8d\x82\xd1\x10\x18M\x84\xa3Q0\x1a\x02#.\n"
 "\x98\xb1\xf5\x17\x81\x8ep \xb3\x87""D\x08""7\x02\xcd?\x80l\x19@\x80\x01\0\x15""FD\xc0\xc1\t(\xe0\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_document_png = (const char*) temp_binary_data_35;
+const char* ico_document_png = (const char*) temp_binary_data_36;
 
 //================== ico_document_new.png ==================
-static const unsigned char temp_binary_data_36[] =
+static const unsigned char temp_binary_data_37[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0""0\0\0\0""0\x08\x06\0\0\0W\x02\xf9\x87\0\0\n"
@@ -15307,10 +15643,10 @@ static const unsigned char temp_binary_data_36[] =
 "i\xa7\xa7\x8f\0\x8c\xfdw\x04\xe3\x06@)Q\x8e\xc0L\xc6""BX/4\xd7\0\xe6>\x02""1\x80\x18@\x0c \x06\x10\x03\x88\x01\xc4\0\xe2^(N\xa1\x18@\x0c \x06""0\xcf\0\x8c\x84\xdc\xdf\xac\xb3\x1a\xc6?i\xf3o\x1e\xfe""6\x03\xb2\xde\x81\xb8\xef""D?\xab\xfc\x11`\0\x0b\x13"
 "\x92\xd2Z\x8e\t%\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_document_new_png = (const char*) temp_binary_data_36;
+const char* ico_document_new_png = (const char*) temp_binary_data_37;
 
 //================== ico_edit_document.png ==================
-static const unsigned char temp_binary_data_37[] =
+static const unsigned char temp_binary_data_38[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -15402,10 +15738,10 @@ static const unsigned char temp_binary_data_37[] =
 "|D09\xa8J\xe4S\x1c\xcb\xb5\xd3\x89\xc9\x1e\x1c\x1c\xe8\xf9\xc4-\x97\xcb\x1b\xa3I^\xaf\xf7\x12""D%\x99\xd8""4[\xc4""1u\x90""E\xb0\x8d\xc9\xcf\xae\xdf\xf2\xeb\xc5l\xb3\x04\xf1N\xc7\xf2j\xb5""2\x17\xe0\xf1x\x1c]qv\xcbz\xbd""f\xf7z\x0b\xbe\xba\xb8\xe5_.\xf1"
 "/\x8a/X\"\\.W\x01\xeb:F\xdd|r\x1d\x93\xd8V\xfc\xff\x04\x18\0!\x1d\xd4WkS\xbd\x02\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_edit_document_png = (const char*) temp_binary_data_37;
+const char* ico_edit_document_png = (const char*) temp_binary_data_38;
 
 //================== ico_eye.png ==================
-static const unsigned char temp_binary_data_38[] =
+static const unsigned char temp_binary_data_39[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -15495,10 +15831,10 @@ static const unsigned char temp_binary_data_38[] =
 "\xe2\xb1l\xaeg'&9\xad\x0c\x87\xc3""9fgg\x87\xb2>g\x97\x99\"f\xce""c\x15^i{{\xbb\x0c\xb6\x05\x1elmmeW\xbd}\x08K:\x12;e\xf2\xf1\xd7\xdb\xd0\xedv\xe7\xd8\xe9%\xd2""4S\xacU\xc7\xe3\xb1\xc1/lnn\xa6\x91\xd9\tk\xd2\x90\xe4\"\xcb\x8f""F\xa3\xe2\xca\xd7""1\x0c"
 "\xd2\x85r\xc5M\xc8{\xc9\xa0\xfb\x04\x01\x9b\xef\xd2v\xb9\\i\xa7\xd3Y\x03\xdbo\xe4\x1a\xe9\xfe\xb3_2\x87\xc3""Ae\xcd\xa0*'\xacQ5\xc9UK\rF\xff\x0b\x15\x9c\x19\xa6\xb2\xa6""5\xadi\x05\xfa-\xc0\0\xb1\x98\xfa~\xc0j\x8b""8\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_eye_png = (const char*) temp_binary_data_38;
+const char* ico_eye_png = (const char*) temp_binary_data_39;
 
 //================== ico_file.png ==================
-static const unsigned char temp_binary_data_39[] =
+static const unsigned char temp_binary_data_40[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -15585,19 +15921,19 @@ static const unsigned char temp_binary_data_39[] =
 "\x0c\x03""F\x84\x7f\x9f\x82\xc1\xa9\xd8u\xdd\xcbV\x93\xe3\xd8t>p\x1cG\xeb\xcd""d\xf7\x14\x0c\x02\xd0|5c\xe2""f\x0e\xf5\n"
 "'\x1f\xe5\x13\xd3S\x80\x01\0\xc9""5\x08\x9f\xa1\x0ez\xa2\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_file_png = (const char*) temp_binary_data_39;
+const char* ico_file_png = (const char*) temp_binary_data_40;
 
 //================== ico_firmware.png ==================
-static const unsigned char temp_binary_data_40[] =
+static const unsigned char temp_binary_data_41[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,64,0,0,0,64,8,6,0,0,0,170,105,113,222,0,0,0,212,73,68,65,84,120,218,237,219,65,14,128,32,12,68,81,123,255,67,227,90,37,169,21,72,177,243,103,103,66,177,188,196,164,11,180,67,60,150,221,64,118,70,0,90,
 96,143,200,218,213,123,79,1,104,183,103,155,180,118,245,222,0,0,0,0,0,0,0,48,1,160,76,0,200,110,32,59,119,128,22,88,235,173,207,60,199,235,179,216,203,130,222,75,118,57,252,215,254,108,4,96,183,195,127,233,241,1,224,21,85,2,232,126,2,145,252,1,96,77,
 1,0,0,0,0,0,0,133,1,164,231,0,249,73,80,30,192,43,170,4,192,40,12,0,0,0,0,0,0,0,0,48,8,49,10,3,112,141,244,39,16,201,31,0,214,20,0,0,0,0,0,0,80,24,64,122,14,144,159,4,229,175,200,120,69,229,47,73,73,6,128,236,6,178,195,101,105,0,0,0,0,0,0,0,24,66,144,
 252,117,182,76,228,1,78,35,9,134,65,1,109,27,54,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_firmware_png = (const char*) temp_binary_data_40;
+const char* ico_firmware_png = (const char*) temp_binary_data_41;
 
 //================== ico_folder.png ==================
-static const unsigned char temp_binary_data_41[] =
+static const unsigned char temp_binary_data_42[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0""0\0\0\0""0\x08\x06\0\0\0W\x02\xf9\x87\0\0\n"
@@ -15682,20 +16018,20 @@ static const unsigned char temp_binary_data_41[] =
 "\xdb\xb8\x8f\x16\x97\xfb\xde\"\xe7\xb7J\xae<Kh\xf4\xafs`\x1cG\xd9\0\xe2""3@\0|\x87)\xc9\xaa\xae\xeb\x06\tN\x07""A\xc0\r\xcc\xbd\xfb\xa6|\xdf/\xa4""F\x9f}_Q\x06*\xa9\0\x92}\x87~\x8d\xb4\xeb\xba\xbb\xcfn\x96\xa9R;\x8e#z\x10\xfc\x89""A\x06\0\0\xfck\0\\\xa7"
 "\x01\0\0\0\0\0\xc7(\0\0\0\0\0\0\0s\0\0\0\x98'~\xe8\xe6\xb7\xe2\xadP\xffK\x05""A\xcb\xf4!\xc0\0{\xda\xd3\xc0\xbd""dxK\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_folder_png = (const char*) temp_binary_data_41;
+const char* ico_folder_png = (const char*) temp_binary_data_42;
 
 //================== ico_folder_alt.png ==================
-static const unsigned char temp_binary_data_42[] =
+static const unsigned char temp_binary_data_43[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,220,12,6,23,52,39,78,250,55,
 64,0,0,0,252,73,68,65,84,88,195,237,150,77,106,2,65,16,133,191,25,122,169,206,28,97,182,33,129,244,36,23,241,8,201,9,146,141,174,130,70,55,1,9,152,220,96,110,224,73,196,94,100,31,111,16,197,157,140,85,110,34,238,68,113,176,4,125,208,208,155,226,189,126,
 93,127,17,255,72,191,31,155,196,140,216,5,161,152,189,140,159,169,16,241,230,162,170,67,4,118,30,120,74,190,30,94,171,20,16,1,36,159,249,59,208,221,59,74,52,159,183,67,168,68,64,50,240,41,240,11,164,7,196,77,129,124,222,14,179,99,5,56,132,33,241,65,228,
 0,25,240,151,12,252,113,236,66,17,53,62,238,21,67,56,150,98,201,191,173,2,51,7,116,165,5,208,91,244,127,166,167,36,174,119,238,50,160,75,253,237,54,179,122,189,37,247,249,32,170,181,110,38,128,55,226,15,142,82,188,161,1,222,81,170,113,25,170,177,0,115,
 7,176,237,196,56,196,58,7,86,182,2,236,135,17,165,92,246,23,152,151,225,57,228,192,197,183,98,185,206,2,13,150,11,201,117,39,92,3,20,244,88,239,11,153,141,2,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_folder_alt_png = (const char*) temp_binary_data_42;
+const char* ico_folder_alt_png = (const char*) temp_binary_data_43;
 
 //================== ico_folder_new.png ==================
-static const unsigned char temp_binary_data_43[] =
+static const unsigned char temp_binary_data_44[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,48,0,0,0,48,8,6,0,0,0,87,2,249,135,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,221,9,9,23,55,23,24,209,24,172,
 0,0,6,87,73,68,65,84,104,222,237,153,95,140,91,87,17,198,127,231,222,107,123,147,245,141,189,155,120,227,120,189,78,8,27,9,117,201,110,19,36,164,134,208,36,72,69,66,80,154,242,4,2,161,60,192,11,21,130,7,164,162,190,52,125,32,125,64,136,62,84,202,11,168,
 82,81,139,168,84,69,32,168,138,16,85,162,8,144,66,148,164,41,5,149,0,85,214,187,118,246,79,216,181,111,237,238,218,190,231,227,33,199,197,44,32,65,90,111,106,232,72,35,31,223,115,238,241,124,51,115,102,230,140,13,27,232,224,193,131,79,25,99,78,240,31,
@@ -15722,10 +16058,10 @@ static const unsigned char temp_binary_data_43[] =
 179,181,90,237,47,174,78,202,0,219,128,96,120,120,120,212,247,253,251,58,157,206,179,81,20,189,230,20,144,4,134,235,245,122,179,209,104,140,3,159,2,14,3,5,224,148,121,55,245,120,118,239,222,157,117,215,205,145,235,215,175,15,196,159,45,255,68,165,82,
 105,207,255,85,119,250,111,185,148,130,165,154,219,29,202,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_folder_new_png = (const char*) temp_binary_data_43;
+const char* ico_folder_new_png = (const char*) temp_binary_data_44;
 
 //================== ico_font_bold.png ==================
-static const unsigned char temp_binary_data_44[] =
+static const unsigned char temp_binary_data_45[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -15812,10 +16148,10 @@ static const unsigned char temp_binary_data_44[] =
 "\xf6\xfb=\t\x91\xf7\xeb\xad\x98\xa0\xddnk\xe4\x02r\xa2)]\x87@\xab\xd5\"\x1f\x9f\xb2>\x0e\x9e\xc1g\x97\xa1\xaa\xaa<\x17\x92""c\x8b""f\xdd\xa2\xf1""f\xb3\xb1""DT\x81""F\xcb\xe8\x13xij\x16\x1cGq\xd8\x14\x01\x12\xb2\xf1v\xbbmd\x1a""F\x90x\xe3\xddn\xc7}S\""
 "\x19\x9b\xd7\x14\xf2K\xf7\xaa(J \xfd\xe3\x0c|\x0b""0\0\xfb_\x99\x02""88$\x9e\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_font_bold_png = (const char*) temp_binary_data_44;
+const char* ico_font_bold_png = (const char*) temp_binary_data_45;
 
 //================== ico_font_italic.png ==================
-static const unsigned char temp_binary_data_45[] =
+static const unsigned char temp_binary_data_46[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -15900,10 +16236,10 @@ static const unsigned char temp_binary_data_45[] =
 ")\x15k\x9a&c\x07\x18\x86\xe1\x81h\xc1\xe5_\xd7Z\x04\x80\xf4SW\xc0\x0f\xe0\xfb\xbe\x12`H\x84\x0f\xec\0\x9a\xd3\xdb\xc9\0""6'\x05\xd8\xb6m\xc6\x0e\0\x01\x06\x84\0\x8fV\xe6\x01\xdc\xbf\xbcV\x05\\[\x03\x07v\0\xd7uS\xcd\x10\x92\xb1\x03\xa8\xf4\x93\xbfU!J\x1b"
 "\0T\x07<\xf6}\xdf\xb1\x03h\x86\xd0""E\x15\xb0$\x03T\x0f\xf8`\x07p\x1cGj\x04X\xb2\x03h\x06\x90\xc5\x02\xfc""7e'\x01\x06\0""b\xd6\x9d\x04\x01\xa5\xf7\xb8\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_font_italic_png = (const char*) temp_binary_data_45;
+const char* ico_font_italic_png = (const char*) temp_binary_data_46;
 
 //================== ico_font_underline.png ==================
-static const unsigned char temp_binary_data_46[] =
+static const unsigned char temp_binary_data_47[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -15990,10 +16326,10 @@ static const unsigned char temp_binary_data_46[] =
 "L\xe4@T\xa2""9\x8e\x83\xad\xb8?$\"z'|\x80\xe1i\xdf""4M\x93\x19\x1a\x1a\x13\xe0\x1e""B\xcb\xb2(\\\x9d\xaf\x19WO\x84\xba\xeb:\xb9\xff\x86\xf0\xda\xa4\x0b\x14L\xa5\xaf\xa1i\x9a\xc3\x12\x92\xef\xf7{\"\xab@\xbd""D\x0b\xd8\x85_\x01\x06\0\x18""eCH\xa6\x1c\x03"
 "\x83\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_font_underline_png = (const char*) temp_binary_data_46;
+const char* ico_font_underline_png = (const char*) temp_binary_data_47;
 
 //================== ico_gui.png ==================
-static const unsigned char temp_binary_data_47[] =
+static const unsigned char temp_binary_data_48[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -16079,10 +16415,10 @@ static const unsigned char temp_binary_data_47[] =
 "`\x1d\x18\xfb\xae""5\xff""d\x1d\xd0\xf9\\\x8c\x88\x1a""E\xd3""4r\xae\x7f\xec\xfe\xa7\x02\xd4\xde\xa9\x03""F~\xe3$4\xf5\x1b\x7f\x86\x7f\x05\xb4^ g\xf6\x8a\xc9^\xc0|\xdf\x7f\t\xa9m\xdb""E\xff\tu\xbe\x7f/\xb0\xae\0\xf3<o\xdd\x08""4\xe0\x12\xe0""F\xd1\xd6"
 "\xee\xe8\xba\x81nv\x83\x83\x83\xa5\0\x8e\x8f\x8e\xe4\xba;l\xab`j%\x13\xc8\x89\xdcw\x01\x06\0\x9eh\x8f\xef<\xeb \xcc\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_gui_png = (const char*) temp_binary_data_47;
+const char* ico_gui_png = (const char*) temp_binary_data_48;
 
 //================== ico_happy.png ==================
-static const unsigned char temp_binary_data_48[] =
+static const unsigned char temp_binary_data_49[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0""0\0\0\0""0\x08\x06\0\0\0W\x02\xf9\x87\0\0\n"
@@ -16181,10 +16517,10 @@ static const unsigned char temp_binary_data_48[] =
 "\\u\x93\x8f\x15\x05*\x9a|\xe0\xaa\x9b|OOO\xb5""7\xf9\xca\xd4\xd4\xd4\xf4!m\xd6\xe7\xe7g\xc7\x05\x1bpY\x93""9\xf0\xfb\xfd\xff\xb0\xe9\x1eo0x\x02\x1d}yy\xf9\xaf!\xd6\x03\x81\x80\x0eN\x83\x8b\x1e""3\xd9\xd4\x95\xf7\"\xccH\x08\xbc\x06\xce\x83\x8b""5r\x9e"
 "\xd9\xa8\xf9\x8a\xea\xf3\"\x18\xf6\xc7\x0f\x9d\x1d\xd6""4\x9b\x9d%\xa7\x98\xfen\xe3\xa6.\xea""D\xff\x0b""0\0\xd2(pZ\xcd\t\xa1""e\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_happy_png = (const char*) temp_binary_data_48;
+const char* ico_happy_png = (const char*) temp_binary_data_49;
 
 //================== ico_import_document.png ==================
-static const unsigned char temp_binary_data_49[] =
+static const unsigned char temp_binary_data_50[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -16272,10 +16608,10 @@ static const unsigned char temp_binary_data_49[] =
 "\x18[\xb3\x19""4\xc3\xe1\xb0i\x17|\xbd^c\xf0P(ti?\xd1Rj\x1c\xa2""B\xda""7\x9b\r\x06\x0f\x06\x83\x18\x9c\xb5\xa4\x1b\xf1jNg\xc1m\xe6\xdb\xed\x16\x83\x07\x02\x01\xca\xce\x06^\xda""E\x19\xc0\xccw\xbb\x1d\x06\xf7\xfb\xfd\xaei\xe7""a\0""3\xdf\xef\xf7\x18\xdc"
 "\xe7\xf3I\xbd\x15q]\xc9\xbc^/\x05&\xa4\x05?\x1c\x0e\xaa#\x03\x7f\xd0\xa4iR\x04\xc7U\x02\x8f\xc7""C\xadl?@\xe0\xcf\xff\xe8?\x82\xa3\x06>\x9e\x0f\x17\x19""b\xbb\xb1\xaf\xe7\x1f\xbf\x04\x18\0%\xf6\xae""4T\x1dKT\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_import_document_png = (const char*) temp_binary_data_49;
+const char* ico_import_document_png = (const char*) temp_binary_data_50;
 
 //================== ico_midi.png ==================
-static const unsigned char temp_binary_data_50[] =
+static const unsigned char temp_binary_data_51[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,128,0,0,0,128,8,6,0,0,0,195,62,97,203,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,222,6,29,14,45,36,223,100,
 62,41,0,0,0,29,105,84,88,116,67,111,109,109,101,110,116,0,0,0,0,0,67,114,101,97,116,101,100,32,119,105,116,104,32,71,73,77,80,100,46,101,7,0,0,32,0,73,68,65,84,120,218,237,125,121,120,83,85,250,255,39,55,123,210,164,233,146,238,43,180,64,41,91,89,90,
 150,162,8,88,16,20,100,64,197,25,87,92,113,134,113,97,84,126,204,168,224,160,224,215,13,23,116,84,112,25,220,64,1,113,1,28,86,1,17,68,64,20,144,10,84,214,238,105,154,102,223,238,253,253,97,207,121,206,189,185,73,211,138,142,206,204,125,158,60,133,180,
@@ -16516,10 +16852,10 @@ static const unsigned char temp_binary_data_50[] =
 245,161,80,104,108,180,99,214,58,58,115,151,181,34,49,94,183,1,63,30,182,240,133,32,8,45,100,234,246,111,245,250,205,43,128,220,149,145,145,97,13,4,2,89,60,207,231,3,200,84,42,149,26,191,223,95,5,64,173,80,40,148,10,133,66,8,133,66,229,130,32,152,219,
 5,219,198,113,220,30,158,231,21,130,32,132,5,65,8,40,20,138,79,5,65,8,242,60,95,175,80,40,78,2,168,11,6,131,205,255,105,107,245,255,1,24,93,199,118,38,228,180,44,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_midi_png = (const char*) temp_binary_data_50;
+const char* ico_midi_png = (const char*) temp_binary_data_51;
 
 //================== ico_midi_plug.png ==================
-static const unsigned char temp_binary_data_51[] =
+static const unsigned char temp_binary_data_52[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,64,0,0,0,64,8,6,0,0,0,170,105,113,222,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,221,8,13,21,53,57,71,183,29,
 104,0,0,5,6,73,68,65,84,120,218,237,155,77,136,92,69,16,128,191,121,179,59,235,219,205,230,111,199,172,122,240,39,66,146,139,160,193,159,67,4,15,138,160,183,168,68,16,81,240,32,168,96,178,26,99,14,226,69,80,35,40,70,19,179,17,69,16,21,73,208,139,68,208,
 8,26,20,23,21,53,96,146,245,7,132,28,246,135,221,157,221,67,140,160,217,108,60,76,189,108,51,190,159,234,215,61,59,227,60,11,154,121,244,188,87,63,221,213,85,93,213,213,0,221,64,64,29,122,228,183,25,125,182,208,76,94,162,190,74,23,112,22,88,0,6,128,26,
@@ -16541,10 +16877,10 @@ static const unsigned char temp_binary_data_51[] =
 171,178,47,38,48,184,2,247,75,153,215,37,224,126,198,56,12,113,161,97,101,4,211,250,66,224,9,227,96,98,107,78,149,140,235,123,155,197,2,199,33,233,91,237,129,231,50,134,33,40,27,207,97,66,95,40,163,158,246,30,212,235,142,74,10,124,218,190,126,224,122,
 3,191,43,190,168,175,251,31,85,154,211,250,193,195,59,212,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_midi_plug_png = (const char*) temp_binary_data_51;
+const char* ico_midi_plug_png = (const char*) temp_binary_data_52;
 
 //================== ico_midi_plug_in.png ==================
-static const unsigned char temp_binary_data_52[] =
+static const unsigned char temp_binary_data_53[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,221,9,18,21,28,56,65,236,220,
 108,0,0,4,33,73,68,65,84,88,195,197,151,77,136,92,69,16,199,127,213,253,230,123,119,227,215,174,102,93,194,74,16,137,65,4,65,92,226,193,131,224,65,84,34,68,204,193,155,23,111,138,23,23,9,228,32,26,188,152,92,60,136,224,65,33,42,138,23,81,65,68,20,21,
 84,68,17,140,33,241,99,115,200,38,67,178,209,236,206,186,31,51,243,94,123,232,122,155,182,243,102,246,109,20,108,104,222,155,122,85,255,250,119,117,85,77,183,0,2,84,241,35,211,9,144,68,50,167,207,171,129,61,192,45,192,152,234,116,128,19,192,23,192,162,
@@ -16563,10 +16899,10 @@ static const unsigned char temp_binary_data_52[] =
 27,59,94,47,178,121,184,192,121,225,197,36,6,221,166,97,203,129,190,44,112,30,19,63,30,93,68,70,10,244,46,187,152,36,58,243,131,100,51,56,183,27,189,146,31,1,198,35,189,122,100,91,215,106,58,2,140,170,109,145,94,46,51,127,3,206,120,239,173,76,104,133,
 128,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_midi_plug_in_png = (const char*) temp_binary_data_52;
+const char* ico_midi_plug_in_png = (const char*) temp_binary_data_53;
 
 //================== ico_midi_plug_out.png ==================
-static const unsigned char temp_binary_data_53[] =
+static const unsigned char temp_binary_data_54[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,221,9,18,21,28,47,194,63,89,
 171,0,0,4,69,73,68,65,84,88,195,173,151,93,104,28,85,20,199,127,231,206,236,204,102,55,77,93,49,166,15,18,173,219,108,187,73,68,80,68,241,209,162,232,131,80,65,52,160,111,130,248,40,248,208,130,133,60,136,86,17,76,69,125,208,150,130,31,136,82,241,65,
 177,136,248,32,88,80,68,144,250,145,152,80,170,69,82,130,36,93,37,49,31,221,221,185,62,228,204,228,102,156,217,108,82,15,92,102,230,204,185,255,115,238,185,231,156,123,174,0,2,4,172,83,164,3,192,79,241,172,62,43,192,221,192,126,160,79,101,22,129,105,
@@ -16585,10 +16921,10 @@ static const unsigned char temp_binary_data_53[] =
 254,126,35,213,170,229,94,76,98,143,60,156,163,252,93,167,183,15,15,237,217,179,75,99,8,173,170,137,172,183,241,254,80,134,242,204,139,73,250,242,184,91,221,22,3,157,117,149,3,197,251,251,251,43,41,195,167,98,249,64,228,180,131,93,206,208,145,92,76,124,
 29,113,35,89,114,250,118,163,87,242,227,64,127,74,174,120,176,82,9,28,94,17,24,82,217,93,207,12,14,22,82,23,159,77,115,1,243,47,2,0,6,216,203,212,50,54,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_midi_plug_out_png = (const char*) temp_binary_data_53;
+const char* ico_midi_plug_out_png = (const char*) temp_binary_data_54;
 
 //================== ico_midi_small.png ==================
-static const unsigned char temp_binary_data_54[] =
+static const unsigned char temp_binary_data_55[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,64,0,0,0,64,8,6,0,0,0,170,105,113,222,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,222,6,29,14,45,53,181,212,
 30,219,0,0,0,29,105,84,88,116,67,111,109,109,101,110,116,0,0,0,0,0,67,114,101,97,116,101,100,32,119,105,116,104,32,71,73,77,80,100,46,101,7,0,0,26,108,73,68,65,84,120,218,205,123,121,116,84,229,221,255,231,46,179,102,150,100,38,147,133,201,190,47,144,
 144,144,0,97,19,9,132,40,45,166,90,94,105,81,104,193,246,37,231,119,74,69,180,216,35,32,80,33,239,81,180,45,30,32,80,182,88,34,167,145,162,214,114,132,66,193,22,80,160,8,130,20,19,66,0,195,150,149,201,100,102,238,204,220,237,249,253,33,247,158,73,152,
@@ -16688,10 +17024,10 @@ static const unsigned char temp_binary_data_54[] =
 101,249,165,187,57,60,23,0,249,91,125,1,227,65,71,110,113,113,113,78,73,146,178,9,33,217,178,44,151,200,178,156,41,203,114,230,221,24,62,153,124,133,254,250,93,50,218,238,238,103,9,33,173,132,144,86,89,150,111,61,200,241,253,127,154,100,254,148,25,65,
 83,210,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_midi_small_png = (const char*) temp_binary_data_54;
+const char* ico_midi_small_png = (const char*) temp_binary_data_55;
 
 //================== ico_new_document.png ==================
-static const unsigned char temp_binary_data_55[] =
+static const unsigned char temp_binary_data_56[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -16779,10 +17115,10 @@ static const unsigned char temp_binary_data_55[] =
 "O\x89\x15K\xfe*\x86\xa6 \x93\xc9\xdc\x1c""A\xd0\xd8\xedv,\xae\x14\xdc""4\xe2H\xc1m\x01\xfc""9\x03I\n"
 "\x12\x06\x92\"LR\xf0\xefRp\x1f\xf4\x85\xc4\xff:\x04\x12\xa1\xbc\x9c\xfb\xe5\xf4-\xc0\0)\x05\xa4\x0c\x02""c8\xf0\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_new_document_png = (const char*) temp_binary_data_55;
+const char* ico_new_document_png = (const char*) temp_binary_data_56;
 
 //================== ico_next.png ==================
-static const unsigned char temp_binary_data_56[] =
+static const unsigned char temp_binary_data_57[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0""0\0\0\0""0\x08\x06\0\0\0W\x02\xf9\x87\0\0\x0b'iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin=\"\xef\xbb\xbf\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n"
@@ -16880,10 +17216,10 @@ static const unsigned char temp_binary_data_56[] =
 "\xab\xe5\xe7\xea""B^\xafwt7\xc0""6\x1dX\x8b""0\x1c\x0e\x9bv\x8e\xbb\x99O%<\x1e\x0f\xfa""b\xc3L\xfe\xe5\xe5\xc5\xf6\xcb\xbe\x99[\x80\xb9J\xe8:\x02\xd6\"\xbc\xbe\xbe.\xe4\xa6r\x9e.\xa4""a\x93\x7f{{\xbb\xe0(\xca\xedv\x9f\xb9\\.}R\xc0\xfb\x12G]\x90\xa8\xe4"
 "t:{\x10\xfaX\xe4\xb9\xaf\"HV\x80\xf1\xd0\x83\xd0\x8d(p_PlV:\xe3\xfe\xff\xe4""fi\xfa'\xc0\0J\xe8\xe2\x04I\x82\t\xef\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_next_png = (const char*) temp_binary_data_56;
+const char* ico_next_png = (const char*) temp_binary_data_57;
 
 //================== ico_paste.png ==================
-static const unsigned char temp_binary_data_57[] =
+static const unsigned char temp_binary_data_58[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\x0b'iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin=\"\xef\xbb\xbf\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n"
@@ -16976,10 +17312,10 @@ static const unsigned char temp_binary_data_57[] =
 "\x82\x06\x0b\x85\x02\xd9\xa4\xcf\x80""A\xd2\x04\x94|>o\xf9s\x80\xcd\xd5\xe9\xf6M\xa3\x04ZH\xfd\xe3OBQ#\xfc\xf6\x04\xd2\xe8\x82\x7f\x05\xb8\x14\xc8\xe5r\xfa~\xbf\xc7i+ e\xb3\xd9\x0f\xf0<\x7f\xb1'\x87\xc3\xe1\xb8\xcf!O\x88\x04""d\x1b\x0e\x01\x98g\xbb\x05"
 "K \x02\xd2\xb5\xcc""eY\x16\xa2@\xe6\xda""Da]pm\xa2\xa8.\xb8\x8fs\x81\x81""D'\xe6\x1d\x98|\x0b""0\0\x95\xc9U\xb6\x81\xa5\xa5U\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_paste_png = (const char*) temp_binary_data_57;
+const char* ico_paste_png = (const char*) temp_binary_data_58;
 
 //================== ico_previous.png ==================
-static const unsigned char temp_binary_data_58[] =
+static const unsigned char temp_binary_data_59[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0""0\0\0\0""0\x08\x06\0\0\0W\x02\xf9\x87\0\0\x0b'iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin=\"\xef\xbb\xbf\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n"
@@ -17081,10 +17417,10 @@ static const unsigned char temp_binary_data_58[] =
 "\x80h4\xff\xe7\xf0\xf9\x8e\x8dw\xb3\xdb\xed\xbb\xe0\xcd""7\xfe\0\0\t\xdbG1A\x10R\xe0M\xdd\x1f\0@\xb4}@\xc3w\n"
 ";6\xc6""7\xf3o\xed\xaf\0\x03\0q\xc6\xa9h\x9b\xe9\xf2""A\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_previous_png = (const char*) temp_binary_data_58;
+const char* ico_previous_png = (const char*) temp_binary_data_59;
 
 //================== ico_receive.png ==================
-static const unsigned char temp_binary_data_59[] =
+static const unsigned char temp_binary_data_60[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0""0\0\0\0""0\x08\x06\0\0\0W\x02\xf9\x87\0\0\n"
@@ -17174,10 +17510,10 @@ static const unsigned char temp_binary_data_59[] =
 "\xb2\xac@u\x1d\xb8\xcb*\xf4-\0\xbc^\xaf\xe4H\x87\xc3\x01\xdd\x05\x80\xd6""3\xab\xed\0\xcc\xdc\xc0\x19\xb2\x99\xb3\xdb\x1bp\xe8\x19H\xca=\x1e\x8f""ak\x05\x1e\x9b\xda\x81""F\xe1`\xd2q\xbb\xdd\xd4!`L\xfc\xf1\xa5#\x17Ws\xe5p\xb9\\\xd6\xcc!\x19\xbb\x9b\x1c"
 "\xf8\x0f`W\0\xa7\xd6\x07\x10""B\x8f\xd0p6\xd1\xff\xc1\xe8\0\x10\xbf+\x83\x0b\x16;\xd6\xc0\xfe\x15`\0\x7f\xe6\xd0\x90\x01\xa7""F\xc4\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_receive_png = (const char*) temp_binary_data_59;
+const char* ico_receive_png = (const char*) temp_binary_data_60;
 
 //================== ico_sad.png ==================
-static const unsigned char temp_binary_data_60[] =
+static const unsigned char temp_binary_data_61[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0""0\0\0\0""0\x08\x06\0\0\0W\x02\xf9\x87\0\0\n"
@@ -17279,10 +17615,10 @@ static const unsigned char temp_binary_data_60[] =
 "6\x14\xf8t\xc9\xc7\x9a<\xbd\x8a\xf6#\xf9\xf2\xf2R\xfb%_\x91Z[[\x7f\xc9""5\xeb\xeb\xeb\xabk\x95\x0bx\x9c\xc9\x1c(\x8a\xf2\x17\x0b\xf7""d\x83\xc1\x13\xe8\xe8\xdb\xdb\xdb\xbf\r\xd1\x1e\x08\x04t\xf0:8\xef""3\x93\xce\xaf{\x91""BD4p\n"
 "\x9c\x03\xe7k\xe4\x1c\xd3QsK.\xfb\xe1\x0c\xfb\xc7\x0f\xe2%v\xcc\x82\x15*\x16q\xe1\xdfm\xbc\xcc""E\xdd\xe8?\x01\x06\0""D\x0e\xf0\r\x91\xb2\xd1\x85\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_sad_png = (const char*) temp_binary_data_60;
+const char* ico_sad_png = (const char*) temp_binary_data_61;
 
 //================== ico_send.png ==================
-static const unsigned char temp_binary_data_61[] =
+static const unsigned char temp_binary_data_62[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0""0\0\0\0""0\x08\x06\0\0\0W\x02\xf9\x87\0\0\n"
@@ -17374,10 +17710,10 @@ static const unsigned char temp_binary_data_61[] =
 "5\xf9M\xcc\xdf\xc2\x92\xae\xf1M\x81$)\xd0\xfe@[\xec\xb8Q\x0f\n"
 "/\xf1_\x01\x06\0\xaa\x82\x90\xdd[{\xd3\xe3\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_send_png = (const char*) temp_binary_data_61;
+const char* ico_send_png = (const char*) temp_binary_data_62;
 
 //================== ico_snapshot.png ==================
-static const unsigned char temp_binary_data_62[] =
+static const unsigned char temp_binary_data_63[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,48,0,0,0,48,8,6,0,0,0,87,2,249,135,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,221,9,9,23,45,13,85,158,27,13,
 0,0,3,225,73,68,65,84,104,222,237,152,77,104,29,85,20,199,127,255,153,103,82,181,173,77,191,82,75,197,210,82,252,138,8,145,186,177,84,98,85,172,84,176,110,210,168,213,44,4,55,110,172,84,104,55,82,112,163,86,112,239,66,212,69,3,162,11,139,138,32,90,252,
 132,170,85,180,160,221,180,16,27,105,53,42,73,218,216,132,215,247,119,51,129,241,250,230,101,50,243,250,146,194,251,195,93,220,115,231,222,123,206,185,231,115,160,141,54,218,104,163,141,54,218,152,63,168,5,119,172,150,244,54,176,180,193,55,35,113,28,
@@ -17395,10 +17731,10 @@ static const unsigned char temp_binary_data_62[] =
 37,79,186,110,74,165,103,111,147,180,45,208,124,233,99,163,38,245,191,243,133,81,73,90,3,156,110,208,167,46,84,84,129,117,145,237,51,192,67,69,255,72,207,19,46,2,59,109,159,21,64,103,103,167,166,167,167,87,1,79,36,77,183,22,40,227,6,142,1,111,116,116,
 116,252,49,53,53,101,46,119,252,11,20,38,248,253,91,114,102,186,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_snapshot_png = (const char*) temp_binary_data_62;
+const char* ico_snapshot_png = (const char*) temp_binary_data_63;
 
 //================== ico_snapshot_new.png ==================
-static const unsigned char temp_binary_data_63[] =
+static const unsigned char temp_binary_data_64[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,48,0,0,0,48,8,6,0,0,0,87,2,249,135,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,221,9,9,23,49,43,97,228,195,173,
 0,0,6,246,73,68,65,84,104,222,213,153,127,108,93,101,25,199,63,223,115,111,219,141,218,75,75,215,21,6,173,23,246,35,118,244,246,222,172,140,104,88,160,115,138,146,104,40,56,69,166,96,151,144,248,23,137,96,102,2,38,36,36,238,15,116,102,75,52,252,161,137,
 155,26,195,18,34,76,5,49,198,184,226,175,40,160,91,199,101,183,182,10,235,214,45,251,85,119,187,110,165,107,239,57,143,255,188,23,79,78,238,109,239,106,127,237,73,222,220,123,158,115,222,247,60,223,231,247,251,30,88,34,212,217,217,153,156,205,60,111,
@@ -17427,10 +17763,10 @@ static const unsigned char temp_binary_data_63[] =
 108,19,192,167,103,35,79,188,146,114,61,39,157,158,217,22,73,91,34,154,255,191,151,245,230,104,255,187,88,116,94,146,110,4,134,221,62,245,90,162,2,112,139,103,102,167,129,238,217,158,72,47,18,249,192,3,102,118,70,0,53,53,53,154,156,156,108,2,190,226,
 54,221,90,162,130,27,240,15,224,199,213,213,213,231,174,92,185,98,92,235,244,95,72,188,83,100,183,87,39,56,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_snapshot_new_png = (const char*) temp_binary_data_63;
+const char* ico_snapshot_new_png = (const char*) temp_binary_data_64;
 
 //================== ico_transaction.png ==================
-static const unsigned char temp_binary_data_64[] =
+static const unsigned char temp_binary_data_65[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0""0\0\0\0""0\x08\x06\0\0\0W\x02\xf9\x87\0\0\n"
@@ -17526,10 +17862,10 @@ static const unsigned char temp_binary_data_64[] =
 "\xd0\"T\xf7I\xc9\x96$|\xb6\x84\xc3""a\t\x9a\x83\xea.5O6|\xdb\x13\xbb""6\xf2\xef\xa3\x8f\xf7\xcfm\x0c\xdb\xc0\xaa""fL\xa8\xf8\xdc\x86}\xe4\xe1I\xfe\n"
 "0\0\xad-\xb1\xe3\xf0p\xed\xcd\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_transaction_png = (const char*) temp_binary_data_64;
+const char* ico_transaction_png = (const char*) temp_binary_data_65;
 
 //================== ico_unit.png ==================
-static const unsigned char temp_binary_data_65[] =
+static const unsigned char temp_binary_data_66[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\x0b'iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin=\"\xef\xbb\xbf\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n"
@@ -17628,10 +17964,10 @@ static const unsigned char temp_binary_data_65[] =
 "\xff""2c,C\x98""E\x01""3hHh\xbe\x1c\xd9\x94\x0e\x0f\x0fW\x15\x91\xe8v\xb8\xcf\xcf\xcf\xe9~{\xc2\xba\xd1\xfb\x88\xb4\x8d\x8c\0\x95R_m\xf9\xdb\xdb[\xefm\xf9\xe0\xe0\xa0\x1d\xf2\xb5\xd3\xba\xd5\0\x0eQ\xdc\xa2\x81\0\xa3g\xef\xe3\xf1x\x8e\xa4\xa9\x90\x8a""B"
 "\xb7\x12\xa2\x9b\xeb""9\x07x3\xaal\xd3\x14\xba\x99\x90\x8fS\xb7\x9f#4b\xb1\x98""E\x82\xcfn4\xafM\x92\xd0\x7f\x84""5\xae\xe3\xc1\x06\xb6Q\xf8\xff\x04\x18\0!\xaaxh\xcd\x9a(|\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_unit_png = (const char*) temp_binary_data_65;
+const char* ico_unit_png = (const char*) temp_binary_data_66;
 
 //================== ico_unit_alt.png ==================
-static const unsigned char temp_binary_data_66[] =
+static const unsigned char temp_binary_data_67[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,32,0,0,0,32,8,6,0,0,0,115,122,122,244,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,220,12,6,23,53,5,130,129,71,
 229,0,0,4,18,73,68,65,84,88,195,165,87,77,104,27,71,20,254,70,63,145,45,55,176,41,132,184,198,9,171,164,1,81,2,117,32,4,210,211,250,18,2,61,212,45,33,244,144,34,233,216,82,136,82,90,211,92,106,169,20,76,66,193,110,17,201,81,18,110,15,237,197,242,161,
 7,231,146,13,244,16,122,137,90,168,49,184,237,238,65,45,110,66,90,165,197,94,121,37,205,235,193,227,237,236,122,127,100,107,224,129,152,249,222,247,158,230,253,204,91,134,136,53,118,231,21,21,64,30,64,14,49,166,130,83,121,107,118,173,20,128,45,33,198,
@@ -17650,10 +17986,10 @@ static const unsigned char temp_binary_data_66[] =
 45,31,223,49,109,192,189,48,142,221,145,44,52,252,166,181,30,63,149,174,139,182,171,130,160,128,80,238,62,124,214,240,193,182,227,167,210,12,4,77,180,231,47,64,40,116,31,62,123,20,102,227,63,188,248,130,21,201,153,203,111,0,0,0,0,73,69,78,68,174,66,96,
 130,0,0 };
 
-const char* ico_unit_alt_png = (const char*) temp_binary_data_66;
+const char* ico_unit_alt_png = (const char*) temp_binary_data_67;
 
 //================== ico_unknown.png ==================
-static const unsigned char temp_binary_data_67[] =
+static const unsigned char temp_binary_data_68[] =
 "\x89PNG\r\n"
 "\x1a\n"
 "\0\0\0\rIHDR\0\0\0 \0\0\0 \x08\x06\0\0\0szz\xf4\0\0\n"
@@ -17735,10 +18071,10 @@ static const unsigned char temp_binary_data_67[] =
 "\r\xc0 \x0c\x04\x89\x94\x81\x88\xf7\x9f\xc1""a![a\x80|g!$\xee\x1a\n"
 "\x0b\xb0\xef\x1b\xb7\x06p:\x97*\x98\xd9;\x8f^\xf4\xcfp\xf7\xe7\xafp\xab\x1b\x99\xd9\x0b\x07\x95o\xc9\x06\"bI\x04\xfb""60#\xc0\0\x06""0p\xb8\x01\"\xc0\0\x06v00*W2\xb6_\0\xc5'\xc0\0i\x03?\xee\x15""3\x90\xc8\0\0\0\0IEND\xae""B`\x82";
 
-const char* ico_unknown_png = (const char*) temp_binary_data_67;
+const char* ico_unknown_png = (const char*) temp_binary_data_68;
 
 //================== ico_waveform.png ==================
-static const unsigned char temp_binary_data_68[] =
+static const unsigned char temp_binary_data_69[] =
 { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,64,0,0,0,64,8,6,0,0,0,170,105,113,222,0,0,0,6,98,75,71,68,0,255,0,255,0,255,160,189,167,147,0,0,0,9,112,72,89,115,0,0,11,19,0,0,11,19,1,0,154,156,24,0,0,0,7,116,73,77,69,7,221,8,13,21,33,9,79,192,250,
 145,0,0,5,125,73,68,65,84,120,218,229,90,75,108,85,85,20,93,239,245,21,11,2,109,173,85,252,128,88,208,226,95,164,148,38,56,48,18,52,132,160,24,48,162,76,140,9,98,12,14,52,209,129,70,39,126,146,38,14,140,81,227,103,32,126,6,198,144,32,36,196,224,128,132,
 20,165,40,181,54,82,10,37,66,91,138,181,90,44,152,66,63,66,159,3,207,141,59,171,251,156,115,95,251,110,123,159,119,39,55,247,221,125,246,249,173,179,207,254,181,192,212,82,177,121,18,73,243,1,108,5,240,41,128,170,36,2,176,29,64,214,60,95,37,17,128,78,
@@ -17761,20 +18097,20 @@ static const unsigned char temp_binary_data_68[] =
 82,38,49,10,227,198,182,90,92,224,195,81,45,46,51,9,0,100,141,38,132,161,19,22,126,107,84,139,75,199,76,91,78,56,18,175,196,2,48,28,229,132,113,3,224,248,100,158,126,28,1,56,149,116,0,52,149,111,77,26,0,71,67,230,14,255,91,0,218,201,133,246,38,13,128,
 111,41,136,250,3,9,163,74,0,127,154,211,223,137,132,82,9,198,254,63,65,36,244,15,58,172,197,162,123,89,164,229,0,0,0,0,73,69,78,68,174,66,96,130,0,0 };
 
-const char* ico_waveform_png = (const char*) temp_binary_data_68;
+const char* ico_waveform_png = (const char*) temp_binary_data_69;
 
 //================== tile.gif ==================
-static const unsigned char temp_binary_data_69[] =
+static const unsigned char temp_binary_data_70[] =
 { 71,73,70,56,57,97,100,0,100,0,128,0,0,229,229,229,219,218,218,33,249,4,0,0,0,0,0,44,0,0,0,0,100,0,100,0,0,2,255,140,143,169,8,237,15,163,156,244,173,139,179,78,181,251,239,108,226,168,129,230,105,145,234,26,160,46,200,198,226,75,87,242,141,213,122,132,
 247,220,14,4,248,134,173,224,142,232,51,30,145,56,165,142,217,116,210,160,55,233,148,26,179,190,176,89,45,138,203,242,126,193,42,241,137,92,54,195,208,35,245,154,189,113,127,224,51,121,135,30,183,219,240,25,253,158,127,225,71,1,152,35,40,65,24,104,200,
 131,168,160,184,200,248,227,216,0,217,40,57,73,201,96,41,132,121,160,185,201,89,100,9,106,224,57,26,42,105,90,58,170,10,202,202,233,138,9,75,41,11,73,203,104,139,136,75,168,11,200,203,231,139,7,76,39,12,71,204,102,140,134,76,166,12,6,116,186,181,170,
 153,42,29,45,90,141,122,237,56,109,221,74,221,205,253,234,29,14,30,43,94,78,62,107,158,142,94,171,222,206,126,235,30,15,159,43,95,79,191,107,159,143,223,171,223,239,31,140,25,22,79,159,206,241,11,8,112,152,64,42,4,179,105,251,118,80,97,194,98,11,161,
 52,132,136,109,92,68,138,29,19,143,85,100,114,81,99,70,131,35,215,109,244,216,49,217,71,36,33,73,62,20,249,210,165,162,33,5,0,0,59,0,0 };
 
-const char* tile_gif = (const char*) temp_binary_data_69;
+const char* tile_gif = (const char*) temp_binary_data_70;
 
 //================== CtrlrMIDITransactions.xml ==================
-static const unsigned char temp_binary_data_70[] =
+static const unsigned char temp_binary_data_71[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n"
 "<transactions>\r\n"
 "\t<trans \t\tname=\"Request Identity\"\r\n"
@@ -17856,10 +18192,10 @@ static const unsigned char temp_binary_data_70[] =
 "\t\t/>\r\n"
 "</transactions>\r\n";
 
-const char* CtrlrMIDITransactions_xml = (const char*) temp_binary_data_70;
+const char* CtrlrMIDITransactions_xml = (const char*) temp_binary_data_71;
 
 //================== CtrlrMIDIVendors.xml ==================
-static const unsigned char temp_binary_data_71[] =
+static const unsigned char temp_binary_data_72[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n"
 "<vendors>\r\n"
 "\t\t<vendor name=\"Ta Horng Musical Instrument\" id=\"000074\" />\r\n"
@@ -18168,10 +18504,10 @@ static const unsigned char temp_binary_data_71[] =
 "\t\t<vendor name=\"SD Card Association\"\tid=\"5F\" />\r\n"
 "</vendors>\r\n";
 
-const char* CtrlrMIDIVendors_xml = (const char*) temp_binary_data_71;
+const char* CtrlrMIDIVendors_xml = (const char*) temp_binary_data_72;
 
 //================== CtrlrIDs.xml ==================
-static const unsigned char temp_binary_data_72[] =
+static const unsigned char temp_binary_data_73[] =
 { 60,63,120,109,108,32,118,101,114,115,105,111,110,61,34,49,46,48,34,32,101,110,99,111,100,105,110,103,61,34,85,84,70,45,56,34,63,62,13,10,13,10,60,99,116,114,108,114,73,100,115,62,13,10,32,32,60,33,45,45,32,77,111,100,117,108,97,116,111,114,32,112,114,
 111,112,101,114,116,105,101,115,32,45,45,62,13,10,32,32,60,105,100,32,110,97,109,101,61,34,109,111,100,117,108,97,116,111,114,86,97,108,117,101,34,32,9,9,9,9,9,116,101,120,116,61,34,67,117,114,114,101,110,116,32,109,111,100,117,108,97,116,111,114,32,
 118,97,108,117,101,34,32,116,121,112,101,61,34,82,101,97,100,79,110,108,121,34,47,62,13,10,32,32,60,105,100,32,110,97,109,101,61,34,109,111,100,117,108,97,116,111,114,73,115,83,116,97,116,105,99,34,32,9,9,9,9,9,116,101,120,116,61,34,77,111,100,117,108,
@@ -19285,10 +19621,10 @@ static const unsigned char temp_binary_data_72[] =
 103,104,119,97,121,45,83,105,103,110,61,55,44,75,97,114,109,97,116,105,99,45,65,114,99,97,100,101,61,56,44,54,48,115,101,107,117,110,116,105,97,61,57,34,32,47,62,13,10,32,32,60,47,99,111,110,115,116,97,110,116,115,62,13,10,13,10,60,47,99,116,114,108,
 114,73,100,115,62,13,10,0,0 };
 
-const char* CtrlrIDs_xml = (const char*) temp_binary_data_72;
+const char* CtrlrIDs_xml = (const char*) temp_binary_data_73;
 
 //================== CtrlrLuaMethodTemplates.xml ==================
-static const unsigned char temp_binary_data_73[] =
+static const unsigned char temp_binary_data_74[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n"
 "<methods>\r\n"
 "  <luaMethod name=\"luaModulatorValueChange\">\r\n"
@@ -19885,7 +20221,7 @@ static const unsigned char temp_binary_data_73[] =
 "    __method_name = function(stateData)\r\n"
 "    end\r\n"
 "  </luaMethod>\r\n"
-"  \r\n"
+"\r\n"
 "  <luaMethod name=\"LookAndFeel\" resource=\"LookAndFeel_lua\">\r\n"
 "  </luaMethod>\r\n"
 "\r\n"
@@ -19957,14 +20293,15 @@ static const unsigned char temp_binary_data_73[] =
 "  </utility>\r\n"
 "\r\n"
 "  <utility name=\"json4lua\" description=\"JSON implementation\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000004\" resource=\"json_lua\" />\r\n"
-"  <utility name=\"debugger.lua\" description=\"clidebugger\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000005\" resource=\"debugger_lua\" />\r\n"
+"  <utility name=\"debugger.lua\" description=\"clidebugger\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000005\" resource=\"debugger_lua\" />\n"
+"  <utility name=\"inspect\" description=\"Lua table inspector\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000006\" resource=\"inspect_lua\" />\r\n"
 "  </utilityMethods>\r\n"
 "</methods>\r\n";
 
-const char* CtrlrLuaMethodTemplates_xml = (const char*) temp_binary_data_73;
+const char* CtrlrLuaMethodTemplates_xml = (const char*) temp_binary_data_74;
 
 //================== CtrlrMidiMultiTemplate.xml ==================
-static const unsigned char temp_binary_data_74[] =
+static const unsigned char temp_binary_data_75[] =
 "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n"
 "<templates>\r\n"
 "  <template name=\"RPN\">\r\n"
@@ -19986,10 +20323,10 @@ static const unsigned char temp_binary_data_74[] =
 "  </template>\r\n"
 "</templates>";
 
-const char* CtrlrMidiMultiTemplate_xml = (const char*) temp_binary_data_74;
+const char* CtrlrMidiMultiTemplate_xml = (const char*) temp_binary_data_75;
 
 //================== CtrlrRevision.template ==================
-static const unsigned char temp_binary_data_75[] =
+static const unsigned char temp_binary_data_76[] =
 "#ifndef __CTRLR_REVISION__\r\n"
 "#define __CTRLR_REVISION__\r\n"
 "\r\n"
@@ -19998,7 +20335,7 @@ static const unsigned char temp_binary_data_75[] =
 "\r\n"
 "#endif\r\n";
 
-const char* CtrlrRevision_template = (const char*) temp_binary_data_75;
+const char* CtrlrRevision_template = (const char*) temp_binary_data_76;
 
 
 const char* getNamedResource (const char*, int&) throw();
@@ -20011,6 +20348,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
     switch (hash)
     {
+        case 0xa4f20b4d:  numBytes = 9234; return inspect_lua;
         case 0xce0aceda:  numBytes = 43535; return debugger_lua;
         case 0x34bc1021:  numBytes = 1079; return LICENSE;
         case 0x64791dc8:  numBytes = 266; return README_md;
@@ -20084,7 +20422,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0xa5970535:  numBytes = 1963; return CtrlrMIDITransactions_xml;
         case 0x37e081fb:  numBytes = 15061; return CtrlrMIDIVendors_xml;
         case 0xa32a74e9:  numBytes = 79876; return CtrlrIDs_xml;
-        case 0x75a28bbf:  numBytes = 18229; return CtrlrLuaMethodTemplates_xml;
+        case 0x75a28bbf:  numBytes = 18370; return CtrlrLuaMethodTemplates_xml;
         case 0xcfea1483:  numBytes = 662; return CtrlrMidiMultiTemplate_xml;
         case 0xcb59a7d7:  numBytes = 199; return CtrlrRevision_template;
         default: break;
@@ -20096,6 +20434,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
 const char* namedResourceList[] =
 {
+    "inspect_lua",
     "debugger_lua",
     "LICENSE",
     "README_md",

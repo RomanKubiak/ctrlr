@@ -1713,6 +1713,7 @@
 		EE830391BBCB5524D4CF14A2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrLuaMethodCodeEditor.h; path = ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditor.h; sourceTree = "SOURCE_ROOT"; };
 		EEA0AD7D545504FA12F05E8F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_Uuid.h"; path = "../../../../Juce/modules/juce_core/misc/juce_Uuid.h"; sourceTree = "SOURCE_ROOT"; };
 		EEBB419D3D2A4368DED00391 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "class_registry.hpp"; path = "../../../../Source/Lua/luabind/luabind/detail/class_registry.hpp"; sourceTree = "SOURCE_ROOT"; };
+		EEC7BB912C4C0E17F2D10560 = {isa = PBXFileReference; lastKnownFileType = file.lua; name = inspect.lua; path = ../../../../Source/Resources/Lua/inspect.lua; sourceTree = "SOURCE_ROOT"; };
 		EEC7D27CFC20CE7D02379A5F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "format_signature.hpp"; path = "../../../../Source/Lua/luabind/luabind/detail/format_signature.hpp"; sourceTree = "SOURCE_ROOT"; };
 		EEDE23064029383F52981348 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrMethodEditorTabCloseButton.cpp; path = ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrMethodEditorTabCloseButton.cpp; sourceTree = "SOURCE_ROOT"; };
 		EEE1E6785BA7812578182DCD = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_PNGLoader.cpp"; path = "../../../../Juce/modules/juce_graphics/image_formats/juce_PNGLoader.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -1816,6 +1817,7 @@
 					7D4F052743908FB058C21E4A,
 					81AE0606C7FA92FF27864F13, ); name = json4lua; sourceTree = "<group>"; };
 		0129841AB7E5215051E1CF4D = {isa = PBXGroup; children = (
+					EEC7BB912C4C0E17F2D10560,
 					950EC1BCAF21542209821086,
 					B0C47B2945BEEDE348A6FAB5,
 					D3E5DEF1E42F9D4E3BABC39A,
