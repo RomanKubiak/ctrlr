@@ -186,7 +186,7 @@ ValueTree CtrlrPanelResource::createTree()
 	{
 		resourceTreeCopy = resourceTree.createCopy();
 
-		if (data.getSize() != resourceDataFile.getSize())
+		if (data.getSize() != (size_t)resourceDataFile.getSize())
 			resourceDataFile.loadFileAsData (data);
 
 		resourceTreeCopy.setProperty (Ids::resourceData, data.toBase64Encoding(), 0);

@@ -47,16 +47,6 @@ void CtrlrLuaDebugger::dbgWrite(std::string data)
     }
 }
 
-void CtrlrLuaDebugger::dbgWriteJson(std::string jsonData)
-{
-    CtrlrLuaMethodEditor *ui = dynamic_cast<CtrlrLuaMethodEditor *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaMethodEditor));
-
-    if (ui)
-    {
-        return (ui->setJsonDebuggerOutput(jsonData));
-    }
-}
-
 std::string CtrlrLuaDebugger::dbgRead(std::string prompt)
 {
 	if (commandQueue.size() > 0)
@@ -92,15 +82,33 @@ std::string CtrlrLuaDebugger::dbgRead()
     return (dbgRead (std::string()));
 }
 
+void CtrlrLuaDebugger::setBreakpoint(const int line, const String &fileName, const bool shouldBeSet)
+{
+    luabind::object setBreakpoint = luabind::globals(owner.getLuaState())["setBreakpoint"];
+    luabind::call_function <void>(setBreakpoint, line, fileName.toStdString(), shouldBeSet);
+}
+
+void CtrlrLuaDebugger::toggleBreakpoint(luabind::object &breakpoints, luabind::object &lineBreakpoints, int line, const String fileName, bool shouldBeSet)
+{
+    if (shouldBeSet)
+    {
+        _DBG("CtrlrLuaDebugger::toggleBreakpoint setting a breakpoint for file: "+fileName+" at line: "+_STR(line));
+        lineBreakpoints[line] = true;
+    }
+    else
+    {
+        _DBG("CtrlrLuaDebugger::toggleBreakpoint clearing a breakpoint for file: "+fileName+" at line: "+_STR(line));
+        breakpoints[line] = luabind::newtable(owner.getLuaState());
+    }
+}
 void CtrlrLuaDebugger::wrapForLua(lua_State *L)
 {
     using namespace luabind;
     module(L)
     [
         class_<CtrlrLuaDebugger>("CtrlrLuaDebugger")
-            .def("dbg_write_ctrlr", &CtrlrLuaDebugger::dbgWrite)
-            .def("dbg_read_ctrlr", (std::string (CtrlrLuaDebugger::*)(std::string)) &CtrlrLuaDebugger::dbgRead)
-            .def("dbg_read_ctrlr", (std::string (CtrlrLuaDebugger::*)(void)) &CtrlrLuaDebugger::dbgRead)
-            .def("dbg_write_ctrlr_json", &CtrlrLuaDebugger::dbgWriteJson)
+            .def("write", &CtrlrLuaDebugger::dbgWrite)
+            .def("read", (std::string (CtrlrLuaDebugger::*)(std::string)) &CtrlrLuaDebugger::dbgRead)
+            .def("read", (std::string (CtrlrLuaDebugger::*)(void)) &CtrlrLuaDebugger::dbgRead)
     ];
 }

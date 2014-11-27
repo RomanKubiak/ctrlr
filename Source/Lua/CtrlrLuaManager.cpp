@@ -263,3 +263,8 @@ void CtrlrLuaManager::log(const String &message)
 	if (CtrlrLog::ctrlrLog != nullptr)
 		CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Info);
 }
+
+CtrlrLuaDebugger &CtrlrLuaManager::getDebugger()
+{
+    return (*ctrlrLuaDebugger);
+}

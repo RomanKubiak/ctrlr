@@ -361,6 +361,7 @@ what <func>         -- show where <func> is defined (if known)|
 }
 --}}}
 
+--{{{ Local function to get table size
 local function tsize(t)
     local count=0
 
@@ -370,6 +371,22 @@ local function tsize(t)
 
     return count
 end
+---}}}
+
+---{{{ Global utility function to set breakpoints, used inside Ctrlr
+function setBreakpoint(line, file, shouldBeSet)
+    if not breakpoints[line] then
+        breakpoints[line] = {}
+    end
+
+    if shouldBeSet then
+        breakpoints[line][file] = true
+    else
+        breakpoints[line] = nil
+    end
+end
+---}}}
+
 
 --{{{  local function getinfo(level,field)
 
@@ -403,7 +420,7 @@ end
 --{{{  local function indented( level, ... )
 
 local function indented( level, ... )
-  ctrlrDebugger:dbg_write_ctrlr( string.format ("%s%s\n", string.rep('  ',level), table.concat({...}) ))
+  ctrlrDebugger:write( string.format ("%s%s\n", string.rep('  ',level), table.concat({...}) ))
 end
 
 --}}}
@@ -462,10 +479,10 @@ end
 --{{{  local function dumpvar( value, limit, name )
 
 local function dumpvar( value, limit, name )
-  ctrlrDebugger:dbg_write_ctrlr ("\n::start dumpvar\n")
+  ctrlrDebugger:write ("\n::start dumpvar\n")
   dumpvisited = {}
   dumpval( 0, name or tostring(value), value, limit )
-  ctrlrDebugger:dbg_write_ctrlr ("::end\n")
+  ctrlrDebugger:write ("::end\n")
 end
 
 --}}}
@@ -499,7 +516,7 @@ local function show(file,line,before,after)
 
     --}}}
     if not f then
-      ctrlrDebugger:dbg_write_ctrlr('Cannot find '..file..'\n')
+      ctrlrDebugger:write('Cannot find '..file..'\n')
       return
     end
   end
@@ -510,9 +527,9 @@ local function show(file,line,before,after)
     if i >= (line-before) then
       if i > (line+after) then break end
       if i == line then
-        ctrlrDebugger:dbg_write_ctrlr(i..'***\t'..l..'\n')
+        ctrlrDebugger:write(i..'***\t'..l..'\n')
       else
-        ctrlrDebugger:dbg_write_ctrlr(i..'\t'..l..'\n')
+        ctrlrDebugger:write(i..'\t'..l..'\n')
       end
     end
   end
@@ -579,7 +596,7 @@ end
 --{{{  local function trace()
 
 local function trace(set)
-  ctrlrDebugger:dbg_write_ctrlr ("\n::start trace\n")
+  ctrlrDebugger:write ("\n::start trace\n")
   local mark
   for level,ar in ipairs(traceinfo) do
     if level == set then
@@ -587,10 +604,10 @@ local function trace(set)
     else
       mark = ''
     end
-    ctrlrDebugger:dbg_write_ctrlr('['..level..']'..mark..'\t'..(ar.name or ar.what)..' in '..ar.short_src..':'..ar.currentline..'\n')
+    ctrlrDebugger:write('['..level..']'..mark..'\t'..(ar.name or ar.what)..' in '..ar.short_src..':'..ar.currentline..'\n')
   end
 
-  ctrlrDebugger:dbg_write_ctrlr ("::end\n")
+  ctrlrDebugger:write ("::end\n")
 end
 
 --}}}
@@ -807,7 +824,7 @@ local function print_trace(level,depth,event,file,line,name)
   local prefix = ''
   if current_thread ~= 'main' then prefix = '['..tostring(current_thread)..'] ' end
 
-  ctrlrDebugger:dbg_write_ctrlr(prefix..
+  ctrlrDebugger:write(prefix..
            string.format('%08.2f:%02i.',os.clock(),depth)..
            string.rep('.',depth%32)..
            (file or '')..' ('..(line or '')..') '..
@@ -857,18 +874,18 @@ local function report(ev, vars, file, line, idx_watch)
   local prefix = ''
   if current_thread ~= 'main' then prefix = '['..tostring(current_thread)..'] ' end
   if ev == events.STEP then
-    ctrlrDebugger:dbg_write_ctrlr(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..')\n')
+    ctrlrDebugger:write(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..')\n')
   elseif ev == events.BREAK then
-    ctrlrDebugger:dbg_write_ctrlr(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..') (breakpoint)\n')
+    ctrlrDebugger:write(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..') (breakpoint)\n')
   elseif ev == events.WATCH then
-    ctrlrDebugger:dbg_write_ctrlr(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..')'.." (watch expression "..idx_watch.. ": ["..watches[idx_watch].exp.."])\n")
+    ctrlrDebugger:write(prefix.."Paused at file "..file.." line "..line..' ('..stack_level[current_thread]..')'.." (watch expression "..idx_watch.. ": ["..watches[idx_watch].exp.."])\n")
   elseif ev == events.SET then
     --do nothing
   else
-    ctrlrDebugger:dbg_write_ctrlr(prefix.."Error in application: "..file.." line "..line.."\n")
+    ctrlrDebugger:write(prefix.."Error in application: "..file.." line "..line.."\n")
   end
   if ev ~= events.SET then
-    if pausemsg and pausemsg ~= '' then ctrlrDebugger:dbg_write_ctrlr('Message: '..pausemsg..'\n') end
+    if pausemsg and pausemsg ~= '' then ctrlrDebugger:write('Message: '..pausemsg..'\n') end
     pausemsg = ''
   end
   return vars, file, line
@@ -934,10 +951,10 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
 
   while true do
     -- io.write("[DEBUG]> ")
-    ctrlrDebugger:dbg_write_ctrlr("[DEBUG]> ")
+    ctrlrDebugger:write("[DEBUG]> ")
     -- local line = io.read("*line")
-    local line = ctrlrDebugger:dbg_read_ctrlr()
-    if line == nil then ctrlrDebugger:dbg_write_ctrlr('\n'); line = 'exit' end
+    local line = ctrlrDebugger:read()
+    if line == nil then ctrlrDebugger:write('\n'); line = 'exit' end
 
     if string.find(line, "^[a-z]+") then
       command = string.sub(line, string.find(line, "^[a-z]+"))
@@ -952,9 +969,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
       local line, filename  = getargs('LF')
       if filename ~= '' and line ~= '' then
         set_breakpoint(filename,line)
-        ctrlrDebugger:dbg_write_ctrlr("Breakpoint set in file "..filename..' line '..line..'\n')
+        ctrlrDebugger:write("Breakpoint set in file "..filename..' line '..line..'\n')
       else
-        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
+        ctrlrDebugger:write("Bad request\n")
       end
 
       --}}}
@@ -965,9 +982,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
       local line, filename = getargs('LF')
       if filename ~= '' and line ~= '' then
         remove_breakpoint(filename, line)
-        ctrlrDebugger:dbg_write_ctrlr("Breakpoint deleted from file "..filename..' line '..line.."\n")
+        ctrlrDebugger:write("Breakpoint deleted from file "..filename..' line '..line.."\n")
       else
-        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
+        ctrlrDebugger:write("Bad request\n")
       end
 
       --}}}
@@ -975,14 +992,14 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
     elseif command == "delallb" then
       --{{{  delete all breakpoints
       breakpoints = {}
-      ctrlrDebugger:dbg_write_ctrlr('All breakpoints deleted\n')
+      ctrlrDebugger:write('All breakpoints deleted\n')
       --}}}
 
     elseif command == "listb" then
       --{{{  list breakpoints
       for i, v in pairs(breakpoints) do
         for ii, vv in pairs(v) do
-          ctrlrDebugger:dbg_write_ctrlr("Break at: "..i..' in '..ii..'\n')
+          ctrlrDebugger:write("Break at: "..i..' in '..ii..'\n')
         end
       end
       --}}}
@@ -994,9 +1011,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
         local func = loadstring("return(" .. args .. ")")
         local newidx = #watches + 1
         watches[newidx] = {func = func, exp = args}
-        ctrlrDebugger:dbg_write_ctrlr("Set watch exp no. " .. newidx..'\n')
+        ctrlrDebugger:write("Set watch exp no. " .. newidx..'\n')
       else
-        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
+        ctrlrDebugger:write("Bad request\n")
       end
 
       --}}}
@@ -1007,9 +1024,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
       local index = tonumber(args)
       if index then
         watches[index] = nil
-        ctrlrDebugger:dbg_write_ctrlr("Watch expression deleted\n")
+        ctrlrDebugger:write("Watch expression deleted\n")
       else
-        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
+        ctrlrDebugger:write("Bad request\n")
       end
 
       --}}}
@@ -1017,13 +1034,13 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
     elseif command == "delallw" then
       --{{{  delete all watch expressions
       watches = {}
-      ctrlrDebugger:dbg_write_ctrlr('All watch expressions deleted\n')
+      ctrlrDebugger:write('All watch expressions deleted\n')
       --}}}
 
     elseif command == "listw" then
       --{{{  list watch expressions
       for i, v in pairs(watches) do
-        ctrlrDebugger:dbg_write_ctrlr("Watch exp. " .. i .. ": " .. v.exp..'\n')
+        ctrlrDebugger:write("Watch exp. " .. i .. ": " .. v.exp..'\n')
       end
       --}}}
 
@@ -1076,7 +1093,7 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
           return 'cont'
         end
       else
-        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
+        ctrlrDebugger:write("Bad request\n")
       end
       --}}}
 
@@ -1134,15 +1151,15 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
         if type(v) == 'function' then
           local def = debug.getinfo(v,'S')
           if def then
-            ctrlrDebugger:dbg_write_ctrlr(def.what..' in '..def.short_src..' '..def.linedefined..'..'..def.lastlinedefined..'\n')
+            ctrlrDebugger:write(def.what..' in '..def.short_src..' '..def.linedefined..'..'..def.lastlinedefined..'\n')
           else
-            ctrlrDebugger:dbg_write_ctrlr('Cannot get info for '..v..'\n')
+            ctrlrDebugger:write('Cannot get info for '..v..'\n')
           end
         else
-          ctrlrDebugger:dbg_write_ctrlr(v..' is not a function\n')
+          ctrlrDebugger:write(v..' is not a function\n')
         end
       else
-        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
+        ctrlrDebugger:write("Bad request\n")
       end
       --}}}
 
@@ -1165,7 +1182,7 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
         end
         dumpvar(v,depth+1,n)
       else
-        ctrlrDebugger:dbg_write_ctrlr("Bad request\n")
+        ctrlrDebugger:write("Bad request\n")
       end
       --}}}
 
@@ -1179,7 +1196,7 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
       if file ~= '' and file ~= "=stdin" then
         show(file,line,before,after)
       else
-        ctrlrDebugger:dbg_write_ctrlr('Nothing to show\n')
+        ctrlrDebugger:write('Nothing to show\n')
       end
 
       --}}}
@@ -1217,18 +1234,18 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
 
     elseif command == "pause" then
       --{{{  not allowed in here
-      ctrlrDebugger:dbg_write_ctrlr('pause() should only be used in the script you are debugging\n')
+      ctrlrDebugger:write('pause() should only be used in the script you are debugging\n')
       --}}}
 
     elseif command == "help" then
       --{{{  help
       local command = getargs('S')
       if command ~= '' and hints[command] then
-        ctrlrDebugger:dbg_write_ctrlr(hints[command]..'\n')
+        ctrlrDebugger:write(hints[command]..'\n')
       else
         for _,v in pairs(hints) do
           local _,_,h = string.find(v,"(.+)|")
-          ctrlrDebugger:dbg_write_ctrlr(h..'\n')
+          ctrlrDebugger:write(h..'\n')
         end
       end
       --}}}
@@ -1246,9 +1263,9 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
 
       local ok, func = pcall(loadstring,line)
       if func == nil then                             --Michael.Bringmann@lsi.com
-        ctrlrDebugger:dbg_write_ctrlr("Compile error: "..line..'\n')
+        ctrlrDebugger:write("Compile error: "..line..'\n')
       elseif not ok then
-        ctrlrDebugger:dbg_write_ctrlr("Compile error: "..func..'\n')
+        ctrlrDebugger:write("Compile error: "..func..'\n')
       else
         setfenv(func, eval_env)
         local res = {pcall(func)}
@@ -1256,15 +1273,15 @@ local function debugger_loop(ev, vars, file, line, idx_watch)
           if res[2] then
             table.remove(res,1)
             for _,v in ipairs(res) do
-              ctrlrDebugger:dbg_write_ctrlr(tostring(v))
-              ctrlrDebugger:dbg_write_ctrlr('\t')
+              ctrlrDebugger:write(tostring(v))
+              ctrlrDebugger:write('\t')
             end
-            ctrlrDebugger:dbg_write_ctrlr('\n')
+            ctrlrDebugger:write('\n')
           end
           --update in the context
           return 0
         else
-          ctrlrDebugger:dbg_write_ctrlr("Run error: "..res[2]..'\n')
+          ctrlrDebugger:write("Run error: "..res[2]..'\n')
         end
       end
 
@@ -1316,9 +1333,9 @@ local function debug_hook(event, line, level, thread)
       return
     end
     if not coro_debugger then
-      ctrlrDebugger:dbg_write_ctrlr("Lua Debugger\n")
+      ctrlrDebugger:write("Lua Debugger\n")
       vars, file, line = report(ev, vars, file, line, idx)
-      ctrlrDebugger:dbg_write_ctrlr("Type 'help' for commands\n")
+      ctrlrDebugger:write("Type 'help' for commands\n")
       coro_debugger = true
     else
       vars, file, line = report(ev, vars, file, line, idx)
@@ -1345,16 +1362,16 @@ local function debug_hook(event, line, level, thread)
         vars, file, line = capture_vars(level,next)
         if not silent then
           if vars and vars.__VARSLEVEL__ then
-            ctrlrDebugger:dbg_write_ctrlr('Level: '..vars.__VARSLEVEL__..'\n')
+            ctrlrDebugger:write('Level: '..vars.__VARSLEVEL__..'\n')
           else
-            ctrlrDebugger:dbg_write_ctrlr('No level set\n')
+            ctrlrDebugger:write('No level set\n')
           end
         end
         ev = events.SET
         next = 'ask'
       else
-        ctrlrDebugger:dbg_write_ctrlr('Unknown command from debugger_loop: '..tostring(next)..'\n')
-        ctrlrDebugger:dbg_write_ctrlr('Stopping debugger\n')
+        ctrlrDebugger:write('Unknown command from debugger_loop: '..tostring(next)..'\n')
+        ctrlrDebugger:write('Stopping debugger\n')
         next = 'stop'
       end
     end

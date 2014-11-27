@@ -731,7 +731,7 @@ const String dataPrefix (const CtrlrMidiMessage &data, const int prefixLength)
 
 const String dataPrefix (const MemoryBlock &data, const int prefixLength)
 {
-    return ("("+STR((int)data.getSize())+")"+String::toHexString (data.getData(), ( (prefixLength < data.getSize()) ? prefixLength : data.getSize() ) ));
+    return ("("+STR((int)data.getSize())+")"+String::toHexString (data.getData(), ( (prefixLength < (int)data.getSize()) ? prefixLength : data.getSize() ) ));
 }
 
 bool isMonospaced(const Font &font)
