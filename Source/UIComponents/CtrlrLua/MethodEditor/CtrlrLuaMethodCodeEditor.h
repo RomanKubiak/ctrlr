@@ -9,6 +9,7 @@
 
 class CtrlrLuaMethodEditor;
 class GenericCodeEditorComponent;
+class CtrlrLuaDebugger;
 
 class CtrlrLuaMethodCodeEditor : public Component, public KeyListener, public CodeDocument::Listener, public AsyncUpdater
 {
@@ -33,7 +34,7 @@ public:
 	void handleAsyncUpdate();
 	void setErrorLine (const int lineNumber);
 	void setFontAndColour (const Font newFont, const Colour newColour);
-
+    CtrlrLuaMethodEditor &getOwner();
 	void findNextMatch(const String & search, bool bMatchCase);
 	void gotoLine(int position, const bool selectLine=false);
 	void replaceAllMatches(const String &search, const String &replace, bool bMatchCase);
@@ -93,9 +94,9 @@ private:
 	bool bSensitive;
 	String lookUpString;
 	ScopedPointer<FindPanel> findPanel;
-	CtrlrLuaMethodCodeEditor & owner;
+	CtrlrLuaMethodCodeEditor &owner;
 	ScopedPointer<GoToPanel> goToPanel;
-
+    CtrlrLuaDebugger &getDebugger();
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GenericCodeEditorComponent)
 };
 //==============================================================================

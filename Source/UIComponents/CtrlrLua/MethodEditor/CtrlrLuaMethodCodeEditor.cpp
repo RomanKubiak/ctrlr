@@ -4,6 +4,7 @@
 #include "CtrlrLuaMethodEditor.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "../Methods/CtrlrLuaMethodManager.h"
+#include "CtrlrLuaManager.h"
 
 CtrlrLuaMethodCodeEditor::CtrlrLuaMethodCodeEditor(CtrlrLuaMethodEditor &_owner, CtrlrLuaMethod *_method)
 	:	editorComponent(nullptr),
@@ -461,6 +462,11 @@ void CtrlrLuaMethodCodeEditor::gotoLine(int position, const bool selectLine)
 	editorComponent->hideGoTOPanel();
 }
 
+CtrlrLuaMethodEditor &CtrlrLuaMethodCodeEditor::getOwner()
+{
+    return  (owner);
+}
+
 //==============================================================================
 class GenericCodeEditorComponent::GoToPanel  : public Component,
 	private TextEditor::Listener,
@@ -614,7 +620,7 @@ public:
 	{
 		if(GenericCodeEditorComponent* ed = getOwner())
 		{
-			caseButton.setToggleState(ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().caseCansitive, false);
+			caseButton.setToggleState(ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().caseCansitive, dontSendNotification);
 			lookInComboBox.setText(ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().lookInString, dontSendNotification);
 			searchInComboBox.setText(ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().searchInString, dontSendNotification);
 			editor.setText(ed->getCtrlrLuaMethodCodeEditor().getCtrlrLuaMethodEditor().currentSearchString, true);
@@ -1039,7 +1045,13 @@ void GenericCodeEditorComponent::findInOpened(const String &search)
 	owner.findInOpened(search);
 }
 
+CtrlrLuaDebugger &GenericCodeEditorComponent::getDebugger()
+{
+    return (owner.getOwner().getOwner().getCtrlrLuaManager().getDebugger());
+}
+
 void GenericCodeEditorComponent::markedLinesChanged(int lineNumber, bool isNowSelected)
 {
     _DBG("GenericCodeEditorComponent::markedLinesChanged line="+_STR(lineNumber)+" selected? "+_STR(isNowSelected));
+    getDebugger().setBreakpoint (lineNumber, owner.getMethod() ? owner.getMethod()->getName() : "ctrlr", isNowSelected);
 }

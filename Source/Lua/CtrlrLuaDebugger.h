@@ -21,13 +21,15 @@ class CtrlrLuaDebugger
     public:
         CtrlrLuaDebugger(CtrlrLuaManager &_owner);
         ~CtrlrLuaDebugger();
+        static void wrapForLua(lua_State *L);
         std::string dbgRead(std::string data);
         std::string dbgRead();
         void dbgWrite(std::string data);
-        void dbgWriteJson(std::string jsonData);
-        static void wrapForLua(lua_State *L);
+        void setBreakpoint(const int line, const String &fileName, const bool shouldBeSet=true);
 
+        JUCE_LEAK_DETECTOR(CtrlrLuaDebugger)
     private:
+        void toggleBreakpoint(luabind::object &breakpoints, luabind::object &methodBreakpoints, int line, const String fileName, bool shouldBeSet);
         CtrlrLuaManager &owner;
         Array <String> commandQueue;
 };
