@@ -316,7 +316,7 @@ public:
                 g.setColour (editor.findColour (markedLineNumberBackroundId));
                 g.fillRect (0.0f, (float) (lineH * i), w, lineHeightFloat);
                 g.setColour (editor.findColour (markedLineNumberTextId));
-                g.drawText (String (editor.firstLineOnScreen + i + 1), 0, (float) (lineH * i), w, lineHeightFloat, Justification::centredRight);
+                g.drawText (String (editor.firstLineOnScreen + i + 1), 0, lineH * i, (int)w, lineH, Justification::centredRight);
             }
             else
             {
