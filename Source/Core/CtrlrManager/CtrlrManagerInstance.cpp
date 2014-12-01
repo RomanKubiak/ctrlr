@@ -211,6 +211,7 @@ XmlElement *CtrlrManager::saveState()
 			ValueTree program = getActivePanel()->getProgram();
 			restoreProperties (managerTree, program);
 			restoreProperties (getActivePanel()->getPanelTree(), program, 0, "panelMidi");
+			restoreProperties (getActivePanel()->getPanelTree(), program, 0, Ids::panelCustomData.toString());
 			return (program.createXml());
 		}
 		return (nullptr);

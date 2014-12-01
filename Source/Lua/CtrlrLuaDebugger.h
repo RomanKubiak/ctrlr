@@ -27,11 +27,23 @@ class CtrlrLuaDebugger
         void dbgWrite(std::string data);
         void setBreakpoint(const int line, const String &fileName, const bool shouldBeSet=true);
 
+        struct PendingBreakpoint
+        {
+            PendingBreakpoint (int _line, String _fileName, bool _shouldBeSet)
+            : line(_line), fileName(_fileName), shouldBeSet(_shouldBeSet) {}
+            PendingBreakpoint() {}
+            int line;
+            String fileName;
+            bool shouldBeSet;
+        };
+
         JUCE_LEAK_DETECTOR(CtrlrLuaDebugger)
+
     private:
         void toggleBreakpoint(luabind::object &breakpoints, luabind::object &methodBreakpoints, int line, const String fileName, bool shouldBeSet);
         CtrlrLuaManager &owner;
         Array <String> commandQueue;
+        Array <PendingBreakpoint> pendingBreakpoints;
 };
 
 #endif  // CTRLRLUADEBUGGER_H_INCLUDED
