@@ -35,11 +35,18 @@ void CtrlrLuaDebugger::dbgWrite(std::string data)
 
     CtrlrLuaMethodEditor *ui = dynamic_cast<CtrlrLuaMethodEditor *>(owner.getOwner().getWindowManager().getContent(CtrlrPanelWindowManager::LuaMethodEditor));
 
+    // Paused at file disableMidi line 7 (1) (breakpoint)
+
     if (_STR(data).contains ("Paused at"))
     {
+        if (_STR(data).contains ("(breakpoint)"))
+        {
+            /* a breakppoint was hit */
+        }
         commandQueue.add ("trace");
         commandQueue.add ("vars");
     }
+
 
     if (ui)
     {
@@ -49,6 +56,23 @@ void CtrlrLuaDebugger::dbgWrite(std::string data)
 
 std::string CtrlrLuaDebugger::dbgRead(std::string prompt)
 {
+    if (pendingBreakpoints.size() > 0)
+    {
+        for (int i=0; i<pendingBreakpoints.size(); i++)
+        {
+            if (pendingBreakpoints[i].shouldBeSet)
+            {
+                commandQueue.add ("setb " + _STR(pendingBreakpoints[i].line) + " " + pendingBreakpoints[i].fileName);
+            }
+            else
+            {
+                commandQueue.add ("delb " + _STR(pendingBreakpoints[i].line) + " " + pendingBreakpoints[i].fileName);
+            }
+        }
+
+        pendingBreakpoints.clear();
+    }
+
 	if (commandQueue.size() > 0)
 	{
 	    return (commandQueue.remove (commandQueue.size() - 1).toStdString());
@@ -84,22 +108,12 @@ std::string CtrlrLuaDebugger::dbgRead()
 
 void CtrlrLuaDebugger::setBreakpoint(const int line, const String &fileName, const bool shouldBeSet)
 {
-    luabind::object setBreakpoint = luabind::globals(owner.getLuaState())["setBreakpoint"];
-    luabind::call_function <void>(setBreakpoint, line, fileName.toStdString(), shouldBeSet);
+    pendingBreakpoints.add (PendingBreakpoint(line, fileName, shouldBeSet));
+    owner.runCode("pause(\"__breakpoints\")");
 }
 
 void CtrlrLuaDebugger::toggleBreakpoint(luabind::object &breakpoints, luabind::object &lineBreakpoints, int line, const String fileName, bool shouldBeSet)
 {
-    if (shouldBeSet)
-    {
-        _DBG("CtrlrLuaDebugger::toggleBreakpoint setting a breakpoint for file: "+fileName+" at line: "+_STR(line));
-        lineBreakpoints[line] = true;
-    }
-    else
-    {
-        _DBG("CtrlrLuaDebugger::toggleBreakpoint clearing a breakpoint for file: "+fileName+" at line: "+_STR(line));
-        breakpoints[line] = luabind::newtable(owner.getLuaState());
-    }
 }
 void CtrlrLuaDebugger::wrapForLua(lua_State *L)
 {
