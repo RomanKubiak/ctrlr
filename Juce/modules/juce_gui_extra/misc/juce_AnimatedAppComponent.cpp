@@ -22,26 +22,27 @@
   ==============================================================================
 */
 
-#ifndef JUCE_AUDIO_UTILS_H_INCLUDED
-#define JUCE_AUDIO_UTILS_H_INCLUDED
-
-#include "../juce_gui_basics/juce_gui_basics.h"
-#include "../juce_audio_devices/juce_audio_devices.h"
-#include "../juce_audio_formats/juce_audio_formats.h"
-#include "../juce_audio_processors/juce_audio_processors.h"
-
-//=============================================================================
-namespace juce
+AnimatedAppComponent::AnimatedAppComponent()
+    : lastUpdateTime (Time::getCurrentTime()), totalUpdates (0)
 {
-
-#include "gui/juce_AudioDeviceSelectorComponent.h"
-#include "gui/juce_AudioThumbnailBase.h"
-#include "gui/juce_AudioThumbnail.h"
-#include "gui/juce_AudioThumbnailCache.h"
-#include "gui/juce_MidiKeyboardComponent.h"
-#include "gui/juce_AudioAppComponent.h"
-#include "players/juce_AudioProcessorPlayer.h"
-
+    setOpaque (true);
 }
 
-#endif   // JUCE_AUDIO_UTILS_H_INCLUDED
+void AnimatedAppComponent::setFramesPerSecond (int framesPerSecond)
+{
+    jassert (framesPerSecond > 0 && framesPerSecond < 1000);
+    startTimerHz (framesPerSecond);
+}
+
+int AnimatedAppComponent::getMillisecondsSinceLastUpdate() const noexcept
+{
+    return (int) (Time::getCurrentTime() - lastUpdateTime).inMilliseconds();
+}
+
+void AnimatedAppComponent::timerCallback()
+{
+    ++totalUpdates;
+    update();
+    repaint();
+    lastUpdateTime = Time::getCurrentTime();
+}

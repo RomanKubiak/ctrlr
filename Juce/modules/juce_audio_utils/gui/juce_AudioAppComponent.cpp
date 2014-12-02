@@ -22,26 +22,29 @@
   ==============================================================================
 */
 
-#ifndef JUCE_AUDIO_UTILS_H_INCLUDED
-#define JUCE_AUDIO_UTILS_H_INCLUDED
-
-#include "../juce_gui_basics/juce_gui_basics.h"
-#include "../juce_audio_devices/juce_audio_devices.h"
-#include "../juce_audio_formats/juce_audio_formats.h"
-#include "../juce_audio_processors/juce_audio_processors.h"
-
-//=============================================================================
-namespace juce
+AudioAppComponent::AudioAppComponent()
 {
-
-#include "gui/juce_AudioDeviceSelectorComponent.h"
-#include "gui/juce_AudioThumbnailBase.h"
-#include "gui/juce_AudioThumbnail.h"
-#include "gui/juce_AudioThumbnailCache.h"
-#include "gui/juce_MidiKeyboardComponent.h"
-#include "gui/juce_AudioAppComponent.h"
-#include "players/juce_AudioProcessorPlayer.h"
-
 }
 
-#endif   // JUCE_AUDIO_UTILS_H_INCLUDED
+AudioAppComponent::~AudioAppComponent()
+{
+    // If you hit this then your derived class must call shutdown audio in
+    // destructor!
+    jassert (audioSourcePlayer.getCurrentSource() == nullptr);
+}
+
+void AudioAppComponent::setAudioChannels (int numInputChannels, int numOutputChannels)
+{
+    String audioError = deviceManager.initialise (numInputChannels, numOutputChannels, nullptr, true);
+    jassert (audioError.isEmpty());
+
+    deviceManager.addAudioCallback (&audioSourcePlayer);
+    audioSourcePlayer.setSource (this);
+}
+
+void AudioAppComponent::shutdownAudio()
+{
+    audioSourcePlayer.setSource (nullptr);
+    deviceManager.removeAudioCallback (&audioSourcePlayer);
+    deviceManager.closeAudioDevice();
+}

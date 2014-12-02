@@ -581,6 +581,11 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_audio_processors/scanning/juce_PluginListComponent.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioAppComponent.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioAppComponent.h" />
 		<Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioDeviceSelectorComponent.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -2008,6 +2013,11 @@
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/juce_gui_extra.cpp" />
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/juce_gui_extra.h" />
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/juce_module_info" />
+		<Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_AnimatedAppComponent.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_AnimatedAppComponent.h" />
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_AppleRemote.h" />
 		<Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_BubbleMessageComponent.cpp">
 			<Option compile="0" />
@@ -2142,6 +2152,11 @@
 		<Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_OpenGLTexture.h" />
 		<Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_Quaternion.h" />
 		<Unit filename="../../../../Juce/modules/juce_opengl/opengl/juce_Vector3D.h" />
+		<Unit filename="../../../../Juce/modules/juce_opengl/utils/juce_OpenGLAppComponent.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_opengl/utils/juce_OpenGLAppComponent.h" />
 		<Unit filename="../../../../Source/Core/CtrlrFontManager.cpp" />
 		<Unit filename="../../../../Source/Core/CtrlrFontManager.h" />
 		<Unit filename="../../../../Source/Core/CtrlrIDManager.cpp" />
