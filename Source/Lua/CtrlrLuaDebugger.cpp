@@ -60,17 +60,22 @@ std::string CtrlrLuaDebugger::dbgRead(std::string prompt)
     {
         for (int i=0; i<pendingBreakpoints.size(); i++)
         {
-            if (pendingBreakpoints[i].shouldBeSet)
+            PendingBreakpoint pb = pendingBreakpoints.remove (i);
+
+            if (pendingBreakpoints.size() == 0)
             {
-                commandQueue.add ("setb " + _STR(pendingBreakpoints[i].line) + " " + pendingBreakpoints[i].fileName);
+                commandQueue.add ("run");
+            }
+
+            if (pb.shouldBeSet)
+            {
+                return (_STR("setb " + _STR(pb.line) + " " + pb.fileName).toStdString());
             }
             else
             {
-                commandQueue.add ("delb " + _STR(pendingBreakpoints[i].line) + " " + pendingBreakpoints[i].fileName);
+                return (_STR("delb " + _STR(pb.line) + " " + pb.fileName).toStdString());
             }
         }
-
-        pendingBreakpoints.clear();
     }
 
 	if (commandQueue.size() > 0)
