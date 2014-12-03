@@ -1,5 +1,6 @@
 BUILDDIR=../build/$HOSTTYPE
-JOBS=`cat /proc/cpuinfo  | grep processor | wc -l`
+CPUS=`cat /proc/cpuinfo  | grep processor | wc -l`
+let JOBS='CPUS / 2'
 
 echo "CTRLR[linux]: Building for $HOSTTYPE"
 
@@ -10,7 +11,7 @@ else
 	echo "CTRLR[linux]: PCH not rebuilt, use -f to force"
 fi
 
-echo "CTRLR[linix]: Remove the shared source, for main() compatibility"
+echo "CTRLR[linux]: Remove the shared source, for main() compatibility"
 rm -f ../build/$HOSTTYPE/CtrlrStandaloneApplication*
 
 echo "CTRLR[linux]: Build now"
