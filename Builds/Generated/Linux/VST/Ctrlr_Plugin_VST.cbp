@@ -16,7 +16,7 @@
         <Option compiler="gcc"/>
         <Compiler>
           <Add option="-O0"/>
-          <Add option="-std=gnu++0x"/>
+          <Add option="-std=c++11"/>
           <Add option="-mstackrealign"/>
           <Add option="-g"/>
           <Add option="-w"/>
@@ -85,7 +85,7 @@
         <Option compiler="gcc"/>
         <Compiler>
           <Add option="-Os"/>
-          <Add option="-std=gnu++0x"/>
+          <Add option="-std=c++11"/>
           <Add option="-mstackrealign"/>
           <Add option="-w"/>
           <Add option="-fpermissive"/>
@@ -152,7 +152,7 @@
         <Option compiler="gcc"/>
         <Compiler>
           <Add option="-Os"/>
-          <Add option="-std=gnu++0x"/>
+          <Add option="-std=c++11"/>
           <Add option="-mstackrealign"/>
           <Add option="-w"/>
           <Add option="-fpermissive"/>
@@ -2735,6 +2735,14 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioAppComponent.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioAppComponent.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioDeviceSelectorComponent.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -5223,6 +5231,14 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_AnimatedAppComponent.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_AnimatedAppComponent.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_gui_extra/misc/juce_AppleRemote.h">
       <Option compile="0"/>
       <Option link="0"/>
@@ -5448,6 +5464,14 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_opengl/geometry/juce_Vector3D.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/utils/juce_OpenGLAppComponent.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_opengl/utils/juce_OpenGLAppComponent.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

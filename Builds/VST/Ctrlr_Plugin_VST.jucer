@@ -98,7 +98,7 @@
     </VS2010>
     <LINUX_MAKE targetFolder="../Generated/Linux/VST" extraCompilerFlags="-fpermissive -w -fPIC"
                 extraDefs="LUA_USE_LINUX" vstFolder="../../VST" bigIcon="PsrMEo"
-                smallIcon="QFDZIE">
+                smallIcon="QFDZIE" extraLinkerFlags="libbfd-$(ARCH).a&#10;libiberty-$(ARCH).a&#10;-lz&#10;-lGL">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="libCtrlr-VST-Debug-$(ARCH)"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
