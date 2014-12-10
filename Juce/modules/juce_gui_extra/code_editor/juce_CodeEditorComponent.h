@@ -290,7 +290,6 @@ public:
     virtual void handleEscapeKey();
     /** Called when the list of marked lines changes. */
     virtual void markedLinesChanged(int lineNumber, bool isNowMarked);
-
     //==============================================================================
     /** This adds the items to the popup menu.
 
