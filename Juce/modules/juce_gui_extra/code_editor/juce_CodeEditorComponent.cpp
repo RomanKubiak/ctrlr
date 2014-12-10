@@ -342,15 +342,6 @@ public:
         }
     }
 
-    void mouseDoubleClick(const MouseEvent &e)
-    {
-        jassert (dynamic_cast<CodeEditorComponent*> (getParentComponent()) != nullptr);
-        CodeEditorComponent& editor = *static_cast<CodeEditorComponent*> (getParentComponent());
-
-        CodeDocument::Position position (editor.getPositionAt (e.x, e.y));
-        editor.toggleLineMark (position.getLineNumber() + 1);
-    }
-
 private:
     int firstLine, lastNumLines;
 };
@@ -1253,10 +1244,6 @@ void CodeEditorComponent::handleTabKey()
 void CodeEditorComponent::handleEscapeKey()
 {
     newTransaction();
-}
-
-void CodeEditorComponent::markedLinesChanged(int lineNumber, bool isNowMarked)
-{
 }
 
 //==============================================================================

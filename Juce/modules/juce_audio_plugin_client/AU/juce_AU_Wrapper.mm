@@ -482,6 +482,8 @@ public:
             outParameterInfo.minValue = 0.0f;
             outParameterInfo.maxValue = 1.0f;
             outParameterInfo.defaultValue = juceFilter->getParameterDefaultValue (index);
+            jassert (outParameterInfo.defaultValue >= outParameterInfo.minValue
+                      && outParameterInfo.defaultValue <= outParameterInfo.maxValue);
             outParameterInfo.unit = kAudioUnitParameterUnit_Generic;
 
             return noErr;
@@ -519,6 +521,10 @@ public:
         return AUBase::SetParameter (inID, inScope, inElement, inValue, inBufferOffsetInFrames);
     }
 
+    // No idea what this method actually does or what it should return. Current Apple docs say nothing about it.
+    // (Note that this isn't marked 'override' in case older versions of the SDK don't include it)
+    bool CanScheduleParameters() const                   { return false; }
+
     //==============================================================================
     ComponentResult Version() override                   { return JucePlugin_VersionCode; }
     bool SupportsTail() override                         { return true; }
@@ -554,13 +560,9 @@ public:
     {
         info.timeSigNumerator = 0;
         info.timeSigDenominator = 0;
-        info.timeInSamples = 0;
-        info.timeInSeconds = 0;
         info.editOriginTime = 0;
         info.ppqPositionOfLastBarStart = 0;
-        info.isPlaying = false;
         info.isRecording = false;
-        info.isLooping = false;
         info.ppqLoopStart = 0;
         info.ppqLoopEnd = 0;
 
@@ -597,19 +599,23 @@ public:
         }
 
         double outCurrentSampleInTimeLine, outCycleStartBeat, outCycleEndBeat;
-        Boolean playing, playchanged, looping;
+        Boolean playing = false, looping = false, playchanged;
 
         if (CallHostTransportState (&playing,
                                     &playchanged,
                                     &outCurrentSampleInTimeLine,
                                     &looping,
                                     &outCycleStartBeat,
-                                    &outCycleEndBeat) == noErr)
+                                    &outCycleEndBeat) != noErr)
         {
-            info.isPlaying = playing;
-            info.timeInSamples = (int64) outCurrentSampleInTimeLine;
-            info.timeInSeconds = outCurrentSampleInTimeLine / getSampleRate();
+            // If the host doesn't support this callback, use the sample time from lastTimeStamp:
+            outCurrentSampleInTimeLine = lastTimeStamp.mSampleTime;
         }
+
+        info.isPlaying = playing;
+        info.timeInSamples = (int64) (outCurrentSampleInTimeLine + 0.5);
+        info.timeInSeconds = info.timeInSamples / getSampleRate();
+        info.isLooping = looping;
 
         return true;
     }
@@ -641,7 +647,9 @@ public:
 
     void audioProcessorChanged (AudioProcessor*)
     {
-        PropertyChanged (kAudioUnitProperty_Latency, kAudioUnitScope_Global, 0);
+        PropertyChanged (kAudioUnitProperty_Latency,       kAudioUnitScope_Global, 0);
+        PropertyChanged (kAudioUnitProperty_ParameterList, kAudioUnitScope_Global, 0);
+        PropertyChanged (kAudioUnitProperty_ParameterInfo, kAudioUnitScope_Global, 0);
     }
 
     bool StreamFormatWritable (AudioUnitScope, AudioUnitElement) override
@@ -658,9 +666,9 @@ public:
     ComponentResult Initialize() override
     {
        #if ! JucePlugin_IsSynth
-        const int numIns  = GetInput(0)  != 0 ? (int) GetInput(0)->GetStreamFormat().mChannelsPerFrame : 0;
+        const int numIns  = findNumInputChannels();
        #endif
-        const int numOuts = GetOutput(0) != 0 ? (int) GetOutput(0)->GetStreamFormat().mChannelsPerFrame : 0;
+        const int numOuts = findNumOutputChannels();
 
         bool isValidChannelConfig = false;
 
@@ -704,19 +712,32 @@ public:
         return JuceAUBaseClass::Reset (inScope, inElement);
     }
 
+    int findNumInputChannels()
+    {
+       #if ! JucePlugin_IsSynth
+        if (AUInputElement* e = GetInput(0))
+            return (int) e->GetStreamFormat().mChannelsPerFrame;
+       #endif
+
+        return 0;
+    }
+
+    int findNumOutputChannels()
+    {
+        if (AUOutputElement* e = GetOutput(0))
+            return (int) e->GetStreamFormat().mChannelsPerFrame;
+
+        return 0;
+    }
+
     void prepareToPlay()
     {
         if (juceFilter != nullptr)
         {
-            juceFilter->setPlayConfigDetails (
-                 #if ! JucePlugin_IsSynth
-                  (int) GetInput(0)->GetStreamFormat().mChannelsPerFrame,
-                 #else
-                  0,
-                 #endif
-                  (int) GetOutput(0)->GetStreamFormat().mChannelsPerFrame,
-                  getSampleRate(),
-                  (int) GetMaxFramesPerSlice());
+            juceFilter->setPlayConfigDetails (findNumInputChannels(),
+                                              findNumOutputChannels(),
+                                              getSampleRate(),
+                                              (int) GetMaxFramesPerSlice());
 
             bufferSpace.setSize (juceFilter->getNumInputChannels() + juceFilter->getNumOutputChannels(),
                                  (int) GetMaxFramesPerSlice() + 32);
@@ -1180,17 +1201,20 @@ public:
 
         static void shutdown (id self)
         {
-            // there's some kind of component currently modal, but the host
-            // is trying to delete our plugin..
-            jassert (Component::getCurrentlyModalComponent() == nullptr);
-
             [[NSNotificationCenter defaultCenter] removeObserver: self];
             deleteEditor (self);
 
             jassert (activeUIs.contains (self));
             activeUIs.removeFirstMatchingValue (self);
+
             if (activePlugins.size() + activeUIs.size() == 0)
+            {
+                // there's some kind of component currently modal, but the host
+                // is trying to delete our plugin..
+                jassert (Component::getCurrentlyModalComponent() == nullptr);
+
                 shutdownJuce_GUI();
+            }
         }
 
         static void viewDidMoveToWindow (id self, SEL)
@@ -1216,7 +1240,7 @@ public:
         JuceUICreationClass()  : ObjCClass <NSObject> ("JUCE_AUCocoaViewClass_")
         {
             addMethod (@selector (interfaceVersion),             interfaceVersion,    @encode (unsigned int), "@:");
-            addMethod (@selector (description),                  description,         @encode (NSString*),    "@:", @encode (AudioUnit), @encode (NSSize));
+            addMethod (@selector (description),                  description,         @encode (NSString*),    "@:");
             addMethod (@selector (uiViewForAudioUnit:withSize:), uiViewForAudioUnit,  @encode (NSView*),      "@:", @encode (AudioUnit), @encode (NSSize));
 
             addProtocol (@protocol (AUCocoaUIBase));
@@ -1227,18 +1251,8 @@ public:
     private:
         static unsigned int interfaceVersion (id, SEL)   { return 0; }
 
-        static NSString* description (id, SEL, AudioUnit inAudioUnit, NSSize)
+        static NSString* description (id, SEL)
         {
-            void* pointers[2];
-            UInt32 propertySize = sizeof (pointers);
-            
-            if (AudioUnitGetProperty (inAudioUnit, juceFilterObjectPropertyID,
-                                      kAudioUnitScope_Global, 0, pointers, &propertySize) == noErr)
-            {
-                if (AudioProcessor* filter = static_cast <AudioProcessor*> (pointers[0]))
-                    return [NSString stringWithString: nsStringLiteral (filter->getInputChannelName(1026).toUTF8())];
-            }
-            
             return [NSString stringWithString: nsStringLiteral (JucePlugin_Name)];
         }
 
