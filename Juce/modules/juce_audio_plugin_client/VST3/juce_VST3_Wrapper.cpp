@@ -174,6 +174,7 @@ public:
             const int numSteps = p.getParameterNumSteps (index);
             info.stepCount = (Steinberg::int32) (numSteps > 0 && numSteps < 0x7fffffff ? numSteps - 1 : 0);
             info.defaultNormalizedValue = p.getParameterDefaultValue (index);
+            jassert (info.defaultNormalizedValue >= 0 && info.defaultNormalizedValue <= 1.0f);
             info.unitId = Vst::kRootUnitId;
             info.flags = p.isParameterAutomatable (index) ? Vst::ParameterInfo::kCanAutomate : 0;
         }
@@ -352,6 +353,9 @@ private:
             if (parent == nullptr || isPlatformTypeSupported (type) == kResultFalse)
                 return kResultFalse;
 
+            if (component == nullptr)
+                component = new ContentWrapperComponent (*this, pluginInstance);
+
            #if JUCE_WINDOWS
             component->addToDesktop (0, parent);
             component->setOpaque (true);
@@ -458,7 +462,7 @@ private:
                 if (pluginEditor != nullptr)
                 {
                     PopupMenu::dismissAllActiveMenus();
-                    pluginEditor->getAudioProcessor()->editorBeingDeleted (pluginEditor);
+                    pluginEditor->processor.editorBeingDeleted (pluginEditor);
                 }
             }
 
@@ -488,7 +492,7 @@ private:
                    #if JUCE_WINDOWS
                     setSize (w, h);
                    #else
-                    if (owner.macHostWindow != nullptr)
+                    if (owner.macHostWindow != nullptr && ! getHostType().isWavelab())
                         juce::setNativeHostWindowSize (owner.macHostWindow, this, w, h, owner.isNSView);
                    #endif
 
@@ -496,6 +500,9 @@ private:
                     {
                         ViewRect newSize (0, 0, w, h);
                         owner.plugFrame->resizeView (&owner, &newSize);
+
+                        if (getHostType().isWavelab())
+                            setBounds (0, 0, w, h);
                     }
                 }
             }
@@ -726,7 +733,7 @@ public:
 
     tresult PLUGIN_API setActive (TBool state) override
     {
-        if (state == kResultFalse)
+        if (! state)
         {
             getPluginInstance().releaseResources();
         }
@@ -1169,7 +1176,7 @@ public:
 
     tresult PLUGIN_API setProcessing (TBool state) override
     {
-        if (state == kResultFalse)
+        if (! state)
             getPluginInstance().reset();
 
         return kResultTrue;
@@ -1356,14 +1363,21 @@ private:
         paramPreset = 'prst'
     };
 
+    static int getNumChannels (Vst::BusList& busList)
+    {
+        Vst::BusInfo info;
+        info.channelCount = 0;
+
+        if (Vst::Bus* bus = busList.first())
+            bus->getInfo (info);
+
+        return (int) info.channelCount;
+    }
+
     void preparePlugin (double sampleRate, int bufferSize)
     {
-        Vst::BusInfo inputBusInfo, outputBusInfo;
-        audioInputs.first()->getInfo (inputBusInfo);
-        audioOutputs.first()->getInfo (outputBusInfo);
-
-        getPluginInstance().setPlayConfigDetails (inputBusInfo.channelCount,
-                                                  outputBusInfo.channelCount,
+        getPluginInstance().setPlayConfigDetails (getNumChannels (audioInputs),
+                                                  getNumChannels (audioOutputs),
                                                   sampleRate, bufferSize);
 
         getPluginInstance().prepareToPlay (sampleRate, bufferSize);

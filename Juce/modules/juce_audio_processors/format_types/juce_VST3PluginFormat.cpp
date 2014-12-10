@@ -364,7 +364,6 @@ class VST3HostContext  : public Vst::IComponentHandler,  // From VST V3.0.0
                          public Vst::IComponentHandler3, // From VST V3.5.0 (also very well named!)
                          public Vst::IContextMenuTarget,
                          public Vst::IHostApplication,
-                         public Vst::IParamValueQueue,
                          public Vst::IUnitHandler
 {
 public:
@@ -428,16 +427,11 @@ public:
 
             if (hasFlag (flags, Vst::kIoChanged))
             {
-                double sampleRate = owner->getSampleRate();
-                int numSamples = owner->getBlockSize();
+                const double sampleRate = owner->getSampleRate();
+                const int blockSize = owner->getBlockSize();
 
-                if (sampleRate <= 8000.0)
-                    sampleRate = 44100.0;
-
-                if (numSamples <= 0)
-                    numSamples = 1024;
-
-                owner->prepareToPlay (owner->getSampleRate(), owner->getBlockSize());
+                owner->prepareToPlay (sampleRate >= 8000 ? sampleRate : 44100.0,
+                                      blockSize > 0 ? blockSize : 1024);
             }
 
             if (hasFlag (flags, Vst::kLatencyChanged))
@@ -690,31 +684,6 @@ public:
     }
 
     //==============================================================================
-    Vst::ParamID PLUGIN_API getParameterId() override
-    {
-        jassertfalse;
-        return 0;
-    }
-
-    Steinberg::int32 PLUGIN_API getPointCount() override
-    {
-        jassertfalse;
-        return 0;
-    }
-
-    tresult PLUGIN_API getPoint (Steinberg::int32, Steinberg::int32&, Vst::ParamValue&) override
-    {
-        jassertfalse;
-        return kResultFalse;
-    }
-
-    tresult PLUGIN_API addPoint (Steinberg::int32, Vst::ParamValue, Steinberg::int32&) override
-    {
-        jassertfalse;
-        return kResultFalse;
-    }
-
-    //==============================================================================
     tresult PLUGIN_API notifyUnitSelection (Vst::UnitID) override
     {
         jassertfalse;
@@ -741,7 +710,6 @@ public:
         TEST_FOR_AND_RETURN_IF_VALID (iid, Vst::IComponentHandler3)
         TEST_FOR_AND_RETURN_IF_VALID (iid, Vst::IContextMenuTarget)
         TEST_FOR_AND_RETURN_IF_VALID (iid, Vst::IHostApplication)
-        TEST_FOR_AND_RETURN_IF_VALID (iid, Vst::IParamValueQueue)
         TEST_FOR_AND_RETURN_IF_VALID (iid, Vst::IUnitHandler)
         TEST_FOR_COMMON_BASE_AND_RETURN_IF_VALID (iid, FUnknown, Vst::IComponentHandler)
 
@@ -1451,7 +1419,7 @@ public:
         warnOnFailure (view->removed());
         warnOnFailure (view->setFrame (nullptr));
 
-        getAudioProcessor()->editorBeingDeleted (this);
+        processor.editorBeingDeleted (this);
 
        #if JUCE_MAC
         dummyComponent.setView (nullptr);
@@ -2117,7 +2085,11 @@ private:
             MemoryBlock mem;
 
             if (mem.fromBase64Encoding (state->getAllSubText()))
-                stream = new Steinberg::MemoryStream (mem.getData(), (TSize) mem.getSize());
+            {
+                stream = new Steinberg::MemoryStream();
+                stream->setSize ((TSize) mem.getSize());
+                mem.copyTo (stream->getData(), 0, mem.getSize());
+            }
         }
 
         return stream;
@@ -2133,21 +2105,85 @@ private:
         JUCE_DECLARE_VST3_COM_REF_METHODS
         JUCE_DECLARE_VST3_COM_QUERY_METHODS
 
-        Steinberg::int32 PLUGIN_API getParameterCount() override   { return 0; }
+        Steinberg::int32 PLUGIN_API getParameterCount() override                                { return (Steinberg::int32) queues.size(); }
+        Vst::IParamValueQueue* PLUGIN_API getParameterData (Steinberg::int32 index) override    { return queues[(int) index]; }
 
-        Vst::IParamValueQueue* PLUGIN_API getParameterData (Steinberg::int32) override
+        Vst::IParamValueQueue* PLUGIN_API addParameterData (const Vst::ParamID& id, Steinberg::int32& index) override
         {
-            return nullptr;
-        }
+            for (int i = queues.size(); --i >= 0;)
+            {
+                if (queues.getUnchecked (i)->getParameterId() == id)
+                {
+                    index = (Steinberg::int32) i;
+                    return queues.getUnchecked (i);
+                }
+            }
 
-        Vst::IParamValueQueue* PLUGIN_API addParameterData (const Vst::ParamID&, Steinberg::int32& index) override
-        {
-            index = 0;
-            return nullptr;
+            ParamValueQueue* q = queues.add (new ParamValueQueue (id));
+            index = getParameterCount() - 1;
+            return q;
         }
 
     private:
+        struct ParamValueQueue  : public Vst::IParamValueQueue
+        {
+            ParamValueQueue (Vst::ParamID parameterID) : paramID (parameterID)
+            {
+                points.ensureStorageAllocated (1024);
+            }
+
+            virtual ~ParamValueQueue() {}
+
+            JUCE_DECLARE_VST3_COM_REF_METHODS
+            JUCE_DECLARE_VST3_COM_QUERY_METHODS
+
+            Steinberg::Vst::ParamID PLUGIN_API getParameterId() override    { return paramID; }
+            Steinberg::int32 PLUGIN_API getPointCount() override            { return (Steinberg::int32) points.size(); }
+
+            Steinberg::tresult PLUGIN_API getPoint (Steinberg::int32 index,
+                                                    Steinberg::int32& sampleOffset,
+                                                    Steinberg::Vst::ParamValue& value) override
+            {
+                if (isPositiveAndBelow ((int) index, points.size()))
+                {
+                    ParamPoint e (points.getUnchecked ((int) index));
+                    sampleOffset = e.sampleOffset;
+                    value = e.value;
+                    return kResultTrue;
+                }
+
+                sampleOffset = -1;
+                value = 0.0;
+                return kResultFalse;
+            }
+
+            Steinberg::tresult PLUGIN_API addPoint (Steinberg::int32 sampleOffset,
+                                                    Steinberg::Vst::ParamValue value,
+                                                    Steinberg::int32& index) override
+            {
+                // XXX this may need to be made thread-safe..
+                ParamPoint p = { sampleOffset, value };
+                points.add (p);
+                index = (Steinberg::int32) points.size();
+                return kResultTrue;
+            }
+
+        private:
+            struct ParamPoint
+            {
+                Steinberg::int32 sampleOffset;
+                Steinberg::Vst::ParamValue value;
+            };
+
+            Atomic<int> refCount;
+            const Vst::ParamID paramID;
+            Array<ParamPoint> points;
+
+            JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ParamValueQueue)
+        };
+
         Atomic<int> refCount;
+        OwnedArray<ParamValueQueue> queues;
 
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ParameterChangeList)
     };
