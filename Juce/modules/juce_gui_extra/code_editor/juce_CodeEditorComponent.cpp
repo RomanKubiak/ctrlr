@@ -1255,10 +1255,6 @@ void CodeEditorComponent::handleEscapeKey()
     newTransaction();
 }
 
-void CodeEditorComponent::markedLinesChanged(int lineNumber, bool isNowMarked)
-{
-}
-
 //==============================================================================
 ApplicationCommandTarget* CodeEditorComponent::getNextCommandTarget()
 {
@@ -1588,6 +1584,10 @@ void CodeEditorComponent::setMarkedLine (int lineNumber, bool shouldBeMarked)
 Array<int> CodeEditorComponent::getMarkedLines() const
 {
     return (markedLines);
+}
+
+void CodeEditorComponent::markedLinesChanged(int lineNumber, bool isNowMarked)
+{
 }
 
 void CodeEditorComponent::toggleLineMark(int lineNumber)
