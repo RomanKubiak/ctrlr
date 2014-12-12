@@ -119,6 +119,9 @@ public:
         /** True if the transport is currently looping. */
         bool isLooping;
 
+        /** Samples to next clock */
+        long samplesToNextClock;
+
         //==============================================================================
         bool operator== (const CurrentPositionInfo& other) const noexcept;
         bool operator!= (const CurrentPositionInfo& other) const noexcept;

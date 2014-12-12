@@ -83,7 +83,7 @@ class CtrlrProcessor  : public AudioProcessor
 		void addMidiToOutputQueue (const MidiMessage &m);
 		void addMidiToOutputQueue (const MidiBuffer &buffer);
 		void setMidiOptions(const bool _thruHostToHost, const bool _thruHostToDevice, const bool _outputToHost, const bool _inputFromHost, const bool _thruFromHostChannelize);
-		void processPanels(MidiBuffer &midiMessages);
+		void processPanels(MidiBuffer &midiMessages, const AudioPlayHead::CurrentPositionInfo &positionInfo);
 		void addPanelProcessor (CtrlrPanelProcessor *processorToAdd);
 		void removePanelProcessor (CtrlrPanelProcessor *processorToRemove);
 		void setParameterHandler (int index, float value);

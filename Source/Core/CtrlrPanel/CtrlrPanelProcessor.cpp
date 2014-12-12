@@ -18,8 +18,8 @@ void CtrlrPanelProcessor::handleAsyncUpdate()
 {
 }
 
-void CtrlrPanelProcessor::processBlock(MidiBuffer &midiMessages, MidiBuffer &leftoverBuffer)
-{	
+void CtrlrPanelProcessor::processBlock(MidiBuffer &midiMessages, MidiBuffer &leftoverBuffer, const AudioPlayHead::CurrentPositionInfo &info)
+{
 	if (owner.getMidiOptionBool(panelMidiInputFromHostCompare))
 	{
 		owner.getMIDIInputThread().handleMIDIFromHost(midiMessages);
@@ -30,18 +30,18 @@ void CtrlrPanelProcessor::processBlock(MidiBuffer &midiMessages, MidiBuffer &lef
 	int time;
 
 	while (i.getNextEvent(m,time))
-	{		
+	{
 		_MIN("VST INPUT", m);
-
+        _DBG("\tsamples to next clock: "+_STR((double)info.samplesToNextClock));
 		if (owner.getMidiOptionBool(panelMidiThruH2D) == true)
 		{
 			if (owner.getMidiOptionBool(panelMidiThruH2DChannelize))
 			{
-				m.setChannel (owner.getMidiChannel(panelMidiOutputChannelDevice));				
+				m.setChannel (owner.getMidiChannel(panelMidiOutputChannelDevice));
 			}
 
 			owner.sendMidi(m);
-		}			
+		}
 
 		if (owner.getMidiOptionBool(panelMidiThruH2H) == true)
 		{
@@ -57,12 +57,12 @@ void CtrlrPanelProcessor::processBlock(MidiBuffer &midiMessages, MidiBuffer &lef
 
 void CtrlrPanelProcessor::midiOptionChanged(const CtrlrPanelMidiOption optionThatChanged)
 {
-	if (optionThatChanged == panelMidiInputFromHost 
-		|| optionThatChanged == panelMidiOutputToHost 
+	if (optionThatChanged == panelMidiInputFromHost
+		|| optionThatChanged == panelMidiOutputToHost
 		|| optionThatChanged == panelMidiThruH2H
 		|| optionThatChanged == panelMidiThruH2D)
 	{
-		if (owner.getMidiOptionBool(panelMidiInputFromHost) 
+		if (owner.getMidiOptionBool(panelMidiInputFromHost)
 			|| owner.getMidiOptionBool(panelMidiOutputToHost)
 			|| owner.getMidiOptionBool(panelMidiThruH2H)
 			|| owner.getMidiOptionBool(panelMidiThruH2D))
@@ -70,7 +70,7 @@ void CtrlrPanelProcessor::midiOptionChanged(const CtrlrPanelMidiOption optionTha
 			owner.getOwner().getOwner()->addPanelProcessor (this);
 		}
 
-		if (owner.getMidiOptionBool(panelMidiInputFromHost) == false 
+		if (owner.getMidiOptionBool(panelMidiInputFromHost) == false
 			&& owner.getMidiOptionBool(panelMidiOutputToHost) == false
 			&& owner.getMidiOptionBool(panelMidiThruH2H) == false
 			&& owner.getMidiOptionBool(panelMidiThruH2D) == false)
