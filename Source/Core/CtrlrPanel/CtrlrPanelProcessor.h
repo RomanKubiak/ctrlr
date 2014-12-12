@@ -10,7 +10,7 @@ class CtrlrPanelProcessor : public AsyncUpdater, public CtrlrPanelMidiProcessor
 		CtrlrPanelProcessor(CtrlrPanel &_owner);
 		virtual ~CtrlrPanelProcessor();
 		void handleAsyncUpdate();
-		void processBlock(MidiBuffer &midiMessages, MidiBuffer &leftoverBuffer);
+		void processBlock(MidiBuffer &midiMessages, MidiBuffer &leftoverBuffer, const AudioPlayHead::CurrentPositionInfo &positionInfo);
 		void midiOptionChanged(const CtrlrPanelMidiOption optionThatChanged);
 		void midiChannelChaned(const CtrlrPanelMidiChannel /*channelThatChanged*/){}
 		CtrlrPanel &getOwner();

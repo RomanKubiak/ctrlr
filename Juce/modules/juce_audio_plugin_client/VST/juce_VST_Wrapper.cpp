@@ -705,17 +705,6 @@ public:
         }
     }
 
-    bool getCurrentClockInfo (long &samplesToNextClock)
-    {
-        const VstTimeInfo* const ti = getTimeInfo (kVstPpqPosValid | kVstTempoValid | kVstBarsValid | kVstCyclePosValid
-                                                    | kVstTimeSigValid | kVstSmpteValid | kVstClockValid);
-
-        if (ti == nullptr || ti->sampleRate <= 0)
-            return false;
-
-        samplesToNextClock = ti->samplesToNextClock;
-    }
-
     bool getCurrentPosition (AudioPlayHead::CurrentPositionInfo& info) override
     {
         const VstTimeInfo* const ti = getTimeInfo (kVstPpqPosValid | kVstTempoValid | kVstBarsValid | kVstCyclePosValid
@@ -741,6 +730,7 @@ public:
         info.timeInSeconds = ti->samplePos / ti->sampleRate;
         info.ppqPosition = (ti->flags & kVstPpqPosValid) != 0 ? ti->ppqPos : 0.0;
         info.ppqPositionOfLastBarStart = (ti->flags & kVstBarsValid) != 0 ? ti->barStartPos : 0.0;
+        info.samplesToNextClock = ti->samplesToNextClock;
 
         if ((ti->flags & kVstSmpteValid) != 0)
         {

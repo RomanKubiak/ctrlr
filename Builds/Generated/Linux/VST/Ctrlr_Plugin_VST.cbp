@@ -11,6 +11,8 @@
 				<Option object_output="obj/Debug" />
 				<Option type="3" />
 				<Option compiler="gcc" />
+				<Option host_application="qtractor" />
+				<Option run_host_application_in_terminal="1" />
 				<Compiler>
 					<Add option="-std=c++0x" />
 					<Add option="-w" />
@@ -32,6 +34,7 @@
 					<Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1" />
 					<Add option="-DJUCE_APP_VERSION=5.2.0" />
 					<Add option="-DJUCE_APP_VERSION_HEX=0x50200" />
+					<Add option="-DJUCE_DEBUG=1" />
 					<Add directory="." />
 					<Add directory="../../../VST/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />
