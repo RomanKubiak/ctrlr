@@ -21,6 +21,7 @@ class CtrlrManagerVst
 		void set(CtrlrModulator *mod, const int idx = 0);
 		void dumpDebugData();
 		void removeIfAlreadyThere(CtrlrModulator *mod);
+		bool isAlreadyIndexed(CtrlrModulator *mod);
 		JUCE_LEAK_DETECTOR(CtrlrManagerVst)
 
 	private:
