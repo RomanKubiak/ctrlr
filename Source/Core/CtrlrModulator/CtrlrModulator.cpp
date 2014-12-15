@@ -251,7 +251,9 @@ void CtrlrModulator::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	}
 	else if (property == Ids::vstIndex)
 	{
+	    // _DBG("CtrlrModulator::valueTreePropertyChanged [PRE] vstIndex=="+getProperty(Ids::vstIndex).toString());
 		owner.getOwner().getVstManager().set (this, getProperty(property));
+		// _DBG("CtrlrModulator::valueTreePropertyChanged [POST] vstIndex=="+getProperty(Ids::vstIndex).toString());
 	}
 }
 

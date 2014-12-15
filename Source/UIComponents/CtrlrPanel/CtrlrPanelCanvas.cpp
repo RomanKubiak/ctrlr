@@ -270,7 +270,9 @@ void CtrlrPanelCanvas::editMenuCopy(const MouseEvent *e)
 	for (int i=0; i<getOwner().getSelection()->getNumSelected(); i++)
 	{
 		CtrlrModulator &m = getOwner().getSelection()->getSelectedItem(i)->getOwner();
-		clipboardTree.addChild (m.getModulatorTree().createCopy(), -1, nullptr);
+		ValueTree modulatorTreeCopy = m.getModulatorTree().createCopy();
+		modulatorTreeCopy.removeProperty(Ids::vstIndex, nullptr);
+		clipboardTree.addChild (modulatorTreeCopy, -1, nullptr);
 
 		list.add (m.getComponent()->getBounds());
 	}
@@ -431,6 +433,7 @@ CtrlrComponent *CtrlrPanelCanvas::addNewComponent (const ValueTree &savedState, 
 
 		if (ctrlrComponent != 0)
 		{
+		    // ctrlrComponent->getOwner().setProperty (Ids::vstIndex, owner.getOwner().getOwner().getVstManager().getFirstFree());
 			if (!ctrlrComponentPosition.isEmpty())
 			{
 				ctrlrComponent->setBounds (ctrlrComponentPosition);
@@ -671,10 +674,13 @@ void CtrlrPanelCanvas::editMenuPaste()
 		for (int i=0; i<clipboardTree.getNumChildren(); i++)
 		{
 			CtrlrComponent *c = addNewComponent (clipboardTree.getChild(i), 0, true);
+			_DBG("CtrlrPanelCanvas::editMenuPaste [PRE] vstIndex=="+c->getOwner().getProperty(Ids::vstIndex).toString());
 			c->setTopLeftPosition (c->getX()+(c->getWidth()/2), c->getY()+(c->getHeight()/2));
 			c->panelEditModeChanged (owner.getProperty (Ids::uiPanelEditMode));
-			c->getOwner().setProperty (Ids::vstIndex, owner.getOwner().getOwner().getVstManager().getFirstFree());
+			// c->getOwner().setProperty (Ids::vstIndex, owner.getOwner().getOwner().getVstManager().getFirstFree());
 			owner.getSelection()->addToSelection (c);
+
+			_DBG("CtrlrPanelCanvas::editMenuPaste [POST] vstIndex=="+c->getOwner().getProperty(Ids::vstIndex).toString());
 		}
 	}
 
@@ -702,7 +708,7 @@ void CtrlrPanelCanvas::editMenuPaste(const MouseEvent &e)
 			CtrlrComponent *c = addNewComponent (clipboardTree.getChild(i), e.eventComponent, true);
 			c->setTopLeftPosition (c->getX()+deltaX, c->getY()+deltaY);
 			// KAMDER ADD THIS FROM THE PASTE EDIT MENU
-            c->getOwner().setProperty (Ids::vstIndex, owner.getOwner().getOwner().getVstManager().getFirstFree());
+            // c->getOwner().setProperty (Ids::vstIndex, owner.getOwner().getOwner().getVstManager().getFirstFree());
         }
 	}
 

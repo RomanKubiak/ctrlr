@@ -29,9 +29,24 @@ void CtrlrManagerVst::set(CtrlrModulator *mod, const int idx)
 		return;
 	}
 
+    if (isAlreadyIndexed(mod) && idx == 0)
+       return;
+
 	removeIfAlreadyThere (mod);
 	vstIndexes.addUsingDefaultSort (idx);
 	map.insert (CtrlrVstPair(idx,mod));
+}
+
+bool CtrlrManagerVst::isAlreadyIndexed(CtrlrModulator *mod)
+{
+    for (CtrlrVstMapIterator it=map.begin(); it!=map.end(); ++it)
+	{
+		if (it->second == mod)
+		{
+			return (true);
+		}
+	}
+	return (false);
 }
 
 void CtrlrManagerVst::removeIfAlreadyThere(CtrlrModulator *mod)
