@@ -1586,7 +1586,7 @@ Array<int> CodeEditorComponent::getMarkedLines() const
     return (markedLines);
 }
 
-void CodeEditorComponent::markedLinesChanged(int lineNumber, bool isNowMarked)
+void CodeEditorComponent::markedLinesChanged(int, bool)
 {
 }
 
