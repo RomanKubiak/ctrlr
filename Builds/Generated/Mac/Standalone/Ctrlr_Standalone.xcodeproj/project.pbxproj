@@ -1266,6 +1266,7 @@
 		A71AD904C3C19A547113D079 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_SparseSet.h"; path = "../../../../Juce/modules/juce_core/containers/juce_SparseSet.h"; sourceTree = "SOURCE_ROOT"; };
 		A71C285245E48869F3365C67 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LToggleButton.cpp; path = ../../../../Source/Lua/JuceClasses/LToggleButton.cpp; sourceTree = "SOURCE_ROOT"; };
 		A7862707F110E6C13CC4A0D8 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrMIDILibraryEditor.h; path = ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDILibraryEditor.h; sourceTree = "SOURCE_ROOT"; };
+		A78BA9C3846926D8D7ACD7E8 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_AudioProcessorParameter.h"; path = "../../../../Juce/modules/juce_audio_processors/processors/juce_AudioProcessorParameter.h"; sourceTree = "SOURCE_ROOT"; };
 		A811A0CE564D7AA8208ABB01 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_win32_FileChooser.cpp"; path = "../../../../Juce/modules/juce_gui_basics/native/juce_win32_FileChooser.cpp"; sourceTree = "SOURCE_ROOT"; };
 		A913CCDD943CE9C3423F261B = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "return_reference_to_policy.hpp"; path = "../../../../Source/Lua/luabind/luabind/return_reference_to_policy.hpp"; sourceTree = "SOURCE_ROOT"; };
 		A9422A2267A56E5C4422811B = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico_cut.png"; path = "../../../../Source/Resources/Icons/ico_cut.png"; sourceTree = "SOURCE_ROOT"; };
@@ -2708,6 +2709,7 @@
 					2D6E2CA08C826580D44A7927,
 					C3924C25E0E23F1CE60B1483,
 					D8479971D20C4CE03F942777,
+					A78BA9C3846926D8D7ACD7E8,
 					5652C2B1E0F16B2BB402098E,
 					D60C944F2FD6CDB8F665F2A7,
 					B768B87E95976AD84716A165,
