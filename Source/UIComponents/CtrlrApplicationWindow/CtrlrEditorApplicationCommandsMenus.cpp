@@ -191,14 +191,13 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		thru.addCommandItem (commandManager, optMidiThruH2HChannelize);
 
 		menu.addSubMenu ("MIDI Thru", thru);
-
-		menu.addSectionHeader ("Plugin options");
-		menu.addCommandItem (commandManager, optMidiInputFromHost);
-		menu.addCommandItem (commandManager, optMidiInputFromHostCompare);
-		menu.addCommandItem (commandManager, optMidiOutuptToHost);
-		menu.addSubMenu ("Input channel", getMidiChannelMenu(CtrlrMidiDeviceManager::hostInputDevice),		(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
-		menu.addSubMenu ("Output channel", getMidiChannelMenu(CtrlrMidiDeviceManager::hostOutputDevice),	(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
-	}
+        menu.addSectionHeader ("Plugin options");
+        menu.addCommandItem (commandManager, optMidiInputFromHost);
+        menu.addCommandItem (commandManager, optMidiInputFromHostCompare);
+        menu.addCommandItem (commandManager, optMidiOutuptToHost);
+        menu.addSubMenu ("Input channel", getMidiChannelMenu(CtrlrMidiDeviceManager::hostInputDevice),		(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
+        menu.addSubMenu ("Output channel", getMidiChannelMenu(CtrlrMidiDeviceManager::hostOutputDevice),	(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
+    }
 	else if (topLevelMenuIndex == MenuPrograms) // Programs
 	{
 	/*	menu.addCommandItem (commandManager, showMidiLibrary);
