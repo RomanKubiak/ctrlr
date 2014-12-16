@@ -10,7 +10,7 @@ class CtrlrPanel;
 class CtrlrMidiInputComparatorSingle
 {
 	public:
-		CtrlrMidiInputComparatorSingle(CtrlrPanel &_owner);
+		CtrlrMidiInputComparatorSingle(CtrlrPanel &_owner, const uint8 _msgIndex = 0);
 		~CtrlrMidiInputComparatorSingle();
 		void clear();
 		void match (const MidiMessage &m);
@@ -54,6 +54,7 @@ class CtrlrMidiInputComparatorSingle
 			cacheNull;
 
 		int cacheSize;
+		uint8 msgIndex;
 };
 
 #endif

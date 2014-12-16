@@ -460,7 +460,7 @@ bool CtrlrCustomComponent::isInterestedInDragSource (const SourceDetails& dragSo
 	{
 		if (dadIsInterestedCbk->isValid())
 		{
-			return ((bool) owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (dadIsInterestedCbk, this, DragAndDropSourceDetails (dragSourceDetails)));
+			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (dadIsInterestedCbk, this, DragAndDropSourceDetails (dragSourceDetails)) ? true : false);
 		}
 	}
 	return (false);

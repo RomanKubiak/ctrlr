@@ -10,7 +10,7 @@ class CtrlrPanel;
 class CtrlrMidiInputComparatorMulti : public Timer
 {
 	public:
-		CtrlrMidiInputComparatorMulti(CtrlrPanel &_owner);
+		CtrlrMidiInputComparatorMulti(CtrlrPanel &_owner, const uint8 _msgIndex = 0);
 		~CtrlrMidiInputComparatorMulti();
 
 		void clear();
@@ -34,6 +34,7 @@ class CtrlrMidiInputComparatorMulti : public Timer
 		DefaultElementComparator<unsigned int> messageSizeContainerSorter;
 		Array<CtrlrCacheDataMulti> cache;
 		int cacheSize;
+		uint8 msgIndex;
 };
 
 #endif

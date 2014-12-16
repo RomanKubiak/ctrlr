@@ -6,8 +6,9 @@
 #include "CtrlrProcessor.h"
 #include "CtrlrLog.h"
 
-CtrlrMidiInputComparator::CtrlrMidiInputComparator(CtrlrPanel &_owner)
-	: owner(_owner), comparatorSingle(_owner), comparatorMulti(_owner), lastPanelMode(false)
+CtrlrMidiInputComparator::CtrlrMidiInputComparator(CtrlrPanel &_owner, const uint8 _msgIndex)
+	: owner(_owner), comparatorSingle(_owner), comparatorMulti(_owner), lastPanelMode(false),
+        msgIndex(_msgIndex)
 {
 }
 
@@ -47,7 +48,7 @@ void CtrlrMidiInputComparator::match (const MidiBuffer &buffer)
 
 void CtrlrMidiInputComparator::addMatchTarget (CtrlrModulator *modulatorToAdd)
 {
-	const CtrlrMidiMessageType type = modulatorToAdd->getMidiMessage().getMidiMessageType();
+	const CtrlrMidiMessageType type = modulatorToAdd->getMidiMessage(msgIndex).getMidiMessageType();
 
 	switch (type)
 	{
