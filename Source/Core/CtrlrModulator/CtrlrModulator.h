@@ -94,7 +94,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 
 			@return the CtrlrMidiMessage object for this modulator, this method will fail for static modulators (and will propably crash Ctrlr)
 		*/
-		CtrlrMidiMessage &getMidiMessage();
+		CtrlrMidiMessage &getMidiMessage(const uint8 idx = 0);
 
 		/** @brief Set the value to the modulator (uses the non-mapped value or the index of the value on the list)
 
@@ -149,7 +149,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		bool hasName();
 		const std::string getLuaName() { return (getName().toUTF8().getAddress()); }
 		float getVstValue(const int intValueToUse=-1) const;
-		CtrlrMidiMessage *getMidiMessagePtr();
+		CtrlrMidiMessage *getMidiMessagePtr(const uint8 idx = 0);
 		void restoreState (const ValueTree &savedState);
 		CtrlrManager &getCtrlrManager();
 		void allModulatorsInitialized();
@@ -170,7 +170,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		void setPanelReference(CtrlrPanel *referencedPanel);
 		bool isDelayedProperty(const Identifier &name);
 		void setDelayedProperty(const Identifier &name, const var value);
-		CtrlrOwnedMidiMessage &getOwnedMidiMessage();
+		CtrlrOwnedMidiMessage &getOwnedMidiMessage(const uint8 idx=0);
 		static void wrapForLua (lua_State *L);
 		ValueTree &getObjectTree()																		{ return (modulatorTree); }
 		ValueTree &getModulatorTree()																	{ return (modulatorTree); }

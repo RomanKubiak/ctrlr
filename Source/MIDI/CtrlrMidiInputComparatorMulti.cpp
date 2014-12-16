@@ -4,8 +4,8 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "JuceClasses/LMemoryBlock.h"
 
-CtrlrMidiInputComparatorMulti::CtrlrMidiInputComparatorMulti(CtrlrPanel &_owner)
-	: owner(_owner), cacheSize(32)
+CtrlrMidiInputComparatorMulti::CtrlrMidiInputComparatorMulti(CtrlrPanel &_owner, const uint8 _msgIndex)
+	: owner(_owner), cacheSize(32), msgIndex(_msgIndex)
 {
 	clear();
 }

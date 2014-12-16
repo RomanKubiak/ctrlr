@@ -50,7 +50,9 @@ CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrMana
 
 CtrlrProcessor::~CtrlrProcessor()
 {
+#ifdef JUCE_OSX
 	MessageManager::getInstance()->runDispatchLoopUntil((int)overridesTree.getProperty(Ids::ctrlrShutdownDelay));
+#endif
 }
 
 const String CtrlrProcessor::getName() const

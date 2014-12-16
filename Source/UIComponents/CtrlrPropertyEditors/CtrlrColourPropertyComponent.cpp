@@ -60,7 +60,7 @@ void CtrlrColourEditorComponent::mouseDown (const MouseEvent &e)
 		o.componentToCentreAround		= this;
 		o.launchAsync();
 		*/
-		 CallOutBox& myBox = CallOutBox::launchAsynchronously (new CtrlrColourSelectorComp (this, canResetToDefault), getScreenBounds(), nullptr);
+		 CallOutBox::launchAsynchronously (new CtrlrColourSelectorComp (this, canResetToDefault), getScreenBounds(), nullptr);
 	}
 }
 

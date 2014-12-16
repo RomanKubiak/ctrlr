@@ -586,7 +586,7 @@ ValueTree CtrlrLuaMethodManager::getGroupByName(const String &groupName)
 
 const bool CtrlrLuaMethodManager::attachDefaultGroups()
 {
-    bool ret;
+    bool ret = false;
 
     if (!getGroupByName("Built-In").isValid())
 	{
