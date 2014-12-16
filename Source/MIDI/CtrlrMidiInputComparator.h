@@ -9,7 +9,7 @@
 class CtrlrMidiInputComparator
 {
 	public:
-		CtrlrMidiInputComparator(CtrlrPanel &_owner);
+		CtrlrMidiInputComparator(CtrlrPanel &_owner, const uint8 _msgIndex = 0);
 		~CtrlrMidiInputComparator();
 		void addMatchTarget (CtrlrModulator *modulatorToAdd);
 		void match (const MidiMessage &m);
@@ -28,6 +28,7 @@ class CtrlrMidiInputComparator
 		CtrlrMidiInputComparatorMulti comparatorMulti;
 		CtrlrMidiMessage singleContainer, multiContainer;
 		bool lastPanelMode;
+		uint8 msgIndex;
 };
 
 #endif
