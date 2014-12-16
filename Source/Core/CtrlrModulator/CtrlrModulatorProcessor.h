@@ -97,9 +97,9 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 		void setValueFromHost(const float inValue);
 		void handleAsyncUpdate();
 		CtrlrProcessor *getProcessor();
-		CtrlrOwnedMidiMessage *getMidiMessagePtr();
-		CtrlrMidiMessage &getMidiMessage();
-		CtrlrOwnedMidiMessage &getOwnedMidiMessage();
+		CtrlrOwnedMidiMessage *getMidiMessagePtr(const uint8 idx = 0);
+		CtrlrMidiMessage &getMidiMessage(const uint8 idx = 0);
+		CtrlrOwnedMidiMessage &getOwnedMidiMessage(const uint8 idx = 0);
 		void sendMidiMessage();
 		void setMappedValue (const int mappedValue, const bool force, const bool mute=false);
 
@@ -132,7 +132,7 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 		Expression forwardProcess;
 		Expression reverseProcess;
 		String forwardEvaluationErrors, reverseEvaluationErrors;
-		ScopedPointer <CtrlrOwnedMidiMessage> ctrlrMidiMessage;
+		ScopedPointer <CtrlrOwnedMidiMessage> ctrlrMidiMessage, ctrlrMidiControllerMessage;
 		int currentValue, currentMidiValue, maxValue, minValue, globalIndex;
 		WeakReference <CtrlrLuaMethod> valueChangedCbk, getValueForMidiCbk, getValueFromMidiCbk;
 		CtrlrValueMap valueMap;

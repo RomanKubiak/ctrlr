@@ -6,14 +6,14 @@
 #include "CtrlrPanelMIDIInputThread.h"
 #include "MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 
-CtrlrPanelMIDIInputThread::CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const bool _inputFromController)
+CtrlrPanelMIDIInputThread::CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const uint8 _msgIndex)
 	:	owner(_owner),
 		Thread("PANEL MIDI INPUT THREAD"),
 		inputDevice(nullptr),
 		inputComparator(nullptr),
-		inputFromController(_inputFromController)
+		msgIndex(_msgIndex)
 {
-	inputComparator = new CtrlrMidiInputComparator (owner);
+	inputComparator             = new CtrlrMidiInputComparator (owner, msgIndex);
 	junkBuffer.ensureSize(8192);
 	hostInputBuffer.ensureSize(8192);
 	deviceInputBuffer.ensureSize(8192);

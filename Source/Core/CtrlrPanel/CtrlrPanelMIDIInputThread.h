@@ -10,7 +10,7 @@ class CtrlrPanel;
 class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMidiDevice::Listener, public CtrlrPanelMidiProcessor
 {
 	public:
-		CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const bool _inputFromController = false);
+		CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const uint8 _msgIndex);
 		~CtrlrPanelMIDIInputThread();
 		void run();
 		int getListenerInputMidiChannel();
@@ -35,6 +35,7 @@ class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMidiDevice::Listene
 		ReadWriteLock lock;
 		CtrlrPanel &owner;
 		CtrlrMidiDevice *inputDevice;
+		uint8 msgIndex;
 		ScopedPointer <CtrlrMidiInputComparator> inputComparator;
 };
 

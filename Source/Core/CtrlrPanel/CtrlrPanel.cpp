@@ -886,6 +886,7 @@ int CtrlrPanel::getPanelIndex()
 void CtrlrPanel::editModeChanged(const bool isInEditMode)
 {
 	midiInputThread.panelEditModeChanged (isInEditMode);
+    midiControllerInputThread.panelEditModeChanged (isInEditMode);
 
 	for (int i=0; i<ctrlrModulators.size(); i++)
 	{
@@ -1055,6 +1056,7 @@ void CtrlrPanel::setMidiOptionBool(const CtrlrPanelMidiOption optionToSet, const
 
 	processor.midiOptionChanged(optionToSet);
 	midiInputThread.midiOptionChanged(optionToSet);
+	midiControllerInputThread.midiOptionChanged(optionToSet);
 }
 
 uint8 CtrlrPanel::getMidiChannel(const CtrlrPanelMidiChannel channelToGet)
@@ -1107,6 +1109,7 @@ void CtrlrPanel::setMidiChannel(const CtrlrPanelMidiChannel optionToSet, const u
 
 	processor.midiChannelChaned(optionToSet);
 	midiInputThread.midiChannelChaned(optionToSet);
+	midiControllerInputThread.midiChannelChaned(optionToSet);
 
 	if (luaPanelMidiChannelChangedCbk && !luaPanelMidiChannelChangedCbk.wasObjectDeleted())
 	{
@@ -1497,6 +1500,9 @@ void CtrlrPanel::dumpComparatorTables()
 	_INF ("\n----------------- Comparator tables dump");
 	_INF (midiInputThread.getInputComparator().dumpTables());
 	_INF ("\n----------------- Comparator tables dump\n");
+	_INF ("\n----------------- Comparator tables dump for controllers\n");
+	_INF (midiControllerInputThread.getInputComparator().dumpTables());
+	_INF ("\n----------------- Comparator tables dump for controllers\n");
 }
 
 void CtrlrPanel::addPanelResource (const int hashCode)

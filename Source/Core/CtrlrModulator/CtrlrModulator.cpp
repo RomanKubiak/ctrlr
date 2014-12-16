@@ -549,17 +549,17 @@ const String CtrlrModulator::getModulatorText()
 	}
 }
 
-CtrlrMidiMessage &CtrlrModulator::getMidiMessage()
+CtrlrMidiMessage &CtrlrModulator::getMidiMessage(const uint8 idx)
 {
-	return (processor.getMidiMessage());
+	return (processor.getMidiMessage(idx));
 }
 
-CtrlrOwnedMidiMessage &CtrlrModulator::getOwnedMidiMessage()
+CtrlrOwnedMidiMessage &CtrlrModulator::getOwnedMidiMessage(const uint8 idx)
 {
-	return (processor.getOwnedMidiMessage());
+	return (processor.getOwnedMidiMessage(idx));
 }
 
-CtrlrMidiMessage *CtrlrModulator::getMidiMessagePtr()
+CtrlrMidiMessage *CtrlrModulator::getMidiMessagePtr(const uint8 idx)
 {
 	if ((bool)getProperty(Ids::modulatorIsStatic))
 	{
@@ -567,7 +567,7 @@ CtrlrMidiMessage *CtrlrModulator::getMidiMessagePtr()
 	}
 	else
 	{
-		return (processor.getMidiMessagePtr());
+		return (processor.getMidiMessagePtr(idx));
 	}
 }
 

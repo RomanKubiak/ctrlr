@@ -20,7 +20,8 @@ CtrlrModulatorProcessor::CtrlrModulatorProcessor(CtrlrModulator &_owner)
 		maxValue(127),
 		usingValueMap(false)
 {
-	ctrlrMidiMessage	= new CtrlrOwnedMidiMessage(*this);
+	ctrlrMidiMessage	        = new CtrlrOwnedMidiMessage(*this);
+	ctrlrMidiControllerMessage  = new CtrlrOwnedMidiMessage(*this);
 }
 
 CtrlrModulatorProcessor::~CtrlrModulatorProcessor()
@@ -335,21 +336,28 @@ float CtrlrModulatorProcessor::getValueForHost() const
 	return (normalizeValue (currentValue, minValue, maxValue));
 }
 
-CtrlrOwnedMidiMessage *CtrlrModulatorProcessor::getMidiMessagePtr()
+CtrlrOwnedMidiMessage *CtrlrModulatorProcessor::getMidiMessagePtr(const uint8 idx)
 {
+    if (idx == 1)
+        return (ctrlrMidiControllerMessage);
+
 	return (ctrlrMidiMessage);
 }
 
-CtrlrMidiMessage &CtrlrModulatorProcessor::getMidiMessage()
+CtrlrMidiMessage &CtrlrModulatorProcessor::getMidiMessage(const uint8 idx)
 {
 	const ScopedReadLock sl (processorLock);
+    if (idx == 1)
+        return (*ctrlrMidiControllerMessage);
 
 	return (*ctrlrMidiMessage);
 }
 
-CtrlrOwnedMidiMessage &CtrlrModulatorProcessor::getOwnedMidiMessage()
+CtrlrOwnedMidiMessage &CtrlrModulatorProcessor::getOwnedMidiMessage(const uint8 idx)
 {
 	const ScopedReadLock sl (processorLock);
+	if (idx == 1)
+        return (*ctrlrMidiControllerMessage);
 
 	return (*ctrlrMidiMessage);
 }
