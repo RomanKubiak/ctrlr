@@ -366,7 +366,9 @@ void CtrlrPanelCanvas::copyWithChildren(CtrlrComponent *c)
 		Array<CtrlrComponent*> children = c->getOwnedChildren();
 		for (int i=0; i<children.size(); i++)
 		{
-			groupTree.addChild (children[i]->getOwner().getObjectTree().createCopy(), -1, 0);
+		    ValueTree childTreeCopy = children[i]->getOwner().getObjectTree().createCopy();
+		    childTreeCopy.removeProperty(Ids::vstIndex, nullptr);
+			groupTree.addChild (childTreeCopy, -1, 0);
 		}
 		clipboardTree.addChild (groupTree, -1, 0);
 
