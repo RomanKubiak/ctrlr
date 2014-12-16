@@ -46,7 +46,7 @@
  #include <X11/Xatom.h>
  #undef KeyPress
 #else
- #include <Carbon/Carbon.h>
+ //#include <Carbon/Carbon.h>
 #endif
 
 #ifdef PRAGMA_ALIGN_SUPPORTED
@@ -231,6 +231,7 @@ juce_ImplementSingleton (SharedMessageThread)
 
 #endif
 
+#include "../../juce_audio_processors/format_types/juce_VSTMidiEventList.h"
 static Array<void*> activePlugins;
 
 //==============================================================================
