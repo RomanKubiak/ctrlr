@@ -16,7 +16,7 @@ CtrlrSysExFormulaToken indirectFromString (const String &str);
 const CtrlrMidiMessageEx midiMessageExfromString (const String &str, const int ch, const int number, const int value);
 const MidiMessage createFromHexData (const String &hexData);
 void addCtrlrMidiMessageToBuffer (MidiBuffer &bufferToAddTo, CtrlrMidiMessage &m);
-CtrlrMidiMessageType getMidiTypeFromModulator(CtrlrModulator *m, const int index=-1);
+CtrlrMidiMessageType getMidiTypeFromModulator(CtrlrModulator *m, const int index=-1, const uint8 msgIndex = 0);
 const String extractVendorId (const CtrlrMidiMessage &message);
 
 /** Debugging info on some objects **/
@@ -39,7 +39,7 @@ const String getMidiChannel(const MidiMessage &m);
 const String getMidiValue(const MidiMessage &m);
 const String getMidiNumber(const MidiMessage &m);
 const String getRawDataSize(const MidiMessage &m);
-int getMidiNumberFromModulator(CtrlrModulator *m);
+int getMidiNumberFromModulator(CtrlrModulator *m, const uint8 msgIndex=0);
 int getMidiNumberFromMidiMessage (const MidiMessage &m);
 const String labelFromProperty (CtrlrModulator *modulator, const String &formatText);
 

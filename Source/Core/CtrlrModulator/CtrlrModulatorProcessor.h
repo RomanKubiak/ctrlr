@@ -91,9 +91,9 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 		double evaluateFunction (const String& functionName, const double* parameters, int numParameters) const;
 
 		int getValueForMidiMessage(const int value);
-		int getValueFromMidiMessage();
+		int getValueFromMidiMessage(const uint8 msgIndex=0);
 		void setValueFromGUI(const double inValue, const bool force=false, const bool mute=false);
-		void setValueFromMIDI(CtrlrMidiMessage &m);
+		void setValueFromMIDI(CtrlrMidiMessage &m, const uint8 msgIndex=0);
 		void setValueFromHost(const float inValue);
 		void handleAsyncUpdate();
 		CtrlrProcessor *getProcessor();

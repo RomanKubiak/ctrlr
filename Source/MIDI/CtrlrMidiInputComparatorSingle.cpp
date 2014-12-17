@@ -86,7 +86,7 @@ Array<CtrlrCacheDataSingle> &CtrlrMidiInputComparatorSingle::getCache(const Ctrl
 
 void CtrlrMidiInputComparatorSingle::addMatchTarget (CtrlrModulator *m)
 {
-	const CtrlrMidiMessageType type = getMidiTypeFromModulator(m);
+	const CtrlrMidiMessageType type = getMidiTypeFromModulator(m, msgIndex);
 
 	if (type == SysEx)
 	{
@@ -95,21 +95,21 @@ void CtrlrMidiInputComparatorSingle::addMatchTarget (CtrlrModulator *m)
 	}
 
 	CtrlrMidiMap &map		= getMap(type);
-	CtrlrMidiMapIterator it = map.find(getMidiNumberFromModulator(m));
+	CtrlrMidiMapIterator it = map.find(getMidiNumberFromModulator(m, msgIndex));
 
 	if (it == map.end())
 	{
-		map.insert (CtrlrMidiMapPair(getMidiNumberFromModulator(m),m));
+		map.insert (CtrlrMidiMapPair(getMidiNumberFromModulator(m, msgIndex),m));
 	}
 	else
 	{
-		map[getMidiNumberFromModulator(m)].targets.add (m);
+		map[getMidiNumberFromModulator(m, msgIndex)].targets.add (m);
 	}
 }
 
 void CtrlrMidiInputComparatorSingle::addMatchTargetSysEx (CtrlrModulator *m)
 {
-	BigInteger bi = memoryToBits(m->getMidiMessage().getMidiPattern());
+	BigInteger bi = memoryToBits(m->getMidiMessage(msgIndex).getMidiPattern());
 
 	CtrlrMultiMidiMapIterator it = mapSysEx.find(bi);
 
@@ -174,7 +174,7 @@ void CtrlrMidiInputComparatorSingle::matchSysEx(const MidiMessage &m)
 		{
 			for (int i=0; i < (*it).second.targets.size(); i++)
 			{
-				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer);
+				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer, msgIndex);
 			}
 
 			updateCacheSysEx (it);
