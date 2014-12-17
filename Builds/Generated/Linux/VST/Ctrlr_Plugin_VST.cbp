@@ -11,7 +11,7 @@
 				<Option object_output="obj/Debug" />
 				<Option type="3" />
 				<Option compiler="gcc" />
-				<Option host_application="qtractor" />
+				<Option host_application="/home/r.kubiak/devel/JUCE/examples/audio plugin host/Builds/CodeBlocks/bin/Debug/Plugin Host" />
 				<Option run_host_application_in_terminal="1" />
 				<Compiler>
 					<Add option="-std=c++0x" />
