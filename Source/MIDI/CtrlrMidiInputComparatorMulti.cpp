@@ -29,17 +29,17 @@ void CtrlrMidiInputComparatorMulti::clear()
 
 void CtrlrMidiInputComparatorMulti::addMatchTarget (CtrlrModulator *m)
 {
-	for (int i=0; i<m->getMidiMessage().getNumMessages(); i++)
+	for (int i=0; i<m->getMidiMessage(msgIndex).getNumMessages(); i++)
 	{
-		messageTypesContainer.set(midiMessageToType(m->getMidiMessage().getReference(i).m), 1);
+		messageTypesContainer.set(midiMessageToType(m->getMidiMessage(msgIndex).getReference(i).m), 1);
 	}
 
-	if (!messageSizeContainer.contains(m->getMidiMessage().getData().getSize()))
+	if (!messageSizeContainer.contains(m->getMidiMessage(msgIndex).getData().getSize()))
 	{
-		messageSizeContainer.addSorted (messageSizeContainerSorter, m->getMidiMessage().getData().getSize());
+		messageSizeContainer.addSorted (messageSizeContainerSorter, m->getMidiMessage(msgIndex).getData().getSize());
 	}
 
-	BigInteger bi = memoryToBits(m->getMidiMessage().getMidiPattern());
+	BigInteger bi = memoryToBits(m->getMidiMessage(msgIndex).getMidiPattern());
 
 	CtrlrMultiMidiMapIterator it = map.find(bi);
 
@@ -81,7 +81,7 @@ void CtrlrMidiInputComparatorMulti::match (const MidiMessage &m)
 
 			for (int i=0; i < (*it).second.targets.size(); i++)
 			{
-				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer);
+				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer, msgIndex);
 			}
 
 			updateCache (it);
@@ -120,7 +120,7 @@ bool CtrlrMidiInputComparatorMulti::cacheMatch ()
 
 			for (int j=0; j<cache[i].mapData.targets.size(); j++)
 			{
-				cache[i].mapData.targets[j]->getProcessor().setValueFromMIDI (messageContainer);
+				cache[i].mapData.targets[j]->getProcessor().setValueFromMIDI (messageContainer, msgIndex);
 			}
 
 			break;

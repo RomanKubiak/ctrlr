@@ -158,13 +158,13 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, doPanelLock);
 		menu.addCommandItem (commandManager, doPanelDisableCombosOnEdit);
 		menu.addSeparator();
-		menu.addCommandItem (commandManager, showMidiLibrary);
+		// menu.addCommandItem (commandManager, showMidiLibrary);
 		menu.addCommandItem (commandManager, showModulatorList);
 		menu.addSeparator();
 		if (!isRestricted()) menu.addCommandItem (commandManager, showLayers);
 		menu.addCommandItem (commandManager, showLuaEditor);
 		menu.addCommandItem (commandManager, showLuaConsole);
-		menu.addCommandItem (commandManager, showBufferEditor);
+		// menu.addCommandItem (commandManager, showBufferEditor);
 	}
 	else if (topLevelMenuIndex == MenuMidi) // MIDI
 	{
@@ -237,8 +237,8 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, showLogViewer);
 		menu.addCommandItem (commandManager, showComparatorTables);
 		menu.addCommandItem (commandManager, doRegisterExtension);
-		menu.addCommandItem (commandManager, doKeyGenerator);
-		menu.addCommandItem (commandManager, doProgramWizard);
+		// menu.addCommandItem (commandManager, doKeyGenerator);
+		// menu.addCommandItem (commandManager, doProgramWizard);
 	}
 	else if (topLevelMenuIndex == MenuHelp) // Help
 	{

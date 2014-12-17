@@ -264,17 +264,17 @@ void CtrlrModulatorProcessor::setValueFromHost(const float inValue)
 }
 
 
-void CtrlrModulatorProcessor::setValueFromMIDI(CtrlrMidiMessage &m)
+void CtrlrModulatorProcessor::setValueFromMIDI(CtrlrMidiMessage &m, const uint8 msgIndex)
 {
 	/* called from the Panel's MIDI thread */
 	{
 		const ScopedWriteLock sl (processorLock);
 
 		/* merge the icomming midi data with our message */
-		mergeMidiData (m, *ctrlrMidiMessage);
+		mergeMidiData (m, getMidiMessage(msgIndex));
 
 		/* fetch the value from the midi message and pass it to the host */
-		const int possibleValue = getValueFromMidiMessage();
+		const int possibleValue = getValueFromMidiMessage(msgIndex);
 
 		if (currentValue != possibleValue)
 		{
@@ -297,12 +297,12 @@ void CtrlrModulatorProcessor::setParameterNotifyingHost()
 	}
 }
 
-int CtrlrModulatorProcessor::getValueFromMidiMessage()
+int CtrlrModulatorProcessor::getValueFromMidiMessage(const uint8 msgIndex)
 {
 	int evaluationResult = 0;
 	if (usingValueMap)
 	{
-		const int possibleValue = valueMap.getIndexForValue(evaluateReverse (ctrlrMidiMessage->getValue()));
+		const int possibleValue = valueMap.getIndexForValue(evaluateReverse (getMidiMessage(msgIndex).getValue()));
 
 		if (possibleValue >= 0)
 		{
@@ -315,14 +315,14 @@ int CtrlrModulatorProcessor::getValueFromMidiMessage()
 	}
 	else
 	{
-		evaluationResult = evaluateReverse (ctrlrMidiMessage->getValue());
+		evaluationResult = evaluateReverse (getMidiMessage(msgIndex).getValue());
 	}
 
 	if (getValueFromMidiCbk)
 	{
 		if (!getValueFromMidiCbk.wasObjectDeleted() && getValueForMidiCbk->isValid())
 		{
-			evaluationResult = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (getValueFromMidiCbk, &owner, *ctrlrMidiMessage, evaluationResult);
+			evaluationResult = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (getValueFromMidiCbk, &owner, getMidiMessage(msgIndex), evaluationResult);
 		}
 	}
 

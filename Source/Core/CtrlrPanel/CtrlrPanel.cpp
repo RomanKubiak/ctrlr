@@ -164,9 +164,9 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 CtrlrPanel::~CtrlrPanel()
 {
 	midiInputThread.signalThreadShouldExit();
-	midiInputThread.waitForThreadToExit (1000);
+	midiInputThread.waitForThreadToExit (1200);
 	midiControllerInputThread.signalThreadShouldExit();
-	midiControllerInputThread.waitForThreadToExit (1000);
+	midiControllerInputThread.waitForThreadToExit (1200);
 
 	masterReference.clear();
 
