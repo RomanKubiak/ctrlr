@@ -549,17 +549,17 @@ const String CtrlrModulator::getModulatorText()
 	}
 }
 
-CtrlrMidiMessage &CtrlrModulator::getMidiMessage(const uint8 idx)
+CtrlrMidiMessage &CtrlrModulator::getMidiMessage(const CtrlrMIDIDeviceType source)
 {
-	return (processor.getMidiMessage(idx));
+	return (processor.getMidiMessage(source));
 }
 
-CtrlrOwnedMidiMessage &CtrlrModulator::getOwnedMidiMessage(const uint8 idx)
+CtrlrOwnedMidiMessage &CtrlrModulator::getOwnedMidiMessage(const CtrlrMIDIDeviceType source)
 {
-	return (processor.getOwnedMidiMessage(idx));
+	return (processor.getOwnedMidiMessage(source));
 }
 
-CtrlrMidiMessage *CtrlrModulator::getMidiMessagePtr(const uint8 idx)
+CtrlrMidiMessage *CtrlrModulator::getMidiMessagePtr(const CtrlrMIDIDeviceType source)
 {
 	if ((bool)getProperty(Ids::modulatorIsStatic))
 	{
@@ -567,7 +567,7 @@ CtrlrMidiMessage *CtrlrModulator::getMidiMessagePtr(const uint8 idx)
 	}
 	else
 	{
-		return (processor.getMidiMessagePtr(idx));
+		return (processor.getMidiMessagePtr(source));
 	}
 }
 

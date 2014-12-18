@@ -121,6 +121,7 @@ void CtrlrImageButton::mouseDown (const MouseEvent& e)
 			startTimer ((int)getProperty(Ids::uiButtonRepeatRate));
 		}
 	}
+	CtrlrComponent::mouseDown(e);
 }
 
 double CtrlrImageButton::getComponentMaxValue()

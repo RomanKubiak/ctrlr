@@ -18,7 +18,9 @@ CtrlrModulatorProcessor::CtrlrModulatorProcessor(CtrlrModulator &_owner)
 		usingReverseProcess(false),
 		minValue(0),
 		maxValue(127),
-		usingValueMap(false)
+		usingValueMap(false),
+		ctrlrMidiMessage(nullptr),
+		ctrlrMidiControllerMessage(nullptr)
 {
 	ctrlrMidiMessage	        = new CtrlrOwnedMidiMessage(*this);
 	ctrlrMidiControllerMessage  = new CtrlrOwnedMidiMessage(*this);
@@ -264,17 +266,17 @@ void CtrlrModulatorProcessor::setValueFromHost(const float inValue)
 }
 
 
-void CtrlrModulatorProcessor::setValueFromMIDI(CtrlrMidiMessage &m, const uint8 msgIndex)
+void CtrlrModulatorProcessor::setValueFromMIDI(CtrlrMidiMessage &m, const CtrlrMIDIDeviceType source)
 {
 	/* called from the Panel's MIDI thread */
 	{
 		const ScopedWriteLock sl (processorLock);
 
 		/* merge the icomming midi data with our message */
-		mergeMidiData (m, getMidiMessage(msgIndex));
+		mergeMidiData (m, getMidiMessage(source));
 
 		/* fetch the value from the midi message and pass it to the host */
-		const int possibleValue = getValueFromMidiMessage(msgIndex);
+		const int possibleValue = getValueFromMidiMessage(source);
 
 		if (currentValue != possibleValue)
 		{
@@ -297,12 +299,12 @@ void CtrlrModulatorProcessor::setParameterNotifyingHost()
 	}
 }
 
-int CtrlrModulatorProcessor::getValueFromMidiMessage(const uint8 msgIndex)
+int CtrlrModulatorProcessor::getValueFromMidiMessage(const CtrlrMIDIDeviceType source)
 {
 	int evaluationResult = 0;
 	if (usingValueMap)
 	{
-		const int possibleValue = valueMap.getIndexForValue(evaluateReverse (getMidiMessage(msgIndex).getValue()));
+		const int possibleValue = valueMap.getIndexForValue(evaluateReverse (getMidiMessage(source).getValue()));
 
 		if (possibleValue >= 0)
 		{
@@ -315,14 +317,14 @@ int CtrlrModulatorProcessor::getValueFromMidiMessage(const uint8 msgIndex)
 	}
 	else
 	{
-		evaluationResult = evaluateReverse (getMidiMessage(msgIndex).getValue());
+		evaluationResult = evaluateReverse (getMidiMessage(source).getValue());
 	}
 
 	if (getValueFromMidiCbk)
 	{
 		if (!getValueFromMidiCbk.wasObjectDeleted() && getValueForMidiCbk->isValid())
 		{
-			evaluationResult = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (getValueFromMidiCbk, &owner, getMidiMessage(msgIndex), evaluationResult);
+			evaluationResult = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (getValueFromMidiCbk, &owner, getMidiMessage(source), evaluationResult);
 		}
 	}
 
@@ -336,27 +338,27 @@ float CtrlrModulatorProcessor::getValueForHost() const
 	return (normalizeValue (currentValue, minValue, maxValue));
 }
 
-CtrlrOwnedMidiMessage *CtrlrModulatorProcessor::getMidiMessagePtr(const uint8 idx)
+CtrlrOwnedMidiMessage *CtrlrModulatorProcessor::getMidiMessagePtr(const CtrlrMIDIDeviceType source)
 {
-    if (idx == 1)
+    if (source == CtrlrMIDIDeviceType::controllerDevice)
         return (ctrlrMidiControllerMessage);
 
 	return (ctrlrMidiMessage);
 }
 
-CtrlrMidiMessage &CtrlrModulatorProcessor::getMidiMessage(const uint8 idx)
+CtrlrMidiMessage &CtrlrModulatorProcessor::getMidiMessage(const CtrlrMIDIDeviceType source)
 {
 	const ScopedReadLock sl (processorLock);
-    if (idx == 1)
+    if (source == CtrlrMIDIDeviceType::controllerDevice)
         return (*ctrlrMidiControllerMessage);
 
 	return (*ctrlrMidiMessage);
 }
 
-CtrlrOwnedMidiMessage &CtrlrModulatorProcessor::getOwnedMidiMessage(const uint8 idx)
+CtrlrOwnedMidiMessage &CtrlrModulatorProcessor::getOwnedMidiMessage(const CtrlrMIDIDeviceType source)
 {
 	const ScopedReadLock sl (processorLock);
-	if (idx == 1)
+	if (source == CtrlrMIDIDeviceType::controllerDevice)
         return (*ctrlrMidiControllerMessage);
 
 	return (*ctrlrMidiMessage);
