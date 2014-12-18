@@ -28,7 +28,6 @@ class CtrlrSlider  : public CtrlrComponent,
 		void resized();
 		void sliderValueChanged (Slider* sliderThatWasMoved);
 		void mouseUp (const MouseEvent& e);
-		void mouseDoubleClick (const MouseEvent& e);
         void lookAndFeelChanged();
 
 		JUCE_LEAK_DETECTOR(CtrlrSlider)

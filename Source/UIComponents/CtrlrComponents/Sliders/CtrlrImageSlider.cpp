@@ -145,16 +145,6 @@ void CtrlrImageSlider::mouseUp (const MouseEvent& e)
     //[/UserCode_mouseUp]
 }
 
-void CtrlrImageSlider::mouseDoubleClick (const MouseEvent& e)
-{
-    //[UserCode_mouseDoubleClick] -- Add your code here...
-	if (e.mods.isCommandDown())
-		bubble.show();
-    //[/UserCode_mouseDoubleClick]
-}
-
-
-
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 double CtrlrImageSlider::getComponentMaxValue()
 {

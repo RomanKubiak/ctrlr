@@ -171,7 +171,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 				virtual void modulatorAdded (CtrlrModulator *) {}
 				virtual void modulatorRemoved (CtrlrModulator *) {}
 				virtual void panelChanged(CtrlrPanel *) {}
-				virtual void midiReceived(MidiMessage &) {}
+				virtual void midiReceived(MidiMessage &, CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice) {}
 		};
 
 		void setRadioGroupId(CtrlrComponent *componentMember, const int groupId);
@@ -187,7 +187,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		int cleanBogusPropertiesFromChild(ValueTree &treeToClean);
 		void sync();
 		CtrlrComponent *getComponent(const String &modulatorName);
-		void panelReceivedMidi(const MidiBuffer &buffer);
+		void panelReceivedMidi(const MidiBuffer &buffer, const CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice);
 		void handleAsyncUpdate();
 		void sendSnapshotOnLoad();
 		bool getRestoreState();
@@ -250,6 +250,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		CtrlrPanelWindowManager &getPanelWindowManager()												{ return (panelWindowManager); }
 		CtrlrMidiInputComparator &getInputComparator()													{ return (midiInputThread.getInputComparator()); }
 		CtrlrPanelMIDIInputThread &getMIDIInputThread()													{ return (midiInputThread); }
+		CtrlrPanelMIDIInputThread &getMIDIInputControllerThread()										{ return (midiControllerInputThread); }
 		void addPanelListener (CtrlrPanel::Listener *l)													{ listeners.add(l); }
 		void removePanelListener (CtrlrPanel::Listener *l)												{ listeners.remove(l); }
 		CtrlrSysexProcessor &getSysExProcessor()														{ return (ctrlrSysexProcessor); }
@@ -274,7 +275,8 @@ class CtrlrPanel:	public ValueTree::Listener,
 		int getPanelInstanceVersionInt();
         const String getPanelInstanceName();
         const String getPanelInstanceManufacturer();
-
+        void addMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToAdd);
+        void removeMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToRemove);
 		void dumpDebugData();
 		static const String globalsToString(const Array<int,CriticalSection> &arrayOfGlobals);
 		static const Array<int,CriticalSection> globalsFromString(const String &globalsString);

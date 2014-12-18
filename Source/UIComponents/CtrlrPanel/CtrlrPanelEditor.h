@@ -90,8 +90,7 @@ class CtrlrPanelEditor  :	public Component,
 		bool getRestoreState()					{ return (currentRestoreState); }
 		void setRestoreState(const bool _state) { currentRestoreState = _state; }
 		void reloadResources (Array <CtrlrPanelResource*> resourcesThatChanged);
-
-
+        void showComponentRuntimeConfig(CtrlrComponent *componentToConfigure);
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrPanelEditor)
 
 	private:

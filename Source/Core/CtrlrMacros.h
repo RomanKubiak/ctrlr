@@ -266,4 +266,17 @@ enum CtrlrByteEncoding
 	EncodeLSBFirst,
 	EncodeDSI
 };
+
+enum CtrlrMIDIDeviceType
+{
+    outputDevice,
+    inputDevice,
+    controllerDevice,
+    hostInputDevice,
+    hostOutputDevice,
+    networkDevice,
+    serialDevice
+};
+
 #endif
+

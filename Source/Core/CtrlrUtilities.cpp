@@ -388,27 +388,35 @@ const String fileToBase64 (const File &file)
 	return (memoryBlock.toBase64Encoding());
 }
 
-int getMidiNumberFromModulator(CtrlrModulator *m, const uint8 msgIndex)
+int getMidiNumberFromModulator(CtrlrModulator *m, const CtrlrMIDIDeviceType source)
 {
-	if (m == 0 || m->getMidiMessagePtr(msgIndex) == 0)
+	if (m == 0 || m->getMidiMessagePtr(source) == 0)
 		return (-1);
 
-	if (m->getMidiMessage(msgIndex).getMidiMessageArray().size() == 1)
+	if (m->getMidiMessage(source).getMidiMessageArray().size() == 1)
 	{
-		return (getMidiNumberFromMidiMessage (m->getMidiMessage(msgIndex).getReference(0).m));
+		return (getMidiNumberFromMidiMessage (m->getMidiMessage(source).getReference(0).m));
 	}
 	return (-1);
 }
 
-CtrlrMidiMessageType getMidiTypeFromModulator(CtrlrModulator *m, const int index, const uint8 msgIndex)
+CtrlrMidiMessageType getMidiTypeFromModulator(CtrlrModulator *m, const int index, const CtrlrMIDIDeviceType source)
 {
-	if (m == 0 || m->getMidiMessagePtr(msgIndex) == 0)
+	if (m == 0)
 		return (None);
 
-	if (index < 0)
-		return (m->getMidiMessage(msgIndex).getMidiMessageType());
+    if (m->getMidiMessagePtr(source) == 0)
+        return (None);
+
+	if (index <= 0)
+		return (m->getMidiMessage(source).getMidiMessageType());
 	else
-		return (midiMessageToType(m->getMidiMessage(msgIndex).getReference(index).m));
+    {
+        if (m->getMidiMessagePtr(source))
+            return (midiMessageToType(m->getMidiMessagePtr(source)->getReference(index).m));
+        else
+            return (None);
+    }
 }
 
 int getMidiNumberFromMidiMessage (const MidiMessage &m)
