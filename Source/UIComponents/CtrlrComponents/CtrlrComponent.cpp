@@ -44,7 +44,6 @@ CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
 		componentTree(Ids::component),
 		owner(_owner),
 		restoreStateInProgress(true),
-		bubble(*this),
 		glowEffect(nullptr),
 		shadowEffect(nullptr),
 		snapDimSize(0)
@@ -60,6 +59,7 @@ CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
 
 	componentNameLabel.setText (getVisibleName(), dontSendNotification);
 	componentNameLabel.setJustificationType (Justification::centred);
+	componentNameLabel.addMouseListener(this, true);
 	addChildComponent (&componentNameLabel);
 
 	setProperty (Ids::componentLabelPosition, "top");
@@ -168,6 +168,26 @@ void CtrlrComponent::resized()
 	{
 		selectionBorder.setBounds (0, 0, w, h);
 	}
+}
+
+void CtrlrComponent::mouseDoubleClick(const MouseEvent &e)
+{
+    if (e.mods.isCommandDown())
+    {
+        _DBG("CtrlrComponent::mouseDoubleClick + command");
+        if (owner.getOwner().getEditor())
+            owner.getOwner().getEditor()->showComponentRuntimeConfig(this);
+    }
+}
+
+void CtrlrComponent::mouseDown(const MouseEvent &e)
+{
+    if (e.mods.isShiftDown())
+    {
+        _DBG("CtrlrComponent::mouseDown + shift");
+        if (owner.getOwner().getEditor())
+            owner.getOwner().getEditor()->showComponentRuntimeConfig(this);
+    }
 }
 
 int CtrlrComponent::snapDim(int dim)

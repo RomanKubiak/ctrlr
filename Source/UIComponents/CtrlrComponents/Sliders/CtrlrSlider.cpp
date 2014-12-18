@@ -96,12 +96,6 @@ void CtrlrSlider::mouseUp (const MouseEvent& e)
 	}
 }
 
-void CtrlrSlider::mouseDoubleClick (const MouseEvent& e)
-{
-	if (e.mods.isCommandDown())
-		bubble.show();
-}
-
 double CtrlrSlider::getComponentValue()
 {
 	return (ctrlrSlider.getValue());

@@ -348,6 +348,7 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditorApplicationCommandsMenus.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrLookAndFeel.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrSettings.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrCustomButtonInternal.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrHyperlink.cpp"/>
@@ -355,7 +356,6 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrToggleButton.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentBubble.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.cpp"/>
@@ -1772,6 +1772,7 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditor.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrLookAndFeel.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrSettings.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrCustomButtonInternal.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrHyperlink.h"/>
@@ -1779,7 +1780,6 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrToggleButton.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentBubble.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.h"/>

@@ -8,7 +8,7 @@
               pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="3.1.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
+              jucerVersion="3.1.1" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
               aaxIdentifier="com.instigator.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
@@ -935,6 +935,10 @@
         <FILE id="soFgtw" name="CtrlrSettings.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.h"/>
       </GROUP>
       <GROUP id="{E54B0EB5-835C-2B22-869A-45BE5FAD0005}" name="CtrlrComponents">
+        <FILE id="FppyGI" name="CtrlrComponentRuntimeConfig.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.cpp"/>
+        <FILE id="hBc64f" name="CtrlrComponentRuntimeConfig.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.h"/>
         <GROUP id="{14F7FAD2-F6A0-5955-1F26-D624F318096F}" name="Buttons">
           <FILE id="s1MJvu" name="CtrlrButton.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.cpp"/>
           <FILE id="F0H3S0" name="CtrlrButton.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.h"/>
@@ -961,10 +965,6 @@
               file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp"/>
         <FILE id="MAs7hJ" name="CtrlrComponent.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.h"/>
-        <FILE id="KOKrsg" name="CtrlrComponentBubble.cpp" compile="1" resource="0"
-              file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentBubble.cpp"/>
-        <FILE id="kW1Hmt" name="CtrlrComponentBubble.h" compile="0" resource="0"
-              file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentBubble.h"/>
         <FILE id="D4U3on" name="CtrlrComponentTypeManager.cpp" compile="1"
               resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp"/>
         <FILE id="ZFVErB" name="CtrlrComponentTypeManager.h" compile="0" resource="0"

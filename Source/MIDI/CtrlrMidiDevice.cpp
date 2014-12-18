@@ -41,7 +41,7 @@ void CtrlrMidiDevice::restoreState(const ValueTree &savedState)
 
 bool CtrlrMidiDevice::openDevice()
 {
-	if (getType() == CtrlrMidiDeviceManager::outputDevice)
+	if (getType() == CtrlrMIDIDeviceType::outputDevice)
 	{
 		if (outJucePtr != nullptr)
 		{
@@ -90,7 +90,7 @@ bool CtrlrMidiDevice::openDevice()
 
 void CtrlrMidiDevice::closeDevice()
 {
-	if (getType() == CtrlrMidiDeviceManager::outputDevice)
+	if (getType() == CtrlrMIDIDeviceType::outputDevice)
 	{
 
 		if (outJucePtr != nullptr)
@@ -218,7 +218,7 @@ void CtrlrMidiDevice::sendMidiMessage (const MidiMessage &message, double millis
 			throwBuffer.clear();
 			throwBuffer.addEvent (message, 1);
 			outJucePtr->sendBlockOfMessages (throwBuffer, lastMessageSentTime + millisecondCounterToStartAt, SAMPLERATE);
-			
+
 			lastMessageSentTime = lastMessageSentTime + millisecondCounterToStartAt;
 		}
 

@@ -898,6 +898,9 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrSettings.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrApplicationWindow</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.cpp">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents\Buttons</Filter>
     </ClCompile>
@@ -917,9 +920,6 @@
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.cpp">
-      <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentBubble.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.cpp">
@@ -3057,6 +3057,9 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrSettings.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrApplicationWindow</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.h">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents\Buttons</Filter>
     </ClInclude>
@@ -3076,9 +3079,6 @@
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.h">
-      <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentBubble.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.h">

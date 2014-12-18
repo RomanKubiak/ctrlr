@@ -2,7 +2,6 @@
 #define __CTRLR_COMPONENT__
 
 #include "../Core/CtrlrModulator/CtrlrModulator.h"
-#include "CtrlrComponentBubble.h"
 #include "Deprecated/CtrlrLuaRectangle.h"
 #include "CtrlrLog.h"
 #include "CtrlrFontManager.h"
@@ -81,7 +80,8 @@ class CtrlrComponent :	public Component,
 		const String getVisibleName();
 		const WeakReference<CtrlrComponent>::SharedRef& getWeakReference();
 		const String getComponentGroup();
-
+        virtual void mouseDoubleClick(const MouseEvent &e);
+        virtual void mouseDown(const MouseEvent &e);
 		void setGroupped (const bool addToGroup);
 		const String getComponentTab();
 		void setComponentTab (const String &newTab);
@@ -115,7 +115,6 @@ class CtrlrComponent :	public Component,
 		Label componentNameLabel;
 		WeakReference<CtrlrComponent>::Master masterReference;
 		friend class WeakReference<CtrlrComponent>;
-		CtrlrComponentBubble bubble;
 		ScopedPointer <GlowEffect> glowEffect;
 		ScopedPointer <DropShadowEffect> shadowEffect;
 		WeakReference <CtrlrLuaMethod> mouseMoveCbk;

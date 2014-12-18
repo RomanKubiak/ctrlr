@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.3.0"
-              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="3.1.0"
+              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="3.1.1"
               defines="" companyName="Instigator" includeBinaryInAppConfig="1"
               companyWebsite="http://ctrlr.org" companyEmail="ctrlr@ctrlr.org">
   <EXPORTFORMATS>
@@ -926,6 +926,10 @@
         <FILE id="KDFcis" name="CtrlrSettings.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.h"/>
       </GROUP>
       <GROUP id="{2FA48EC9-C0BE-5AE0-4F78-E6BD03DC9ABC}" name="CtrlrComponents">
+        <FILE id="dGKAJW" name="CtrlrComponentRuntimeConfig.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.cpp"/>
+        <FILE id="AAuHOz" name="CtrlrComponentRuntimeConfig.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.h"/>
         <GROUP id="{40DDD166-3CA6-B774-8804-EA3B1EB4E85F}" name="Buttons">
           <FILE id="HJV3Zt" name="CtrlrButton.cpp" compile="1" resource="0" file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.cpp"/>
           <FILE id="Yhg86a" name="CtrlrButton.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.h"/>
@@ -952,10 +956,6 @@
               file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp"/>
         <FILE id="F6t2Jc" name="CtrlrComponent.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.h"/>
-        <FILE id="rLmsk2" name="CtrlrComponentBubble.cpp" compile="1" resource="0"
-              file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentBubble.cpp"/>
-        <FILE id="JpCGWB" name="CtrlrComponentBubble.h" compile="0" resource="0"
-              file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentBubble.h"/>
         <FILE id="UtWn30" name="CtrlrComponentTypeManager.cpp" compile="1"
               resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp"/>
         <FILE id="RZYUr7" name="CtrlrComponentTypeManager.h" compile="0" resource="0"

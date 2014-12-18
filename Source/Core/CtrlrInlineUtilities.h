@@ -3,9 +3,9 @@
 
 #include "stdafx.h"
 #include "CtrlrLog.h"
-#include "CtrlrMidiMessage.h"
-#include "CtrlrOwnedMidiMessage.h"
 #include "CtrlrSysexProcessor.h"
+#include "CtrlrOwnedMidiMessage.h"
+#include "CtrlrMidiMessage.h"
 #include "CtrlrMidiInputComparatorTypes.h"
 #include "CtrlrValueMap.h"
 

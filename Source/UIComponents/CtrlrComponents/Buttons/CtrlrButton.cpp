@@ -39,8 +39,8 @@ CtrlrButton::CtrlrButton (CtrlrModulator &owner)
     addAndMakeVisible (ctrlrButton = new TextButton ("ctrlrButton"));
     ctrlrButton->addListener (this);
 
-
     //[UserPreSize]
+    ctrlrButton->addMouseListener(this, true);
 	ctrlrButton->setBufferedToImage (true);
 	setProperty (Ids::uiButtonTrueValue, 1);
 	setProperty (Ids::uiButtonFalseValue, 0);
@@ -114,18 +114,22 @@ void CtrlrButton::buttonClicked (Button* buttonThatWasClicked)
 void CtrlrButton::mouseDown (const MouseEvent& e)
 {
     //[UserCode_mouseDown] -- Add your code here...
-	if (e.eventComponent == ctrlrButton)
-	{
-		if (!isTimerRunning() && (bool)getProperty(Ids::uiButtonRepeat))
-		{
-			startTimer ((int)getProperty(Ids::uiButtonRepeatRate));
-		}
+    if ((bool)getProperty(Ids::uiButtonTriggerOnMouseDown) == true)
+    {
+        if (e.eventComponent == ctrlrButton)
+        {
+            if (!isTimerRunning() && (bool)getProperty(Ids::uiButtonRepeat))
+            {
+                startTimer ((int)getProperty(Ids::uiButtonRepeatRate));
+            }
 
-		if (getProperty(Ids::uiButtonTriggerOnMouseDown))
-		{
-			ctrlrButton->triggerClick();
-		}
-	}
+            if (getProperty(Ids::uiButtonTriggerOnMouseDown))
+            {
+                ctrlrButton->triggerClick();
+            }
+        }
+    }
+	CtrlrComponent::mouseDown(e);
     //[/UserCode_mouseDown]
 }
 
@@ -251,25 +255,9 @@ void CtrlrButton::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChang
 	}
 	else if (property == Ids::uiButtonRepeat)
 	{
-		if ((bool)getProperty(property) == true)
-		{
-			ctrlrButton->addMouseListener (this, false);
-		}
-		else
-		{
-			ctrlrButton->removeMouseListener (this);
+		if ((bool)getProperty(property) == false)
+        {
 			stopTimer();
-		}
-	}
-	else if (property == Ids::uiButtonTriggerOnMouseDown)
-	{
-		if ((bool)getProperty(property) == true)
-		{
-			ctrlrButton->addMouseListener (this, false);
-		}
-		else
-		{
-			ctrlrButton->removeMouseListener (this);
 		}
 	}
 	else
