@@ -78,7 +78,6 @@ public:
     void resized();
     void sliderValueChanged (Slider* sliderThatWasMoved);
     void mouseUp (const MouseEvent& e);
-    void mouseDoubleClick (const MouseEvent& e);
 
 
     //==============================================================================

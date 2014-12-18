@@ -230,6 +230,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrEditorApplicationCommandsMenus_7bb32260.o \
   $(OBJDIR)/CtrlrLookAndFeel_6692d7b1.o \
   $(OBJDIR)/CtrlrSettings_7ee9629a.o \
+  $(OBJDIR)/CtrlrComponentRuntimeConfig_59982696.o \
   $(OBJDIR)/CtrlrButton_bea1a45d.o \
   $(OBJDIR)/CtrlrCustomButtonInternal_52f32d8b.o \
   $(OBJDIR)/CtrlrHyperlink_3eeb68e5.o \
@@ -237,7 +238,6 @@ OBJECTS := \
   $(OBJDIR)/CtrlrToggleButton_c9c63251.o \
   $(OBJDIR)/CtrlrCombo_5229199f.o \
   $(OBJDIR)/CtrlrComponent_39b6278e.o \
-  $(OBJDIR)/CtrlrComponentBubble_b187cb7a.o \
   $(OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o \
   $(OBJDIR)/CtrlrCustomComponent_a77769d.o \
   $(OBJDIR)/CtrlrFilmStripPainter_73f10450.o \
@@ -1147,6 +1147,11 @@ $(OBJDIR)/CtrlrSettings_7ee9629a.o: ../../../../Source/UIComponents/CtrlrApplica
 	@echo "Compiling CtrlrSettings.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/CtrlrComponentRuntimeConfig_59982696.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrComponentRuntimeConfig.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/CtrlrButton_bea1a45d.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrButton.cpp"
@@ -1180,11 +1185,6 @@ $(OBJDIR)/CtrlrCombo_5229199f.o: ../../../../Source/UIComponents/CtrlrComponents
 $(OBJDIR)/CtrlrComponent_39b6278e.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrComponentBubble_b187cb7a.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentBubble.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrComponentBubble.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp

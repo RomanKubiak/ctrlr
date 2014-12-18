@@ -4,8 +4,8 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "JuceClasses/LMemoryBlock.h"
 
-CtrlrMidiInputComparatorMulti::CtrlrMidiInputComparatorMulti(CtrlrPanel &_owner, const uint8 _msgIndex)
-	: owner(_owner), cacheSize(32), msgIndex(_msgIndex)
+CtrlrMidiInputComparatorMulti::CtrlrMidiInputComparatorMulti(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source)
+	: owner(_owner), cacheSize(32), source(_source)
 {
 	clear();
 }
@@ -29,17 +29,17 @@ void CtrlrMidiInputComparatorMulti::clear()
 
 void CtrlrMidiInputComparatorMulti::addMatchTarget (CtrlrModulator *m)
 {
-	for (int i=0; i<m->getMidiMessage(msgIndex).getNumMessages(); i++)
+	for (int i=0; i<m->getMidiMessage(source).getNumMessages(); i++)
 	{
-		messageTypesContainer.set(midiMessageToType(m->getMidiMessage(msgIndex).getReference(i).m), 1);
+		messageTypesContainer.set(midiMessageToType(m->getMidiMessage(source).getReference(i).m), 1);
 	}
 
-	if (!messageSizeContainer.contains(m->getMidiMessage(msgIndex).getData().getSize()))
+	if (!messageSizeContainer.contains(m->getMidiMessage(source).getData().getSize()))
 	{
-		messageSizeContainer.addSorted (messageSizeContainerSorter, m->getMidiMessage(msgIndex).getData().getSize());
+		messageSizeContainer.addSorted (messageSizeContainerSorter, m->getMidiMessage(source).getData().getSize());
 	}
 
-	BigInteger bi = memoryToBits(m->getMidiMessage(msgIndex).getMidiPattern());
+	BigInteger bi = memoryToBits(m->getMidiMessage(source).getMidiPattern());
 
 	CtrlrMultiMidiMapIterator it = map.find(bi);
 
@@ -81,7 +81,7 @@ void CtrlrMidiInputComparatorMulti::match (const MidiMessage &m)
 
 			for (int i=0; i < (*it).second.targets.size(); i++)
 			{
-				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer, msgIndex);
+				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer, source);
 			}
 
 			updateCache (it);
@@ -120,7 +120,7 @@ bool CtrlrMidiInputComparatorMulti::cacheMatch ()
 
 			for (int j=0; j<cache[i].mapData.targets.size(); j++)
 			{
-				cache[i].mapData.targets[j]->getProcessor().setValueFromMIDI (messageContainer, msgIndex);
+				cache[i].mapData.targets[j]->getProcessor().setValueFromMIDI (messageContainer, source);
 			}
 
 			break;

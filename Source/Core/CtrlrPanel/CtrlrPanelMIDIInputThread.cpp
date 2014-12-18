@@ -6,14 +6,14 @@
 #include "CtrlrPanelMIDIInputThread.h"
 #include "MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 
-CtrlrPanelMIDIInputThread::CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const uint8 _msgIndex)
+CtrlrPanelMIDIInputThread::CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source)
 	:	owner(_owner),
 		Thread("PANEL MIDI INPUT THREAD"),
 		inputDevice(nullptr),
 		inputComparator(nullptr),
-		msgIndex(_msgIndex)
+		source(_source)
 {
-	inputComparator             = new CtrlrMidiInputComparator (owner, msgIndex);
+	inputComparator             = new CtrlrMidiInputComparator (owner, source);
 	junkBuffer.ensureSize(8192);
 	hostInputBuffer.ensureSize(8192);
 	deviceInputBuffer.ensureSize(8192);
@@ -94,11 +94,7 @@ void CtrlrPanelMIDIInputThread::handleMIDIFromDevice (const MidiMessage &message
 	if (owner.getMidiOptionBool(panelMidiRealtimeIgnore) && message.getRawDataSize() <= 1)
 		return;
 
-	if (isController())
-	{
-		owner.sendMidi( message );
-	}
-	else if (message.isNoteOnOrOff() || message.isMidiClock())
+	if (message.isNoteOnOrOff() || message.isMidiClock())
 	{
 		deviceInputBuffer.addEvent (message, deviceInputBuffer.getNumEvents()+1);
 	}
@@ -132,7 +128,7 @@ bool CtrlrPanelMIDIInputThread::openInputDevice (const String &inputDeviceName)
 {
 	const ScopedWriteLock sl(lock);
 
-	inputDevice = owner.getOwner().getCtrlrMidiDeviceManager().getDeviceByName (inputDeviceName, CtrlrMidiDeviceManager::inputDevice, true);
+	inputDevice = owner.getOwner().getCtrlrMidiDeviceManager().getDeviceByName (inputDeviceName, CtrlrMIDIDeviceType::inputDevice, true);
 
 	if (inputDevice != nullptr)
 	{
@@ -172,11 +168,4 @@ void CtrlrPanelMIDIInputThread::midiChannelChaned(const CtrlrPanelMidiChannel ch
 			inputComparator->rehashComparator();
 		}
 	}
-}
-
-bool CtrlrPanelMIDIInputThread::isController()
-{
-	const ScopedReadLock sl(lock);
-
-	return (inputFromController);
 }

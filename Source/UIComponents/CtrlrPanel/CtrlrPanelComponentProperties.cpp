@@ -529,11 +529,11 @@ void CtrlrPanelComponentProperties::changeListenerCallback (ChangeBroadcaster* s
 void CtrlrPanelComponentProperties::refreshDynamicData()
 {
 	midiOutputDevices.clear();
-	midiOutputDevices = owner.getOwner().getCtrlrManager().getCtrlrMidiDeviceManager().getManagedDevices(CtrlrMidiDeviceManager::outputDevice);
+	midiOutputDevices = owner.getOwner().getCtrlrManager().getCtrlrMidiDeviceManager().getManagedDevices(CtrlrMIDIDeviceType::outputDevice);
 	midiOutputDevices.add (COMBO_NONE_ITEM);
 
 	midiInputDevices.clear();
-	midiInputDevices = owner.getOwner().getCtrlrManager().getCtrlrMidiDeviceManager().getManagedDevices(CtrlrMidiDeviceManager::inputDevice);
+	midiInputDevices = owner.getOwner().getCtrlrManager().getCtrlrMidiDeviceManager().getManagedDevices(CtrlrMIDIDeviceType::inputDevice);
 	midiInputDevices.add (COMBO_NONE_ITEM);
 
 	midiTemplateNames = owner.getOwner().getSysExProcessor().templatesPrepare();

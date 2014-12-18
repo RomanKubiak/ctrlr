@@ -109,6 +109,7 @@ void CtrlrToggleButton::buttonClicked (Button* buttonThatWasClicked)
 void CtrlrToggleButton::mouseDown (const MouseEvent& e)
 {
     //[UserCode_mouseDown] -- Add your code here...
+    CtrlrComponent::mouseDown(e);
     //[/UserCode_mouseDown]
 }
 

@@ -22,8 +22,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		panelEvaluationScope(*this),
 		globalEvaluationScope(*this),
 		resourceManager(*this),
-		midiInputThread(*this, false),
-		midiControllerInputThread(*this, true),
+		midiInputThread(*this, CtrlrMIDIDeviceType::inputDevice),
+		midiControllerInputThread(*this, CtrlrMIDIDeviceType::controllerDevice),
 		ctrlrLuaManager(nullptr)
 {
 }
@@ -38,8 +38,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 		panelEvaluationScope(*this),
 		globalEvaluationScope(*this),
 		resourceManager(*this),
-		midiInputThread(*this, false),
-		midiControllerInputThread(*this, true),
+		midiInputThread(*this, CtrlrMIDIDeviceType::inputDevice),
+		midiControllerInputThread(*this, CtrlrMIDIDeviceType::controllerDevice),
 		restoreStateStatus(true),
 		ctrlrMIDILibrary(0),
 		ctrlrLuaManager(0),
@@ -383,7 +383,7 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 		}
 		else
 		{
-			outputDevice = owner.getCtrlrMidiDeviceManager().getDeviceByName(getProperty(property).toString(), CtrlrMidiDeviceManager::outputDevice, true);
+			outputDevice = owner.getCtrlrMidiDeviceManager().getDeviceByName(getProperty(property).toString(), CtrlrMIDIDeviceType::outputDevice, true);
 
 			if (getEditor())
 			{
@@ -978,7 +978,7 @@ CtrlrPanelWindowManager &CtrlrPanel::getWindowManager()
 	return (panelWindowManager);
 }
 
-void CtrlrPanel::panelReceivedMidi(const MidiBuffer &buffer)
+void CtrlrPanel::panelReceivedMidi(const MidiBuffer &buffer, const CtrlrMIDIDeviceType source)
 {
 	MidiBuffer::Iterator i(buffer);
 	MidiMessage m;
@@ -1018,7 +1018,7 @@ void CtrlrPanel::handleAsyncUpdate()
 		if (luaValid)
 			getCtrlrLuaManager().getMethodManager().call (luaPanelMidiReceivedCbk, CtrlrMidiMessage (m));
 
-		listeners.call (&CtrlrPanel::Listener::midiReceived, m);
+		listeners.call (&CtrlrPanel::Listener::midiReceived, m, CtrlrMIDIDeviceType::inputDevice);
 	}
 }
 
@@ -1715,4 +1715,12 @@ const String CtrlrPanel::getPanelInstanceName()
 const String CtrlrPanel::getPanelInstanceManufacturer()
 {
     return (getProperty(Ids::panelAuthorName).toString());
+}
+
+void CtrlrPanel::addMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToAdd)
+{
+}
+
+void CtrlrPanel::removeMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToRemove)
+{
 }

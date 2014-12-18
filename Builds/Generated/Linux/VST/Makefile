@@ -18,7 +18,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -std=c++0x -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "JUCE_DEBUG=1" -D "LUA_USE_LINUX" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.2.0" -D "JUCE_APP_VERSION_HEX=0x50200" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application
+  CPPFLAGS := $(DEPFLAGS) -std=c++11 -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "JUCE_DEBUG=1" -D "LUA_USE_LINUX" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.2.0" -D "JUCE_APP_VERSION_HEX=0x50200" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -fPIC -O0 -fpermissive -w -fPIC
   CXXFLAGS += $(CFLAGS)
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -shared -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL
@@ -39,7 +39,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -std=c++0x -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_VST=1" -D "LUA_USE_LINUX" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.2.0" -D "JUCE_APP_VERSION_HEX=0x50200" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application
+  CPPFLAGS := $(DEPFLAGS) -std=c++11 -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_VST=1" -D "LUA_USE_LINUX" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.2.0" -D "JUCE_APP_VERSION_HEX=0x50200" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -fPIC -Os -fpermissive -w -fPIC
   CXXFLAGS += $(CFLAGS)
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL
@@ -60,7 +60,7 @@ ifeq ($(CONFIG),Release_Nightly)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -std=c++0x -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "LUA_USE_LINUX" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.2.0" -D "JUCE_APP_VERSION_HEX=0x50200" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application
+  CPPFLAGS := $(DEPFLAGS) -std=c++11 -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "LUA_USE_LINUX" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.2.0" -D "JUCE_APP_VERSION_HEX=0x50200" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -fPIC -Os -fpermissive -w -fPIC
   CXXFLAGS += $(CFLAGS)
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL
@@ -230,6 +230,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrEditorApplicationCommandsMenus_7bb32260.o \
   $(OBJDIR)/CtrlrLookAndFeel_6692d7b1.o \
   $(OBJDIR)/CtrlrSettings_7ee9629a.o \
+  $(OBJDIR)/CtrlrComponentRuntimeConfig_59982696.o \
   $(OBJDIR)/CtrlrButton_bea1a45d.o \
   $(OBJDIR)/CtrlrCustomButtonInternal_52f32d8b.o \
   $(OBJDIR)/CtrlrHyperlink_3eeb68e5.o \
@@ -237,7 +238,6 @@ OBJECTS := \
   $(OBJDIR)/CtrlrToggleButton_c9c63251.o \
   $(OBJDIR)/CtrlrCombo_5229199f.o \
   $(OBJDIR)/CtrlrComponent_39b6278e.o \
-  $(OBJDIR)/CtrlrComponentBubble_b187cb7a.o \
   $(OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o \
   $(OBJDIR)/CtrlrCustomComponent_a77769d.o \
   $(OBJDIR)/CtrlrFilmStripPainter_73f10450.o \
@@ -1150,6 +1150,11 @@ $(OBJDIR)/CtrlrSettings_7ee9629a.o: ../../../../Source/UIComponents/CtrlrApplica
 	@echo "Compiling CtrlrSettings.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/CtrlrComponentRuntimeConfig_59982696.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrComponentRuntimeConfig.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/CtrlrButton_bea1a45d.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrButton.cpp"
@@ -1183,11 +1188,6 @@ $(OBJDIR)/CtrlrCombo_5229199f.o: ../../../../Source/UIComponents/CtrlrComponents
 $(OBJDIR)/CtrlrComponent_39b6278e.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrComponentBubble_b187cb7a.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentBubble.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrComponentBubble.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp

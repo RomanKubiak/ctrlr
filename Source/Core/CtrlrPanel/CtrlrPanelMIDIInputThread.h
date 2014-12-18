@@ -10,7 +10,7 @@ class CtrlrPanel;
 class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMidiDevice::Listener, public CtrlrPanelMidiProcessor
 {
 	public:
-		CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const uint8 _msgIndex);
+		CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, CtrlrMIDIDeviceType _source);
 		~CtrlrPanelMIDIInputThread();
 		void run();
 		int getListenerInputMidiChannel();
@@ -25,17 +25,14 @@ class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMidiDevice::Listene
 		void midiOptionChanged(const CtrlrPanelMidiOption /*optionThatChanged*/){}
 		void midiChannelChaned(const CtrlrPanelMidiChannel channelThatChanged);
 		void closeInputDevice();
-		bool isController();
-
 		JUCE_LEAK_DETECTOR(CtrlrPanelMIDIInputThread)
 
 	private:
-		bool	inputFromController;
 		MidiBuffer deviceInputBuffer, hostInputBuffer, thruToDeviceBuffer, junkBuffer;
 		ReadWriteLock lock;
 		CtrlrPanel &owner;
 		CtrlrMidiDevice *inputDevice;
-		uint8 msgIndex;
+		CtrlrMIDIDeviceType source;
 		ScopedPointer <CtrlrMidiInputComparator> inputComparator;
 };
 

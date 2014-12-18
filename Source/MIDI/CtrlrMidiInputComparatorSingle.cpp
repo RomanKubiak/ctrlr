@@ -4,8 +4,8 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "JuceClasses/LMemoryBlock.h"
 
-CtrlrMidiInputComparatorSingle::CtrlrMidiInputComparatorSingle(CtrlrPanel &_owner, const uint8 _msgIndex)
-	: owner(_owner), cacheSize(32), msgIndex(_msgIndex)
+CtrlrMidiInputComparatorSingle::CtrlrMidiInputComparatorSingle(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source)
+	: owner(_owner), cacheSize(32), source(_source)
 {
 	clear();
 }
@@ -86,7 +86,7 @@ Array<CtrlrCacheDataSingle> &CtrlrMidiInputComparatorSingle::getCache(const Ctrl
 
 void CtrlrMidiInputComparatorSingle::addMatchTarget (CtrlrModulator *m)
 {
-	const CtrlrMidiMessageType type = getMidiTypeFromModulator(m, msgIndex);
+	const CtrlrMidiMessageType type = getMidiTypeFromModulator(m, 0, source);
 
 	if (type == SysEx)
 	{
@@ -95,21 +95,21 @@ void CtrlrMidiInputComparatorSingle::addMatchTarget (CtrlrModulator *m)
 	}
 
 	CtrlrMidiMap &map		= getMap(type);
-	CtrlrMidiMapIterator it = map.find(getMidiNumberFromModulator(m, msgIndex));
+	CtrlrMidiMapIterator it = map.find(getMidiNumberFromModulator(m, source));
 
 	if (it == map.end())
 	{
-		map.insert (CtrlrMidiMapPair(getMidiNumberFromModulator(m, msgIndex),m));
+		map.insert (CtrlrMidiMapPair(getMidiNumberFromModulator(m, source),m));
 	}
 	else
 	{
-		map[getMidiNumberFromModulator(m, msgIndex)].targets.add (m);
+		map[getMidiNumberFromModulator(m, source)].targets.add (m);
 	}
 }
 
 void CtrlrMidiInputComparatorSingle::addMatchTargetSysEx (CtrlrModulator *m)
 {
-	BigInteger bi = memoryToBits(m->getMidiMessage(msgIndex).getMidiPattern());
+	BigInteger bi = memoryToBits(m->getMidiMessage(source).getMidiPattern());
 
 	CtrlrMultiMidiMapIterator it = mapSysEx.find(bi);
 
@@ -174,7 +174,7 @@ void CtrlrMidiInputComparatorSingle::matchSysEx(const MidiMessage &m)
 		{
 			for (int i=0; i < (*it).second.targets.size(); i++)
 			{
-				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer, msgIndex);
+				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer, source);
 			}
 
 			updateCacheSysEx (it);

@@ -18,15 +18,6 @@ class CtrlrMidiDeviceManager
 		~CtrlrMidiDeviceManager();
 		void refreshDevices();
 
-		enum DeviceType
-		{
-			outputDevice,
-			inputDevice,
-			controllerDevice,
-            hostInputDevice,
-            hostOutputDevice
-		};
-
 		enum DeviceState
 		{
 			closed,
@@ -34,13 +25,13 @@ class CtrlrMidiDeviceManager
 			error
 		};
 
-		const String getDeviceName(const int idx, const DeviceType type=inputDevice);
-		int getNumDevices(const DeviceType type=inputDevice);
-		bool isDeviceOpened(const int idx, const DeviceType type=inputDevice);
-		bool toggleDevice (const int idx, const DeviceType type=inputDevice, const bool state=STP);
-		CtrlrMidiDevice *getDeviceByIndex(const int idx, const DeviceType type=inputDevice);
-		CtrlrMidiDevice *getDeviceByName(const String name, const DeviceType type=inputDevice, const bool openIfClosed=false);
-		const StringArray getManagedDevices(const DeviceType type=inputDevice);
+		const String getDeviceName(const int idx, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
+		int getNumDevices(const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
+		bool isDeviceOpened(const int idx, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
+		bool toggleDevice (const int idx, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice, const bool state=STP);
+		CtrlrMidiDevice *getDeviceByIndex(const int idx, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
+		CtrlrMidiDevice *getDeviceByName(const String name, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice, const bool openIfClosed=false);
+		const StringArray getManagedDevices(const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
 
 		void restoreState (const ValueTree &savedState);
 		void setProperty (const Identifier& name, const var &newValue)									{ managerTree.setProperty (name, newValue, 0); }
@@ -53,7 +44,7 @@ class CtrlrMidiDeviceManager
 		void addProcessingListener(CtrlrMidiDevice::Listener *l)										{ processingListeners.add(l); }
 		void removeProcessingListener(CtrlrMidiDevice::Listener *l)										{ processingListeners.remove(l); }
 
-		void reloadComboContents (ComboBox &comboToUpdate, const DeviceType type=inputDevice);
+		void reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
 
 
 		JUCE_LEAK_DETECTOR(CtrlrMidiDeviceManager)
