@@ -33,15 +33,16 @@ CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_compo
     : componentToConfigure(_componentToConfigure)
 {
     addAndMakeVisible (componentName = new Label (String::empty,
-                                                  TRANS("Component Name")));
-    componentName->setFont (Font (16.00f, Font::bold));
+                                                  TRANS("This is a long modulator name")));
+    componentName->setFont (Font (14.00f, Font::bold));
     componentName->setJustificationType (Justification::centred);
     componentName->setEditable (false, false, false);
+    componentName->setColour (Label::outlineColourId, Colour (0x79000000));
     componentName->setColour (TextEditor::textColourId, Colours::black);
     componentName->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (modulatorNumericValue = new Slider (String::empty));
-    modulatorNumericValue->setRange (0, 127, 0);
+    modulatorNumericValue->setRange (0, 127, 1);
     modulatorNumericValue->setSliderStyle (Slider::IncDecButtons);
     modulatorNumericValue->setTextBoxStyle (Slider::TextBoxLeft, false, 48, 20);
     modulatorNumericValue->setColour (Slider::textBoxOutlineColourId, Colours::black);
@@ -71,11 +72,54 @@ CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_compo
 
     addAndMakeVisible (label2 = new Label ("new label",
                                            TRANS("Mapping formula")));
-    label2->setFont (Font (12.00f, Font::plain));
+    label2->setFont (Font (12.00f, Font::italic));
     label2->setJustificationType (Justification::centredLeft);
     label2->setEditable (false, false, false);
     label2->setColour (TextEditor::textColourId, Colours::black);
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (currentMIDIType = new ComboBox ("new combo box"));
+    currentMIDIType->setEditableText (false);
+    currentMIDIType->setJustificationType (Justification::centredRight);
+    currentMIDIType->setTextWhenNothingSelected (TRANS("CC"));
+    currentMIDIType->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
+    currentMIDIType->addItem (TRANS("CC"), 1);
+    currentMIDIType->addItem (TRANS("NRPN"), 2);
+    currentMIDIType->addItem (TRANS("RPN"), 3);
+    currentMIDIType->addItem (TRANS("Pitch Bend"), 4);
+    currentMIDIType->addItem (TRANS("Mod Wheel"), 5);
+    currentMIDIType->addItem (TRANS("Note On - Velocity"), 6);
+    currentMIDIType->addItem (TRANS("Note On - Pitch"), 7);
+    currentMIDIType->addSeparator();
+    currentMIDIType->addListener (this);
+
+    addAndMakeVisible (currentMIDINumber = new Label (String::empty,
+                                                      TRANS("001")));
+    currentMIDINumber->setFont (Font (Font::getDefaultMonospacedFontName(), 12.00f, Font::plain));
+    currentMIDINumber->setJustificationType (Justification::centredRight);
+    currentMIDINumber->setEditable (true, true, false);
+    currentMIDINumber->setColour (Label::backgroundColourId, Colour (0x61ffffff));
+    currentMIDINumber->setColour (Label::outlineColourId, Colour (0x80000000));
+    currentMIDINumber->setColour (TextEditor::textColourId, Colours::black);
+    currentMIDINumber->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    currentMIDINumber->addListener (this);
+
+    addAndMakeVisible (label3 = new Label ("new label",
+                                           TRANS("Current mapping")));
+    label3->setFont (Font (12.00f, Font::italic));
+    label3->setJustificationType (Justification::centredLeft);
+    label3->setEditable (false, false, false);
+    label3->setColour (TextEditor::textColourId, Colours::black);
+    label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label4 = new Label ("new label",
+                                           TRANS("Number")));
+    label4->setFont (Font (12.00f, Font::bold | Font::italic));
+    label4->setJustificationType (Justification::centredLeft);
+    label4->setEditable (false, false, false);
+    label4->setColour (Label::outlineColourId, Colour (0x73000000));
+    label4->setColour (TextEditor::textColourId, Colours::black);
+    label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
 
     //[UserPreSize]
@@ -86,6 +130,10 @@ CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_compo
 
 
     //[Constructor] You can add your own custom stuff here..
+    componentName->setText (componentToConfigure->getOwner().getName(), dontSendNotification);
+    modulatorNumericValue->setRange (componentToConfigure->getOwner().getMinNonMapped(), componentToConfigure->getOwner().getMaxNonMapped(), 1);
+    modulatorNumericValue->setValue (componentToConfigure->getOwner().getValueNonMapped(), dontSendNotification);
+    mappingFormula->setText(componentToConfigure->getOwner().getProperty(Ids::modulatorControllerExpression, EXP_MODULATOR_CONTROLLER), dontSendNotification);
     //[/Constructor]
 }
 
@@ -102,6 +150,10 @@ CtrlrComponentRuntimeConfig::~CtrlrComponentRuntimeConfig()
     mapToSelected = nullptr;
     mappingFormula = nullptr;
     label2 = nullptr;
+    currentMIDIType = nullptr;
+    currentMIDINumber = nullptr;
+    label3 = nullptr;
+    label4 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -116,10 +168,10 @@ void CtrlrComponentRuntimeConfig::paint (Graphics& g)
 
     g.fillAll (Colours::white);
 
-    g.setGradientFill (ColourGradient (Colours::white,
+    g.setGradientFill (ColourGradient (Colour (0xffa9c6ff),
                                        0.0f, 0.0f,
-                                       Colour (0xff608fd4),
-                                       0.0f, static_cast<float> (getHeight()),
+                                       Colour (0xff69d7ff),
+                                       320.0f, static_cast<float> (getHeight()),
                                        false));
     g.fillRect (0, 0, getWidth() - 0, getHeight() - 0);
 
@@ -132,13 +184,17 @@ void CtrlrComponentRuntimeConfig::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    componentName->setBounds (0, 8, proportionOfWidth (0.6000f), 24);
+    componentName->setBounds (4, 8, proportionOfWidth (0.5800f), 24);
     modulatorNumericValue->setBounds (proportionOfWidth (0.6000f), 8, proportionOfWidth (0.4000f), 24);
     viewRealtimeEvents->setBounds (176, 40, 103, 24);
     realtimeEventsList->setBounds (8, 40, proportionOfWidth (0.5000f), getHeight() - 48);
     mapToSelected->setBounds (176, 72, 103, 24);
-    mappingFormula->setBounds (176, 120, 136, 24);
-    label2->setBounds (176, 104, 136, 16);
+    mappingFormula->setBounds (176, 176, 136, 16);
+    label2->setBounds (176, 160, 136, 16);
+    currentMIDIType->setBounds (176, 116, 136, 16);
+    currentMIDINumber->setBounds (232, 136, 80, 16);
+    label3->setBounds (176, 100, 136, 16);
+    label4->setBounds (176, 136, 56, 16);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -186,11 +242,32 @@ void CtrlrComponentRuntimeConfig::labelTextChanged (Label* labelThatHasChanged)
     if (labelThatHasChanged == mappingFormula)
     {
         //[UserLabelCode_mappingFormula] -- add your label text handling code here..
+        componentToConfigure->getOwner().setProperty(Ids::modulatorControllerExpression, mappingFormula->getText(), false);
         //[/UserLabelCode_mappingFormula]
+    }
+    else if (labelThatHasChanged == currentMIDINumber)
+    {
+        //[UserLabelCode_currentMIDINumber] -- add your label text handling code here..
+        //[/UserLabelCode_currentMIDINumber]
     }
 
     //[UserlabelTextChanged_Post]
     //[/UserlabelTextChanged_Post]
+}
+
+void CtrlrComponentRuntimeConfig::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
+{
+    //[UsercomboBoxChanged_Pre]
+    //[/UsercomboBoxChanged_Pre]
+
+    if (comboBoxThatHasChanged == currentMIDIType)
+    {
+        //[UserComboBoxCode_currentMIDIType] -- add your combo box handling code here..
+        //[/UserComboBoxCode_currentMIDIType]
+    }
+
+    //[UsercomboBoxChanged_Post]
+    //[/UsercomboBoxChanged_Post]
 }
 
 
@@ -222,17 +299,17 @@ BEGIN_JUCER_METADATA
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="320" initialHeight="200">
   <BACKGROUND backgroundColour="ffffffff">
-    <RECT pos="0 0 0M 0M" fill="linear: 0 0, 0 0R, 0=ffffffff, 1=ff608fd4"
+    <RECT pos="0 0 0M 0M" fill="linear: 0 0, 320 0R, 0=ffa9c6ff, 1=ff69d7ff"
           hasStroke="0"/>
   </BACKGROUND>
   <LABEL name="" id="db93816ae811cf4d" memberName="componentName" virtualName=""
-         explicitFocusOrder="0" pos="0 8 60% 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Component Name" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="16" bold="1" italic="0" justification="36"/>
+         explicitFocusOrder="0" pos="4 8 58.125% 24" outlineCol="79000000"
+         edTextCol="ff000000" edBkgCol="0" labelText="This is a long modulator name"
+         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
+         fontname="Default font" fontsize="14" bold="1" italic="0" justification="36"/>
   <SLIDER name="" id="44437b95d8664f31" memberName="modulatorNumericValue"
           virtualName="" explicitFocusOrder="0" pos="60% 8 40% 24" textboxoutline="ff000000"
-          min="0" max="127" int="0" style="IncDecButtons" textBoxPos="TextBoxLeft"
+          min="0" max="127" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
           textBoxEditable="1" textBoxWidth="48" textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="" id="5a2402776f314e33" memberName="viewRealtimeEvents"
               virtualName="" explicitFocusOrder="0" pos="176 40 103 24" bgColOff="ff39ff99"
@@ -246,15 +323,35 @@ BEGIN_JUCER_METADATA
               buttonText="Map to selected" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
   <LABEL name="" id="771520d7ac6dc5a3" memberName="mappingFormula" virtualName=""
-         explicitFocusOrder="0" pos="176 120 136 24" outlineCol="80000000"
+         explicitFocusOrder="0" pos="176 176 136 16" outlineCol="80000000"
          edTextCol="ff000000" edBkgCol="0" labelText="value" editableSingleClick="1"
          editableDoubleClick="1" focusDiscardsChanges="0" fontname="Default monospaced font"
          fontsize="12" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="8949a0abd624d647" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="176 104 136 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="176 160 136 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Mapping formula" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="12" bold="0" italic="0" justification="33"/>
+         fontsize="12" bold="0" italic="1" justification="33"/>
+  <COMBOBOX name="new combo box" id="3150094d39df505" memberName="currentMIDIType"
+            virtualName="" explicitFocusOrder="0" pos="176 116 136 16" editable="0"
+            layout="34" items="CC&#10;NRPN&#10;RPN&#10;Pitch Bend&#10;Mod Wheel&#10;Note On - Velocity&#10;Note On - Pitch&#10;"
+            textWhenNonSelected="CC" textWhenNoItems="(no choices)"/>
+  <LABEL name="" id="9b3f92fe3ca96fc5" memberName="currentMIDINumber"
+         virtualName="" explicitFocusOrder="0" pos="232 136 80 16" bkgCol="61ffffff"
+         outlineCol="80000000" edTextCol="ff000000" edBkgCol="0" labelText="001"
+         editableSingleClick="1" editableDoubleClick="1" focusDiscardsChanges="0"
+         fontname="Default monospaced font" fontsize="12" bold="0" italic="0"
+         justification="34"/>
+  <LABEL name="new label" id="da93ee4c33971909" memberName="label3" virtualName=""
+         explicitFocusOrder="0" pos="176 100 136 16" edTextCol="ff000000"
+         edBkgCol="0" labelText="Current mapping" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="12" bold="0" italic="1" justification="33"/>
+  <LABEL name="new label" id="2c67825195c5a62c" memberName="label4" virtualName=""
+         explicitFocusOrder="0" pos="176 136 56 16" outlineCol="73000000"
+         edTextCol="ff000000" edBkgCol="0" labelText="Number" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="12" bold="1" italic="1" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

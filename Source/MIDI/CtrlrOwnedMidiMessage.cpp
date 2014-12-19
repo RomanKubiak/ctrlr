@@ -10,6 +10,11 @@ CtrlrOwnedMidiMessage::CtrlrOwnedMidiMessage(CtrlrMidiMessageOwner &_owner)
 {
 }
 
+CtrlrOwnedMidiMessage::CtrlrOwnedMidiMessage(CtrlrMidiMessageOwner &_owner, const Identifier &type)
+	: owner(_owner), CtrlrMidiMessage(type)
+{
+}
+
 CtrlrOwnedMidiMessage::~CtrlrOwnedMidiMessage()
 {
 }

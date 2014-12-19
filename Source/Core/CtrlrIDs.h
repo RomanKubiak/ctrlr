@@ -13,6 +13,7 @@ namespace Ids
 	DECLARE_ID (modulator);
 	DECLARE_ID (component);
 	DECLARE_ID (midi);
+	DECLARE_ID (controllerMIDI);
 	DECLARE_ID (vstIndex);
 	DECLARE_ID (name);
 	DECLARE_ID (description);
@@ -42,6 +43,7 @@ namespace Ids
 	DECLARE_ID (modulatorGlobalVariable);
 	DECLARE_ID (modulatorValueExpression);
 	DECLARE_ID (modulatorValueExpressionReverse);
+	DECLARE_ID (modulatorControllerExpression);
 	DECLARE_ID (modulatorMuteOnStart);
 	DECLARE_ID (modulatorLinkedToPanelProperty);
 	DECLARE_ID (modulatorLinkedToModulatorProperty);
@@ -220,17 +222,6 @@ namespace Ids
 	DECLARE_ID (componentLabelFont);
 	DECLARE_ID (componentRotation);
 	DECLARE_ID (componentExcludedFromLabelDisplay);
-
-	DECLARE_ID (componentBubbleRoundAngle);
-	DECLARE_ID (componentBubbleBackgroundColour1);
-	DECLARE_ID (componentBubbleBackgroundColour2);
-	DECLARE_ID (componentBubbleBackgroundGradientType);
-	DECLARE_ID (componentBubbleValueColour);
-	DECLARE_ID (componentBubbleValueFont);
-	DECLARE_ID (componentBubbleValueJustification);
-	DECLARE_ID (componentBubbleNameColour);
-	DECLARE_ID (componentBubbleNameFont);
-	DECLARE_ID (componentBubbleNameJustification);
 	DECLARE_ID (componentValueDecimalPlaces);
 	DECLARE_ID (componentLuaMouseMoved);
 

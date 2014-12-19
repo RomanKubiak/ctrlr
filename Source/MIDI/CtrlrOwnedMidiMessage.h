@@ -16,7 +16,8 @@ class CtrlrMidiMessageOwner
 class CtrlrOwnedMidiMessage : public CtrlrMidiMessage
 {
 	public:
-		CtrlrOwnedMidiMessage (CtrlrMidiMessageOwner &_owner);
+	    CtrlrOwnedMidiMessage (CtrlrMidiMessageOwner &_owner);
+		CtrlrOwnedMidiMessage (CtrlrMidiMessageOwner &_owner, const Identifier &type);
 		~CtrlrOwnedMidiMessage();
 		void setControllerNumber(const int controllerNumber);
 		void setMidiMessageType (const CtrlrMidiMessageType newType);

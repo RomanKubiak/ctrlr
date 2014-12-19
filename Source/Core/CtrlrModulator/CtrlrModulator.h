@@ -9,6 +9,7 @@ typedef WeakReference <CtrlrModulator>							CtrlrModulatorReference;
 
 #define EXP_MODULATOR_FORWARD		"modulatorValue"
 #define EXP_MODULATOR_REVERSE		"midiValue"
+#define EXP_MODULATOR_CONTROLLER    "value"
 
 class CtrlrComponent;
 class CtrlrManager;

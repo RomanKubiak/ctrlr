@@ -7,6 +7,7 @@
   <id name="modulatorGlobalVariable" 			text="Modulator attached to global variable" type="Numeric" min="-1" max="64"/>
   <id name="modulatorValueExpression" 			text="Expression to evaluate when calculating the midi message value from the modulator value" type="Expression"/>
   <id name="modulatorValueExpressionReverse" 	text="Expression to evaluate when calculating the modulator value from the midi message value" type="Expression"/>
+  <id name="modulatorControllerExpression"      trext="Expression to evaluate when calculatirng the modulator value from midi controller message" type="Expression"/>
   <id name="modulatorMuteOnStart" 				text="Modulator does not output any MIDI during startup" type="Bool" defaults="Mute/UnMute"/>
   <id name="modulatorLinkedToPanelProperty" 	text="Link to PANEL property" type="VarText"/>
   <id name="modulatorLinkedToModulatorProperty" text="Link to MODULATOR property" type="VarText"/>
@@ -95,7 +96,7 @@
   <id name="panelMidiGlobalDelay"                       text="Global delay for MIDI messages [ms]"              type="Numeric"  min="0" max="5000" />
   <id name="panelMidiPauseOut"                          text="No MIDI output from panel"                        type="Bool" />
   <id name="panelMidiPauseIn"                           text="No MIDI input to panel"                           type="Bool" />
-      
+
   <!-- General -->
   <id name="panelFilePath"                  text="Panel file path" type="ReadOnly"/>
   <id name="panelIndex"                     text="Panel global index" type="ReadOnly"/>
@@ -753,7 +754,7 @@
   <id name="luaPanelResourcesLoaded"          text="Callback to indicate that all resources are ready for a panel"            type="LuaMethod" />
   <id name="luaPanelSaveState"                text="Called when Ctrlr state is saved (DAW saves a project)"                   type="LuaMethod" />
   <id name="luaPanelRestoreState"             text="Called when Ctrlr is loaded (DAW opens a project)"                        type="LuaMethod" />
-  
+
   <id name="luaTransProcess"		  text="Transaction process" 					type="LuaMethod" />
   <id name="luaTransDataUnpack"		text="Transaction data unpacking" 			type="LuaMethod" />
   <id name="luaTransDataPack"		  text="Transaction data packing" 			type="LuaMethod" />
