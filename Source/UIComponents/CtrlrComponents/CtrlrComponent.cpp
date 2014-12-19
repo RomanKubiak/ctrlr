@@ -87,16 +87,6 @@ CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
 	setProperty (Ids::componentEffectOffsetX, 0);
 	setProperty (Ids::componentEffectOffsetY, 0);
 	setProperty (Ids::componentExcludedFromLabelDisplay, false);
-	setProperty (Ids::componentBubbleRoundAngle, 10.0);
-	setProperty (Ids::componentBubbleBackgroundColour1,"0x9cffffff");
-	setProperty (Ids::componentBubbleBackgroundColour2,"0xbab9b9b9");
-	setProperty (Ids::componentBubbleBackgroundGradientType,1);
-	setProperty (Ids::componentBubbleValueColour,"0xff000000");
-	setProperty (Ids::componentBubbleValueFont, FONT2STR (Font(14)));
-	setProperty (Ids::componentBubbleValueJustification,"centred");
-	setProperty (Ids::componentBubbleNameColour,"0xff000000");
-	setProperty (Ids::componentBubbleNameFont, FONT2STR (Font(14)));
-	setProperty (Ids::componentBubbleNameJustification,"centred");
 	setProperty (Ids::componentValueDecimalPlaces, 0);
 	setProperty (Ids::componentLuaMouseMoved, COMBO_ITEM_NONE);
 }

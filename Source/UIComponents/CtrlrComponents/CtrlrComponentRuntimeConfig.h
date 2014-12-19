@@ -20,7 +20,7 @@
 #ifndef __JUCE_HEADER_67FEE93AC802F808__
 #define __JUCE_HEADER_67FEE93AC802F808__
 
-//[Headers]     -- You can add your own extra header files here --ř
+//[Headers]     -- You can add your own extra header files here --
 #include "CtrlrPanel/CtrlrPanel.h"
 class CtrlrComponent;
 //[/Headers]
@@ -40,7 +40,8 @@ class CtrlrComponentRuntimeConfig  : public Component,
                                      public CtrlrPanel::Listener,
                                      public SliderListener,
                                      public ButtonListener,
-                                     public LabelListener
+                                     public LabelListener,
+                                     public ComboBoxListener
 {
 public:
     //==============================================================================
@@ -58,6 +59,7 @@ public:
     void sliderValueChanged (Slider* sliderThatWasMoved);
     void buttonClicked (Button* buttonThatWasClicked);
     void labelTextChanged (Label* labelThatHasChanged);
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged);
 
 
 
@@ -74,6 +76,10 @@ private:
     ScopedPointer<TextButton> mapToSelected;
     ScopedPointer<Label> mappingFormula;
     ScopedPointer<Label> label2;
+    ScopedPointer<ComboBox> currentMIDIType;
+    ScopedPointer<Label> currentMIDINumber;
+    ScopedPointer<Label> label3;
+    ScopedPointer<Label> label4;
 
 
     //==============================================================================

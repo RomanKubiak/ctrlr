@@ -147,6 +147,12 @@ CtrlrMidiMessage::CtrlrMidiMessage (const CtrlrMidiMessage &other)
 
 }
 
+CtrlrMidiMessage::CtrlrMidiMessage (const Identifier &treeType)
+    : midiTree(treeType), messagePattern(0,true), initializationResult(Result::ok())
+{
+    initializeEmptyMessage();
+}
+
 CtrlrMidiMessage::~CtrlrMidiMessage()
 {
 	midiTree.removeListener (this);

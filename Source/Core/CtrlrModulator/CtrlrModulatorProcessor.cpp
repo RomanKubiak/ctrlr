@@ -23,7 +23,7 @@ CtrlrModulatorProcessor::CtrlrModulatorProcessor(CtrlrModulator &_owner)
 		ctrlrMidiControllerMessage(nullptr)
 {
 	ctrlrMidiMessage	        = new CtrlrOwnedMidiMessage(*this);
-	ctrlrMidiControllerMessage  = new CtrlrOwnedMidiMessage(*this);
+	ctrlrMidiControllerMessage  = new CtrlrOwnedMidiMessage(*this, Identifier(Ids::controllerMIDI));
 }
 
 CtrlrModulatorProcessor::~CtrlrModulatorProcessor()

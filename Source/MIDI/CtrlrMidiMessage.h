@@ -161,6 +161,7 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 		JUCE_LEAK_DETECTOR(CtrlrMidiMessage)
 
 	protected:
+        CtrlrMidiMessage (const Identifier &treeType);
 		ValueTree midiTree;
 		Array <CtrlrMidiMessageEx> messageArray;
 
