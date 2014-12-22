@@ -93,6 +93,11 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
     lua_pushliteral(luaState, "os");
     lua_call(luaState, 1, 0);
 
+    lua_pushcfunction(luaState, luaopen_bit);
+    _INF("CtrlrLuaManager::ctor luaopen_bit");
+    lua_pushliteral(luaState, "bit");
+    lua_call(luaState, 1, 0);
+
 	using namespace luabind;
 
 	_INF("CtrlrLuaManager::ctor luabind open");
