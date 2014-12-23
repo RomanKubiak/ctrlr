@@ -9,7 +9,7 @@
 class CtrlrMidiInputComparator
 {
 	public:
-		CtrlrMidiInputComparator(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source = CtrlrMIDIDeviceType::inputDevice);
+		CtrlrMidiInputComparator(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source = inputDevice);
 		~CtrlrMidiInputComparator();
 		void addMatchTarget (CtrlrModulator *modulatorToAdd);
 		void match (const MidiMessage &m);

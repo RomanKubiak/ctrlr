@@ -41,7 +41,7 @@ void CtrlrMidiDevice::restoreState(const ValueTree &savedState)
 
 bool CtrlrMidiDevice::openDevice()
 {
-	if (getType() == CtrlrMIDIDeviceType::outputDevice)
+	if (getType() == outputDevice)
 	{
 		if (outJucePtr != nullptr)
 		{
@@ -90,7 +90,7 @@ bool CtrlrMidiDevice::openDevice()
 
 void CtrlrMidiDevice::closeDevice()
 {
-	if (getType() == CtrlrMIDIDeviceType::outputDevice)
+	if (getType() == outputDevice)
 	{
 
 		if (outJucePtr != nullptr)

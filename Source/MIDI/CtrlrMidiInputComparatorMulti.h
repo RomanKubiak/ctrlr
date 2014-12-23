@@ -10,7 +10,7 @@ class CtrlrPanel;
 class CtrlrMidiInputComparatorMulti : public Timer
 {
 	public:
-		CtrlrMidiInputComparatorMulti(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source = CtrlrMIDIDeviceType::inputDevice);
+		CtrlrMidiInputComparatorMulti(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source = inputDevice);
 		~CtrlrMidiInputComparatorMulti();
 
 		void clear();

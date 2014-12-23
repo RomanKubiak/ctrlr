@@ -340,7 +340,7 @@ float CtrlrModulatorProcessor::getValueForHost() const
 
 CtrlrOwnedMidiMessage *CtrlrModulatorProcessor::getMidiMessagePtr(const CtrlrMIDIDeviceType source)
 {
-    if (source == CtrlrMIDIDeviceType::controllerDevice)
+    if (source == controllerDevice)
         return (ctrlrMidiControllerMessage);
 
 	return (ctrlrMidiMessage);
@@ -349,7 +349,7 @@ CtrlrOwnedMidiMessage *CtrlrModulatorProcessor::getMidiMessagePtr(const CtrlrMID
 CtrlrMidiMessage &CtrlrModulatorProcessor::getMidiMessage(const CtrlrMIDIDeviceType source)
 {
 	const ScopedReadLock sl (processorLock);
-    if (source == CtrlrMIDIDeviceType::controllerDevice)
+    if (source == controllerDevice)
         return (*ctrlrMidiControllerMessage);
 
 	return (*ctrlrMidiMessage);
@@ -358,7 +358,7 @@ CtrlrMidiMessage &CtrlrModulatorProcessor::getMidiMessage(const CtrlrMIDIDeviceT
 CtrlrOwnedMidiMessage &CtrlrModulatorProcessor::getOwnedMidiMessage(const CtrlrMIDIDeviceType source)
 {
 	const ScopedReadLock sl (processorLock);
-	if (source == CtrlrMIDIDeviceType::controllerDevice)
+	if (source == controllerDevice)
         return (*ctrlrMidiControllerMessage);
 
 	return (*ctrlrMidiMessage);

@@ -95,7 +95,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 
 			@return the CtrlrMidiMessage object for this modulator, this method will fail for static modulators (and will propably crash Ctrlr)
 		*/
-		CtrlrMidiMessage &getMidiMessage(const CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice);
+		CtrlrMidiMessage &getMidiMessage(const CtrlrMIDIDeviceType source = inputDevice);
 
 		/** @brief Set the value to the modulator (uses the non-mapped value or the index of the value on the list)
 
@@ -150,7 +150,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		bool hasName();
 		const std::string getLuaName() { return (getName().toUTF8().getAddress()); }
 		float getVstValue(const int intValueToUse=-1) const;
-		CtrlrMidiMessage *getMidiMessagePtr(const CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice);
+		CtrlrMidiMessage *getMidiMessagePtr(const CtrlrMIDIDeviceType source = inputDevice);
 		void restoreState (const ValueTree &savedState);
 		CtrlrManager &getCtrlrManager();
 		void allModulatorsInitialized();
@@ -171,7 +171,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		void setPanelReference(CtrlrPanel *referencedPanel);
 		bool isDelayedProperty(const Identifier &name);
 		void setDelayedProperty(const Identifier &name, const var value);
-		CtrlrOwnedMidiMessage &getOwnedMidiMessage(const CtrlrMIDIDeviceType idx = CtrlrMIDIDeviceType::inputDevice);
+		CtrlrOwnedMidiMessage &getOwnedMidiMessage(const CtrlrMIDIDeviceType idx = inputDevice);
 		static void wrapForLua (lua_State *L);
 		ValueTree &getObjectTree()																		{ return (modulatorTree); }
 		ValueTree &getModulatorTree()																	{ return (modulatorTree); }

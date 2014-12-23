@@ -10,7 +10,7 @@ class CtrlrPanel;
 class CtrlrMidiInputComparatorSingle
 {
 	public:
-		CtrlrMidiInputComparatorSingle(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source = CtrlrMIDIDeviceType::inputDevice);
+		CtrlrMidiInputComparatorSingle(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source = inputDevice);
 		~CtrlrMidiInputComparatorSingle();
 		void clear();
 		void match (const MidiMessage &m);

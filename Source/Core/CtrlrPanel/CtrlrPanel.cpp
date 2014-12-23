@@ -22,8 +22,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		panelEvaluationScope(*this),
 		globalEvaluationScope(*this),
 		resourceManager(*this),
-		midiInputThread(*this, CtrlrMIDIDeviceType::inputDevice),
-		midiControllerInputThread(*this, CtrlrMIDIDeviceType::controllerDevice),
+		midiInputThread(*this, inputDevice),
+		midiControllerInputThread(*this, controllerDevice),
 		ctrlrLuaManager(nullptr)
 {
 }
@@ -38,8 +38,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 		panelEvaluationScope(*this),
 		globalEvaluationScope(*this),
 		resourceManager(*this),
-		midiInputThread(*this, CtrlrMIDIDeviceType::inputDevice),
-		midiControllerInputThread(*this, CtrlrMIDIDeviceType::controllerDevice),
+		midiInputThread(*this, inputDevice),
+		midiControllerInputThread(*this, controllerDevice),
 		restoreStateStatus(true),
 		ctrlrMIDILibrary(0),
 		ctrlrLuaManager(0),
@@ -1018,7 +1018,7 @@ void CtrlrPanel::handleAsyncUpdate()
 		if (luaValid)
 			getCtrlrLuaManager().getMethodManager().call (luaPanelMidiReceivedCbk, CtrlrMidiMessage (m));
 
-		listeners.call (&CtrlrPanel::Listener::midiReceived, m, CtrlrMIDIDeviceType::inputDevice);
+		listeners.call (&CtrlrPanel::Listener::midiReceived, m, inputDevice);
 	}
 }
 

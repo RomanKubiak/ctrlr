@@ -171,7 +171,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 				virtual void modulatorAdded (CtrlrModulator *) {}
 				virtual void modulatorRemoved (CtrlrModulator *) {}
 				virtual void panelChanged(CtrlrPanel *) {}
-				virtual void midiReceived(MidiMessage &, CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice) {}
+				virtual void midiReceived(MidiMessage &, CtrlrMIDIDeviceType source = inputDevice) {}
 		};
 
 		void setRadioGroupId(CtrlrComponent *componentMember, const int groupId);
@@ -187,7 +187,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		int cleanBogusPropertiesFromChild(ValueTree &treeToClean);
 		void sync();
 		CtrlrComponent *getComponent(const String &modulatorName);
-		void panelReceivedMidi(const MidiBuffer &buffer, const CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice);
+		void panelReceivedMidi(const MidiBuffer &buffer, const CtrlrMIDIDeviceType source = inputDevice);
 		void handleAsyncUpdate();
 		void sendSnapshotOnLoad();
 		bool getRestoreState();
