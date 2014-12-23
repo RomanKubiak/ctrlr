@@ -168,17 +168,17 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 	}
 	else if (topLevelMenuIndex == MenuMidi) // MIDI
 	{
-		menu.addSectionHeader ("Input"+getMidiSummary(CtrlrMIDIDeviceType::inputDevice));
-		menu.addSubMenu ("Device", getMidiDeviceMenu(CtrlrMIDIDeviceType::inputDevice), isPanelActive());
-		menu.addSubMenu ("Channel", getMidiChannelMenu(CtrlrMIDIDeviceType::inputDevice), isPanelActive());
+		menu.addSectionHeader ("Input"+getMidiSummary(inputDevice));
+		menu.addSubMenu ("Device", getMidiDeviceMenu(inputDevice), isPanelActive());
+		menu.addSubMenu ("Channel", getMidiChannelMenu(inputDevice), isPanelActive());
 
-		menu.addSectionHeader ("Controller"+getMidiSummary(CtrlrMIDIDeviceType::controllerDevice));
-		menu.addSubMenu ("Device", getMidiDeviceMenu(CtrlrMIDIDeviceType::controllerDevice), isPanelActive());
-		menu.addSubMenu ("Channel", getMidiChannelMenu(CtrlrMIDIDeviceType::controllerDevice), isPanelActive());
+		menu.addSectionHeader ("Controller"+getMidiSummary(controllerDevice));
+		menu.addSubMenu ("Device", getMidiDeviceMenu(controllerDevice), isPanelActive());
+		menu.addSubMenu ("Channel", getMidiChannelMenu(controllerDevice), isPanelActive());
 
-		menu.addSectionHeader ("Output "+getMidiSummary(CtrlrMIDIDeviceType::outputDevice));
-		menu.addSubMenu ("Device", getMidiDeviceMenu(CtrlrMIDIDeviceType::outputDevice), isPanelActive());
-		menu.addSubMenu ("Channel", getMidiChannelMenu(CtrlrMIDIDeviceType::outputDevice), isPanelActive());
+		menu.addSectionHeader ("Output "+getMidiSummary(outputDevice));
+		menu.addSubMenu ("Device", getMidiDeviceMenu(outputDevice), isPanelActive());
+		menu.addSubMenu ("Channel", getMidiChannelMenu(outputDevice), isPanelActive());
 
 		PopupMenu thru;
 		thru.addCommandItem (commandManager, optMidiThruD2D);
@@ -195,8 +195,8 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
         menu.addCommandItem (commandManager, optMidiInputFromHost);
         menu.addCommandItem (commandManager, optMidiInputFromHostCompare);
         menu.addCommandItem (commandManager, optMidiOutuptToHost);
-        menu.addSubMenu ("Input channel", getMidiChannelMenu(CtrlrMIDIDeviceType::hostInputDevice),		(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
-        menu.addSubMenu ("Output channel", getMidiChannelMenu(CtrlrMIDIDeviceType::hostOutputDevice),	(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
+        menu.addSubMenu ("Input channel", getMidiChannelMenu(hostInputDevice),		(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
+        menu.addSubMenu ("Output channel", getMidiChannelMenu(hostOutputDevice),	(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
     }
 	else if (topLevelMenuIndex == MenuPrograms) // Programs
 	{
@@ -322,18 +322,18 @@ uint32 CtrlrEditor::getMidiDeviceMenuOffset(const CtrlrMIDIDeviceType type)
 {
     switch (type)
     {
-        case CtrlrMIDIDeviceType::inputDevice:
+        case inputDevice:
             return (MENU_OFFSET_MIDI_DEV_IN);
-        case CtrlrMIDIDeviceType::outputDevice:
+        case outputDevice:
             return (MENU_OFFSET_MIDI_DEV_OUT);
-        case CtrlrMIDIDeviceType::controllerDevice:
+        case controllerDevice:
             return (MENU_OFFSET_MIDI_DEV_CTRLR);
-        case CtrlrMIDIDeviceType::hostInputDevice:
+        case hostInputDevice:
             return (MENU_OFFSET_MIDI_HOST_IN);
-        case CtrlrMIDIDeviceType::hostOutputDevice:
+        case hostOutputDevice:
             return (MENU_OFFSET_MIDI_HOST_OUT);
-        case CtrlrMIDIDeviceType::networkDevice:
-        case CtrlrMIDIDeviceType::serialDevice:
+        case networkDevice:
+        case serialDevice:
             return (0);
     }
 
@@ -344,14 +344,14 @@ const Identifier CtrlrEditor::getMidiPropertyName(const CtrlrMIDIDeviceType type
 {
     switch (type)
     {
-        case CtrlrMIDIDeviceType::inputDevice:
+        case inputDevice:
             return (Ids::panelMidiInputDevice);
-        case CtrlrMIDIDeviceType::outputDevice:
+        case outputDevice:
             return (Ids::panelMidiOutputDevice);
-        case CtrlrMIDIDeviceType::controllerDevice:
+        case controllerDevice:
             return (Ids::panelMidiControllerDevice);
-        case CtrlrMIDIDeviceType::hostInputDevice:
-        case CtrlrMIDIDeviceType::hostOutputDevice:
+        case hostInputDevice:
+        case hostOutputDevice:
         default:
             break;
     }
@@ -395,35 +395,35 @@ const PopupMenu CtrlrEditor::getMidiDeviceMenu(const CtrlrMIDIDeviceType type)
 const PopupMenu CtrlrEditor::getMidiChannelMenu(const CtrlrMIDIDeviceType type)
 {
 	PopupMenu m;
-	if (type == CtrlrMIDIDeviceType::inputDevice)
+	if (type == inputDevice)
 	{
 		for (int i=0; i<17; i++)
 		{
 			m.addItem (0x6100 + i, (i ? String("Channel: " + String(i)) : "All channels"), true, (int)getPanelProperty(Ids::panelMidiInputChannelDevice) == i);
 		}
 	}
-	else if (type == CtrlrMIDIDeviceType::outputDevice)
+	else if (type == outputDevice)
 	{
 		for (int i=1; i<17; i++)
 		{
 			m.addItem (0x6200 + i, "Channel: " + String(i), true, (int)getPanelProperty(Ids::panelMidiOutputChannelDevice) == i);
 		}
 	}
-	else if (type == CtrlrMIDIDeviceType::controllerDevice)
+	else if (type == controllerDevice)
 	{
 		for (int i=0; i<17; i++)
 		{
 			m.addItem (0x6300 + i, (i ? String("Channel: " + String(i)) : "All channels"), true, (int)getPanelProperty(Ids::panelMidiControllerChannelDevice) == i);
 		}
 	}
-	else if (type == CtrlrMIDIDeviceType::hostInputDevice)
+	else if (type == hostInputDevice)
 	{
 		for (int i=0; i<17; i++)
 		{
 			m.addItem (0x6400 + i, (i ? String("Channel: " + String(i)) : "All channels"), true, (int)getPanelProperty(Ids::panelMidiInputChannelHost) == i);
 		}
 	}
-	else if (type == CtrlrMIDIDeviceType::hostOutputDevice)
+	else if (type == hostOutputDevice)
 	{
 		for (int i=1; i<17; i++)
 		{
@@ -451,17 +451,17 @@ const String CtrlrEditor::getMidiSummary(const CtrlrMIDIDeviceType type)
 		return (String::empty);
 
 	String ret = " (";
-	if (type == CtrlrMIDIDeviceType::inputDevice)
+	if (type == inputDevice)
 	{
 		ret << (getPanelProperty(Ids::panelMidiInputDevice).toString().isEmpty() ? "No device" : getPanelProperty(Ids::panelMidiInputDevice).toString());
 		ret << " / CH:" + String(getActivePanel()->getMidiChannel (panelMidiInputChannelDevice));
 	}
-	else if (type == CtrlrMIDIDeviceType::outputDevice)
+	else if (type == outputDevice)
 	{
 		ret << (getPanelProperty(Ids::panelMidiOutputDevice).toString().isEmpty() ? "No device" : getPanelProperty(Ids::panelMidiOutputDevice).toString());
 		ret << " / CH:" + String(getActivePanel()->getMidiChannel (panelMidiOutputChannelDevice));
 	}
-	else if (type == CtrlrMIDIDeviceType::controllerDevice)
+	else if (type == controllerDevice)
 	{
 		ret << (getPanelProperty(Ids::panelMidiControllerDevice).toString().isEmpty() ? "No device" : getPanelProperty(Ids::panelMidiControllerDevice).toString());
 		ret << " / CH:" + String(getActivePanel()->getMidiChannel (panelMidiControllerChannel));

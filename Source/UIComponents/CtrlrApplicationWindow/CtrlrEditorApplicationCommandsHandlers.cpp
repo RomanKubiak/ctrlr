@@ -383,15 +383,15 @@ void CtrlrEditor::performMidiDeviceChange(const int menuItemID)
 	{
 		if (menuItemID > MENU_OFFSET_MIDI_DEV_IN && menuItemID < MENU_OFFSET_MIDI_DEV_OUT)
 		{
-			getActivePanel()->setProperty(Ids::panelMidiInputDevice, owner.getCtrlrMidiDeviceManager().getDeviceName(menuItemID - MENU_OFFSET_MIDI_DEV_IN - 2, CtrlrMIDIDeviceType::inputDevice));
+			getActivePanel()->setProperty(Ids::panelMidiInputDevice, owner.getCtrlrMidiDeviceManager().getDeviceName(menuItemID - MENU_OFFSET_MIDI_DEV_IN - 2, inputDevice));
 		}
 		else if (menuItemID > MENU_OFFSET_MIDI_DEV_OUT && menuItemID < MENU_OFFSET_MIDI_DEV_CTRLR)
 		{
-			getActivePanel()->setProperty(Ids::panelMidiOutputDevice, owner.getCtrlrMidiDeviceManager().getDeviceName(menuItemID - MENU_OFFSET_MIDI_DEV_OUT - 2, CtrlrMIDIDeviceType::outputDevice));
+			getActivePanel()->setProperty(Ids::panelMidiOutputDevice, owner.getCtrlrMidiDeviceManager().getDeviceName(menuItemID - MENU_OFFSET_MIDI_DEV_OUT - 2, outputDevice));
 		}
 		else if (menuItemID > MENU_OFFSET_MIDI_DEV_CTRLR && menuItemID < MENU_OFFSET_MIDI_HOST_IN)
 		{
-			getActivePanel()->setProperty(Ids::panelMidiControllerDevice, owner.getCtrlrMidiDeviceManager().getDeviceName(menuItemID - MENU_OFFSET_MIDI_DEV_CTRLR - 2, CtrlrMIDIDeviceType::controllerDevice));
+			getActivePanel()->setProperty(Ids::panelMidiControllerDevice, owner.getCtrlrMidiDeviceManager().getDeviceName(menuItemID - MENU_OFFSET_MIDI_DEV_CTRLR - 2, controllerDevice));
 		}
 	}
 }

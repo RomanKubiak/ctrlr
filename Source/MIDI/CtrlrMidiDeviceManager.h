@@ -25,13 +25,13 @@ class CtrlrMidiDeviceManager
 			error
 		};
 
-		const String getDeviceName(const int idx, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
-		int getNumDevices(const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
-		bool isDeviceOpened(const int idx, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
-		bool toggleDevice (const int idx, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice, const bool state=STP);
-		CtrlrMidiDevice *getDeviceByIndex(const int idx, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
-		CtrlrMidiDevice *getDeviceByName(const String name, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice, const bool openIfClosed=false);
-		const StringArray getManagedDevices(const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
+		const String getDeviceName(const int idx, const CtrlrMIDIDeviceType type = inputDevice);
+		int getNumDevices(const CtrlrMIDIDeviceType type = inputDevice);
+		bool isDeviceOpened(const int idx, const CtrlrMIDIDeviceType type = inputDevice);
+		bool toggleDevice (const int idx, const CtrlrMIDIDeviceType type = inputDevice, const bool state=STP);
+		CtrlrMidiDevice *getDeviceByIndex(const int idx, const CtrlrMIDIDeviceType type = inputDevice);
+		CtrlrMidiDevice *getDeviceByName(const String name, const CtrlrMIDIDeviceType type = inputDevice, const bool openIfClosed=false);
+		const StringArray getManagedDevices(const CtrlrMIDIDeviceType type = inputDevice);
 
 		void restoreState (const ValueTree &savedState);
 		void setProperty (const Identifier& name, const var &newValue)									{ managerTree.setProperty (name, newValue, 0); }
@@ -44,7 +44,7 @@ class CtrlrMidiDeviceManager
 		void addProcessingListener(CtrlrMidiDevice::Listener *l)										{ processingListeners.add(l); }
 		void removeProcessingListener(CtrlrMidiDevice::Listener *l)										{ processingListeners.remove(l); }
 
-		void reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
+		void reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type = inputDevice);
 
 
 		JUCE_LEAK_DETECTOR(CtrlrMidiDeviceManager)

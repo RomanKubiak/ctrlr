@@ -491,7 +491,7 @@ void CtrlrPanelMIDIToolbar::midiLibraryOptionsMenu(Button *button)
 void CtrlrPanelMIDIToolbar::midiOutputDeviceMenu(Button *button)
 {
 	PopupMenu m;
-	StringArray dev = owner.getOwner().getOwner().getCtrlrMidiDeviceManager().getManagedDevices (CtrlrMIDIDeviceType::outputDevice);
+	StringArray dev = owner.getOwner().getOwner().getCtrlrMidiDeviceManager().getManagedDevices (outputDevice);
 
 	m.addItem (1, "-- None", true, owner.getOwner().getProperty(Ids::panelMidiOutputDevice).toString().isEmpty() || (owner.getOwner().getProperty(Ids::panelMidiOutputDevice).toString() == COMBO_ITEM_NONE));
 
@@ -509,7 +509,7 @@ void CtrlrPanelMIDIToolbar::midiOutputDeviceMenu(Button *button)
 void CtrlrPanelMIDIToolbar::midiInputDeviceMenu(Button *button)
 {
 	PopupMenu m;
-	StringArray dev = owner.getOwner().getOwner().getCtrlrMidiDeviceManager().getManagedDevices (CtrlrMIDIDeviceType::inputDevice);
+	StringArray dev = owner.getOwner().getOwner().getCtrlrMidiDeviceManager().getManagedDevices (inputDevice);
 
 	m.addItem (1, "-- None", true, owner.getOwner().getProperty(Ids::panelMidiInputDevice).toString().isEmpty() || (owner.getOwner().getProperty(Ids::panelMidiInputDevice).toString() == COMBO_ITEM_NONE));
 

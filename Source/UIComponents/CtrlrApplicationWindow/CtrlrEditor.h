@@ -131,13 +131,13 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		CtrlrPanelEditor *getActivePanelEditor();
 		bool isPanelActive(const bool checkRestrictedInstance=false);
 		const PopupMenu getRecentOpenedFilesMenu();
-		const PopupMenu getMidiDeviceMenu(const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
-		const PopupMenu getMidiChannelMenu(const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
-		uint32 getMidiDeviceMenuOffset(const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
-		const Identifier getMidiPropertyName(const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
+		const PopupMenu getMidiDeviceMenu(const CtrlrMIDIDeviceType type=inputDevice);
+		const PopupMenu getMidiChannelMenu(const CtrlrMIDIDeviceType type=inputDevice);
+		uint32 getMidiDeviceMenuOffset(const CtrlrMIDIDeviceType type=inputDevice);
+		const Identifier getMidiPropertyName(const CtrlrMIDIDeviceType type=inputDevice);
 		const StringArray getRecentOpenedFilesList();
 		const var getPanelProperty(const Identifier &propertyName);
-		const String getMidiSummary(const CtrlrMIDIDeviceType type=CtrlrMIDIDeviceType::inputDevice);
+		const String getMidiSummary(const CtrlrMIDIDeviceType type=inputDevice);
 
 		bool isRestricted();
 		void performShowKeyboardMappingDialog(const int menuItemID);

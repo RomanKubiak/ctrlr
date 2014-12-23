@@ -91,15 +91,15 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 		double evaluateFunction (const String& functionName, const double* parameters, int numParameters) const;
 
 		int getValueForMidiMessage(const int value);
-		int getValueFromMidiMessage(const CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice);
+		int getValueFromMidiMessage(const CtrlrMIDIDeviceType source = inputDevice);
 		void setValueFromGUI(const double inValue, const bool force=false, const bool mute=false);
-		void setValueFromMIDI(CtrlrMidiMessage &m, const CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice);
+		void setValueFromMIDI(CtrlrMidiMessage &m, const CtrlrMIDIDeviceType source = inputDevice);
 		void setValueFromHost(const float inValue);
 		void handleAsyncUpdate();
 		CtrlrProcessor *getProcessor();
-		CtrlrOwnedMidiMessage *getMidiMessagePtr(const CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice);
-		CtrlrMidiMessage &getMidiMessage(const CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice);
-		CtrlrOwnedMidiMessage &getOwnedMidiMessage(const CtrlrMIDIDeviceType source = CtrlrMIDIDeviceType::inputDevice);
+		CtrlrOwnedMidiMessage *getMidiMessagePtr(const CtrlrMIDIDeviceType source = inputDevice);
+		CtrlrMidiMessage &getMidiMessage(const CtrlrMIDIDeviceType source = inputDevice);
+		CtrlrOwnedMidiMessage &getOwnedMidiMessage(const CtrlrMIDIDeviceType source = inputDevice);
 		void sendMidiMessage();
 		void setMappedValue (const int mappedValue, const bool force, const bool mute=false);
 
