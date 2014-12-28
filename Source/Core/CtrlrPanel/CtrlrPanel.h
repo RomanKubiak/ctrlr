@@ -331,7 +331,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		MidiMessageCollector midiMessageCollector;
 		CtrlrPanelProcessor processor;
 		CtrlrPanelMIDISnapshot snapshot;
-		CtrlrMidiDevice *outputDevice;
+		CtrlrMidiDevice *outputDevicePtr;
 		ScopedPointer <CtrlrPanelUndoManager> ctrlrPanelUndoManager;
 		CtrlrPanelEvaluationScope panelEvaluationScope;
 		CtrlrGlobalEvaluationScope globalEvaluationScope;

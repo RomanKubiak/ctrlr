@@ -31,7 +31,7 @@ class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMidiDevice::Listene
 		MidiBuffer deviceInputBuffer, hostInputBuffer, thruToDeviceBuffer, junkBuffer;
 		ReadWriteLock lock;
 		CtrlrPanel &owner;
-		CtrlrMidiDevice *inputDevice;
+		CtrlrMidiDevice *inputDevicePtr;
 		CtrlrMIDIDeviceType source;
 		ScopedPointer <CtrlrMidiInputComparator> inputComparator;
 };

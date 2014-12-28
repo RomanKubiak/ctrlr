@@ -9,7 +9,7 @@
 CtrlrPanelMIDIInputThread::CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source)
 	:	owner(_owner),
 		Thread("PANEL MIDI INPUT THREAD"),
-		inputDevice(nullptr),
+		inputDevicePtr(nullptr),
 		inputComparator(nullptr),
 		source(_source)
 {
@@ -21,12 +21,12 @@ CtrlrPanelMIDIInputThread::CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const C
 
 CtrlrPanelMIDIInputThread::~CtrlrPanelMIDIInputThread()
 {
-	if (inputDevice)
+	if (inputDevicePtr)
 	{
-		inputDevice->removeDeviceListener(this);
+		inputDevicePtr->removeDeviceListener(this);
 	}
 
-	inputDevice  = nullptr;
+	inputDevicePtr  = nullptr;
 }
 
 void CtrlrPanelMIDIInputThread::run()
@@ -118,9 +118,9 @@ void CtrlrPanelMIDIInputThread::handleMIDIFromHost(MidiBuffer &buffer)
 
 void CtrlrPanelMIDIInputThread::closeInputDevice()
 {
-	if (inputDevice)
+	if (inputDevicePtr)
 	{
-		inputDevice->closeDevice();
+		inputDevicePtr->closeDevice();
 	}
 }
 
@@ -128,11 +128,11 @@ bool CtrlrPanelMIDIInputThread::openInputDevice (const String &inputDeviceName)
 {
 	const ScopedWriteLock sl(lock);
 
-	inputDevice = owner.getOwner().getCtrlrMidiDeviceManager().getDeviceByName (inputDeviceName, CtrlrMIDIDeviceType::inputDevice, true);
+	inputDevicePtr = owner.getOwner().getCtrlrMidiDeviceManager().getDeviceByName (inputDeviceName, inputDevice, true);
 
-	if (inputDevice != nullptr)
+	if (inputDevicePtr != nullptr)
 	{
-		inputDevice->addDeviceListener (this);
+		inputDevicePtr->addDeviceListener (this);
 
 		return (true);
 	}
