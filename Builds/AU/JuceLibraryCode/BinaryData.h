@@ -196,10 +196,10 @@ namespace BinaryData
     const int            CtrlrMIDITransactions_xmlSize = 1963;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 79876;
+    const int            CtrlrIDs_xmlSize = 80453;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 18370;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 21208;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;

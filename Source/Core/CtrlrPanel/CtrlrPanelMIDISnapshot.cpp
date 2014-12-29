@@ -3,17 +3,27 @@
 #include "CtrlrLog.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrPanelMIDISnapshot.h"
+#include "CtrlrLuaManager.h"
 
-CtrlrPanelMIDISnapshot::CtrlrPanelMIDISnapshot(CtrlrPanel &_owner) 
-	:	owner(_owner), 
-		ThreadWithProgressWindow("MIDI Snapshot", true, true),
-		snapshotDelay(50)
+CtrlrPanelMIDISnapshot::CtrlrPanelMIDISnapshot(CtrlrPanel &_owner)
+	:	owner(_owner),
+		Thread("MIDI Snapshot"),
+		snapshotDelay(50),
+		showDialog(false),
+		alertWindow(nullptr),
+		wasCancelledByUser(false),
+		luaPanelMidiSnapshotPreCbk(nullptr),
+		luaPanelMidiSnapshotPostCbk(nullptr)
 {
 	buffer.ensureSize(8192);
 }
 
 CtrlrPanelMIDISnapshot::~CtrlrPanelMIDISnapshot()
 {
+    if (alertWindow)
+        deleteAndZero (alertWindow);
+
+    stopThread (500);
 }
 
 void CtrlrPanelMIDISnapshot::sendSnapshot()
@@ -21,10 +31,18 @@ void CtrlrPanelMIDISnapshot::sendSnapshot()
 	triggerAsyncUpdate();
 }
 
-void CtrlrPanelMIDISnapshot::handleAsyncUpdate() 
+void CtrlrPanelMIDISnapshot::handleAsyncUpdate()
 {
 	gatherSnapshotData();
-	runThread();
+	startThread();
+
+	startTimer (100);
+    if (alertWindow)
+    {
+        const ScopedLock sl (messageLock);
+        alertWindow->setMessage (message);
+        alertWindow->enterModalState();
+    }
 }
 
 void CtrlrPanelMIDISnapshot::gatherSnapshotData()
@@ -52,6 +70,35 @@ void CtrlrPanelMIDISnapshot::gatherSnapshotData()
 			}
 		}
 	}
+
+	showDialog = owner.getProperty(Ids::panelMidiSnapshotShowProgress);
+
+	if (showDialog)
+    {
+        if (alertWindow == nullptr)
+            alertWindow = LookAndFeel::getDefaultLookAndFeel().createAlertWindow ("MIDI Snapshot", String(), "Stop", String(), String(), AlertWindow::NoIcon, 1, nullptr);
+
+        alertWindow->setEscapeKeyCancels (false);
+        alertWindow->addProgressBarComponent (progress);
+    }
+    else
+    {
+        alertWindow = nullptr;
+    }
+
+    if (luaPanelMidiSnapshotPreCbk && !luaPanelMidiSnapshotPreCbk.wasObjectDeleted())
+	{
+		if (luaPanelMidiSnapshotPreCbk->isValid())
+		{
+			owner.getCtrlrLuaManager().getMethodManager().call (luaPanelMidiSnapshotPreCbk, &buffer);
+		}
+	}
+}
+
+void CtrlrPanelMIDISnapshot::setStatusMessage (const String& newStatusMessage)
+{
+    const ScopedLock sl (messageLock);
+    message = newStatusMessage;
 }
 
 void CtrlrPanelMIDISnapshot::run()
@@ -60,11 +107,9 @@ void CtrlrPanelMIDISnapshot::run()
 	MidiMessage m; int t; int k=0;
 	while (i.getNextEvent(m,t))
 	{
-		setProgress (k / (double) buffer.getNumEvents());
+	    progress = k / (double) buffer.getNumEvents();
 		owner.sendMidi(m);
-		
 		k++;
-
 		wait(snapshotDelay);
 	}
 }
@@ -72,4 +117,51 @@ void CtrlrPanelMIDISnapshot::run()
 void CtrlrPanelMIDISnapshot::setDelay(const int _snapshotDelay)
 {
 	snapshotDelay = _snapshotDelay;
+}
+
+void CtrlrPanelMIDISnapshot::timerCallback()
+{
+    bool threadStillRunning = isThreadRunning();
+
+    if (! threadStillRunning)
+    {
+        stopTimer();
+        stopThread (500);
+
+        if (alertWindow)
+        {
+            if (alertWindow->isCurrentlyModal())
+                alertWindow->exitModalState (1);
+
+            alertWindow->setVisible (false);
+        }
+
+        wasCancelledByUser = threadStillRunning;
+
+        if (luaPanelMidiSnapshotPostCbk && !luaPanelMidiSnapshotPostCbk.wasObjectDeleted())
+        {
+            if (luaPanelMidiSnapshotPostCbk->isValid())
+            {
+                owner.getCtrlrLuaManager().getMethodManager().call (luaPanelMidiSnapshotPostCbk, &buffer);
+            }
+        }
+
+        return; // (this may be deleted now)
+    }
+
+    if (alertWindow)
+    {
+        const ScopedLock sl (messageLock);
+        alertWindow->setMessage (message);
+    }
+}
+
+void CtrlrPanelMIDISnapshot::setPreLuaCallback(CtrlrLuaMethod *method)
+{
+    luaPanelMidiSnapshotPreCbk = method;
+}
+
+void CtrlrPanelMIDISnapshot::setPostLuaCallback(CtrlrLuaMethod *method)
+{
+    luaPanelMidiSnapshotPostCbk = method;
 }

@@ -427,6 +427,8 @@
       <FILE id="WCGsg7" name="CtrlrLuaDebugger.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaDebugger.h"/>
       <GROUP id="{6F54E534-320B-AA8C-9A9C-377ED0644CD1}" name="JuceClasses">
+        <FILE id="LT1HgA" name="LMidiBuffer.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LMidiBuffer.cpp"/>
+        <FILE id="qJFtLd" name="LMidiBuffer.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMidiBuffer.h"/>
         <FILE id="z5bASp" name="CtrlrWrap.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/CtrlrWrap.cpp"/>
         <FILE id="hQrbLr" name="LAffineTransform.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAffineTransform.cpp"/>

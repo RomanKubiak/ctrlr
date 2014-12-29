@@ -418,6 +418,8 @@
       <FILE id="z7iSMw" name="CtrlrLuaDebugger.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaDebugger.h"/>
       <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
+        <FILE id="RuOvmC" name="LMidiBuffer.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LMidiBuffer.cpp"/>
+        <FILE id="OyKnm7" name="LMidiBuffer.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMidiBuffer.h"/>
         <FILE id="oLVJsP" name="LookAndFeelBase.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LookAndFeelBase.cpp"/>
         <FILE id="ABKnJo" name="LookAndFeelBase.h" compile="0" resource="0"

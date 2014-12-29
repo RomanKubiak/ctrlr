@@ -100,6 +100,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
   $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
+  $(OBJDIR)/LMidiBuffer_d1dab261.o \
   $(OBJDIR)/CtrlrWrap_382e7425.o \
   $(OBJDIR)/LAffineTransform_2319dc77.o \
   $(OBJDIR)/LAlertWindow_465bd516.o \
@@ -498,6 +499,11 @@ $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 $(OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLuaDebugger.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LMidiBuffer_d1dab261.o: ../../../../Source/Lua/JuceClasses/LMidiBuffer.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LMidiBuffer.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrWrap_382e7425.o: ../../../../Source/Lua/JuceClasses/CtrlrWrap.cpp

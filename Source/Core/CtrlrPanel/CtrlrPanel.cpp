@@ -80,6 +80,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::panelMidiSnapshotAfterLoad, false);
 	setProperty (Ids::panelMidiSnapshotAfterProgramChange, false);
 	setProperty (Ids::panelMidiSnapshotDelay, 10);
+	setProperty (Ids::panelMidiSnapshotShowProgress, false);
 	setProperty (Ids::panelMidiInputChannelDevice, 1);
 	setProperty (Ids::panelMidiInputDevice, COMBO_NONE_ITEM);
 	setProperty (Ids::panelMidiControllerChannelDevice, 1);
@@ -124,7 +125,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::luaPanelModulatorValueChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelSaveState, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelRestoreState, COMBO_ITEM_NONE);
-
+    setProperty (Ids::luaPanelMidiSnapshotPost, COMBO_ITEM_NONE);
+    setProperty (Ids::luaPanelMidiSnapshotPre, COMBO_ITEM_NONE);
 	setProperty (Ids::panelFilePath, String::empty);
 	setProperty (Ids::panelUID, generateRandomUnique());
 	setProperty (Ids::panelInstanceUID, generateRandomUniquePluginId());
@@ -517,6 +519,20 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 			return;
 
 		luaPanelRestoreStateCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::luaPanelMidiSnapshotPost)
+	{
+		if (getProperty(property) == String::empty)
+			return;
+
+        snapshot.setPostLuaCallback (getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property)));
+	}
+	else if (property == Ids::luaPanelMidiSnapshotPre)
+	{
+		if (getProperty(property) == String::empty)
+			return;
+
+		snapshot.setPreLuaCallback (getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property)));
 	}
 	else if (property == Ids::panelGlobalVariables)
 	{

@@ -686,6 +686,11 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LMidiBuffer.cpp"/>
+    <Unit filename="../../../../Source/Lua/JuceClasses/LMidiBuffer.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Lua/JuceClasses/CtrlrWrap.cpp"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LAffineTransform.cpp"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LAffineTransform.h">

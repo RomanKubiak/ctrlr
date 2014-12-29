@@ -69,6 +69,7 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<GroupComponent> groupComponent;
     ScopedPointer<Label> componentName;
     ScopedPointer<Slider> modulatorNumericValue;
     ScopedPointer<TextButton> viewRealtimeEvents;
@@ -80,6 +81,7 @@ private:
     ScopedPointer<Label> currentMIDINumber;
     ScopedPointer<Label> label3;
     ScopedPointer<Label> label4;
+    ScopedPointer<Label> currentMidiMessage;
 
 
     //==============================================================================

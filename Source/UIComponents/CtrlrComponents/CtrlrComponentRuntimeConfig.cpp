@@ -32,6 +32,9 @@
 CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_componentToConfigure)
     : componentToConfigure(_componentToConfigure)
 {
+    addAndMakeVisible (groupComponent = new GroupComponent ("new group",
+                                                            TRANS("Controller mapping")));
+
     addAndMakeVisible (componentName = new Label (String::empty,
                                                   TRANS("This is a long modulator name")));
     componentName->setFont (Font (14.00f, Font::bold));
@@ -49,6 +52,7 @@ CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_compo
     modulatorNumericValue->addListener (this);
 
     addAndMakeVisible (viewRealtimeEvents = new TextButton (String::empty));
+    viewRealtimeEvents->setTooltip (TRANS("This will show MIDI events comming from the selected Controller Midi Device"));
     viewRealtimeEvents->setButtonText (TRANS("View realtime"));
     viewRealtimeEvents->addListener (this);
     viewRealtimeEvents->setColour (TextButton::buttonColourId, Colour (0xff39ff99));
@@ -56,6 +60,7 @@ CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_compo
     addAndMakeVisible (realtimeEventsList = new ListBox());
 
     addAndMakeVisible (mapToSelected = new TextButton (String::empty));
+    mapToSelected->setTooltip (TRANS("Map this modulator to the selected MIDI message type and controller number"));
     mapToSelected->setButtonText (TRANS("Map to selected"));
     mapToSelected->addListener (this);
     mapToSelected->setColour (TextButton::buttonColourId, Colour (0xff39e8ff));
@@ -121,6 +126,15 @@ CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_compo
     label4->setColour (TextEditor::textColourId, Colours::black);
     label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
+    addAndMakeVisible (currentMidiMessage = new Label (String::empty,
+                                                       TRANS("This is the current Midi message")));
+    currentMidiMessage->setFont (Font (Font::getDefaultMonospacedFontName(), 12.00f, Font::bold));
+    currentMidiMessage->setJustificationType (Justification::centredLeft);
+    currentMidiMessage->setEditable (false, false, false);
+    currentMidiMessage->setColour (Label::outlineColourId, Colour (0x79000000));
+    currentMidiMessage->setColour (TextEditor::textColourId, Colours::black);
+    currentMidiMessage->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
 
     //[UserPreSize]
     componentToConfigure->getOwner().getOwner().addPanelListener(this);
@@ -143,6 +157,7 @@ CtrlrComponentRuntimeConfig::~CtrlrComponentRuntimeConfig()
     componentToConfigure->getOwner().getOwner().removePanelListener(this);
     //[/Destructor_pre]
 
+    groupComponent = nullptr;
     componentName = nullptr;
     modulatorNumericValue = nullptr;
     viewRealtimeEvents = nullptr;
@@ -154,6 +169,7 @@ CtrlrComponentRuntimeConfig::~CtrlrComponentRuntimeConfig()
     currentMIDINumber = nullptr;
     label3 = nullptr;
     label4 = nullptr;
+    currentMidiMessage = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -184,17 +200,19 @@ void CtrlrComponentRuntimeConfig::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    componentName->setBounds (4, 8, proportionOfWidth (0.5800f), 24);
+    groupComponent->setBounds (0, 56, getWidth() - 0, 144);
+    componentName->setBounds (4, 8, proportionOfWidth (0.5813f), 24);
     modulatorNumericValue->setBounds (proportionOfWidth (0.6000f), 8, proportionOfWidth (0.4000f), 24);
-    viewRealtimeEvents->setBounds (176, 40, 103, 24);
-    realtimeEventsList->setBounds (8, 40, proportionOfWidth (0.5000f), getHeight() - 48);
-    mapToSelected->setBounds (176, 72, 103, 24);
+    viewRealtimeEvents->setBounds (176, 80, 64, 16);
+    realtimeEventsList->setBounds (8, 80, proportionOfWidth (0.5000f), getHeight() - 88);
+    mapToSelected->setBounds (248, 80, 63, 16);
     mappingFormula->setBounds (176, 176, 136, 16);
     label2->setBounds (176, 160, 136, 16);
     currentMIDIType->setBounds (176, 116, 136, 16);
     currentMIDINumber->setBounds (232, 136, 80, 16);
     label3->setBounds (176, 100, 136, 16);
     label4->setBounds (176, 136, 56, 16);
+    currentMidiMessage->setBounds (4, 36, proportionOfWidth (0.9625f), 16);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -302,6 +320,8 @@ BEGIN_JUCER_METADATA
     <RECT pos="0 0 0M 0M" fill="linear: 0 0, 320 0R, 0=ffa9c6ff, 1=ff69d7ff"
           hasStroke="0"/>
   </BACKGROUND>
+  <GROUPCOMPONENT name="new group" id="1e62cac43e08f6c7" memberName="groupComponent"
+                  virtualName="" explicitFocusOrder="0" pos="0 56 0M 144" title="Controller mapping"/>
   <LABEL name="" id="db93816ae811cf4d" memberName="componentName" virtualName=""
          explicitFocusOrder="0" pos="4 8 58.125% 24" outlineCol="79000000"
          edTextCol="ff000000" edBkgCol="0" labelText="This is a long modulator name"
@@ -312,16 +332,16 @@ BEGIN_JUCER_METADATA
           min="0" max="127" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
           textBoxEditable="1" textBoxWidth="48" textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="" id="5a2402776f314e33" memberName="viewRealtimeEvents"
-              virtualName="" explicitFocusOrder="0" pos="176 40 103 24" bgColOff="ff39ff99"
-              buttonText="View realtime" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="176 80 64 16" tooltip="This will show MIDI events comming from the selected Controller Midi Device"
+              bgColOff="ff39ff99" buttonText="View realtime" connectedEdges="0"
+              needsCallback="1" radioGroupId="0"/>
   <GENERICCOMPONENT name="" id="baa41514b5f7013f" memberName="realtimeEventsList"
-                    virtualName="" explicitFocusOrder="0" pos="8 40 50% 48M" class="ListBox"
+                    virtualName="" explicitFocusOrder="0" pos="8 80 50% 88M" class="ListBox"
                     params=""/>
   <TEXTBUTTON name="" id="68e0657e7ef3a65a" memberName="mapToSelected" virtualName=""
-              explicitFocusOrder="0" pos="176 72 103 24" bgColOff="ff39e8ff"
-              buttonText="Map to selected" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              explicitFocusOrder="0" pos="248 80 63 16" tooltip="Map this modulator to the selected MIDI message type and controller number"
+              bgColOff="ff39e8ff" buttonText="Map to selected" connectedEdges="0"
+              needsCallback="1" radioGroupId="0"/>
   <LABEL name="" id="771520d7ac6dc5a3" memberName="mappingFormula" virtualName=""
          explicitFocusOrder="0" pos="176 176 136 16" outlineCol="80000000"
          edTextCol="ff000000" edBkgCol="0" labelText="value" editableSingleClick="1"
@@ -352,6 +372,12 @@ BEGIN_JUCER_METADATA
          edTextCol="ff000000" edBkgCol="0" labelText="Number" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="12" bold="1" italic="1" justification="33"/>
+  <LABEL name="" id="f3d83dd4300ccab" memberName="currentMidiMessage"
+         virtualName="" explicitFocusOrder="0" pos="4 36 96.25% 16" outlineCol="79000000"
+         edTextCol="ff000000" edBkgCol="0" labelText="This is the current Midi message"
+         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
+         fontname="Default monospaced font" fontsize="12" bold="1" italic="0"
+         justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
