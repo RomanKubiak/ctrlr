@@ -10,37 +10,37 @@
 namespace BinaryData
 {
     extern const char*   inspect_lua;
-    const int            inspect_luaSize = 9233;
+    const int            inspect_luaSize = 9563;
 
     extern const char*   debugger_lua;
-    const int            debugger_luaSize = 43371;
+    const int            debugger_luaSize = 44867;
 
     extern const char*   LICENSE;
-    const int            LICENSESize = 1079;
+    const int            LICENSESize = 1099;
 
     extern const char*   README_md;
-    const int            README_mdSize = 266;
+    const int            README_mdSize = 272;
 
     extern const char*   json_lua;
     const int            json_luaSize = 17174;
 
     extern const char*   LICENCE_txt;
-    const int            LICENCE_txtSize = 1077;
+    const int            LICENCE_txtSize = 1097;
 
     extern const char*   gen_LLookAndFeel_cpp_sh;
-    const int            gen_LLookAndFeel_cpp_shSize = 2533;
+    const int            gen_LLookAndFeel_cpp_shSize = 2671;
 
     extern const char*   gen_LLookAndFeel_h_sh;
-    const int            gen_LLookAndFeel_h_shSize = 3815;
+    const int            gen_LLookAndFeel_h_shSize = 4001;
 
     extern const char*   gen_LookAndFeel_lua_sh;
-    const int            gen_LookAndFeel_lua_shSize = 2182;
+    const int            gen_LookAndFeel_lua_shSize = 2311;
 
     extern const char*   lf_template;
-    const int            lf_templateSize = 13531;
+    const int            lf_templateSize = 13631;
 
     extern const char*   LookAndFeel_lua;
-    const int            LookAndFeel_luaSize = 14757;
+    const int            LookAndFeel_luaSize = 15109;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
