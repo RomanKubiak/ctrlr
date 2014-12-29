@@ -18,6 +18,7 @@
 #include "LLine.h"
 #include "LMemoryBlock.h"
 #include "LMidiMessage.h"
+#include "LMidiBuffer.h"
 #include "LModifierKeys.h"
 #include "LMouseCursor.h"
 #include "LMouseEvent.h"
@@ -66,6 +67,7 @@ void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 	LFile::wrapForLua(L);
 	LMemoryBlock::wrapForLua(L);
 	LMidiMessage::wrapForLua(L);
+	LMidiBuffer::wrapForLua(L);
 	LString::wrapForLua(L);
 	LResult::wrapForLua(L);
 	LTime::wrapForLua(L);

@@ -96,6 +96,7 @@
   <id name="panelMidiGlobalDelay"                       text="Global delay for MIDI messages [ms]"              type="Numeric"  min="0" max="5000" />
   <id name="panelMidiPauseOut"                          text="No MIDI output from panel"                        type="Bool" />
   <id name="panelMidiPauseIn"                           text="No MIDI input to panel"                           type="Bool" />
+  <id name="panelMidiSnapshotShowProgress"              text="Show progress bar window when sending snapshot"   type="Bool" />
 
   <!-- General -->
   <id name="panelFilePath"                  text="Panel file path" type="ReadOnly"/>
@@ -754,6 +755,8 @@
   <id name="luaPanelResourcesLoaded"          text="Callback to indicate that all resources are ready for a panel"            type="LuaMethod" />
   <id name="luaPanelSaveState"                text="Called when Ctrlr state is saved (DAW saves a project)"                   type="LuaMethod" />
   <id name="luaPanelRestoreState"             text="Called when Ctrlr is loaded (DAW opens a project)"                        type="LuaMethod" />
+  <id name="luaPanelMidiSnapshotPre"          text="Called before a MIDI snapshot is sent"                                    type="LuaMethod" />
+  <id name="luaPanelMidiSnapshotPost"         text="Called after a MIDI snapshot has been sent"                               type="LuaMethod" />
 
   <id name="luaTransProcess"		  text="Transaction process" 					type="LuaMethod" />
   <id name="luaTransDataUnpack"		text="Transaction data unpacking" 			type="LuaMethod" />

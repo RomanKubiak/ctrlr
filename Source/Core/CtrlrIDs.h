@@ -116,6 +116,7 @@ namespace Ids
 	DECLARE_ID (panelMidiSnapshotAfterLoad);
 	DECLARE_ID (panelMidiSnapshotAfterProgramChange);
 	DECLARE_ID (panelMidiSnapshotDelay);
+	DECLARE_ID (panelMidiSnapshotShowProgress);
 	DECLARE_ID (panelMidiInputThreadPriority);
 	DECLARE_ID (panelMidiPauseOut);
 	DECLARE_ID (panelMidiPauseIn);
@@ -774,12 +775,15 @@ namespace Ids
     DECLARE_ID (luaPanelResourcesLoaded);
 	DECLARE_ID (luaPanelSaveState);
 	DECLARE_ID (luaPanelRestoreState);
+	DECLARE_ID (luaPanelMidiSnapshotPre);
+	DECLARE_ID (luaPanelMidiSnapshotPost);
 
 	DECLARE_ID (luaMidiLibrarySend);
 	DECLARE_ID (luaMidiLibraryRequest);
 	DECLARE_ID (luaMidiLibraryProcess);
 	DECLARE_ID (luaMidiLibraryConfirm);
 	DECLARE_ID (luaMidiLibraryUndefined);
+
 	DECLARE_ID (luaTransProcess);
 	DECLARE_ID (luaTransDataUnpack);
 	DECLARE_ID (luaTransDataPack);

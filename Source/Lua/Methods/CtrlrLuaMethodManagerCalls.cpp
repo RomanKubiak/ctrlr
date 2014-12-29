@@ -906,6 +906,28 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, ValueTree &param1)
 	return (true);
 }
 
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, MidiBuffer *param1)
+{
+    const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1);
+		}
+	}
+
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
+}
+
 const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const ValueTree &param1)
 {
 	const ScopedLock sl(methodManagerCriticalSection);

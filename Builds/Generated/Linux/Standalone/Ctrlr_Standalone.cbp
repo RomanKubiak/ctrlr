@@ -202,6 +202,7 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++0x" />
 			<Add option="-Wall" />
 			<Add option="-Wno-strict-aliasing" />
 			<Add option="-Wno-strict-overflow" />
@@ -2320,6 +2321,8 @@
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMemoryBlock.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMemoryInputStream.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMemoryInputStream.h" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiBuffer.cpp" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiBuffer.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiKeyboardComponent.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiMessage.cpp" />

@@ -246,6 +246,8 @@
               file="../../Source/Lua/Deprecated/CtrlrLuaRectangle.h"/>
       </GROUP>
       <GROUP id="{2F024239-B6C9-D070-182A-3FA0F87BDCCF}" name="JuceClasses">
+        <FILE id="zMc7jT" name="LMidiBuffer.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LMidiBuffer.cpp"/>
+        <FILE id="YSNVYj" name="LMidiBuffer.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMidiBuffer.h"/>
         <FILE id="Ym3LMb" name="CtrlrWrap.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/CtrlrWrap.cpp"/>
         <FILE id="xuzcse" name="LAffineTransform.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LAffineTransform.cpp"/>

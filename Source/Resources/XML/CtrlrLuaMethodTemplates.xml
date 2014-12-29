@@ -6,7 +6,7 @@
     -- @mod   http://ctrlr.org/api/class_ctrlr_modulator.html
     -- @value    new numeric value of the modulator
     --
-    __method_name = function(mod, value)
+    __method_name = function(--[[ CtrlrModulator --]] mod, --[[ number --]] value)
     end
   </luaMethod>
 
@@ -15,7 +15,7 @@
     -- Called when the mouse moves over a component
     --
 
-    __method_name = function(comp, event)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
     end
   </luaMethod>
 
@@ -25,7 +25,7 @@
     -- @comp
     --
 
-    __method_name = function(comp)
+    __method_name = function(--[[ CtrlrComponent --]] comp)
     end
   </luaMethod>
 
@@ -37,7 +37,7 @@
     --              see also http://www.rawmaterialsoftware.com/juce/api/classGraphics.html
     --
 
-    __method_name = function(comp,g)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ CtrlrComponent --]] g)
     end
   </luaMethod>
 
@@ -49,7 +49,7 @@
     --              see also http://www.rawmaterialsoftware.com/juce/api/classGraphics.html
     --
 
-    __method_name = function(comp,g)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ Graphics --]] g)
     end
   </luaMethod>
 
@@ -60,7 +60,7 @@
     -- @event   http://www.rawmaterialsoftware.com/juce/api/classMouseEvent.html
     --
 
-    __method_name = function(comp, event)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
     end
   </luaMethod>
 
@@ -69,7 +69,7 @@
     -- Called when a mouse UP (any mouse button) event happens on a component
     --
 
-    __method_name = function(comp, event)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
     end
   </luaMethod>
 
@@ -78,7 +78,7 @@
     -- Called when a mouse DOUBLE CLICK (any mouse button) event happens on a component
     --
 
-    __method_name = function(comp, event)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
     end
   </luaMethod>
 
@@ -87,7 +87,7 @@
     -- Called when the mouse cursors enters a component
     --
 
-    __method_name = function(comp, event)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
     end
   </luaMethod>
 
@@ -96,7 +96,7 @@
     -- Called when the mouse wheel is moved
     --
 
-    __method_name = function(comp, event, incX, incY)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event, --[[ number --]] incX, --[[ number --]] incY)
     end
   </luaMethod>
 
@@ -105,7 +105,7 @@
     -- Called when the mouse cursors exits a component
     --
 
-    __method_name = function(comp,event)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
     end
   </luaMethod>
 
@@ -114,7 +114,7 @@
     -- Called when the mouse is dragged over a component (mouse button is down and the mouse is moved)
     --
 
-    __method_name = function(comp, event)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
     end
   </luaMethod>
 
@@ -123,7 +123,7 @@
     -- Called when the mouse moves over a component
     --
 
-    __method_name = function(comp, event)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
     end
   </luaMethod>
 
@@ -132,7 +132,7 @@
     -- Called when the a key is pressed and the component has focus
     --
 
-    __method_name = function(comp, keyEvent, originatingComponent)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[KeyPress --]] keyEvent, --[[ Component --]] originatingComponent)
     end
   </luaMethod>
 
@@ -141,7 +141,7 @@
     -- Called when the a key state changes
     --
 
-    __method_name = function(comp, isKeyDown, originatingComponent)
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ bool --]] isKeyDown, --[[ Component --]] originatingComponent)
     end
   </luaMethod>
 
@@ -152,7 +152,7 @@
     --
     -- the parameter is a DragAndDropSourceDetails object
 
-    __method_name = function(component, dragSourceDetails)
+    __method_name = function(--[[ CtrlrComponent --]] component, --[[ DragAndDropSourceDetails --]] dragSourceDetails)
         return (1)
     end
   </luaMethod>
@@ -162,7 +162,7 @@
     -- Called when a DragAndDrop event enters this component
     --
 
-    __method_name = function(component, dragSourceDetails)
+    __method_name = function(--[[ CtrlrComponent --]] component, --[[ DragAndDropSourceDetails --]] dragSourceDetails)
     end
   </luaMethod>
 
@@ -171,7 +171,7 @@
     -- Called when a DragAndDrop event occurs over this component
     --
 
-    __method_name = function(component, dragSourceDetails)
+    __method_name = function(--[[ CtrlrComponent --]] component, --[[ DragAndDropSourceDetails --]] dragSourceDetails)
     end
   </luaMethod>
 
@@ -180,7 +180,7 @@
     -- Called when a DragAndDrop event exits this component
     --
 
-    __method_name = function(component, dragSourceDetails)
+    __method_name = function(--[[ CtrlrComponent --]] component, --[[ DragAndDropSourceDetails --]] dragSourceDetails)
     end
   </luaMethod>
 
@@ -190,7 +190,7 @@
     -- the return value is a DragAndDropSourceDetails object
     --
 
-    __method_name = function(component, mouseEvent)
+    __method_name = function(--[[ CtrlrComponent --]] component, --[[ MouseEvent --]] mouseEvent)
         details = DragAndDropSourceDetails()
         return (details)
     end
@@ -201,7 +201,7 @@
     -- Called when something is dropped on this component
     --
 
-    __method_name = function(component, dragSourceDetails)
+    __method_name = function(--[[ CtrlrComponent --]] component, --[[ DragAndDropSourceDetails --]] dragSourceDetails)
     end
   </luaMethod>
 
@@ -210,7 +210,7 @@
     -- Called when the current tab in an uiTabs component is changed
     --
 
-    __method_name = function(mod, tabIndex)
+    __method_name = function(--[[ CtrlrModulator --]] mod, --[[ number --]] tabIndex)
     end
   </luaMethod>
 
@@ -219,7 +219,7 @@
     -- Called when the panel background needs repainting
     --
 
-    __method_name = function(canvas,g)
+    __method_name = function(--[[ CtrlrPanelCanvas --]] canvas, --[[ Graphics --]] g)
     end
   </luaMethod>
 
@@ -228,7 +228,7 @@
     -- Called when the panel is resized
     --
 
-    __method_name = function(panel)
+    __method_name = function(--[[ CtrlrPanelEditor --]] panel)
     end
   </luaMethod>
 
@@ -240,7 +240,7 @@
     --                      see more http://www.rawmaterialsoftware.com/juce/api/classFile.html
     --
 
-    __method_name = function(saveType, destinationFile)
+    __method_name = function(--[[ number --]] saveType, --[[ File --]] destinationFile)
     end
   </luaMethod>
 
@@ -263,7 +263,7 @@
     -- @bankMsb bank number (MSB part CC0)
     --
 
-    __method_name = function(program, bankLsb, bankMsb)
+    __method_name = function(--[[ number --]] program, --[[ number --]] bankLsb, --[[ number --]] bankMsb)
     end
   </luaMethod>
 
@@ -275,17 +275,17 @@
     -- @value new modulator value
     --
 
-    __method_name = function(modulator, value)
+    __method_name = function(--[[ CtrlrModulator --]] modulator, --[[ number --]] value)
     end
   </luaMethod>
 
   <luaMethod name="luaPanelMidiReceived">
     --
     -- Called when a panel receives a midi message (does not need to match any modulator mask)
-    -- @midi   http://ctrlr.org/api/class_ctrlr_midi_message.html
+    -- @midi   CtrlrMidiMessage object
     --
 
-    __method_name = function(midi)
+    __method_name = function(--[[ CtrlrMidiMessage --]] midi)
     end
   </luaMethod>
 
@@ -296,7 +296,7 @@
     -- @newContent    a string that the label now contains
     --
 
-    __method_name = function(label, newContent)
+    __method_name = function(--[[ CtrlrLabel --]] label, --[[ String --]] newContent)
     end
   </luaMethod>
 
@@ -308,7 +308,7 @@
     -- @file      a File object that represents the clicked file
     --
 
-    __method_name = function(modulator, file)
+    __method_name = function(--[[ CtrlrModulator --]] modulator, --[[ File --]] file)
     end
   </luaMethod>
 
@@ -320,7 +320,7 @@
     -- @file      a File object that represents the double clicked file
     --
 
-    __method_name = function(modulator, file)
+    __method_name = function(--[[ CtrlrModulator --]] modulator, --[[ File --]] file)
     end
   </luaMethod>
 
@@ -332,7 +332,7 @@
     -- @value      a integer that represents the clicked item
     --
 
-    __method_name = function(modulator, value)
+    __method_name = function(--[[ CtrlrModulator --]] modulator, --[[ number --]] value)
     end
   </luaMethod>
 
@@ -344,7 +344,7 @@
     -- @value      an integer that represents the double clicked item
     --
 
-    __method_name = function(modulator, value)
+    __method_name = function(--[[ CtrlrModulator --]] modulator, --[[ number --]] value)
     end
   </luaMethod>
 
@@ -356,7 +356,7 @@
     -- @value      a integer that represents the selected item
     --
 
-    __method_name = function(modulator, value)
+    __method_name = function(--[[ CtrlrModulator --]] modulator, --[[ number --]] value)
     end
   </luaMethod>
 
@@ -368,7 +368,7 @@
     -- @value      an integer that represents the selected item
     --
 
-    __method_name = function(modulator, value)
+    __method_name = function(--[[ CtrlrModulator --]] modulator, --[[ number --]] value)
     end
   </luaMethod>
 
@@ -379,7 +379,7 @@
     -- @comp The Waveform component that holds the changed AudioThumbnail
     --
 
-    __method_name = function(comp)
+    __method_name = function(--[[ CtrlrWaveform --]] comp)
     end
   </luaMethod>
 
@@ -392,7 +392,7 @@
     -- @x       - x coordinate where the event occured
     -- @y       - y coordinate where the event occured
 
-    __method_name = function(files, x, y)
+    __method_name = function(--[[ StringArray --]] files, --[[ number --]] x, --[[ number --]] y)
     end
   </luaMethod>
 
@@ -404,7 +404,7 @@
     -- @comp The Waveform component that holds the changed AudioThumbnail
     --
 
-    __method_name = function(comp)
+    __method_name = function(--[[ CtrlrWaveform --]] comp)
     end
   </luaMethod>
 
@@ -420,7 +420,7 @@
     --
     -- Called when a MIDI channel property for the panel changes
     --
-    __method_name = function(channelType, newChannel)
+    __method_name = function(--[[ number --]] channelType, --[[ number --]] newChannel)
     end
   </luaMethod>
 
@@ -428,7 +428,7 @@
     --
     --
     --
-    __method_name = function(modulator, numericModulatorValue)
+    __method_name = function(--[[ CtrlrModulator --]] modulator, --[[ number --]] numericModulatorValue)
       return numericModulatorValue
     end
   </luaMethod>
@@ -437,7 +437,7 @@
     --
     --
     --
-    __method_name = function(modulator, midiMessage, numericMidiValue)
+    __method_name = function(--[[ CtrlrModulator --]] modulator, --[[ CtrlrMidiMessage --]] midiMessage, --[[ number --]] numericMidiValue)
       return numericMidiValue
     end
   </luaMethod>
@@ -447,7 +447,7 @@
     -- Called when a global variable has changed it's value
     --
 
-    __method_name = function(index, value)
+    __method_name = function(--[[ number --]] index, --[[ number --]] value)
     end
   </luaMethod>
 
@@ -459,7 +459,7 @@
     -- @itemToGet - a ValueTree object that is requested, this is the selected item in the MIDI LibraryApplication
     -- @request   - a CtrlrMIDILibraryRequest object that shoule be modified by the method to complete the request
 
-    __method_name = function(request)
+    __method_name = function(--[[ CtrlrMIDILibraryRequest --]] request)
     end
   </luaMethod>
 
@@ -471,7 +471,7 @@
     -- @itemToSend - a ValueTree object that needs sending
     -- @request    - a CtrlrMIDILibraryRequest object that shoule be modified by the method to complete the sending
 
-    __method_name = function(request)
+    __method_name = function(--[[ CtrlrMIDILibraryRequest --]] request)
     end
   </luaMethod>
 
@@ -483,7 +483,7 @@
   	-- @request    - a CtrlrMIDILibraryRequest object that will have all the informationa bout the received data. To continue processing the object should
   	-- 				 be modified accordingly.
 
-  	__method_name = function(request)
+  	__method_name = function(--[[ CtrlrMIDILibraryRequest --]] request)
   	end
   </luaMethod>
 
@@ -494,7 +494,7 @@
 
   	-- @request    - a CtrlrMIDILibraryRequest object that shoule be modified by the method to complete the confirmation
 
-  	__method_name = function(request)
+  	__method_name = function(--[[ CtrlrMIDILibraryRequest --]] request)
   	end
   </luaMethod>
 
@@ -505,7 +505,7 @@
 
   	-- @request    - a CtrlrMIDILibraryRequest object
 
-  	__method_name = function(request)
+  	__method_name = function(--[[ CtrlrMIDILibraryRequest --]] request)
   	end
   </luaMethod>
 
@@ -517,7 +517,7 @@
     -- @message   - a String object with the message contents
     -- @type      - a type of message (4 levels defined success,failure,information,warning)
 
-    __method_name = function(message, type)
+    __method_name = function(--[[ String --]] message, --[[ number --]] type)
     end
   </luaMethod>
 
@@ -530,7 +530,7 @@
     -- @x       - x coordinate where the event occured
     -- @y       - y coordinate where the event occured
 
-    __method_name = function(files, x, y)
+    __method_name = function(--[[ StringArray --]] files, --[[ number --]] x, --[[ number --]] y)
     end
   </luaMethod>
 
@@ -543,7 +543,7 @@
     -- @x       - x coordinate where the event occured
     -- @y       - y coordinate where the event occured
 
-    __method_name = function(files, x, y)
+    __method_name = function(--[[ StringArray --]] files, --[[ number --]] x, --[[ number --]] y)
     end
   </luaMethod>
 
@@ -554,7 +554,7 @@
 
     -- @files   - StringArray object that has the file paths
 
-    __method_name = function(files)
+    __method_name = function(--[[ StringArray --]] files)
     end
   </luaMethod>
 
@@ -570,28 +570,48 @@
     --
     -- Called when data needs saving
     --
-    __method_name = function(stateData)
+    __method_name = function(--[[ ValueTree --]] stateData)
     end
   </luaMethod>
   <luaMethod name="luaCtrlrResoreState">
     --
     -- Called when data is restored
     --
-    __method_name = function(stateData)
+    __method_name = function(--[[ ValueTree --]] stateData)
     end
   </luaMethod>
   <luaMethod name="luaPanelSaveState">
     --
     -- Called when data needs saving
     --
-    __method_name = function(stateData)
+    __method_name = function(--[[ ValueTree --]]stateData)
     end
   </luaMethod>
   <luaMethod name="luaPanelRestoreState">
     --
     -- Called when data is restored
     --
-    __method_name = function(stateData)
+    __method_name = function(--[[ ValueTree --]] stateData)
+    end
+  </luaMethod>
+
+  <luaMethod name="luaPanelMidiSnapshotPre">
+    --
+    -- Called before a snapshot is sent to the device
+    --
+    -- @buffer MidiBuffer all the midi messages that will be sent
+    --
+    __method_name = function(--[[ MidiBuffer --]] buffer)
+    end
+  </luaMethod>
+
+  <luaMethod name="luaPanelMidiSnapshotPost">
+    --
+    -- Called when data is restored
+    --
+    -- @buffer MidiBuffer all the midi messages that have been sent
+    --
+    __method_name = function(--[[ MidiBuffer --]] buffer)
     end
   </luaMethod>
 
