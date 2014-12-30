@@ -92,7 +92,20 @@ void CtrlrLog::logMessage (const String &device, const MidiMessage &message, con
 	}
 }
 
-void CtrlrLog::logMessage (const String &device, const MidiBuffer &buffer, const LogLevel level)
+void CtrlrLog::logMessage (const String &device, const MidiMessage &message, const double time, const LogLevel level)
+{
+	if (getBitOption(midiLogOptions.get(), midiLogInput) && level == MidiIn)
+	{
+		logMessage ((getBitOption(midiLogOptions.get(), midiLogDevice) ? (" Dev:["+device+"]") : "")+ formatMidiMessage(message, time), level);
+	}
+
+	if (getBitOption(midiLogOptions.get(), midiLogOutput) && level == MidiOut)
+	{
+		logMessage ((getBitOption(midiLogOptions.get(), midiLogDevice) ? (" Dev:["+device+"]") : "")+ formatMidiMessage(message, time), level);
+	}
+}
+
+void CtrlrLog::logMessage (const String &device, const MidiBuffer &buffer, const double time, const LogLevel level)
 {
 	MidiBuffer::Iterator i(buffer);
 	MidiMessage m;
@@ -237,10 +250,11 @@ String CtrlrLog::formatMessage(const CtrlrLogMessage &m, const bool includeLevel
 	return (ret);
 }
 
-const String CtrlrLog::formatMidiMessage (const MidiMessage &message)
+const String CtrlrLog::formatMidiMessage (const MidiMessage &message, const double timestamp)
 {
 	return (getMidiMessageAsLogString (
 													message,
+													timestamp,
 													getBitOption(midiLogOptions.get(), midiLogName),
 													getBitOption(midiLogOptions.get(), midiLogChannel),
 													getBitOption(midiLogOptions.get(), midiLogNumber),

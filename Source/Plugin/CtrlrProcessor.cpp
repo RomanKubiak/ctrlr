@@ -246,6 +246,7 @@ void CtrlrProcessor::addMidiToOutputQueue (CtrlrMidiMessage &m)
 {
 	for (int i=0; i<m.getNumMessages(); i++)
 	{
+		m.getReference(i).m.setTimeStamp(i+1);
 		midiCollector.addMessageToQueue (m.getReference(i).m);
 	}
 }
@@ -290,6 +291,25 @@ void CtrlrProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMe
 	}
 
 	midiCollector.removeNextBlockOfMessages (midiMessages, buffer.getNumSamples());
+
+	MidiBuffer::Iterator i(midiMessages);
+	while (i.getNextEvent(logResult, logSamplePos))
+		_MOUT("VST OUTPUT", logResult, logSamplePos);
+}
+
+void CtrlrProcessor::processPanels(MidiBuffer &midiMessages, const AudioPlayHead::CurrentPositionInfo &positionInfo)
+{
+	leftoverBuffer.clear();
+	
+	for (int i=0; i<panelProcessors.size(); i++)
+	{
+		if (!panelProcessors[i].wasObjectDeleted())
+		{
+			panelProcessors[i]->processBlock (midiMessages, leftoverBuffer, positionInfo);
+		}
+	}
+
+	midiMessages.swapWith(leftoverBuffer);
 }
 
 bool CtrlrProcessor::hasEditor() const
@@ -397,17 +417,6 @@ void CtrlrProcessor::setMidiOptions(const bool _thruHostToHost, const bool _thru
 	thruFromHostChannelize		= _thruFromHostChannelize;
 	outputToHost				= _outputToHost;
 	inputFromHost				= _inputFromHost;
-}
-
-void CtrlrProcessor::processPanels(MidiBuffer &midiMessages, const AudioPlayHead::CurrentPositionInfo &positionInfo)
-{
-	for (int i=0; i<panelProcessors.size(); i++)
-	{
-		if (!panelProcessors[i].wasObjectDeleted())
-		{
-			panelProcessors[i]->processBlock (midiMessages, leftoverBuffer, positionInfo);
-		}
-	}
 }
 
 void CtrlrProcessor::addPanelProcessor (CtrlrPanelProcessor *processorToAdd)

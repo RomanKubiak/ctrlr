@@ -121,7 +121,7 @@ void CtrlrMidiDevice::handlePartialSysexMessage (MidiInput* /*source*/, const ui
 
 void CtrlrMidiDevice::handleIncomingMidiMessage (MidiInput* /*source*/, const MidiMessage& message)
 {
-	_MIN(getProperty(Ids::name), message);
+	_MIN(getProperty(Ids::name), message, -1);
 
 #ifdef JUCE_LINUX
     uint8 *ptr = (uint8 *)message.getRawData();
@@ -199,7 +199,7 @@ void CtrlrMidiDevice::sendMidiBuffer (const MidiBuffer &buffer, double milliseco
 
 			lastMessageSentTime = lastMessageSentTime + millisecondCounterToStartAt;
 		}
-		_MOUT(getProperty(Ids::name).toString() + "[JUCE]", buffer);
+		_MOUT(getProperty(Ids::name).toString() + "[JUCE]", buffer, -1);
 	}
 }
 
@@ -222,7 +222,7 @@ void CtrlrMidiDevice::sendMidiMessage (const MidiMessage &message, double millis
 			lastMessageSentTime = lastMessageSentTime + millisecondCounterToStartAt;
 		}
 
-		_MOUT(getProperty(Ids::name).toString() + "[JUCE]", message);
+		_MOUT(getProperty(Ids::name).toString() + "[JUCE]", message, -1);
 	}
 }
 

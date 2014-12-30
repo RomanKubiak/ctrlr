@@ -124,6 +124,8 @@ class CtrlrPanel:	public ValueTree::Listener,
 		bool isMidiInPaused();
 
 		void queueMessageForHostOutput(const CtrlrMidiMessage &m);
+		void queueMessageForHostOutput(const MidiMessage &message);
+		void queueMessagesForHostOutput(const MidiBuffer &messages);
 
 		void setMidiChannelToAllModulators (const int newChannel);
 		void setGlobalVariable(const int index, const int value);

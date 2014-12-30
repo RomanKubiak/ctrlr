@@ -399,6 +399,9 @@ int CtrlrModulatorProcessor::getMin() const
 
 void CtrlrModulatorProcessor::sendMidiMessage()
 {
+	if (getMidiMessage().getMidiMessageType() == None)
+		return;
+
 	if (!owner.getRestoreState())
 	{
 		ctrlrMidiMessage->setValue (getValueForMidiMessage(currentValue));

@@ -25,14 +25,15 @@ void CtrlrPanelProcessor::processBlock(MidiBuffer &midiMessages, MidiBuffer &lef
 		owner.getMIDIInputThread().handleMIDIFromHost(midiMessages);
 	}
 
+	leftoverBuffer.clear();
+
 	MidiBuffer::Iterator i(midiMessages);
 	MidiMessage m;
 	int time;
 
 	while (i.getNextEvent(m,time))
 	{
-		_MIN("VST INPUT", m);
-        _DBG("\tsamples to next clock: "+_STR((double)info.samplesToNextClock));
+		_MIN("VST INPUT", m, time);
 		if (owner.getMidiOptionBool(panelMidiThruH2D) == true)
 		{
 			if (owner.getMidiOptionBool(panelMidiThruH2DChannelize))
@@ -50,7 +51,7 @@ void CtrlrPanelProcessor::processBlock(MidiBuffer &midiMessages, MidiBuffer &lef
 				m.setChannel (owner.getMidiChannel(panelMidiOutputChannelHost));
 			}
 
-			leftoverBuffer.addEvent (m, m.getTimeStamp());
+			leftoverBuffer.addEvent (m, time);
 		}
 	}
 }

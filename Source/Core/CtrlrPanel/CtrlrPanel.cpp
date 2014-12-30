@@ -1038,15 +1038,6 @@ void CtrlrPanel::handleAsyncUpdate()
 	}
 }
 
-void CtrlrPanel::queueMessageForHostOutput(const CtrlrMidiMessage &m)
-{
-	if (isMidiInPaused())
-	{
-		return;
-	}
-	owner.getOwner()->addMidiToOutputQueue (m);
-}
-
 bool CtrlrPanel::getMidiOptionBool(const CtrlrPanelMidiOption optionToCheck)
 {
 	const uint32 opt = midiOptions.get();
@@ -1319,18 +1310,51 @@ bool CtrlrPanel::getBootstrapState()
 }
 
 /** MIDI Stuff */
-void CtrlrPanel::sendMidi (const MidiBuffer &buffer, double millisecondCounterToStartAt)
+
+void CtrlrPanel::queueMessageForHostOutput(const CtrlrMidiMessage &m)
+{
+	if (isMidiInPaused())
+		return;
+
+	if (getMidiOptionBool (panelMidiOutputToHost))
+	{
+		owner.getOwner()->addMidiToOutputQueue (m);
+	}
+}
+
+void CtrlrPanel::queueMessageForHostOutput(const MidiMessage &m)
+{
+	if (isMidiInPaused())
+		return;
+
+	if (getMidiOptionBool (panelMidiOutputToHost))
+	{
+		owner.getOwner()->addMidiToOutputQueue (m);
+	}
+}
+
+void CtrlrPanel::queueMessagesForHostOutput(const MidiBuffer &messages)
+{
+	if (isMidiInPaused())
+		return;
+
+	if (getMidiOptionBool (panelMidiOutputToHost))
+	{
+		owner.getOwner()->addMidiToOutputQueue (messages);
+	}
+}
+
+void CtrlrPanel::sendMidi (const MidiBuffer &messages, double millisecondCounterToStartAt)
 {
 	if (isMidiOutPaused())
 		return;
 
 	if (outputDevicePtr)
 	{
-		if (millisecondCounterToStartAt == -1)
-			outputDevicePtr->sendMidiBuffer (buffer, globalMidiDelay);
-		else
-			outputDevicePtr->sendMidiBuffer (buffer, millisecondCounterToStartAt);
+		outputDevicePtr->sendMidiBuffer (messages, globalMidiDelay + millisecondCounterToStartAt);
 	}
+
+	queueMessagesForHostOutput (messages);
 }
 
 void CtrlrPanel::sendMidi (const MidiMessage &message, double millisecondCounterToStartAt)
@@ -1340,11 +1364,13 @@ void CtrlrPanel::sendMidi (const MidiMessage &message, double millisecondCounter
 
 	if (outputDevicePtr)
 	{
-		if (millisecondCounterToStartAt == -1)
-			outputDevicePtr->sendMidiMessage (message, globalMidiDelay);
-		else
-			outputDevicePtr->sendMidiMessage (message, millisecondCounterToStartAt);
+		outputDevicePtr->sendMidiMessage (message, globalMidiDelay + millisecondCounterToStartAt);
 	}
+
+	if (millisecondCounterToStartAt >= 0)
+		queueMessageForHostOutput (MidiMessage (message, millisecondCounterToStartAt));
+	else
+		queueMessageForHostOutput (message);
 }
 
 void CtrlrPanel::sendMidi (CtrlrMidiMessage &m, double millisecondCounterToStartAt)
@@ -1354,11 +1380,10 @@ void CtrlrPanel::sendMidi (CtrlrMidiMessage &m, double millisecondCounterToStart
 
 	if (outputDevicePtr)
 	{
-		if (millisecondCounterToStartAt == -1)
-			outputDevicePtr->sendMidiBuffer (m.getMidiBuffer(), globalMidiDelay);
-		else
-			outputDevicePtr->sendMidiBuffer (m.getMidiBuffer(), millisecondCounterToStartAt);
+		outputDevicePtr->sendMidiBuffer (m.getMidiBuffer(), globalMidiDelay + millisecondCounterToStartAt);
 	}
+
+	queueMessageForHostOutput (m);
 }
 
 bool CtrlrPanel::isMidiOutPaused()

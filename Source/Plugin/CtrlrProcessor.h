@@ -100,6 +100,8 @@ class CtrlrProcessor  : public AudioProcessor
 		ScopedPointer <CtrlrManager> ctrlrManager;
 		File currentExec;
 		File overridesFile;
+		MidiMessage logResult;
+		int logSamplePos;
 		ValueTree overridesTree;
 		MidiMessageCollector midiCollector;
 		Array <PanelProcessorReference,CriticalSection> panelProcessors;
