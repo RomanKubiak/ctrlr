@@ -541,7 +541,12 @@ const String getRawData(const MidiMessage &m, const bool rawInDecimal)
 
 const String getTimestamp(const MidiMessage &m)
 {
-	return (String::formatted (" Time(%.6d)", m.getTimeStamp()));
+	return (String::formatted (" Time(%.6f)", m.getTimeStamp()));
+}
+
+const String getTimestamp(const double t)
+{
+	return (String::formatted (" Time(%.6d)", t));
 }
 
 const String getName(const MidiMessage &m)
@@ -639,9 +644,15 @@ const String getName(const MidiMessage &m)
 	return (" [Yet unknown]");
 }
 
-const String getMidiMessageAsLogString (const MidiMessage &m, const bool name, const bool channel, const bool number, const bool value, const bool timestamp, const bool rawData, const bool rawInDecimal, const bool rawDataSize)
+const String getMidiMessageAsLogString (const MidiMessage &m, const double customTimestamp, const bool name, const bool channel, const bool number, const bool value, const bool timestamp, const bool rawData, const bool rawInDecimal, const bool rawDataSize)
 {
-	return ((timestamp ? getTimestamp(m) : "") + (rawDataSize ? getRawDataSize(m) : "") + (name ? getName(m) : "") + (channel ? getMidiChannel(m) : "") + (number ? getMidiNumber(m) : "") + (value ? getMidiValue(m) : "") + (rawData ? getRawData(m,rawInDecimal) : ""));
+	return ((timestamp ? (customTimestamp >= 0 ? getTimestamp(customTimestamp) : getTimestamp(m)) : "") 
+				+ (rawDataSize ? getRawDataSize(m) : "") 
+				+ (name ? getName(m) : "") 
+				+ (channel ? getMidiChannel(m) : "") 
+				+ (number ? getMidiNumber(m) : "") 
+				+ (value ? getMidiValue(m) : "") 
+				+ (rawData ? getRawData(m,rawInDecimal) : ""));
 }
 
 void setBitOption (int &storage, const int optionToSet, const bool isSet)

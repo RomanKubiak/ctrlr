@@ -16,8 +16,8 @@
 #define _LERR(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::LuaError)
 #define _LRUNERR(message)									if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::LuaRuntimeError)
 #define _TRANS(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Transaction)
-#define _MIN(device, midiMessage)							if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(device, midiMessage, CtrlrLog::MidiIn)
-#define _MOUT(device, midiMessage)							if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(device, midiMessage, CtrlrLog::MidiOut)
+#define _MIN(device, midiMessage, time)						if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(device, midiMessage, time, CtrlrLog::MidiIn)
+#define _MOUT(device, midiMessage, time)					if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(device, midiMessage, time, CtrlrLog::MidiOut)
 #define _MINSTR(message)									if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::MidiIn)
 #define _MOUTSTR(message)									if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::MidiOut)
 
@@ -62,12 +62,14 @@ class CtrlrLog : public AsyncUpdater, public Logger, public DeletedAtShutdown
 
 		void logMessage (const String &message, const LogLevel level);
 		void logMessage (const String &device, const MidiMessage &message, const LogLevel level);
+		void logMessage (const String &device, const MidiMessage &message, const double time, const LogLevel level);
 		void logMessage (const String &device, const MidiBuffer &buffer, const LogLevel level);
+		void logMessage (const String &device, const MidiBuffer &buffer, const double time, const LogLevel level);
 		void logMessage (const String &message);
 		void setLogToFile (const bool _logToFile);
 		bool getLogMidiInput ();
 		bool getLogMidiOutput ();
-		const String formatMidiMessage (const MidiMessage &message);
+		const String formatMidiMessage (const MidiMessage &message, const double timestamp = -1);
 		static LogLevel stringToLevel (const String &level);
 		static String levelToString(const LogLevel &level);
 		static String timeToString(const Time &time);

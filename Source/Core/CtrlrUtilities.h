@@ -34,7 +34,7 @@ const String dataPrefix (const CtrlrMidiMessage &data, const int prefixLength);
 bool isMonospaced(const Font &font);
 
 /** Format a MidiMessage to something human readable, with details **/
-const String getMidiMessageAsLogString (const MidiMessage &m, const bool name=false, const bool channel=false, const bool number=false, const bool value=false, const bool timestamp=false, const bool rawData=true, const bool rawInDecimcal=false, const bool rawDataSize=false);
+const String getMidiMessageAsLogString (const MidiMessage &m, const double customTimestamp = -1, const bool name=false, const bool channel=false, const bool number=false, const bool value=false, const bool timestamp=false, const bool rawData=true, const bool rawInDecimcal=false, const bool rawDataSize=false);
 const String getMidiChannel(const MidiMessage &m);
 const String getMidiValue(const MidiMessage &m);
 const String getMidiNumber(const MidiMessage &m);
