@@ -93,7 +93,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.2.0;JUCE_APP_VERSION_HEX=0x50200;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.2.0;JUCE_APP_VERSION_HEX=0x50200;DEBUG_INSTANCE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader />

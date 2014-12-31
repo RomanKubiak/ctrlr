@@ -301,13 +301,14 @@ class CtrlrManager :    public ValueTree::Listener,
 		ValueTree &getInstanceTree();
 		ValueTree &getInstanceResourcesTree();
 		void openPanelInternal(const File &fileToOpen);
-
+		Result initEmbeddedInstance();
+		void setManagerReady();
 		CtrlrPanel *nullPanel;
 		CtrlrModulator *nullModulator;
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrManager);
 
 	private:
-		Result initEmbeddedInstance();
+		
 		void setEmbeddedDefaults();
 		Result addInstancePanel();
 		void restoreInstanceState(const ValueTree &instanceState);

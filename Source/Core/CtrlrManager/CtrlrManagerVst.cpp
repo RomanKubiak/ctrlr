@@ -6,10 +6,12 @@
 
 CtrlrManagerVst::CtrlrManagerVst(CtrlrManager &_owner) : owner(_owner)
 {
+	_DBG("CtrlrManagerVst::ctor");
 }
 
 CtrlrManagerVst::~CtrlrManagerVst()
 {
+	_DBG("CtrlrManagerVst::dtor");
 }
 
 int CtrlrManagerVst::size ()

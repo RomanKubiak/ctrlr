@@ -25,31 +25,18 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 		nullPanel(nullptr),
 		ctrlrFontManager(nullptr)
 {
+	ctrlrManagerVst			= new CtrlrManagerVst(*this);
+
 	commandManager.addListener (this);
-
 	LookAndFeel::setDefaultLookAndFeel (ctrlrLookAndFeel = new CtrlrLookAndFeel(*this));
-
 	audioFormatManager.registerBasicFormats ();
 
-	ctrlrManagerVst			= new CtrlrManagerVst(*this);
 	ctrlrDocumentPanel		= new CtrlrDocumentPanel(*this);
 	nullPanel				= new CtrlrPanel(*this);
 	nullModulator			= new CtrlrModulator (*nullPanel);
     ctrlrFontManager        = new CtrlrFontManager (*this);
 
-	if (!initEmbeddedInstance())
-	{
-		setDefaults();
-	}
-
-	managerTree.addListener (this);
-	managerTree.addChild (ctrlrMidiDeviceManager.getManagerTree(), -1, 0);
-	managerTree.addChild (ctrlrWindowManager.getManagerTree(), -1, 0);
-
-	if (ctrlrEditor)
-	{
-		ctrlrEditor->activeCtrlrChanged();
-	}
+	
 }
 
 CtrlrManager::~CtrlrManager()
@@ -61,6 +48,18 @@ CtrlrManager::~CtrlrManager()
 	deleteAndZero (ctrlrLookAndFeel);
 	deleteAndZero (nullModulator);
 	deleteAndZero (nullPanel);
+}
+
+void CtrlrManager::setManagerReady()
+{
+	managerTree.addListener (this);
+	managerTree.addChild (ctrlrMidiDeviceManager.getManagerTree(), -1, 0);
+	managerTree.addChild (ctrlrWindowManager.getManagerTree(), -1, 0);
+
+	if (ctrlrEditor)
+	{
+		ctrlrEditor->activeCtrlrChanged();
+	}
 }
 
 void CtrlrManager::setDefaults()
@@ -556,7 +555,7 @@ int CtrlrManager::getNumPanels()
 
 CtrlrModulator *CtrlrManager::getModulatorByVstIndex(const int index)
 {
-	if (ctrlrManagerVst.get())
+	if (ctrlrManagerVst)
 		return (ctrlrManagerVst->get(index));
 	else
 		return (nullptr);
