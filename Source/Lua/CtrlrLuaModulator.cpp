@@ -6,6 +6,7 @@
 
 void CtrlrModulator::setValue(const int newValue, const bool force)
 {
+	_DBG("CtrlrModulator::setValue ["+getName()+"]");
 	processor.setValueFromGUI (newValue, force, false);
 }
 
@@ -15,6 +16,7 @@ void CtrlrModulator::setValue(const int newValue, const bool force)
 */
 void CtrlrModulator::setValue(const int newValue, const bool force, const bool mute)
 {
+	_DBG("CtrlrModulator::setValue ["+getName()+"]");
 	processor.setValueFromGUI (newValue, force, mute);
 }
 

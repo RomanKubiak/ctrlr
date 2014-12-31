@@ -39,6 +39,13 @@ CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrMana
 	ctrlrLog				= new CtrlrLog(overridesTree.getProperty (Ids::ctrlrLogToFile));
 	ctrlrManager			= new CtrlrManager(this, *ctrlrLog);
 
+	if (!ctrlrManager->initEmbeddedInstance())
+	{
+		ctrlrManager->setDefaults();
+	}
+
+	ctrlrManager->setManagerReady();
+
 	if (ctrlrManager->getInstanceMode() == InstanceSingle || ctrlrManager->getInstanceMode() == InstanceSingleRestriced)
 	{
 		if (ctrlrManager->getActivePanel())
