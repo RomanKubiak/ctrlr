@@ -176,6 +176,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		Label l;
 		CtrlrPanel *invalidCtrlrPtr;
 		Result tempResult;
+		int64 lastCommandInvocationMillis;
 };
 
 
