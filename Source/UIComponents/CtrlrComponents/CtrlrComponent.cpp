@@ -164,9 +164,13 @@ void CtrlrComponent::mouseDoubleClick(const MouseEvent &e)
 {
     if (e.mods.isCommandDown())
     {
-        _DBG("CtrlrComponent::mouseDoubleClick + command");
         if (owner.getOwner().getEditor())
-            owner.getOwner().getEditor()->showComponentRuntimeConfig(this);
+        {
+            if (!owner.getOwner().getEditor()->getMode())
+            {
+                owner.getOwner().getEditor()->showComponentRuntimeConfig(this);
+            }
+        }
     }
 }
 
@@ -174,9 +178,13 @@ void CtrlrComponent::mouseDown(const MouseEvent &e)
 {
     if (e.mods.isShiftDown())
     {
-        _DBG("CtrlrComponent::mouseDown + shift");
         if (owner.getOwner().getEditor())
-            owner.getOwner().getEditor()->showComponentRuntimeConfig(this);
+        {
+            if (!owner.getOwner().getEditor()->getMode())
+            {
+                owner.getOwner().getEditor()->showComponentRuntimeConfig(this);
+            }
+        }
     }
 }
 
