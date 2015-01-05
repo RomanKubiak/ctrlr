@@ -47,7 +47,16 @@ class CtrlrKeyGenerator : public ThreadWithProgressWindow
 
 bool CtrlrEditor::perform (const InvocationInfo &info)
 {
-	// _DBG("CtrlrEditor::perform commandID="+STR(info.commandID));
+	_DBG("CtrlrEditor::perform commandID="+STR(info.commandID));
+
+    if (Time::getCurrentTime().toMilliseconds() - lastCommandInvocationMillis < 10)
+    {
+        _INF("\tCtrlrEditor::perform commands executing too fast");
+        return (true);
+    }
+
+	lastCommandInvocationMillis = Time::getCurrentTime().toMilliseconds();
+
 	switch (info.commandID)
 	{
 		case showKeyboardMappingDialog:
@@ -263,14 +272,14 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 		case optMidiInputFromHost:
 		case optMidiInputFromHostCompare:
 		case optMidiOutuptToHost:
-			if (info.invocationMethod == ApplicationCommandTarget::InvocationInfo::direct)
-				performMidiHostOptionChange(info.commandID);
+		    /* This should be fixed by the time check on the top of this method */
+			//if (info.invocationMethod == ApplicationCommandTarget::InvocationInfo::direct)
+            performMidiHostOptionChange(info.commandID);
 			break;
 
 		case optMidiSnapshotOnLoad:
 		case optMidiSnapshotOnProgramChange:
-			if (info.invocationMethod == ApplicationCommandTarget::InvocationInfo::direct)
-				performMidiOptionChange(info.commandID);
+            performMidiOptionChange(info.commandID);
 			break;
 
 		case optMidiThruD2D:
@@ -281,8 +290,9 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 		case optMidiThruD2HChannelize:
 		case optMidiThruH2DChannelize:
 		case optMidiThruH2HChannelize:
-			if (info.invocationMethod == ApplicationCommandTarget::InvocationInfo::direct)
-				performMidiThruChange(info.commandID);
+		    /* This should be fixed by the time check on the top of this method */
+			//if (info.invocationMethod == ApplicationCommandTarget::InvocationInfo::direct)
+            performMidiThruChange(info.commandID);
 			break;
 
 		case doCrash:

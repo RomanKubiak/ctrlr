@@ -288,8 +288,10 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 
 void CtrlrPanel::sendSnapshotOnLoad()
 {
+    _DBG("CtrlrPanel::sendSnapshotOnLoad");
 	if ((bool)getProperty (Ids::panelMidiSnapshotAfterLoad) == true)
 	{
+	    _INF("Snapshot on load selected, sending now");
 		snapshot.sendSnapshot();
 	}
 }
@@ -745,8 +747,6 @@ void CtrlrPanel::setInitialProgramValue (const String &modulatorName, const var 
 
 ValueTree CtrlrPanel::getProgram(ValueTree treeToWriteTo)
 {
-	_DBG("CtrlrPanel::getProgram");
-
 	if (treeToWriteTo.isValid())
 	{
 		treeToWriteTo.removeAllChildren(0);
@@ -810,7 +810,6 @@ void CtrlrPanel::generateCustomData()
 
 void CtrlrPanel::setCustomData (const ValueTree &customData)
 {
-	_DBG("CtrlrPanel::setCustomData");
 	if (luaPanelRestoreStateCbk && !luaPanelRestoreStateCbk.wasObjectDeleted())
 	{
 		if (luaPanelRestoreStateCbk->isValid())
@@ -822,8 +821,6 @@ void CtrlrPanel::setCustomData (const ValueTree &customData)
 
 void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 {
-	_DBG("CtrlrPanel::setProgram");
-
 	ValueTree program;
 
 	if (programTree.hasType(Ids::panelState))
@@ -879,7 +876,6 @@ void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 
 	if (sendSnapshotNow)
 	{
-		_DBG("CtrlrPanel::setProgram sendSnapshotNow");
 		sendSnapshot();
 	}
 }

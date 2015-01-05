@@ -28,6 +28,7 @@ CtrlrPanelMIDISnapshot::~CtrlrPanelMIDISnapshot()
 
 void CtrlrPanelMIDISnapshot::sendSnapshot()
 {
+    _DBG("CtrlrPanelMIDISnapshot::sendSnapshot");
 	triggerAsyncUpdate();
 }
 
