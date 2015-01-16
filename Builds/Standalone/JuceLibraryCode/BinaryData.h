@@ -10,37 +10,37 @@
 namespace BinaryData
 {
     extern const char*   inspect_lua;
-    const int            inspect_luaSize = 9563;
+    const int            inspect_luaSize = 9233;
 
     extern const char*   debugger_lua;
-    const int            debugger_luaSize = 44867;
+    const int            debugger_luaSize = 43371;
 
     extern const char*   LICENSE;
-    const int            LICENSESize = 1099;
+    const int            LICENSESize = 1079;
 
     extern const char*   README_md;
-    const int            README_mdSize = 272;
+    const int            README_mdSize = 266;
 
     extern const char*   json_lua;
     const int            json_luaSize = 17174;
 
     extern const char*   LICENCE_txt;
-    const int            LICENCE_txtSize = 1097;
+    const int            LICENCE_txtSize = 1077;
 
     extern const char*   gen_LLookAndFeel_cpp_sh;
-    const int            gen_LLookAndFeel_cpp_shSize = 2671;
+    const int            gen_LLookAndFeel_cpp_shSize = 2533;
 
     extern const char*   gen_LLookAndFeel_h_sh;
-    const int            gen_LLookAndFeel_h_shSize = 4001;
+    const int            gen_LLookAndFeel_h_shSize = 3815;
 
     extern const char*   gen_LookAndFeel_lua_sh;
-    const int            gen_LookAndFeel_lua_shSize = 2311;
+    const int            gen_LookAndFeel_lua_shSize = 2182;
 
     extern const char*   lf_template;
-    const int            lf_templateSize = 13631;
+    const int            lf_templateSize = 13531;
 
     extern const char*   LookAndFeel_lua;
-    const int            LookAndFeel_luaSize = 15109;
+    const int            LookAndFeel_luaSize = 14757;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
@@ -229,7 +229,7 @@ namespace BinaryData
     const int            CtrlrMIDIVendors_xmlSize = 15061;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 80453;
+    const int            CtrlrIDs_xmlSize = 80457;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
     const int            CtrlrLuaMethodTemplates_xmlSize = 21208;

@@ -125,6 +125,11 @@ double LMemoryBlock::getSize() const noexcept
 	return ((double)MemoryBlock::getSize());
 }
 
+void LMemoryBlock::removeSection(const int startByte, const int dataSize)
+{
+    MemoryBlock::removeSection (startByte, dataSize);
+}
+
 void LMemoryBlock::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -154,7 +159,7 @@ void LMemoryBlock::wrapForLua (lua_State *L)
 				.def("replaceWith", &LMemoryBlock::replaceWith)
 				.def("insert", (void (LMemoryBlock::*) (MemoryBlock &, int)) &LMemoryBlock::insert)
 				.def("insert", (void (LMemoryBlock::*) (MemoryBlock &, int, int)) &LMemoryBlock::insert)
-				.def("removeSection", &MemoryBlock::removeSection)
+				.def("removeSection", &LMemoryBlock::removeSection)
 				.def("copyFrom", &LMemoryBlock::copyFrom)
 				.def("copyTo", &LMemoryBlock::copyTo)
 				.def("swapWith", &MemoryBlock::swapWith)

@@ -7,7 +7,7 @@
   <id name="modulatorGlobalVariable" 			text="Modulator attached to global variable" type="Numeric" min="-1" max="64"/>
   <id name="modulatorValueExpression" 			text="Expression to evaluate when calculating the midi message value from the modulator value" type="Expression"/>
   <id name="modulatorValueExpressionReverse" 	text="Expression to evaluate when calculating the modulator value from the midi message value" type="Expression"/>
-  <id name="modulatorControllerExpression"      trext="Expression to evaluate when calculatirng the modulator value from midi controller message" type="Expression"/>
+  <id name="modulatorControllerExpression"      trext="Expression to evaluate when calculating the modulator value from midi controller message" type="Expression"/>
   <id name="modulatorMuteOnStart" 				text="Modulator does not output any MIDI during startup" type="Bool" defaults="Mute/UnMute"/>
   <id name="modulatorLinkedToPanelProperty" 	text="Link to PANEL property" type="VarText"/>
   <id name="modulatorLinkedToModulatorProperty" text="Link to MODULATOR property" type="VarText"/>
@@ -117,7 +117,7 @@
   <id name="panelVersionName"               text="Version Name" type="Text"/>
   <id name="panelCtrlrRevision"             text="Ctrlr revision that this panel was saved with" type="Text"/>
   <id name="panelVendor"                    text="Vendor that made the device that this panel controls" type="Text"/>
-  <id name="panelDevice"                    text="Device witch this panel controls" type="Text"/>
+  <id name="panelDevice"                    text="Device which this panel controls" type="Text"/>
   <id name="panelModulatorListColumns"      text="Modulator list column state" type="ReadOnly"/>
   <id name="panelModulatorListCsvDelimiter" text="Modulator list CSV delimiter" type="Text"/>
   <id name="panelModulatorListXmlRoot"      text="Modulator list XML root element name" type="Text"/>
@@ -173,7 +173,7 @@
   <id name="componentBubbleNameColour"            text="Bubble: Name text colour" type="Colour" />
   <id name="componentBubbleNameFont"              text="Bubble: Name text font" type="Font" />
   <id name="componentBubbleNameJustification"     text="Bubble: Nam text justification" type="VarText" defaults="@justification" />
-  <id name="componentValueDecimalPlaces"          text="Decimcal places to print if using floating point numbers" type="Numeric" min="0" max="10" int="1" />
+  <id name="componentValueDecimalPlaces"          text="Decimal places to print if using floating point numbers" type="Numeric" min="0" max="10" int="1" />
   <id name="componentLuaMouseMoved"               text="Called when a mouse is moved over this component" type="LuaMethod" />
 
   <!-- Slider -->
@@ -199,7 +199,7 @@
   <id name="uiSliderRotaryOutlineColour" 	text="Rotary outline colour" type="Colour"/>
   <id name="uiSliderRotaryFillColour" 		text="Rotary fill colour" type="Colour"/>
   <id name="uiSliderThumbColour" 			text="Thumb colour" type="Colour"/>
-  <id name="uiSliderValueHighlightColour" 	text="Value text colour highlited" type="Colour"/>
+  <id name="uiSliderValueHighlightColour" 	text="Value text colour highlighted" type="Colour"/>
   <id name="uiSliderValueOutlineColour" 	text="Value outline colour" type="Colour"/>
   <id name="uiSliderTrackColour" 			text="Track colour (linear)" type="Colour"/>
   <id name="uiSliderIncDecButtonColour" 	text="Inc/Dec buttons colour" type="Colour"/>
@@ -215,7 +215,7 @@
   <id name="uiSliderSpringMode" 			text="Slider spring mode" type="Bool"/>
   <id name="uiSliderSpringValue" 			text="Slider spring to value" type="Numeric" min="-65536" max="65536"  int="0.0001" />
   <id name="uiSliderMouseWheelInterval" 	text="Interval for mouse wheel" type="Numeric" min="0" max="65536" int="0.0001" />
-  <id name="uiSliderPopupBubble" 			text="Display popup bubble wheb dragging" type="Bool"/>
+  <id name="uiSliderPopupBubble" 			text="Display popup bubble when dragging" type="Bool"/>
 
   <!-- Fixed slider -->
   <id name="uiFixedSliderContent" text="Slider contents" type="MultiLine"/>
@@ -238,7 +238,7 @@
   <id name="uiComboMenuFont" text="Combo menu font" type="Font"/>
   <id name="uiComboMenuBackgroundColour" text="Combo menu background colour" type="Colour"/>
   <id name="uiComboMenuFontColour" text="Combo menu font colour" type="Colour"/>
-  <id name="uiComboMenuFontHighlightedColour" text="Combo menu highlited font colour" type="Colour"/>
+  <id name="uiComboMenuFontHighlightedColour" text="Combo menu highlighted font colour" type="Colour"/>
   <id name="uiComboMenuHighlightColour" text="Combo menu highlight colour" type="Colour"/>
   <id name="uiComboMenuBackgroundRibbed" text="Combo menu background has ribs" type="Bool"/>
   <id name="uiComboDynamicContent" text="Instead of contents display dynamic values" type="VarNumeric" defaults="@dynamicContent"/>
@@ -455,7 +455,7 @@
   <id name="uiCustomStartDraggingCallback"      text="Called when dragging starts" type="LuaMethod" />
   <id name="uiCustomIsInterestedInDragSourceCallback"   text="Called to check if the component is interested in the drag event" type="LuaMethod" />
   <id name="uiCustomItemDragEnterCallback"      text="Called when dragging enters this component" type="LuaMethod" />
-  <id name="uiCustomItemDragMoveCallback"       text="Called when dragging happend over this component" type="LuaMethod" />
+  <id name="uiCustomItemDragMoveCallback"       text="Called when dragging happened over this component" type="LuaMethod" />
   <id name="uiCustomItemDragExitCallback"       text="Called when dragging exits this component" type="LuaMethod"/>
   <id name="uiCustomItemDroppedCallback"        text="Called when an item is dropped on this component" type="LuaMethod" />
 
@@ -469,7 +469,7 @@
   <id name="uiWaveformOutlineThickness"                 text="Outline thickness"                    type="Numeric" min="0"  max="128"   int="0.5" />
   <id name="uiWaveFormDrawSecondsStart"                 text="In seconds where to start drawing"    type="Numeric" min="0"  max="3600"  int="0.00001" />
   <id name="uiWaveFormDrawSecondsEnd"                   text="In seconds where to end drawing"      type="Numeric" min="-1" max="3600"  int="0.00001" />
-  <id name="uiWaveFormVeritcalZoomFactor"               text="Verical zoom factor (1.0 == no zoom)" type="Numeric" min="0"  max="255.0" int="0.01" />
+  <id name="uiWaveFormVeritcalZoomFactor"               text="Vertical zoom factor (1.0 == no zoom)" type="Numeric" min="0"  max="255.0" int="0.01" />
   <id name="uiWaveFormThumbnailChangedCallback"         text="Called when the thumbnail changes"    type="LuaMethod" />
   <id name="uiWaveFormFilesDroppedCallback"             text="Callback to indicate that the user has dropped the files onto this panel" type="LuaMethod" />
 
@@ -594,7 +594,7 @@
   <id name="uiLCDLabel" text="A static LED like label" type="Text"/>
   <id name="uiGroup" text="A grouping component. Has an outline and a background colour. " type="Text"/>
   <id name="uiImage" text="Displays and image from a resource" type="Text"/>
-  <id name="uiCustomComponent" text="A custom component witch is drawn and handled within LUA" type="Text"/>
+  <id name="uiCustomComponent" text="A custom component which is drawn and handled within LUA" type="Text"/>
   <id name="uiMidiKeyboard" text="A MIDI keyboard with custom orientation and colours" type="Text"/>
   <id name="uiEnvelope" text="A multi-point envelope editor" type="Text"/>
   <id name="uiTabs" text="Tabbed component" type="Text"/>
