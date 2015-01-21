@@ -122,7 +122,7 @@
       </MODULEPATHS>
     </LINUX_MAKE>
     <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries=""
-                extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lfreetype -lpthread -lasound -lz -lbfd -lGL"
+                extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lXext -lfreetype -lpthread -lasound -lz -lbfd -lGL"
                 extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body"
                 smallIcon="xQ5dKQ" bigIcon="ugOMDZ" extraDefs="LINUX=1&#10;_LINUX=1"
                 userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">

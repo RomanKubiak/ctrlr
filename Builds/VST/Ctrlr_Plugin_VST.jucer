@@ -132,7 +132,7 @@
       </MODULEPATHS>
     </LINUX_MAKE>
     <CODEBLOCKS targetFolder="../Generated/Linux/VST/" vstFolder="/home/atom/devel/ctrlr/VST"
-                extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lfreetype -lpthread -lasound -lz -lbfd"
+                extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lXext -lfreetype -lpthread -lasound -lz -lbfd -lGL"
                 externalLibraries="" extraDefs="LINUX=1&#10;_LINUX=1" extraCompilerFlags="-w -fpermissive -fPIC"
                 userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
       <CONFIGURATIONS>
