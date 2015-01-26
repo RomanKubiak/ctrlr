@@ -44,6 +44,7 @@ CtrlrModulator::CtrlrModulator(CtrlrPanel &_owner, const int suggestedVstIndex)
 	setProperty (Ids::modulatorIsStatic, false);
 	setProperty (Ids::modulatorGlobalVariable, -1);
 	setProperty (Ids::modulatorMuteOnStart, false);
+	setProperty (Ids::modulatorMute, false);
 	setProperty (Ids::modulatorExcludeFromSnapshot, false);
 	setProperty (Ids::modulatorValueExpression, EXP_MODULATOR_FORWARD);
 	setProperty (Ids::modulatorValueExpressionReverse, EXP_MODULATOR_REVERSE);
@@ -241,6 +242,10 @@ void CtrlrModulator::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	{
 		processor.setGetValueFromMidiCallback (getProperty(property));
 	}
+	else if (property == Ids::modulatorMute)
+    {
+        processor.setMute (getProperty(property));
+    }
 	else if (property == Ids::modulatorVstExported)
 	{
 		if ((bool)getProperty (property) == false && !getRestoreState())

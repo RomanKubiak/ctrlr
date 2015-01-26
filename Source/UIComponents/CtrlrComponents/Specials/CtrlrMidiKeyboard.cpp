@@ -22,6 +22,7 @@ CtrlrMidiKeyboard::CtrlrMidiKeyboard (CtrlrModulator &owner)
 	setProperty (Ids::uiMidiKeyboardLowestVisibleKey, 48);
 	setProperty (Ids::uiMidiKeyboardBaseOctaveKeyPress, 0);
 	setProperty (Ids::uiMidiKeyboardOctaveFroMiddleC, 3);
+	setProperty (Ids::uiMidiKeyboardMapToNoteNumber, false);
 
     setSize (256, 64);
 	owner.getOwner().addPanelListener (this);
@@ -130,15 +131,32 @@ void CtrlrMidiKeyboard::valueTreePropertyChanged (ValueTree &treeWhosePropertyHa
 void CtrlrMidiKeyboard::handleNoteOn (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity)
 {
 	owner.getMidiMessage().setMidiMessageType(NoteOn);
-	owner.getMidiMessage().setNumber (midiNoteNumber);
-	owner.getProcessor().setValueFromGUI ((int)(velocity*127));
+	if (getProperty(Ids::uiMidiKeyboardMapToNoteNumber))
+    {
+        owner.getMidiMessage().setValue (127.0*velocity);
+        owner.getProcessor().setValueFromGUI (midiNoteNumber, true);
+    }
+	else
+	{
+        owner.getMidiMessage().setNumber (midiNoteNumber);
+        owner.getProcessor().setValueFromGUI ((int)(velocity*127), true);
+	}
 }
 
 void CtrlrMidiKeyboard::handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber)
 {
 	owner.getMidiMessage().setMidiMessageType(NoteOff);
-	owner.getMidiMessage().setNumber (midiNoteNumber);
-	owner.getProcessor().setValueFromGUI (0);
+
+	if (getProperty(Ids::uiMidiKeyboardMapToNoteNumber))
+    {
+        owner.getMidiMessage().setValue (0);
+        owner.getProcessor().setValueFromGUI (midiNoteNumber, true);
+    }
+	else
+    {
+        owner.getMidiMessage().setNumber (midiNoteNumber);
+        owner.getProcessor().setValueFromGUI (0, true);
+    }
 }
 
 void CtrlrMidiKeyboard::midiReceived(MidiMessage &message)

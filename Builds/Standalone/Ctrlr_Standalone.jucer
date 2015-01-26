@@ -123,7 +123,7 @@
     </LINUX_MAKE>
     <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries=""
                 extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lXext -lfreetype -lpthread -lasound -lz -lbfd -lGL"
-                extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body"
+                extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w"
                 smallIcon="xQ5dKQ" bigIcon="ugOMDZ" extraDefs="LINUX=1&#10;_LINUX=1"
                 userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
       <CONFIGURATIONS>
@@ -1008,6 +1008,10 @@
                 file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.h"/>
         </GROUP>
         <GROUP id="{8684971A-9F46-158A-317A-B49CF2951E43}" name="Specials">
+          <FILE id="G3a88D" name="CtrlrProgressBar.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.cpp"/>
+          <FILE id="yhEcqH" name="CtrlrProgressBar.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.h"/>
           <FILE id="SnBd07" name="CtrlrFileListBox.cpp" compile="1" resource="0"
                 file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.cpp"/>
           <FILE id="h5Y7Na" name="CtrlrFileListBox.h" compile="0" resource="0"

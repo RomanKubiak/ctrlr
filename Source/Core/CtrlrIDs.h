@@ -45,6 +45,7 @@ namespace Ids
 	DECLARE_ID (modulatorValueExpressionReverse);
 	DECLARE_ID (modulatorControllerExpression);
 	DECLARE_ID (modulatorMuteOnStart);
+	DECLARE_ID (modulatorMute);
 	DECLARE_ID (modulatorLinkedToPanelProperty);
 	DECLARE_ID (modulatorLinkedToModulatorProperty);
 	DECLARE_ID (modulatorLinkedToModulatorSource);
@@ -424,6 +425,7 @@ namespace Ids
 	DECLARE_ID (uiMidiKeyboardLowestVisibleKey);
 	DECLARE_ID (uiMidiKeyboardBaseOctaveKeyPress);
 	DECLARE_ID (uiMidiKeyboardOctaveFroMiddleC);
+	DECLARE_ID (uiMidiKeyboardMapToNoteNumber);
 
 	DECLARE_ID (uiTabsNumberOfTabs);
 	DECLARE_ID (uiTabsOrientation);
@@ -604,6 +606,9 @@ namespace Ids
 	DECLARE_ID (uiEnvelopePointExpressionY);
 	DECLARE_ID (uiEnvelopePointExpressionValueY);
 	DECLARE_ID (uiEnvelopePointValueCalculationMethod);
+    DECLARE_ID (uiProgressBarForegroundColour);
+    DECLARE_ID (uiProgressBarBackgroundColour);
+    DECLARE_ID (uiProgressBarDisplayPercent);
 
 	DECLARE_ID (uiSlider);
 	DECLARE_ID (uiFixedSlider);
@@ -629,6 +634,7 @@ namespace Ids
 	DECLARE_ID (uiXYSurface);
 	DECLARE_ID (uiListBox);
 	DECLARE_ID (uiFileListBox);
+    DECLARE_ID (uiProgressBar);
 
 	DECLARE_ID (modulatorReference);
 	DECLARE_ID (midiMessageCtrlrNumber);

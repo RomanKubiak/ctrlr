@@ -22,6 +22,7 @@
 #include "CtrlrComponents/Statics/CtrlrArrow.h"
 #include "CtrlrComponents/Specials/CtrlrListBox.h"
 #include "CtrlrComponents/Specials/CtrlrFileListBox.h"
+#include "CtrlrComponents/Specials/CtrlrProgressBar.h"
 #include "CtrlrProcessor.h"
 
 CtrlrComponent *CtrlrComponentTypeManager::createComponent (const Identifier& uiType, CtrlrModulator &owner)
@@ -68,6 +69,8 @@ CtrlrComponent *CtrlrComponentTypeManager::createComponent (const Identifier& ui
 		return (new CtrlrListBox(owner));
 	if (uiType == Ids::uiFileListBox)
 		return (new CtrlrFileListBox(owner));
+    if (uiType == Ids::uiProgressBar)
+        return (new CtrlrProgressBar(owner));
 
 	jassertfalse; // unknown type was specified, and i don't know how to create it
 	return (new CtrlrCustomComponent(owner));
@@ -150,6 +153,9 @@ const Identifier CtrlrComponentTypeManager::findType (CtrlrComponent *componentT
 
 	if (dynamic_cast <CtrlrCustomComponent*>(componentToIdentify) != 0)
 		return (Ids::uiCustomComponent);
+
+    if (dynamic_cast <CtrlrProgressBar*>(componentToIdentify) != 0)
+        return (Ids::uiProgressBar);
 
 	return (Ids::uiNone);
 }
@@ -260,6 +266,7 @@ const PopupMenu CtrlrComponentTypeManager::getComponentMenu(const bool areItemsE
 	complex.addItem (32, Ids::uiXYSurface.toString(), areItemsEnabled);
 	complex.addItem (33, Ids::uiListBox.toString(), areItemsEnabled);
 	complex.addItem (34, Ids::uiFileListBox.toString(), areItemsEnabled);
+	complex.addItem (35, Ids::uiProgressBar.toString(), areItemsEnabled);
 
 	m.addSubMenu ("Sliders", sliders);
 	m.addSubMenu ("Buttons", buttons);
@@ -297,6 +304,7 @@ const bool CtrlrComponentTypeManager::isStatic(CtrlrComponent *componentToIdenti
 			|| findType(componentToIdentify) == Ids::uiLCDLabel
 			|| findType(componentToIdentify) == Ids::uiLabel
 			|| findType(componentToIdentify) == Ids::uiNone
+			|| findType(componentToIdentify) == Ids::uiProgressBar
 			)
 	{
 		return (true);
@@ -314,6 +322,7 @@ const bool CtrlrComponentTypeManager::isStatic(const Identifier &guiType)
 			|| guiType == Ids::uiLCDLabel
 			|| guiType == Ids::uiLabel
 			|| guiType == Ids::uiNone
+			|| guiType == Ids::uiProgressBar
 			)
 	{
 		return (true);
