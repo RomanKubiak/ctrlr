@@ -39,6 +39,7 @@ double CtrlrProgressBar::getComponentValue()
 
 int CtrlrProgressBar::getComponentMidiValue()
 {
+	return ((int)progress * 100);
 }
 
 double CtrlrProgressBar::getComponentMaxValue()
