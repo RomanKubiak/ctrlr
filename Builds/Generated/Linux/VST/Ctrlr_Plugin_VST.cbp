@@ -1700,6 +1700,11 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.cpp"/>
     <Unit filename="../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.h">
       <Option compile="0"/>

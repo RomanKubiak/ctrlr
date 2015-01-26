@@ -964,6 +964,9 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents\Sliders</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.cpp">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents\Specials</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrFileListBox.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents\Specials</Filter>
     </ClCompile>
@@ -3125,6 +3128,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents\Sliders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.h">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents\Specials</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrFileListBox.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrComponents\Specials</Filter>

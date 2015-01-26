@@ -20,7 +20,8 @@ CtrlrModulatorProcessor::CtrlrModulatorProcessor(CtrlrModulator &_owner)
 		maxValue(127),
 		usingValueMap(false),
 		ctrlrMidiMessage(nullptr),
-		ctrlrMidiControllerMessage(nullptr)
+		ctrlrMidiControllerMessage(nullptr),
+		isMute(false)
 {
 	ctrlrMidiMessage	        = new CtrlrOwnedMidiMessage(*this);
 	ctrlrMidiControllerMessage  = new CtrlrOwnedMidiMessage(*this, Identifier(Ids::controllerMIDI));
@@ -406,12 +407,17 @@ void CtrlrModulatorProcessor::sendMidiMessage()
 	{
 		ctrlrMidiMessage->setValue (getValueForMidiMessage(currentValue));
 
-		owner.getOwner().sendMidi (getMidiMessage(), -1);
-
-		if (owner.getOwner().getMidiOptionBool(panelMidiOutputToHost))
-		{
-			owner.getOwner().queueMessageForHostOutput (getMidiMessage());
-		}
+        {
+            ScopedReadLock srl(processorLock);
+            if (!isMute)
+            {
+                owner.getOwner().sendMidi (getMidiMessage(), -1);
+                if (owner.getOwner().getMidiOptionBool(panelMidiOutputToHost))
+                {
+                    owner.getOwner().queueMessageForHostOutput (getMidiMessage());
+                }
+            }
+        }
 	}
 	else
 	{
@@ -646,4 +652,10 @@ CtrlrSysexProcessor *CtrlrModulatorProcessor::getSysexProcessor()
 Array<int,CriticalSection> &CtrlrModulatorProcessor::getGlobalVariables()
 {
 	return (owner.getOwner().getGlobalVariables());
+}
+
+void CtrlrModulatorProcessor::setMute (bool _isMute)
+{
+    const ScopedWriteLock sl (processorLock);
+    isMute = _isMute;
 }

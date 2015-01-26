@@ -117,7 +117,7 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 		bool getLinkedToGlobal();
 		int getLinkedToGlobalIndex();
 		void setParameterNotifyingHost();
-
+		void setMute (bool _isMute);
 		int getMidiChannelForOwnedMidiMessages();
 		CtrlrSysexProcessor *getSysexProcessor();
 		Array<int,CriticalSection> &getGlobalVariables();
@@ -126,7 +126,7 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 
 	private:
 		void setValue(const int value);
-		bool usingForwardProcess, usingReverseProcess, usingValueMap, linkedToGlobal;
+		bool usingForwardProcess, usingReverseProcess, usingValueMap, linkedToGlobal, isMute;
 		ReadWriteLock processorLock;
 		CtrlrModulator &owner;
 		Expression forwardProcess;

@@ -370,6 +370,7 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrImageSlider.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSlider.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrFileListBox.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrListBox.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrMidiKeyboard.cpp"/>
@@ -1795,6 +1796,7 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrImageSlider.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSlider.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrFileListBox.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrListBox.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrMidiKeyboard.h"/>

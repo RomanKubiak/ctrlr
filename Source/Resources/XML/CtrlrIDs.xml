@@ -9,6 +9,7 @@
   <id name="modulatorValueExpressionReverse" 	text="Expression to evaluate when calculating the modulator value from the midi message value" type="Expression"/>
   <id name="modulatorControllerExpression"      trext="Expression to evaluate when calculating the modulator value from midi controller message" type="Expression"/>
   <id name="modulatorMuteOnStart" 				text="Modulator does not output any MIDI during startup" type="Bool" defaults="Mute/UnMute"/>
+  <id name="modulatorMute"                      text="Modulator does not output any MIDI" type="Bool" defaults="Mute/UnMute" />
   <id name="modulatorLinkedToPanelProperty" 	text="Link to PANEL property" type="VarText"/>
   <id name="modulatorLinkedToModulatorProperty" text="Link to MODULATOR property" type="VarText"/>
   <id name="modulatorLinkedToModulatorSource" 	text="Link to MODULATOR modulation type" type="Bool" defaults="Numeric/Text"/>
@@ -389,6 +390,7 @@
   <id name="uiMidiKeyboardLowestVisibleKey"       text="First key shown in component" type="Numeric"/>
   <id name="uiMidiKeyboardBaseOctaveKeyPress"     text="Key press for middle octave"  type="Numeric"  min="0" max="10"  int="1" />
   <id name="uiMidiKeyboardOctaveFroMiddleC"       text="Octave number for middle C"    type="Numeric"  min="-10" max="10"  int="1" />
+  <id name="uiMidiKeyboardMapToNoteNumber"        text="Map modulator value to note number instead of velocity" type="Bool" />
 
   <!-- Tabs -->
   <id name="uiTabsNumberOfTabs" text="Number of tabs" type="Numeric" min="1" max="64" int="1"/>
@@ -575,11 +577,14 @@
   <id name="uiEnvelopePointLinkY"               text="Y axis linked to modulator"     type="VarText"/>
   <id name="uiEnvelopePointExpressionX"         text="Expression to calculate X coordinate when other points change"  type="Expression" />
   <id name="uiEnvelopePointExpressionY"         text="Expression to calculate Y coordinate when other points change"  type="Expression" />
-
   <id name="uiEnvelopePointExpressionValueX"    text="Expression to calculate X linked value"  type="Expression" />
   <id name="uiEnvelopePointExpressionValueY"    text="Expression to calculate Y linked value"  type="Expression" />
-
   <id name="uiEnvelopePointValueCalculationMethod"  text="How to calculate the X value based on the position" type="VarNumeric" defaults="Min/Max based=0,Neighbour points based=1,Override by expression=2" />
+
+  <!-- Progress Bar -->
+  <id name="uiProgressBarForegroundColour"      text="Foreground colour" type="Colour" />
+  <id name="uiProgressBarBackgroundColour"      text="Background colour" type="Colour" />
+  <id name="uiProgressBarDisplayPercent"        text="Display percentage" type="Bool" />
 
   <!-- Component types -->
   <id name="uiSlider" text="Normal slider, links to continues numeric values" type="Text"/>

@@ -1017,6 +1017,10 @@
                 file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.h"/>
         </GROUP>
         <GROUP id="{B2BBB76C-2D5F-F517-5357-345901298158}" name="Specials">
+          <FILE id="TuRVSd" name="CtrlrProgressBar.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.cpp"/>
+          <FILE id="X1Uwa0" name="CtrlrProgressBar.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.h"/>
           <FILE id="I4SMgW" name="CtrlrFileListBox.cpp" compile="1" resource="0"
                 file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.cpp"/>
           <FILE id="pXz3Mb" name="CtrlrFileListBox.h" compile="0" resource="0"

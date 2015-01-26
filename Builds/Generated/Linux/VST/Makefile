@@ -252,6 +252,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrImageSlider_35266d8a.o \
   $(OBJDIR)/CtrlrSlider_22b8e8bd.o \
   $(OBJDIR)/CtrlrSliderInternal_b65dd51a.o \
+  $(OBJDIR)/CtrlrProgressBar_b0e4e9c6.o \
   $(OBJDIR)/CtrlrFileListBox_99e71cd1.o \
   $(OBJDIR)/CtrlrListBox_8b28dd6d.o \
   $(OBJDIR)/CtrlrMidiKeyboard_c15d02d2.o \
@@ -1259,6 +1260,11 @@ $(OBJDIR)/CtrlrSlider_22b8e8bd.o: ../../../../Source/UIComponents/CtrlrComponent
 $(OBJDIR)/CtrlrSliderInternal_b65dd51a.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrSliderInternal.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrProgressBar_b0e4e9c6.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrProgressBar.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrFileListBox_99e71cd1.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.cpp
