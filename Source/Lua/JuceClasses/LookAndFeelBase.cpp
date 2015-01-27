@@ -450,6 +450,7 @@ DropShadower* LookAndFeelBase::createDropShadowerForComponent(Component* compone
 
 void LookAndFeelBase::drawGroupComponentOutline(Graphics &g, int w, int h, const String &text, const Justification &justification, GroupComponent &groupComponent)
 {
+    _DBG("LookAndFeelBase::drawGroupComponentOutline");
 	LookAndFeelParamWrapper p(g, w, h, text, justification, groupComponent);
 	owner.drawGroupComponentOutline(p);
 }

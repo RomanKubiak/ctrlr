@@ -379,10 +379,21 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		static DropShadower* def_createDropShadowerForComponent(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
 		{ return (ptr->LookAndFeelBase::v3.createDropShadowerForComponent (p.component)); }
 
-		void drawGroupComponentOutline (LookAndFeelParamWrapper &p)
-		{ try { call<void>("drawGroupComponentOutline", p); } catch (luabind::error e) { _WRN("drawGroupComponentOutline "+_STR(e.what())); } }
+		void drawGroupComponentOutline (LookAndFeelParamWrapper &p) noexcept(false)
+		{
+		    _DBG("LLookAndFeel::drawGroupComponentOutline");
+		    try {
+		        call<void>("drawGroupComponentOutline", p);
+            }
+            catch (luabind::error &e)
+            {
+                _WRN("drawGroupComponentOutline "+_STR(e.what()));
+            }
+        }
 		static void def_drawGroupComponentOutline(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
-		{ ptr->LookAndFeelBase::v3.drawGroupComponentOutline (*p.g, p.w, p.h, *p.text, *p.justification, *p.groupComponent); }
+		{
+		    ptr->LookAndFeelBase::v3.drawGroupComponentOutline (*p.g, p.w, p.h, *p.text, *p.justification, *p.groupComponent);
+        }
 
 		int getTabButtonSpaceAroundImage (LookAndFeelParamWrapper &p)
 		{ try { return (call<int>("getTabButtonSpaceAroundImage", p)); } catch (luabind::error e) { _WRN("getTabButtonSpaceAroundImage "+_STR(e.what())); return (LookAndFeelBase::v3.getTabButtonSpaceAroundImage ()); } }
