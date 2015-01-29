@@ -46,33 +46,7 @@ void LGlobalFunctions::sleep(const int milliseconds)
     Thread::sleep(milliseconds);
 }
 
-void LGlobalFunctions::setLookAndFeel (Component *component, luabind::object lookAndFeelObject)
-{
-	if (component != nullptr)
-	{
-	    if (luabind::type (lookAndFeelObject) != LUA_TNIL)
-        {
-            LookAndFeelBase *lookAndFeel = luabind::object_cast<LookAndFeelBase*>(lookAndFeelObject);
-            if (lookAndFeel)
-            {
-                _DBG("LookAndFeelParamWrapper::setLookAndFeel success, setting now");
-                component->setLookAndFeel (lookAndFeel);
-            }
-            else
-            {
-                _DBG("LookAndFeelParamWrapper::setLookAndFeel failed to cast LookAndFeel object to base class LookAndFeelbase (internal error?)");
-            }
-        }
-        else
-        {
-            _DBG("LookAndFeelParamWrapper::setLookAndFeel lookAndFeel object passed is invalid");
-        }
-	}
-	else
-    {
-        _DBG("LookAndFeelParamWrapper::setLookAndFeel component is invalid");
-    }
-}
+
 
 void LGlobalFunctions::wrapForLua (lua_State *L)
 {
@@ -80,8 +54,6 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
 
 	module(L)
     [
-        def("setLookAndFeel", &LGlobalFunctions::setLookAndFeel)
-        ,
         def("console", &LGlobalFunctions::console)
         ,
 		def("J", (const String (*) (const std::string &)) &LGlobalFunctions::toJuceString),

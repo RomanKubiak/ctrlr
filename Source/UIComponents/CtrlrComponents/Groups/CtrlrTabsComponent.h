@@ -130,6 +130,7 @@ public:
 	void itemDragEnter (const SourceDetails &dragSourceDetails);
 	bool isOwned(CtrlrComponent *componentToCheck);
 	Array <CtrlrComponent*> getOwnedChildren();
+	void lookAndFeelChanged();
     //[/UserMethods]
 
     void paint (Graphics& g);

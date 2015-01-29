@@ -97,6 +97,7 @@ class CtrlrComponent :	public Component,
 		double getMaximum();
 		double getMinimum();
 		virtual void mouseMove (const MouseEvent &e);
+		void setLookAndFeelInternal(const luabind::object lookAndFeelObject);
 		// Deprecated
 		CtrlrLuaRectangle getLuaBounds();
 		void setLuaBounds(CtrlrLuaRectangle newBounds);

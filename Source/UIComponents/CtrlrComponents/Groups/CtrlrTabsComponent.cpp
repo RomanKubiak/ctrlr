@@ -29,6 +29,7 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "Lua/CtrlrLuaManager.h"
 #include "CtrlrApplicationWindow/CtrlrLookAndFeel.h"
+#include "Lua/JuceClasses/LookAndFeelBase.h"
 //[/Headers]
 
 #include "CtrlrTabsComponent.h"
@@ -661,6 +662,15 @@ Array <CtrlrComponent*> CtrlrTabsComponent::getOwnedChildren()
 	}
 
 	return (ar);
+}
+
+void CtrlrTabsComponent::lookAndFeelChanged()
+{
+    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
+    if (lfb != nullptr)
+    {
+        ctrlrTabs->setLookAndFeel (lfb);
+    }
 }
 //[/MiscUserCode]
 
