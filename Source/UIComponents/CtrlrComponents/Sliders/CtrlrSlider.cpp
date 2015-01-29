@@ -258,9 +258,11 @@ void CtrlrSlider::wrapForLua(lua_State *L)
 
 void CtrlrSlider::lookAndFeelChanged()
 {
+    _DBG("CtrlrSlider::lookAndFeelChanged");
     LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
     if (lfb != nullptr)
     {
+        _DBG("CtrlrSlider::lookAndFeelChanged switch");
         ctrlrSlider.setLookAndFeel (lfb);
     }
 }
