@@ -3,6 +3,9 @@
 #include "LLookAndFeel.h"
 #include "LookAndFeelParamWrapper.h"
 
+LookAndFeelBase::LookAndFeelBase(LLookAndFeel &_owner) : owner(_owner)
+{
+}
 
 Colour LookAndFeelBase::findColour(int colourId)
 {

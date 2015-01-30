@@ -131,6 +131,7 @@ public:
 	bool isOwned(CtrlrComponent *componentToCheck);
 	Array <CtrlrComponent*> getOwnedChildren();
 	void lookAndFeelChanged();
+	void setLookAndFeelFromLua(LookAndFeel *lookAndFeelToApply);
     //[/UserMethods]
 
     void paint (Graphics& g);

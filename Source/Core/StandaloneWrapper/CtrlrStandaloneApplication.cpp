@@ -127,6 +127,12 @@ class CtrlrApplication : public JUCEApplication
 					return (ProjectInfo::versionString);
                 }
 
+                void unhandledException (const std::exception *e, const String &sourceFilename, int lineNumber)
+                {
+                    _DBG("CtrlrApplication::unhandledException");
+                    _DBG("\tfile: "+sourceFilename+":"+_STR(lineNumber));
+                    _DBG("\t"+_STR(e->what()));
+                }
         private:
                 CtrlrStandaloneWindow *filterWindow;
 };

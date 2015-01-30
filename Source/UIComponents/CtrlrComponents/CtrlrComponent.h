@@ -6,6 +6,7 @@
 #include "CtrlrLog.h"
 #include "CtrlrFontManager.h"
 
+class LookAndFeelBase;
 class CtrlrPanelResource;
 class CtrlrComponent;
 
@@ -97,7 +98,7 @@ class CtrlrComponent :	public Component,
 		double getMaximum();
 		double getMinimum();
 		virtual void mouseMove (const MouseEvent &e);
-		void setLookAndFeelInternal(const luabind::object lookAndFeelObject);
+		void setCustomLookAndFeel (const luabind::object &customLookAndFeel);
 		// Deprecated
 		CtrlrLuaRectangle getLuaBounds();
 		void setLuaBounds(CtrlrLuaRectangle newBounds);

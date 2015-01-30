@@ -256,13 +256,27 @@ void CtrlrSlider::wrapForLua(lua_State *L)
 	];
 }
 
+void setLookAndFeelFromLua(LookAndFeelBase *lookAndFeelToApply)
+{
+}
+
 void CtrlrSlider::lookAndFeelChanged()
 {
     _DBG("CtrlrSlider::lookAndFeelChanged");
-    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
-    if (lfb != nullptr)
+    if (getLookAndFeel().isColourSpecified(0xdeadbeed))
     {
-        _DBG("CtrlrSlider::lookAndFeelChanged switch");
-        ctrlrSlider.setLookAndFeel (lfb);
+        Colour c = getLookAndFeel().findColour(0xdeadbeed);
+        if (c.getARGB() == 0x00000001)
+        {
+            _DBG("\tnew LF is from lua");
+        }
+        else
+        {
+            _DBG("\tnew LF is NOT from lua");
+        }
+    }
+    else
+    {
+        _DBG("\tmark of the beast is not in the lf class, forget it");
     }
 }
