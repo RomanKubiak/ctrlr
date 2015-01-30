@@ -9,9 +9,7 @@ class LLookAndFeel;
 class LookAndFeelBase : public LookAndFeel_V3
 {
 	public:
-		LookAndFeelBase(LLookAndFeel &_owner) : owner(_owner) {}
-		LookAndFeel_V3 v3;
-
+		LookAndFeelBase(LLookAndFeel &_owner);
 		Colour findColour (int colourId);
 		void setColour (int colourId, Colour colour);
 		bool isColourSpecified (int colourId);
@@ -112,6 +110,8 @@ class LookAndFeelBase : public LookAndFeel_V3
 		void drawCallOutBoxBackground (CallOutBox &callOutBox, Graphics &g, const Path &path, Image &image);
 		void drawLevelMeter (Graphics &g, int width, int height, float level);
 		void drawKeymapChangeButton (Graphics &g, int width, int height, Button &button, const String &keyDescription);
+
+        LookAndFeel_V3 v3;
 
 	private:
 		LLookAndFeel &owner;

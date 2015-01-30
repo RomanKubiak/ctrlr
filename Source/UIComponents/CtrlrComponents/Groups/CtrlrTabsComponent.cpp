@@ -666,10 +666,25 @@ Array <CtrlrComponent*> CtrlrTabsComponent::getOwnedChildren()
 
 void CtrlrTabsComponent::lookAndFeelChanged()
 {
-    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
-    if (lfb != nullptr)
+    _DBG("CtrlrTabsComponent::lookAndFeelChanged");
+}
+
+void CtrlrTabsComponent::setLookAndFeelFromLua(LookAndFeel *lookAndFeelToApply)
+{
+    _DBG("CtrlrTabsComponent::setLookAndFeelFromLua");
+
+    if (lookAndFeelToApply == nullptr)
     {
-        ctrlrTabs->setLookAndFeel (lfb);
+        ctrlrTabs->setLookAndFeel (&lf);
+    }
+    else
+    {
+        if (lookAndFeelToApply->isColourSpecified(0xdeadbeed))
+        {
+            _DBG("\tmark of the beast is there");
+        }
+
+        ctrlrTabs->setLookAndFeel (lookAndFeelToApply);
     }
 }
 //[/MiscUserCode]

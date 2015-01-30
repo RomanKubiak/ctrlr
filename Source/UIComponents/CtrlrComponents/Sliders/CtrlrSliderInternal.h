@@ -25,6 +25,7 @@ class CtrlrSliderLookAndFeel : public LookAndFeel_V3
 	public:
 		CtrlrSliderLookAndFeel(CtrlrComponent &_owner, ValueTree &_ownerTree) : ownerTree(_ownerTree), owner(_owner)
 		{
+		    setColour (0xdeadbeed, Colour(0x00000000));
 		}
 
 		Button *createSliderButton (Slider&, bool isIncrement)
