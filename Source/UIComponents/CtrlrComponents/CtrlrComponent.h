@@ -99,6 +99,7 @@ class CtrlrComponent :	public Component,
 		double getMinimum();
 		virtual void mouseMove (const MouseEvent &e);
 		void setCustomLookAndFeel (const luabind::object &customLookAndFeel);
+		virtual LookAndFeel &getDefaultCustomLookAndFeel ()                                                 { return (LookAndFeel::getDefaultLookAndFeel()); }
 		// Deprecated
 		CtrlrLuaRectangle getLuaBounds();
 		void setLuaBounds(CtrlrLuaRectangle newBounds);

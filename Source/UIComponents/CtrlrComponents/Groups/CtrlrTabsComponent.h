@@ -130,8 +130,7 @@ public:
 	void itemDragEnter (const SourceDetails &dragSourceDetails);
 	bool isOwned(CtrlrComponent *componentToCheck);
 	Array <CtrlrComponent*> getOwnedChildren();
-	void lookAndFeelChanged();
-	void setLookAndFeelFromLua(LookAndFeel *lookAndFeelToApply);
+	LookAndFeel &getDefaultCustomLookAndFeel();
     //[/UserMethods]
 
     void paint (Graphics& g);

@@ -664,28 +664,9 @@ Array <CtrlrComponent*> CtrlrTabsComponent::getOwnedChildren()
 	return (ar);
 }
 
-void CtrlrTabsComponent::lookAndFeelChanged()
+LookAndFeel &CtrlrTabsComponent::getDefaultCustomLookAndFeel()
 {
-    _DBG("CtrlrTabsComponent::lookAndFeelChanged");
-}
-
-void CtrlrTabsComponent::setLookAndFeelFromLua(LookAndFeel *lookAndFeelToApply)
-{
-    _DBG("CtrlrTabsComponent::setLookAndFeelFromLua");
-
-    if (lookAndFeelToApply == nullptr)
-    {
-        ctrlrTabs->setLookAndFeel (&lf);
-    }
-    else
-    {
-        if (lookAndFeelToApply->isColourSpecified(0xdeadbeed))
-        {
-            _DBG("\tmark of the beast is there");
-        }
-
-        ctrlrTabs->setLookAndFeel (lookAndFeelToApply);
-    }
+    return (lf);
 }
 //[/MiscUserCode]
 
