@@ -636,6 +636,28 @@ double CtrlrComponent::getMinimum()
 
 void CtrlrComponent::setCustomLookAndFeel (const luabind::object &customLookAndFeel)
 {
+    _DBG("CtrlrComponent::setCustomLookAndFeel");
+    if (luabind::type (customLookAndFeel) == LUA_TNIL)
+    {
+        _DBG("\tset default");
+        setLookAndFeel (& getDefaultCustomLookAndFeel());
+    }
+    else
+    {
+        try
+        {
+            LookAndFeelBase *lfb = luabind::object_cast <LookAndFeelBase *> (customLookAndFeel);
+            if (lfb != nullptr)
+            {
+                _DBG("\tset custom");
+                setLookAndFeel (lfb);
+            }
+        }
+        catch (luabind::error &e)
+        {
+            _WRN("Unable to cast passed LookAndFeel object to anything usable: "+_STR(e.what()));
+        }
+    }
 }
 
 void CtrlrComponent::wrapForLua (lua_State *L)

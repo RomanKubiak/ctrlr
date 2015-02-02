@@ -288,7 +288,6 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 
 void CtrlrPanel::sendSnapshotOnLoad()
 {
-    _DBG("CtrlrPanel::sendSnapshotOnLoad");
 	if ((bool)getProperty (Ids::panelMidiSnapshotAfterLoad) == true)
 	{
 	    _INF("Snapshot on load selected, sending now");
