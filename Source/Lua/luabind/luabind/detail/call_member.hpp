@@ -247,7 +247,7 @@ namespace luabind
 					rhs.m_called = true;
 				}
 
-				~proxy_member_void_caller() noexcept(false)
+				~proxy_member_void_caller()
 				{
 					if (m_called) return;
 

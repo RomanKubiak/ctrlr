@@ -255,8 +255,7 @@ namespace luabind
 				{
 					rhs.m_called = true;
 				}
-
-				~proxy_function_void_caller() noexcept(false)
+				~proxy_function_void_caller()
 				{
 					if (m_called) return;
 
