@@ -13,7 +13,6 @@ class CtrlrSliderInternal : public Slider
 		~CtrlrSliderInternal();
 		String getTextFromValue(double value);
 		void mouseWheelMove (const MouseEvent &e, const MouseWheelDetails& wheel);
-
 		JUCE_LEAK_DETECTOR(CtrlrSliderInternal)
 
 	private:

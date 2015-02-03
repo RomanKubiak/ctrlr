@@ -68,6 +68,7 @@ public:
 	void rebuildModulatorList();
 	void reloadResources(Array <CtrlrPanelResource*> resourcesThatChanged);
 	void setResource();
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
     //[/UserMethods]
 
     void paint (Graphics& g);

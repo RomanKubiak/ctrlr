@@ -80,6 +80,7 @@ public:
 	CtrlrLabel &setLabelText(const String &text);
 	CtrlrLabel &appendText(const String &text);
 	const String getText();
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr);
     //[/UserMethods]
 
     void paint (Graphics& g);

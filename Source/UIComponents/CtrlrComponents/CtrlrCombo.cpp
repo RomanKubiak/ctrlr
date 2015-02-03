@@ -605,15 +605,6 @@ void CtrlrCombo::wrapForLua(lua_State *L)
 			.def("setText", &CtrlrCombo::setText)
 	];
 }
-
-void CtrlrCombo::lookAndFeelChanged()
-{
-    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
-    if (lfb != nullptr)
-    {
-        ctrlrCombo->setLookAndFeel (lfb);
-    }
-}
 //[/MiscUserCode]
 
 

@@ -55,6 +55,7 @@ class CtrlrWaveform  : public CtrlrComponent, public FileDragAndDropTarget
 		double getHashCode();
 		int getNumChannels();
 		void clear();
+		void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
 
 		JUCE_LEAK_DETECTOR(CtrlrWaveform)
 

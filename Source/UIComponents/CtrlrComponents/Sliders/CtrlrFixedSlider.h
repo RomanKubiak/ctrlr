@@ -66,7 +66,7 @@ public:
 
 	Slider *getOwnedSlider() { return (ctrlrSlider); }
 	static void wrapForLua(lua_State *L);
-	void lookAndFeelChanged();
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
     //[/UserMethods]
 
     void paint (Graphics& g);

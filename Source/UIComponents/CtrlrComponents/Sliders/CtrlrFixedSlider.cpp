@@ -283,15 +283,6 @@ void CtrlrFixedSlider::wrapForLua(lua_State *L)
 			.def("getOwnedSlider", &CtrlrFixedSlider::getOwnedSlider)
 	];
 }
-
-void CtrlrFixedSlider::lookAndFeelChanged()
-{
-    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
-    if (lfb != nullptr)
-    {
-        ctrlrSlider->setLookAndFeel (lfb);
-    }
-}
 //[/MiscUserCode]
 
 

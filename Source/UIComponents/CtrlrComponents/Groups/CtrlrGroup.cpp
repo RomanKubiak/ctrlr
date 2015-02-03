@@ -45,6 +45,19 @@ CtrlrGroupContentComponent::CtrlrGroupContentComponent(CtrlrGroup &_owner) : own
 CtrlrGroupContentComponent::~CtrlrGroupContentComponent()
 {
 }
+
+void CtrlrGroupContentComponent::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
+{
+    for (int i=0; i<getNumChildComponents(); i++)
+    {
+        CtrlrComponent *c = dynamic_cast<CtrlrComponent*>(getChildComponent(i));
+
+        if (c!=nullptr)
+        {
+            c->setCustomLookAndFeel (customLookAndFeel);
+        }
+    }
+}
 //[/MiscUserDefs]
 
 //==============================================================================
@@ -149,7 +162,7 @@ void CtrlrGroup::resized()
     //label->setBounds (0, 0, getWidth() - 0, getHeight() - 0);
     //[UserResized] Add your own custom resize handling here..
 	label->setBounds (textMargin, textMargin, getWidth() - (textMargin*2), getHeight() - (textMargin*2));
-	content.setBounds(0,0,getWidth(),getHeight());
+	content.setBounds(getUsableRect());
     //[/UserResized]
 }
 
@@ -427,6 +440,11 @@ void CtrlrGroup::wrapForLua (lua_State *L)
             .def("setText", &GroupComponent::setText)
             .def("getText", &GroupComponent::getText)
     ];
+}
+
+void CtrlrGroup::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
+{
+    content.customLookAndFeelChanged (customLookAndFeel);
 }
 //[/MiscUserCode]
 

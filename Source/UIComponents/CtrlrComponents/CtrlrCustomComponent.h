@@ -63,7 +63,7 @@ class CtrlrCustomComponent :    public CtrlrComponent,
 		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
 		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
 		static void wrapForLua(lua_State *L);
-
+		void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
 		JUCE_LEAK_DETECTOR(CtrlrCustomComponent)
 
 	private:

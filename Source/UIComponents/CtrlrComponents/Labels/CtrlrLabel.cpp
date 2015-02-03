@@ -31,6 +31,7 @@
 #include "../CtrlrComponentTypeManager.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrLuaManager.h"
+#include "Lua/JuceClasses/LookAndFeelBase.h"
 
 CtrlrLabelInternal::CtrlrLabelInternal(CtrlrLabel &_owner, const String &componentName, const String &labelText)
 	: Label (componentName, labelText), owner(_owner)
@@ -332,9 +333,13 @@ void CtrlrLabel::wrapForLua (lua_State *L)
 	];
 }
 
+void CtrlrLabel::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
+{
+    ctrlrLabel->setLookAndFeel (customLookAndFeel);
+}
+
 bool CtrlrLabel::keyPressed (const KeyPress &key)
 {
-	_DBG("CtrlrLabel::keyPressed");
 	return (false);
 }
 //[/MiscUserCode]

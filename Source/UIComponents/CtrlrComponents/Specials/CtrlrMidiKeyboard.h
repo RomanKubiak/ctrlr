@@ -62,6 +62,7 @@ public:
 	void handleNoteOn (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity);
 	void handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber);
 	void midiReceived(MidiMessage &message);
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
     //[/UserMethods]
 
     void paint (Graphics& g);
