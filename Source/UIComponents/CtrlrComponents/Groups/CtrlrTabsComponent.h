@@ -61,6 +61,7 @@ class CtrlrTabsContentComponent : public Component, public ValueTree::Listener
 		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
 		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
 		void parentNameChanged(const String &newName);
+        void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr);
 
 	private:
 		ValueTree tabTree;
@@ -130,7 +131,7 @@ public:
 	void itemDragEnter (const SourceDetails &dragSourceDetails);
 	bool isOwned(CtrlrComponent *componentToCheck);
 	Array <CtrlrComponent*> getOwnedChildren();
-	LookAndFeel &getDefaultCustomLookAndFeel();
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr);
     //[/UserMethods]
 
     void paint (Graphics& g);

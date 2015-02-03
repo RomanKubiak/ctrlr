@@ -20,6 +20,7 @@ class CtrlrProgressBar : public CtrlrComponent
         void resized();
         const String getComponentText();
         void setComponentText (const String &componentText);
+        void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
     private:
         ScopedPointer <ProgressBar> bar;
         String textToDisplay;

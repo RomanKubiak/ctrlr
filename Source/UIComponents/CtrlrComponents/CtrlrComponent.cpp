@@ -634,29 +634,21 @@ double CtrlrComponent::getMinimum()
 	return (owner.getMinModulatorValue());
 }
 
-void CtrlrComponent::setCustomLookAndFeel (const luabind::object &customLookAndFeel)
+void CtrlrComponent::setCustomLookAndFeel (LookAndFeelBase *customLookAndFeel)
 {
-    _DBG("CtrlrComponent::setCustomLookAndFeel");
-    if (luabind::type (customLookAndFeel) == LUA_TNIL)
+    setLookAndFeel (customLookAndFeel);
+    customLookAndFeelChanged(customLookAndFeel);
+}
+
+void CtrlrComponent::setCustomLookAndFeel (const luabind::object &_customLookAndFeel)
+{
+    try
     {
-        _DBG("\tset default");
-        setLookAndFeel (& getDefaultCustomLookAndFeel());
+        setCustomLookAndFeel (luabind::object_cast <LookAndFeelBase *> (_customLookAndFeel));
     }
-    else
+    catch (luabind::error &e)
     {
-        try
-        {
-            LookAndFeelBase *lfb = luabind::object_cast <LookAndFeelBase *> (customLookAndFeel);
-            if (lfb != nullptr)
-            {
-                _DBG("\tset custom");
-                setLookAndFeel (lfb);
-            }
-        }
-        catch (luabind::error &e)
-        {
-            _WRN("Unable to cast passed LookAndFeel object to anything usable: "+_STR(e.what()));
-        }
+        _WRN("Unable to cast passed LookAndFeel object to anything usable: "+_STR(e.what()));
     }
 }
 
@@ -701,6 +693,6 @@ void CtrlrComponent::wrapForLua (lua_State *L)
 			.def("getMinimum", &CtrlrComponent::getMinimum)
 			.def("getTextForValue", &CtrlrComponent::getTextForValue)
 			.def("getOwner", &CtrlrComponent::getOwner)
-			.def("setCustomLookAndFeel", &CtrlrComponent::setCustomLookAndFeel)
+			.def("setCustomLookAndFeel", (void (CtrlrComponent::*)(const luabind::object &)) &CtrlrComponent::setCustomLookAndFeel)
 	];
 }

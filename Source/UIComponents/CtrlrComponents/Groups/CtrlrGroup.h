@@ -32,6 +32,9 @@ class CtrlrGroupContentComponent : public GroupComponent
 	public:
 		CtrlrGroupContentComponent(CtrlrGroup &_owner);
 		~CtrlrGroupContentComponent();
+		void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr);
+
+        JUCE_LEAK_DETECTOR(CtrlrGroupContentComponent)
 
 	private:
 		CtrlrGroup &owner;
@@ -92,6 +95,7 @@ public:
 	Array <CtrlrComponent*> getOwnedChildren();
 	void reloadResources(Array <CtrlrPanelResource*> resourcesThatChanged);
 	void setResource();
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr);
 	static void wrapForLua (lua_State *L);
     //[/UserMethods]
 

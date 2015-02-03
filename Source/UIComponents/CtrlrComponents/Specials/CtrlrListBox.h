@@ -82,6 +82,7 @@ public:
 	bool isRowSelected (int rowNumber) const;
 	void setMultipleSelectionEnabled (bool shouldBeEnabled);
 	SparseSet <int> getSelectedRows () const;
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
     //[/UserMethods]
 
     void paint (Graphics& g);

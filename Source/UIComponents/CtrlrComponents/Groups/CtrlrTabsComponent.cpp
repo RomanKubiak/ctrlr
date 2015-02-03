@@ -190,6 +190,18 @@ void CtrlrTabsContentComponent::parentNameChanged(const String &newName)
 	}
 }
 
+void CtrlrTabsContentComponent::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
+{
+    for (int i=0; i<getNumChildComponents(); i++)
+	{
+		CtrlrComponent *c = dynamic_cast<CtrlrComponent*>(getChildComponent(i));
+		if (c!=0)
+		{
+			c->setCustomLookAndFeel (customLookAndFeel);
+		}
+	}
+}
+
 CtrlrTabsInternal::CtrlrTabsInternal(CtrlrTabsComponent &_owner) : owner(_owner), TabbedComponent(TabbedButtonBar::TabsAtTop)
 {
 }
@@ -645,6 +657,14 @@ void CtrlrTabsComponent::itemDragEnter (const SourceDetails &dragSourceDetails)
 {
 }
 
+void CtrlrTabsComponent::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
+{
+    for (int i=0; i<ctrlrTabs->getNumTabs(); i++)
+    {
+        dynamic_cast<CtrlrTabsContentComponent*> (ctrlrTabs->getTabContentComponent(i))->customLookAndFeelChanged(customLookAndFeel);
+    }
+}
+
 Array <CtrlrComponent*> CtrlrTabsComponent::getOwnedChildren()
 {
 	Array <CtrlrComponent*> ar;
@@ -662,11 +682,6 @@ Array <CtrlrComponent*> CtrlrTabsComponent::getOwnedChildren()
 	}
 
 	return (ar);
-}
-
-LookAndFeel &CtrlrTabsComponent::getDefaultCustomLookAndFeel()
-{
-    return (lf);
 }
 //[/MiscUserCode]
 

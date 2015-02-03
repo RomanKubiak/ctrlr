@@ -19,7 +19,6 @@ CtrlrSlider::CtrlrSlider (CtrlrModulator &owner)
     ctrlrSlider.setTextBoxStyle (Slider::TextBoxBelow, false, 64, 12);
     ctrlrSlider.addListener (this);
 	ctrlrSlider.setLookAndFeel (&lf);
-
 	componentTree.addListener (this);
 
 	setProperty (Ids::uiSliderStyle, "RotaryVerticalDrag");
@@ -245,6 +244,14 @@ const String CtrlrSlider::getComponentText()
 	return (String(getComponentValue()));
 }
 
+void CtrlrSlider::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
+{
+    if (customLookAndFeel == nullptr)
+        ctrlrSlider.setLookAndFeel (&lf);
+    else
+        ctrlrSlider.setLookAndFeel (customLookAndFeel);
+}
+
 void CtrlrSlider::wrapForLua(lua_State *L)
 {
 	using namespace luabind;
@@ -254,9 +261,4 @@ void CtrlrSlider::wrapForLua(lua_State *L)
 		class_<CtrlrSlider, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrSlider")
 			.def("getOwnedSlider", &CtrlrSlider::getOwnedSlider)
 	];
-}
-
-void CtrlrSlider::lookAndFeelChanged()
-{
-    _DBG("CtrlrSlider::lookAndFeelChanged");
 }

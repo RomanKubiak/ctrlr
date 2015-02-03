@@ -66,6 +66,7 @@ public:
 	CtrlrLCDLabel &setLabelText(const String &text);
 	CtrlrLCDLabel &appendText(const String &text);
 	const String getText();
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
     //[/UserMethods]
 
     void paint (Graphics& g);

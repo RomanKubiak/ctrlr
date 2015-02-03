@@ -89,6 +89,7 @@ public:
 	void scrollToTop();
 	void setSelectedFile(const File &file);
 	void refresh();
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
     //[/UserMethods]
 
     void paint (Graphics& g);

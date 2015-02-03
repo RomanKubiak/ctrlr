@@ -62,6 +62,7 @@ public:
 	bool isToggleButton();
 	void setToggleState(const bool toggleState, const bool sendChangeMessage=false);
 	static void wrapForLua(lua_State *L);
+	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
     //[/UserMethods]
 
     void paint (Graphics& g);

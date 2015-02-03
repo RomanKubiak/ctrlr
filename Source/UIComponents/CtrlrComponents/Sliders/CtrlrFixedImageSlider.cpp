@@ -336,15 +336,6 @@ void CtrlrFixedImageSlider::reloadResources(Array <CtrlrPanelResource*> resource
 		}
 	}
 }
-
-void CtrlrFixedImageSlider::lookAndFeelChanged()
-{
-    LookAndFeelBase *lfb = dynamic_cast<LookAndFeelBase *>(& getLookAndFeel());
-    if (lfb != nullptr)
-    {
-        ctrlrSlider->setLookAndFeel (lfb);
-    }
-}
 //[/MiscUserCode]
 
 
