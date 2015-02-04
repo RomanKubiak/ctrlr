@@ -6,6 +6,7 @@
 #include "CtrlrPanelCanvasLayer.h"
 #include "CtrlrWindowManagers/CtrlrChildWindowContent.h"
 
+class LookAndFeelBase;
 
 class CtrlrQuickXmlPreview : public Button::Listener, public Component
 {
@@ -218,6 +219,9 @@ public:
 	void itemDragEnter (const SourceDetails &dragSourceDetails);
 	void replaceComponent (CtrlrModulator &modulator, const String &targetComponentType);
 	PopupMenu getLayerMenu();
+	void setCustomLookAndFeel(const luabind::object &customLookAndFeel);
+	void setCustomLookAndFeel (LookAndFeelBase *customLookAndFeel);
+
     JUCE_LEAK_DETECTOR(CtrlrPanelCanvas)
 
 private:

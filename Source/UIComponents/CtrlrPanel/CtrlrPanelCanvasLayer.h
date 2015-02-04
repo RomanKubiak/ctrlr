@@ -32,6 +32,8 @@ class CtrlrPanelCanvasLayer : public Component, public CtrlrLuaObject, public Va
 		void moveUp();
 		void moveDown();
 		void resized();
+		void setCustomLookAndFeel(const luabind::object &customLookAndFeel);
+        void setCustomLookAndFeel (LookAndFeelBase *customLookAndFeel);
 		JUCE_LEAK_DETECTOR(CtrlrPanelCanvasLayer)
 
 	private:

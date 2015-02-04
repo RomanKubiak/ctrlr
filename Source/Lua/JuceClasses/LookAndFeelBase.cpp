@@ -235,9 +235,9 @@ void LookAndFeelBase::drawPopupMenuBackground(Graphics &g, int width, int height
 	owner.drawPopupMenuBackground(p);
 }
 
-void LookAndFeelBase::drawPopupMenuItem(Graphics &g, const Rectangle<int> &areaInt, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* drawableIcon, const Colour *textColourPtr)
+void LookAndFeelBase::drawPopupMenuItem(Graphics &g, const Rectangle<int> &areaIntConst, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* drawableIcon, const Colour *textColourPtr)
 {
-	LookAndFeelParamWrapper p(g, areaInt, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, drawableIcon, textColourPtr);
+	LookAndFeelParamWrapper p(g, areaIntConst, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, drawableIcon, textColourPtr);
 	owner.drawPopupMenuItem(p);
 }
 

@@ -15,5 +15,6 @@ void CtrlrPanelCanvas::wrapForLua (lua_State *L)
 			.def("getLayerFromArray",&CtrlrPanelCanvas::getLayerFromArray)
 			.def("getNumLayers",&CtrlrPanelCanvas::getNumLayers)
 			.def("getLayerName",&CtrlrPanelCanvas::getLayerName)
+			.def("setCustomLookAndFeel", (void (CtrlrPanelCanvas::*)(const luabind::object &)) &CtrlrPanelCanvas::setCustomLookAndFeel)
 	];
 }
