@@ -88,7 +88,7 @@
       </MODULEPATHS>
     </VS2010>
     <LINUX_MAKE targetFolder="../Generated/Linux/Standalone" extraDefs="" bigIcon="QqMgrL"
-                smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -w -fPIC -std=c++0x"
+                smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -w -fPIC -std=c++0x -fexceptions"
                 extraLinkerFlags="libbfd-$(ARCH).a&#10;libiberty-$(ARCH).a&#10;-lz&#10;-lGL">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
@@ -123,7 +123,7 @@
     </LINUX_MAKE>
     <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries=""
                 extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lXext -lfreetype -lpthread -lasound -lz -lbfd -lGL"
-                extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w"
+                extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions"
                 smallIcon="xQ5dKQ" bigIcon="ugOMDZ" extraDefs="LINUX=1&#10;_LINUX=1"
                 userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
       <CONFIGURATIONS>

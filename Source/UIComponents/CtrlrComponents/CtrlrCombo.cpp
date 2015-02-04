@@ -589,6 +589,14 @@ void CtrlrCombo::setText(const String &text, const bool dontNotify)
 	return (ctrlrCombo->setText(text, dontNotify ? dontSendNotification : sendNotification));
 }
 
+void CtrlrCombo::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
+{
+    if (customLookAndFeel == nullptr)
+        ctrlrCombo->setLookAndFeel (&lf);
+    else
+        ctrlrCombo->setLookAndFeel (customLookAndFeel);
+}
+
 void CtrlrCombo::wrapForLua(lua_State *L)
 {
 	using namespace luabind;

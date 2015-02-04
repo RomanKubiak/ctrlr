@@ -3,6 +3,7 @@
 #include "CtrlrPanelCanvasLayer.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrLog.h"
+#include "Lua/JuceClasses/LookAndFeelBase.h"
 
 CtrlrPanelCanvasLayer::CtrlrPanelCanvasLayer(CtrlrPanelCanvas &_owner)
 	: layerTree(Ids::uiPanelCanvasLayer), owner(_owner), mousePass(false)
@@ -72,4 +73,29 @@ void CtrlrPanelCanvasLayer::valueTreePropertyChanged (ValueTree &treeWhoseProper
 	{
 		mousePass = (bool)getProperty(property);
 	}
+}
+
+void CtrlrPanelCanvasLayer::setCustomLookAndFeel(const luabind::object &customLookAndFeel)
+{
+    try
+    {
+        setCustomLookAndFeel (luabind::object_cast <LookAndFeelBase *> (customLookAndFeel));
+    }
+    catch (luabind::error &e)
+    {
+        _WRN("Unable to cast passed LookAndFeel object to anything usable: "+_STR(e.what()));
+    }
+}
+
+void CtrlrPanelCanvasLayer::setCustomLookAndFeel (LookAndFeelBase *customLookAndFeel)
+{
+    for (int i=0; i<getNumChildComponents(); i++)
+    {
+        CtrlrComponent *c = dynamic_cast<CtrlrComponent*>(getChildComponent(i));
+
+        if (c != nullptr)
+        {
+            c->setCustomLookAndFeel (customLookAndFeel);
+        }
+    }
 }

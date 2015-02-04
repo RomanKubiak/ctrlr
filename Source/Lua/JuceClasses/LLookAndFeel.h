@@ -200,9 +200,21 @@ class LLookAndFeel : public LookAndFeelBase, public luabind::wrap_base
 		{ ptr->LookAndFeelBase::v3.drawPopupMenuBackground (*p.g, p.width, p.height); }
 
 		void drawPopupMenuItem (LookAndFeelParamWrapper &p)
-		{ try { call<void>("drawPopupMenuItem", p); } catch (luabind::error e) { _WRN("drawPopupMenuItem "+_STR(e.what())); } }
+		{
+		    try
+		    {
+		        call<void>("drawPopupMenuItem", p);
+            }
+            catch (luabind::error e)
+            {
+                _WRN("drawPopupMenuItem "+_STR(e.what()));
+            }
+        }
+
 		static void def_drawPopupMenuItem(LookAndFeelBase *ptr, LookAndFeelParamWrapper &p)
-		{ ptr->LookAndFeelBase::v3.drawPopupMenuItem (*p.g, *p.areaInt, p.isSeparator, p.isActive, p.isHighlighted, p.isTicked, p.hasSubMenu, *p.text, *p.shortcutKeyText, p.drawableIcon, p.textColourPtr); }
+		{
+		    ptr->LookAndFeelBase::v3.drawPopupMenuItem (*p.g, *p.areaInt, p.isSeparator, p.isActive, p.isHighlighted, p.isTicked, p.hasSubMenu, *p.text, *p.shortcutKeyText, p.drawableIcon, p.textColourPtr);
+        }
 
 		Font getPopupMenuFont (LookAndFeelParamWrapper &p)
 		{ try { return (call<Font>("getPopupMenuFont", p)); } catch (luabind::error e) { _WRN("getPopupMenuFont "+_STR(e.what())); return (LookAndFeelBase::v3.getPopupMenuFont ()); } }

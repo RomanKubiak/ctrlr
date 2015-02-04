@@ -28,5 +28,6 @@ void CtrlrPanelCanvasLayer::wrapForLua(lua_State *L)
 		class_<CtrlrPanelCanvasLayer, bases<Component, CtrlrLuaObject> >("CtrlrPanelCanvasLayer")
 			.def("moveUp", &CtrlrPanelCanvasLayer::moveUp)
 			.def("moveDown", &CtrlrPanelCanvasLayer::moveDown)
+			.def("setCustomLookAndFeel", (void (CtrlrPanelCanvasLayer::*)(const luabind::object &)) &CtrlrPanelCanvasLayer::setCustomLookAndFeel)
 	];
 }

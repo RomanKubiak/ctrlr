@@ -13,6 +13,7 @@
 #include "CtrlrComponents/Groups/CtrlrGroup.h"
 #include "CtrlrComponents/CtrlrCustomComponent.h"
 #include "CtrlrLog.h"
+#include "Lua/JuceClasses/LookAndFeelBase.h"
 
 CtrlrPanelCanvas::CtrlrPanelCanvas (CtrlrPanelEditor &_owner)
 	: owner(_owner),
@@ -1426,4 +1427,28 @@ void CtrlrPanelCanvas::itemDragExit (const SourceDetails &dragSourceDetails)
 
 void CtrlrPanelCanvas::itemDragEnter (const SourceDetails &dragSourceDetails)
 {
+}
+
+void CtrlrPanelCanvas::setCustomLookAndFeel (LookAndFeelBase *customLookAndFeel)
+{
+    for (int i=0; i<getNumLayers(); i++)
+    {
+        CtrlrPanelCanvasLayer *l = getLayerFromArray(i);
+        if (l != nullptr)
+        {
+            l->setCustomLookAndFeel (customLookAndFeel);
+        }
+    }
+}
+
+void CtrlrPanelCanvas::setCustomLookAndFeel (const luabind::object &_customLookAndFeel)
+{
+    try
+    {
+        setCustomLookAndFeel (luabind::object_cast <LookAndFeelBase *> (_customLookAndFeel));
+    }
+    catch (luabind::error &e)
+    {
+        _WRN("Unable to cast passed LookAndFeel object to anything usable: "+_STR(e.what()));
+    }
 }
