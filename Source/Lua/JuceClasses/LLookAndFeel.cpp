@@ -9,6 +9,13 @@ void LLookAndFeel::wrapForLua (lua_State *L)
 
 	module(L)
 	[
+        class_<LookAndFeel_V3>("LookAndFeel_V3")
+        ,
+        class_<LookAndFeelBase, LookAndFeel_V3>("LookAndFeelBase")
+            .def(constructor<>())
+            .def("setMethod", &LookAndFeelBase::setMethod)
+    ];
+    /*
         class_<LLookAndFeel>("LLookAndFeel")
         ,
 		class_<LookAndFeelBase, LLookAndFeel>("LookAndFeel")
@@ -114,4 +121,5 @@ void LLookAndFeel::wrapForLua (lua_State *L)
 			.def ("drawLevelMeter", &LLookAndFeel::drawLevelMeter, &LLookAndFeel::def_drawLevelMeter)
 			.def ("drawKeymapChangeButton", &LLookAndFeel::drawKeymapChangeButton, &LLookAndFeel::def_drawKeymapChangeButton)
 	];
+	*/
 }

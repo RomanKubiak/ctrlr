@@ -3,6 +3,44 @@
 #include "LLookAndFeel.h"
 #include "LookAndFeelParamWrapper.h"
 
+LookAndFeelBase::LookAndFeelBase()
+{
+}
+
+LookAndFeelBase::~LookAndFeelBase()
+{
+}
+
+void LookAndFeelBase::drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPos, float rotaryStartAngle, const float rotaryEndAngle, Slider &slider)
+{
+    _DBG("LookAndFeelBase::drawRotarySlider");
+    if (methods.contains("drawRotarySlider"))
+    {
+        luabind::object o = packParams<LookAndFeelBase*,Graphics&,int,int,int,int,float,float,float,Slider&> (this, g,x,y,width,height,sliderPos,rotaryStartAngle,rotaryEndAngle,slider);
+        luabind::call_function<void>(methods["drawRotarySlider"]);
+    }
+    else
+    {
+        LookAndFeel_V3::drawRotarySlider(g,x,y,width,height,sliderPos,rotaryStartAngle,rotaryEndAngle,slider);
+    }
+}
+
+void LookAndFeelBase::setMethod (const String &methodName, const luabind::object &method)
+{
+    _DBG("LookAndFeelBase::setMethod name="+methodName);
+    if (luabind::type(method) != LUA_TNIL)
+    {
+        _DBG("\tmethod looks valid, set it in hash table");
+        methods.set (methodName, method);
+    }
+    else
+    {
+        _DBG("\tmethod looks like a null pointer, clear it");
+        methods.remove(methodName);
+    }
+}
+
+/*
 LookAndFeelBase::LookAndFeelBase(LLookAndFeel &_owner) : owner(_owner)
 {
 }
@@ -235,9 +273,9 @@ void LookAndFeelBase::drawPopupMenuBackground(Graphics &g, int width, int height
 	owner.drawPopupMenuBackground(p);
 }
 
-void LookAndFeelBase::drawPopupMenuItem(Graphics &g, const Rectangle<int> &areaIntConst, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* drawableIcon, const Colour *textColourPtr)
+void LookAndFeelBase::drawPopupMenuItem(Graphics &g, const Rectangle<int> &menuItemArea, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* drawableIcon, const Colour *textColourPtr)
 {
-	LookAndFeelParamWrapper p(g, areaIntConst, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, drawableIcon, textColourPtr);
+	LookAndFeelParamWrapper p(g, menuItemArea, isSeparator, isActive, isHighlighted, isTicked, hasSubMenu, text, shortcutKeyText, drawableIcon, textColourPtr);
 	owner.drawPopupMenuItem(p);
 }
 
@@ -608,3 +646,4 @@ void LookAndFeelBase::drawKeymapChangeButton(Graphics &g, int width, int height,
 	owner.drawKeymapChangeButton(p);
 }
 
+*/

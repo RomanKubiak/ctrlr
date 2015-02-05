@@ -9,7 +9,7 @@ function __method_name:__init()
 end
 
 -- function __method_name:findColour (--[[ int p.colourId --]] p)
---	 return Colour
+--	 return Colour(0xff000000)
 -- end
 
 -- function __method_name:setColour (--[[ int p.colourId, Colour p.colour --]] p)
@@ -24,7 +24,7 @@ end
 -- end
 
 -- function __method_name:getMouseCursorFor (--[[ Component p.component --]] p)
---	 return MouseCursor
+--	 return MouseCursor()
 -- end
 
 -- function __method_name:drawButtonBackground (--[[ Graphics p.g, Button p.button, Colour p.backgroundColourRef, bool p.isMouseOverButton, bool p.isButtonDown --]] p)
@@ -62,7 +62,7 @@ end
 -- end
 
 -- function __method_name:getAlertWindowFont (--[[  --]] p)
---	 return Font
+--	 return Font()
 -- end
 
 -- function __method_name:drawProgressBar (--[[ Graphics p.g, ProgressBar p.progressBar, int p.width, int p.height, double p.progress, String p.textToShow --]] p)
@@ -92,11 +92,11 @@ end
 -- end
 
 -- function __method_name:getTickShape (--[[ float p.height --]] p)
---	 return Path
+--	 return Path()
 -- end
 
 -- function __method_name:getCrossShape (--[[ float p.height --]] p)
---	 return Path
+--	 return Path()
 -- end
 
 -- function __method_name:drawTreeviewPlusMinusBox (--[[ Graphics p.g, Rectangle p.area, Colour p.backgroundColour, bool p.isOpen, bool p.isMouseOver --]] p)
@@ -109,26 +109,26 @@ end
 -- end
 
 -- function __method_name:createCaretComponent (--[[ Component* p.component --]] p)
---	 return CaretComponent*
+--	 return CaretComponent()
 -- end
 
 -- function __method_name:getDefaultFolderImage (--[[  --]] p)
---	 return Drawable*
+--	 return Drawable()
 -- end
 
 -- function __method_name:getDefaultDocumentFileImage (--[[  --]] p)
---	 return Drawable*
+--	 return Drawable()
 -- end
 
 -- function __method_name:createFileChooserHeaderText (--[[ String p.title, String p.instructions --]] p)
---	 return AttributedString
+--	 return AttributedString()
 -- end
 
 -- function __method_name:drawFileBrowserRow (--[[ Graphics p.g, int p.width, int p.height, String p.filename, Image* p.icon, String p.fileSizeDescription, String p.fileTimeDescription, bool p.isDirectory, bool p.isItemSelected, int p.itemIndex, DirectoryContentsDisplayComponent p.directoryContentsDisplayComponent --]] p)
 -- end
 
 -- function __method_name:createFileBrowserGoUpButton (--[[  --]] p)
---	 return Button*
+--	 return Button()
 -- end
 
 -- function __method_name:layoutFileBrowserComponent (--[[ FileBrowserComponent p.fileBrowserComponent, DirectoryContentsDisplayComponent p.*directoryContentsDisplayComponent, FilePreviewComponent p.*filePreviewComponent, ComboBox p.*comboBox, TextEditor p.*textEditor, Button p.*goUpButton --]] p)
@@ -143,7 +143,7 @@ end
 -- function __method_name:drawPopupMenuBackground (--[[ Graphics p.g, int p.width, int p.height --]] p)
 -- end
 
--- function __method_name:drawPopupMenuItem (--[[ Graphics p.g, Rectangle p.areaInt, bool p.isSeparator, bool p.isActive, bool p.isHighlighted, bool p.isTicked, bool p.hasSubMenu, String p.text, String p.shortcutKeyText, Drawable* p.drawableIcon, Colour p.*textColourPtr --]] p)
+-- function __method_name:drawPopupMenuItem (--[[ Graphics p.g, Rectangle p.menuItemArea, bool p.isSeparator, bool p.isActive, bool p.isHighlighted, bool p.isTicked, bool p.hasSubMenu, String p.text, String p.shortcutKeyText, Drawable* p.drawableIcon, Colour p.*textColourPtr --]] p)
 -- end
 
 -- function __method_name:getPopupMenuFont (--[[  --]] p)
@@ -168,7 +168,7 @@ end
 -- end
 
 -- function __method_name:getMenuBarFont (--[[ MenuBarComponent p.menuBarComponent, int p.itemIndex, String p.itemText --]] p)
---	 return Font
+--	 return Font()
 -- end
 
 -- function __method_name:drawMenuBarItem (--[[ Graphics p.g, int p.width, int p.height, int p.itemIndex, String p.itemText, bool p.isMouseOverItem, bool p.isMenuOpen, bool p.isMouseOverBar, MenuBarComponent p.menuBarComponent --]] p)
@@ -178,11 +178,11 @@ end
 -- end
 
 -- function __method_name:getComboBoxFont (--[[ ComboBox p.comboBox --]] p)
---	 return Font
+--	 return Font()
 -- end
 
 -- function __method_name:createComboBoxTextBox (--[[ ComboBox p.comboBox --]] p)
---	 return Label*
+--	 return Label()
 -- end
 
 -- function __method_name:positionComboBoxText (--[[ ComboBox p.comboBox, Label p.label --]] p)
@@ -208,15 +208,15 @@ end
 -- end
 
 -- function __method_name:createSliderButton (--[[ Slider p.slider, bool p.isIncrement --]] p)
---	 return Button*
+--	 return Button()
 -- end
 
 -- function __method_name:createSliderTextBox (--[[ Slider p.slider --]] p)
---	 return Label*
+--	 return Label()
 -- end
 
 -- function __method_name:getSliderEffect (--[[ Slider p.slider --]] p)
---	 return ImageEffectFilter*
+--	 return ImageEffectFilter()
 -- end
 
 -- function __method_name:getTooltipSize (--[[ String p.tipText, int p.width, int p.height --]] p)
@@ -226,7 +226,7 @@ end
 -- end
 
 -- function __method_name:createFilenameComponentBrowseButton (--[[ String p.text --]] p)
---	 return Button*
+--	 return Button()
 -- end
 
 -- function __method_name:layoutFilenameComponent (--[[ FilenameComponent p.filenameComponent, ComboBox* p.comboBox, Button* p.button --]] p)
@@ -251,7 +251,7 @@ end
 -- end
 
 -- function __method_name:createDocumentWindowButton (--[[ int p.buttonType --]] p)
---	 return Button*
+--	 return Button()
 -- end
 
 -- function __method_name:positionDocumentWindowButtons (--[[ DocumentWindow p.documentWindow, int p.titleBarX, int p.titleBarY, int p.titleBarW, int p.titleBarH, Button* p.minimiseButton, Button* p.maximiseButton, Button* p.closeButton, bool p.positionTitleBarButtonsOnLeft --]] p)
@@ -262,7 +262,7 @@ end
 -- end
 
 -- function __method_name:createDropShadowerForComponent (--[[ Component* p.component --]] p)
---	 return DropShadower*
+--	 return DropShadower()
 -- end
 
 -- function __method_name:drawGroupComponentOutline (--[[ Graphics p.g, int p.w, int p.h, String p.text, Justification p.justification, GroupComponent p.groupComponent --]] p)
@@ -281,7 +281,7 @@ end
 -- end
 
 -- function __method_name:getTabButtonExtraComponentBounds (--[[ TabBarButton p.tabBarButton, Rectangle p.areaInt, Component p.component --]] p)
---	 return Rectangle<int>
+--	 return Rectangle()
 -- end
 
 -- function __method_name:drawTabButton (--[[ TabBarButton p.tabBarButton, Graphics p.g, bool p.isMouseOver, bool p.isMouseDown --]] p)
@@ -300,7 +300,7 @@ end
 -- end
 
 -- function __method_name:createTabBarExtrasButton (--[[  --]] p)
---	 return Button*
+--	 return Button()
 -- end
 
 -- function __method_name:drawImageButton (--[[ Graphics p.g, Image* p.image, int p.imageX, int p.imageY, int p.imageW, int p.imageH, Colour p.overlayColourRef, float p.imageOpacity, ImageButton p.imageButton --]] p)
@@ -316,7 +316,7 @@ end
 -- end
 
 -- function __method_name:createToolbarMissingItemsButton (--[[ Toolbar p.toolbar --]] p)
---	 return Button*
+--	 return Button()
 -- end
 
 -- function __method_name:paintToolbarButtonBackground (--[[ Graphics p.g, int p.width, int p.height, bool p.isMouseOver, bool p.isMouseDown, ToolbarItemComponent p.toolbarItemComponent --]] p)
@@ -338,7 +338,7 @@ end
 -- end
 
 -- function __method_name:getPropertyComponentContentPosition (--[[ PropertyComponent p.propertyComponent --]] p)
---	 return Rectangle<int>
+--	 return Rectangle()
 -- end
 
 -- function __method_name:drawCallOutBoxBackground (--[[ CallOutBox p.callOutBox, Graphics p.g, Path p.path, Image p.image --]] p)

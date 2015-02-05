@@ -644,7 +644,7 @@ void CtrlrComponent::setCustomLookAndFeel (const luabind::object &_customLookAnd
 {
     try
     {
-        setCustomLookAndFeel (luabind::object_cast <LookAndFeelBase *> (_customLookAndFeel));
+        setCustomLookAndFeel (luabind::object_cast <LookAndFeelBase*> (_customLookAndFeel));
     }
     catch (luabind::error &e)
     {

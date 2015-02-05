@@ -6,6 +6,25 @@
 
 class LLookAndFeel;
 
+template<typename T, typename... Targs>
+luabind::object packParams(T instance, Targs... Fargs)
+{
+    return (luabind::object());
+}
+
+class LookAndFeelBase : public LookAndFeel_V3
+{
+    public:
+        LookAndFeelBase();
+        ~LookAndFeelBase();
+        void setMethod (const String &methodName, const luabind::object &method);
+        void drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPos, float rotaryStartAngle, const float rotaryEndAngle, Slider &slider);
+
+    private:
+        HashMap<const String, luabind::object> methods;
+};
+
+/*
 class LookAndFeelBase : public LookAndFeel_V3
 {
 	public:
@@ -116,5 +135,5 @@ class LookAndFeelBase : public LookAndFeel_V3
 	private:
 		LLookAndFeel &owner;
 };
-
+*/
 #endif
