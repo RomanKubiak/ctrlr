@@ -3,6 +3,23 @@
 #include "LLookAndFeel.h"
 #include "LookAndFeelParamWrapper.h"
 
+#define TRY_CALL(method,...)\
+if (methods.contains(#method))\
+{\
+    try \
+    {\
+        luabind::call_function<void>(methods[#method], __VA_ARGS__);\
+    }\
+    catch (luabind::error &e)\
+    {\
+        _WRN(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))));\
+    }\
+}\
+else\
+{\
+   LookAndFeel_V3::method(__VA_ARGS__);\
+}
+
 LookAndFeelBase::LookAndFeelBase()
 {
 }
@@ -11,18 +28,19 @@ LookAndFeelBase::~LookAndFeelBase()
 {
 }
 
+void LookAndFeelBase::drawLabel (Graphics &g, Label &label)
+{
+    TRY_CALL(drawLabel, boost::ref(g),boost::ref(label));
+}
+
+void LookAndFeelBase::drawPopupMenuItem(Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* icon, const Colour *textColour)
+{
+    TRY_CALL(drawPopupMenuItem, boost::ref(g),boost::ref(area),isSeparator,isActive,isHighlighted,isTicked,hasSubMenu,text,shortcutKeyText,icon,textColour);
+}
+
 void LookAndFeelBase::drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPos, float rotaryStartAngle, const float rotaryEndAngle, Slider &slider)
 {
-    _DBG("LookAndFeelBase::drawRotarySlider");
-    if (methods.contains("drawRotarySlider"))
-    {
-        luabind::object o = packParams<LookAndFeelBase*,Graphics&,int,int,int,int,float,float,float,Slider&> (this, g,x,y,width,height,sliderPos,rotaryStartAngle,rotaryEndAngle,slider);
-        luabind::call_function<void>(methods["drawRotarySlider"]);
-    }
-    else
-    {
-        LookAndFeel_V3::drawRotarySlider(g,x,y,width,height,sliderPos,rotaryStartAngle,rotaryEndAngle,slider);
-    }
+    TRY_CALL(drawRotarySlider,boost::ref(g),x,y,width,height,sliderPos,rotaryStartAngle,rotaryEndAngle,boost::ref(slider));
 }
 
 void LookAndFeelBase::setMethod (const String &methodName, const luabind::object &method)
