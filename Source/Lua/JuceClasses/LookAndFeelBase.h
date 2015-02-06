@@ -6,10 +6,17 @@
 
 class LLookAndFeel;
 
-template<typename T, typename... Targs>
-luabind::object packParams(T instance, Targs... Fargs)
-{
-    return (luabind::object());
+template<typename T>
+bool pair_comparer(T a, T b) {
+  // In real-world code, we wouldn't compare floating point values like
+  // this. It would make sense to specialize this function for floating
+  // point types to use approximate comparison.
+  return a == b;
+}
+
+template<typename T, typename... Args>
+bool pair_comparer(T a, T b, Args... args) {
+  return a == b && pair_comparer(args...);
 }
 
 class LookAndFeelBase : public LookAndFeel_V3
@@ -19,7 +26,8 @@ class LookAndFeelBase : public LookAndFeel_V3
         ~LookAndFeelBase();
         void setMethod (const String &methodName, const luabind::object &method);
         void drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPos, float rotaryStartAngle, const float rotaryEndAngle, Slider &slider);
-
+        void drawPopupMenuItem (Graphics &g, const Rectangle<int> &areaInt, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* drawableIcon, const Colour *textColourPtr);
+        void drawLabel (Graphics &g, Label &label);
     private:
         HashMap<const String, luabind::object> methods;
 };

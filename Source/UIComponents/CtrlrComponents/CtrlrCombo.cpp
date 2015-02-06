@@ -591,6 +591,8 @@ void CtrlrCombo::setText(const String &text, const bool dontNotify)
 
 void CtrlrCombo::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
 {
+    _DBG("CtrlrCombo::customLookAndFeelChanged");
+
     if (customLookAndFeel == nullptr)
         ctrlrCombo->setLookAndFeel (&lf);
     else
