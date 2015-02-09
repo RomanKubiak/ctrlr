@@ -1623,7 +1623,6 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLine.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelParamWrapper.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.h"/>

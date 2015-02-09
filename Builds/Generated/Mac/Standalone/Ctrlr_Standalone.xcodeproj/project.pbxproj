@@ -1031,7 +1031,6 @@
 		7BB5E033EF600A04D8000E09 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ShapeButton.h"; path = "../../../../Juce/modules/juce_gui_basics/buttons/juce_ShapeButton.h"; sourceTree = "SOURCE_ROOT"; };
 		7C05CC4375C590663A23F21F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MountedVolumeListChangeDetector.h"; path = "../../../../Juce/modules/juce_events/messages/juce_MountedVolumeListChangeDetector.h"; sourceTree = "SOURCE_ROOT"; };
 		7C292B3DD563454802E351FB = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MidiOutput.h"; path = "../../../../Juce/modules/juce_audio_devices/midi_io/juce_MidiOutput.h"; sourceTree = "SOURCE_ROOT"; };
-		7C2FD57606601B7AEF3565B1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LookAndFeelParamWrapper.h; path = ../../../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h; sourceTree = "SOURCE_ROOT"; };
 		7C4290237CC4A74D672DE07C = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_KeyListener.h"; path = "../../../../Juce/modules/juce_gui_basics/keyboard/juce_KeyListener.h"; sourceTree = "SOURCE_ROOT"; };
 		7C45D25FAFDCFA8786B6451D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_TemporaryFile.h"; path = "../../../../Juce/modules/juce_core/files/juce_TemporaryFile.h"; sourceTree = "SOURCE_ROOT"; };
 		7C79A968DDD990591DBD0F13 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrEditor.h; path = ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditor.h; sourceTree = "SOURCE_ROOT"; };
@@ -2067,7 +2066,6 @@
 					EBC4A7211929B0FF26010410,
 					BE147FAB4262847A6C53CB3B,
 					C2017FBCC22CA557BDFCFC5F,
-					7C2FD57606601B7AEF3565B1,
 					414E2D9796087F779538940C,
 					E7B44B8C4D2C214228927D9A,
 					251AF758071F170B2F921F8E,

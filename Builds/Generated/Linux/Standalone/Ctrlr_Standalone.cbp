@@ -2392,7 +2392,6 @@
 		<Unit filename="../../../../Source/Lua/JuceClasses/LZipFile.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LookAndFeelBase.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LookAndFeelBase.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h" />
 		<Unit filename="../../../../Source/Lua/Methods/CtrlrLuaMethod.cpp" />
 		<Unit filename="../../../../Source/Lua/Methods/CtrlrLuaMethod.h" />
 		<Unit filename="../../../../Source/Lua/Methods/CtrlrLuaMethodManager.cpp" />
@@ -2837,7 +2836,6 @@
 			<envvars />
 			<code_completion />
 			<debugger />
-			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
