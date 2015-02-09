@@ -37,6 +37,24 @@ else\
    return (LookAndFeel_V3::method(__VA_ARGS__));\
 }
 
+#define TRY_CALL_RET_NOP(method,ReturnType,ReturnWhenError,...)\
+if (methods.contains(#method))\
+{\
+    try \
+    {\
+        return (luabind::call_function<ReturnType>(methods[#method]));\
+    }\
+    catch (luabind::error &e)\
+    {\
+        _WRN(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))));\
+		return (ReturnWhenError);\
+    }\
+}\
+else\
+{\
+   return (LookAndFeel_V3::method());\
+}
+
 LookAndFeelBase::LookAndFeelBase()
 {
 }
@@ -111,22 +129,22 @@ void LookAndFeelBase::drawAlertBox(Graphics &g, AlertWindow &window, const Recta
 
 int LookAndFeelBase::getAlertBoxWindowFlags()
 {
-	TRY_CALL_RET(getAlertBoxWindowFlags, int, 0);
+	TRY_CALL_RET_NOP(getAlertBoxWindowFlags, int, 0);
 }
 
 int LookAndFeelBase::getAlertWindowButtonHeight()
 {
-	TRY_CALL_RET(getAlertWindowButtonHeight, int, 0);
+	TRY_CALL_RET_NOP(getAlertWindowButtonHeight, int, 0);
 }
 
 Font LookAndFeelBase::getAlertWindowMessageFont()
 {
-	TRY_CALL_RET(getAlertWindowMessageFont, Font, Font());
+	TRY_CALL_RET_NOP(getAlertWindowMessageFont, Font, Font());
 }
 
 Font LookAndFeelBase::getAlertWindowFont()
 {
-	TRY_CALL_RET(getAlertWindowFont, Font, Font());
+	TRY_CALL_RET_NOP(getAlertWindowFont, Font, Font());
 }
 
 void LookAndFeelBase::drawProgressBar(Graphics &g, ProgressBar &progressBar, int width, int height, double progress, const String &textToShow)
@@ -139,12 +157,12 @@ void LookAndFeelBase::drawSpinningWaitAnimation(Graphics &g, const Colour &colou
 
 bool LookAndFeelBase::areScrollbarButtonsVisible()
 {
-	TRY_CALL_RET(areScrollbarButtonsVisible, bool, true);
+	TRY_CALL_RET_NOP(areScrollbarButtonsVisible, bool, true);
 }
 
 ImageEffectFilter* LookAndFeelBase::getScrollbarEffect()
 {
-	TRY_CALL_RET(getScrollbarEffect, ImageEffectFilter*, nullptr);
+	TRY_CALL_RET_NOP(getScrollbarEffect, ImageEffectFilter*, nullptr);
 }
 
 int LookAndFeelBase::getMinimumScrollbarThumbSize(ScrollBar &scrollBar)
@@ -154,7 +172,7 @@ int LookAndFeelBase::getMinimumScrollbarThumbSize(ScrollBar &scrollBar)
 
 int LookAndFeelBase::getDefaultScrollbarWidth()
 {
-	TRY_CALL_RET(getDefaultScrollbarWidth, int, 0);
+	TRY_CALL_RET_NOP(getDefaultScrollbarWidth, int, 0);
 }
 
 int LookAndFeelBase::getScrollbarButtonSize(ScrollBar &scrollBar)
@@ -191,12 +209,12 @@ CaretComponent* LookAndFeelBase::createCaretComponent(Component* component)
 
 const Drawable* LookAndFeelBase::getDefaultFolderImage()
 {
-	TRY_CALL_RET(getDefaultFolderImage, Drawable*, nullptr);
+	TRY_CALL_RET_NOP(getDefaultFolderImage, Drawable*, nullptr);
 }
 
 const Drawable* LookAndFeelBase::getDefaultDocumentFileImage()
 {
-	TRY_CALL_RET(getDefaultDocumentFileImage, Drawable*, nullptr);
+	TRY_CALL_RET_NOP(getDefaultDocumentFileImage, Drawable*, nullptr);
 }
 
 AttributedString LookAndFeelBase::createFileChooserHeaderText(const String &title, const String &instructions)
@@ -210,7 +228,7 @@ void LookAndFeelBase::drawFileBrowserRow(Graphics &g, int width, int height, con
 
 Button* LookAndFeelBase::createFileBrowserGoUpButton()
 {
-	TRY_CALL_RET(createFileBrowserGoUpButton, Button*, nullptr);
+	TRY_CALL_RET_NOP(createFileBrowserGoUpButton, Button*, nullptr);
 }
 
 void LookAndFeelBase::layoutFileBrowserComponent(FileBrowserComponent &fileBrowserComponent, DirectoryContentsDisplayComponent *directoryContentsDisplayComponent, FilePreviewComponent *filePreviewComponent, ComboBox *comboBox, TextEditor *textEditor, Button *goUpButton)
@@ -236,7 +254,7 @@ void LookAndFeelBase::drawPopupMenuItem(Graphics &g, const Rectangle<int> &area,
 
 Font LookAndFeelBase::getPopupMenuFont()
 {
-	TRY_CALL_RET(getPopupMenuFont, Font, Font());
+	TRY_CALL_RET_NOP(getPopupMenuFont, Font, Font());
 }
 
 void LookAndFeelBase::drawPopupMenuUpDownArrow(Graphics &g, int width, int height, bool isScrollUpArrow)
@@ -249,7 +267,7 @@ void LookAndFeelBase::getIdealPopupMenuItemSize(const String &text, bool isSepar
 
 int LookAndFeelBase::getMenuWindowFlags()
 {
-	TRY_CALL_RET(getMenuWindowFlags, int, 0);
+	TRY_CALL_RET_NOP(getMenuWindowFlags, int, 0);
 }
 
 void LookAndFeelBase::drawMenuBarBackground(Graphics &g, int width, int height, bool isMouseOverBar, MenuBarComponent &menuBarComponent)
@@ -382,7 +400,7 @@ void LookAndFeelBase::positionDocumentWindowButtons(DocumentWindow &documentWind
 
 int LookAndFeelBase::getDefaultMenuBarHeight()
 {
-	TRY_CALL_RET(getDefaultMenuBarHeight, int, 0);
+	TRY_CALL_RET_NOP(getDefaultMenuBarHeight, int, 0);
 }
 
 DropShadower* LookAndFeelBase::createDropShadowerForComponent(Component* component)
@@ -396,7 +414,7 @@ void LookAndFeelBase::drawGroupComponentOutline(Graphics &g, int w, int h, const
 
 int LookAndFeelBase::getTabButtonSpaceAroundImage()
 {
-	TRY_CALL_RET(getTabButtonSpaceAroundImage, int, 0);
+	TRY_CALL_RET_NOP(getTabButtonSpaceAroundImage, int, 0);
 }
 
 int LookAndFeelBase::getTabButtonOverlap(int tabDepth)
@@ -436,7 +454,7 @@ void LookAndFeelBase::fillTabButtonShape(TabBarButton &tabBarButton, Graphics &g
 
 Button* LookAndFeelBase::createTabBarExtrasButton()
 {
-	TRY_CALL_RET(createTabBarExtrasButton, Button*, nullptr);
+	TRY_CALL_RET_NOP(createTabBarExtrasButton, Button*, nullptr);
 }
 
 void LookAndFeelBase::drawImageButton(Graphics &g, Image* image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColourRef, float imageOpacity, ImageButton &imageButton)
