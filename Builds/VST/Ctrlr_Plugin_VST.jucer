@@ -96,7 +96,7 @@
         <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
     </VS2010>
-    <LINUX_MAKE targetFolder="../Generated/Linux/VST" extraCompilerFlags="-fpermissive -w -fPIC"
+    <LINUX_MAKE targetFolder="../Generated/Linux/VST" extraCompilerFlags="-fpermissive -w -fPIC -fexceptions"
                 extraDefs="LUA_USE_LINUX" vstFolder="../../VST" bigIcon="PsrMEo"
                 smallIcon="QFDZIE" extraLinkerFlags="libbfd-$(ARCH).a&#10;libiberty-$(ARCH).a&#10;-lz&#10;-lGL">
       <CONFIGURATIONS>
@@ -548,8 +548,6 @@
               file="../../Source/Lua/JuceClasses/LookAndFeelBase.cpp"/>
         <FILE id="AOQCRy" name="LookAndFeelBase.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LookAndFeelBase.h"/>
-        <FILE id="jiLX4G" name="LookAndFeelParamWrapper.h" compile="0" resource="0"
-              file="../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h"/>
         <FILE id="HC7Plc" name="LPath.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPath.cpp"/>
         <FILE id="J0LFDW" name="LPath.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPath.h"/>
         <FILE id="TLEOrl" name="LPoint.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPoint.cpp"/>
