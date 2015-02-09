@@ -535,8 +535,6 @@
         <FILE id="oqFjRG" name="LMouseCursor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseCursor.h"/>
         <FILE id="Rtwaug" name="LLine.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LLine.cpp"/>
         <FILE id="glbv0u" name="LLine.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLine.h"/>
-        <FILE id="Xv8Nh5" name="LookAndFeelParamWrapper.h" compile="0" resource="0"
-              file="../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h"/>
         <FILE id="u0mGw1" name="LLookAndFeel.cpp" compile="1" resource="0"
               file="../../Source/Lua/JuceClasses/LLookAndFeel.cpp"/>
         <FILE id="VEVZZ3" name="LLookAndFeel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLookAndFeel.h"/>

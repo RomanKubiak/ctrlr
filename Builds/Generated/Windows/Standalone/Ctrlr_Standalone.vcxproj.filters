@@ -2610,9 +2610,6 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLine.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelParamWrapper.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>

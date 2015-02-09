@@ -2,41 +2,12 @@
 #define LOOK_AND_FEEL_BASE
 
 #include "CtrlrLuaManager.h"
-#include "LookAndFeelParamWrapper.h"
 
-class LLookAndFeel;
-
-template<typename T>
-bool pair_comparer(T a, T b) {
-  // In real-world code, we wouldn't compare floating point values like
-  // this. It would make sense to specialize this function for floating
-  // point types to use approximate comparison.
-  return a == b;
-}
-
-template<typename T, typename... Args>
-bool pair_comparer(T a, T b, Args... args) {
-  return a == b && pair_comparer(args...);
-}
-
-class LookAndFeelBase : public LookAndFeel_V3
-{
-    public:
-        LookAndFeelBase();
-        ~LookAndFeelBase();
-        void setMethod (const String &methodName, const luabind::object &method);
-        void drawRotarySlider (Graphics &g, int x, int y, int width, int height, float sliderPos, float rotaryStartAngle, const float rotaryEndAngle, Slider &slider);
-        void drawPopupMenuItem (Graphics &g, const Rectangle<int> &areaInt, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* drawableIcon, const Colour *textColourPtr);
-        void drawLabel (Graphics &g, Label &label);
-    private:
-        HashMap<const String, luabind::object> methods;
-};
-
-/*
 class LookAndFeelBase : public LookAndFeel_V3
 {
 	public:
-		LookAndFeelBase(LLookAndFeel &_owner);
+		LookAndFeelBase();
+		void setMethod (const String &methodName, const luabind::object &method);
 		Colour findColour (int colourId);
 		void setColour (int colourId, Colour colour);
 		bool isColourSpecified (int colourId);
@@ -137,11 +108,8 @@ class LookAndFeelBase : public LookAndFeel_V3
 		void drawCallOutBoxBackground (CallOutBox &callOutBox, Graphics &g, const Path &path, Image &image);
 		void drawLevelMeter (Graphics &g, int width, int height, float level);
 		void drawKeymapChangeButton (Graphics &g, int width, int height, Button &button, const String &keyDescription);
-
-        LookAndFeel_V3 v3;
-
 	private:
-		LLookAndFeel &owner;
+	    HashMap<String,luabind::object> methods;
 };
-*/
+
 #endif
