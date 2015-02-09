@@ -898,10 +898,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Source/Lua/JuceClasses/LPath.cpp"/>
     <Unit filename="../../../../Source/Lua/JuceClasses/LPath.h">
       <Option compile="0"/>

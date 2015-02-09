@@ -2312,7 +2312,6 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.h" />
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelParamWrapper.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPath.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.h" />

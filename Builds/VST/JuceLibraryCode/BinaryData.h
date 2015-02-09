@@ -43,7 +43,7 @@ namespace BinaryData
     const int            lf_templateSize = 13631;
 
     extern const char*   LookAndFeel_lua;
-    const int            LookAndFeel_luaSize = 15109;
+    const int            LookAndFeel_luaSize = 15147;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
