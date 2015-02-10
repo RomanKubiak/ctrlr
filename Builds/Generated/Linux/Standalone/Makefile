@@ -101,7 +101,6 @@ OBJECTS := \
   $(OBJDIR)/stdafx_b1a20461.o \
   $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
   $(OBJDIR)/LMidiBuffer_d1dab261.o \
-  $(OBJDIR)/LookAndFeelBase_f5b48a03.o \
   $(OBJDIR)/LBorderSize_ecfcd7ed.o \
   $(OBJDIR)/LButton_b8659fd2.o \
   $(OBJDIR)/LTextButton_e8537f5f.o \
@@ -502,11 +501,6 @@ $(OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.c
 $(OBJDIR)/LMidiBuffer_d1dab261.o: ../../../../Source/Lua/JuceClasses/LMidiBuffer.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LMidiBuffer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LookAndFeelBase_f5b48a03.o: ../../../../Source/Lua/JuceClasses/LookAndFeelBase.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LookAndFeelBase.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LBorderSize_ecfcd7ed.o: ../../../../Source/Lua/JuceClasses/LBorderSize.cpp

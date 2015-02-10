@@ -3,7 +3,7 @@
 #include "CtrlrPanelCanvasLayer.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrLog.h"
-#include "Lua/JuceClasses/LookAndFeelBase.h"
+#include "Lua/JuceClasses/LLookAndFeel.h"
 
 CtrlrPanelCanvasLayer::CtrlrPanelCanvasLayer(CtrlrPanelCanvas &_owner)
 	: layerTree(Ids::uiPanelCanvasLayer), owner(_owner), mousePass(false)

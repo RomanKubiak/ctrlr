@@ -13,7 +13,7 @@
 #include "CtrlrComponents/Groups/CtrlrGroup.h"
 #include "CtrlrComponents/CtrlrCustomComponent.h"
 #include "CtrlrLog.h"
-#include "Lua/JuceClasses/LookAndFeelBase.h"
+#include "Lua/JuceClasses/LLookAndFeel.h"
 
 CtrlrPanelCanvas::CtrlrPanelCanvas (CtrlrPanelEditor &_owner)
 	: owner(_owner),

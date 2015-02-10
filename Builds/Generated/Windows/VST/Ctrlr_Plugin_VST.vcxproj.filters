@@ -652,9 +652,6 @@
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPath.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
@@ -2668,9 +2665,6 @@
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPath.h">
