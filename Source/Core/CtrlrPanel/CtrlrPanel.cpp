@@ -855,6 +855,11 @@ void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 					m->setRestoreState (false);
 				}
 			}
+
+			if (program.getChild(i).hasType(Ids::panelCustomData))
+            {
+                setCustomData(program.getChild(i));
+            }
 		}
 
 		if ((bool)getProperty (Ids::panelMidiSnapshotAfterProgramChange) == true)

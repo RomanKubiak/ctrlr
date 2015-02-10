@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "LGlobalFunctions.h"
-#include "LookAndFeelBase.h"
 
 LGlobalFunctions::LGlobalFunctions()
 {

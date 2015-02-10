@@ -4,7 +4,7 @@
 #include "../CtrlrComponentTypeManager.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrModulator/CtrlrModulator.h"
-#include "Lua/JuceClasses/LookAndFeelBase.h"
+#include "Lua/JuceClasses/LLookAndFeel.h"
 
 CtrlrSlider::CtrlrSlider (CtrlrModulator &owner)
     :	CtrlrComponent(owner),

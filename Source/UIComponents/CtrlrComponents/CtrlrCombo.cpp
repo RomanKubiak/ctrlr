@@ -31,7 +31,7 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrComponentTypeManager.h"
 #include "CtrlrLog.h"
-#include "Lua/JuceClasses/LookAndFeelBase.h"
+#include "Lua/JuceClasses/LLookAndFeel.h"
 //[/MiscUserDefs]
 
 //==============================================================================

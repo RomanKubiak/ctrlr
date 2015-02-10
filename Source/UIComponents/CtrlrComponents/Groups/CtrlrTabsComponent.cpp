@@ -29,7 +29,7 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "Lua/CtrlrLuaManager.h"
 #include "CtrlrApplicationWindow/CtrlrLookAndFeel.h"
-#include "Lua/JuceClasses/LookAndFeelBase.h"
+#include "Lua/JuceClasses/LLookAndFeel.h"
 //[/Headers]
 
 #include "CtrlrTabsComponent.h"

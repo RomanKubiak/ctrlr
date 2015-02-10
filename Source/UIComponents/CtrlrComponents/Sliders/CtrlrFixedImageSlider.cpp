@@ -32,7 +32,7 @@
 //[MiscUserDefs] You can add your own user definitions and misc code here...
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
-#include "Lua/JuceClasses/LookAndFeelBase.h"
+#include "Lua/JuceClasses/LLookAndFeel.h"
 //[/MiscUserDefs]
 
 //==============================================================================
