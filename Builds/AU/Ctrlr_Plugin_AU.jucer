@@ -8,7 +8,7 @@
               pluginSilenceInIsSilenceOut="0" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="3.1.0" defines="" aaxIdentifier="com.instigator.Ctrlr_Plugin_AU"
+              jucerVersion="3.1.1" defines="" aaxIdentifier="com.instigator.Ctrlr_Plugin_AU"
               companyName="Instigator" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
@@ -363,12 +363,6 @@
         <FILE id="gplewe" name="LMouseCursor.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseCursor.h"/>
         <FILE id="xl776o" name="LMouseEvent.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LMouseEvent.cpp"/>
         <FILE id="X8tMWl" name="LMouseEvent.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMouseEvent.h"/>
-        <FILE id="vfpLHk" name="LookAndFeelBase.cpp" compile="1" resource="0"
-              file="../../Source/Lua/JuceClasses/LookAndFeelBase.cpp"/>
-        <FILE id="v33Lrc" name="LookAndFeelBase.h" compile="0" resource="0"
-              file="../../Source/Lua/JuceClasses/LookAndFeelBase.h"/>
-        <FILE id="NThxxs" name="LookAndFeelParamWrapper.h" compile="0" resource="0"
-              file="../../Source/Lua/JuceClasses/LookAndFeelParamWrapper.h"/>
         <FILE id="tDp3fY" name="LPath.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPath.cpp"/>
         <FILE id="aMQUNk" name="LPath.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LPath.h"/>
         <FILE id="gyl5Dn" name="LPoint.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LPoint.cpp"/>
@@ -891,6 +885,10 @@
                 file="../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.h"/>
         </GROUP>
         <GROUP id="{75E24F63-25BF-275F-AEF1-1A1D9085102F}" name="Specials">
+          <FILE id="vpXhwx" name="CtrlrProgressBar.cpp" compile="1" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.cpp"/>
+          <FILE id="vg5eVm" name="CtrlrProgressBar.h" compile="0" resource="0"
+                file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.h"/>
           <FILE id="FPgvfg" name="CtrlrFileListBox.cpp" compile="1" resource="0"
                 file="../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.cpp"/>
           <FILE id="AI1zer" name="CtrlrFileListBox.h" compile="0" resource="0"
