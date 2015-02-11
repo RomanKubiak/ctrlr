@@ -33,9 +33,9 @@ String CtrlrGlobalEvaluationScope::getScopeUID() const
 
 Expression CtrlrGlobalEvaluationScope::getSymbolValue (const String& symbol) const
 {
-	if ((symbol.startsWith("k") || symbol.startsWith("l") || symbol.startsWith("m") || symbol.startsWith("n")) && symbol.length() == 2)
+	if ((symbol.startsWith("k") || symbol.startsWith("l") || symbol.startsWith("m") || symbol.startsWith("n")) && symbol.length() >= 2)
 	{
-		return (Expression (owner.getGlobalVariable(symbol.substring(1,2).getIntValue())));
+		return (Expression (owner.getGlobalVariable(symbol.substring(1,symbol.length() - 1).getHexValue32())));
 	}
 	return (Expression());
 }
@@ -255,7 +255,7 @@ double evaluateFormulaFunction (CtrlrPanel &panel, const String& functionName, c
 
 			BigInteger bi((uint32)value);
 			bi.setBit (bitToSet, shouldBeSet);
-			
+
 			return (bi.getBitRangeAsInt(0,32));
 		}
 		else

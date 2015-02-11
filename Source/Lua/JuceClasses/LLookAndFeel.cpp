@@ -105,7 +105,17 @@ void LookAndFeelBase::wrapForLua (lua_State *L)
             .def("setImplementation", &LookAndFeelBase::setImplementation)
             .scope
             [
-                def("createLabel", &LookAndFeelBase::createLabel)
+                def("createLabel", &LookAndFeelBase::createLabel),
+                def("createTextButton", &LookAndFeelBase::createTextButton),
+                def("createImageButton", &LookAndFeelBase::createImageButton),
+                def("createToggleButton", &LookAndFeelBase::createToggleButton),
+                def("createDropShadowEffect", &LookAndFeelBase::createDropShadowEffect),
+                def("createGlowEffect", &LookAndFeelBase::createGlowEffect),
+                def("createDrawableComposite", &LookAndFeelBase::createDrawableComposite),
+                def("createDrawableImage", &LookAndFeelBase::createDrawableImage),
+                def("createDrawablePath", &LookAndFeelBase::createDrawablePath),
+                def("createDrawableRectangle", &LookAndFeelBase::createDrawableRectangle),
+                def("createDrawableText", &LookAndFeelBase::createDrawableText)
             ]
     ];
 }
@@ -162,7 +172,33 @@ void LookAndFeelBase::drawTickBox(Graphics &g, Component &component, float x, fl
 
 AlertWindow* LookAndFeelBase::createAlertWindow(const String &title, const String &message, const String &button1, const String &button2, const String &button3, AlertWindow::AlertIconType iconType, int numButtons, Component* component)
 {
-	TRY_CALL_RET (createAlertWindow, AlertWindow*, LookAndFeel_V3::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component), title, message, button1, button2, button3, iconType, numButtons, component);
+	using namespace luabind;
+
+    if (methods.contains("createAlertWindow"))
+    {
+        try
+        {
+            AlertWindow *wnd = call_function<AlertWindow*>(
+                methods["createAlertWindow"], title, message, button1, button2, button3, iconType, numButtons, component
+            );
+
+            if (wnd != nullptr)
+            {
+                return (wnd);
+            }
+
+            return (LookAndFeel_V3::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
+    }
 }
 
 void LookAndFeelBase::drawAlertBox(Graphics &g, AlertWindow &window, const Rectangle<int> &textArea, TextLayout &layout)
@@ -207,7 +243,33 @@ bool LookAndFeelBase::areScrollbarButtonsVisible()
 
 ImageEffectFilter* LookAndFeelBase::getScrollbarEffect()
 {
-	TRY_CALL_RET_NOP(getScrollbarEffect, ImageEffectFilter*, nullptr);
+	using namespace luabind;
+
+    if (methods.contains("getSliderEffect"))
+    {
+        try
+        {
+            ImageEffectFilter *eff = call_function<ImageEffectFilter*>(
+                methods["getScrollbarEffect"]
+            );
+
+            if (eff != nullptr)
+            {
+                return (eff);
+            }
+
+            return (LookAndFeel_V3::getScrollbarEffect());
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::getScrollbarEffect());
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::getScrollbarEffect());
+    }
 }
 
 int LookAndFeelBase::getMinimumScrollbarThumbSize(ScrollBar &scrollBar)
@@ -257,12 +319,64 @@ CaretComponent* LookAndFeelBase::createCaretComponent(Component* component)
 
 const Drawable* LookAndFeelBase::getDefaultFolderImage()
 {
-	TRY_CALL_RET_NOP(getDefaultFolderImage, Drawable*, nullptr);
+    using namespace luabind;
+
+    if (methods.contains("getDefaultFolderImage"))
+    {
+        try
+        {
+            Drawable *drw = call_function<Drawable*>(
+                methods["getDefaultFolderImage"]
+            );
+
+            if (drw != nullptr)
+            {
+                return (drw);
+            }
+
+            return (LookAndFeel_V3::getDefaultFolderImage());
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::getDefaultFolderImage());
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::getDefaultFolderImage());
+    }
 }
 
 const Drawable* LookAndFeelBase::getDefaultDocumentFileImage()
 {
-	TRY_CALL_RET_NOP(getDefaultDocumentFileImage, Drawable*, nullptr);
+	using namespace luabind;
+
+    if (methods.contains("getDefaultDocumentFileImage"))
+    {
+        try
+        {
+            Drawable *drw = call_function<Drawable*>(
+                methods["getDefaultDocumentFileImage"]
+            );
+
+            if (drw != nullptr)
+            {
+                return (drw);
+            }
+
+            return (LookAndFeel_V3::getDefaultDocumentFileImage());
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::getDefaultDocumentFileImage());
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::getDefaultDocumentFileImage());
+    }
 }
 
 AttributedString LookAndFeelBase::createFileChooserHeaderText(const String &title, const String &instructions)
@@ -277,7 +391,33 @@ void LookAndFeelBase::drawFileBrowserRow(Graphics &g, int width, int height, con
 
 Button* LookAndFeelBase::createFileBrowserGoUpButton()
 {
-	TRY_CALL_RET_NOP(createFileBrowserGoUpButton, Button*, nullptr);
+	using namespace luabind;
+
+    if (methods.contains("createFileBrowserGoUpButton"))
+    {
+        try
+        {
+            Button *b = call_function<Button*>(
+                methods["createFileBrowserGoUpButton"]
+            );
+
+            if (b != nullptr)
+            {
+                return (b);
+            }
+
+            return (LookAndFeel_V3::createFileBrowserGoUpButton());
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::createFileBrowserGoUpButton());
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::createFileBrowserGoUpButton());
+    }
 }
 
 void LookAndFeelBase::layoutFileBrowserComponent(FileBrowserComponent &fileBrowserComponent, DirectoryContentsDisplayComponent *directoryContentsDisplayComponent, FilePreviewComponent *filePreviewComponent, ComboBox *comboBox, TextEditor *textEditor, Button *goUpButton)
@@ -424,17 +564,98 @@ void LookAndFeelBase::drawRotarySlider(Graphics &g, int x, int y, int width, int
 
 Button* LookAndFeelBase::createSliderButton(Slider &slider, bool isIncrement)
 {
-	TRY_CALL_RET(createSliderButton, Button*, nullptr, boost::ref(slider), isIncrement);
+	using namespace luabind;
+
+    if (methods.contains("createSliderButton"))
+    {
+        try
+        {
+            Button *b = call_function<Button*>(
+                methods["createSliderButton"],
+                boost::ref(slider), isIncrement
+            );
+
+            if (b != nullptr)
+            {
+                return (b);
+            }
+
+            return (LookAndFeel_V3::createSliderButton(slider, isIncrement));
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::createSliderButton(slider, isIncrement));
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::createSliderButton(slider, isIncrement));
+    }
 }
 
 Label* LookAndFeelBase::createSliderTextBox(Slider &slider)
 {
-	TRY_CALL_RET(createSliderTextBox, Label*, nullptr, boost::ref(slider));
+	using namespace luabind;
+
+    if (methods.contains("createSliderTextBox"))
+    {
+        try
+        {
+            Label *l = call_function<Label*>(
+                methods["createSliderTextBox"],
+                boost::ref(slider)
+            );
+
+            if (l != nullptr)
+            {
+                return (l);
+            }
+
+            return (LookAndFeel_V3::createSliderTextBox(slider));
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::createSliderTextBox(slider));
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::createSliderTextBox(slider));
+    }
 }
 
 ImageEffectFilter* LookAndFeelBase::getSliderEffect(Slider &slider)
 {
-	TRY_CALL_RET(getSliderEffect, ImageEffectFilter*, nullptr, boost::ref(slider));
+    using namespace luabind;
+
+    if (methods.contains("getSliderEffect"))
+    {
+        try
+        {
+            ImageEffectFilter *b = call_function<ImageEffectFilter*>(
+                methods["getSliderEffect"],
+                boost::ref(slider)
+            );
+
+            if (b != nullptr)
+            {
+                return (b);
+            }
+
+            return (LookAndFeel_V3::getSliderEffect(slider));
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::getSliderEffect(slider));
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::getSliderEffect(slider));
+    }
 }
 
 void LookAndFeelBase::getTooltipSize(const String &tipText, int &width, int &height)
@@ -449,7 +670,34 @@ void LookAndFeelBase::drawTooltip(Graphics &g, const String &text, int width, in
 
 Button* LookAndFeelBase::createFilenameComponentBrowseButton(const String &text)
 {
-	TRY_CALL_RET(createFilenameComponentBrowseButton, Button*, nullptr, text);
+	using namespace luabind;
+
+    if (methods.contains("createFilenameComponentBrowseButton"))
+    {
+        try
+        {
+            Button *b = call_function<Button*>(
+                methods["createFilenameComponentBrowseButton"],
+                text
+            );
+
+            if (b != nullptr)
+            {
+                return (b);
+            }
+
+            return (LookAndFeel_V3::createFilenameComponentBrowseButton(text));
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::createFilenameComponentBrowseButton(text));
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::createFilenameComponentBrowseButton(text));
+    }
 }
 
 void LookAndFeelBase::layoutFilenameComponent(FilenameComponent &filenameComponent, ComboBox* comboBox, Button* button)
@@ -489,7 +737,34 @@ void LookAndFeelBase::drawDocumentWindowTitleBar(DocumentWindow &documentWindow,
 
 Button* LookAndFeelBase::createDocumentWindowButton(int buttonType)
 {
-	TRY_CALL_RET(createDocumentWindowButton, Button*, nullptr, buttonType);
+	using namespace luabind;
+
+    if (methods.contains("createDocumentWindowButton"))
+    {
+        try
+        {
+            Button *b = call_function<Button*>(
+                methods["createDocumentWindowButton"],
+                buttonType
+            );
+
+            if (b != nullptr)
+            {
+                return (b);
+            }
+
+            return (LookAndFeel_V3::createDocumentWindowButton(buttonType));
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::createDocumentWindowButton(buttonType));
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::createDocumentWindowButton(buttonType));
+    }
 }
 
 void LookAndFeelBase::positionDocumentWindowButtons(DocumentWindow &documentWindow, int titleBarX, int titleBarY, int titleBarW, int titleBarH, Button* minimiseButton, Button* maximiseButton, Button* closeButton, bool positionTitleBarButtonsOnLeft)
@@ -504,7 +779,34 @@ int LookAndFeelBase::getDefaultMenuBarHeight()
 
 DropShadower* LookAndFeelBase::createDropShadowerForComponent(Component* component)
 {
-	TRY_CALL_RET(createDropShadowerForComponent, DropShadower*, nullptr, component);
+	using namespace luabind;
+
+    if (methods.contains("createDropShadowerForComponent"))
+    {
+        try
+        {
+            DropShadower *s = call_function<DropShadower*>(
+                methods["createDropShadowerForComponent"],
+                component
+            );
+
+            if (s != nullptr)
+            {
+                return (s);
+            }
+
+            return (LookAndFeel_V3::createDropShadowerForComponent(component));
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::createDropShadowerForComponent(component));
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::createDropShadowerForComponent(component));
+    }
 }
 
 void LookAndFeelBase::drawGroupComponentOutline(Graphics &g, int w, int h, const String &text, const Justification &justification, GroupComponent &groupComponent)
@@ -559,7 +861,33 @@ void LookAndFeelBase::fillTabButtonShape(TabBarButton &tabBarButton, Graphics &g
 
 Button* LookAndFeelBase::createTabBarExtrasButton()
 {
-	TRY_CALL_RET_NOP(createTabBarExtrasButton, Button*, nullptr);
+	using namespace luabind;
+
+    if (methods.contains("createTabBarExtrasButton"))
+    {
+        try
+        {
+            Button *b = call_function<Button*>(
+                methods["createTabBarExtrasButton"]
+            );
+
+            if (b != nullptr)
+            {
+                return (b);
+            }
+
+            return (LookAndFeel_V3::createTabBarExtrasButton());
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::createTabBarExtrasButton());
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::createTabBarExtrasButton());
+    }
 }
 
 void LookAndFeelBase::drawImageButton(Graphics &g, Image* image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColourRef, float imageOpacity, ImageButton &imageButton)
@@ -584,7 +912,34 @@ void LookAndFeelBase::paintToolbarBackground(Graphics &g, int width, int height,
 
 Button* LookAndFeelBase::createToolbarMissingItemsButton(Toolbar &toolbar)
 {
-	TRY_CALL_RET(createToolbarMissingItemsButton, Button*, nullptr, boost::ref(toolbar));
+	using namespace luabind;
+
+    if (methods.contains("createToolbarMissingItemsButton"))
+    {
+        try
+        {
+            Button *b = call_function<Button*>(
+                methods["createToolbarMissingItemsButton"],
+                boost::ref(toolbar)
+            );
+
+            if (b != nullptr)
+            {
+                return (b);
+            }
+
+            return (LookAndFeel_V3::createToolbarMissingItemsButton(toolbar));
+        }
+        catch (luabind::error &e)
+        {
+            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            return (LookAndFeel_V3::createToolbarMissingItemsButton(toolbar));
+        }
+    }
+    else
+    {
+        return (LookAndFeel_V3::createToolbarMissingItemsButton(toolbar));
+    }
 }
 
 void LookAndFeelBase::paintToolbarButtonBackground(Graphics &g, int width, int height, bool isMouseOver, bool isMouseDown, ToolbarItemComponent &toolbarItemComponent)

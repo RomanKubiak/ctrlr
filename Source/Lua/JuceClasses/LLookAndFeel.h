@@ -113,6 +113,16 @@ class LookAndFeelBase : public LookAndFeel_V3
 		void drawKeymapChangeButton (Graphics &g, int width, int height, Button &button, const String &keyDescription);
 
 		static Label *createLabel() { return (new Label()); }
+		static Button *createTextButton() { return (new TextButton()); }
+		static Button *createImageButton() { return (new ImageButton()); }
+		static Button *createToggleButton() { return (new ToggleButton()); }
+		static ImageEffectFilter *createDropShadowEffect() { return (new DropShadowEffect()); }
+		static ImageEffectFilter *createGlowEffect() { return (new GlowEffect()); }
+		static Drawable *createDrawableComposite() { return (new DrawableComposite()); }
+		static Drawable *createDrawableImage() { return (new DrawableImage()); }
+		static Drawable *createDrawablePath() { return (new DrawablePath()); }
+		static Drawable *createDrawableRectangle() { return (new DrawableRectangle()); }
+		static Drawable *createDrawableText() { return (new DrawableText()); }
 	private:
 	    HashMap<String,luabind::object> methods;
 };
