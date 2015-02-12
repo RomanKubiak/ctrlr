@@ -35,7 +35,7 @@ Expression CtrlrGlobalEvaluationScope::getSymbolValue (const String& symbol) con
 {
 	if ((symbol.startsWith("k") || symbol.startsWith("l") || symbol.startsWith("m") || symbol.startsWith("n")) && symbol.length() >= 2)
 	{
-		return (Expression (owner.getGlobalVariable(symbol.substring(1,symbol.length() - 1).getHexValue32())));
+		return (Expression (owner.getGlobalVariable(symbol.substring(1,symbol.length()).getHexValue32())));
 	}
 	return (Expression());
 }
