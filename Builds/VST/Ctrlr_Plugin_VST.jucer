@@ -8,7 +8,7 @@
               pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="3.1.1" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
+              jucerVersion="3.1.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
               aaxIdentifier="com.instigator.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
