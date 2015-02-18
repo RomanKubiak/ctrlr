@@ -130,6 +130,16 @@ void LMemoryBlock::removeSection(const int startByte, const int dataSize)
     MemoryBlock::removeSection (startByte, dataSize);
 }
 
+int LMemoryBlock::getBitRange (int bitRangeStart, int numBits)
+{
+    return (MemoryBlock::getBitRange(bitRangeStart, numBits));
+}
+
+void LMemoryBlock::setBitRange(int bitRangeStart, int numBits, int binaryNumberToApply)
+{
+    return (MemoryBlock::setBitRange(bitRangeStart, numBits, binaryNumberToApply));
+}
+
 void LMemoryBlock::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -165,8 +175,8 @@ void LMemoryBlock::wrapForLua (lua_State *L)
 				.def("swapWith", &MemoryBlock::swapWith)
 				.def("toString", &MemoryBlock::toString)
 				.def("loadFromHexString", &MemoryBlock::loadFromHexString)
-				.def("setBitRange", &MemoryBlock::setBitRange)
-				.def("getBitRange", &MemoryBlock::getBitRange)
+				.def("setBitRange", &LMemoryBlock::setBitRange)
+				.def("getBitRange", &LMemoryBlock::getBitRange)
 				.def("toBase64Encoding", &MemoryBlock::toBase64Encoding)
 				.def("fromBase64Encoding", &MemoryBlock::fromBase64Encoding)
 				.def("toLuaTable", &LMemoryBlock::toLuaTable)

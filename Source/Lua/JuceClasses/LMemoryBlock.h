@@ -28,6 +28,8 @@ class LMemoryBlock : public MemoryBlock
 		void copyFrom(MemoryBlock &dataToCopy, int destinationOffset, int numBytes);
 		void copyTo(MemoryBlock &dataToCopy, int sourceOffset, int numBytes);
 		void replaceWith(MemoryBlock &dataToReplace);
+		int getBitRange (int bitRangeStart, int numBits);
+		void setBitRange(int bitRangeStart, int numBits, int binaryNumberToApply);
 		void removeSection(const int startByte, const int dataSize);
 		void setByte (const int bytePosition, const uint8 byteValue);
 		double getSize() const noexcept;
