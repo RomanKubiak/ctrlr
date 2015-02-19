@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanelProcessor.h"
+#include "CtrlrLuaManager.h"
 #include "CtrlrPanel.h"
 #include "CtrlrProcessor.h"
 
@@ -26,6 +27,8 @@ void CtrlrPanelProcessor::processBlock(MidiBuffer &midiMessages, MidiBuffer &lef
 	}
 
 	leftoverBuffer.clear();
+
+    processLua(midiMessages, info);
 
 	MidiBuffer::Iterator i(midiMessages);
 	MidiMessage m;
@@ -84,4 +87,15 @@ void CtrlrPanelProcessor::midiOptionChanged(const CtrlrPanelMidiOption optionTha
 CtrlrPanel &CtrlrPanelProcessor::getOwner()
 {
 	return (owner);
+}
+
+void CtrlrPanelProcessor::processLua(MidiBuffer &midiMessages, const AudioPlayHead::CurrentPositionInfo &info)
+{
+    if (luaAudioProcessBlockCbk && !luaAudioProcessBlockCbk.wasObjectDeleted())
+	{
+		if (luaAudioProcessBlockCbk->isValid())
+		{
+		    owner.getCtrlrLuaManager().getMethodManager().call (luaAudioProcessBlockCbk, midiMessages, info);
+		}
+	}
 }
