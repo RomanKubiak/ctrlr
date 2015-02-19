@@ -777,6 +777,8 @@
   <id name="luaCtrlrRestoreState"   text="Called when Ctrlr is loaded (DAW opens a project)" type="LuaMethod" />
   <id name="uiLuaConsoleInputRemoveAfterRun"    text="Clear console input after execute" type="Bool" />
 
+  <id name="luaAudioProcessBlock"       text="AUDIO: main process block for the audio/midi thread" type="LuaMethod" />
+
   <id name="midiLibraryTreeState"     				text="Tree state"     												type="ReadOnly" />
   <id name="midiLibraryCanGetItem"    				text="Can get item"   												type="Bool" />
   <id name="midiLibraryCanSendItem"   				text="Can send item"  												type="Bool" />

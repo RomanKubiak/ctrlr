@@ -803,6 +803,8 @@ namespace Ids
 	DECLARE_ID (luaCtrlrSaveState);
 	DECLARE_ID (luaCtrlrRestoreState);
 
+    DECLARE_ID (luaAudioProcessBlock);
+
 	DECLARE_ID (midiLibrary);
 	DECLARE_ID (midiLibraryData);
 	DECLARE_ID (midiLibraryEditBuffer);
