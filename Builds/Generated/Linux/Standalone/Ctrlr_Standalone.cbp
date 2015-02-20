@@ -2266,12 +2266,16 @@
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAffineTransform.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAlertWindow.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAlertWindow.h" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LAsyncUpdater.cpp" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LAsyncUpdater.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAttributedString.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAttributedString.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioFile.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioFile.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioFormat.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioFormat.h" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioPlayHead.cpp" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioPlayHead.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioSampleBuffer.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioSampleBuffer.h" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioThumbnail.cpp" />
@@ -2834,6 +2838,7 @@
 			<envvars />
 			<code_completion />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

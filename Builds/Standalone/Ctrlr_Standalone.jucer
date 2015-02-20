@@ -418,6 +418,13 @@
       <FILE id="z7iSMw" name="CtrlrLuaDebugger.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaDebugger.h"/>
       <GROUP id="{819ACB2F-4683-C64A-B3B6-148DB71697B4}" name="JuceClasses">
+        <FILE id="DCVRcz" name="LAsyncUpdater.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LAsyncUpdater.cpp"/>
+        <FILE id="U9r9iz" name="LAsyncUpdater.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAsyncUpdater.h"/>
+        <FILE id="wgcBr5" name="LAudioPlayHead.cpp" compile="1" resource="0"
+              file="../../Source/Lua/JuceClasses/LAudioPlayHead.cpp"/>
+        <FILE id="yVETCN" name="LAudioPlayHead.h" compile="0" resource="0"
+              file="../../Source/Lua/JuceClasses/LAudioPlayHead.h"/>
         <FILE id="RuOvmC" name="LMidiBuffer.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LMidiBuffer.cpp"/>
         <FILE id="OyKnm7" name="LMidiBuffer.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMidiBuffer.h"/>
         <FILE id="kkBJ3Q" name="LBorderSize.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LBorderSize.cpp"/>
