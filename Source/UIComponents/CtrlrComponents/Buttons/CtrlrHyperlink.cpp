@@ -44,12 +44,12 @@ CtrlrHyperlink::CtrlrHyperlink (CtrlrModulator &owner)
 
 
     //[UserPreSize]
-	setProperty (Ids::uiHyperlinkText, "Ctrlr");
-	setProperty (Ids::uiHyperlinkUrl, "http://ctrlr.org");
+    setProperty (Ids::uiButtonContent, "False\nTrue");
 	setProperty (Ids::uiHyperlinkColour, "0xff0000ff");
 	setProperty (Ids::uiHyperlinkFont, Font (14, Font::underlined).toString());
 	setProperty (Ids::uiHyperlinkFitTextToSize, true);
 	setProperty (Ids::uiHyperlinkTextJustification, "centred");
+	setProperty (Ids::uiHyperlinkOpensUrl, true);
     //[/UserPreSize]
 
     setSize (128, 48);
@@ -89,13 +89,17 @@ void CtrlrHyperlink::resized()
 
 void CtrlrHyperlink::buttonClicked (Button* buttonThatWasClicked)
 {
-    //[UserbuttonClicked_Pre]
+    if (!owner.getOwner().checkRadioGroup(this, buttonThatWasClicked->getToggleState()))
+		return;
     //[/UserbuttonClicked_Pre]
 
     if (buttonThatWasClicked == hyperlinkButton)
     {
-        //[UserButtonCode_hyperlinkButton] -- add your button handler code here..
-        //[/UserButtonCode_hyperlinkButton]
+        //[UserButtonCode_ctrlrButton] -- add your button handler code here..
+		valueMap.increment();
+		hyperlinkButton->setButtonText (valueMap.getCurrentText());
+		setComponentValue (valueMap.getCurrentNonMappedValue(), true);
+        //[/UserButtonCode_ctrlrButton]
     }
 
     //[UserbuttonClicked_Post]
@@ -107,21 +111,28 @@ void CtrlrHyperlink::buttonClicked (Button* buttonThatWasClicked)
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void CtrlrHyperlink::setComponentValue (const double newValue, const bool sendChangeMessage)
 {
+    valueMap.setCurrentNonMappedValue (newValue);
+	hyperlinkButton->setButtonText (valueMap.getTextForIndex (newValue));
+
+	if (sendChangeMessage)
+	{
+		owner.getProcessor().setValueFromGUI (newValue, sendChangeMessage);
+	}
 }
 
 double CtrlrHyperlink::getComponentValue()
 {
-	return (0);
+	return (valueMap.getCurrentNonMappedValue());
 }
 
 int CtrlrHyperlink::getComponentMidiValue()
 {
-	return (getComponentValue());
+	return (valueMap.getCurrentMappedValue());
 }
 
 double CtrlrHyperlink::getComponentMaxValue()
 {
-	return (1);
+	return (valueMap.getNonMappedMax());
 }
 
 const String CtrlrHyperlink::getComponentText()
@@ -129,24 +140,31 @@ const String CtrlrHyperlink::getComponentText()
 	return (hyperlinkButton->getButtonText());
 }
 
+void CtrlrHyperlink::setComponentText (const String &componentText)
+{
+	setComponentValue (valueMap.getNonMappedValue(componentText));
+}
+
+void CtrlrHyperlink::buttonContentChanged()
+{
+	valueMap.copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiButtonContent)));
+	setComponentValue (0, false);
+}
+
 void CtrlrHyperlink::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
 {
-	if (property == Ids::uiHyperlinkText)
+    if (property == Ids::uiButtonContent)
 	{
-		hyperlinkButton->setButtonText (getProperty(property));
-		hyperlinkButton->setTooltip (getProperty(property));
+		buttonContentChanged();
 	}
-
-	else if (property == Ids::uiHyperlinkUrl)
-	{
-		hyperlinkButton->setURL (getProperty(property).toString());
-	}
-
 	else if (property == Ids::uiHyperlinkColour)
 	{
 		hyperlinkButton->setColour (HyperlinkButton::textColourId, VAR2COLOUR(getProperty(property)));
 	}
-
+	else if (property == Ids::uiHyperlinkOpensUrl)
+    {
+        hyperlinkButton->setURL (getProperty(property) ? URL(getProperty(property)) : URL(String::empty));
+    }
 	else if (property == Ids::uiHyperlinkFont
 		|| property == Ids::uiHyperlinkFitTextToSize
 		|| property == Ids::uiHyperlinkTextJustification)

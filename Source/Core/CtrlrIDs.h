@@ -507,12 +507,11 @@ namespace Ids
 	DECLARE_ID (uiWaveFormSourceChangedCallback);
 	DECLARE_ID (uiWaveFormFilesDroppedCallback);
 
-	DECLARE_ID (uiHyperlinkText);
-	DECLARE_ID (uiHyperlinkUrl);
 	DECLARE_ID (uiHyperlinkColour);
 	DECLARE_ID (uiHyperlinkFont);
 	DECLARE_ID (uiHyperlinkFitTextToSize);
 	DECLARE_ID (uiHyperlinkTextJustification);
+	DECLARE_ID (uiHyperlinkOpensUrl);
 
 	DECLARE_ID (uiXYSurfaceBgGradientType);
 	DECLARE_ID (uiXYSurfaceBackgroundColour1);
