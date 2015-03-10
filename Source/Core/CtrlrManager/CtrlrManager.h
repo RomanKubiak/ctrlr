@@ -277,12 +277,10 @@ class CtrlrManager :    public ValueTree::Listener,
 		int getNumPanels();
 		AudioFormatManager &getAudioFormatManager()																{ return (audioFormatManager); }
 		AudioThumbnailCache &getAudioThumbnailCache()															{ return (audioThumbnailCache); }
-		CtrlrIDManager &getIDManager()																			{ return (ctrlrIDManager); }
-		CtrlrIDManager &getCtrlrIDManager()																		{ return (ctrlrIDManager); }
 		bool isRestoring()																				{ return (ctrlrManagerRestoring); }
 		void saveStateToDisk();
 		void timerCallback (int timerId);
-		CtrlrIDManager &getIdManager()																			{ return (ctrlrIDManager); }
+		CtrlrIDManager &getIDManager()																			{ return (ctrlrIDManager); }
 		const File getCtrlrPropertiesDirectory();
 		CtrlrFontManager &getFontManager()																		{ return (*ctrlrFontManager); }
 		ApplicationCommandManager &getCommandManager()															{ return (commandManager); }

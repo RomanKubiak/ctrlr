@@ -261,7 +261,7 @@ void CtrlrSysExEditor::mouseDown (const MouseEvent& e)
 
 			if (ret > 1024 && ret < 4096)
 			{
-				ValueTree vendor = owner->getOwner().getCtrlrIDManager().getVendorTree().getChild (ret - 1024);
+				ValueTree vendor = owner->getOwner().getIDManager().getVendorTree().getChild (ret - 1024);
 				const String vendorId = vendor.getProperty(Ids::id).toString();
 				if (vendorId.length() == 2)
 				{
@@ -304,7 +304,7 @@ void CtrlrSysExEditor::mouseDown (const MouseEvent& e)
 const PopupMenu CtrlrSysExEditor::getVendorIdMenu()
 {
     PopupMenu m;
-    ValueTree vendorTree = owner->getOwner().getCtrlrIDManager().getVendorTree();
+    ValueTree vendorTree = owner->getOwner().getIDManager().getVendorTree();
 
     for (int i=0; i<vendorTree.getNumChildren(); i++)
 	{
