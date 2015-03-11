@@ -1,5 +1,5 @@
-#ifdef LINUX
 #include "stdafx.h"
+#ifdef LINUX
 #include "CtrlrMacros.h"
 #include "CtrlrLinux.h"
 #include "CtrlrPanel/CtrlrPanel.h"

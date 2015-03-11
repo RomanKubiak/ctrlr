@@ -855,6 +855,9 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Native\Linux\keys.cpp">
+      <Filter>Ctrlr_Standalone\Native\Linux</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Native\Linux\libr-bfd.c">
       <Filter>Ctrlr_Standalone\Native\Linux</Filter>
     </ClCompile>
@@ -2959,6 +2962,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\juce_PluginHostType.h">
       <Filter>Ctrlr_Standalone\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Native\Linux\keys.h">
+      <Filter>Ctrlr_Standalone\Native\Linux</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Native\Linux\libr.h">
       <Filter>Ctrlr_Standalone\Native\Linux</Filter>

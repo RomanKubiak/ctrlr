@@ -216,6 +216,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
   $(OBJDIR)/CtrlrMidiMessage_58a157ae.o \
   $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
+  $(OBJDIR)/keys_3fbadac8.o \
   $(OBJDIR)/libr-bfd_f5e18fb4.o \
   $(OBJDIR)/libr_e9fa1d21.o \
   $(OBJDIR)/CtrlrLinux_891d1366.o \
@@ -1078,6 +1079,11 @@ $(OBJDIR)/CtrlrMidiMessage_58a157ae.o: ../../../../Source/MIDI/CtrlrMidiMessage.
 $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o: ../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrOwnedMidiMessage.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/keys_3fbadac8.o: ../../../../Source/Native/Linux/keys.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling keys.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/libr-bfd_f5e18fb4.o: ../../../../Source/Native/Linux/libr-bfd.c

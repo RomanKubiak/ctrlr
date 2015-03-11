@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.3.0"
-              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="3.1.1"
+              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="3.1.0"
               defines="" companyName="Instigator" includeBinaryInAppConfig="1"
               companyWebsite="http://ctrlr.org" companyEmail="ctrlr@ctrlr.org">
   <EXPORTFORMATS>
@@ -879,6 +879,8 @@
     </GROUP>
     <GROUP id="{138F8618-FDC8-A9D5-F382-2B2638854CB2}" name="Native">
       <GROUP id="{275586DE-1F37-F513-3CED-DB238019C97B}" name="Linux">
+        <FILE id="gyNlCd" name="keys.cpp" compile="1" resource="0" file="../../Source/Native/Linux/keys.cpp"/>
+        <FILE id="pG7RJG" name="keys.h" compile="0" resource="0" file="../../Source/Native/Linux/keys.h"/>
         <FILE id="PxzrK9" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Native/Linux/libr-bfd.c"/>
         <FILE id="NE7eF8" name="libr.c" compile="1" resource="0" file="../../Source/Native/Linux/libr.c"/>
         <FILE id="oZeqQB" name="libr.h" compile="0" resource="0" file="../../Source/Native/Linux/libr.h"/>
