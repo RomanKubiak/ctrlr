@@ -25,6 +25,11 @@ class LFile : public File
 			return (File::replaceWithData (dataToWrite.getData(), dataToWrite.getSize()));
 		}
 
+        bool appendData (const LMemoryBlock &dataToAppend)
+        {
+            return (File::appendData (dataToAppend.getData(), dataToAppend.getSize()));
+        }
+
 		static const String descriptionOfSizeInBytes(const double fileSize)
 		{
 			return (File::descriptionOfSizeInBytes (fileSize));
