@@ -28,10 +28,10 @@ void setComboContentFromString (ComboBox *box, const String &content);
 const String generateRandomUnique(const String &additionalRandomData="");
 const String generateRandomUniquePluginId();
 void uniqueIntArray (Array <int> &arrayToModify);
-void uniqueFontArray (Array <Font> &arrayToModify);
+void uniqueFontArray (Array <juce::Font> &arrayToModify);
 const String dataPrefix (const MemoryBlock &data, const int prefixLength);
 const String dataPrefix (const CtrlrMidiMessage &data, const int prefixLength);
-bool isMonospaced(const Font &font);
+bool isMonospaced(const juce::Font &font);
 
 /** Format a MidiMessage to something human readable, with details **/
 const String getMidiMessageAsLogString (const MidiMessage &m, const double customTimestamp = -1, const bool name=false, const bool channel=false, const bool number=false, const bool value=false, const bool timestamp=false, const bool rawData=true, const bool rawInDecimcal=false, const bool rawDataSize=false);

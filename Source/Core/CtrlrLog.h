@@ -1,7 +1,7 @@
 #ifndef __CTRLR_LOG__
 #define __CTRLR_LOG__
 
-#include "CtrlrMacros.h"
+#include "JuceHeader.h"
 
 #ifdef JUCE_DEBUG
 #define _DBG(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Debug)
@@ -43,7 +43,7 @@ class CtrlrLog : public AsyncUpdater, public Logger, public DeletedAtShutdown
 		{
 			String message;
 			LogLevel level;
-			Time time;
+			juce::Time time;
 		};
 
 		class Listener
@@ -72,7 +72,7 @@ class CtrlrLog : public AsyncUpdater, public Logger, public DeletedAtShutdown
 		const String formatMidiMessage (const MidiMessage &message, const double timestamp = -1);
 		static LogLevel stringToLevel (const String &level);
 		static String levelToString(const LogLevel &level);
-		static String timeToString(const Time &time);
+		static String timeToString(const juce::Time &time);
 		static Colour getColourForMessage(const CtrlrLogMessage &message);
 		static Colour getColourForLevel(const CtrlrLog::LogLevel logLevel);
 		static String formatMessage(const CtrlrLogMessage &m, const bool includeLevel=true, const bool includeTimestamp=true);
