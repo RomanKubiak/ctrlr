@@ -530,6 +530,7 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp" />
+    <ClCompile Include="..\..\..\..\Source\Native\Linux\keys.cpp" />
     <ClCompile Include="..\..\..\..\Source\Native\Linux\libr-bfd.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -2263,6 +2264,7 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h" />
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\juce_PluginHostType.h" />
+    <ClInclude Include="..\..\..\..\Source\Native\Linux\keys.h" />
     <ClInclude Include="..\..\..\..\Source\Native\Linux\libr.h" />
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrGeneric.h" />
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrLinux.h" />

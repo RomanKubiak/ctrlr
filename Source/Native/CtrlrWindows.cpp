@@ -217,4 +217,29 @@ const Result CtrlrWindows::registerFileHandler()
 	return (Result::ok());
 }
 
+const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event)
+{
+	INPUT ip;
+	ip.type = INPUT_KEYBOARD;
+	ip.ki.wScan = 0;
+	ip.ki.time = 0;
+	ip.ki.dwExtraInfo = 0;
+
+	ip.ki.wVk = event.getModifiers().getRawFlags();
+	ip.ki.dwFlags = 0;
+	SendInput (1, &ip, sizeof(INPUT));
+
+	ip.ki.wVk = event.getKeyCode();
+	ip.ki.dwFlags = 0;
+	SendInput (1, &ip, sizeof(INPUT));
+
+	ip.ki.wVk = event.getModifiers().getRawFlags();
+	ip.ki.dwFlags = KEYEVENTF_KEYUP;
+	SendInput (1, &ip, sizeof(INPUT));
+
+	ip.ki.wVk = event.getKeyCode();
+	ip.ki.dwFlags = KEYEVENTF_KEYUP;
+	SendInput (1, &ip, sizeof(INPUT));
+	return (Result::ok());
+}
 #endif
