@@ -221,6 +221,7 @@ void CtrlrLuaManager::assignDefaultObjects(lua_State* L)
 	luabind::globals(L)["converter"]				= &audioConverter;
 	luabind::globals(L)["resources"]				= &owner.getResourceManager();
 	luabind::globals(L)["library"]					= &owner.getCtrlrMIDILibrary();
+	luabind::globals(L)["native"]                   = CtrlrNative::getNativeObject(owner.getOwner());
 }
 
 void CtrlrLuaManager::restoreState (const ValueTree &savedState)

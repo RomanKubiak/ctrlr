@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "LGlobalFunctions.h"
+#include "Native/CtrlrNative.h"
+#include "CtrlrManager/CtrlrManager.h"
 
 LGlobalFunctions::LGlobalFunctions()
 {
@@ -75,6 +77,13 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
 				def("double_Pi", &LGlobalFunctions::double_Pi),
 				def("float_Pi", &LGlobalFunctions::float_Pi)
 			]
+		,
+		class_<CtrlrNative>("CtrlrNative")
+            .def("sendKeyPressEvent", &CtrlrNative::sendKeyPressEvent)
+            .scope
+            [
+                def("getNativeObject", &CtrlrNative::getNativeObject)
+            ]
 		,
 		def("jmax", (double (*) (const double, const double))&juce::jmax<double>),
 		def("jmax", (double (*) (const double, const double, const double))&juce::jmax<double>),

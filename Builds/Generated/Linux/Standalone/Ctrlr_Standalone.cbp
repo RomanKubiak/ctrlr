@@ -2539,6 +2539,8 @@
 		<Unit filename="../../../../Source/Native/CtrlrNative.h" />
 		<Unit filename="../../../../Source/Native/CtrlrWindows.cpp" />
 		<Unit filename="../../../../Source/Native/CtrlrWindows.h" />
+		<Unit filename="../../../../Source/Native/Linux/keys.cpp" />
+		<Unit filename="../../../../Source/Native/Linux/keys.h" />
 		<Unit filename="../../../../Source/Native/Linux/libr-bfd.c">
 			<Option compilerVar="CC" />
 		</Unit>
