@@ -3,6 +3,20 @@
 #include "Native/CtrlrNative.h"
 #include "CtrlrManager/CtrlrManager.h"
 
+static const String getNativeKeyMapping()
+{
+    String ret;
+    for (int i=0; i<1024; i++)
+    {
+        if (KeyPress(i).isValid())
+        {
+            if (! KeyPress(i).getTextDescription().startsWith("#") && KeyPress(i).getTextDescription().isNotEmpty())
+                ret << i << ": " << KeyPress(i).getTextDescriptionWithIcons() << "\n";
+        }
+    }
+    return (ret);
+}
+
 LGlobalFunctions::LGlobalFunctions()
 {
 }
@@ -55,6 +69,8 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
 
 	module(L)
     [
+        def("getNativeKeyMapping", &getNativeKeyMapping)
+        ,
         def("console", &LGlobalFunctions::console)
         ,
 		def("J", (const String (*) (const std::string &)) &LGlobalFunctions::toJuceString),
