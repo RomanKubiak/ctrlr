@@ -240,7 +240,7 @@ class CtrlrManager :    public ValueTree::Listener,
 		int getModulatorVstIndexByName(const String &modulatorName);
 		CtrlrProperties &getCtrlrProperties();
 		ApplicationProperties *getApplicationProperties();
-		CtrlrProcessor *getOwner()																				{ return (owner); }
+		CtrlrProcessor *getProcessorOwner()																				{ return (owner); }
 		CtrlrDocumentPanel &getCtrlrDocumentPanel()																{ return (*ctrlrDocumentPanel); }
 		void setProperty (const Identifier& name, const var &newValue)											{ managerTree.setProperty (name, newValue, 0); }
 		const var &getProperty (const Identifier& name) const													{ return managerTree.getProperty (name); }

@@ -367,7 +367,7 @@ CtrlrOwnedMidiMessage &CtrlrModulatorProcessor::getOwnedMidiMessage(const CtrlrM
 
 CtrlrProcessor *CtrlrModulatorProcessor::getProcessor()
 {
-	return (owner.getOwner().getCtrlrManagerOwner().getOwner());
+	return (owner.getOwner().getCtrlrManagerOwner().getProcessorOwner());
 }
 
 int CtrlrModulatorProcessor::getValue() const
