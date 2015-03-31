@@ -206,9 +206,9 @@ CtrlrMIDILibrary &CtrlrPanelMIDIToolbar::getLibrary()
 
 void CtrlrPanelMIDIToolbar::paint(Graphics &g)
 {
-	if (owner.getOwner().getOwner().getEditor())
+	if (owner.getOwner().getCtrlrManager().getEditor())
 	{
-		CtrlrMenuBarLookAndFeel *lf = owner.getOwner().getOwner().getEditor()->getMenuBarLookAndFeel();
+		CtrlrMenuBarLookAndFeel *lf = owner.getOwner().getCtrlrManager().getEditor()->getMenuBarLookAndFeel();
 
 		drawCtrlrMenuBarBackground (g, getWidth(), getHeight(), false, lf->getColour(Ids::ctrlrMenuBarBackgroundColour1), lf->getColour(Ids::ctrlrMenuBarBackgroundColour2));
 	}
@@ -456,7 +456,7 @@ void CtrlrPanelMIDIToolbar::buttonClicked (Button *button, const int itemId, con
 			switch (buttonId)
 			{
 				case ButtonMisc1:
-                    owner.getOwner().getOwner().getCommandManager().invokeDirectly (CtrlrEditor::showMidiLibrary, true);
+                    owner.getOwner().getCtrlrManager().getCommandManager().invokeDirectly (CtrlrEditor::showMidiLibrary, true);
                     break;
 
 				case ButtonMisc2:
@@ -491,7 +491,7 @@ void CtrlrPanelMIDIToolbar::midiLibraryOptionsMenu(Button *button)
 void CtrlrPanelMIDIToolbar::midiOutputDeviceMenu(Button *button)
 {
 	PopupMenu m;
-	StringArray dev = owner.getOwner().getOwner().getCtrlrMidiDeviceManager().getManagedDevices (outputDevice);
+	StringArray dev = owner.getOwner().getCtrlrManager().getCtrlrMidiDeviceManager().getManagedDevices (outputDevice);
 
 	m.addItem (1, "-- None", true, owner.getOwner().getProperty(Ids::panelMidiOutputDevice).toString().isEmpty() || (owner.getOwner().getProperty(Ids::panelMidiOutputDevice).toString() == COMBO_ITEM_NONE));
 
@@ -509,7 +509,7 @@ void CtrlrPanelMIDIToolbar::midiOutputDeviceMenu(Button *button)
 void CtrlrPanelMIDIToolbar::midiInputDeviceMenu(Button *button)
 {
 	PopupMenu m;
-	StringArray dev = owner.getOwner().getOwner().getCtrlrMidiDeviceManager().getManagedDevices (inputDevice);
+	StringArray dev = owner.getOwner().getCtrlrManager().getCtrlrMidiDeviceManager().getManagedDevices (inputDevice);
 
 	m.addItem (1, "-- None", true, owner.getOwner().getProperty(Ids::panelMidiInputDevice).toString().isEmpty() || (owner.getOwner().getProperty(Ids::panelMidiInputDevice).toString() == COMBO_ITEM_NONE));
 

@@ -217,11 +217,11 @@ void CtrlrLuaManager::assignDefaultObjects(lua_State* L)
 	luabind::globals(L)["utils"]					= &utils;
 	luabind::globals(L)["timer"]					= multiTimer;
 	luabind::globals(L)["afm"]						= luaAudioFormatManager;
-	luabind::globals(L)["atc"]						= &owner.getOwner().getAudioThumbnailCache();
+	luabind::globals(L)["atc"]						= &owner.getCtrlrManager().getAudioThumbnailCache();
 	luabind::globals(L)["converter"]				= &audioConverter;
 	luabind::globals(L)["resources"]				= &owner.getResourceManager();
 	luabind::globals(L)["library"]					= &owner.getCtrlrMIDILibrary();
-	luabind::globals(L)["native"]                   = CtrlrNative::getNativeObject(owner.getOwner());
+	luabind::globals(L)["native"]                   = CtrlrNative::getNativeObject(owner.getCtrlrManager());
 }
 
 void CtrlrLuaManager::restoreState (const ValueTree &savedState)

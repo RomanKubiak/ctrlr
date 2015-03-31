@@ -308,7 +308,7 @@ void CtrlrPanelEditor::restoreState(const ValueTree &savedState)
         getSelection()->sendChangeMessage();
     }
 
-	if (owner.getOwner().getInstanceMode() == InstanceSingle || owner.getOwner().getInstanceMode() == InstanceSingleRestriced)
+	if (owner.getCtrlrManager().getInstanceMode() == InstanceSingle || owner.getCtrlrManager().getInstanceMode() == InstanceSingleRestriced)
 	{
 		initSingleInstance();
 	}
@@ -355,7 +355,7 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		{
 			ctrlrPanelProperties->layoutChanged();
 
-			if (!owner.getOwner().isRestoring())
+			if (!owner.getCtrlrManager().isRestoring())
 			{
 				resized();
 			}

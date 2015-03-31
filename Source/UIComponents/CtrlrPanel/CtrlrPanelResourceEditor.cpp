@@ -150,7 +150,7 @@ void CtrlrPanelResourceEditor::addResourceFromFile()
 
 			if (getResourceManager().resourceExists (filesToOpen[i]))
 			{
-				if ((bool)owner.getOwner().getOwner().getProperty(Ids::ctrlrOverwriteResources) == false)
+				if ((bool)owner.getOwner().getCtrlrManager().getProperty(Ids::ctrlrOverwriteResources) == false)
 				{
 					if (!SURE("Resource: "+filesToOpen[i].getFileNameWithoutExtension()+" already exists. Overwrite?", this))
 					{

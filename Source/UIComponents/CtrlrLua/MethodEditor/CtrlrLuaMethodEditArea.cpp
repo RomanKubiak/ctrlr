@@ -43,12 +43,12 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
 
 
     //[UserPreSize]
-	owner.getOwner().getOwner().getCtrlrLog().addListener (this);
+	owner.getOwner().getCtrlrManager().getCtrlrLog().addListener (this);
 
 	upperTabs->setTabBarDepth (24);
 
 	output						= new CtrlrTextEditor("Output");
-	output->setFont (Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain));
+	output->setFont (Font (owner.getOwner().getCtrlrManager().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain));
 	output->setMultiLine(true, true);
 	output->setReadOnly (true);
 	output->addMouseListener (this, false);
@@ -80,7 +80,7 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
 CtrlrLuaMethodEditArea::~CtrlrLuaMethodEditArea()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
-	owner.getOwner().getOwner().getCtrlrLog().removeListener (this);
+	owner.getOwner().getCtrlrManager().getCtrlrLog().removeListener (this);
 	deleteAndZero (resizer);
     //[/Destructor_pre]
 
@@ -152,7 +152,7 @@ CtrlrLuaMethodEditorTabs *CtrlrLuaMethodEditArea::getTabs()
 void CtrlrLuaMethodEditArea::insertOutput(const String &textToInsert, const Colour what)
 {
 	output->setCaretPosition(output->getText().length());
-	output->insertText (textToInsert, Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain), what);
+	output->insertText (textToInsert, Font (owner.getOwner().getCtrlrManager().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain), what);
 }
 
 void CtrlrLuaMethodEditArea::insertOutput(const AttributedString stringToInsert)
@@ -208,12 +208,12 @@ void CtrlrLuaMethodEditArea::messageLogged (CtrlrLog::CtrlrLogMessage message)
 {
 	if (message.level == CtrlrLog::Lua)
 	{
-		output->insertText ("LUA>> "+message.message+"\n", Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain), Colours::black);
+		output->insertText ("LUA>> "+message.message+"\n", Font (owner.getOwner().getCtrlrManager().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain), Colours::black);
 	}
 
 	if (message.level == CtrlrLog::LuaRuntimeError)
 	{
-		output->insertText ("RUNTIME ERROR>> "+message.message+"\n", Font (owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::bold), Colours::red);
+		output->insertText ("RUNTIME ERROR>> "+message.message+"\n", Font (owner.getOwner().getCtrlrManager().getFontManager().getDefaultMonoFontName(), 16.0f, Font::bold), Colours::red);
 		owner.updateTabs();
 	}
 }

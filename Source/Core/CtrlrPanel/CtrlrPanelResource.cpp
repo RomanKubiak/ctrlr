@@ -119,7 +119,7 @@ AudioFormatReader *CtrlrPanelResource::asAudioFormat()
 		deleteAndZero (audioFormatReader);
 	}
 
-	audioFormatReader = owner.getOwner().getOwner().getAudioFormatManager().createReaderFor(resourceDataFile);
+	audioFormatReader = owner.getOwner().getCtrlrManager().getAudioFormatManager().createReaderFor(resourceDataFile);
 	return (audioFormatReader);
 }
 

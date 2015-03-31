@@ -326,12 +326,12 @@ void CtrlrCombo::panelEditModeChanged(const bool isInEditMode)
 
 Font CtrlrCombo::CtrlrComboLF::getComboBoxFont (ComboBox &box)
 {
-	return (owner.getOwner().getOwner().getOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboFont)));
+	return (owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboFont)));
 }
 
 Font CtrlrCombo::CtrlrComboLF::getPopupMenuFont ()
 {
-	return (owner.getOwner().getOwner().getOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboMenuFont)));
+	return (owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboMenuFont)));
 }
 
 void CtrlrCombo::CtrlrComboLF::drawPopupMenuBackground (Graphics &g, int width, int height)
@@ -400,7 +400,7 @@ void CtrlrCombo::CtrlrComboLF::drawPopupMenuItem (Graphics &g, const Rectangle<i
         if (! isActive)
             g.setOpacity (0.3f);
 
-		Font font = owner.getOwner().getOwner().getOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboMenuFont));
+		Font font = owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboMenuFont));
 
         if (font.getHeight() > height / 1.3f)
             font.setHeight (height / 1.3f);
