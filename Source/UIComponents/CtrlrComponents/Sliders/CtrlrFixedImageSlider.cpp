@@ -243,7 +243,7 @@ void CtrlrFixedImageSlider::valueTreePropertyChanged (ValueTree &treeWhoseProper
 		|| property == Ids::uiSliderValueTextJustification
 		)
 	{
-		filmStripImage = owner.getOwner().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageSliderResource));
+		filmStripImage = owner.getOwnerPanel().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageSliderResource));
 		lf.setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
 		lf.setPaintMode ((RectanglePlacement)(int)getProperty(Ids::resourceImagePaintMode));
 		ctrlrSlider->setLookAndFeel(0);
@@ -283,7 +283,7 @@ void CtrlrFixedImageSlider::valueTreePropertyChanged (ValueTree &treeWhoseProper
 
 	else if (property == Ids::uiSliderPopupBubble)
 	{
-		ctrlrSlider->setPopupDisplayEnabled ((bool)getProperty(property), owner.getOwner().getEditor());
+		ctrlrSlider->setPopupDisplayEnabled ((bool)getProperty(property), owner.getOwnerPanel().getEditor());
 	}
 	else
 	{
@@ -319,7 +319,7 @@ void CtrlrFixedImageSlider::wrapForLua(lua_State *L)
 
 void CtrlrFixedImageSlider::setResource()
 {
-	filmStripImage = owner.getOwner().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageSliderResource));
+	filmStripImage = owner.getOwnerPanel().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageSliderResource));
 	lf.setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
 	lookAndFeelChanged();
 	repaint();

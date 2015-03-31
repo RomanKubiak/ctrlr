@@ -137,7 +137,7 @@ CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_compo
 
 
     //[UserPreSize]
-    componentToConfigure->getOwner().getOwner().addPanelListener(this);
+    componentToConfigure->getOwner().getOwnerPanel().addPanelListener(this);
     //[/UserPreSize]
 
     setSize (320, 200);
@@ -154,7 +154,7 @@ CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_compo
 CtrlrComponentRuntimeConfig::~CtrlrComponentRuntimeConfig()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
-    componentToConfigure->getOwner().getOwner().removePanelListener(this);
+    componentToConfigure->getOwner().getOwnerPanel().removePanelListener(this);
     //[/Destructor_pre]
 
     groupComponent = nullptr;

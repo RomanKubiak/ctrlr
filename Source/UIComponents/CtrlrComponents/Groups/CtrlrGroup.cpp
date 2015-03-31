@@ -318,22 +318,22 @@ void CtrlrGroup::setOwned (CtrlrComponent *componentToOwn, const int subIndexInG
 	}
 	else
 	{
-		owner.getOwner().getEditor()->getCanvas()->addAndMakeVisibleNg(componentToOwn);
+		owner.getOwnerPanel().getEditor()->getCanvas()->addAndMakeVisibleNg(componentToOwn);
 		componentToOwn->setProperty (Ids::componentGroupped, false, true);
-        if (!getOwner().getOwner().isSchemeAtLeast(1))
+        if (!owner.getOwnerPanel().isSchemeAtLeast(1))
             componentToOwn->setProperty (Ids::componentGroupName, String::empty, false);
 	}
 }
 
 void CtrlrGroup::canvasStateRestored()
 {
-	Array <CtrlrModulator*> children = owner.getOwner().getModulatorsWithProperty(Ids::componentGroupName, owner.getName());
+	Array <CtrlrModulator*> children = owner.getOwnerPanel().getModulatorsWithProperty(Ids::componentGroupName, owner.getName());
 
 	for (int i=0; i<children.size(); i++)
 	{
 		if (children[i]->getComponent())
 		{
-			if (getOwner().getOwner().isSchemeAtLeast(1))
+			if (owner.getOwnerPanel().isSchemeAtLeast(1))
 			{
 				if (children[i]->getComponent()->getProperty(Ids::componentGroupped))
 				{
@@ -384,13 +384,13 @@ void CtrlrGroup::itemDropped (const SourceDetails &dragSourceDetails)
 {
 	if (dragSourceDetails.description == "__ctrlr_component_selection")
 	{
-		if (owner.getOwner().getEditor() && owner.getOwner().getEditor()->getSelection())
+		if (owner.getOwnerPanel().getEditor() && owner.getOwnerPanel().getEditor()->getSelection())
 		{
-			AffineTransform trans = owner.getOwner().getEditor()->moveSelectionToPosition(dragSourceDetails.localPosition.getX(), dragSourceDetails.localPosition.getY());
+			AffineTransform trans = owner.getOwnerPanel().getEditor()->moveSelectionToPosition(dragSourceDetails.localPosition.getX(), dragSourceDetails.localPosition.getY());
 
-			for (int i=0; i<owner.getOwner().getEditor()->getSelection()->getNumSelected(); i++)
+			for (int i=0; i<owner.getOwnerPanel().getEditor()->getSelection()->getNumSelected(); i++)
 			{
-				CtrlrComponent *c = owner.getOwner().getEditor()->getSelection()->getSelectedItem(i);
+				CtrlrComponent *c = owner.getOwnerPanel().getEditor()->getSelection()->getSelectedItem(i);
 
 				if (c == this || isOwned(c) || (bool)c->getProperty(Ids::componentIsLocked) == true)
 					continue;
@@ -413,7 +413,7 @@ void CtrlrGroup::itemDragEnter (const SourceDetails &dragSourceDetails)
 
 void CtrlrGroup::setResource()
 {
-	groupBackgroundImage = owner.getOwner().getResourceManager().getResourceAsImage(getProperty(Ids::uiGroupBackgroundImage));
+	groupBackgroundImage = owner.getOwnerPanel().getResourceManager().getResourceAsImage(getProperty(Ids::uiGroupBackgroundImage));
 	repaint();
 	resized();
 }

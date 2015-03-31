@@ -94,7 +94,7 @@ void CtrlrButton::resized()
 void CtrlrButton::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
-	if (!owner.getOwner().checkRadioGroup(this, buttonThatWasClicked->getToggleState()))
+	if (!owner.getOwnerPanel().checkRadioGroup(this, buttonThatWasClicked->getToggleState()))
 		return;
     //[/UserbuttonClicked_Pre]
 

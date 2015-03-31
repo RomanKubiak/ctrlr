@@ -161,11 +161,11 @@ void CtrlrLCDLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 	{
 		if ((bool)getProperty(property) == true)
 		{
-			owner.getOwner().addPanelListener(this);
+			owner.getOwnerPanel().addPanelListener(this);
 		}
 		else
 		{
-			owner.getOwner().removePanelListener(this);
+			owner.getOwnerPanel().removePanelListener(this);
 		}
 	}
 	else if (property == Ids::uiLabelText)
@@ -207,7 +207,7 @@ void CtrlrLCDLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 		if (getProperty(property) == String::empty)
 			return;
 
-		labelChangedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		labelChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiLabelInputHighlightTextColour || property == Ids::uiLabelInputHighlightColour)
 	{
@@ -257,7 +257,7 @@ void CtrlrLCDLabel::labelTextChanged (Label* labelThatHasChanged)
 	{
 		if (labelChangedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (labelChangedCbk, dynamic_cast<CtrlrComponent*>(this), labelThatHasChanged->getText());
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (labelChangedCbk, dynamic_cast<CtrlrComponent*>(this), labelThatHasChanged->getText());
 		}
 	}
 }

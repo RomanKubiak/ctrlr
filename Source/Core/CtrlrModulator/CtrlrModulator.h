@@ -178,7 +178,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		const var &getProperty (const Identifier& name) const											{ return (modulatorTree.getProperty (name)); }
 		bool hasProperty(const Identifier& name) const											{ return (modulatorTree.hasProperty (name)); }
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return modulatorTree.getProperty (name, defaultReturnValue); }
-		CtrlrPanel &getOwner()																			{ return (owner); }
+		CtrlrPanel &getOwnerPanel()																			{ return (owner); }
 		CtrlrModulatorProcessor &getProcessor()															{ return (processor); }
 		void addModulatorListener (ModulatorListener *l)													{ modulatorListeners.add(l); }
 		void removeModulatorListener (ModulatorListener *l)													{ modulatorListeners.remove(l); }

@@ -116,7 +116,7 @@ CtrlrLabel::CtrlrLabel (CtrlrModulator &owner)
 CtrlrLabel::~CtrlrLabel()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
-	owner.getOwner().removePanelListener(this);
+	owner.getOwnerPanel().removePanelListener(this);
     //[/Destructor_pre]
 
     deleteAndZero (ctrlrLabel);
@@ -188,11 +188,11 @@ void CtrlrLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	{
 		if ((bool)getProperty(property) == true)
 		{
-			owner.getOwner().addPanelListener(this);
+			owner.getOwnerPanel().addPanelListener(this);
 		}
 		else
 		{
-			owner.getOwner().removePanelListener(this);
+			owner.getOwnerPanel().removePanelListener(this);
 		}
 	}
 	else if (property == Ids::uiLabelText)
@@ -241,7 +241,7 @@ void CtrlrLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 		if (getProperty(property) == String::empty)
 			return;
 
-		labelChangedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		labelChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiLabelInputHighlightTextColour || property == Ids::uiLabelInputHighlightColour)
 	{
@@ -291,7 +291,7 @@ void CtrlrLabel::labelTextChanged (Label* labelThatHasChanged)
 	{
 		if (labelChangedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (labelChangedCbk, dynamic_cast<CtrlrComponent*>(this), labelThatHasChanged->getText());
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (labelChangedCbk, dynamic_cast<CtrlrComponent*>(this), labelThatHasChanged->getText());
 		}
 	}
 }

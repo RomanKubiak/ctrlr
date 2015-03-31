@@ -274,9 +274,9 @@ void CtrlrCombo::fillContent(const int contentType)
 	switch (contentType)
 	{
 		case 1:
-			for (int i=0; i<owner.getOwner().getModulators().size(); i++)
+			for (int i=0; i<owner.getOwnerPanel().getModulators().size(); i++)
 			{
-				valueMap.setPair (i, i, owner.getOwner().getModulatorByIndex(i)->getName());
+				valueMap.setPair (i, i, owner.getOwnerPanel().getModulatorByIndex(i)->getName());
 			}
 			owner.getProcessor().setValueMap (valueMap);
 			valueMap.fillCombo (*ctrlrCombo, true);
@@ -303,14 +303,14 @@ void CtrlrCombo::panelEditModeChanged(const bool isInEditMode)
 {
 	if (isInEditMode)
 	{
-		if ((bool)owner.getOwner().getEditor()->getProperty (Ids::uiPanelDisabledOnEdit) == true)
+		if ((bool)owner.getOwnerPanel().getEditor()->getProperty (Ids::uiPanelDisabledOnEdit) == true)
 		{
 			ctrlrCombo->setEnabled (false);
 		}
 	}
 	else
 	{
-		if ((bool)owner.getOwner().getEditor()->getProperty (Ids::uiPanelDisabledOnEdit) == true)
+		if ((bool)owner.getOwnerPanel().getEditor()->getProperty (Ids::uiPanelDisabledOnEdit) == true)
 		{
 			ctrlrCombo->setEnabled (true);
 		}
@@ -326,12 +326,12 @@ void CtrlrCombo::panelEditModeChanged(const bool isInEditMode)
 
 Font CtrlrCombo::CtrlrComboLF::getComboBoxFont (ComboBox &box)
 {
-	return (owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboFont)));
+	return (owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboFont)));
 }
 
 Font CtrlrCombo::CtrlrComboLF::getPopupMenuFont ()
 {
-	return (owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboMenuFont)));
+	return (owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboMenuFont)));
 }
 
 void CtrlrCombo::CtrlrComboLF::drawPopupMenuBackground (Graphics &g, int width, int height)
@@ -400,7 +400,7 @@ void CtrlrCombo::CtrlrComboLF::drawPopupMenuItem (Graphics &g, const Rectangle<i
         if (! isActive)
             g.setOpacity (0.3f);
 
-		Font font = owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboMenuFont));
+		Font font = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiComboMenuFont));
 
         if (font.getHeight() > height / 1.3f)
             font.setHeight (height / 1.3f);

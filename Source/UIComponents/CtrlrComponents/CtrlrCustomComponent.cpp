@@ -48,7 +48,7 @@ void CtrlrCustomComponent::paint (Graphics &g)
 	{
 		if (paintCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (paintCbk, this, g);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (paintCbk, this, g);
 		}
 	}
 }
@@ -59,7 +59,7 @@ bool CtrlrCustomComponent::keyPressed (const KeyPress &key, Component *originati
 	{
 		if (keyPressedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (keyPressedCbk, this, key, originatingComponent);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (keyPressedCbk, this, key, originatingComponent);
 		}
 	}
 	return (false);
@@ -71,7 +71,7 @@ bool CtrlrCustomComponent::keyStateChanged (bool isKeyDown, Component *originati
 	{
 		if (keyStateChangedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (keyStateChangedCbk, this, isKeyDown, originatingComponent);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (keyStateChangedCbk, this, isKeyDown, originatingComponent);
 		}
 	}
 	return (false);
@@ -83,7 +83,7 @@ void CtrlrCustomComponent::paintOverChildren(Graphics &g)
 	{
 		if (paintOverChildrenCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (paintOverChildrenCbk, this, g);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (paintOverChildrenCbk, this, g);
 		}
 	}
 }
@@ -94,7 +94,7 @@ void CtrlrCustomComponent::resized()
 	{
 		if (resizedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (resizedCbk, this);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (resizedCbk, this);
 		}
 	}
 	CtrlrComponent::resized();
@@ -106,7 +106,7 @@ void CtrlrCustomComponent::mouseMove (const MouseEvent &e)
 	{
 		if (mouseMoveCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseMoveCbk, this, e);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseMoveCbk, this, e);
 		}
 	}
 }
@@ -117,7 +117,7 @@ void CtrlrCustomComponent::mouseDown (const MouseEvent &e)
 	{
 		if (mouseDownCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseDownCbk, this, e);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDownCbk, this, e);
 		}
 	}
 }
@@ -128,7 +128,7 @@ void CtrlrCustomComponent::mouseUp (const MouseEvent &e)
 	{
 		if (mouseUpCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseUpCbk, this, e);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseUpCbk, this, e);
 		}
 	}
 }
@@ -145,7 +145,7 @@ void CtrlrCustomComponent::mouseDrag (const MouseEvent &e)
 			    DragAndDropContainer* const dragContainer = DragAndDropContainer::findParentDragContainerFor (this);
 			    if (dragContainer)
                 {
-                    DragAndDropSourceDetails details = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (dadStartCbk, this, e);
+                    DragAndDropSourceDetails details = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().callWithRet (dadStartCbk, this, e);
                     Point<int> offset(details.getImageOffsetX(), details.getImageOffsetY());
                     dragContainer->startDragging (details.getDescription(), this, details.getDragImage(), true, &offset);
                 }
@@ -157,7 +157,7 @@ void CtrlrCustomComponent::mouseDrag (const MouseEvent &e)
 	{
 		if (mouseDragCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseDragCbk, this, e);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDragCbk, this, e);
 		}
 	}
 }
@@ -169,7 +169,7 @@ void CtrlrCustomComponent::mouseEnter (const MouseEvent &e)
 	{
 		if (mouseEnterCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseEnterCbk, this, e);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseEnterCbk, this, e);
 		}
 	}
 }
@@ -180,7 +180,7 @@ void CtrlrCustomComponent::mouseExit (const MouseEvent &e)
 	{
 		if (mouseExitCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseExitCbk, this, e);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseExitCbk, this, e);
 		}
 	}
 }
@@ -196,7 +196,7 @@ const String CtrlrCustomComponent::getComponentText()
 	{
 		if (getTextCbk->isValid())
 		{
-			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRetString (getTextCbk, this));
+			return (owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().callWithRetString (getTextCbk, this));
 		}
 	}
 
@@ -209,7 +209,7 @@ void CtrlrCustomComponent::setComponentText (const String &componentText)
 	{
 		if (setTextCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (setTextCbk, this, componentText);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (setTextCbk, this, componentText);
 		}
 	}
 }
@@ -220,7 +220,7 @@ void CtrlrCustomComponent::setComponentValue (const double newValue, const bool 
 	{
 		if (setValueCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (setValueCbk, this, newValue, sendChangeMessage);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (setValueCbk, this, newValue, sendChangeMessage);
 		}
 	}
 }
@@ -231,7 +231,7 @@ double CtrlrCustomComponent::getComponentValue()
 	{
 		if (getValueCbk->isValid())
 		{
-			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().call (getValueCbk, this));
+			return (owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (getValueCbk, this));
 		}
 	}
 
@@ -250,84 +250,84 @@ void CtrlrCustomComponent::valueTreePropertyChanged (ValueTree &treeWhosePropert
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		resizedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		resizedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomPaintCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		paintCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		paintCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomMouseEnterCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		mouseEnterCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		mouseEnterCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomMouseExitCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		mouseExitCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		mouseExitCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomMouseDownCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		mouseDownCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		mouseDownCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomMouseUpCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		mouseUpCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		mouseUpCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomMouseDragCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		mouseDragCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		mouseDragCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomMouseMoveCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		mouseMoveCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		mouseMoveCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomMouseDoubleClickCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		mouseDoubleClickCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		mouseDoubleClickCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomMouseWheelMoveCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		mouseWheelMoveCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		mouseWheelMoveCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomKeyDownCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		keyPressedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		keyPressedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomKeyStateChangedCallback)
 	{
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		keyStateChangedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		keyStateChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiCustomMouseDownGrabsFocus)
     {
@@ -347,70 +347,70 @@ void CtrlrCustomComponent::valueTreePropertyChanged (ValueTree &treeWhosePropert
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		setTextCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		setTextCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
     else if (property == Ids::uiCostomGetText)
     {
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		getTextCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		getTextCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
     else if (property == Ids::uiCustomSetValue)
     {
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		setValueCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		setValueCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
     else if (property == Ids::uiCustomGetValue)
     {
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		getValueCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		getValueCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
 	else if (property == Ids::uiCustomStartDraggingCallback)
     {
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		dadStartCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		dadStartCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
 	else if (property == Ids::uiCustomIsInterestedInDragSourceCallback)
     {
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		dadIsInterestedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		dadIsInterestedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
 	else if (property == Ids::uiCustomItemDragEnterCallback)
     {
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		dadEnterCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		dadEnterCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
 	else if (property == Ids::uiCustomItemDragMoveCallback)
     {
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		dadMoveCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		dadMoveCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
 	else if (property == Ids::uiCustomItemDragExitCallback)
     {
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		dadExitCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		dadExitCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
 	else if (property == Ids::uiCustomItemDroppedCallback)
     {
         if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		dadDroppedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		dadDroppedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
     }
 	else if (property == Ids::uiCustomDragAndDropContainer)
 	{
@@ -438,7 +438,7 @@ void CtrlrCustomComponent::mouseDoubleClick (const MouseEvent &e)
 	{
 		if (mouseDoubleClickCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseDoubleClickCbk, this, e);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDoubleClickCbk, this, e);
 		}
 	}
 }
@@ -449,7 +449,7 @@ void CtrlrCustomComponent::mouseWheelMove (const MouseEvent &e, const MouseWheel
 	{
 		if (mouseWheelMoveCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseWheelMoveCbk, this, e, wheel.deltaX, wheel.deltaY);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseWheelMoveCbk, this, e, wheel.deltaX, wheel.deltaY);
 		}
 	}
 }
@@ -460,7 +460,7 @@ bool CtrlrCustomComponent::isInterestedInDragSource (const SourceDetails& dragSo
 	{
 		if (dadIsInterestedCbk->isValid())
 		{
-			return (owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (dadIsInterestedCbk, this, DragAndDropSourceDetails (dragSourceDetails)) ? true : false);
+			return (owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().callWithRet (dadIsInterestedCbk, this, DragAndDropSourceDetails (dragSourceDetails)) ? true : false);
 		}
 	}
 	return (false);
@@ -472,7 +472,7 @@ void CtrlrCustomComponent::itemDragEnter (const SourceDetails &dragSourceDetails
 	{
 		if (dadEnterCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (dadEnterCbk, this, DragAndDropSourceDetails (dragSourceDetails));
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (dadEnterCbk, this, DragAndDropSourceDetails (dragSourceDetails));
 		}
 	}
 }
@@ -484,7 +484,7 @@ void CtrlrCustomComponent::itemDragMove (const SourceDetails &dragSourceDetails)
 	{
 		if (dadMoveCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (dadMoveCbk, this, DragAndDropSourceDetails (dragSourceDetails));
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (dadMoveCbk, this, DragAndDropSourceDetails (dragSourceDetails));
 		}
 	}
 }
@@ -495,7 +495,7 @@ void CtrlrCustomComponent::itemDragExit (const SourceDetails &dragSourceDetails)
 	{
 		if (dadExitCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (dadExitCbk, this, DragAndDropSourceDetails (dragSourceDetails));
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (dadExitCbk, this, DragAndDropSourceDetails (dragSourceDetails));
 		}
 	}
 }
@@ -506,7 +506,7 @@ void CtrlrCustomComponent::itemDropped (const SourceDetails& dragSourceDetails)
 	{
 		if (dadDroppedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (dadDroppedCbk, this, DragAndDropSourceDetails (dragSourceDetails));
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (dadDroppedCbk, this, DragAndDropSourceDetails (dragSourceDetails));
 		}
 	}
 }

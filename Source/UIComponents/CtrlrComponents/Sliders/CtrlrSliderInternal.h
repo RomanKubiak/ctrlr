@@ -39,7 +39,7 @@ class CtrlrSliderLookAndFeel : public LookAndFeel_V3
 		Label* createSliderTextBox (Slider& slider)
 		{
 			Label* const l = new Label();
-			l->setFont(owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (ownerTree.getProperty(Ids::uiSliderValueFont)));
+			l->setFont(owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (ownerTree.getProperty(Ids::uiSliderValueFont)));
 			l->setJustificationType (justificationFromProperty(ownerTree.getProperty(Ids::uiSliderValueTextJustification)));
 			l->setColour (Label::textColourId, slider.findColour (Slider::textBoxTextColourId));
 			l->setColour (Label::backgroundColourId, (slider.getSliderStyle() == Slider::LinearBar) ? Colours::transparentBlack : slider.findColour (Slider::textBoxBackgroundColourId));

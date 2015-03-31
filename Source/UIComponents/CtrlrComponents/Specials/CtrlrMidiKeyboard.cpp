@@ -25,14 +25,14 @@ CtrlrMidiKeyboard::CtrlrMidiKeyboard (CtrlrModulator &owner)
 	setProperty (Ids::uiMidiKeyboardMapToNoteNumber, false);
 
     setSize (256, 64);
-	owner.getOwner().addPanelListener (this);
+	owner.getOwnerPanel().addPanelListener (this);
 	midiKeyboard->setKeyPressBaseOctave( 5 );
 	midiKeyboard->setOctaveForMiddleC( 4 );
 }
 
 CtrlrMidiKeyboard::~CtrlrMidiKeyboard()
 {
-	owner.getOwner().removePanelListener (this);
+	owner.getOwnerPanel().removePanelListener (this);
     deleteAndZero (midiKeyboard);
 }
 

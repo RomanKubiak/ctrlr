@@ -250,7 +250,7 @@ void CtrlrFixedSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 	}
 	else if (property == Ids::uiSliderPopupBubble)
 	{
-		ctrlrSlider->setPopupDisplayEnabled ((bool)getProperty(property), owner.getOwner().getEditor());
+		ctrlrSlider->setPopupDisplayEnabled ((bool)getProperty(property), owner.getOwnerPanel().getEditor());
 	}
 	else
 	{

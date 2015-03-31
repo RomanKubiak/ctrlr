@@ -165,11 +165,11 @@ void CtrlrComponent::mouseDoubleClick(const MouseEvent &e)
 {
     if (e.mods.isCommandDown())
     {
-        if (owner.getOwner().getEditor())
+        if (owner.getOwnerPanel().getEditor())
         {
-            if (!owner.getOwner().getEditor()->getMode())
+            if (!owner.getOwnerPanel().getEditor()->getMode())
             {
-                owner.getOwner().getEditor()->showComponentRuntimeConfig(this);
+                owner.getOwnerPanel().getEditor()->showComponentRuntimeConfig(this);
             }
         }
     }
@@ -179,11 +179,11 @@ void CtrlrComponent::mouseDown(const MouseEvent &e)
 {
     if (e.mods.isShiftDown())
     {
-        if (owner.getOwner().getEditor())
+        if (owner.getOwnerPanel().getEditor())
         {
-            if (!owner.getOwner().getEditor()->getMode())
+            if (!owner.getOwnerPanel().getEditor()->getMode())
             {
-                owner.getOwner().getEditor()->showComponentRuntimeConfig(this);
+                owner.getOwnerPanel().getEditor()->showComponentRuntimeConfig(this);
             }
         }
     }
@@ -212,7 +212,7 @@ void CtrlrComponent::mouseMove (const MouseEvent &e)
 	{
 		if (mouseMoveCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (mouseMoveCbk, this, e);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseMoveCbk, this, e);
 		}
 	}
 }
@@ -256,7 +256,7 @@ void CtrlrComponent::changeListenerCallback (ChangeBroadcaster* source)
 
 UndoManager* CtrlrComponent::getUndoManager() const
 {
-	return (owner.getOwner().getPanelUndoManager());
+	return (owner.getOwnerPanel().getPanelUndoManager());
 }
 
 void CtrlrComponent::restoreState (const ValueTree &savedState)
@@ -355,7 +355,7 @@ void CtrlrComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	}
 	else if (property == Ids::componentRadioGroupId)
 	{
-		owner.getOwner().setRadioGroupId(this, getProperty(property));
+		owner.getOwnerPanel().setRadioGroupId(this, getProperty(property));
 	}
 	else if (property == Ids::componentGroupped)
 	{
@@ -371,7 +371,7 @@ void CtrlrComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	}
 	else if (property == Ids::componentVisibility)
 	{
-		if ((bool)owner.getOwner().getEditor()->getProperty (Ids::uiPanelEditMode) == true)
+		if ((bool)owner.getOwnerPanel().getEditor()->getProperty (Ids::uiPanelEditMode) == true)
 		{
 			if ((bool)getProperty(property) == false)
 			{
@@ -405,7 +405,7 @@ void CtrlrComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 		if (isInvalidMethodName (getProperty(property)))
 			return;
 
-		mouseMoveCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		mouseMoveCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	if (restoreStateInProgress == false)
 	{
@@ -505,10 +505,10 @@ void CtrlrComponent::setGroupped (const bool addToGroup)
 	if (addToGroup)
 	{
 		/* we need to find the group component based on it's name */
-        groupComponent = dynamic_cast <CtrlrGrouppingComponent*> (owner.getOwner().getComponent (getProperty(Ids::componentGroupName)));
+        groupComponent = dynamic_cast <CtrlrGrouppingComponent*> (owner.getOwnerPanel().getComponent (getProperty(Ids::componentGroupName)));
 
         if (groupComponent == nullptr)
-			groupComponent = dynamic_cast <CtrlrGrouppingComponent*> (owner.getOwner().getComponent (getProperty(Ids::componentTabName)));
+			groupComponent = dynamic_cast <CtrlrGrouppingComponent*> (owner.getOwnerPanel().getComponent (getProperty(Ids::componentTabName)));
 	}
 	else
 	{
@@ -528,7 +528,7 @@ void CtrlrComponent::setGroupped (const bool addToGroup)
 
 void CtrlrComponent::removeFromTab ()
 {
-	CtrlrModulator *tabsModulator = owner.getOwner().getModulator(getProperty(Ids::componentTabName));
+	CtrlrModulator *tabsModulator = owner.getOwnerPanel().getModulator(getProperty(Ids::componentTabName));
 	if (tabsModulator)
 	{
 		CtrlrTabsComponent *tabsComponent = dynamic_cast<CtrlrTabsComponent*>(tabsModulator->getComponent());
@@ -560,15 +560,15 @@ void CtrlrComponent::panelEditModeChanged(const bool isInEditMode)
 		if ((bool)getProperty(Ids::componentVisibility) == false)
 		{
 			setVisible (true);
-			if (owner.getOwner().getEditor())
-				setAlpha ((float)owner.getOwner().getEditor()->getProperty(Ids::uiPanelInvisibleComponentAlpha));
+			if (owner.getOwnerPanel().getEditor())
+				setAlpha ((float)owner.getOwnerPanel().getEditor()->getProperty(Ids::uiPanelInvisibleComponentAlpha));
 			else
 				setAlpha(0.5f);
 		}
 
-		if (owner.getOwner().getEditor())
+		if (owner.getOwnerPanel().getEditor())
 		{
-			if ((bool)owner.getOwner().getEditor()->getProperty (Ids::uiPanelDisabledOnEdit) == true)
+			if ((bool)owner.getOwnerPanel().getEditor()->getProperty (Ids::uiPanelDisabledOnEdit) == true)
 			{
 				for (int i=0; i<getNumChildComponents(); i++)
 				{
@@ -583,7 +583,7 @@ void CtrlrComponent::panelEditModeChanged(const bool isInEditMode)
 	else
 	{
 		setVisible ((bool)getProperty(Ids::componentVisibility));
-		if ((bool)owner.getOwner().getEditor()->getProperty (Ids::uiPanelDisabledOnEdit) == true)
+		if ((bool)owner.getOwnerPanel().getEditor()->getProperty (Ids::uiPanelDisabledOnEdit) == true)
 		{
 			for (int i=0; i<getNumChildComponents(); i++)
 			{
@@ -621,7 +621,7 @@ bool CtrlrComponent::getRestoreState()
 
 CtrlrFontManager &CtrlrComponent::getFontManager()
 {
-	return (owner.getOwner().getCtrlrManagerOwner().getFontManager());
+	return (owner.getOwnerPanel().getCtrlrManagerOwner().getFontManager());
 }
 
 double CtrlrComponent::getMaximum()

@@ -91,7 +91,7 @@ void CtrlrToggleButton::resized()
 void CtrlrToggleButton::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
-	if (!owner.getOwner().checkRadioGroup(this, buttonThatWasClicked->getToggleState()))
+	if (!owner.getOwnerPanel().checkRadioGroup(this, buttonThatWasClicked->getToggleState()))
 		return;
     //[/UserbuttonClicked_Pre]
 
@@ -118,7 +118,7 @@ void CtrlrToggleButton::mouseDown (const MouseEvent& e)
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 void CtrlrToggleButton::setComponentValue (const double newValue, const bool sendChangeMessage)
 {
-	if (!owner.getOwner().checkRadioGroup(this, ctrlrButton->getToggleState()))
+	if (!owner.getOwnerPanel().checkRadioGroup(this, ctrlrButton->getToggleState()))
 		return;
 
 	if (ctrlrButton->getClickingTogglesState())
@@ -134,7 +134,7 @@ void CtrlrToggleButton::setComponentValue (const double newValue, const bool sen
 
 void CtrlrToggleButton::setComponentMidiValue (const int newValue, const bool sendChangeMessage)
 {
-	if (!owner.getOwner().checkRadioGroup(this, ctrlrButton->getToggleState()))
+	if (!owner.getOwnerPanel().checkRadioGroup(this, ctrlrButton->getToggleState()))
 		return;
 
 	if (ctrlrButton->getClickingTogglesState())
