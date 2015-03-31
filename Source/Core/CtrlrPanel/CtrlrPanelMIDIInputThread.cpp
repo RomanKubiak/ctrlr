@@ -67,7 +67,7 @@ void CtrlrPanelMIDIInputThread::process()
 	if (owner.getMidiOptionBool(panelMidiThruD2H))
 	{
 		channelizeBuffer (deviceInputBuffer, junkBuffer, owner.getMidiChannel(panelMidiOutputChannelHost), owner.getMidiOptionBool(panelMidiThruD2HChannelize));
-		owner.getCtrlrManagerOwner().getOwner()->addMidiToOutputQueue (deviceInputBuffer);
+		owner.getCtrlrManagerOwner().getProcessorOwner()->addMidiToOutputQueue (deviceInputBuffer);
 	}
 
 	owner.getCtrlrMIDILibrary().processMidi (deviceInputBuffer);

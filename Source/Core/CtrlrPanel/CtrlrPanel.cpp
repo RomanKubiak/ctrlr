@@ -1319,7 +1319,7 @@ void CtrlrPanel::queueMessageForHostOutput(const CtrlrMidiMessage &m)
 
 	if (getMidiOptionBool (panelMidiOutputToHost))
 	{
-		owner.getOwner()->addMidiToOutputQueue (m);
+		owner.getProcessorOwner()->addMidiToOutputQueue (m);
 	}
 }
 
@@ -1330,7 +1330,7 @@ void CtrlrPanel::queueMessageForHostOutput(const MidiMessage &m)
 
 	if (getMidiOptionBool (panelMidiOutputToHost))
 	{
-		owner.getOwner()->addMidiToOutputQueue (m);
+		owner.getProcessorOwner()->addMidiToOutputQueue (m);
 	}
 }
 
@@ -1341,7 +1341,7 @@ void CtrlrPanel::queueMessagesForHostOutput(const MidiBuffer &messages)
 
 	if (getMidiOptionBool (panelMidiOutputToHost))
 	{
-		owner.getOwner()->addMidiToOutputQueue (messages);
+		owner.getProcessorOwner()->addMidiToOutputQueue (messages);
 	}
 }
 
