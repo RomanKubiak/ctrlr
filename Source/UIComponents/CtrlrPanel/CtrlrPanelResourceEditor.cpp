@@ -138,7 +138,7 @@ void CtrlrPanelResourceEditor::paintCell (Graphics& g, int rowNumber, int column
 
 void CtrlrPanelResourceEditor::addResourceFromFile()
 {
-	FileChooser fileChooser ("Resource file", File(owner.getOwner().getCtrlrManager().getProperty(Ids::ctrlrLastBrowsedResourceDir)));
+	FileChooser fileChooser ("Resource file", File(owner.getOwner().getCtrlrManagerOwner().getProperty(Ids::ctrlrLastBrowsedResourceDir)));
 	if (fileChooser.browseForMultipleFilesToOpen(0))
  	{
 		Array <File> filesToOpen = fileChooser.getResults();
@@ -146,11 +146,11 @@ void CtrlrPanelResourceEditor::addResourceFromFile()
 		for (int i=0; i<filesToOpen.size(); i++)
 		{
 			if (i == 0)
-				owner.getOwner().getCtrlrManager().setProperty (Ids::ctrlrLastBrowsedResourceDir, filesToOpen[i].getParentDirectory().getFullPathName());
+				owner.getOwner().getCtrlrManagerOwner().setProperty (Ids::ctrlrLastBrowsedResourceDir, filesToOpen[i].getParentDirectory().getFullPathName());
 
 			if (getResourceManager().resourceExists (filesToOpen[i]))
 			{
-				if ((bool)owner.getOwner().getCtrlrManager().getProperty(Ids::ctrlrOverwriteResources) == false)
+				if ((bool)owner.getOwner().getCtrlrManagerOwner().getProperty(Ids::ctrlrOverwriteResources) == false)
 				{
 					if (!SURE("Resource: "+filesToOpen[i].getFileNameWithoutExtension()+" already exists. Overwrite?", this))
 					{

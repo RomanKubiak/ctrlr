@@ -75,7 +75,7 @@ void CtrlrLuaMethodEditor::valueTreePropertyChanged (ValueTree &treeWhosePropert
 			CtrlrLuaMethodCodeEditor *ed = dynamic_cast<CtrlrLuaMethodCodeEditor*>(methodEditArea->getTabs()->getTabContentComponent(i));
 			if (ed != nullptr)
 			{
-				ed->setFontAndColour (owner.getCtrlrManager().getFontManager().getFontFromString (componentTree.getProperty(Ids::luaMethodEditorFont)), VAR2COLOUR(componentTree.getProperty(Ids::luaMethodEditorBgColour)));
+				ed->setFontAndColour (owner.getCtrlrManagerOwner().getFontManager().getFontFromString (componentTree.getProperty(Ids::luaMethodEditorFont)), VAR2COLOUR(componentTree.getProperty(Ids::luaMethodEditorBgColour)));
 			}
 		}
 	}
@@ -974,7 +974,7 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 		CtrlrLuaMethodCodeEditorSettings s(*this);
 		CtrlrDialogWindow::showModalDialog ("Code editor settings", &s, false, this);
 
-		componentTree.setProperty (Ids::luaMethodEditorFont, owner.getCtrlrManager().getFontManager().getStringFromFont (s.getFont()), nullptr);
+		componentTree.setProperty (Ids::luaMethodEditorFont, owner.getCtrlrManagerOwner().getFontManager().getStringFromFont (s.getFont()), nullptr);
 		componentTree.setProperty (Ids::luaMethodEditorBgColour, COLOUR2STR (s.getColour()), nullptr);
 	}
 	else if (menuItemID == 7 && topLevelMenuIndex == 1)

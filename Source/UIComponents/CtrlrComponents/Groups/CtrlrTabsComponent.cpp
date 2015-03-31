@@ -48,7 +48,7 @@ int CtrlrTabsLF::getTabButtonBestWidth (int tabIndex,
                                         int tabDepth,
                                         Button &button)
 {
-	Font f = owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsTabFont));
+	Font f = owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsTabFont));
     return f.getStringWidth (text.trim()) + getTabButtonOverlap (tabDepth) * 2;
 }
 
@@ -64,8 +64,8 @@ void CtrlrTabsLF::drawTabButtonText (TabBarButton& button, Graphics& g, bool isM
     if (button.getTabbedButtonBar().isVertical())
         std::swap (length, depth);
 
-	Font otherTabFont  = owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsTabFont));
-	Font activeTabFont = owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsFrontTabFont));
+	Font otherTabFont  = owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsTabFont));
+	Font activeTabFont = owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsFrontTabFont));
 
     otherTabFont.setUnderline (button.hasKeyboardFocus (false));
 	activeTabFont.setUnderline (button.hasKeyboardFocus (false));
@@ -495,7 +495,7 @@ void CtrlrTabsComponent::setOwned (CtrlrComponent *componentToOwn, const int sub
 		componentToOwn->setProperty (Ids::componentTabName, owner.getName(), true);
 		componentToOwn->setProperty (Ids::componentTabId, subIndexInGroup, true);
 		componentToOwn->setProperty (Ids::componentGroupped, true, true);
-		componentToOwn->setLookAndFeel (owner.getOwner().getCtrlrManager().getCtrlrLookAndFeel());
+		componentToOwn->setLookAndFeel (owner.getOwner().getCtrlrManagerOwner().getCtrlrLookAndFeel());
 
 		if (ctrlrTabs->getTabContentComponent(subIndexInGroup))
 			ctrlrTabs->getTabContentComponent(subIndexInGroup)->addAndMakeVisible (componentToOwn);

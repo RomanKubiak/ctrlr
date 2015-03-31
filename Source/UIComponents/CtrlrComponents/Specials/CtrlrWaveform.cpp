@@ -13,7 +13,7 @@ CtrlrWaveform::CtrlrWaveform (CtrlrModulator &owner)
 	  audioBufferCopy(1,0),
 	  qualityForAudioFiles(0)
 {
-	audioThumbnail			= new AudioThumbnail (1, owner.getOwner().getCtrlrManager().getAudioFormatManager(), owner.getOwner().getCtrlrManager().getAudioThumbnailCache());
+	audioThumbnail			= new AudioThumbnail (1, owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager(), owner.getOwner().getCtrlrManagerOwner().getAudioThumbnailCache());
 	audioThumbnail->addChangeListener (this);
 
 	setProperty (Ids::uiWaveformColour, "0xff000000");
@@ -114,7 +114,7 @@ void CtrlrWaveform::handlePopupMenu (const int popupMenuItem)
 	{
 		if (audioThumbnail->isFullyLoaded())
 		{
-			FileChooser fc("Load a file", currentFile.getParentDirectory(), owner.getOwner().getCtrlrManager().getAudioFormatManager().getWildcardForAllFormats(), true);
+			FileChooser fc("Load a file", currentFile.getParentDirectory(), owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager().getWildcardForAllFormats(), true);
 			if (fc.browseForFileToOpen())
 			{
 				loadFromFile (fc.getResult());
@@ -131,13 +131,13 @@ void CtrlrWaveform::handlePopupMenu (const int popupMenuItem)
 	}
 	else if (popupMenuItem == 4098)
 	{
-		FileChooser fc("Save to an audio file", currentFile.getParentDirectory(), owner.getOwner().getCtrlrManager().getAudioFormatManager().getWildcardForAllFormats(), true);
+		FileChooser fc("Save to an audio file", currentFile.getParentDirectory(), owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager().getWildcardForAllFormats(), true);
 
 		if (fc.browseForFileToSave(true))
 		{
 			File outputFile = fc.getResult();
 
-			AudioFormat *format = owner.getOwner().getCtrlrManager().getAudioFormatManager().findFormatForFileExtension (outputFile.getFileExtension());
+			AudioFormat *format = owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager().findFormatForFileExtension (outputFile.getFileExtension());
 
 			if (format != nullptr)
 			{
@@ -185,8 +185,8 @@ void CtrlrWaveform::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 		if (audioThumbnail)
 			delete audioThumbnail.release();
 
-		audioThumbnail	= new AudioThumbnail (getProperty(property), owner.getOwner().getCtrlrManager().getAudioFormatManager(), 
-			owner.getOwner().getCtrlrManager().getAudioThumbnailCache());
+		audioThumbnail	= new AudioThumbnail (getProperty(property), owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager(), 
+			owner.getOwner().getCtrlrManagerOwner().getAudioThumbnailCache());
 		audioThumbnail->addChangeListener (this);
 		audioThumbnail->clear();
 		audioBufferCopy.clear();
@@ -315,7 +315,7 @@ const bool CtrlrWaveform::loadFromFile (const File &fileToLoadFrom)
 {
 	currentFile = fileToLoadFrom;
 
-	AudioFormatReader *reader = owner.getOwner().getCtrlrManager().getAudioFormatManager().createReaderFor (currentFile);
+	AudioFormatReader *reader = owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager().createReaderFor (currentFile);
 
 	if (sourceChangedCbk && !sourceChangedCbk.wasObjectDeleted())
 	{

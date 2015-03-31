@@ -67,7 +67,7 @@ void CtrlrPanelMIDIInputThread::process()
 	if (owner.getMidiOptionBool(panelMidiThruD2H))
 	{
 		channelizeBuffer (deviceInputBuffer, junkBuffer, owner.getMidiChannel(panelMidiOutputChannelHost), owner.getMidiOptionBool(panelMidiThruD2HChannelize));
-		owner.getCtrlrManager().getOwner()->addMidiToOutputQueue (deviceInputBuffer);
+		owner.getCtrlrManagerOwner().getOwner()->addMidiToOutputQueue (deviceInputBuffer);
 	}
 
 	owner.getCtrlrMIDILibrary().processMidi (deviceInputBuffer);
@@ -128,7 +128,7 @@ bool CtrlrPanelMIDIInputThread::openInputDevice (const String &inputDeviceName)
 {
 	const ScopedWriteLock sl(lock);
 
-	inputDevicePtr = owner.getCtrlrManager().getCtrlrMidiDeviceManager().getDeviceByName (inputDeviceName, inputDevice, true);
+	inputDevicePtr = owner.getCtrlrManagerOwner().getCtrlrMidiDeviceManager().getDeviceByName (inputDeviceName, inputDevice, true);
 
 	if (inputDevicePtr != nullptr)
 	{

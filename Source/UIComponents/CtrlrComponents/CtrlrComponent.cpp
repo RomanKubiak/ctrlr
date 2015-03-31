@@ -621,7 +621,7 @@ bool CtrlrComponent::getRestoreState()
 
 CtrlrFontManager &CtrlrComponent::getFontManager()
 {
-	return (owner.getOwner().getCtrlrManager().getFontManager());
+	return (owner.getOwner().getCtrlrManagerOwner().getFontManager());
 }
 
 double CtrlrComponent::getMaximum()

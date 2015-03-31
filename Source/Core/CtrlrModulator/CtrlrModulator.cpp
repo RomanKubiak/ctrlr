@@ -111,7 +111,7 @@ void CtrlrModulator::restoreState (const ValueTree &savedState)
 			continue;
 		}
 		else if (savedState.getPropertyName(i) == Ids::modulatorValue
-				&& owner.getCtrlrManager().getInstanceMode() == InstanceMulti)
+				&& owner.getCtrlrManagerOwner().getInstanceMode() == InstanceMulti)
 		{
 			/*
 			 set the modulator value
@@ -250,7 +250,7 @@ void CtrlrModulator::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	{
 		if ((bool)getProperty (property) == false && !getRestoreState())
 		{
-			owner.getCtrlrManager().getVstManager().remove (this);
+			owner.getCtrlrManagerOwner().getVstManager().remove (this);
 		}
 
 		vstExported = (bool)getProperty(property);
@@ -258,7 +258,7 @@ void CtrlrModulator::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	else if (property == Ids::vstIndex)
 	{
 	    // _DBG("CtrlrModulator::valueTreePropertyChanged [PRE] vstIndex=="+getProperty(Ids::vstIndex).toString());
-		owner.getCtrlrManager().getVstManager().set (this, getProperty(property));
+		owner.getCtrlrManagerOwner().getVstManager().set (this, getProperty(property));
 		// _DBG("CtrlrModulator::valueTreePropertyChanged [POST] vstIndex=="+getProperty(Ids::vstIndex).toString());
 	}
 }
@@ -371,9 +371,9 @@ CtrlrComponent *CtrlrModulator::getComponent()
 	return (ctrlrComponent);
 }
 
-CtrlrManager &CtrlrModulator::getCtrlrManager()
+CtrlrManager &CtrlrModulator::getCtrlrManagerOwner()
 {
-	return (owner.getCtrlrManager());
+	return (owner.getCtrlrManagerOwner());
 }
 
 void CtrlrModulator::setMidiType (const ValueTree &savedState)
@@ -408,7 +408,7 @@ void CtrlrModulator::allModulatorsInitialized()
 		getComponent()->allModulatorsInitialized();
 	}
 
-	if (owner.getCtrlrManager().getInstanceMode() == InstanceSingle || owner.getCtrlrManager().getInstanceMode() == InstanceSingleRestriced)
+	if (owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingle || owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingleRestriced)
 	{
 		processor.setValueFromGUI (getProperty(Ids::modulatorValue),true);
 	}
@@ -532,7 +532,7 @@ bool CtrlrModulator::isDelayedProperty(const Identifier &name)
 	if (name == Ids::modulatorVstExported)
 		return (true);
 
-	if (name == Ids::modulatorValue && (owner.getCtrlrManager().getInstanceMode() == InstanceSingle || owner.getCtrlrManager().getInstanceMode() == InstanceSingleRestriced))
+	if (name == Ids::modulatorValue && (owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingle || owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingleRestriced))
 		return (true);
 
 	return (false);

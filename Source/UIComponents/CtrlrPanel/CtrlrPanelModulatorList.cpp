@@ -145,7 +145,7 @@ void CtrlrPanelModulatorList::refresh()
 
 const Identifier CtrlrPanelModulatorList::getColumnCtrlrId(const int columnId)
 {
-	return (owner.getCtrlrManager().getIDManager().getObjectTree().getChild(columnId).getProperty(Ids::name).toString());
+	return (owner.getCtrlrManagerOwner().getIDManager().getObjectTree().getChild(columnId).getProperty(Ids::name).toString());
 }
 
 const String CtrlrPanelModulatorList::getValueStringForColumn (CtrlrModulator *m, const Identifier columnName)
@@ -188,10 +188,10 @@ Value CtrlrPanelModulatorList::getValueForColumn (CtrlrModulator *m, const Ident
 
 const int CtrlrPanelModulatorList::getColumnIdForIdentifier (const String &columnName)
 {
-	ValueTree id = owner.getCtrlrManager().getIDManager().getObjectTree().getChildWithProperty (Ids::name, columnName);
+	ValueTree id = owner.getCtrlrManagerOwner().getIDManager().getObjectTree().getChildWithProperty (Ids::name, columnName);
 	if (id.isValid())
 	{
-		return (owner.getCtrlrManager().getIDManager().getObjectTree().indexOf(id));
+		return (owner.getCtrlrManagerOwner().getIDManager().getObjectTree().indexOf(id));
 	}
 
 	return (-1);
@@ -335,7 +335,7 @@ void CtrlrPanelModulatorList::makeVisibleItem()
 
 ValueTree &CtrlrPanelModulatorList::getIdTree()
 {
-	return (owner.getCtrlrManager().getIDManager().getObjectTree());
+	return (owner.getCtrlrManagerOwner().getIDManager().getObjectTree());
 }
 
 /** Exporters */
