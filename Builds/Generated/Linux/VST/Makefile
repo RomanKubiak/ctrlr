@@ -141,7 +141,6 @@ OBJECTS := \
   $(OBJDIR)/LModifierKeys_3e79f94b.o \
   $(OBJDIR)/LMouseCursor_eeedd585.o \
   $(OBJDIR)/LMouseEvent_ae81d695.o \
-  $(OBJDIR)/LookAndFeelBase_f5b48a03.o \
   $(OBJDIR)/LPath_2d70ea05.o \
   $(OBJDIR)/LPoint_f71777fa.o \
   $(OBJDIR)/LPopupMenu_987c3e95.o \
@@ -705,11 +704,6 @@ $(OBJDIR)/LMouseCursor_eeedd585.o: ../../../../Source/Lua/JuceClasses/LMouseCurs
 $(OBJDIR)/LMouseEvent_ae81d695.o: ../../../../Source/Lua/JuceClasses/LMouseEvent.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LMouseEvent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LookAndFeelBase_f5b48a03.o: ../../../../Source/Lua/JuceClasses/LookAndFeelBase.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LookAndFeelBase.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LPath_2d70ea05.o: ../../../../Source/Lua/JuceClasses/LPath.cpp

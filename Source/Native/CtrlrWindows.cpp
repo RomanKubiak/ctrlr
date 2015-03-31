@@ -217,4 +217,57 @@ const Result CtrlrWindows::registerFileHandler()
 	return (Result::ok());
 }
 
+const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event)
+{
+	INPUT input;
+	input.type = INPUT_KEYBOARD;
+	input.ki.time = 0;
+	input.ki.dwExtraInfo = 0;
+	input.ki.wScan = 0; 
+	input.ki.dwFlags = 0;
+
+	// Modifier Down
+	if (event.getModifiers().isCommandDown())
+	{
+		input.ki.wVk = VK_CONTROL;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+	if (event.getModifiers().isAltDown())
+	{
+		input.ki.wVk = VK_MENU;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+	if (event.getModifiers().isShiftDown())
+	{
+		input.ki.wVk = VK_SHIFT;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+
+	// KEY Down
+	input.ki.wVk = event.getKeyCode();
+	SendInput(1, &input, sizeof(INPUT));
+
+	// KEY Up
+	input.ki.dwFlags = KEYEVENTF_KEYUP;
+	SendInput( 1, &input, sizeof( INPUT ) );
+
+	// MODIFIER Up
+	if (event.getModifiers().isCommandDown())
+	{
+		input.ki.wVk = VK_CONTROL;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+	if (event.getModifiers().isAltDown())
+	{
+		input.ki.wVk = VK_MENU;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+	if (event.getModifiers().isShiftDown())
+	{
+		input.ki.wVk = VK_SHIFT;
+		SendInput(1, &input, sizeof(INPUT));
+	}
+
+	return (Result::ok());
+}
 #endif

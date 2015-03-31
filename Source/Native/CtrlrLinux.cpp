@@ -6,6 +6,7 @@
 #include "CtrlrManager/CtrlrManager.h"
 #include <sys/types.h>
 #include <sys/stat.h>
+#include "Linux/keys.h"
 
 extern "C"
 {
@@ -263,6 +264,11 @@ const Result CtrlrLinux::getSignature(MemoryBlock &dataToWrite)
 	libr_close (handle);
 
     return (Result::ok());
+}
+
+const Result CtrlrLinux::sendKeyPressEvent(const KeyPress &event)
+{
+    return (ctrlr_sendKeyPressEvent (event));
 }
 
 #endif

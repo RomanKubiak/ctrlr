@@ -440,7 +440,6 @@
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.cpp" />
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPath.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.cpp" />
@@ -2311,7 +2310,6 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.h" />
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPath.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.h" />

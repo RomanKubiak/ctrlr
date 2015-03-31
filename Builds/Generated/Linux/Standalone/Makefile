@@ -100,8 +100,9 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
   $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
+  $(OBJDIR)/LAsyncUpdater_d1f1198d.o \
+  $(OBJDIR)/LAudioPlayHead_2fd31d94.o \
   $(OBJDIR)/LMidiBuffer_d1dab261.o \
-  $(OBJDIR)/LookAndFeelBase_f5b48a03.o \
   $(OBJDIR)/LBorderSize_ecfcd7ed.o \
   $(OBJDIR)/LButton_b8659fd2.o \
   $(OBJDIR)/LTextButton_e8537f5f.o \
@@ -215,6 +216,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
   $(OBJDIR)/CtrlrMidiMessage_58a157ae.o \
   $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
+  $(OBJDIR)/keys_3fbadac8.o \
   $(OBJDIR)/libr-bfd_f5e18fb4.o \
   $(OBJDIR)/libr_e9fa1d21.o \
   $(OBJDIR)/CtrlrLinux_891d1366.o \
@@ -499,14 +501,19 @@ $(OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.c
 	@echo "Compiling CtrlrLuaDebugger.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/LAsyncUpdater_d1f1198d.o: ../../../../Source/Lua/JuceClasses/LAsyncUpdater.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LAsyncUpdater.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LAudioPlayHead_2fd31d94.o: ../../../../Source/Lua/JuceClasses/LAudioPlayHead.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LAudioPlayHead.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/LMidiBuffer_d1dab261.o: ../../../../Source/Lua/JuceClasses/LMidiBuffer.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LMidiBuffer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LookAndFeelBase_f5b48a03.o: ../../../../Source/Lua/JuceClasses/LookAndFeelBase.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LookAndFeelBase.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/LBorderSize_ecfcd7ed.o: ../../../../Source/Lua/JuceClasses/LBorderSize.cpp
@@ -1072,6 +1079,11 @@ $(OBJDIR)/CtrlrMidiMessage_58a157ae.o: ../../../../Source/MIDI/CtrlrMidiMessage.
 $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o: ../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrOwnedMidiMessage.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/keys_3fbadac8.o: ../../../../Source/Native/Linux/keys.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling keys.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/libr-bfd_f5e18fb4.o: ../../../../Source/Native/Linux/libr-bfd.c

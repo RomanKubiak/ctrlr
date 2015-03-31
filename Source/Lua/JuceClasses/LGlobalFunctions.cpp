@@ -1,6 +1,21 @@
 #include "stdafx.h"
 #include "LGlobalFunctions.h"
-#include "LookAndFeelBase.h"
+#include "Native/CtrlrNative.h"
+#include "CtrlrManager/CtrlrManager.h"
+
+static const String getNativeKeyMapping()
+{
+    String ret;
+    for (int i=0; i<1024; i++)
+    {
+        if (KeyPress(i).isValid())
+        {
+            if (! KeyPress(i).getTextDescription().startsWith("#") && KeyPress(i).getTextDescription().isNotEmpty())
+                ret << i << ": " << KeyPress(i).getTextDescriptionWithIcons() << "\n";
+        }
+    }
+    return (ret);
+}
 
 LGlobalFunctions::LGlobalFunctions()
 {
@@ -54,6 +69,8 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
 
 	module(L)
     [
+        def("getNativeKeyMapping", &getNativeKeyMapping)
+        ,
         def("console", &LGlobalFunctions::console)
         ,
 		def("J", (const String (*) (const std::string &)) &LGlobalFunctions::toJuceString),
@@ -76,6 +93,13 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
 				def("double_Pi", &LGlobalFunctions::double_Pi),
 				def("float_Pi", &LGlobalFunctions::float_Pi)
 			]
+		,
+		class_<CtrlrNative>("CtrlrNative")
+            .def("sendKeyPressEvent", &CtrlrNative::sendKeyPressEvent)
+            .scope
+            [
+                def("getNativeObject", &CtrlrNative::getNativeObject)
+            ]
 		,
 		def("jmax", (double (*) (const double, const double))&juce::jmax<double>),
 		def("jmax", (double (*) (const double, const double, const double))&juce::jmax<double>),

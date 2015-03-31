@@ -3,6 +3,8 @@
 
 #include "CtrlrNative.h"
 
+class CtrlrManager;
+
 class CtrlrLinux : public CtrlrNative
 {
 	public:
@@ -12,7 +14,7 @@ class CtrlrLinux : public CtrlrNative
 		const Result getDefaultPanel(MemoryBlock& dataToWrite);
 		const Result getDefaultResources(MemoryBlock& dataToWrite);
 		const Result getSignature(MemoryBlock &dataToWrite);
-
+        const Result sendKeyPressEvent(const KeyPress &event);
     private:
         CtrlrManager &owner;
 };

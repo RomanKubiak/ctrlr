@@ -127,6 +127,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::luaPanelRestoreState, COMBO_ITEM_NONE);
     setProperty (Ids::luaPanelMidiSnapshotPost, COMBO_ITEM_NONE);
     setProperty (Ids::luaPanelMidiSnapshotPre, COMBO_ITEM_NONE);
+    setProperty (Ids::luaAudioProcessBlock, COMBO_ITEM_NONE);
 	setProperty (Ids::panelFilePath, String::empty);
 	setProperty (Ids::panelUID, generateRandomUnique());
 	setProperty (Ids::panelInstanceUID, generateRandomUniquePluginId());
@@ -855,6 +856,11 @@ void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 					m->setRestoreState (false);
 				}
 			}
+
+			if (program.getChild(i).hasType(Ids::panelCustomData))
+            {
+                setCustomData(program.getChild(i));
+            }
 		}
 
 		if ((bool)getProperty (Ids::panelMidiSnapshotAfterProgramChange) == true)

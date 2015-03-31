@@ -111,6 +111,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		const bool call(CtrlrLuaMethod *o, ValueTree &param1);
 		const bool call(CtrlrLuaMethod *o, MidiBuffer *param1);
 		const bool call(CtrlrLuaMethod *o, const ValueTree &param1);
+		const bool call(CtrlrLuaMethod *o, MidiBuffer &param1, const AudioPlayHead::CurrentPositionInfo &param2);
 		int callWithRet(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, DragAndDropSourceDetails param2);
 
 		int callWithRet(CtrlrLuaMethod *o, CtrlrMIDITransaction *midiTransaction, ValueTree valueTree);

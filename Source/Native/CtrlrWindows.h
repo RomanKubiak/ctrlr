@@ -19,6 +19,7 @@ class CtrlrWindows : public CtrlrNative
 		const Result getDefaultResources(MemoryBlock& dataToWrite);
 		const Result getSignature(MemoryBlock &dataToWrite);
 		const Result registerFileHandler();
+		const Result sendKeyPressEvent (const KeyPress &event);
     private:
         CtrlrManager &owner;
 };
