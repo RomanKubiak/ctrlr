@@ -75,7 +75,7 @@ CtrlrLuaConsole::CtrlrLuaConsole (CtrlrPanel &_owner)
 	lastMoveDirection = NONE;
 	currentInputString = String::empty;
 
-	luaConsoleOutput->setWantsKeyboardFocus(false);
+	//luaConsoleOutput->setWantsKeyboardFocus(false);
 	luaConsoleInput->grabKeyboardFocus();
     //[/UserPreSize]
 
@@ -195,7 +195,7 @@ void CtrlrLuaConsole::runCode(const String &code)
 	luaConsoleOutput->insertTextAtCaret (">>> " + code + "\n");
 	// add running code into history
 	if (code.isNotEmpty()){
-		inputHistory.add(code);
+		inputHistory.addIfNotAlreadyThere(code);
 		nextUpKeyPressWillbeFirst = true;
 		lastCommandNumInHistory = inputHistory.size() - 1;
 		lastMoveDirection = NONE;
