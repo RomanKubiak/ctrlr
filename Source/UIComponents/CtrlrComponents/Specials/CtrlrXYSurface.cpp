@@ -300,8 +300,8 @@ void CtrlrXYSurface::syncDestination()
 	int x			= surfaceModulator->getX();
 	int y			= surfaceModulator->getY();
 
-	destinationX = owner.getOwner().getModulator (getProperty (Ids::uiXYSurfaceDestinationX).toString());
-	destinationY = owner.getOwner().getModulator (getProperty (Ids::uiXYSurfaceDestinationY).toString());
+	destinationX = owner.getOwnerPanel().getModulator (getProperty (Ids::uiXYSurfaceDestinationX).toString());
+	destinationY = owner.getOwnerPanel().getModulator (getProperty (Ids::uiXYSurfaceDestinationY).toString());
 
 	if (destinationX)
 	{
@@ -389,15 +389,15 @@ void CtrlrXYSurface::rebuildModulatorList()
 {
 	modulatorList.clear();
 
-	for (int i=0; i<owner.getOwner().getModulators().size(); i++)
+	for (int i=0; i<owner.getOwnerPanel().getModulators().size(); i++)
 	{
-		if (owner.getOwner().getModulatorByIndex(i) == &owner)
+		if (owner.getOwnerPanel().getModulatorByIndex(i) == &owner)
 			continue;
 
-		if (owner.getOwner().getModulatorByIndex(i)->isStatic())
+		if (owner.getOwnerPanel().getModulatorByIndex(i)->isStatic())
 			continue;
 
-		modulatorList.add (owner.getOwner().getModulatorByIndex(i)->getName());
+		modulatorList.add (owner.getOwnerPanel().getModulatorByIndex(i)->getName());
 	}
 }
 
@@ -421,7 +421,7 @@ const int CtrlrXYSurface::getPositionForValue(const int value, const bool forX)
 
 void CtrlrXYSurface::setResource()
 {
-	backgroundImage = owner.getOwner().getResourceManager().getResourceAsImage (getProperty(Ids::uiXYSurfaceBgImageResource));
+	backgroundImage = owner.getOwnerPanel().getResourceManager().getResourceAsImage (getProperty(Ids::uiXYSurfaceBgImageResource));
 	repaint();
 	resized();
 }

@@ -462,7 +462,7 @@ int CtrlrManager::getPanelForModulator(const int modulatorIndex)
 {
 	if (ctrlrModulators[modulatorIndex])
 	{
-		return (ctrlrModulators[modulatorIndex]->getOwner().getPanelIndex());
+		return (ctrlrModulators[modulatorIndex]->getOwnerPanel().getPanelIndex());
 	}
 	return (-1);
 }

@@ -141,7 +141,7 @@ const String CtrlrImageButton::getComponentText()
 
 void CtrlrImageButton::setComponentValue (const double newValue, const bool sendChangeMessage)
 {
-	if (!owner.getOwner().checkRadioGroup(this, ctrlrButton->getToggleState()))
+	if (!owner.getOwnerPanel().checkRadioGroup(this, ctrlrButton->getToggleState()))
 		return;
 
 	valueMap.setCurrentNonMappedValue (newValue);
@@ -162,7 +162,7 @@ void CtrlrImageButton::setComponentValue (const double newValue, const bool send
 
 void CtrlrImageButton::setComponentMidiValue (const int newValue, const bool sendChangeMessage)
 {
-	if (!owner.getOwner().checkRadioGroup(this, ctrlrButton->getToggleState()))
+	if (!owner.getOwnerPanel().checkRadioGroup(this, ctrlrButton->getToggleState()))
 		return;
 
 	valueMap.setCurrentMappedValue (newValue);
@@ -320,7 +320,7 @@ bool CtrlrImageButton::getToggleState()
 
 void CtrlrImageButton::buttonClicked (Button* button)
 {
-	if (!owner.getOwner().checkRadioGroup(this, button->getToggleState()))
+	if (!owner.getOwnerPanel().checkRadioGroup(this, button->getToggleState()))
 		return;
 
 	if (button == ctrlrButton)
@@ -346,7 +346,7 @@ void CtrlrImageButton::wrapForLua(lua_State *L)
 
 void CtrlrImageButton::setResource()
 {
-	filmStripImage = owner.getOwner().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageButtonResource));
+	filmStripImage = owner.getOwnerPanel().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageButtonResource));
 	lookAndFeelChanged();
 	repaint();
 	resized();

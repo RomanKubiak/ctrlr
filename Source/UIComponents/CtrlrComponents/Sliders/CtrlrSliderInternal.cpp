@@ -16,7 +16,7 @@ CtrlrSliderInternal::~CtrlrSliderInternal()
 String CtrlrSliderInternal::getTextFromValue(double value)
 {
 	// Causes crash on MAC
-    // setColour (TooltipWindow::textColourId, VAR2COLOUR(owner.getOwner().getOwner().getEditor()->getProperty(Ids::uiPanelTooltipColour)));
+    // setColour (TooltipWindow::textColourId, VAR2COLOUR(owner.getOwner().getOwnerPanel().getEditor()->getProperty(Ids::uiPanelTooltipColour)));
 	return (owner.getTextForValue(value));
 }
 
@@ -160,7 +160,7 @@ void CtrlrSliderLookAndFeel::drawLinearSliderThumb (Graphics& g, int x, int y, i
 
 int CtrlrSliderLookAndFeel::getSliderPopupPlacement(Slider &slider)
 {
-	CtrlrLookAndFeel *lf = owner.getOwner().getOwner().getCtrlrManagerOwner().getCtrlrLookAndFeel();
+	CtrlrLookAndFeel *lf = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getCtrlrLookAndFeel();
 	if (lf)
 	{
         return (lf->getSliderPopupPlacement(slider));
@@ -171,7 +171,7 @@ int CtrlrSliderLookAndFeel::getSliderPopupPlacement(Slider &slider)
 
 Font CtrlrSliderLookAndFeel::getSliderPopupFont(Slider &slider)
 {
-	CtrlrLookAndFeel *lf = owner.getOwner().getOwner().getCtrlrManagerOwner().getCtrlrLookAndFeel();
+	CtrlrLookAndFeel *lf = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getCtrlrLookAndFeel();
 	if (lf)
 	{
         return (lf->getSliderPopupFont(slider));

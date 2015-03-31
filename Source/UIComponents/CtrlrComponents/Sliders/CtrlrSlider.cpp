@@ -80,7 +80,7 @@ void CtrlrSlider::sliderValueChanged (Slider* sliderThatWasMoved)
 {
     if (sliderThatWasMoved == &ctrlrSlider)
     {
-		if ((bool)owner.getOwner().getEditor()->getProperty(Ids::uiPanelEditMode) == true)
+		if ((bool)owner.getOwnerPanel().getEditor()->getProperty(Ids::uiPanelEditMode) == true)
 			return;
 
 		setComponentValue (ctrlrSlider.getValue(), true);
@@ -226,7 +226,7 @@ void CtrlrSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChang
 	}
 	else if (property == Ids::uiSliderPopupBubble)
 	{
-		ctrlrSlider.setPopupDisplayEnabled ((bool)getProperty(property), owner.getOwner().getEditor());
+		ctrlrSlider.setPopupDisplayEnabled ((bool)getProperty(property), owner.getOwnerPanel().getEditor());
 	}
 	else
 	{

@@ -138,7 +138,7 @@ void CtrlrImage::restoreState (const ValueTree &savedState)
 
 void CtrlrImage::setResource()
 {
-	currentImage = owner.getOwner().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageResource));
+	currentImage = owner.getOwnerPanel().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageResource));
 	repaint();
 	resized();
 }

@@ -175,14 +175,14 @@ bool CtrlrComponentTypeManager::isGroupingComponent(CtrlrComponent *componentToC
 
 CtrlrComponent *CtrlrComponentTypeManager::getParentIfGroupped(CtrlrComponent *childComponent)
 {
-	if (childComponent->getOwner().getOwner().getModulator (childComponent->getComponentGroup()))
+	if (childComponent->getOwner().getOwnerPanel().getModulator (childComponent->getComponentGroup()))
 	{
-		return (childComponent->getOwner().getOwner().getModulator (childComponent->getComponentGroup())->getComponent());
+		return (childComponent->getOwner().getOwnerPanel().getModulator (childComponent->getComponentGroup())->getComponent());
 	}
 
 	if (childComponent->getProperty(Ids::componentTabName).toString() != String::empty)
 	{
-		return (childComponent->getOwner().getOwner().getModulator(childComponent->getProperty(Ids::componentTabName))->getComponent());
+		return (childComponent->getOwner().getOwnerPanel().getModulator(childComponent->getProperty(Ids::componentTabName))->getComponent());
 	}
 
 	return (0);

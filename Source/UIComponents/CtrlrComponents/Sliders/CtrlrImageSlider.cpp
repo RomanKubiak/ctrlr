@@ -269,7 +269,7 @@ void CtrlrImageSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 	}
 	else if (property == Ids::uiSliderPopupBubble)
 	{
-		ctrlrSlider->setPopupDisplayEnabled ((bool)getProperty(property), owner.getOwner().getEditor());
+		ctrlrSlider->setPopupDisplayEnabled ((bool)getProperty(property), owner.getOwnerPanel().getEditor());
 	}
 	else
 	{
@@ -300,7 +300,7 @@ void CtrlrImageSlider::wrapForLua(lua_State *L)
 
 void CtrlrImageSlider::setResource()
 {
-	filmStripImage = owner.getOwner().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageSliderResource));
+	filmStripImage = owner.getOwnerPanel().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageSliderResource));
 	lf.setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
 	lookAndFeelChanged();
 	repaint();

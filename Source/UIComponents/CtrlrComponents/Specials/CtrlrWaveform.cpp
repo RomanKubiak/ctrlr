@@ -13,7 +13,7 @@ CtrlrWaveform::CtrlrWaveform (CtrlrModulator &owner)
 	  audioBufferCopy(1,0),
 	  qualityForAudioFiles(0)
 {
-	audioThumbnail			= new AudioThumbnail (1, owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager(), owner.getOwner().getCtrlrManagerOwner().getAudioThumbnailCache());
+	audioThumbnail			= new AudioThumbnail (1, owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager(), owner.getOwnerPanel().getCtrlrManagerOwner().getAudioThumbnailCache());
 	audioThumbnail->addChangeListener (this);
 
 	setProperty (Ids::uiWaveformColour, "0xff000000");
@@ -114,7 +114,7 @@ void CtrlrWaveform::handlePopupMenu (const int popupMenuItem)
 	{
 		if (audioThumbnail->isFullyLoaded())
 		{
-			FileChooser fc("Load a file", currentFile.getParentDirectory(), owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager().getWildcardForAllFormats(), true);
+			FileChooser fc("Load a file", currentFile.getParentDirectory(), owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager().getWildcardForAllFormats(), true);
 			if (fc.browseForFileToOpen())
 			{
 				loadFromFile (fc.getResult());
@@ -131,13 +131,13 @@ void CtrlrWaveform::handlePopupMenu (const int popupMenuItem)
 	}
 	else if (popupMenuItem == 4098)
 	{
-		FileChooser fc("Save to an audio file", currentFile.getParentDirectory(), owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager().getWildcardForAllFormats(), true);
+		FileChooser fc("Save to an audio file", currentFile.getParentDirectory(), owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager().getWildcardForAllFormats(), true);
 
 		if (fc.browseForFileToSave(true))
 		{
 			File outputFile = fc.getResult();
 
-			AudioFormat *format = owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager().findFormatForFileExtension (outputFile.getFileExtension());
+			AudioFormat *format = owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager().findFormatForFileExtension (outputFile.getFileExtension());
 
 			if (format != nullptr)
 			{
@@ -155,14 +155,14 @@ void CtrlrWaveform::handlePopupMenu (const int popupMenuItem)
 					}
 					else
 					{
-						if (owner.getOwner().getDialogStatus())
+						if (owner.getOwnerPanel().getDialogStatus())
 							WARN ("Can't create AudioFormatWriter sampleRate="+String(currentSampleRate)+", channels="+String(audioThumbnail->getNumChannels())+", bitsPerSample=32, qualityIndex="+String(qualityForAudioFiles));
 					}
 				}
 			}
 			else
 			{
-				if (owner.getOwner().getDialogStatus())
+				if (owner.getOwnerPanel().getDialogStatus())
 					WARN("Can't find AudioFormat for the file: "+outputFile.getFileName());
 				return;
 			}
@@ -185,8 +185,8 @@ void CtrlrWaveform::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 		if (audioThumbnail)
 			delete audioThumbnail.release();
 
-		audioThumbnail	= new AudioThumbnail (getProperty(property), owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager(), 
-			owner.getOwner().getCtrlrManagerOwner().getAudioThumbnailCache());
+		audioThumbnail	= new AudioThumbnail (getProperty(property), owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager(), 
+			owner.getOwnerPanel().getCtrlrManagerOwner().getAudioThumbnailCache());
 		audioThumbnail->addChangeListener (this);
 		audioThumbnail->clear();
 		audioBufferCopy.clear();
@@ -213,21 +213,21 @@ void CtrlrWaveform::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 		if (isInvalidMethodName(getProperty (property)))
 			return;
 
-		thumbnailChangedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		thumbnailChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiWaveFormSourceChangedCallback)
 	{
 		if (isInvalidMethodName(getProperty (property)))
 			return;
 
-		sourceChangedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		sourceChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiWaveFormFilesDroppedCallback)
 	{
 		if (isInvalidMethodName(getProperty (property)))
 			return;
 
-		fileDroppedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		fileDroppedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 
 	if (restoreStateInProgress == false)
@@ -246,7 +246,7 @@ void CtrlrWaveform::changeListenerCallback (ChangeBroadcaster* source)
 		{
 			if (thumbnailChangedCbk->isValid())
 			{
-				owner.getOwner().getCtrlrLuaManager().getMethodManager().call (thumbnailChangedCbk, this);
+				owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (thumbnailChangedCbk, this);
 			}
 		}
 		repaint();
@@ -306,7 +306,7 @@ void CtrlrWaveform::reset (int numChannels, double sampleRate, double totalSampl
 	{
 		if (sourceChangedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (sourceChangedCbk, this);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (sourceChangedCbk, this);
 		}
 	}
 }
@@ -315,13 +315,13 @@ const bool CtrlrWaveform::loadFromFile (const File &fileToLoadFrom)
 {
 	currentFile = fileToLoadFrom;
 
-	AudioFormatReader *reader = owner.getOwner().getCtrlrManagerOwner().getAudioFormatManager().createReaderFor (currentFile);
+	AudioFormatReader *reader = owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager().createReaderFor (currentFile);
 
 	if (sourceChangedCbk && !sourceChangedCbk.wasObjectDeleted())
 	{
 		if (sourceChangedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (sourceChangedCbk, this);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (sourceChangedCbk, this);
 		}
 	}
 
@@ -430,7 +430,7 @@ void CtrlrWaveform::filesDropped (const StringArray &files, int x, int y)
 	{
 		if (fileDroppedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (fileDroppedCbk, files, x, y);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (fileDroppedCbk, files, x, y);
 		}
 	}
 	else if (files.size() == 1)

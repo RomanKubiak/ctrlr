@@ -62,12 +62,12 @@ void CtrlrFileListBoxLF::drawFileBrowserRow (Graphics &g, int width, int height,
 
 	if (isItemSelected)
 	{
-		g.setFont (owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListBoxHighlightFont)));
+		g.setFont (owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListBoxHighlightFont)));
 		g.setColour (VAR2COLOUR(owner.getProperty(Ids::uiFileListHighlightTextColour)));
 	}
 	else
 	{
-		g.setFont (owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListFont)));
+		g.setFont (owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListFont)));
 		g.setColour (VAR2COLOUR(owner.getProperty(Ids::uiFileListTextColour)));
 	}
 
@@ -78,7 +78,7 @@ void CtrlrFileListBoxLF::drawFileBrowserRow (Graphics &g, int width, int height,
 
 		g.drawFittedText (filename, x, 0, sizeX - x, height, Justification::centredLeft, 1);
 
-		g.setFont (owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListFont)));
+		g.setFont (owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListFont)));
 		g.setColour (VAR2COLOUR(owner.getProperty(Ids::uiFileListTextColour)));
 
 		if (! isDirectory)
@@ -300,28 +300,28 @@ void CtrlrFileListBox::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		if (getProperty(property) == String::empty)
 			return;
 
-		fileClickedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		fileClickedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiFileListFileDoubleClicked)
 	{
 		if (getProperty(property) == String::empty)
 			return;
 
-		fileDoubleClickedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		fileDoubleClickedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 /*	else if (property == Ids::uiFileListItemDeleteKeyPressed)
 	{
 		if (getProperty(property) == String::empty)
 			return;
 
-		itemDeleteKeyPressedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		itemDeleteKeyPressedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiFileListItemReturnKeyPressed)
 	{
 		if (getProperty(property) == String::empty)
 			return;
 
-		itemReturnKeyPressedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		itemReturnKeyPressedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	} */
 	else if (property == Ids::uiFileListCurrentRoot)
 	{
@@ -345,7 +345,7 @@ void CtrlrFileListBox::fileClicked (const File &file, const MouseEvent &e)
 	{
 		if (fileClickedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (fileClickedCbk, &owner, file);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (fileClickedCbk, &owner, file);
 		}
 	}
 }
@@ -356,7 +356,7 @@ void CtrlrFileListBox::fileDoubleClicked (const File &file)
 	{
 		if (fileDoubleClickedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (fileDoubleClickedCbk, &owner, file);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (fileDoubleClickedCbk, &owner, file);
 		}
 	}
 }
@@ -368,7 +368,7 @@ void CtrlrFileListBox::deleteKeyPressed (const int value)
 	{
 		if (itemDeleteKeyPressedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (itemDeleteKeyPressedCbk, &owner, value);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemDeleteKeyPressedCbk, &owner, value);
 		}
 	}
 }
@@ -379,7 +379,7 @@ void CtrlrFileListBox::returnKeyPressed (const int value)
 	{
 		if (itemReturnKeyPressedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (itemReturnKeyPressedCbk, &owner, value);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemReturnKeyPressedCbk, &owner, value);
 		}
 	}
 }

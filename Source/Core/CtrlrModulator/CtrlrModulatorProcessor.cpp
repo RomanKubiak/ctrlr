@@ -47,17 +47,17 @@ void CtrlrModulatorProcessor::handleAsyncUpdate()
 		owner.setProperty (Ids::modulatorValue, currentValue);
 	}
 
-	if (valueChangedCbk && !valueChangedCbk.wasObjectDeleted() && !owner.getOwner().getRestoreState())
+	if (valueChangedCbk && !valueChangedCbk.wasObjectDeleted() && !owner.getOwnerPanel().getRestoreState())
 	{
 		if (valueChangedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (valueChangedCbk, &owner, (int)owner.getProperty(Ids::modulatorValue));
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (valueChangedCbk, &owner, (int)owner.getProperty(Ids::modulatorValue));
 		}
 	}
 
 	if (linkedToGlobal)
 	{
-		owner.getOwner().setGlobalVariable (getLinkedToGlobalIndex(), currentValue);
+		owner.getOwnerPanel().setGlobalVariable (getLinkedToGlobalIndex(), currentValue);
 	}
 }
 
@@ -140,7 +140,7 @@ void CtrlrModulatorProcessor::setValueChangedCallback (const String &methodName)
 	if (methodName.isEmpty())
 		return;
 
-	valueChangedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(methodName);
+	valueChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(methodName);
 }
 
 void CtrlrModulatorProcessor::setGetValueForMidiCallback (const String &methodName)
@@ -148,7 +148,7 @@ void CtrlrModulatorProcessor::setGetValueForMidiCallback (const String &methodNa
 	if (methodName.isEmpty())
 		return;
 
-	getValueForMidiCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(methodName);
+	getValueForMidiCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(methodName);
 }
 
 void CtrlrModulatorProcessor::setGetValueFromMidiCallback (const String &methodName)
@@ -156,7 +156,7 @@ void CtrlrModulatorProcessor::setGetValueFromMidiCallback (const String &methodN
 	if (methodName.isEmpty())
 		return;
 
-	getValueFromMidiCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(methodName);
+	getValueFromMidiCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(methodName);
 }
 
 void CtrlrModulatorProcessor::setMappedValue (const int mappedValue, const bool force, const bool mute)
@@ -325,7 +325,7 @@ int CtrlrModulatorProcessor::getValueFromMidiMessage(const CtrlrMIDIDeviceType s
 	{
 		if (!getValueFromMidiCbk.wasObjectDeleted() && getValueForMidiCbk->isValid())
 		{
-			evaluationResult = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (getValueFromMidiCbk, &owner, getMidiMessage(source), evaluationResult);
+			evaluationResult = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().callWithRet (getValueFromMidiCbk, &owner, getMidiMessage(source), evaluationResult);
 		}
 	}
 
@@ -367,7 +367,7 @@ CtrlrOwnedMidiMessage &CtrlrModulatorProcessor::getOwnedMidiMessage(const CtrlrM
 
 CtrlrProcessor *CtrlrModulatorProcessor::getProcessor()
 {
-	return (owner.getOwner().getCtrlrManagerOwner().getProcessorOwner());
+	return (owner.getOwnerPanel().getCtrlrManagerOwner().getProcessorOwner());
 }
 
 int CtrlrModulatorProcessor::getValue() const
@@ -411,10 +411,10 @@ void CtrlrModulatorProcessor::sendMidiMessage()
             ScopedReadLock srl(processorLock);
             if (!isMute)
             {
-                owner.getOwner().sendMidi (getMidiMessage(), -1);
-                if (owner.getOwner().getMidiOptionBool(panelMidiOutputToHost))
+                owner.getOwnerPanel().sendMidi (getMidiMessage(), -1);
+                if (owner.getOwnerPanel().getMidiOptionBool(panelMidiOutputToHost))
                 {
-                    owner.getOwner().queueMessageForHostOutput (getMidiMessage());
+                    owner.getOwnerPanel().queueMessageForHostOutput (getMidiMessage());
                 }
             }
         }
@@ -482,7 +482,7 @@ int CtrlrModulatorProcessor::getValueForMidiMessage(const int value)
 	{
 		if (!getValueForMidiCbk.wasObjectDeleted() && getValueForMidiCbk->isValid())
 		{
-			evaluationResult = owner.getOwner().getCtrlrLuaManager().getMethodManager().callWithRet (getValueForMidiCbk, &owner, evaluationResult);
+			evaluationResult = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().callWithRet (getValueForMidiCbk, &owner, evaluationResult);
 		}
 	}
 
@@ -582,18 +582,18 @@ String CtrlrModulatorProcessor::getScopeUID() const
 
 double CtrlrModulatorProcessor::evaluateFunction (const String& functionName, const double* parameters, int numParameters) const
 {
-	return (evaluateFormulaFunction (owner.getOwner(), functionName, parameters, numParameters));
+	return (evaluateFormulaFunction (owner.getOwnerPanel(), functionName, parameters, numParameters));
 }
 
 void CtrlrModulatorProcessor::visitRelativeScope (const String &scopeName, Visitor &visitor) const
 {
 	if (scopeName == "panel")
 	{
-		visitor.visit (owner.getOwner().getPanelEvaluationScope());
+		visitor.visit (owner.getOwnerPanel().getPanelEvaluationScope());
 	}
 	else if (scopeName == "global")
 	{
-		visitor.visit (owner.getOwner().getGlobalEvaluationScope());
+		visitor.visit (owner.getOwnerPanel().getGlobalEvaluationScope());
 	}
 }
 
@@ -641,17 +641,17 @@ Expression CtrlrModulatorProcessor::getSymbolValue (const String& symbol) const
 
 int CtrlrModulatorProcessor::getMidiChannelForOwnedMidiMessages()
 {
-	return (owner.getOwner().getProperty(Ids::panelMidiOutputChannelDevice));
+	return (owner.getOwnerPanel().getProperty(Ids::panelMidiOutputChannelDevice));
 }
 
 CtrlrSysexProcessor *CtrlrModulatorProcessor::getSysexProcessor()
 {
-	return (&owner.getOwner().getSysExProcessor());
+	return (&owner.getOwnerPanel().getSysExProcessor());
 }
 
 Array<int,CriticalSection> &CtrlrModulatorProcessor::getGlobalVariables()
 {
-	return (owner.getOwner().getGlobalVariables());
+	return (owner.getOwnerPanel().getGlobalVariables());
 }
 
 void CtrlrModulatorProcessor::setMute (bool _isMute)

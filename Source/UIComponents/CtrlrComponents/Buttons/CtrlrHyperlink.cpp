@@ -89,7 +89,7 @@ void CtrlrHyperlink::resized()
 
 void CtrlrHyperlink::buttonClicked (Button* buttonThatWasClicked)
 {
-    if (!owner.getOwner().checkRadioGroup(this, buttonThatWasClicked->getToggleState()))
+    if (!owner.getOwnerPanel().checkRadioGroup(this, buttonThatWasClicked->getToggleState()))
 		return;
     //[/UserbuttonClicked_Pre]
 

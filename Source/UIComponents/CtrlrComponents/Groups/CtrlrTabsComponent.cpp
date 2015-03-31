@@ -48,7 +48,7 @@ int CtrlrTabsLF::getTabButtonBestWidth (int tabIndex,
                                         int tabDepth,
                                         Button &button)
 {
-	Font f = owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsTabFont));
+	Font f = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsTabFont));
     return f.getStringWidth (text.trim()) + getTabButtonOverlap (tabDepth) * 2;
 }
 
@@ -64,8 +64,8 @@ void CtrlrTabsLF::drawTabButtonText (TabBarButton& button, Graphics& g, bool isM
     if (button.getTabbedButtonBar().isVertical())
         std::swap (length, depth);
 
-	Font otherTabFont  = owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsTabFont));
-	Font activeTabFont = owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsFrontTabFont));
+	Font otherTabFont  = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsTabFont));
+	Font activeTabFont = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiTabsFrontTabFont));
 
     otherTabFont.setUnderline (button.hasKeyboardFocus (false));
 	activeTabFont.setUnderline (button.hasKeyboardFocus (false));
@@ -127,7 +127,7 @@ CtrlrTabsContentComponent::CtrlrTabsContentComponent(const ValueTree &_tabTree, 
 	: tabTree(_tabTree), owner(_owner)
 {
 	tabTree.addListener(this);
-	tabBackgroundImage = owner.getOwner().getOwner().getResourceManager().getResourceAsImage(getProperty(Ids::uiTabsTabBackgroundImage));
+	tabBackgroundImage = owner.getOwner().getOwnerPanel().getResourceManager().getResourceAsImage(getProperty(Ids::uiTabsTabBackgroundImage));
 }
 
 CtrlrTabsContentComponent::~CtrlrTabsContentComponent()
@@ -172,7 +172,7 @@ void CtrlrTabsContentComponent::valueTreePropertyChanged (ValueTree &treeWhosePr
 {
 	if (property == Ids::uiTabsTabBackgroundImage)
 	{
-		tabBackgroundImage = owner.getOwner().getOwner().getResourceManager().getResourceAsImage(getProperty(Ids::uiTabsTabBackgroundImage));
+		tabBackgroundImage = owner.getOwner().getOwnerPanel().getResourceManager().getResourceAsImage(getProperty(Ids::uiTabsTabBackgroundImage));
 	}
 
 	repaint();
@@ -341,7 +341,7 @@ void CtrlrTabsComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyH
 		if (getProperty(property) == String::empty)
 			return;
 
-		tabChangedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		tabChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 
 	else if (property == Ids::uiTabsCurrentTab)
@@ -355,7 +355,7 @@ void CtrlrTabsComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyH
 		{
 			if (tabChangedCbk->isValid())
 			{
-				owner.getOwner().getCtrlrLuaManager().getMethodManager().call (tabChangedCbk, &owner, (int)getProperty(property));
+				owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (tabChangedCbk, &owner, (int)getProperty(property));
 			}
 		}
 	}
@@ -495,17 +495,17 @@ void CtrlrTabsComponent::setOwned (CtrlrComponent *componentToOwn, const int sub
 		componentToOwn->setProperty (Ids::componentTabName, owner.getName(), true);
 		componentToOwn->setProperty (Ids::componentTabId, subIndexInGroup, true);
 		componentToOwn->setProperty (Ids::componentGroupped, true, true);
-		componentToOwn->setLookAndFeel (owner.getOwner().getCtrlrManagerOwner().getCtrlrLookAndFeel());
+		componentToOwn->setLookAndFeel (owner.getOwnerPanel().getCtrlrManagerOwner().getCtrlrLookAndFeel());
 
 		if (ctrlrTabs->getTabContentComponent(subIndexInGroup))
 			ctrlrTabs->getTabContentComponent(subIndexInGroup)->addAndMakeVisible (componentToOwn);
 	}
 	else
 	{
-		owner.getOwner().getEditor()->getCanvas()->addAndMakeVisibleNg (componentToOwn);
+		owner.getOwnerPanel().getEditor()->getCanvas()->addAndMakeVisibleNg (componentToOwn);
 		componentToOwn->setProperty (Ids::componentGroupped, false, true);
 
-        if (!getOwner().getOwner().isSchemeAtLeast(1))
+        if (!getOwner().getOwnerPanel().isSchemeAtLeast(1))
 		{
             componentToOwn->setProperty (Ids::componentTabName, String::empty, false);
 		}
@@ -514,13 +514,13 @@ void CtrlrTabsComponent::setOwned (CtrlrComponent *componentToOwn, const int sub
 
 void CtrlrTabsComponent::canvasStateRestored()
 {
-	Array <CtrlrModulator*> children = owner.getOwner().getModulatorsWithProperty(Ids::componentTabName, owner.getName());
+	Array <CtrlrModulator*> children = owner.getOwnerPanel().getModulatorsWithProperty(Ids::componentTabName, owner.getName());
 
 	for (int i=0; i<children.size(); i++)
 	{
 		if (children[i]->getComponent())
 		{
-			if (getOwner().getOwner().isSchemeAtLeast(1))
+			if (getOwner().getOwnerPanel().isSchemeAtLeast(1))
 			{
 				if ((bool)children[i]->getComponent()->getProperty(Ids::componentGroupped))
 				{
@@ -582,7 +582,7 @@ void CtrlrTabsComponent::removeTab(const ValueTree tabToRemove)
 				CtrlrComponent *child = dynamic_cast<CtrlrComponent*>(ctrlrTabs->getTabContentComponent(tabId)->getChildComponent(i));
 				if (child != 0)
 				{
-					owner.getOwner().getEditor()->getCanvas()->removeComponent(child);
+					owner.getOwnerPanel().getEditor()->getCanvas()->removeComponent(child);
 				}
 			}
 		}
@@ -627,13 +627,13 @@ void CtrlrTabsComponent::itemDropped (const SourceDetails &dragSourceDetails)
 {
 	if (dragSourceDetails.description == "__ctrlr_component_selection")
 	{
-		if (owner.getOwner().getEditor() && owner.getOwner().getEditor()->getSelection())
+		if (owner.getOwnerPanel().getEditor() && owner.getOwnerPanel().getEditor()->getSelection())
 		{
-			AffineTransform trans = owner.getOwner().getEditor()->moveSelectionToPosition(dragSourceDetails.localPosition.getX(), dragSourceDetails.localPosition.getY()-ctrlrTabs->getTabBarDepth());
+			AffineTransform trans = owner.getOwnerPanel().getEditor()->moveSelectionToPosition(dragSourceDetails.localPosition.getX(), dragSourceDetails.localPosition.getY()-ctrlrTabs->getTabBarDepth());
 
-			for (int i=0; i<owner.getOwner().getEditor()->getSelection()->getNumSelected(); i++)
+			for (int i=0; i<owner.getOwnerPanel().getEditor()->getSelection()->getNumSelected(); i++)
 			{
-				CtrlrComponent *c = owner.getOwner().getEditor()->getSelection()->getSelectedItem(i);
+				CtrlrComponent *c = owner.getOwnerPanel().getEditor()->getSelection()->getSelectedItem(i);
 
 				if (c != nullptr)
 				{

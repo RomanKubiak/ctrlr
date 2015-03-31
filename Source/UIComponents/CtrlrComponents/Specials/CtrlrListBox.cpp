@@ -218,28 +218,28 @@ void CtrlrListBox::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChan
 		if (getProperty(property) == String::empty)
 			return;
 
-		itemClickedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		itemClickedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiListBoxItemDoubleClicked)
 	{
 		if (getProperty(property) == String::empty)
 			return;
 
-		itemDoubleClickedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		itemDoubleClickedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiListBoxItemDeleteKeyPressed)
 	{
 		if (getProperty(property) == String::empty)
 			return;
 
-		itemDeleteKeyPressedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		itemDeleteKeyPressedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiListBoxItemReturnKeyPressed)
 	{
 		if (getProperty(property) == String::empty)
 			return;
 
-		itemReturnKeyPressedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+		itemReturnKeyPressedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiListBoxMultipleSelection)
 	{
@@ -261,7 +261,7 @@ void CtrlrListBox::listBoxItemClicked (int value, const MouseEvent &e)
 	{
 		if (itemClickedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (itemClickedCbk, &owner, value);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemClickedCbk, &owner, value);
 		}
 	}
 }
@@ -272,7 +272,7 @@ void CtrlrListBox::listBoxItemDoubleClicked (int value, const MouseEvent &e)
 	{
 		if (itemDoubleClickedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (itemDoubleClickedCbk, &owner, value);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemDoubleClickedCbk, &owner, value);
 		}
 	}
 }
@@ -283,7 +283,7 @@ void CtrlrListBox::deleteKeyPressed (int value)
 	{
 		if (itemDeleteKeyPressedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (itemDeleteKeyPressedCbk, &owner, value);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemDeleteKeyPressedCbk, &owner, value);
 		}
 	}
 }
@@ -294,7 +294,7 @@ void CtrlrListBox::returnKeyPressed (int value)
 	{
 		if (itemReturnKeyPressedCbk->isValid())
 		{
-			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (itemReturnKeyPressedCbk, &owner, value);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemReturnKeyPressedCbk, &owner, value);
 		}
 	}
 }
