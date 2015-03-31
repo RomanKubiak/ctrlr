@@ -27,7 +27,7 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrLog.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"
-#include "Lua/JuceClasses/LookAndFeelBase.h"
+#include "Lua/JuceClasses/LLookAndFeel.h"
 //[/Headers]
 
 #include "CtrlrImageSlider.h"

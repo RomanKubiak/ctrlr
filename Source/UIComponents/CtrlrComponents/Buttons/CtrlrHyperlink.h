@@ -51,6 +51,7 @@ public:
 	int getComponentMidiValue();
 	double getComponentMaxValue();
 	const String getComponentText();
+	void setComponentText(const String &componentText);
 	void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 	void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 	void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
@@ -58,6 +59,7 @@ public:
 	void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
 	void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
 	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
+	void buttonContentChanged();
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -70,6 +72,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    CtrlrValueMap valueMap;
     //[/UserVariables]
 
     //==============================================================================

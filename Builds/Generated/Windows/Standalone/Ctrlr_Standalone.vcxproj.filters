@@ -507,10 +507,13 @@
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.cpp">
       <Filter>Ctrlr_Standalone\Lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.cpp">
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.cpp">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.cpp">
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioPlayHead.cpp">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.cpp">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.cpp">
@@ -851,6 +854,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Native\Linux\keys.cpp">
+      <Filter>Ctrlr_Standalone\Native\Linux</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Native\Linux\libr-bfd.c">
       <Filter>Ctrlr_Standalone\Native\Linux</Filter>
@@ -2417,10 +2423,13 @@
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.h">
       <Filter>Ctrlr_Standalone\Lua</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.h">
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.h">
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioPlayHead.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.h">
@@ -2953,6 +2962,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\juce_PluginHostType.h">
       <Filter>Ctrlr_Standalone\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Native\Linux\keys.h">
+      <Filter>Ctrlr_Standalone\Native\Linux</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Native\Linux\libr.h">
       <Filter>Ctrlr_Standalone\Native\Linux</Filter>

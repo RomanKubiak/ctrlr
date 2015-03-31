@@ -9,6 +9,7 @@ void LKeyPress::wrapForLua (lua_State *L)
     [
 		class_<KeyPress>("KeyPress")
 			.def(constructor<>())
+			.def(constructor<const KeyPress &>())
 			.def(constructor<int>())
 			.def(constructor<int, const ModifierKeys &, juce_wchar>())
 			.def("isValid", &KeyPress::isValid)

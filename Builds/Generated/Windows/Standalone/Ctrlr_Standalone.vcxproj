@@ -395,8 +395,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.cpp" />
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.cpp" />
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioPlayHead.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.cpp" />
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LButton.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.cpp" />
@@ -529,6 +530,7 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp" />
+    <ClCompile Include="..\..\..\..\Source\Native\Linux\keys.cpp" />
     <ClCompile Include="..\..\..\..\Source\Native\Linux\libr-bfd.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -2082,8 +2084,9 @@
     <ClInclude Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h" />
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.h" />
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.h" />
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioPlayHead.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.h" />
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LookAndFeelBase.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LButton.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.h" />
@@ -2261,6 +2264,7 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h" />
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\juce_PluginHostType.h" />
+    <ClInclude Include="..\..\..\..\Source\Native\Linux\keys.h" />
     <ClInclude Include="..\..\..\..\Source\Native\Linux\libr.h" />
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrGeneric.h" />
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrLinux.h" />

@@ -33,8 +33,9 @@ class CtrlrNative
         }
 		virtual const Result getDefaultPanel(MemoryBlock&)												{ return (Result::fail("Native, implement me")); }
 		virtual const Result getDefaultResources(MemoryBlock&)											{ return (Result::fail("Native, implement me")); }
-		virtual const Result registerFileHandler()																		{ return (Result::fail("Native, implement me")); }
-		virtual const Result getSignature(MemoryBlock &)                                                                  { return (Result::fail("Native, implement me")); }
+		virtual const Result registerFileHandler()														{ return (Result::fail("Native, implement me")); }
+		virtual const Result getSignature(MemoryBlock &)                                                { return (Result::fail("Native, implement me")); }
+		virtual const Result sendKeyPressEvent (const KeyPress &)                                       { return (Result::fail("Native, implement me")); }
 };
 
 #endif

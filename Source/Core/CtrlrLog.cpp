@@ -136,15 +136,15 @@ Colour CtrlrLog::getColourForLevel(const CtrlrLog::LogLevel logLevel)
 		case Info:
 			return Colours::black;
 		case Warn:
-			return Colours::yellow;
+			return Colours::yellow.darker();
 		case LuaRuntimeError:
 		case LuaError:
 		case Error:
-			return Colours::red;
+			return Colours::red.darker();
 		case Debug:
 			return Colours::darkgrey;
 		case Lua:
-			return Colours::blue;
+			return Colours::blue.darker();
 		case MidiIn:
 			return Colours::steelblue;
 		case MidiOut:

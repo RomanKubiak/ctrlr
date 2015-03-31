@@ -476,12 +476,11 @@
   <id name="uiWaveFormFilesDroppedCallback"             text="Callback to indicate that the user has dropped the files onto this panel" type="LuaMethod" />
 
   <!-- Hyperling -->
-  <id name="uiHyperlinkText"              text="Hyperlink text" type="Text"/>
-  <id name="uiHyperlinkUrl"               text="Hyperlink text" type="Text"/>
   <id name="uiHyperlinkColour"            text="Hyperlink text colour" type="Colour"/>
   <id name="uiHyperlinkFont"              text="Hyperlink text colour" type="Font"/>
   <id name="uiHyperlinkFitTextToSize"     text="Fit text to size" type="Bool"/>
   <id name="uiHyperlinkTextJustification" text="Text justification" type="VarText" defaults="@justification"/>
+  <id name="uiHyperlinkOpensUrl"          text="Should the button actually open the web browser" type="Bool" />
 
   <!-- XY Surface -->
   <id name="uiXYSurfaceBgGradientType"                text="Background gradient type"           type="VarNumeric" defaults="@gradient"/>
@@ -776,6 +775,8 @@
   <id name="luaCtrlrSaveState"      text="Called when Ctrlr state is saved (DAW saves a project)" type="LuaMethod" />
   <id name="luaCtrlrRestoreState"   text="Called when Ctrlr is loaded (DAW opens a project)" type="LuaMethod" />
   <id name="uiLuaConsoleInputRemoveAfterRun"    text="Clear console input after execute" type="Bool" />
+
+  <id name="luaAudioProcessBlock"       text="AUDIO: main process block for the audio/midi thread" type="LuaMethod" />
 
   <id name="midiLibraryTreeState"     				text="Tree state"     												type="ReadOnly" />
   <id name="midiLibraryCanGetItem"    				text="Can get item"   												type="Bool" />

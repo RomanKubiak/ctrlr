@@ -9,7 +9,7 @@
 #include "Groups/CtrlrGroup.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrLog.h"
-#include "Lua/JuceClasses/LookAndFeelBase.h"
+#include "Lua/JuceClasses/LLookAndFeel.h"
 
 /** Border implementation */
 CtrlrComponentResizableBorder::CtrlrComponentResizableBorder(CtrlrComponent *_owner, ComponentBoundsConstrainer *constrainer)
