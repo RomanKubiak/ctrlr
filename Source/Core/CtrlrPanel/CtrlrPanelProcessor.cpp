@@ -71,7 +71,7 @@ void CtrlrPanelProcessor::midiOptionChanged(const CtrlrPanelMidiOption optionTha
 			|| owner.getMidiOptionBool(panelMidiThruH2H)
 			|| owner.getMidiOptionBool(panelMidiThruH2D))
 		{
-			owner.getCtrlrManager().getOwner()->addPanelProcessor (this);
+			owner.getCtrlrManagerOwner().getOwner()->addPanelProcessor (this);
 		}
 
 		if (owner.getMidiOptionBool(panelMidiInputFromHost) == false
@@ -79,7 +79,7 @@ void CtrlrPanelProcessor::midiOptionChanged(const CtrlrPanelMidiOption optionTha
 			&& owner.getMidiOptionBool(panelMidiThruH2H) == false
 			&& owner.getMidiOptionBool(panelMidiThruH2D) == false)
 		{
-			owner.getCtrlrManager().getOwner()->removePanelProcessor (this);
+			owner.getCtrlrManagerOwner().getOwner()->removePanelProcessor (this);
 		}
 	}
 }

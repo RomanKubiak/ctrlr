@@ -32,7 +32,7 @@ void CtrlrImageSliderLF::drawLinearSliderThumb (Graphics &g, int x, int y, int w
 Label *CtrlrImageSliderLF::createSliderTextBox (Slider &slider)
 {
 	Label* const l = new Label();
-	l->setFont(owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString(owner.getProperty(Ids::uiSliderValueFont)));
+	l->setFont(owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString(owner.getProperty(Ids::uiSliderValueFont)));
 	l->setJustificationType (justificationFromProperty(owner.getProperty(Ids::uiSliderValueTextJustification)));
 	l->setColour (Label::textColourId, slider.findColour (Slider::textBoxTextColourId));
 	l->setColour (Label::backgroundColourId, (slider.getSliderStyle() == Slider::LinearBar) ? Colours::transparentBlack : slider.findColour (Slider::textBoxBackgroundColourId));

@@ -129,7 +129,7 @@ String CtrlrLuaMethodManager::getUtilityUuid(const int index)
 
 bool CtrlrLuaMethodManager::isLuaDisabled()
 {
-	return ((bool)owner.getOwner().getCtrlrManager().getProperty (Ids::ctrlrLuaDisabled));
+	return ((bool)owner.getOwner().getCtrlrManagerOwner().getProperty (Ids::ctrlrLuaDisabled));
 }
 
 void CtrlrLuaMethodManager::restoreState (const ValueTree &savedState)

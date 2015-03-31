@@ -62,12 +62,12 @@ void CtrlrFileListBoxLF::drawFileBrowserRow (Graphics &g, int width, int height,
 
 	if (isItemSelected)
 	{
-		g.setFont (owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListBoxHighlightFont)));
+		g.setFont (owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListBoxHighlightFont)));
 		g.setColour (VAR2COLOUR(owner.getProperty(Ids::uiFileListHighlightTextColour)));
 	}
 	else
 	{
-		g.setFont (owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListFont)));
+		g.setFont (owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListFont)));
 		g.setColour (VAR2COLOUR(owner.getProperty(Ids::uiFileListTextColour)));
 	}
 
@@ -78,7 +78,7 @@ void CtrlrFileListBoxLF::drawFileBrowserRow (Graphics &g, int width, int height,
 
 		g.drawFittedText (filename, x, 0, sizeX - x, height, Justification::centredLeft, 1);
 
-		g.setFont (owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListFont)));
+		g.setFont (owner.getOwner().getOwner().getCtrlrManagerOwner().getFontManager().getFontFromString (owner.getProperty(Ids::uiFileListFont)));
 		g.setColour (VAR2COLOUR(owner.getProperty(Ids::uiFileListTextColour)));
 
 		if (! isDirectory)

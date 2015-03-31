@@ -372,30 +372,30 @@ void CtrlrMIDILibraryEditor::itemSelectionChanged(ValueTree &item)
 
 		if (propertyName.startsWith ("midiLibrary"))
 		{
-			library.add (owner.getCtrlrManager().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
+			library.add (owner.getCtrlrManagerOwner().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
 		}
 		else if (propertyName.startsWith("trans") || propertyName.startsWith("luaTrans"))
 		{
 			if (propertyName.startsWith ("transResp"))
 			{
-				transResponse.add (owner.getCtrlrManager().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
+				transResponse.add (owner.getCtrlrManagerOwner().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
 			}
 			else if (propertyName.startsWith("transReq"))
 			{
-				transRequest.add (owner.getCtrlrManager().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
+				transRequest.add (owner.getCtrlrManagerOwner().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
 			}
 			else if (propertyName.startsWith("transConf"))
 			{
-				transConfirmation.add (owner.getCtrlrManager().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
+				transConfirmation.add (owner.getCtrlrManagerOwner().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
 			}
 			else
 			{
-				transGeneral.add (owner.getCtrlrManager().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
+				transGeneral.add (owner.getCtrlrManagerOwner().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
 			}
 		}
 		else
 		{
-			transGeneral.add (owner.getCtrlrManager().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
+			transGeneral.add (owner.getCtrlrManagerOwner().getIDManager().createComponentForProperty(	item.getPropertyName(i), item, &owner, nullptr, nullptr));
 		}
 	}
 

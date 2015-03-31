@@ -204,7 +204,7 @@ Result CtrlrPanelResourceManager::importResource (const ValueTree &resourceTree)
 {
 	if (getResource(resourceTree.getProperty(Ids::resourceName).toString()))
 	{
-		if ((bool)owner.getCtrlrManager().getProperty(Ids::ctrlrOverwriteResources) == false)
+		if ((bool)owner.getCtrlrManagerOwner().getProperty(Ids::ctrlrOverwriteResources) == false)
 		{
 			return (Result::fail("ImportResource resource: " + resourceTree.getProperty(Ids::resourceName).toString() + "failed, a resource with this name already exists"));
 		}
@@ -256,7 +256,7 @@ Result CtrlrPanelResourceManager::addResource (const File &source, const String 
 {
 	// _DBG("CtrlrPanelResourceManager::addResource");
 
-	if ((bool)owner.getCtrlrManager().getProperty(Ids::ctrlrOverwriteResources) == false)
+	if ((bool)owner.getCtrlrManagerOwner().getProperty(Ids::ctrlrOverwriteResources) == false)
 	{
 		if (getResource (source.getFileNameWithoutExtension()))
 		{
@@ -395,7 +395,7 @@ CtrlrPanelResourceManager::CtrlrPanelResourceType CtrlrPanelResourceManager::gue
 	}
 
 	// Audio ?
-	ScopedPointer <AudioFormatReader> audio(owner.getCtrlrManager().getAudioFormatManager().createReaderFor(resourceFile));
+	ScopedPointer <AudioFormatReader> audio(owner.getCtrlrManagerOwner().getAudioFormatManager().createReaderFor(resourceFile));
 
 	if (audio != nullptr)
 	{

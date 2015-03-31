@@ -152,7 +152,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		float getVstValue(const int intValueToUse=-1) const;
 		CtrlrMidiMessage *getMidiMessagePtr(const CtrlrMIDIDeviceType source = inputDevice);
 		void restoreState (const ValueTree &savedState);
-		CtrlrManager &getCtrlrManager();
+		CtrlrManager &getCtrlrManagerOwner();
 		void allModulatorsInitialized();
 		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false);
 		const String getModulatorText();

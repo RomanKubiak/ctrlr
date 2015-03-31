@@ -245,7 +245,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		ValueTree &getPanelTree()																		{ return (panelTree); }
 		const ValueTree getPanelTreeCopy()																{ return (panelTree); }
 		CtrlrPanelEditor *getPanelEditor()																{ return (getEditor(true)); }
-		CtrlrManager &getCtrlrManager()																	{ return (owner); }
+		CtrlrManager &getCtrlrManagerOwner()																	{ return (owner); }
 		//CtrlrManager &getOwner()																		{ return (owner); }
 		OwnedArray<CtrlrModulator,CriticalSection> &getModulators()										{ return (ctrlrModulators); }
 		CtrlrLuaManager &getCtrlrLuaManager()															{ return (*ctrlrLuaManager); }

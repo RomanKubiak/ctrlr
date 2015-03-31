@@ -160,7 +160,7 @@ void CtrlrSliderLookAndFeel::drawLinearSliderThumb (Graphics& g, int x, int y, i
 
 int CtrlrSliderLookAndFeel::getSliderPopupPlacement(Slider &slider)
 {
-	CtrlrLookAndFeel *lf = owner.getOwner().getOwner().getCtrlrManager().getCtrlrLookAndFeel();
+	CtrlrLookAndFeel *lf = owner.getOwner().getOwner().getCtrlrManagerOwner().getCtrlrLookAndFeel();
 	if (lf)
 	{
         return (lf->getSliderPopupPlacement(slider));
@@ -171,7 +171,7 @@ int CtrlrSliderLookAndFeel::getSliderPopupPlacement(Slider &slider)
 
 Font CtrlrSliderLookAndFeel::getSliderPopupFont(Slider &slider)
 {
-	CtrlrLookAndFeel *lf = owner.getOwner().getOwner().getCtrlrManager().getCtrlrLookAndFeel();
+	CtrlrLookAndFeel *lf = owner.getOwner().getOwner().getCtrlrManagerOwner().getCtrlrLookAndFeel();
 	if (lf)
 	{
         return (lf->getSliderPopupFont(slider));

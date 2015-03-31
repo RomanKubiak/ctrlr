@@ -46,7 +46,7 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 		luaAudioFormatManager(nullptr),
 		ctrlrLuaDebugger(nullptr)
 {
-	if ((bool)owner.getCtrlrManager().getProperty (Ids::ctrlrLuaDisabled))
+	if ((bool)owner.getCtrlrManagerOwner().getProperty (Ids::ctrlrLuaDisabled))
 	{
 		_INF("CtrlrLuaManager::ctor, lua is disabled");
 	}
@@ -217,11 +217,11 @@ void CtrlrLuaManager::assignDefaultObjects(lua_State* L)
 	luabind::globals(L)["utils"]					= &utils;
 	luabind::globals(L)["timer"]					= multiTimer;
 	luabind::globals(L)["afm"]						= luaAudioFormatManager;
-	luabind::globals(L)["atc"]						= &owner.getCtrlrManager().getAudioThumbnailCache();
+	luabind::globals(L)["atc"]						= &owner.getCtrlrManagerOwner().getAudioThumbnailCache();
 	luabind::globals(L)["converter"]				= &audioConverter;
 	luabind::globals(L)["resources"]				= &owner.getResourceManager();
 	luabind::globals(L)["library"]					= &owner.getCtrlrMIDILibrary();
-	luabind::globals(L)["native"]                   = CtrlrNative::getNativeObject(owner.getCtrlrManager());
+	luabind::globals(L)["native"]                   = CtrlrNative::getNativeObject(owner.getCtrlrManagerOwner());
 }
 
 void CtrlrLuaManager::restoreState (const ValueTree &savedState)
