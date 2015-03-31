@@ -81,7 +81,7 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
 	fontUnderline->setClickingTogglesState (true);
 	fontUnderline->setMouseCursor (MouseCursor::PointingHandCursor);
 
-    owner->getOwner().getFontManager().fillCombo (*typeface, true, true, true, true);
+    owner->getCtrlrManager().getFontManager().fillCombo (*typeface, true, true, true, true);
 
     setSize (300, 32);
 }
@@ -112,25 +112,25 @@ void CtrlrFontPropertyComponent::resized()
 
 void CtrlrFontPropertyComponent::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 {
-	valueToControl = owner->getOwner().getFontManager().getStringFromFont(getFont());
+	valueToControl = owner->getCtrlrManager().getFontManager().getStringFromFont(getFont());
 }
 
 void CtrlrFontPropertyComponent::buttonClicked (Button* buttonThatWasClicked)
 {
     if (buttonThatWasClicked == fontBold || buttonThatWasClicked == fontItalic || buttonThatWasClicked == fontUnderline)
     {
-		valueToControl = owner->getOwner().getFontManager().getStringFromFont(getFont());
+		valueToControl = owner->getCtrlrManager().getFontManager().getStringFromFont(getFont());
     }
 }
 
 void CtrlrFontPropertyComponent::sliderValueChanged (Slider* sliderThatWasMoved)
 {
-	valueToControl = owner->getOwner().getFontManager().getStringFromFont(getFont());
+	valueToControl = owner->getCtrlrManager().getFontManager().getStringFromFont(getFont());
 }
 
 void CtrlrFontPropertyComponent::refresh()
 {
-	font = owner->getOwner().getFontManager().getFontFromString(valueToControl.toString());
+	font = owner->getCtrlrManager().getFontManager().getFontFromString(valueToControl.toString());
 	typeface->setText (font.getTypefaceName(), sendNotification);
 	fontSize->setValue (font.getHeight(), dontSendNotification);
 	fontBold->setToggleState (font.isBold(), sendNotification);

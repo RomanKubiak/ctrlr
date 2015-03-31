@@ -111,7 +111,7 @@ void CtrlrModulator::restoreState (const ValueTree &savedState)
 			continue;
 		}
 		else if (savedState.getPropertyName(i) == Ids::modulatorValue
-				&& owner.getOwner().getInstanceMode() == InstanceMulti)
+				&& owner.getCtrlrManager().getInstanceMode() == InstanceMulti)
 		{
 			/*
 			 set the modulator value
@@ -250,7 +250,7 @@ void CtrlrModulator::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	{
 		if ((bool)getProperty (property) == false && !getRestoreState())
 		{
-			owner.getOwner().getVstManager().remove (this);
+			owner.getCtrlrManager().getVstManager().remove (this);
 		}
 
 		vstExported = (bool)getProperty(property);
@@ -258,7 +258,7 @@ void CtrlrModulator::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	else if (property == Ids::vstIndex)
 	{
 	    // _DBG("CtrlrModulator::valueTreePropertyChanged [PRE] vstIndex=="+getProperty(Ids::vstIndex).toString());
-		owner.getOwner().getVstManager().set (this, getProperty(property));
+		owner.getCtrlrManager().getVstManager().set (this, getProperty(property));
 		// _DBG("CtrlrModulator::valueTreePropertyChanged [POST] vstIndex=="+getProperty(Ids::vstIndex).toString());
 	}
 }
@@ -408,7 +408,7 @@ void CtrlrModulator::allModulatorsInitialized()
 		getComponent()->allModulatorsInitialized();
 	}
 
-	if (owner.getOwner().getInstanceMode() == InstanceSingle || owner.getOwner().getInstanceMode() == InstanceSingleRestriced)
+	if (owner.getCtrlrManager().getInstanceMode() == InstanceSingle || owner.getCtrlrManager().getInstanceMode() == InstanceSingleRestriced)
 	{
 		processor.setValueFromGUI (getProperty(Ids::modulatorValue),true);
 	}
@@ -532,7 +532,7 @@ bool CtrlrModulator::isDelayedProperty(const Identifier &name)
 	if (name == Ids::modulatorVstExported)
 		return (true);
 
-	if (name == Ids::modulatorValue && (owner.getOwner().getInstanceMode() == InstanceSingle || owner.getOwner().getInstanceMode() == InstanceSingleRestriced))
+	if (name == Ids::modulatorValue && (owner.getCtrlrManager().getInstanceMode() == InstanceSingle || owner.getCtrlrManager().getInstanceMode() == InstanceSingleRestriced))
 		return (true);
 
 	return (false);

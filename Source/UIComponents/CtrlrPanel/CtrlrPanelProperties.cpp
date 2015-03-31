@@ -65,7 +65,7 @@ CtrlrPanelProperties::~CtrlrPanelProperties()
 	CtrlrPanelComponentProperties *p = dynamic_cast <CtrlrPanelComponentProperties*>(tabbedComponent->getTabContentComponent (0));
 	if (p)
 	{
-		owner.getOwner().getOwner().removeListener (p);
+		owner.getOwner().getCtrlrManager().removeListener (p);
 	}
     //[/Destructor_pre]
 

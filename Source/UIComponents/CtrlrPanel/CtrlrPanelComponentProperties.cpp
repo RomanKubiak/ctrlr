@@ -40,7 +40,7 @@ CtrlrPanelComponentProperties::CtrlrPanelComponentProperties (CtrlrPanelEditor &
 
     //[UserPreSize]
 	selectedItems=-1;
-	owner.getOwner().getOwner().addListener (this);
+	owner.getOwner().getCtrlrManager().addListener (this);
 	msTree.addListener (this);
 	refreshDynamicData();
     if (owner.getSelection())
@@ -127,7 +127,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(	treeToEdit.getPropertyName(i),
 						treeToEdit,
 						&owner.getOwner(),
@@ -140,7 +140,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelMidiProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -154,7 +154,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelMidiProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -168,7 +168,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelMidiProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -182,7 +182,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelMidiProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -194,7 +194,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -213,7 +213,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 				{
 					panelEditorProperties.add
 					(
-						owner.getOwner().getOwner().getIDManager().createComponentForProperty
+						owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 						(
 							treeToEdit.getChildWithName (Ids::uiPanelEditor).getPropertyName(i),
 							treeToEdit.getChildWithName(Ids::uiPanelEditor),
@@ -227,7 +227,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 				{
 					panelEditorProperties.add
 					(
-						owner.getOwner().getOwner().getIDManager().createComponentForProperty
+						owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 						(
 							treeToEdit.getChildWithName (Ids::uiPanelEditor).getPropertyName(i),
 							treeToEdit.getChildWithName(Ids::uiPanelEditor),
@@ -269,7 +269,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				modulatorProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -283,7 +283,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				modulatorProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -297,7 +297,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				modulatorProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -311,7 +311,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				modulatorProperties.add
 				(
-					owner.getOwner().getOwner().getIDManager().createComponentForProperty
+					owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -336,7 +336,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						midiProperties.add
 						(
-							owner.getOwner().getOwner().getIDManager().createComponentForProperty
+							owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),
@@ -349,7 +349,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						midiProperties.add
 						(
-							owner.getOwner().getOwner().getIDManager().createComponentForProperty
+							owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),
@@ -375,7 +375,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 							{
 								componentProperties.add
 								(
-									owner.getOwner().getOwner().getIDManager().createComponentForProperty
+									owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 									(
 										child.getPropertyName(k),
 										child,
@@ -389,7 +389,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 							{
 								componentProperties.add
 								(
-									owner.getOwner().getOwner().getIDManager().createComponentForProperty
+									owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 									(
 										child.getPropertyName(k),
 										child,
@@ -403,7 +403,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 							{
 								componentProperties.add
 								(
-									owner.getOwner().getOwner().getIDManager().createComponentForProperty
+									owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 									(
 										child.getPropertyName(k),
 										child,
@@ -428,7 +428,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						componentProperties.add
 						(
-							owner.getOwner().getOwner().getIDManager().createComponentForProperty
+							owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),
@@ -442,7 +442,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						componentUIProperties.add
 						(
-							owner.getOwner().getOwner().getIDManager().createComponentForProperty
+							owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),
@@ -454,7 +454,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						componentProperties.add
 						(
-							owner.getOwner().getOwner().getIDManager().createComponentForProperty
+							owner.getOwner().getCtrlrManager().getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),

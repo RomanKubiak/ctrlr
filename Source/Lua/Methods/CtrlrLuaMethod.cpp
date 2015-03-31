@@ -19,7 +19,7 @@ CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner)
 	luaObject = new CtrlrLuaObjectWrapper();
 	methodTree.addListener (this);
 
-	out = Font(owner.getOwner().getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 10.0f, Font::plain);
+	out = Font(owner.getOwner().getOwner().getCtrlrManager().getFontManager().getDefaultMonoFontName(), 10.0f, Font::plain);
 }
 
 CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner, ValueTree &_methodTree)
@@ -36,7 +36,7 @@ CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner, ValueTree &_method
 
 	methodTree.addListener (this);
 
-	out = Font(owner.getOwner().getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain);
+	out = Font(owner.getOwner().getOwner().getCtrlrManager().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain);
 }
 
 CtrlrLuaMethod::~CtrlrLuaMethod()

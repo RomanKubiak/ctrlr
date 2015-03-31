@@ -74,14 +74,14 @@ CtrlrLuaMethodCodeEditorSettings::CtrlrLuaMethodCodeEditorSettings (CtrlrLuaMeth
 
 
     //[UserPreSize]
-	codeFont = owner.getOwner().getOwner().getFontManager().getFontFromString(owner.getComponentTree().getProperty(Ids::luaMethodEditorFont, owner.getOwner().getOwner().getFontManager().getStringFromFont (Font(owner.getOwner().getOwner().getFontManager().getDefaultMonoFontName(), 14.0f, Font::plain))));
+	codeFont = owner.getOwner().getCtrlrManager().getFontManager().getFontFromString(owner.getComponentTree().getProperty(Ids::luaMethodEditorFont, owner.getOwner().getCtrlrManager().getFontManager().getStringFromFont (Font(owner.getOwner().getCtrlrManager().getFontManager().getDefaultMonoFontName(), 14.0f, Font::plain))));
 	bgColour->setColour (VAR2COLOUR(owner.getComponentTree().getProperty(Ids::luaMethodEditorBgColour, Colours::white.toString())));
 
 	fontSize->setValue (codeFont.getHeight(), dontSendNotification);
 	fontUnderline->setToggleState (codeFont.isUnderlined(), dontSendNotification);
 	fontBold->setToggleState (codeFont.isBold(), dontSendNotification);
 	fontItalic->setToggleState (codeFont.isItalic(), dontSendNotification);
-	owner.getOwner().getOwner().getFontManager().fillCombo (*fontTypeface);
+	owner.getOwner().getCtrlrManager().getFontManager().fillCombo (*fontTypeface);
 	fontTypeface->setText (codeFont.getTypefaceName(), sendNotification);
 	codeDocument.replaceAllContent ("-- This is a comment\nfunction myFunction(argument)\n\tcall(\"string\")\nend");
     //[/UserPreSize]
@@ -204,7 +204,7 @@ void CtrlrLuaMethodCodeEditorSettings::changeListenerCallback (ChangeBroadcaster
 
 const Font CtrlrLuaMethodCodeEditorSettings::getFont()
 {
-	Font font = owner.getOwner().getOwner().getFontManager().getFont (fontTypeface->getSelectedItemIndex());
+	Font font = owner.getOwner().getCtrlrManager().getFontManager().getFont (fontTypeface->getSelectedItemIndex());
 
 	if (fontTypeface)
 		font.setTypefaceName (fontTypeface->getText());

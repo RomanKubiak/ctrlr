@@ -226,7 +226,7 @@ void CtrlrCustomButtonInternal::drawTextBoxText(Graphics &g, const Rectangle<int
 	destination.setSize (destinationWidth, destinatioHeight);
 
 	g.setColour (VAR2COLOUR(owner.getProperty(::Ids::uiImageButtonTextColour)));
-	g.setFont (owner.getOwner().getOwner().getOwner().getFontManager().getFontFromString(owner.getProperty(::Ids::uiButtonTextFont)));
+	g.setFont (owner.getOwner().getOwner().getCtrlrManager().getFontManager().getFontFromString(owner.getProperty(::Ids::uiButtonTextFont)));
 
 	g.drawFittedText (getButtonText(),
 							destination.getX(),
