@@ -112,8 +112,7 @@ void CtrlrViewportImpl::mouseWheelMove (const MouseEvent& e, const MouseWheelDet
 {
     if (e.mods.isCtrlDown() || e.mods.isAltDown())
 	{
-	    const double factor = (wheel.deltaY > 0) ? 2.0 : 0.5;
-
+		const double factor = (wheel.deltaY > 0) ? 1.10 : 0.90;
 		panelViewport->setZoom (panelViewport->getZoom() * factor, e.x, e.y);
     }
     else
