@@ -90,6 +90,9 @@ CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
 	setProperty (Ids::componentExcludedFromLabelDisplay, false);
 	setProperty (Ids::componentValueDecimalPlaces, 0);
 	setProperty (Ids::componentLuaMouseMoved, COMBO_ITEM_NONE);
+	setProperty (Ids::componentLuaMouseDown, COMBO_ITEM_NONE);
+	setProperty (Ids::componentLuaMouseDrag, COMBO_ITEM_NONE);
+	setProperty (Ids::componentLuaMouseDoubleClick, COMBO_ITEM_NONE);
 }
 
 CtrlrComponent::~CtrlrComponent()
@@ -173,10 +176,26 @@ void CtrlrComponent::mouseDoubleClick(const MouseEvent &e)
             }
         }
     }
+
+    if (mouseDoubleClickCbk && !mouseDoubleClickCbk.wasObjectDeleted())
+	{
+		if (mouseDoubleClickCbk->isValid())
+		{
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDoubleClickCbk, this, e);
+		}
+	}
 }
 
 void CtrlrComponent::mouseDown(const MouseEvent &e)
 {
+    if (mouseDownCbk && !mouseDownCbk.wasObjectDeleted())
+	{
+		if (mouseDownCbk->isValid())
+		{
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDownCbk, this, e);
+		}
+	}
+
     if (e.mods.isShiftDown())
     {
         if (owner.getOwnerPanel().getEditor())
@@ -213,6 +232,17 @@ void CtrlrComponent::mouseMove (const MouseEvent &e)
 		if (mouseMoveCbk->isValid())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseMoveCbk, this, e);
+		}
+	}
+}
+
+void CtrlrComponent::mouseDrag (const MouseEvent &e)
+{
+    if (mouseDragCbk && !mouseDragCbk.wasObjectDeleted())
+	{
+		if (mouseDragCbk->isValid())
+		{
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDragCbk, this, e);
 		}
 	}
 }
@@ -406,6 +436,27 @@ void CtrlrComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 			return;
 
 		mouseMoveCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::componentLuaMouseDown)
+	{
+		if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		mouseDownCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::componentLuaMouseDrag)
+	{
+		if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		mouseDragCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::componentLuaMouseDoubleClick)
+	{
+		if (isInvalidMethodName (getProperty(property)))
+			return;
+
+		mouseDoubleClickCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	if (restoreStateInProgress == false)
 	{

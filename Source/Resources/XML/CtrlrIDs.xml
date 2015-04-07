@@ -176,6 +176,9 @@
   <id name="componentBubbleNameJustification"     text="Bubble: Nam text justification" type="VarText" defaults="@justification" />
   <id name="componentValueDecimalPlaces"          text="Decimal places to print if using floating point numbers" type="Numeric" min="0" max="10" int="1" />
   <id name="componentLuaMouseMoved"               text="Called when a mouse is moved over this component" type="LuaMethod" />
+  <id name="componentLuaMouseDown"                text="Called when a mouse is down on this component" type="LuaMethod" />
+  <id name="componentLuaMouseDrag"                text="Called when a mouse is dragged (down + left click) over this component" type="LuaMethod" />
+  <id name="componentLuaMouseDoubleClick"         text="Called when a double-click event occurs on this component" type="LuaMethod" />
 
   <!-- Slider -->
   <id name="uiSliderStyle" 					text="Slider style" type="VarNumeric" defaults="LinearHorizontal,LinearVertical,LinearBar,Rotary,RotaryHorizontalDrag,RotaryVerticalDrag,IncDecButtons"/>
