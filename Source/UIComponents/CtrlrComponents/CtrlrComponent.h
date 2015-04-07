@@ -83,6 +83,8 @@ class CtrlrComponent :	public Component,
 		const String getComponentGroup();
         virtual void mouseDoubleClick(const MouseEvent &e);
         virtual void mouseDown(const MouseEvent &e);
+        virtual void mouseMove (const MouseEvent &e);
+		virtual void mouseDrag (const MouseEvent &e);
 		void setGroupped (const bool addToGroup);
 		const String getComponentTab();
 		void setComponentTab (const String &newTab);
@@ -97,7 +99,6 @@ class CtrlrComponent :	public Component,
 		static void wrapForLua (lua_State *L);
 		double getMaximum();
 		double getMinimum();
-		virtual void mouseMove (const MouseEvent &e);
 		void setCustomLookAndFeel (const luabind::object &customLookAndFeel);
 		void setCustomLookAndFeel (LookAndFeelBase *customLookAndFeel);
 		virtual void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) = 0;
@@ -121,6 +122,6 @@ class CtrlrComponent :	public Component,
 		friend class WeakReference<CtrlrComponent>;
 		ScopedPointer <GlowEffect> glowEffect;
 		ScopedPointer <DropShadowEffect> shadowEffect;
-		WeakReference <CtrlrLuaMethod> mouseMoveCbk;
+		WeakReference <CtrlrLuaMethod> mouseMoveCbk, mouseDownCbk, mouseDragCbk, mouseDoubleClickCbk;
 };
 #endif

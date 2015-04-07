@@ -226,6 +226,9 @@ namespace Ids
 	DECLARE_ID (componentExcludedFromLabelDisplay);
 	DECLARE_ID (componentValueDecimalPlaces);
 	DECLARE_ID (componentLuaMouseMoved);
+	DECLARE_ID (componentLuaMouseDown);
+	DECLARE_ID (componentLuaMouseDrag);
+	DECLARE_ID (componentLuaMouseDoubleClick);
 
 	DECLARE_ID (uiSliderStyle);
 	DECLARE_ID (uiSliderMin);

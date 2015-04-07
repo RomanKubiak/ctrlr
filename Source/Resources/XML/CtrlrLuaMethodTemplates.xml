@@ -19,6 +19,33 @@
     end
   </luaMethod>
 
+  <luaMethod name="componentLuaMouseDown">
+    --
+    -- Called when a mouse is down on this component
+    --
+
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
+    end
+  </luaMethod>
+
+  <luaMethod name="componentLuaMouseDrag">
+    --
+    -- Called when a mouse is dragged (down + left click) over this component
+    --
+
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
+    end
+  </luaMethod>
+
+  <luaMethod name="componentLuaMouseDoubleClick">
+    --
+    -- Called when a double-click event occurs on this component
+    --
+
+    __method_name = function(--[[ CtrlrComponent --]] comp, --[[ MouseEvent --]] event)
+    end
+  </luaMethod>
+
   <luaMethod name="uiCustomResizedCallback">
     --
     -- Called when a component is resized
