@@ -1,6 +1,6 @@
 BUILDDIR=../build/$HOSTTYPE
 CPUS=`cat /proc/cpuinfo  | grep processor | wc -l`
-let JOBS='CPUS / 2'
+let JOBS='CPUS / 4'
 
 echo "CTRLR[linux]: Building for $HOSTTYPE"
 

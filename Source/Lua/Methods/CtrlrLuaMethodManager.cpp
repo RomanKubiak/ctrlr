@@ -555,8 +555,9 @@ void CtrlrLuaMethodManager::removeMethod (const Uuid methodUuid)
 		ValueTree child  = method->getMethodTree();
 		ValueTree parent = child.getParent();
 
+        method->remove();
 		parent.removeChild (child, nullptr);
-		method->remove();
+
 		methods.removeObject (method);
 	}
 }
