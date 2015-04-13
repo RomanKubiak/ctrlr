@@ -28,7 +28,7 @@
 */
 void CtrlrPanel::setGlobalVariable(const int index, const int value)
 {
-	if (index >= globalVariables.size() || index < 0)
+	if (index >= globalVariables    .size() || index < 0)
 	{
 		// _LERR("CtrlrPanel::setGlobalVariable index out of bounds("+String(index)+")");
 		return;
