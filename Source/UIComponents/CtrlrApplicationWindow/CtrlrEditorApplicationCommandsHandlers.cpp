@@ -112,14 +112,20 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 		case doZoomIn:
 			if (getActivePanelEditor())
 			{
-				getActivePanelEditor()->setProperty(Ids::uiPanelZoom, (double)getActivePanelEditor()->getProperty(Ids::uiPanelZoom) + 0.1);
+				double newZoomFactor = (double)getActivePanelEditor()->getProperty(Ids::uiPanelZoom) + 0.1;
+				if (newZoomFactor < MINZOOM || newZoomFactor > MAXZOOM)
+					return true;
+				getActivePanelEditor()->setProperty(Ids::uiPanelZoom, newZoomFactor);
 			}
 			break;
 
 		case doZoomOut:
 			if (getActivePanelEditor())
 			{
-				getActivePanelEditor()->setProperty(Ids::uiPanelZoom, (double)getActivePanelEditor()->getProperty(Ids::uiPanelZoom) - 0.1);
+				double newZoomFactor = (double)getActivePanelEditor()->getProperty(Ids::uiPanelZoom) - 0.1;
+				if (newZoomFactor < MINZOOM || newZoomFactor >MAXZOOM)
+					return true;
+				getActivePanelEditor()->setProperty(Ids::uiPanelZoom, newZoomFactor);
 			}
 			break;
 

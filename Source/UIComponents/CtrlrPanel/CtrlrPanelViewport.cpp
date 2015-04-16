@@ -53,7 +53,7 @@ bool CtrlrPanelViewport::keyStateChanged (const bool isKeyDown)
 
 void CtrlrPanelViewport::setZoom (const double zoom, int anchorX, int anchorY)
 {
-	if (zoom < 0.5)
+	if (zoom < MINZOOM || zoom > MAXZOOM)
 		return;
 
 	currentZoom = zoom;
