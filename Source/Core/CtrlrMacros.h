@@ -69,6 +69,8 @@
 #define INTERNAL_FONT(x)										getFontManager().getFont (BinaryData::x, BinaryData::x ## Size)
 #define HIGHLIGHT_COLOUR										0xff4364ff
 
+#define MAXZOOM                                                 3.0
+#define MINZOOM                                                 0.5
 //==============================================================================
 /** Used in SysEx formula editor
 */
