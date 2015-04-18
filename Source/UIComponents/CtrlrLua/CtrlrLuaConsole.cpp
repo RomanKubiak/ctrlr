@@ -286,6 +286,10 @@ PopupMenu CtrlrLuaConsole::getMenuForIndex(int topLevelMenuIndex, const String &
 
 void CtrlrLuaConsole::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 {
+	if (topLevelMenuIndex == 0 && menuItemID==1)
+	{
+		owner.getWindowManager().toggle (CtrlrPanelWindowManager::LuaConsole, false);
+	}
 	if (menuItemID == 2)
 	{
 		snips.add (inputDocument.getAllContent());

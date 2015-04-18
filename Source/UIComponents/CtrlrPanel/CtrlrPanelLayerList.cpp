@@ -232,16 +232,27 @@ PopupMenu CtrlrPanelLayerList::getMenuForIndex(int topLevelMenuIndex, const Stri
 
 void CtrlrPanelLayerList::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 {
-	if (menuItemID == 2)
-		addLayer();
-	if (menuItemID == 3)
-		removeLayer();
-	if (menuItemID == 4)
-		moveLayerUp();
-	if (menuItemID == 5)
-		moveLayerDown();
-	if (menuItemID == 6)
-		refresh();
+	if (topLevelMenuIndex == 1)
+	{
+		if (menuItemID == 2)
+			addLayer();
+		if (menuItemID == 3)
+			removeLayer();
+		if (menuItemID == 4)
+			moveLayerUp();
+		if (menuItemID == 5)
+			moveLayerDown();
+	}
+	if (topLevelMenuIndex == 2)
+	{
+		if (menuItemID == 6)
+			refresh();
+	}
+	if (topLevelMenuIndex == 0 && menuItemID==1)
+	{
+		owner.getWindowManager().toggle (CtrlrPanelWindowManager::LayerEditor, false);
+	}
+	
 }
 //[/MiscUserCode]
 
