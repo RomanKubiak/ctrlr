@@ -548,6 +548,10 @@ PopupMenu CtrlrPanelModulatorList::getMenuForIndex(int topLevelMenuIndex, const 
 
 void CtrlrPanelModulatorList::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 {
+	if (menuItemID == 1)
+	{
+		owner.getWindowManager().toggle (CtrlrPanelWindowManager::ModulatorList, false);
+	}
 	if (menuItemID == 2)
 	{
 		deleteSelected();

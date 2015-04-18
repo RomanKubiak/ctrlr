@@ -126,4 +126,9 @@ void CtrlrLogViewer::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 	{
 		logDocument.replaceAllContent(String::empty);
 	}
+	if (menuItemID == 1)
+	{
+		owner.getWindowManager().toggle (CtrlrPanelWindowManager::LogViewer, false);
+	}
+
 }

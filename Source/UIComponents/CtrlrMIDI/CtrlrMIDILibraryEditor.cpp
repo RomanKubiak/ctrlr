@@ -744,6 +744,11 @@ void CtrlrMIDILibraryEditor::menuItemSelected(int menuItemID, int topLevelMenuIn
 			getCore().factoryReset();
 			refresh();
 		}
+		if( menuItemID==1)
+		{
+			owner.getWindowManager().toggle (CtrlrPanelWindowManager::MIDILibrary, false);
+		}
+
 	}
 }
 

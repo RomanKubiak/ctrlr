@@ -141,7 +141,8 @@ CtrlrManagerWindowManager::WindowType CtrlrManagerWindowManager::getWindowType(c
 
 void CtrlrManagerWindowManager::windowClosedButtonPressed(CtrlrChildWindow *windowThatChanged)
 {
-	windows.removeObject (windowThatChanged);
+	if(windowThatChanged)
+		windows.removeObject (windowThatChanged);
 }
 
 void CtrlrManagerWindowManager::windowChanged(CtrlrChildWindow *windowThatChanged)

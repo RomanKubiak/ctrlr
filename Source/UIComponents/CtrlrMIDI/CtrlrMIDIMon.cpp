@@ -126,4 +126,8 @@ void CtrlrMIDIMon::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 		setBitOption (opts, menuItemID-10, !getBitOption(opts, menuItemID-10));
 		owner.setProperty (Ids::ctrlrLogOptions, opts);
 	}
+	if (topLevelMenuIndex == 0 && menuItemID==1)
+	{
+		// close handle
+	}
 }
