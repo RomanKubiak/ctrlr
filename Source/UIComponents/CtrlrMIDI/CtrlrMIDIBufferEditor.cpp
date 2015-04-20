@@ -19,6 +19,8 @@
 
 //[Headers] You can add your own extra header files here...
 #include "stdafx.h"
+#include "UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.h"
+#include "CtrlrPanel/CtrlrPanel.h"
 //[/Headers]
 
 #include "CtrlrMIDIBufferEditor.h"
@@ -118,7 +120,7 @@ void CtrlrMIDIBufferEditor::menuItemSelected(int menuItemID, int topLevelMenuInd
 		}
 		else if (menuItemID==1)
 		{
-			owner.getWindowManager().toggle (CtrlrPanelWindowManager::BufferEditor, false);
+			owner.getWindowManager().toggle(CtrlrPanelWindowManager::BufferEditor, false);
 		}
 	}
 	else if (topLevelMenuIndex == 1)

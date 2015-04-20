@@ -128,7 +128,7 @@ void CtrlrLogViewer::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 	}
 	if (menuItemID == 1)
 	{
-		owner.getWindowManager().toggle (CtrlrPanelWindowManager::LogViewer, false);
+		owner.getWindowManager().toggle (CtrlrManagerWindowManager::LogViewer, false);
 	}
 
 }
