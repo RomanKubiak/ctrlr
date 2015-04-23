@@ -35,10 +35,14 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 
 	if (!JUCEApplication::isStandaloneApp())
 	{
-		addAndMakeVisible (&resizer);
-		resizer.setAlwaysOnTop (false);
-		resizer.grabKeyboardFocus();
-		resizer.toFront (true);
+	    if (owner.getInstanceMode() != CtrlrInstance::InstanceSingleRestriced)
+        {
+            /* Restricted instances don't get to be resizable */
+            addAndMakeVisible (&resizer);
+            resizer.setAlwaysOnTop (false);
+            resizer.grabKeyboardFocus();
+            resizer.toFront (true);
+        }
 	}
 
 	if (owner.getProperty (Ids::ctrlrEditorBounds).toString() != String::empty)
@@ -132,6 +136,7 @@ bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
 
 void CtrlrEditor::initTest()
 {
+    /* this does nothing */
 }
 
 static const char* openGLRendererName = "OpenGL Renderer";
