@@ -3,7 +3,10 @@
 #include "CtrlrMacros.h"
 #include "CtrlrLog.h"
 
-CtrlrChoicePropertyComponent::CtrlrChoicePropertyComponent (const Value &_valueToControl, const StringArray *_choices, const Array<var> *_values, const bool _numeric)
+CtrlrChoicePropertyComponent::CtrlrChoicePropertyComponent (const Value &_valueToControl,
+                                                            const StringArray *_choices,
+                                                            const Array<var> *_values,
+                                                            const bool _numeric)
     : valueToControl(_valueToControl),
       combo (0),
 	  numeric(_numeric)
@@ -23,6 +26,9 @@ CtrlrChoicePropertyComponent::CtrlrChoicePropertyComponent (const Value &_valueT
 		{
 			combo->addItem (choices[i], i+1);
 		}
+
+        if (choices.size() > 0)
+            combo->setTextWhenNothingSelected (choices[0]);
 	}
 
 	if (_values != nullptr)
@@ -38,7 +44,6 @@ CtrlrChoicePropertyComponent::CtrlrChoicePropertyComponent (const Value &_valueT
 		}
 	}
     setSize (256, 25);
-
 	refresh();
 }
 
@@ -79,4 +84,9 @@ void CtrlrChoicePropertyComponent::changed()
 	{
 		valueToControl = combo->getText();
 	}
+
+	if (owner)
+    {
+        sendChangeMessage ();
+    }
 }

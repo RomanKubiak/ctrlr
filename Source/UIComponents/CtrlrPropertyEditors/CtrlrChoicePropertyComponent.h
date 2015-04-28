@@ -9,7 +9,10 @@ class CtrlrChoicePropertyComponent  : public Component,
 									  public CtrlrPropertyChild
 {
 	public:
-		CtrlrChoicePropertyComponent (const Value &_valueToControl, const StringArray *_choices, const Array<var> *_values, const bool _numeric);
+		CtrlrChoicePropertyComponent (const Value &_valueToControl,
+                                        const StringArray *_choices,
+                                        const Array<var> *_values,
+                                        const bool _numeric);
 		~CtrlrChoicePropertyComponent();
 		void refresh();
 		void resized();
@@ -22,6 +25,7 @@ class CtrlrChoicePropertyComponent  : public Component,
 		Array <var> values;
 		StringArray choices;
 		ScopedPointer <ComboBox> combo;
+		CtrlrPropertyComponent *owner;
 		bool numeric;
 };
 

@@ -521,6 +521,8 @@ void CtrlrPanelComponentProperties::changeListenerCallback (ChangeBroadcaster* s
 
 	if (owner.getSelection()->getNumSelected() == 1)
 	{
+	    refreshTargetModulationPropertyList(owner.getSelection()->getSelectedItem(0)->getOwner().getModulatorTree());
+		refreshDynamicData();
 		setTree (owner.getSelection()->getSelectedItem(0)->getOwner().getModulatorTree());
 		propertyPanel->restoreOpennessState(modulatorPropertyOpennessState);
 	}
@@ -643,7 +645,7 @@ void CtrlrPanelComponentProperties::refreshTargetModulationPropertyList (const V
 		modulatorPropertyList.clear();
 		modulatorPropertyList.add (COMBO_NONE_ITEM);
 
-		if ((bool)sourceModulationTree.getProperty (Ids::modulatorLinkedToComponent) == true)
+		if ((int)sourceModulationTree.getProperty (Ids::modulatorLinkedToComponent) == 1)
 		{
 			CtrlrComponent *c = target->getComponent();
 			if (c)
@@ -654,13 +656,23 @@ void CtrlrPanelComponentProperties::refreshTargetModulationPropertyList (const V
 				}
 			}
 		}
-		else
+		if ((int)sourceModulationTree.getProperty (Ids::modulatorLinkedToComponent) == 0)
 		{
 			for (int i=0; i<target->getModulatorTree().getNumProperties(); i++)
 			{
 				modulatorPropertyList.add (target->getModulatorTree().getPropertyName(i).toString());
 			}
 		}
+		if ((int)sourceModulationTree.getProperty (Ids::modulatorLinkedToComponent) == 2)
+        {
+            if (target->getMidiMessagePtr())
+            {
+                for (int i=0; i<target->getMidiMessage().getMidiTree().getNumProperties(); i++)
+                {
+                    modulatorPropertyList.add (target->getMidiMessage().getMidiTree().getPropertyName(i).toString());
+                }
+            }
+        }
 	}
 }
 

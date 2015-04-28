@@ -55,7 +55,7 @@ CtrlrModulator::CtrlrModulator(CtrlrPanel &_owner, const int suggestedVstIndex)
 	setProperty (Ids::modulatorLinkedToModulatorProperty, COMBO_NONE_ITEM);
 	setProperty (Ids::modulatorLinkedToModulator, COMBO_NONE_ITEM);
 	setProperty (Ids::modulatorLinkedToModulatorSource, true);
-	setProperty (Ids::modulatorLinkedToComponent, false);
+	setProperty (Ids::modulatorLinkedToComponent, "Modulator");
 	setProperty (Ids::modulatorBaseValue, 0);
 
 	setProperty (Ids::modulatorCustomIndex, 0);
@@ -471,7 +471,7 @@ void CtrlrModulator::modifyReference(const int newValue)
 		}
 		else /* the target property is not the value, treat it as string */
 		{
-			if ((bool)getProperty (Ids::modulatorLinkedToComponent)) /* modify the component not the modulator */
+			if ((int)getProperty (Ids::modulatorLinkedToComponent) == 1) /* modify the component not the modulator */
 			{
 				if (ctrlrModulatorReference->getComponent()) /* make sure the target modulator has a component */
 				{
@@ -485,7 +485,7 @@ void CtrlrModulator::modifyReference(const int newValue)
 					}
 				}
 			}
-			else /* modify the target modulator */
+			if ((int)getProperty (Ids::modulatorLinkedToComponent) == 0) /* modify the target modulator */
 			{
 				if ((bool)getProperty(Ids::modulatorLinkedToModulatorSource) == true) /* true means we are using Numeric values */
 				{
@@ -495,6 +495,37 @@ void CtrlrModulator::modifyReference(const int newValue)
 				{
 					ctrlrModulatorReference->setProperty (targetProperty, getComponent()->getComponentText());
 				}
+			}
+			if ((int)getProperty (Ids::modulatorLinkedToComponent) == 2) /* modify the target midi message */
+			{
+				if ((bool)getProperty(Ids::modulatorLinkedToModulatorSource) == true) /* true means we are using Numeric values */
+				{
+					if (ctrlrModulatorReference->getMidiMessagePtr())
+                    {
+                        if ((bool)getProperty(Ids::modulatorLinkedToModulatorSource) == true)
+                        {
+                            ctrlrModulatorReference->getMidiMessagePtr()->setProperty(targetProperty, processor.getValueForMidiMessage(newValue));
+                        }
+                        else if (getComponent())
+                        {
+                            ctrlrModulatorReference->getMidiMessagePtr()->setProperty(targetProperty, getComponent()->getComponentText());
+                        }
+                    }
+				}
+				else
+                {
+                    if (ctrlrModulatorReference->getMidiMessagePtr())
+                    {
+                        if ((bool)getProperty(Ids::modulatorLinkedToModulatorSource) == true)
+                        {
+                            ctrlrModulatorReference->getMidiMessagePtr()->setProperty(targetProperty, _STR(newValue));
+                        }
+                        else if (getComponent())
+                        {
+                            ctrlrModulatorReference->getMidiMessagePtr()->setProperty(targetProperty, getComponent()->getComponentText());
+                        }
+                    }
+                }
 			}
 		}
 	}
