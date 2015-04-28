@@ -116,22 +116,34 @@ StringArray CtrlrIDManager::getValuesArray(const ValueTree &cid)
 }
 
 
-PropertyComponent *CtrlrIDManager::createComponentForProperty (const Identifier &propertyName, const ValueTree &propertyElement, CtrlrPanel *panel, StringArray *possibleChoices,  StringArray *possibleValues)
+PropertyComponent *CtrlrIDManager::createComponentForProperty (const Identifier &propertyName,
+                                                                const ValueTree &propertyElement,
+                                                                CtrlrPanel *panel,
+                                                                StringArray *possibleChoices,
+                                                                StringArray *possibleValues)
 {
 	ValueTree identifierDefinition = ctrlrIdTree.getChildWithProperty (Ids::name, propertyName.toString());
 
-	StringArray choices;
+    StringArray choices;
 	Array <var> values;
 
-	if (possibleChoices != nullptr)
-		choices = *possibleChoices;
+    if (possibleChoices != nullptr && possibleChoices->size() > 0)
+    {
+        choices = *possibleChoices;
+    }
 	else
+    {
 		choices = getChoicesArray(identifierDefinition);
+    }
 
-	if (possibleValues != nullptr)
+	if (possibleValues != nullptr && possibleValues->size() > 0)
+    {
 		values = toValueList(*possibleValues);
+    }
 	else
+    {
 		values = toValueList(getValuesArray(identifierDefinition));
+    }
 
 	return (new CtrlrPropertyComponent (propertyName, propertyElement, identifierDefinition, panel, &choices, &values));
 }

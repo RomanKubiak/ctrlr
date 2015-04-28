@@ -4,7 +4,7 @@
 #include "CtrlrIDManager.h"
 class CtrlrPanel;
 
-class CtrlrPropertyChild
+class CtrlrPropertyChild: public ChangeBroadcaster
 {
 	public:
 		virtual ~CtrlrPropertyChild() {}
@@ -14,11 +14,11 @@ class CtrlrPropertyChild
 class CtrlrPropertyComponent  : public PropertyComponent
 {
 	public:
-		CtrlrPropertyComponent (const Identifier &_propertyName, 
-								const ValueTree &_propertyElement, 
+		CtrlrPropertyComponent (const Identifier &_propertyName,
+								const ValueTree &_propertyElement,
 								const ValueTree &_identifierDefinition,
-								CtrlrPanel *_panel=nullptr, 
-								StringArray *_possibleChoices=nullptr, 
+								CtrlrPanel *_panel=nullptr,
+								StringArray *_possibleChoices=nullptr,
 								Array<var>  *_possibleValues=nullptr);
 
 		virtual ~CtrlrPropertyComponent();

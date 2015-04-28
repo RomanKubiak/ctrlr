@@ -14,7 +14,7 @@
   <id name="modulatorLinkedToModulatorProperty" text="Link to MODULATOR property" type="VarText"/>
   <id name="modulatorLinkedToModulatorSource" 	text="Link to MODULATOR modulation type" type="Bool" defaults="Numeric/Text"/>
   <id name="modulatorLinkedToModulator" 		text="Link to MODULATOR" type="VarText"/>
-  <id name="modulatorLinkedToComponent" 		text="Link to what type of property" type="Bool" defaults="Component/Modulator"/>
+  <id name="modulatorLinkedToComponent" 		text="Link to what type of MODULATOR property" type="VarNumeric" defaults="Modulator=0,Component=1,MIDI Message=2" />
   <id name="modulatorMax" 						text="Maximum value the modulator can have, should be set from the UI component" type="ReadOnly" min="-65536" max="65536" int="0.0001" />
   <id name="modulatorMin" 						text="Minimum value the modulator can have, should be set from the UI component" type="ReadOnly" min="-65536" max="65536" int="0.0001" />
   <id name="modulatorExcludeFromSnapshot" 		text="Don't send this modulator during snapshots" type="Bool" defaults="Don't send/Send"/>
