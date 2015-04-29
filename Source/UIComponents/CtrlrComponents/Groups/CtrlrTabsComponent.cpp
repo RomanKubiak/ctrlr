@@ -463,7 +463,7 @@ void CtrlrTabsComponent::valueTreeChildAdded (ValueTree& parentTree, ValueTree& 
 	addTab(childWhichHasBeenAdded);
 }
 
-void CtrlrTabsComponent::valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved)
+void CtrlrTabsComponent::valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int)
 {
 	removeTab(childWhichHasBeenRemoved);
 }

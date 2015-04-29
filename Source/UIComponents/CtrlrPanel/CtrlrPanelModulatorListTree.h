@@ -82,10 +82,10 @@ class CtrlrModulatorTreeLabel : public Component, public KeyListener, public Dra
 		ValueTree itemToAttach;
 };
 
-class CtrlrModulatorTreeViewItem : public TreeViewItem, 
-									public MouseListener, 
-									public ValueTree::Listener, 
-									public Label::Listener 
+class CtrlrModulatorTreeViewItem : public TreeViewItem,
+									public MouseListener,
+									public ValueTree::Listener,
+									public Label::Listener
 {
 	public:
 		CtrlrModulatorTreeViewItem(CtrlrTreeViewItemListener *_defaultListener, const ValueTree &_itemToAttach);
@@ -111,10 +111,10 @@ class CtrlrModulatorTreeViewItem : public TreeViewItem,
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged);
 		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged);
 		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded);
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved);
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved);
+        void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int);
+        void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int);
 		void itemChanged();
-		
+
 
 		void addListener (CtrlrTreeViewItemListener *listener)						{ listeners.add(listener); }
 		void removeListener (CtrlrTreeViewItemListener *listener)					{ listeners.remove(listener); }

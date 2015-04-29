@@ -233,12 +233,12 @@ void CtrlrModulatorTreeViewItem::valueTreeChildAdded (ValueTree& parentTree, Val
 	itemChanged();
 }
 
-void CtrlrModulatorTreeViewItem::valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved)
+void CtrlrModulatorTreeViewItem::valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int)
 {
 	itemChanged();
 }
 
-void CtrlrModulatorTreeViewItem::valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved)
+void CtrlrModulatorTreeViewItem::valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int)
 {
 	itemChanged();
 }

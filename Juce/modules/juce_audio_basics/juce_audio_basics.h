@@ -31,12 +31,16 @@
 namespace juce
 {
 
+#undef Complex  // apparently some C libraries actually define these symbols (!)
+#undef Factor
+
 #include "buffers/juce_AudioDataConverters.h"
 #include "buffers/juce_AudioSampleBuffer.h"
 #include "buffers/juce_FloatVectorOperations.h"
 #include "effects/juce_Decibels.h"
 #include "effects/juce_IIRFilter.h"
 #include "effects/juce_LagrangeInterpolator.h"
+#include "effects/juce_FFT.h"
 #include "effects/juce_Reverb.h"
 #include "midi/juce_MidiMessage.h"
 #include "midi/juce_MidiBuffer.h"

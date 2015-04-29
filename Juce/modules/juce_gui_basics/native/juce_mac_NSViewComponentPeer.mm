@@ -642,8 +642,8 @@ public:
            #endif
             if ([ev respondsToSelector: @selector (deviceDeltaX)])
             {
-                wheel.deltaX = checkDeviceDeltaReturnValue ((float) objc_msgSend_fpret (ev, @selector (deviceDeltaX)));
-                wheel.deltaY = checkDeviceDeltaReturnValue ((float) objc_msgSend_fpret (ev, @selector (deviceDeltaY)));
+                wheel.deltaX = checkDeviceDeltaReturnValue ((float) getMsgSendFPRetFn() (ev, @selector (deviceDeltaX)));
+                wheel.deltaY = checkDeviceDeltaReturnValue ((float) getMsgSendFPRetFn() (ev, @selector (deviceDeltaY)));
             }
         }
         @catch (...)
@@ -665,7 +665,7 @@ public:
        #if defined (MAC_OS_X_VERSION_10_6) && MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
         const float invScale = 1.0f - (float) [ev magnification];
 
-        if (invScale != 0.0f)
+        if (invScale > 0.0f)
             handleMagnifyGesture (0, getMousePos (ev, view), getMouseTime (ev), 1.0f / invScale);
        #endif
         (void) ev;
@@ -876,6 +876,13 @@ public:
     bool canBecomeKeyWindow()
     {
         return (getStyleFlags() & juce::ComponentPeer::windowIgnoresKeyPresses) == 0;
+    }
+
+    bool canBecomeMainWindow()
+    {
+        Component* owner = &juce::ComponentPeer::getComponent();
+
+        return dynamic_cast<ResizableWindow*> (owner) != nullptr;
     }
 
     void becomeKeyWindow()
@@ -1491,7 +1498,7 @@ private:
             if ((! owner->textWasInserted) && (owner == nullptr || ! owner->redirectKeyDown (ev)))
             {
                 objc_super s = { self, [NSView class] };
-                objc_msgSendSuper (&s, @selector (keyDown:), ev);
+                getMsgSendSuperFn() (&s, @selector (keyDown:), ev);
             }
         }
     }
@@ -1503,7 +1510,7 @@ private:
         if (owner == nullptr || ! owner->redirectKeyUp (ev))
         {
             objc_super s = { self, [NSView class] };
-            objc_msgSendSuper (&s, @selector (keyUp:), ev);
+            getMsgSendSuperFn() (&s, @selector (keyUp:), ev);
         }
     }
 
@@ -1644,7 +1651,7 @@ private:
                 return true;
 
         objc_super s = { self, [NSView class] };
-        return objc_msgSendSuper (&s, @selector (performKeyEquivalent:), ev) != nil;
+        return getMsgSendSuperFn() (&s, @selector (performKeyEquivalent:), ev) != nil;
     }
     #endif
 
@@ -1718,6 +1725,7 @@ struct JuceNSWindowClass   : public ObjCClass<NSWindow>
         addIvar<NSViewComponentPeer*> ("owner");
 
         addMethod (@selector (canBecomeKeyWindow),            canBecomeKeyWindow,        "c@:");
+        addMethod (@selector (canBecomeMainWindow),           canBecomeMainWindow,        "c@:");
         addMethod (@selector (becomeKeyWindow),               becomeKeyWindow,           "v@:");
         addMethod (@selector (windowShouldClose:),            windowShouldClose,         "c@:@");
         addMethod (@selector (constrainFrameRect:toScreen:),  constrainFrameRect,        @encode (NSRect), "@:",  @encode (NSRect), "@");
@@ -1748,6 +1756,15 @@ private:
 
         return owner != nullptr
                 && owner->canBecomeKeyWindow()
+                && ! owner->sendModalInputAttemptIfBlocked();
+    }
+
+    static BOOL canBecomeMainWindow (id self, SEL)
+    {
+        NSViewComponentPeer* const owner = getOwner (self);
+
+        return owner != nullptr
+                && owner->canBecomeMainWindow()
                 && ! owner->sendModalInputAttemptIfBlocked();
     }
 
@@ -1805,7 +1822,7 @@ private:
         {
             owner->isZooming = true;
             objc_super s = { self, [NSWindow class] };
-            objc_msgSendSuper (&s, @selector (zoom:), sender);
+            getMsgSendSuperFn() (&s, @selector (zoom:), sender);
             owner->isZooming = false;
 
             owner->redirectMovedOrResized();

@@ -658,9 +658,9 @@ ImageEffectFilter* LookAndFeelBase::getSliderEffect(Slider &slider)
     }
 }
 
-void LookAndFeelBase::getTooltipSize(const String &tipText, int &width, int &height)
+int LookAndFeelBase::getTooltipSize(const String &tipText, int &width, int &height)
 {
-    TRY_CALL(getTooltipSize, tipText, boost::ref(width), boost::ref(height));
+    TRY_CALL_RET(getTooltipSize, int, 0, tipText, boost::ref(width), boost::ref(height));
 }
 
 void LookAndFeelBase::drawTooltip(Graphics &g, const String &text, int width, int height)

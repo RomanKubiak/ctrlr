@@ -19,8 +19,8 @@ class CtrlrPanelResource : public ValueTree::Listener
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
 		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int){}
+		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int){}
 		const Image asImage();
 		const String asText();
 		const Font asFont();

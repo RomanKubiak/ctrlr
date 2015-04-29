@@ -90,8 +90,8 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
 		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& child){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int){}
+        void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int){}
 		TabbedComponent *getTabs();
 		void updateRootItem();
 		void itemChanged (ValueTree &itemTreeThatChanged);

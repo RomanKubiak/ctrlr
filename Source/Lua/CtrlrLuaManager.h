@@ -48,8 +48,8 @@ class CtrlrLuaManager : public ValueTree::Listener
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
 		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& child){}
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child){}
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child, int){}
+		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int){}
 		static void log(const String &message);
 		void createAudioThreadState();
 

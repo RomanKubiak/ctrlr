@@ -50,8 +50,8 @@ class CtrlrLuaMethod : public ValueTree::Listener
 		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
 		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
 		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*child*/){}
-		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*child*/){}
-		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*child*/, int){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/, int, int){}
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethod)
 

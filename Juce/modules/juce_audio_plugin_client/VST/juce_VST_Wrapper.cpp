@@ -46,7 +46,7 @@
  #include <X11/Xatom.h>
  #undef KeyPress
 #else
- //#include <Carbon/Carbon.h>
+ #include <Carbon/Carbon.h>
 #endif
 
 #ifdef PRAGMA_ALIGN_SUPPORTED
@@ -231,7 +231,6 @@ juce_ImplementSingleton (SharedMessageThread)
 
 #endif
 
-#include "../../juce_audio_processors/format_types/juce_VSTMidiEventList.h"
 static Array<void*> activePlugins;
 
 //==============================================================================
@@ -257,6 +256,7 @@ public:
          isProcessing (false),
          isBypassed (false),
          hasShutdown (false),
+         isInSizeWindow (false),
          firstProcessCallback (true),
          shouldDeleteEditor (false),
         #if JUCE_64BIT
@@ -274,15 +274,14 @@ public:
         cEffect.flags |= effFlagsHasEditor;
         cEffect.version = convertHexVersionToDecimal (JucePlugin_VersionCode);
 
-        //setUniqueID ((int) (JucePlugin_VSTUniqueID));
-        setUniqueID (filter->getInputChannelName(1024).getIntValue());
+        setUniqueID ((int) (JucePlugin_VSTUniqueID));
+
         setNumInputs (numInChans);
         setNumOutputs (numOutChans);
 
         canProcessReplacing (true);
 
         isSynth ((JucePlugin_IsSynth) != 0);
-        noTail (filter->getTailLengthSeconds() <= 0);
         setInitialDelay (filter->getLatencySamples());
         programsAreChunks (true);
 
@@ -353,18 +352,18 @@ public:
     //==============================================================================
     bool getEffectName (char* name) override
     {
-        filter->getInputChannelName(1026).copyToUTF8 (name, 64);
+        String (JucePlugin_Name).copyToUTF8 (name, 64);
         return true;
     }
 
     bool getVendorString (char* text) override
     {
-        filter->getInputChannelName(1025).copyToUTF8 (text, 64);
+        String (JucePlugin_Manufacturer).copyToUTF8 (text, 64);
         return true;
     }
 
-    bool getProductString (char* text) override  { return filter->getInputChannelName(1026).copyToUTF8 (text, 64); }
-    VstInt32 getVendorVersion() override         { return (filter->getInputChannelName(1027).getIntValue()); }
+    bool getProductString (char* text) override  { return getEffectName (text); }
+    VstInt32 getVendorVersion() override         { return convertHexVersionToDecimal (JucePlugin_VersionCode); }
     VstPlugCategory getPlugCategory() override   { return JucePlugin_VSTCategory; }
     bool keysRequired()                          { return (JucePlugin_EditorRequiresKeyboardFocus) != 0; }
 
@@ -410,7 +409,7 @@ public:
         if (strcmp (text, "hasCockosViewAsConfig") == 0)
         {
             useNSView = true;
-            return 0xbeef0000;
+            return (VstInt32) 0xbeef0000;
         }
        #endif
 
@@ -731,7 +730,6 @@ public:
         info.timeInSeconds = ti->samplePos / ti->sampleRate;
         info.ppqPosition = (ti->flags & kVstPpqPosValid) != 0 ? ti->ppqPos : 0.0;
         info.ppqPositionOfLastBarStart = (ti->flags & kVstBarsValid) != 0 ? ti->barStartPos : 0.0;
-        info.samplesToNextClock = ti->samplesToNextClock;
 
         if ((ti->flags & kVstSmpteValid) != 0)
         {
@@ -848,6 +846,22 @@ public:
         }
     }
 
+    bool string2parameter (VstInt32 index, char* text) override
+    {
+        if (filter != nullptr)
+        {
+            jassert (isPositiveAndBelow (index, filter->getNumParameters()));
+
+            if (AudioProcessorParameter* p = filter->getParameters()[index])
+            {
+                filter->setParameter (index, p->getValueForText (String::fromUTF8 (text)));
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     void getParameterName (VstInt32 index, char* text) override
     {
         if (filter != nullptr)
@@ -909,7 +923,7 @@ public:
     {
         short channelConfigs[][2] = { JucePlugin_PreferredChannelConfigurations };
 
-        Array <short*> channelConfigsSorted;
+        Array<short*> channelConfigsSorted;
         ChannelConfigComparator comp;
 
         for (int i = 0; i < numElementsInArray (channelConfigs); ++i)
@@ -1187,6 +1201,8 @@ public:
               #elif JUCE_LINUX
                 editorComp->addToDesktop (0, ptr);
                 hostWindow = (Window) ptr;
+                Window editorWnd = (Window) editorComp->getWindowHandle();
+                XReparentWindow (display, editorWnd, hostWindow, 0, 0);
               #else
                 hostWindow = attachComponentToWindowRef (editorComp, ptr, useNSView);
               #endif
@@ -1230,7 +1246,16 @@ public:
     {
         if (editorComp != nullptr)
         {
-            if (! (canHostDo (const_cast <char*> ("sizeWindow")) && sizeWindow (newWidth, newHeight)))
+            bool sizeWasSuccessful = false;
+
+            if (canHostDo (const_cast<char*> ("sizeWindow")))
+            {
+                isInSizeWindow = true;
+                sizeWasSuccessful = sizeWindow (newWidth, newHeight);
+                isInSizeWindow = false;
+            }
+
+            if (! sizeWasSuccessful)
             {
                 // some hosts don't support the sizeWindow call, so do it manually..
                #if JUCE_MAC
@@ -1286,7 +1311,10 @@ public:
             }
 
             if (ComponentPeer* peer = editorComp->getPeer())
+            {
                 peer->handleMovedOrResized();
+                peer->getComponent().repaint();
+            }
         }
     }
 
@@ -1357,27 +1385,30 @@ public:
 
         void childBoundsChanged (Component* child) override
         {
-            child->setTopLeftPosition (0, 0);
+            if (! wrapper.isInSizeWindow)
+            {
+                child->setTopLeftPosition (0, 0);
 
-            const int cw = child->getWidth();
-            const int ch = child->getHeight();
+                const int cw = child->getWidth();
+                const int ch = child->getHeight();
 
-           #if JUCE_MAC
-            if (wrapper.useNSView)
-                setTopLeftPosition (0, getHeight() - ch);
-           #endif
+               #if JUCE_MAC
+                if (wrapper.useNSView)
+                    setTopLeftPosition (0, getHeight() - ch);
+               #endif
 
-            wrapper.resizeHostWindow (cw, ch);
+                wrapper.resizeHostWindow (cw, ch);
 
-           #if ! JUCE_LINUX // setSize() on linux causes renoise and energyxt to fail.
-            setSize (cw, ch);
-           #else
-            XResizeWindow (display, (Window) getWindowHandle(), cw, ch);
-           #endif
+               #if ! JUCE_LINUX // setSize() on linux causes renoise and energyxt to fail.
+                setSize (cw, ch);
+               #else
+                XResizeWindow (display, (Window) getWindowHandle(), cw, ch);
+               #endif
 
-           #if JUCE_MAC
-            wrapper.resizeHostWindow (cw, ch);  // (doing this a second time seems to be necessary in tracktion)
-           #endif
+               #if JUCE_MAC
+                wrapper.resizeHostWindow (cw, ch);  // (doing this a second time seems to be necessary in tracktion)
+               #endif
+            }
         }
 
         void handleAsyncUpdate() override
@@ -1424,7 +1455,7 @@ private:
     VSTMidiEventList outgoingEvents;
     VstSpeakerArrangementType speakerIn, speakerOut;
     int numInChans, numOutChans;
-    bool isProcessing, isBypassed, hasShutdown, firstProcessCallback;
+    bool isProcessing, isBypassed, hasShutdown, isInSizeWindow, firstProcessCallback;
     bool shouldDeleteEditor, useNSView;
     HeapBlock<float*> channels;
     Array<float*> tempChannels;  // see note in processReplacing()

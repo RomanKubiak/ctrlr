@@ -59,8 +59,8 @@ public:
 	void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 	void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
 	void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded){}
-	void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved){}
-	void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+    void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int){}
+	void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int){}
 	void setTree (const ValueTree &_treeToEdit, const bool force=false);
 	void changeListenerCallback (ChangeBroadcaster* source);
 	PropertyComponent *getPropertyEditor (const Value &valueToEdit, const Identifier &valueIdentifier);

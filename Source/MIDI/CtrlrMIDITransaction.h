@@ -16,10 +16,10 @@ class CtrlrMIDITransaction : public ValueTree::Listener, public AsyncUpdater, pu
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return transactionState.getProperty (name, defaultReturnValue); }
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
-		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/, int){}
 		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
 		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
-		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/, int, int){}
 		void restoreState (const ValueTree &savedState);
 		const String getName();
 		bool getHasResponse();

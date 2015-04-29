@@ -41,9 +41,15 @@ JUCE_JNI_CALLBACK (JUCE_ANDROID_ACTIVITY_CLASSNAME, launchApp, void, (JNIEnv* en
 
     initialiseJuce_GUI();
 
-    JUCEApplicationBase* app = JUCEApplicationBase::createInstance();
-    if (! app->initialiseApp())
-        exit (app->getApplicationReturnValue());
+    if (JUCEApplicationBase* app = JUCEApplicationBase::createInstance())
+    {
+        if (! app->initialiseApp())
+            exit (app->shutdownApp());
+    }
+    else
+    {
+        jassertfalse; // you must supply an application object for an android app!
+    }
 
     jassert (MessageManager::getInstance()->isThisTheMessageThread());
 }
@@ -385,6 +391,7 @@ public:
         {
             case TextInputTarget::textKeyboard:          return "text";
             case TextInputTarget::numericKeyboard:       return "number";
+            case TextInputTarget::decimalKeyboard:       return "numberDecimal";
             case TextInputTarget::urlKeyboard:           return "textUri";
             case TextInputTarget::emailAddressKeyboard:  return "textEmailAddress";
             case TextInputTarget::phoneNumberKeyboard:   return "phone";

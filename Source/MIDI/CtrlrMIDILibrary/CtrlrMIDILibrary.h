@@ -49,10 +49,10 @@ class CtrlrMIDILibrary : public ValueTree::Listener,
 
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
-		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
-		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/, int){}
+		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/, int, int){}
 		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
-		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/, int, int){}
 		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false)		{ libraryTree.setProperty (name, newValue, 0); }
 		const var &getProperty (const Identifier& name) const											{ return libraryTree.getProperty (name); }
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return libraryTree.getProperty (name, defaultReturnValue); }
