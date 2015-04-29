@@ -280,7 +280,7 @@ void CtrlrLuaMethodManager::deleteMethod(const Uuid &methodUuid)
 {
 }
 
-void CtrlrLuaMethodManager::valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child)
+void CtrlrLuaMethodManager::valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child, int)
 {
     if (child.hasType(Ids::luaMethod))
     {

@@ -119,9 +119,6 @@ public:
         /** True if the transport is currently looping. */
         bool isLooping;
 
-        /** Samples to next clock */
-        long samplesToNextClock;
-
         //==============================================================================
         bool operator== (const CurrentPositionInfo& other) const noexcept;
         bool operator!= (const CurrentPositionInfo& other) const noexcept;
@@ -131,10 +128,14 @@ public:
 
     //==============================================================================
     /** Fills-in the given structure with details about the transport's
-        position at the start of the current processing block.
+        position at the start of the current processing block. If this method returns
+        false then the current play head position is not available and the given
+        structure will be undefined.
 
-        This method must ONLY be called from within your AudioProcessor::processBlock()
-        method. Calling it at any other time will probably cause a nasty crash.
+        You can ONLY call this from your processBlock() method! Calling it at other
+        times will produce undefined behaviour, as the host may not have any context
+        in which a time would make sense, and some hosts will almost certainly have
+        multithreading issues if it's not called on the audio thread.
     */
     virtual bool getCurrentPosition (CurrentPositionInfo& result) = 0;
 };

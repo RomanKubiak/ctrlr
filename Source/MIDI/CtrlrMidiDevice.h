@@ -44,8 +44,8 @@ class CtrlrMidiDevice : public ValueTree::Listener, public MidiInputCallback
 		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
 		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
 		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
-		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
-		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/, int){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/, int, int){}
 
 		void addDeviceListener (CtrlrMidiDevice::Listener *l)											{ deviceListeners.add(l); }
 		void removeDeviceListener (CtrlrMidiDevice::Listener *l)										{ deviceListeners.remove(l); }

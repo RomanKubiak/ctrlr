@@ -71,7 +71,7 @@ void CtrlrMIDILibraryEditor::valueTreeChildAdded (ValueTree& parentTree, ValueTr
 	triggerAsyncUpdate();
 }
 
-void CtrlrMIDILibraryEditor::valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved)
+void CtrlrMIDILibraryEditor::valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int)
 {
 	triggerAsyncUpdate();
 }

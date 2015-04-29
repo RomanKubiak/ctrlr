@@ -71,7 +71,7 @@ class LookAndFeelBase : public LookAndFeel_V3
 		Button* createSliderButton (Slider &slider, bool isIncrement);
 		Label* createSliderTextBox (Slider &slider);
 		ImageEffectFilter* getSliderEffect (Slider &slider);
-		void getTooltipSize (const String &tipText, int &width, int &height);
+		int getTooltipSize (const String &tipText, int &width, int &height);
 		void drawTooltip (Graphics &g, const String &text, int width, int height);
 		Button* createFilenameComponentBrowseButton (const String &text);
 		void layoutFilenameComponent (FilenameComponent &filenameComponent, ComboBox* comboBox, Button* button);

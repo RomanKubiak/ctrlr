@@ -49,8 +49,8 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}
 		void valueTreeParentChanged (ValueTree &treeWhoseParentHasChanged){}
 		void valueTreeChildAdded (ValueTree& parentTree, ValueTree& child);
-		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child);
-		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved){}
+		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child, int);
+		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int){}
 		bool isLuaDisabled();
 		ValueTree &getManagerTree()											{ return (managerTree); }
 		void setDebug(const bool _debug)									{ debug = _debug; }

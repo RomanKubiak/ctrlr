@@ -253,8 +253,8 @@ class CtrlrManager :    public ValueTree::Listener,
 		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}
 		void valueTreeParentChanged (ValueTree &/*treeWhoseParentHasChanged*/){}
 		void valueTreeChildAdded (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenAdded*/){}
-		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/){}
-		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/){}
+		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/, int){}
+		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/, int, int){}
 		UndoManager* getUndoManager() const;
 		void changeListenerCallback (ChangeBroadcaster* source);
 		void setEditor (CtrlrEditor *editorToSet);
@@ -306,7 +306,7 @@ class CtrlrManager :    public ValueTree::Listener,
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrManager);
 
 	private:
-		
+
 		void setEmbeddedDefaults();
 		Result addInstancePanel();
 		void restoreInstanceState(const ValueTree &instanceState);

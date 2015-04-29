@@ -775,7 +775,13 @@ public:
     */
     void removeAllChildren();
 
-    /** Removes all this component's children, and deletes them.
+    /** Removes and deletes all of this component's children.
+        My advice is to avoid this method! It's an old function that is only kept here for
+        backwards-compatibility with legacy code, and should be viewed with extreme
+        suspicion by anyone attempting to write modern C++. In almost all cases, it's much
+        smarter to manage the lifetimes of your child components via modern RAII techniques
+        such as simply making them member variables, or using ScopedPointer, OwnedArray, etc
+        to manage their lifetimes appropriately.
         @see removeAllChildren
     */
     void deleteAllChildren();
@@ -790,7 +796,7 @@ public:
     /** Searches the parent components for a component of a specified class.
 
         For example findParentComponentOfClass \<MyComp\>() would return the first parent
-        component that can be dynamically cast to a MyComp, or will return 0 if none
+        component that can be dynamically cast to a MyComp, or will return nullptr if none
         of the parents are suitable.
     */
     template <class TargetClass>
@@ -1007,17 +1013,12 @@ public:
     /** Makes the component use an internal buffer to optimise its redrawing.
 
         Setting this flag to true will cause the component to allocate an
-        internal buffer into which it paints itself, so that when asked to
-        redraw itself, it can use this buffer rather than actually calling the
-        paint() method.
+        internal buffer into which it paints itself and all its child components, so that
+        when asked to redraw itself, it can use this buffer rather than actually calling
+        the paint() method.
 
-        The buffer is kept until the repaint() method is called directly on
-        this component (or until it is resized), when the image is invalidated
-        and then redrawn the next time the component is painted.
-
-        Note that only the drawing that happens within the component's paint()
-        method is drawn into the buffer, it's child components are not buffered, and
-        nor is the paintOverChildren() method.
+        Parts of the buffer are invalidated when repaint() is called on this component
+        or its children. The buffer is then repainted at the next paint() callback.
 
         @see repaint, paint, createComponentSnapshot
     */
@@ -2330,8 +2331,8 @@ private:
     void internalModifierKeysChanged();
     void internalChildrenChanged();
     void internalHierarchyChanged();
-    void internalRepaint (const Rectangle<int>&);
-    void internalRepaintUnchecked (const Rectangle<int>&, bool);
+    void internalRepaint (Rectangle<int>);
+    void internalRepaintUnchecked (Rectangle<int>, bool);
     Component* removeChildComponent (int index, bool sendParentEvents, bool sendChildEvents);
     void reorderChildInternal (int sourceIndex, int destIndex);
     void paintComponentAndChildren (Graphics&);

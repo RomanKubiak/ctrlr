@@ -51,6 +51,7 @@
 					<Add directory="../../../../Source/Plugin" />
 					<Add directory="../../../../Source/Application" />
 					<Add directory="/usr/include/freetype2" />
+					<Add directory="../../../../Source/Misc/libusb" />
 				</Compiler>
 				<Linker>
 					<Add option="-ldl" />
@@ -64,6 +65,7 @@
 					<Add option="-lz" />
 					<Add option="-lbfd" />
 					<Add option="-lGL" />
+					<Add option="-ludev" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -109,6 +111,7 @@
 					<Add directory="../../../../Source/Plugin" />
 					<Add directory="../../../../Source/Application" />
 					<Add directory="/usr/include/freetype2" />
+					<Add directory="../../../../Source/Misc/libusb" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -123,6 +126,7 @@
 					<Add option="-lz" />
 					<Add option="-lbfd" />
 					<Add option="-lGL" />
+					<Add option="-ludev" />
 					<Add library="comdlg32" />
 					<Add library="imm32" />
 					<Add library="ole32" />
@@ -181,6 +185,7 @@
 					<Add directory="../../../../Source/Plugin" />
 					<Add directory="../../../../Source/Application" />
 					<Add directory="/usr/include/freetype2" />
+					<Add directory="../../../../Source/Misc/libusb" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -195,6 +200,7 @@
 					<Add option="-lz" />
 					<Add option="-lbfd" />
 					<Add option="-lGL" />
+					<Add option="-ludev" />
 					<Add library="comdlg32" />
 					<Add library="imm32" />
 					<Add library="ole32" />
@@ -232,6 +238,11 @@
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_audio_basics/buffers/juce_FloatVectorOperations.h" />
 		<Unit filename="../../../../Juce/modules/juce_audio_basics/effects/juce_Decibels.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_basics/effects/juce_FFT.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_audio_basics/effects/juce_FFT.h" />
 		<Unit filename="../../../../Juce/modules/juce_audio_basics/effects/juce_IIRFilter.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -1071,6 +1082,11 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_cryptography/hashing/juce_SHA256.h" />
+		<Unit filename="../../../../Juce/modules/juce_cryptography/hashing/juce_Whirlpool.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_cryptography/hashing/juce_Whirlpool.h" />
 		<Unit filename="../../../../Juce/modules/juce_cryptography/juce_cryptography.cpp" />
 		<Unit filename="../../../../Juce/modules/juce_cryptography/juce_cryptography.h" />
 		<Unit filename="../../../../Juce/modules/juce_cryptography/juce_module_info" />
@@ -1103,6 +1119,11 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_data_structures/values/juce_ValueTree.h" />
+		<Unit filename="../../../../Juce/modules/juce_data_structures/values/juce_ValueTreeSynchroniser.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_data_structures/values/juce_ValueTreeSynchroniser.h" />
 		<Unit filename="../../../../Juce/modules/juce_events/broadcasters/juce_ActionBroadcaster.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -2530,6 +2551,76 @@
 		<Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.h" />
 		<Unit filename="../../../../Source/Misc/juce_PluginHostType.h" />
+		<Unit filename="../../../../Source/Misc/libusb/core.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/descriptor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/hotplug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/hotplug.h" />
+		<Unit filename="../../../../Source/Misc/libusb/io.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/libusb.h" />
+		<Unit filename="../../../../Source/Misc/libusb/libusbi.h" />
+		<Unit filename="../../../../Source/Misc/libusb/lua/compat.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/lua/compat.h" />
+		<Unit filename="../../../../Source/Misc/libusb/lua/enums.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/lua/enums.h" />
+		<Unit filename="../../../../Source/Misc/libusb/lua/structs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/lua/structs.h" />
+		<Unit filename="../../../../Source/Misc/libusb/lua/usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/os/darwin_usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/os/darwin_usb.h" />
+		<Unit filename="../../../../Source/Misc/libusb/os/linux_udev.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/os/linux_usbfs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/os/linux_usbfs.h" />
+		<Unit filename="../../../../Source/Misc/libusb/os/poll_posix.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/os/poll_posix.h" />
+		<Unit filename="../../../../Source/Misc/libusb/os/poll_windows.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/os/poll_windows.h" />
+		<Unit filename="../../../../Source/Misc/libusb/os/threads_posix.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/os/threads_posix.h" />
+		<Unit filename="../../../../Source/Misc/libusb/os/threads_windows.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/os/threads_windows.h" />
+		<Unit filename="../../../../Source/Misc/libusb/os/windows_common.h" />
+		<Unit filename="../../../../Source/Misc/libusb/os/windows_usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/os/windows_usb.h" />
+		<Unit filename="../../../../Source/Misc/libusb/strerror.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/sync.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/libusb/version.h" />
+		<Unit filename="../../../../Source/Misc/libusb/version_nano.h" />
 		<Unit filename="../../../../Source/Native/CtrlrGeneric.h" />
 		<Unit filename="../../../../Source/Native/CtrlrLinux.cpp" />
 		<Unit filename="../../../../Source/Native/CtrlrLinux.h" />
