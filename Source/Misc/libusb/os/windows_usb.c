@@ -21,8 +21,8 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
-#ifdef JUCE_WINDOWS
-#include <config.h>
+#if defined(_MSC_VER)
+#include "configs/windows.h"
 #include <windows.h>
 #include <setupapi.h>
 #include <ctype.h>

@@ -23,7 +23,6 @@
 
 #ifdef LINUX
 #include "../configs/linux.h"
-#endif // JUCE_LINUX
 
 #include <assert.h>
 #include <ctype.h>
@@ -2695,3 +2694,4 @@ const struct usbi_os_backend linux_usbfs_backend = {
 	.transfer_priv_size = sizeof(struct linux_transfer_priv),
 	.add_iso_packet_size = 0,
 };
+#endif

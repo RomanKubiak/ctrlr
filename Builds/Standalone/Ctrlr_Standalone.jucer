@@ -51,20 +51,20 @@
             extraLinkerFlags="" bigIcon="Mln0s5" smallIcon="Pl8W9J" extraDefs="_CRT_SECURE_NO_WARNINGS">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(Platform)$(NATIVE_ARCH)"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        defines="CTRLR_NIGHTLY=1 &#10;JucePlugin_Build_Standalone" binaryPath="../../Bin/Standalone/$(Platform)$(NATIVE_ARCH)"
                        winWarningLevel="2" winArchitecture="32-bit" generateManifest="0"
                        prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2010\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\Standalone\Ctrlr_Standalone.jucer"
                        libraryPath="" wholeProgramOptimisation="1" userNotes=""/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_Standalone"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        binaryPath="" winWarningLevel="2" winArchitecture="32-bit" generateManifest="1"
                        postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" libraryPath=""
                        userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        binaryPath="" winWarningLevel="2" winArchitecture="32-bit" generateManifest="1"
                        postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" libraryPath=""
                        wholeProgramOptimisation="1" userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"

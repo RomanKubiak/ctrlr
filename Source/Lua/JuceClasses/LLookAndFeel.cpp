@@ -658,9 +658,9 @@ ImageEffectFilter* LookAndFeelBase::getSliderEffect(Slider &slider)
     }
 }
 
-int LookAndFeelBase::getTooltipSize(const String &tipText, int &width, int &height)
+Rectangle<int> LookAndFeelBase::getTooltipBounds(const String &tipText, Point<int> screenPos, Rectangle<int> parentArea)
 {
-    TRY_CALL_RET(getTooltipSize, int, 0, tipText, boost::ref(width), boost::ref(height));
+    TRY_CALL_RET(getTooltipBounds, Rectangle<int>, Rectangle<int>(), tipText, screenPos, parentArea);
 }
 
 void LookAndFeelBase::drawTooltip(Graphics &g, const String &text, int width, int height)
