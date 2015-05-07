@@ -19,10 +19,6 @@
  *  Date: 2010-04-02
  */
 
-#ifndef _MSC_VER
-#error This header should only be used with Microsoft compilers
-#endif
-
 /* 7.8 Format conversion of integer types <inttypes.h> */
 
 #ifndef _INTTYPES_H_

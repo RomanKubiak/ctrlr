@@ -1,4 +1,6 @@
+#ifndef LINUX
 #include "stdafx.h"
+#endif
 
 #ifdef LINUX
 #include <X11/Xlib.h>
