@@ -150,6 +150,8 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 #endif
 	addVersionInfo ("Juce", SystemStats::getJUCEVersion().fromLastOccurrenceOf("JUCE v", false, true));
 
+	addVersionInfo ("libusb", "1.0.19");
+
 	shadow.setShadowProperties (DropShadow (Colours::black, 5, Point <int> (2,2)));
 	ctrlrName->setComponentEffect (&shadow);
     instanceName->setComponentEffect (&shadow);

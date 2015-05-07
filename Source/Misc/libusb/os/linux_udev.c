@@ -22,8 +22,6 @@
 
 #ifdef LINUX
 #include "../configs/linux.h"
-#endif // JUCE_LINUX
-
 #include <assert.h>
 #include <ctype.h>
 #include <dirent.h>
@@ -307,3 +305,4 @@ void linux_udev_hotplug_poll(void)
 	} while (udev_dev);
 	usbi_mutex_static_unlock(&linux_hotplug_lock);
 }
+#endif

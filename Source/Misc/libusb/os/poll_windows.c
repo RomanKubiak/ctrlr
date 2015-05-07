@@ -40,7 +40,7 @@
  * with a fake pipe. The read/write functions are only meant to be used in that
  * context.
  */
-#ifdef JUCE_WINDOWS
+#if defined(_MSC_VER)
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>

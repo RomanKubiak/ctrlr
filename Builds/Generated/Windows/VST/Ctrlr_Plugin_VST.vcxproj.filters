@@ -79,6 +79,18 @@
     <Filter Include="Ctrlr_Plugin_VST\Misc">
       <UniqueIdentifier>{E7E45961-DB1E-7919-45CB-3F30EDD4DBC4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb">
+      <UniqueIdentifier>{B935D0DC-44A5-116F-0DBF-F96129D07EDE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb\configs">
+      <UniqueIdentifier>{55AFD953-8DDA-8D72-E140-52411004EB1D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb\lua">
+      <UniqueIdentifier>{73E066E9-212E-9DD4-4BB4-462C777F8B32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb\os">
+      <UniqueIdentifier>{EEC67C30-1C4B-C4D2-C356-6F5B125E8A6F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Native">
       <UniqueIdentifier>{90D113A8-C8B6-9FE4-4EB4-94F9737839D9}</UniqueIdentifier>
     </Filter>
@@ -870,6 +882,63 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\core.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\descriptor.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\hotplug.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\io.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\compat.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\enums.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\structs.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\usb.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\darwin_usb.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\linux_udev.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\linux_usbfs.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\poll_posix.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\poll_windows.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\threads_posix.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\threads_windows.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\windows_usb.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\strerror.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\sync.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Native\Linux\keys.cpp">
+      <Filter>Ctrlr_Plugin_VST\Native\Linux</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Native\Linux\libr-bfd.c">
       <Filter>Ctrlr_Plugin_VST\Native\Linux</Filter>
     </ClCompile>
@@ -1229,6 +1298,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\midi\juce_MidiMessageSequence.cpp">
       <Filter>Juce Modules\juce_audio_basics\midi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\effects\juce_FFT.cpp">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\effects\juce_IIRFilter.cpp">
       <Filter>Juce Modules\juce_audio_basics\effects</Filter>
@@ -1680,10 +1752,16 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_cryptography\hashing\juce_SHA256.cpp">
       <Filter>Juce Modules\juce_cryptography\hashing</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_cryptography\hashing\juce_Whirlpool.cpp">
+      <Filter>Juce Modules\juce_cryptography\hashing</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_data_structures\values\juce_Value.cpp">
       <Filter>Juce Modules\juce_data_structures\values</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_data_structures\values\juce_ValueTree.cpp">
+      <Filter>Juce Modules\juce_data_structures\values</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Juce\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.cpp">
       <Filter>Juce Modules\juce_data_structures\values</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_data_structures\undomanager\juce_UndoManager.cpp">
@@ -2993,8 +3071,68 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\configs\linux.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\configs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\configs\windows.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\configs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\hotplug.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\inttypes.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\libusb.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\libusbi.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\lua\compat.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\lua\enums.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\lua\structs.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\darwin_usb.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\linux_usbfs.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\poll_posix.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\poll_windows.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\threads_posix.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\threads_windows.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\windows_common.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\windows_usb.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\os</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\version.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\version_nano.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\juce_PluginHostType.h">
       <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Native\Linux\keys.h">
+      <Filter>Ctrlr_Plugin_VST\Native\Linux</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Native\Linux\libr.h">
       <Filter>Ctrlr_Plugin_VST\Native\Linux</Filter>
@@ -3345,6 +3483,9 @@
       <Filter>Juce Modules\juce_audio_basics\midi</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\effects\juce_Decibels.h">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\effects\juce_FFT.h">
       <Filter>Juce Modules\juce_audio_basics\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\effects\juce_IIRFilter.h">
@@ -3956,6 +4097,9 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_cryptography\hashing\juce_SHA256.h">
       <Filter>Juce Modules\juce_cryptography\hashing</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_cryptography\hashing\juce_Whirlpool.h">
+      <Filter>Juce Modules\juce_cryptography\hashing</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_cryptography\juce_cryptography.h">
       <Filter>Juce Modules\juce_cryptography</Filter>
     </ClInclude>
@@ -3963,6 +4107,9 @@
       <Filter>Juce Modules\juce_data_structures\values</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_data_structures\values\juce_ValueTree.h">
+      <Filter>Juce Modules\juce_data_structures\values</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.h">
       <Filter>Juce Modules\juce_data_structures\values</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_data_structures\undomanager\juce_UndoableAction.h">

@@ -1514,7 +1514,106 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/configs/linux.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/configs/windows.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/core.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/descriptor.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/hotplug.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/hotplug.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/inttypes.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/io.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/libusb.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/libusbi.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/lua/compat.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/lua/compat.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/lua/enums.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/lua/enums.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/lua/structs.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/lua/structs.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/lua/usb.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/os/darwin_usb.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/os/darwin_usb.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/os/linux_udev.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/os/linux_usbfs.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/os/linux_usbfs.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/os/poll_posix.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/os/poll_posix.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/os/poll_windows.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/os/poll_windows.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/os/threads_posix.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/os/threads_posix.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/os/threads_windows.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/os/threads_windows.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/os/windows_common.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/os/windows_usb.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/os/windows_usb.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/strerror.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/sync.c"/>
+    <Unit filename="../../../../Source/Misc/libusb/version.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Misc/libusb/version_nano.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/Misc/juce_PluginHostType.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/Native/Linux/keys.cpp"/>
+    <Unit filename="../../../../Source/Native/Linux/keys.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -2130,6 +2229,14 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_basics/effects/juce_FFT.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_basics/effects/juce_FFT.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_basics/effects/juce_IIRFilter.cpp">
       <Option compile="0"/>
       <Option link="0"/>
@@ -2542,6 +2649,26 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode1.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode2.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode3.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinUtilities.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_Wrapper.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_MacUtilities.mm">
       <Option compile="0"/>
       <Option link="0"/>
@@ -2555,6 +2682,10 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST3/juce_VST3_Wrapper.mm">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/AAX/juce_AAX_Wrapper.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -3622,6 +3753,14 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_cryptography/hashing/juce_Whirlpool.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_cryptography/hashing/juce_Whirlpool.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_cryptography/juce_module_info">
       <Option compile="0"/>
       <Option link="0"/>
@@ -3643,6 +3782,14 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_data_structures/values/juce_ValueTree.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_data_structures/values/juce_ValueTreeSynchroniser.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_data_structures/values/juce_ValueTreeSynchroniser.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -5531,7 +5678,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/AAX/juce_AAX_Wrapper.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_basics/juce_audio_basics.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_devices/juce_audio_devices.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_formats/juce_audio_formats.cpp"/>
@@ -5546,15 +5692,6 @@
     <Unit filename="../../../../Juce/modules/juce_gui_extra/juce_gui_extra.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_opengl/juce_opengl.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/utility/juce_PluginUtilities.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode1.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode2.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode3.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinResources.rsr">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinUtilities.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_Wrapper.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST/juce_VST_Wrapper.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST3/juce_VST3_Wrapper.cpp"/>
     <Unit filename="../../../VST/JuceLibraryCode/JuceHeader.h">

@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  *
  */
-
+#ifdef LINUX
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -49,3 +49,4 @@ err_close_pipe:
 	usbi_close(pipefd[1]);
 	return ret;
 }
+#endif

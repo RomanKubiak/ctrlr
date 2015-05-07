@@ -80,7 +80,6 @@ extern "C"
 #include <luabind/discard_result_policy.hpp>
 #include <luabind/version.hpp>
 #include <luabind/shared_ptr_converter.hpp>
-
 #include <luabind/lua.hpp>
 
 #include "JuceHeader.h"

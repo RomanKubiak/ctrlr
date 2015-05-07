@@ -25,6 +25,10 @@
 #include "configs/linux.h"
 #endif // JUCE_LINUX
 
+#ifdef _WIN32
+#include "configs/windows.h"
+#endif
+
 #include <stdlib.h>
 
 #include <stddef.h>
