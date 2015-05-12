@@ -50,10 +50,10 @@ void CtrlrDocumentPanel::activeDocumentChanged()
 
             if (button)
             {
-                ImageButton *imageButton = new ImageButton ("Close");
+                ImageButton *imageButton = new ImageButton ("Close"+_STR(i));
                 imageButton->addListener (this);
                 imageButton->setSize (16,16);
-                imageButton->getProperties().set ("index", i);
+                imageButton->getProperties().set ("index", button->getIndex());
                 imageButton->setMouseCursor (MouseCursor::PointingHandCursor);
                 imageButton->setImages (false, true, true,
                             IMAGE (ico_delete_png), 1.000f, Colour (0x00858585),
@@ -73,12 +73,14 @@ void CtrlrDocumentPanel::setEditor (CtrlrEditor *_editorToSet)
 
 void CtrlrDocumentPanel::buttonClicked (Button *button)
 {
-    int documentIndex = (int)button->getProperties().getWithDefault("index", -1);
-    if (documentIndex >= 0)
+    int documentIndex       = (int)button->getProperties().getWithDefault("index", -1);
+    CtrlrPanelEditor *ed    = dynamic_cast<CtrlrPanelEditor*> (getDocument(documentIndex));
+
+    if (documentIndex >= 0 && ed != nullptr)
     {
-        if (AlertWindow::showYesNoCancelBox (AlertWindow::QuestionIcon, "Close panel", "Are you sure you want to close this panel", "Yes", "No", "Cancel", this) == 1)
+        if (AlertWindow::showYesNoCancelBox (AlertWindow::QuestionIcon, "Close panel", "Are you sure you want to close this panel [" + ed->getName() + "]", "Yes", "No", "Cancel", this) == 1)
         {
-            owner.removePanel(dynamic_cast<CtrlrPanelEditor*> (getDocument(documentIndex)));
+            owner.removePanel(ed);
         }
     }
 }
