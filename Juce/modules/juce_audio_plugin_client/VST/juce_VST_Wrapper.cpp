@@ -46,7 +46,7 @@
  #include <X11/Xatom.h>
  #undef KeyPress
 #else
- #include <Carbon/Carbon.h>
+ //#include <Carbon/Carbon.h>
 #endif
 
 #ifdef PRAGMA_ALIGN_SUPPORTED
@@ -82,7 +82,7 @@
 #include <public.sdk/source/vst2.x/aeffeditor.h>
 #include <public.sdk/source/vst2.x/audioeffectx.cpp>
 #include <public.sdk/source/vst2.x/audioeffect.cpp>
-
+#include "../../juce_audio_processors/format_types/juce_VSTMidiEventList.h"
 #if ! VST_2_4_EXTENSIONS
  #error "It looks like you're trying to include an out-of-date VSTSDK version - make sure you have at least version 2.4"
 #endif

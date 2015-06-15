@@ -18,11 +18,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-#ifdef JUCE_MAC
-#ifdef LINUX
-#include "configs/linux.h"
-#endif // JUCE_LINUX
-
+#ifdef __APPLE__
+#include "../configs/osx.h"
 #include <ctype.h>
 #include <errno.h>
 #include <pthread.h>

@@ -23,6 +23,9 @@
 #ifdef LINUX
 #include "configs/linux.h"
 #endif // JUCE_LINUX
+#ifdef __APPLE__
+#include "configs/osx.h"
+#endif
 
 #include <errno.h>
 #include <stdarg.h>

@@ -1,6 +1,6 @@
 /* this is a generated file, see gen.lua */
-#include <lua.h>
-#include <libusb.h>
+#include "lua.h"
+#include "libusb.h"
 
 struct libusb_device_descriptor* luausb_to_device_descriptor(lua_State* L, int index);
 int luausb_is_device_descriptor(lua_State* L, int index);

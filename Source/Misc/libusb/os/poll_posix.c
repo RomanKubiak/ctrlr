@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  *
  */
-#ifdef LINUX
+#if defined(__linux) || defined(__APPLE__)
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>

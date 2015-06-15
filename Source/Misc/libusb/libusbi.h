@@ -29,6 +29,10 @@
 #include "configs/windows.h"
 #endif
 
+#ifdef __APPLE__
+#include "configs/osx.h"
+#endif
+
 #include <stdlib.h>
 
 #include <stddef.h>
