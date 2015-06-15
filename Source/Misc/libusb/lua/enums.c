@@ -1,9 +1,9 @@
 /* this is a generated file, see gen.lua */
 #include "enums.h"
 
-#include <lua.h>
-#include <lauxlib.h>
-#include <libusb.h>
+#include "lua.h"
+#include "lauxlib.h"
+#include "libusb.h"
 #include "compat.h"
 
 enum libusb_class_code luausb_to_class_code(lua_State* L, int index)

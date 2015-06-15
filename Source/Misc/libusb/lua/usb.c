@@ -1,6 +1,6 @@
-#include <lua.h>
-#include <lauxlib.h>
-#include <libusb.h>
+#include "lua.h"
+#include "lauxlib.h"
+#include "libusb.h"
 #include <string.h>
 #ifndef _WIN32
 #include <poll.h>

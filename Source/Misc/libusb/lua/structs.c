@@ -1,7 +1,7 @@
 /* this is a generated file, see gen.lua */
 #include "structs.h"
 
-#include <lauxlib.h>
+#include "lauxlib.h"
 #include <string.h>
 #include "compat.h"
 

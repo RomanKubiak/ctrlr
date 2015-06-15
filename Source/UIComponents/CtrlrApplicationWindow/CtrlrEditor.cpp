@@ -35,7 +35,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 
 	if (!JUCEApplication::isStandaloneApp())
 	{
-	    if (owner.getInstanceMode() != CtrlrInstance::InstanceSingleRestriced)
+	    if (owner.getInstanceMode() != InstanceSingleRestriced)
         {
             /* Restricted instances don't get to be resizable */
             addAndMakeVisible (&resizer);
