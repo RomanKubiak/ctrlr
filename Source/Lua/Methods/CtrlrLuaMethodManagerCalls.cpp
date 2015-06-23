@@ -17,7 +17,10 @@ catch (luabind::error &e)\
 	o->setValid(false);\
 	const char* a = lua_tostring(e.state(), -1);\
 	lastExecutionError = String(a);\
-	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1)))) + "\n" + lastExecutionError + "\n\nMethod disabled");\
+	AlertWindow::showMessageBox (AlertWindow::WarningIcon,\
+        "Callback error: " + o->getName(), \
+        String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))))\
+         + "\n" + lastExecutionError + "\n\nMethod disabled");\
 	_LERR("Callback error: [" + o->getName() + "] " + String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))))+" "+lastExecutionError+".\nMethod disabled");\
 	if (currentMethodEditor)\
 		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \

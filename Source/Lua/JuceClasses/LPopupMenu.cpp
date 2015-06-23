@@ -13,6 +13,11 @@ int LPopupMenu::show(int itemIDThatMustBeVisible,
 	return (PopupMenu::show(itemIDThatMustBeVisible,minimumWidth,maximumNumColumns,standardItemHeight));
 }
 
+int LPopupMenu::show(int itemHeight)
+{
+    return (PopupMenu::show(-1,-1,-1,itemHeight));
+}
+
 void LPopupMenu::addSubMenu (const String& subMenuName,
                      const LPopupMenu& subMenu,
                      bool isEnabled,
@@ -21,6 +26,16 @@ void LPopupMenu::addSubMenu (const String& subMenuName,
                      int itemResultID)
 {
 	PopupMenu::addSubMenu (subMenuName, subMenu, isEnabled, iconToUse, isTicked, itemResultID);
+}
+
+int LPopupMenu::showAt(Component *componentToAttachTo, int standardItemHeight)
+{
+    return (PopupMenu::showAt (componentToAttachTo, -1, -1, -1, standardItemHeight, nullptr));
+}
+
+int LPopupMenu::showAt(Rectangle<int> &areaToAttachTo, int standardItemHeight)
+{
+    return (PopupMenu::showAt (areaToAttachTo, -1, -1, -1, standardItemHeight, nullptr));
 }
 
 void LPopupMenu::wrapForLua (lua_State *L)
@@ -42,6 +57,9 @@ void LPopupMenu::wrapForLua (lua_State *L)
 				.def("addSeparator", &PopupMenu::addSeparator)
 				.def("addSectionHeader", &PopupMenu::addSectionHeader)
 				.def("getNumItems", &PopupMenu::getNumItems)
-				.def("show", &LPopupMenu::show)
+				.def("show", (int(PopupMenu::*)(int, int, int, int))&LPopupMenu::show)
+				.def("show", (int(LPopupMenu::*)(int))&LPopupMenu::show)
+				.def("showAt", (int(LPopupMenu::*)(Component*, int)) &LPopupMenu::showAt)
+				.def("showAt", (int(LPopupMenu::*)(Rectangle<int> &, int)) &LPopupMenu::showAt)
 	];
 }

@@ -11,7 +11,9 @@ class LPopupMenu : public PopupMenu
               int minimumWidth = 0,
               int maximumNumColumns = 0,
               int standardItemHeight = 0);
-
+        int show(int itemHeight);
+        int showAt(Rectangle<int> &areaToAttachTo, int standardItemHeight);
+        int showAt(Component *componentToAttachTo, int standardItemHeight);
 		void addSubMenu (const String& subMenuName,
                      const LPopupMenu& subMenu,
                      bool isEnabled = true,
