@@ -11,6 +11,8 @@
 				<Option object_output="obj/Debug" />
 				<Option type="3" />
 				<Option compiler="gcc" />
+				<Option host_application="/home/r.kubiak/devel/JUCE/examples/audio plugin host/Builds/Linux/build/Plugin Host" />
+				<Option run_host_application_in_terminal="0" />
 				<Compiler>
 					<Add option="-std=c++11" />
 					<Add option="-w" />
@@ -30,8 +32,9 @@
 					<Add option="-DLINUX=1" />
 					<Add option="-D_LINUX=1" />
 					<Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1" />
-					<Add option="-DJUCE_APP_VERSION=5.2.0" />
-					<Add option="-DJUCE_APP_VERSION_HEX=0x50200" />
+					<Add option="-DJUCE_APP_VERSION=5.3.0" />
+					<Add option="-DJUCE_APP_VERSION_HEX=0x50300" />
+					<Add option="-DDEBUG_INSTANCE=1" />
 					<Add directory="." />
 					<Add directory="../../../VST/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />
@@ -85,8 +88,8 @@
 					<Add option="-DLINUX=1" />
 					<Add option="-D_LINUX=1" />
 					<Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1" />
-					<Add option="-DJUCE_APP_VERSION=5.2.0" />
-					<Add option="-DJUCE_APP_VERSION_HEX=0x50200" />
+					<Add option="-DJUCE_APP_VERSION=5.3.0" />
+					<Add option="-DJUCE_APP_VERSION_HEX=0x50300" />
 					<Add directory="." />
 					<Add directory="../../../VST/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />
@@ -141,8 +144,8 @@
 				<Compiler>
 					<Add option="-Os" />
 					<Add option="-std=c++11" />
-					<Add option="-w" />
 					<Add option="-mstackrealign" />
+					<Add option="-w" />
 					<Add option="-fpermissive" />
 					<Add option="-fPIC" />
 					<Add option="-D__MINGW__=1" />
@@ -154,8 +157,8 @@
 					<Add option="-DLINUX=1" />
 					<Add option="-D_LINUX=1" />
 					<Add option="-DJUCER_CODEBLOCKS_BADCFFC2=1" />
-					<Add option="-DJUCE_APP_VERSION=5.2.0" />
-					<Add option="-DJUCE_APP_VERSION_HEX=0x50200" />
+					<Add option="-DJUCE_APP_VERSION=5.3.0" />
+					<Add option="-DJUCE_APP_VERSION_HEX=0x50300" />
 					<Add directory="." />
 					<Add directory="../../../VST/JuceLibraryCode" />
 					<Add directory="../../../../Boost" />
@@ -187,6 +190,19 @@
 					<Add option="-lbfd" />
 					<Add option="-lGL" />
 					<Add option="-ludev" />
+					<Add library="comdlg32" />
+					<Add library="imm32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="opengl32" />
+					<Add library="rpcrt4" />
+					<Add library="shlwapi" />
+					<Add library="uuid" />
+					<Add library="version" />
+					<Add library="wininet" />
+					<Add library="winmm" />
+					<Add library="ws2_32" />
+					<Add library="wsock32" />
 				</Linker>
 			</Target>
 		</Build>
@@ -2928,6 +2944,7 @@
 			<envvars />
 			<code_completion />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

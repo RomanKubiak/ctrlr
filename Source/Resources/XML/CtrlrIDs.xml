@@ -348,6 +348,7 @@
 
   <!-- Toggle button -->
   <id name="uiToggleButtonText"         text="Button text" type="Text"/>
+  <id name="uiToggleButtonFocusOutline" text="Button outline when focused" type="Colour" />
 
   <!-- Text button -->
   <id name="uiButtonTextColourOff"      text="Button text colour [off]" type="Colour"/>

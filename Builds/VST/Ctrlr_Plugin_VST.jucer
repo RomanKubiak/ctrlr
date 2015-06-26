@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="JUwYqy" name="Ctrlr_Plugin_VST" projectType="audioplug" version="5.2.0"
+<JUCERPROJECT id="JUwYqy" name="Ctrlr_Plugin_VST" projectType="audioplug" version="5.3.0"
               juceLinkage="amalg_multi" buildVST="1" buildRTAS="0" buildAU="0"
               pluginName="Ctrlr-VST" pluginDesc="Ctrlr-VST" pluginManufacturer="Instigator"
               pluginManufacturerCode="INST" pluginCode="CTRL" pluginChannelConfigs="{1, 1}, {2, 2}"

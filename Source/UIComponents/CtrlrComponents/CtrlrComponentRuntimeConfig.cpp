@@ -32,6 +32,9 @@
 CtrlrComponentRuntimeConfig::CtrlrComponentRuntimeConfig (CtrlrComponent *_componentToConfigure)
     : componentToConfigure(_componentToConfigure)
 {
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
     addAndMakeVisible (groupComponent = new GroupComponent ("new group",
                                                             TRANS("Controller mapping")));
 

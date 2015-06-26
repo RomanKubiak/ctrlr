@@ -40,8 +40,8 @@
 namespace ProjectInfo
 {
     const char* const  projectName    = "Ctrlr_Plugin_VST";
-    const char* const  versionString  = "5.2.0";
-    const int          versionNumber  = 0x50200;
+    const char* const  versionString  = "5.3.0";
+    const int          versionNumber  = 0x50300;
 }
 #endif
 

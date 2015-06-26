@@ -45,6 +45,7 @@ CtrlrToggleButton::CtrlrToggleButton (CtrlrModulator &owner)
     //[UserPreSize]
 	ctrlrButton->setBufferedToImage (true);
 	setProperty (Ids::uiButtonTextColourOn, "0xff000000");
+	setProperty (Ids::uiToggleButtonFocusOutline, "0x00000000");
 	setProperty (Ids::uiToggleButtonText, "Button");
 	setProperty (Ids::uiButtonTrueValue, 1);
 	setProperty (Ids::uiButtonFalseValue, 0);
@@ -198,6 +199,10 @@ void CtrlrToggleButton::valueTreePropertyChanged (ValueTree &treeWhosePropertyHa
 		valueMap.setPair (1, getProperty(Ids::uiButtonTrueValue), String::empty);
 		owner.getProcessor().setValueMap (valueMap);
 	}
+	else if (property == Ids::uiToggleButtonFocusOutline)
+    {
+        ctrlrButton->setColour (TextEditor::focusedOutlineColourId, VAR2COLOUR(getProperty(Ids::uiToggleButtonFocusOutline)));
+    }
 	else
 	{
 		CtrlrComponent::valueTreePropertyChanged(treeWhosePropertyHasChanged, property);

@@ -3866,8 +3866,8 @@
 					"LUA_USE_LINUX",
 					"__MACOSX_CORE__=1",
 					"JUCER_XCODE_MAC_4B915928=1",
-					"JUCE_APP_VERSION=5.2.0",
-					"JUCE_APP_VERSION_HEX=0x50200", );
+					"JUCE_APP_VERSION=5.3.0",
+					"JUCE_APP_VERSION_HEX=0x50300", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = ("../../../../VST", "../../../VST/JuceLibraryCode", "../../../../Juce/modules", "../../../../Boost", "../../../../Source/Lua", "../../../../Source/Lua/luabind", "../../../../Source/Lua/luabind/luabind", "../../../../Source/Misc", "../../../../Source/MIDI", "../../../../Source", "../../../../Source/UIComponents", "../../../../Source/Core", "../../../../Source/Plugin", "../../../../Source/Application", "../../../../Source/Misc/libusb", "$(inherited)");
@@ -3903,8 +3903,8 @@
 					"LUA_USE_LINUX",
 					"__MACOSX_CORE__=1",
 					"JUCER_XCODE_MAC_4B915928=1",
-					"JUCE_APP_VERSION=5.2.0",
-					"JUCE_APP_VERSION_HEX=0x50200", );
+					"JUCE_APP_VERSION=5.3.0",
+					"JUCE_APP_VERSION_HEX=0x50300", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
@@ -3941,8 +3941,8 @@
 					"LUA_USE_LINUX",
 					"__MACOSX_CORE__=1",
 					"JUCER_XCODE_MAC_4B915928=1",
-					"JUCE_APP_VERSION=5.2.0",
-					"JUCE_APP_VERSION_HEX=0x50200", );
+					"JUCE_APP_VERSION=5.3.0",
+					"JUCE_APP_VERSION_HEX=0x50300", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
