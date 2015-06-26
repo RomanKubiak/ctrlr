@@ -386,6 +386,7 @@ namespace Ids
 	DECLARE_ID (uiGroupBackgroundImageAlpha);
 
 	DECLARE_ID (uiToggleButtonText);
+    DECLARE_ID (uiToggleButtonFocusOutline);
 
 	DECLARE_ID (uiButtonTextColourOff);
 	DECLARE_ID (uiButtonTextColourOn);
