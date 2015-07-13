@@ -76,10 +76,11 @@ void CtrlrPanelMIDISnapshot::gatherSnapshotData()
 	if (showDialog)
     {
         if (alertWindow == nullptr)
+        {
             alertWindow = LookAndFeel::getDefaultLookAndFeel().createAlertWindow ("MIDI Snapshot", String(), "Stop", String(), String(), AlertWindow::NoIcon, 1, nullptr);
-
-        alertWindow->setEscapeKeyCancels (false);
-        alertWindow->addProgressBarComponent (progress);
+            alertWindow->setEscapeKeyCancels (false);
+            alertWindow->addProgressBarComponent (progress);
+        }
     }
     else
     {
