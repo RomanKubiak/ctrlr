@@ -21,7 +21,7 @@
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        osxSDK="10.8 SDK" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        binaryPath="" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST&#10;JUCE_DEBUG=1&#10;LUA_USE_LINUX"
                        customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        userNotes="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default&#10;CARBON can't be enable&#10;VstWrapper needs a special VSTMidiEventList file from&#10;#include &quot;../../juce_audio_processors/format_types/juce_VSTMidiEventList.h&quot;&#10;just before the JustVSTWrapper declaration&#10;"
@@ -29,13 +29,13 @@
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
                        osxSDK="10.8 SDK" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
                        defines="CTRLR_NIGHTLY=0&#10;JucePlugin_Build_VST&#10;LUA_USE_LINUX"
-                       binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        userNotes="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
                        osxSDK="10.8 SDK" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST&#10;LUA_USE_LINUX"
-                       binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        userNotes="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES"/>
       </CONFIGURATIONS>
@@ -61,19 +61,19 @@
             extraLinkerFlags="" vstFolder="../../VST" bigIcon="fjU831" smallIcon="IDFLdV">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-VST-Debug-$(Platform)$(NATIVE_ARCH)"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        binaryPath="../../Bin/VST/$(Platform)$(NATIVE_ARCH)" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST"
                        winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        postbuildCommand="" wholeProgramOptimisation="1" prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2010\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\VST\Ctrlr_Plugin_VST.jucer"
                        userNotes=""/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr-VST-$(Platform)$(NATIVE_ARCH)"
                        defines="CTRLR_NIGHTLY=0 JucePlugin_Build_VST" binaryPath=""
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        winWarningLevel="2" generateManifest="1" winArchitecture="32-bit"
                        postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" wholeProgramOptimisation="1"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-VST-$(Platform)$(NATIVE_ARCH)"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST" binaryPath=""
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        winWarningLevel="2" generateManifest="1" winArchitecture="32-bit"
                        postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" wholeProgramOptimisation="1"
                        prebuildCommand=""/>
@@ -101,16 +101,16 @@
                 smallIcon="QFDZIE" extraLinkerFlags="libbfd-$(ARCH).a&#10;libiberty-$(ARCH).a&#10;-lz&#10;-lGL&#10;-ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="libCtrlr-VST-Debug-$(ARCH)"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        binaryPath="../../Bin/" defines="CTRLR_NIGHTLY=1 &#10;JucePlugin_Build_VST=1&#10;JUCE_DEBUG=1"
                        libraryPath="/usr/X11R6/lib/"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="libCtrlr-VST-$(ARCH)"
                        defines="CTRLR_NIGHTLY=0&#10;JucePlugin_Build_VST=1" binaryPath="../../Bin/"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        libraryPath="/usr/X11R6/lib/"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="libCtrlr-VST-$(ARCH)"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1" binaryPath="../../Bin/"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        libraryPath="/usr/X11R6/lib/"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -137,14 +137,14 @@
                 userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-VST"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
                        defines="JUCE_FORCE_DEBUG=1&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1"
                        binaryPath="../../../../Bin"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
                        defines="CTRLR_NIGHTLY=0&#10;JucePlugin_Build_VST=1" binaryPath="../../../../Bin"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
-                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
+                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
                        binaryPath="../../../../Bin"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -800,7 +800,6 @@
           <FILE id="nBUmfN" name="inheritance.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/inheritance.cpp"/>
           <FILE id="rYtScA" name="link_compatibility.cpp" compile="1" resource="0"
                 file="../../Source/Lua/luabind/src/link_compatibility.cpp"/>
-          <FILE id="Hmbho9" name="lua.c" compile="1" resource="0" file="../../Source/Lua/luabind/src/lua.c"/>
           <FILE id="D6LjD2" name="object_rep.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/object_rep.cpp"/>
           <FILE id="Im8RfT" name="open.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/open.cpp"/>
           <FILE id="U94QIY" name="pcall.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/pcall.cpp"/>
@@ -876,65 +875,65 @@
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
     </GROUP>
     <GROUP id="{8F9534D2-5A89-AD92-71CE-F1DFAB3F48BC}" name="Misc">
-      <GROUP id="{A71141BF-6313-A309-E56A-244EEF51145F}" name="libusb">
-        <GROUP id="{1E7DB7D9-F8C6-11CC-CF0B-4E6451A72816}" name="configs">
-          <FILE id="m7pO3A" name="linux.h" compile="0" resource="0" file="../../Source/Misc/libusb/configs/linux.h"/>
-          <FILE id="qMk612" name="windows.h" compile="0" resource="0" file="../../Source/Misc/libusb/configs/windows.h"/>
-        </GROUP>
-        <FILE id="C50yB4" name="core.c" compile="1" resource="0" file="../../Source/Misc/libusb/core.c"/>
-        <FILE id="JwGwsp" name="descriptor.c" compile="1" resource="0" file="../../Source/Misc/libusb/descriptor.c"/>
-        <FILE id="Zb2Xo7" name="hotplug.c" compile="1" resource="0" file="../../Source/Misc/libusb/hotplug.c"/>
-        <FILE id="TjjNRA" name="hotplug.h" compile="0" resource="0" file="../../Source/Misc/libusb/hotplug.h"/>
-        <FILE id="RAMxkY" name="inttypes.h" compile="0" resource="0" file="../../Source/Misc/libusb/inttypes.h"/>
-        <FILE id="o6zQcP" name="io.c" compile="1" resource="0" file="../../Source/Misc/libusb/io.c"/>
-        <FILE id="GtRGyJ" name="libusb.h" compile="0" resource="0" file="../../Source/Misc/libusb/libusb.h"/>
-        <FILE id="qIfvlw" name="libusbi.h" compile="0" resource="0" file="../../Source/Misc/libusb/libusbi.h"/>
-        <GROUP id="{0D66F998-93F5-D6C3-7FF5-E00561C0146F}" name="lua">
-          <FILE id="kp5uTV" name="compat.c" compile="1" resource="0" file="../../Source/Misc/libusb/lua/compat.c"/>
-          <FILE id="Dod5BB" name="compat.h" compile="0" resource="0" file="../../Source/Misc/libusb/lua/compat.h"/>
-          <FILE id="JJlXXY" name="enums.c" compile="1" resource="0" file="../../Source/Misc/libusb/lua/enums.c"/>
-          <FILE id="NVJoM1" name="enums.h" compile="0" resource="0" file="../../Source/Misc/libusb/lua/enums.h"/>
-          <FILE id="QtLa1n" name="structs.c" compile="1" resource="0" file="../../Source/Misc/libusb/lua/structs.c"/>
-          <FILE id="QvIB7V" name="structs.h" compile="0" resource="0" file="../../Source/Misc/libusb/lua/structs.h"/>
-          <FILE id="O0Uvss" name="usb.c" compile="1" resource="0" file="../../Source/Misc/libusb/lua/usb.c"/>
-        </GROUP>
-        <GROUP id="{2B300FC6-7A01-D779-6F85-2AB391AEEC61}" name="os">
-          <FILE id="IZHbMw" name="darwin_usb.c" compile="1" resource="0" file="../../Source/Misc/libusb/os/darwin_usb.c"/>
-          <FILE id="CeD5ro" name="darwin_usb.h" compile="0" resource="0" file="../../Source/Misc/libusb/os/darwin_usb.h"/>
-          <FILE id="BINzuT" name="linux_udev.c" compile="1" resource="0" file="../../Source/Misc/libusb/os/linux_udev.c"/>
-          <FILE id="VWsvtr" name="linux_usbfs.c" compile="1" resource="0" file="../../Source/Misc/libusb/os/linux_usbfs.c"/>
-          <FILE id="mGITCd" name="linux_usbfs.h" compile="0" resource="0" file="../../Source/Misc/libusb/os/linux_usbfs.h"/>
-          <FILE id="Qo5TaU" name="poll_posix.c" compile="1" resource="0" file="../../Source/Misc/libusb/os/poll_posix.c"/>
-          <FILE id="JgVik6" name="poll_posix.h" compile="0" resource="0" file="../../Source/Misc/libusb/os/poll_posix.h"/>
-          <FILE id="AJhg83" name="poll_windows.c" compile="1" resource="0" file="../../Source/Misc/libusb/os/poll_windows.c"/>
-          <FILE id="hlinBm" name="poll_windows.h" compile="0" resource="0" file="../../Source/Misc/libusb/os/poll_windows.h"/>
-          <FILE id="PzuWPW" name="threads_posix.c" compile="1" resource="0" file="../../Source/Misc/libusb/os/threads_posix.c"/>
-          <FILE id="L02C4T" name="threads_posix.h" compile="0" resource="0" file="../../Source/Misc/libusb/os/threads_posix.h"/>
-          <FILE id="UZY5zV" name="threads_windows.c" compile="1" resource="0"
-                file="../../Source/Misc/libusb/os/threads_windows.c"/>
-          <FILE id="vBLyRD" name="threads_windows.h" compile="0" resource="0"
-                file="../../Source/Misc/libusb/os/threads_windows.h"/>
-          <FILE id="uTfOie" name="windows_common.h" compile="0" resource="0"
-                file="../../Source/Misc/libusb/os/windows_common.h"/>
-          <FILE id="SFi55x" name="windows_usb.c" compile="1" resource="0" file="../../Source/Misc/libusb/os/windows_usb.c"/>
-          <FILE id="uv5Xkw" name="windows_usb.h" compile="0" resource="0" file="../../Source/Misc/libusb/os/windows_usb.h"/>
-        </GROUP>
-        <FILE id="I0mHA7" name="strerror.c" compile="1" resource="0" file="../../Source/Misc/libusb/strerror.c"/>
-        <FILE id="vTb2IN" name="sync.c" compile="1" resource="0" file="../../Source/Misc/libusb/sync.c"/>
-        <FILE id="jnumcl" name="version.h" compile="0" resource="0" file="../../Source/Misc/libusb/version.h"/>
-        <FILE id="Lkf3YV" name="version_nano.h" compile="0" resource="0" file="../../Source/Misc/libusb/version_nano.h"/>
+      <FILE id="Y4fTde" name="compat.c" compile="1" resource="0" file="../../Source/Misc/compat.c"/>
+      <FILE id="eESFlz" name="core.c" compile="1" resource="0" file="../../Source/Misc/core.c"/>
+      <FILE id="yd5DFp" name="darwin_usb.c" compile="1" resource="0" file="../../Source/Misc/darwin_usb.c"/>
+      <FILE id="C7RD4K" name="descriptor.c" compile="1" resource="0" file="../../Source/Misc/descriptor.c"/>
+      <FILE id="Vm2wsL" name="enums.c" compile="1" resource="0" file="../../Source/Misc/enums.c"/>
+      <FILE id="Y5M3P3" name="hotplug.c" compile="1" resource="0" file="../../Source/Misc/hotplug.c"/>
+      <GROUP id="{A187DEB0-615F-EF19-B8DB-DD7A94E8089E}" name="include">
+        <FILE id="KvmvrJ" name="compat.h" compile="0" resource="0" file="../../Source/Misc/include/compat.h"/>
+        <FILE id="RJMp0J" name="darwin_usb.h" compile="0" resource="0" file="../../Source/Misc/include/darwin_usb.h"/>
+        <FILE id="kDuA3A" name="enums.h" compile="0" resource="0" file="../../Source/Misc/include/enums.h"/>
+        <FILE id="eQwAZH" name="hotplug.h" compile="0" resource="0" file="../../Source/Misc/include/hotplug.h"/>
+        <FILE id="caQEgl" name="inttypes.h" compile="0" resource="0" file="../../Source/Misc/include/inttypes.h"/>
+        <FILE id="q0J7rk" name="juce_PluginHostType.h" compile="0" resource="0"
+              file="../../Source/Misc/include/juce_PluginHostType.h"/>
+        <FILE id="XGPhtA" name="keys.h" compile="0" resource="0" file="../../Source/Misc/include/keys.h"/>
+        <FILE id="XAGS0i" name="libr.h" compile="0" resource="0" file="../../Source/Misc/include/libr.h"/>
+        <FILE id="xNy1Dt" name="libusb.h" compile="0" resource="0" file="../../Source/Misc/include/libusb.h"/>
+        <FILE id="LBOwM1" name="libusb_linux.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_linux.h"/>
+        <FILE id="Fqf4WI" name="libusb_osx.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_osx.h"/>
+        <FILE id="vLNMb1" name="libusb_windows.h" compile="0" resource="0"
+              file="../../Source/Misc/include/libusb_windows.h"/>
+        <FILE id="K5FlJa" name="libusbi.h" compile="0" resource="0" file="../../Source/Misc/include/libusbi.h"/>
+        <FILE id="NyDuCR" name="linux_usbfs.h" compile="0" resource="0" file="../../Source/Misc/include/linux_usbfs.h"/>
+        <FILE id="Lne4nz" name="poll_posix.h" compile="0" resource="0" file="../../Source/Misc/include/poll_posix.h"/>
+        <FILE id="VS8GPD" name="poll_windows.h" compile="0" resource="0" file="../../Source/Misc/include/poll_windows.h"/>
+        <FILE id="B7yazy" name="structs.h" compile="0" resource="0" file="../../Source/Misc/include/structs.h"/>
+        <FILE id="DVbETc" name="threads_posix.h" compile="0" resource="0" file="../../Source/Misc/include/threads_posix.h"/>
+        <FILE id="e7Iv5c" name="threads_windows.h" compile="0" resource="0"
+              file="../../Source/Misc/include/threads_windows.h"/>
+        <FILE id="wjFqp5" name="version.h" compile="0" resource="0" file="../../Source/Misc/include/version.h"/>
+        <FILE id="E6O2wR" name="version_nano.h" compile="0" resource="0" file="../../Source/Misc/include/version_nano.h"/>
+        <FILE id="V7rA1X" name="windows_common.h" compile="0" resource="0"
+              file="../../Source/Misc/include/windows_common.h"/>
+        <FILE id="aCSe3d" name="windows_usb.h" compile="0" resource="0" file="../../Source/Misc/include/windows_usb.h"/>
       </GROUP>
-      <FILE id="zvlimU" name="juce_PluginHostType.h" compile="0" resource="0"
-            file="../../Source/Misc/juce_PluginHostType.h"/>
+      <FILE id="LLdh5d" name="io.c" compile="1" resource="0" file="../../Source/Misc/io.c"/>
+      <FILE id="H6V9Vg" name="keys.cpp" compile="1" resource="0" file="../../Source/Misc/keys.cpp"/>
+      <FILE id="F30drx" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Misc/libr-bfd.c"/>
+      <FILE id="CYPg92" name="libr.c" compile="1" resource="0" file="../../Source/Misc/libr.c"/>
+      <GROUP id="{C448205D-0EF2-892A-6C46-79204D7B697D}" name="libusb">
+        <GROUP id="{E82F9D71-FB1A-8F53-0FBF-10D7B114C53C}" name="configs"/>
+        <GROUP id="{E164B799-4C78-93A5-12F6-B92C9CA0A062}" name="lua"/>
+        <GROUP id="{26457D77-4FA5-4A6B-4784-6323F6453FBB}" name="os"/>
+      </GROUP>
+      <FILE id="b3igLN" name="linux_udev.c" compile="1" resource="0" file="../../Source/Misc/linux_udev.c"/>
+      <FILE id="PZxtmu" name="linux_usbfs.c" compile="1" resource="0" file="../../Source/Misc/linux_usbfs.c"/>
+      <FILE id="qnr6Al" name="lua.c" compile="1" resource="0" file="../../Source/Misc/lua.c"/>
+      <FILE id="Wqq8rD" name="poll_posix.c" compile="1" resource="0" file="../../Source/Misc/poll_posix.c"/>
+      <FILE id="k73co4" name="poll_windows.c" compile="1" resource="0" file="../../Source/Misc/poll_windows.c"/>
+      <FILE id="K0Xog2" name="strerror.c" compile="1" resource="0" file="../../Source/Misc/strerror.c"/>
+      <FILE id="nwZSrW" name="structs.c" compile="1" resource="0" file="../../Source/Misc/structs.c"/>
+      <FILE id="cHY169" name="sync.c" compile="1" resource="0" file="../../Source/Misc/sync.c"/>
+      <FILE id="g54ZLg" name="threads_posix.c" compile="1" resource="0" file="../../Source/Misc/threads_posix.c"/>
+      <FILE id="FdoERG" name="threads_windows.c" compile="1" resource="0"
+            file="../../Source/Misc/threads_windows.c"/>
+      <FILE id="VPZP6F" name="usb.c" compile="1" resource="0" file="../../Source/Misc/usb.c"/>
+      <FILE id="BpXnLd" name="windows_usb.c" compile="1" resource="0" file="../../Source/Misc/windows_usb.c"/>
     </GROUP>
     <GROUP id="{995C6819-A727-73F2-56A2-0FB72F896193}" name="Native">
-      <GROUP id="{B20CB0E0-C360-2292-B6BA-60F5F1CC7DB6}" name="Linux">
-        <FILE id="yxvMGs" name="keys.cpp" compile="1" resource="0" file="../../Source/Native/Linux/keys.cpp"/>
-        <FILE id="NsaY4C" name="keys.h" compile="0" resource="0" file="../../Source/Native/Linux/keys.h"/>
-        <FILE id="bUevkn" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Native/Linux/libr-bfd.c"/>
-        <FILE id="LPaA5B" name="libr.c" compile="1" resource="0" file="../../Source/Native/Linux/libr.c"/>
-        <FILE id="Mg5dTr" name="libr.h" compile="0" resource="0" file="../../Source/Native/Linux/libr.h"/>
-      </GROUP>
       <FILE id="iREL8I" name="CtrlrGeneric.h" compile="0" resource="0" file="../../Source/Native/CtrlrGeneric.h"/>
       <FILE id="OLKq3b" name="CtrlrLinux.cpp" compile="1" resource="0" file="../../Source/Native/CtrlrLinux.cpp"/>
       <FILE id="C4DxXw" name="CtrlrLinux.h" compile="0" resource="0" file="../../Source/Native/CtrlrLinux.h"/>

@@ -6,11 +6,11 @@
 #include "CtrlrManager/CtrlrManager.h"
 #include <sys/types.h>
 #include <sys/stat.h>
-#include "Linux/keys.h"
+#include "keys.h"
 
 extern "C"
 {
-    #include "Linux/libr.h"
+    #include "libr.h"
 }
 
 CtrlrLinux::CtrlrLinux(CtrlrManager &_owner) : owner(_owner)

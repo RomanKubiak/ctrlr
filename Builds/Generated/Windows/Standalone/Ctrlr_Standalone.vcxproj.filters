@@ -80,8 +80,14 @@
     <Filter Include="Ctrlr_Standalone\Misc">
       <UniqueIdentifier>{6225657A-EC77-DB30-7594-A9927C4BE0B8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ctrlr_Standalone\Misc\include">
+      <UniqueIdentifier>{28116094-DF14-0DEB-D58C-A836D0C54FCA}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Ctrlr_Standalone\Misc\libusb">
       <UniqueIdentifier>{951ECF5D-F4EB-F544-4818-76D75BF5ADCA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Standalone\Misc\libusb\configs">
+      <UniqueIdentifier>{43E92676-3FE4-26C0-7E76-C0A8D34299C3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Standalone\Misc\libusb\lua">
       <UniqueIdentifier>{93815D63-5922-E571-D048-470BCA00DF8F}</UniqueIdentifier>
@@ -91,9 +97,6 @@
     </Filter>
     <Filter Include="Ctrlr_Standalone\Native">
       <UniqueIdentifier>{5523B747-7ACE-9218-3FC0-8DDD7888BD3C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Standalone\Native\Linux">
-      <UniqueIdentifier>{52FDF958-6079-B924-5240-47E14B17EC50}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Standalone\Plugin">
       <UniqueIdentifier>{516FA603-AB8F-4653-38BF-5C918B5F5904}</UniqueIdentifier>
@@ -799,9 +802,6 @@
     <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\link_compatibility.cpp">
       <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\lua.c">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\object_rep.cpp">
       <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
     </ClCompile>
@@ -865,68 +865,71 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\compat.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\lua</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\compat.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\enums.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\lua</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\core.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\structs.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\lua</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\darwin_usb.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\usb.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\lua</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\descriptor.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\core.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\enums.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\descriptor.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\hotplug.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\hotplug.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\io.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\io.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\keys.cpp">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\darwin_usb.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\libr-bfd.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\linux_udev.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\libr.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\linux_usbfs.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\linux_udev.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\poll_posix.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\linux_usbfs.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\poll_windows.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\lua.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\threads_posix.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\poll_posix.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\threads_windows.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\poll_windows.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\windows_usb.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\strerror.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\strerror.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\structs.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\sync.c">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\sync.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Native\Linux\keys.cpp">
-      <Filter>Ctrlr_Standalone\Native\Linux</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\threads_posix.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Native\Linux\libr-bfd.c">
-      <Filter>Ctrlr_Standalone\Native\Linux</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\threads_windows.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Native\Linux\libr.c">
-      <Filter>Ctrlr_Standalone\Native\Linux</Filter>
+    <ClCompile Include="..\..\..\..\Source\Misc\usb.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\windows_usb.c">
+      <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Native\CtrlrLinux.cpp">
       <Filter>Ctrlr_Standalone\Native</Filter>
@@ -3102,62 +3105,74 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\lua\compat.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\lua</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\compat.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\lua\enums.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\lua</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\darwin_usb.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\lua\structs.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\lua</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\enums.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\hotplug.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\hotplug.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\libusb.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\inttypes.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\libusbi.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\juce_PluginHostType.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\darwin_usb.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\keys.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\linux_usbfs.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libr.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\poll_posix.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\poll_windows.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb_linux.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\threads_posix.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb_osx.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\threads_windows.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb_windows.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\windows_common.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusbi.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\windows_usb.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb\os</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\linux_usbfs.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\version.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\poll_posix.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\version_nano.h">
-      <Filter>Ctrlr_Standalone\Misc\libusb</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\poll_windows.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\juce_PluginHostType.h">
-      <Filter>Ctrlr_Standalone\Misc</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\structs.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Native\Linux\keys.h">
-      <Filter>Ctrlr_Standalone\Native\Linux</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\threads_posix.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Native\Linux\libr.h">
-      <Filter>Ctrlr_Standalone\Native\Linux</Filter>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\threads_windows.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\version.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\version_nano.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\windows_common.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\windows_usb.h">
+      <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrGeneric.h">
       <Filter>Ctrlr_Standalone\Native</Filter>

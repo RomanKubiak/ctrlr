@@ -21,7 +21,7 @@
  */
 
 #ifdef LINUX
-#include "../configs/linux.h"
+#include "libusb_linux.h"
 #include <assert.h>
 #include <ctype.h>
 #include <dirent.h>

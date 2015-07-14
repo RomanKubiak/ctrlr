@@ -591,6 +591,11 @@ CtrlrMidiMessage &CtrlrModulator::getMidiMessage(const CtrlrMIDIDeviceType sourc
 	return (processor.getMidiMessage(source));
 }
 
+CtrlrMidiMessage &CtrlrModulator::getMidiMessage()
+{
+    return (processor.getMidiMessage(inputDevice));
+}
+
 CtrlrOwnedMidiMessage &CtrlrModulator::getOwnedMidiMessage(const CtrlrMIDIDeviceType source)
 {
 	return (processor.getOwnedMidiMessage(source));

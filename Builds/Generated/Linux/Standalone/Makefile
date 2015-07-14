@@ -18,7 +18,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -std=c++11 -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Lua/LuaSocket/include -I ../../../../Source/Misc -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
+  CPPFLAGS := $(DEPFLAGS) -std=c++11 -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Lua/LuaSocket/include -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0 -fpermissive -w -fPIC -std=c++0x -fexceptions
   CXXFLAGS += $(CFLAGS)
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
@@ -38,7 +38,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -std=c++11 -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_Standalone" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
+  CPPFLAGS := $(DEPFLAGS) -std=c++11 -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_Standalone" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Os -fpermissive -w -fPIC -std=c++0x -fexceptions
   CXXFLAGS += $(CFLAGS)
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
@@ -58,7 +58,7 @@ ifeq ($(CONFIG),Release_Nightly)
     TARGET_ARCH := 
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -std=c++11 -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
+  CPPFLAGS := $(DEPFLAGS) -std=c++11 -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Os -fpermissive -w -fPIC -std=c++0x -fexceptions
   CXXFLAGS += $(CFLAGS)
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
@@ -191,7 +191,6 @@ OBJECTS := \
   $(OBJDIR)/function_9cb00bdd.o \
   $(OBJDIR)/inheritance_f17c372f.o \
   $(OBJDIR)/link_compatibility_8e43bc70.o \
-  $(OBJDIR)/lua_1fbf8c9d.o \
   $(OBJDIR)/object_rep_52fbed22.o \
   $(OBJDIR)/open_cd335d4f.o \
   $(OBJDIR)/pcall_535c3f33.o \
@@ -213,27 +212,28 @@ OBJECTS := \
   $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
   $(OBJDIR)/CtrlrMidiMessage_58a157ae.o \
   $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
-  $(OBJDIR)/compat_3665e2ef.o \
-  $(OBJDIR)/enums_9bd4d40f.o \
-  $(OBJDIR)/structs_f327dabb.o \
-  $(OBJDIR)/usb_47e8fb81.o \
-  $(OBJDIR)/core_2d64bc55.o \
-  $(OBJDIR)/descriptor_d3c78765.o \
-  $(OBJDIR)/hotplug_e313c06f.o \
-  $(OBJDIR)/io_29e1805c.o \
-  $(OBJDIR)/darwin_usb_dd0dad4b.o \
-  $(OBJDIR)/linux_udev_e95af00a.o \
-  $(OBJDIR)/linux_usbfs_5b6b3311.o \
-  $(OBJDIR)/poll_posix_bb67a022.o \
-  $(OBJDIR)/poll_windows_d3355a2.o \
-  $(OBJDIR)/threads_posix_6c2ac7f8.o \
-  $(OBJDIR)/threads_windows_99cbdff8.o \
-  $(OBJDIR)/windows_usb_5e044a13.o \
-  $(OBJDIR)/strerror_d852d8ad.o \
-  $(OBJDIR)/sync_493d5851.o \
-  $(OBJDIR)/keys_3fbadac8.o \
-  $(OBJDIR)/libr-bfd_f5e18fb4.o \
-  $(OBJDIR)/libr_e9fa1d21.o \
+  $(OBJDIR)/compat_419eff06.o \
+  $(OBJDIR)/core_707e1fa3.o \
+  $(OBJDIR)/darwin_usb_594f06f0.o \
+  $(OBJDIR)/descriptor_c730b833.o \
+  $(OBJDIR)/enums_78c5918.o \
+  $(OBJDIR)/hotplug_4a7ef261.o \
+  $(OBJDIR)/io_5af75f2a.o \
+  $(OBJDIR)/keys_84371cb8.o \
+  $(OBJDIR)/libr-bfd_c5515a4.o \
+  $(OBJDIR)/libr_7f7e1b11.o \
+  $(OBJDIR)/linux_udev_659c49af.o \
+  $(OBJDIR)/linux_usbfs_67550e0c.o \
+  $(OBJDIR)/lua_422403e.o \
+  $(OBJDIR)/poll_posix_37a8f9c7.o \
+  $(OBJDIR)/poll_windows_7e84da07.o \
+  $(OBJDIR)/strerror_5e4de4fb.o \
+  $(OBJDIR)/structs_4f124184.o \
+  $(OBJDIR)/sync_8c56bb9f.o \
+  $(OBJDIR)/threads_posix_2509d033.o \
+  $(OBJDIR)/threads_windows_9709c573.o \
+  $(OBJDIR)/usb_4a02eca.o \
+  $(OBJDIR)/windows_usb_69ee250e.o \
   $(OBJDIR)/CtrlrLinux_891d1366.o \
   $(OBJDIR)/CtrlrMac_55cf0d81.o \
   $(OBJDIR)/CtrlrNative_d4f61d2f.o \
@@ -986,11 +986,6 @@ $(OBJDIR)/link_compatibility_8e43bc70.o: ../../../../Source/Lua/luabind/src/link
 	@echo "Compiling link_compatibility.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/lua_1fbf8c9d.o: ../../../../Source/Lua/luabind/src/lua.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling lua.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
 $(OBJDIR)/object_rep_52fbed22.o: ../../../../Source/Lua/luabind/src/object_rep.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling object_rep.cpp"
@@ -1096,109 +1091,114 @@ $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o: ../../../../Source/MIDI/CtrlrOwnedMi
 	@echo "Compiling CtrlrOwnedMidiMessage.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/compat_3665e2ef.o: ../../../../Source/Misc/libusb/lua/compat.c
+$(OBJDIR)/compat_419eff06.o: ../../../../Source/Misc/compat.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling compat.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/enums_9bd4d40f.o: ../../../../Source/Misc/libusb/lua/enums.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling enums.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/structs_f327dabb.o: ../../../../Source/Misc/libusb/lua/structs.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling structs.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/usb_47e8fb81.o: ../../../../Source/Misc/libusb/lua/usb.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling usb.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/core_2d64bc55.o: ../../../../Source/Misc/libusb/core.c
+$(OBJDIR)/core_707e1fa3.o: ../../../../Source/Misc/core.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling core.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/descriptor_d3c78765.o: ../../../../Source/Misc/libusb/descriptor.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling descriptor.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/hotplug_e313c06f.o: ../../../../Source/Misc/libusb/hotplug.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling hotplug.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/io_29e1805c.o: ../../../../Source/Misc/libusb/io.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling io.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/darwin_usb_dd0dad4b.o: ../../../../Source/Misc/libusb/os/darwin_usb.c
+$(OBJDIR)/darwin_usb_594f06f0.o: ../../../../Source/Misc/darwin_usb.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling darwin_usb.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/linux_udev_e95af00a.o: ../../../../Source/Misc/libusb/os/linux_udev.c
+$(OBJDIR)/descriptor_c730b833.o: ../../../../Source/Misc/descriptor.c
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling linux_udev.c"
+	@echo "Compiling descriptor.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/linux_usbfs_5b6b3311.o: ../../../../Source/Misc/libusb/os/linux_usbfs.c
+$(OBJDIR)/enums_78c5918.o: ../../../../Source/Misc/enums.c
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling linux_usbfs.c"
+	@echo "Compiling enums.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/poll_posix_bb67a022.o: ../../../../Source/Misc/libusb/os/poll_posix.c
+$(OBJDIR)/hotplug_4a7ef261.o: ../../../../Source/Misc/hotplug.c
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling poll_posix.c"
+	@echo "Compiling hotplug.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/poll_windows_d3355a2.o: ../../../../Source/Misc/libusb/os/poll_windows.c
+$(OBJDIR)/io_5af75f2a.o: ../../../../Source/Misc/io.c
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling poll_windows.c"
+	@echo "Compiling io.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/threads_posix_6c2ac7f8.o: ../../../../Source/Misc/libusb/os/threads_posix.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling threads_posix.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/threads_windows_99cbdff8.o: ../../../../Source/Misc/libusb/os/threads_windows.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling threads_windows.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/windows_usb_5e044a13.o: ../../../../Source/Misc/libusb/os/windows_usb.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling windows_usb.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/strerror_d852d8ad.o: ../../../../Source/Misc/libusb/strerror.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling strerror.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/sync_493d5851.o: ../../../../Source/Misc/libusb/sync.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling sync.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/keys_3fbadac8.o: ../../../../Source/Native/Linux/keys.cpp
+$(OBJDIR)/keys_84371cb8.o: ../../../../Source/Misc/keys.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling keys.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/libr-bfd_f5e18fb4.o: ../../../../Source/Native/Linux/libr-bfd.c
+$(OBJDIR)/libr-bfd_c5515a4.o: ../../../../Source/Misc/libr-bfd.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling libr-bfd.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/libr_e9fa1d21.o: ../../../../Source/Native/Linux/libr.c
+$(OBJDIR)/libr_7f7e1b11.o: ../../../../Source/Misc/libr.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling libr.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/linux_udev_659c49af.o: ../../../../Source/Misc/linux_udev.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling linux_udev.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/linux_usbfs_67550e0c.o: ../../../../Source/Misc/linux_usbfs.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling linux_usbfs.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lua_422403e.o: ../../../../Source/Misc/lua.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lua.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/poll_posix_37a8f9c7.o: ../../../../Source/Misc/poll_posix.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling poll_posix.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/poll_windows_7e84da07.o: ../../../../Source/Misc/poll_windows.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling poll_windows.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/strerror_5e4de4fb.o: ../../../../Source/Misc/strerror.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling strerror.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/structs_4f124184.o: ../../../../Source/Misc/structs.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling structs.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/sync_8c56bb9f.o: ../../../../Source/Misc/sync.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling sync.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/threads_posix_2509d033.o: ../../../../Source/Misc/threads_posix.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling threads_posix.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/threads_windows_9709c573.o: ../../../../Source/Misc/threads_windows.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling threads_windows.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/usb_4a02eca.o: ../../../../Source/Misc/usb.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling usb.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/windows_usb_69ee250e.o: ../../../../Source/Misc/windows_usb.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling windows_usb.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLinux_891d1366.o: ../../../../Source/Native/CtrlrLinux.cpp
