@@ -18,7 +18,7 @@
  */
 
 #ifdef LINUX
-#include "configs/linux.h"
+#include "libusb_linux.h"
 #endif // JUCE_LINUX
 #include <errno.h>
 #include <stdint.h>

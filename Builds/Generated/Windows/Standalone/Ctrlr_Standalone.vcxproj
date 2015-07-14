@@ -60,7 +60,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;_CRT_SECURE_NO_WARNINGS;JUCER_VS2010_FC975A20=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -105,7 +105,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=0;JucePlugin_Build_Standalone;_CRT_SECURE_NO_WARNINGS;JUCER_VS2010_FC975A20=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -151,7 +151,7 @@
     </Midl>
     <ClCompile>
       <Optimization>MinSpace</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;_CRT_SECURE_NO_WARNINGS;JUCER_VS2010_FC975A20=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -310,7 +310,6 @@
     <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\function.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\inheritance.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\link_compatibility.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\lua.c"/>
     <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\object_rep.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\open.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\pcall.cpp"/>
@@ -332,27 +331,28 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\compat.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\enums.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\structs.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\lua\usb.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\core.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\descriptor.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\hotplug.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\io.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\darwin_usb.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\linux_udev.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\linux_usbfs.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\poll_posix.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\poll_windows.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\threads_posix.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\threads_windows.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\os\windows_usb.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\strerror.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\libusb\sync.c"/>
-    <ClCompile Include="..\..\..\..\Source\Native\Linux\keys.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Native\Linux\libr-bfd.c"/>
-    <ClCompile Include="..\..\..\..\Source\Native\Linux\libr.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\compat.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\core.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\darwin_usb.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\descriptor.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\enums.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\hotplug.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\io.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\keys.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\libr-bfd.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\libr.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\linux_udev.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\linux_usbfs.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\lua.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\poll_posix.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\poll_windows.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\strerror.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\structs.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\sync.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\threads_posix.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\threads_windows.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\usb.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\windows_usb.c"/>
     <ClCompile Include="..\..\..\..\Source\Native\CtrlrLinux.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Native\CtrlrMac.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Native\CtrlrNative.cpp"/>
@@ -1788,25 +1788,29 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\lua\compat.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\lua\enums.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\lua\structs.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\hotplug.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\libusb.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\libusbi.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\darwin_usb.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\linux_usbfs.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\poll_posix.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\poll_windows.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\threads_posix.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\threads_windows.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\windows_common.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\os\windows_usb.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\version.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\libusb\version_nano.h"/>
-    <ClInclude Include="..\..\..\..\Source\Misc\juce_PluginHostType.h"/>
-    <ClInclude Include="..\..\..\..\Source\Native\Linux\keys.h"/>
-    <ClInclude Include="..\..\..\..\Source\Native\Linux\libr.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\compat.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\darwin_usb.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\enums.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\hotplug.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\inttypes.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\juce_PluginHostType.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\keys.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libr.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb_linux.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb_osx.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb_windows.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libusbi.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\linux_usbfs.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\poll_posix.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\poll_windows.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\structs.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\threads_posix.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\threads_windows.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\version.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\version_nano.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\windows_common.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\windows_usb.h"/>
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrGeneric.h"/>
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrLinux.h"/>
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrMac.h"/>

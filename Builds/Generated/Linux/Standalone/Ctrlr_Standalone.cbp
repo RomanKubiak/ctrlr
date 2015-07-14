@@ -44,6 +44,7 @@
 					<Add directory="../../../../Source/Lua/luabind" />
 					<Add directory="../../../../Source/Lua/luabind/luabind" />
 					<Add directory="../../../../Source/Misc" />
+					<Add directory="../../../../Source/Misc/include" />
 					<Add directory="../../../../Source/MIDI" />
 					<Add directory="../../../../Source" />
 					<Add directory="../../../../Source/UIComponents" />
@@ -104,6 +105,7 @@
 					<Add directory="../../../../Source/Lua/luabind" />
 					<Add directory="../../../../Source/Lua/luabind/luabind" />
 					<Add directory="../../../../Source/Misc" />
+					<Add directory="../../../../Source/Misc/include" />
 					<Add directory="../../../../Source/MIDI" />
 					<Add directory="../../../../Source" />
 					<Add directory="../../../../Source/UIComponents" />
@@ -178,6 +180,7 @@
 					<Add directory="../../../../Source/Lua/luabind" />
 					<Add directory="../../../../Source/Lua/luabind/luabind" />
 					<Add directory="../../../../Source/Misc" />
+					<Add directory="../../../../Source/Misc/include" />
 					<Add directory="../../../../Source/MIDI" />
 					<Add directory="../../../../Source" />
 					<Add directory="../../../../Source/UIComponents" />
@@ -2517,9 +2520,6 @@
 		<Unit filename="../../../../Source/Lua/luabind/src/function.cpp" />
 		<Unit filename="../../../../Source/Lua/luabind/src/inheritance.cpp" />
 		<Unit filename="../../../../Source/Lua/luabind/src/link_compatibility.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/lua.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="../../../../Source/Lua/luabind/src/object_rep.cpp" />
 		<Unit filename="../../../../Source/Lua/luabind/src/open.cpp" />
 		<Unit filename="../../../../Source/Lua/luabind/src/pcall.cpp" />
@@ -2550,77 +2550,93 @@
 		<Unit filename="../../../../Source/MIDI/CtrlrMidiMessageEx.h" />
 		<Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.h" />
-		<Unit filename="../../../../Source/Misc/juce_PluginHostType.h" />
-		<Unit filename="../../../../Source/Misc/libusb/core.c">
+		<Unit filename="../../../../Source/Misc/compat.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/descriptor.c">
+		<Unit filename="../../../../Source/Misc/core.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/hotplug.c">
+		<Unit filename="../../../../Source/Misc/darwin_usb.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/hotplug.h" />
-		<Unit filename="../../../../Source/Misc/libusb/io.c">
+		<Unit filename="../../../../Source/Misc/descriptor.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/libusb.h" />
-		<Unit filename="../../../../Source/Misc/libusb/libusbi.h" />
-		<Unit filename="../../../../Source/Misc/libusb/lua/compat.c">
+		<Unit filename="../../../../Source/Misc/enums.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/lua/compat.h" />
-		<Unit filename="../../../../Source/Misc/libusb/lua/enums.c">
+		<Unit filename="../../../../Source/Misc/hotplug.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/lua/enums.h" />
-		<Unit filename="../../../../Source/Misc/libusb/lua/structs.c">
+		<Unit filename="../../../../Source/Misc/include/compat.h" />
+		<Unit filename="../../../../Source/Misc/include/darwin_usb.h" />
+		<Unit filename="../../../../Source/Misc/include/enums.h" />
+		<Unit filename="../../../../Source/Misc/include/hotplug.h" />
+		<Unit filename="../../../../Source/Misc/include/inttypes.h" />
+		<Unit filename="../../../../Source/Misc/include/juce_PluginHostType.h" />
+		<Unit filename="../../../../Source/Misc/include/keys.h" />
+		<Unit filename="../../../../Source/Misc/include/libr.h" />
+		<Unit filename="../../../../Source/Misc/include/libusb.h" />
+		<Unit filename="../../../../Source/Misc/include/libusb_linux.h" />
+		<Unit filename="../../../../Source/Misc/include/libusb_osx.h" />
+		<Unit filename="../../../../Source/Misc/include/libusb_windows.h" />
+		<Unit filename="../../../../Source/Misc/include/libusbi.h" />
+		<Unit filename="../../../../Source/Misc/include/linux_usbfs.h" />
+		<Unit filename="../../../../Source/Misc/include/poll_posix.h" />
+		<Unit filename="../../../../Source/Misc/include/poll_windows.h" />
+		<Unit filename="../../../../Source/Misc/include/structs.h" />
+		<Unit filename="../../../../Source/Misc/include/threads_posix.h" />
+		<Unit filename="../../../../Source/Misc/include/threads_windows.h" />
+		<Unit filename="../../../../Source/Misc/include/version.h" />
+		<Unit filename="../../../../Source/Misc/include/version_nano.h" />
+		<Unit filename="../../../../Source/Misc/include/windows_common.h" />
+		<Unit filename="../../../../Source/Misc/include/windows_usb.h" />
+		<Unit filename="../../../../Source/Misc/io.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/lua/structs.h" />
-		<Unit filename="../../../../Source/Misc/libusb/lua/usb.c">
+		<Unit filename="../../../../Source/Misc/keys.cpp" />
+		<Unit filename="../../../../Source/Misc/libr-bfd.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/os/darwin_usb.c">
+		<Unit filename="../../../../Source/Misc/libr.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/os/darwin_usb.h" />
-		<Unit filename="../../../../Source/Misc/libusb/os/linux_udev.c">
+		<Unit filename="../../../../Source/Misc/linux_udev.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/os/linux_usbfs.c">
+		<Unit filename="../../../../Source/Misc/linux_usbfs.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/os/linux_usbfs.h" />
-		<Unit filename="../../../../Source/Misc/libusb/os/poll_posix.c">
+		<Unit filename="../../../../Source/Misc/lua.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/os/poll_posix.h" />
-		<Unit filename="../../../../Source/Misc/libusb/os/poll_windows.c">
+		<Unit filename="../../../../Source/Misc/poll_posix.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/os/poll_windows.h" />
-		<Unit filename="../../../../Source/Misc/libusb/os/threads_posix.c">
+		<Unit filename="../../../../Source/Misc/poll_windows.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/os/threads_posix.h" />
-		<Unit filename="../../../../Source/Misc/libusb/os/threads_windows.c">
+		<Unit filename="../../../../Source/Misc/strerror.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/os/threads_windows.h" />
-		<Unit filename="../../../../Source/Misc/libusb/os/windows_common.h" />
-		<Unit filename="../../../../Source/Misc/libusb/os/windows_usb.c">
+		<Unit filename="../../../../Source/Misc/structs.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/os/windows_usb.h" />
-		<Unit filename="../../../../Source/Misc/libusb/strerror.c">
+		<Unit filename="../../../../Source/Misc/sync.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/sync.c">
+		<Unit filename="../../../../Source/Misc/threads_posix.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../../../Source/Misc/libusb/version.h" />
-		<Unit filename="../../../../Source/Misc/libusb/version_nano.h" />
+		<Unit filename="../../../../Source/Misc/threads_windows.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/windows_usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../../../Source/Native/CtrlrGeneric.h" />
 		<Unit filename="../../../../Source/Native/CtrlrLinux.cpp" />
 		<Unit filename="../../../../Source/Native/CtrlrLinux.h" />
@@ -2630,15 +2646,6 @@
 		<Unit filename="../../../../Source/Native/CtrlrNative.h" />
 		<Unit filename="../../../../Source/Native/CtrlrWindows.cpp" />
 		<Unit filename="../../../../Source/Native/CtrlrWindows.h" />
-		<Unit filename="../../../../Source/Native/Linux/keys.cpp" />
-		<Unit filename="../../../../Source/Native/Linux/keys.h" />
-		<Unit filename="../../../../Source/Native/Linux/libr-bfd.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../../../Source/Native/Linux/libr.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../../../Source/Native/Linux/libr.h" />
 		<Unit filename="../../../../Source/Plugin/CtrlrProcessor.cpp" />
 		<Unit filename="../../../../Source/Plugin/CtrlrProcessor.h" />
 		<Unit filename="../../../../Source/Plugin/CtrlrProcessorEditorForLive.cpp" />

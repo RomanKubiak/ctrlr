@@ -22,15 +22,15 @@
 #define LIBUSBI_H
 
 #ifdef LINUX
-#include "configs/linux.h"
+#include "libusb_linux.h"
 #endif // JUCE_LINUX
 
 #ifdef _WIN32
-#include "configs/windows.h"
+#include "libusb_windows.h"
 #endif
 
 #ifdef __APPLE__
-#include "configs/osx.h"
+#include "libusb_osx.h"
 #endif
 
 #include <stdlib.h>
@@ -231,9 +231,9 @@ static inline void usbi_dbg(const char *format, ...)
 
 /* Internal abstraction for thread synchronization */
 #if defined(THREADS_POSIX)
-#include "os/threads_posix.h"
+#include "threads_posix.h"
 #elif defined(OS_WINDOWS) || defined(OS_WINCE)
-#include <os/threads_windows.h>
+#include <threads_windows.h>
 #endif
 
 extern struct libusb_context *usbi_default_context;
@@ -457,9 +457,9 @@ void usbi_disconnect_device (struct libusb_device *dev);
 /* Internal abstraction for poll (needs struct usbi_transfer on Windows) */
 #if defined(OS_LINUX) || defined(OS_DARWIN) || defined(OS_OPENBSD) || defined(OS_NETBSD)
 #include <unistd.h>
-#include "os/poll_posix.h"
+#include "poll_posix.h"
 #elif defined(OS_WINDOWS) || defined(OS_WINCE)
-#include "os/poll_windows.h"
+#include "poll_windows.h"
 #endif
 
 #if (defined(OS_WINDOWS) || defined(OS_WINCE)) && !defined(__GNUC__)

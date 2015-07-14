@@ -95,7 +95,8 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 
 			@return the CtrlrMidiMessage object for this modulator, this method will fail for static modulators (and will propably crash Ctrlr)
 		*/
-		CtrlrMidiMessage &getMidiMessage(const CtrlrMIDIDeviceType source = inputDevice);
+		CtrlrMidiMessage &getMidiMessage(const CtrlrMIDIDeviceType source);
+		CtrlrMidiMessage &getMidiMessage();
 
 		/** @brief Set the value to the modulator (uses the non-mapped value or the index of the value on the list)
 

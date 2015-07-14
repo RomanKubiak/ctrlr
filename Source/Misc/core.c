@@ -21,10 +21,10 @@
  */
 
 #ifdef LINUX
-#include "configs/linux.h"
+#include "libusb_linux.h"
 #endif // JUCE_LINUX
 #ifdef __APPLE__
-#include "configs/osx.h"
+#include "libusb_osx.h"
 #endif
 
 #include <errno.h>
