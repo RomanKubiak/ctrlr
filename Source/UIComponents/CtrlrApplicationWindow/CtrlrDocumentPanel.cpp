@@ -53,7 +53,7 @@ void CtrlrDocumentPanel::activeDocumentChanged()
                 ImageButton *imageButton = new ImageButton ("Close"+_STR(i));
                 imageButton->addListener (this);
                 imageButton->setSize (16,16);
-                imageButton->getProperties().set ("index", button->getIndex());
+                imageButton->getProperties().set ("index", bar.indexOfTabButton(button));
                 imageButton->setMouseCursor (MouseCursor::PointingHandCursor);
                 imageButton->setImages (false, true, true,
                             IMAGE (ico_delete_png), 1.000f, Colour (0x00858585),
@@ -73,14 +73,21 @@ void CtrlrDocumentPanel::setEditor (CtrlrEditor *_editorToSet)
 
 void CtrlrDocumentPanel::buttonClicked (Button *button)
 {
-    int documentIndex       = (int)button->getProperties().getWithDefault("index", -1);
-    CtrlrPanelEditor *ed    = dynamic_cast<CtrlrPanelEditor*> (getDocument(documentIndex));
+    int index               = (int)button->getProperties().getWithDefault("index", -1);
+    CtrlrPanelEditor *ed    = dynamic_cast<CtrlrPanelEditor*> (getDocument(index));
 
-    if (documentIndex >= 0 && ed != nullptr)
+    TabbedComponent *tc = getCurrentTabbedComponent();
+
+    if (tc != nullptr)
     {
-        if (AlertWindow::showYesNoCancelBox (AlertWindow::QuestionIcon, "Close panel", "Are you sure you want to close this panel [" + ed->getName() + "]", "Yes", "No", "Cancel", this) == 1)
+        CtrlrPanelEditor *ed = dynamic_cast<CtrlrPanelEditor*> (tc->getTabContentComponent(index));
+
+        if (ed != nullptr)
         {
-            owner.removePanel(ed);
+            if (AlertWindow::showYesNoCancelBox (AlertWindow::QuestionIcon, "Close panel", "Are you sure you want to close this panel [" + ed->getName() + "]", "Yes", "No", "Cancel", this) == 1)
+            {
+                owner.removePanel(ed);
+            }
         }
     }
 }

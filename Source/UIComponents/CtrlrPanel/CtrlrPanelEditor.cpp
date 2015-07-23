@@ -5,7 +5,6 @@
 #include "CtrlrProcessor.h"
 #include "CtrlrComponents/CtrlrComponentTypeManager.h"
 #include "CtrlrApplicationWindow/CtrlrLookAndFeel.h"
-#include "CtrlrPanel/CtrlrPanelMIDIToolbar.h"
 #include "CtrlrInlineUtilitiesGUI.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrPanel/CtrlrPanel.h"
@@ -73,8 +72,7 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	  ctrlrComponentSelection(nullptr),
       ctrlrPanelProperties (nullptr),
       spacerComponent (nullptr),
-	  ctrlrPanelNotifier(nullptr),
-	  midiToolbar(*this)
+	  ctrlrPanelNotifier(nullptr)
 {
 	ctrlrComponentSelection = new CtrlrComponentSelection (*this);
 
@@ -84,7 +82,6 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
     addAndMakeVisible (ctrlrPanelProperties = new CtrlrPanelProperties (*this));
     addAndMakeVisible (spacerComponent = new StretchableLayoutResizerBar (&layoutManager, 1, true));
 	addAndMakeVisible (ctrlrPanelNotifier = new CtrlrPanelNotifier(*this));
-	addAndMakeVisible (&midiToolbar);
 
 	ctrlrPanelNotifier->setAlwaysOnTop (true);
 	ctrlrPanelNotifier->setVisible (false);
@@ -128,7 +125,6 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	setProperty(Ids::luaPanelFileDragExitHandler, COMBO_ITEM_NONE);
 
 	setProperty(Ids::uiPanelInvisibleComponentAlpha, 0.5);
-	setProperty(Ids::uiPanelMidiToolbarVisible, false);
 	setProperty(Ids::uiPanelTooltipBackgroundColour, "0xffeeeebb");
 	setProperty(Ids::uiPanelTooltipOutlineColour, "0xff000000");
 	setProperty(Ids::uiPanelTooltipColour, "0xff000000");
@@ -167,20 +163,9 @@ void CtrlrPanelEditor::paint (Graphics& g)
 
 void CtrlrPanelEditor::resized()
 {
-	midiToolbar.setBounds (0, 0, getWidth(), CTRLR_TOOLBAR_HEIGHT);
-
-	if (!midiToolbar.isVisible())
-	{
-		ctrlrPanelViewport->setBounds 	(0, 				0, 	getWidth() - 308, 	getHeight());
-		ctrlrPanelProperties->setBounds (getWidth() - 300, 	0, 	300, 				getHeight());
-		spacerComponent->setBounds 		(getWidth(), 		0, 	8, 					getHeight());
-	}
-	else
-	{
-		ctrlrPanelViewport->setBounds 	(0, 				CTRLR_TOOLBAR_HEIGHT, getWidth() - 308, getHeight() - CTRLR_TOOLBAR_HEIGHT);
-		ctrlrPanelProperties->setBounds (getWidth() - 300, 	CTRLR_TOOLBAR_HEIGHT, 300, 				getHeight() - CTRLR_TOOLBAR_HEIGHT);
-		spacerComponent->setBounds 		(getWidth(), 		CTRLR_TOOLBAR_HEIGHT, 8, 				getHeight() - CTRLR_TOOLBAR_HEIGHT);
-	}
+    ctrlrPanelViewport->setBounds 	(0, 				0, 	getWidth() - 308, 	getHeight());
+    ctrlrPanelProperties->setBounds (getWidth() - 300, 	0, 	300, 				getHeight());
+    spacerComponent->setBounds 		(getWidth(), 		0, 	8, 					getHeight());
 
 	if (ctrlrPanelNotifier)
 	{
@@ -207,17 +192,17 @@ void CtrlrPanelEditor::layoutItems()
 		if (getProperty(Ids::uiPanelPropertiesOnRight))
 		{
 			Component* comps[] = { ctrlrPanelProperties, spacerComponent, ctrlrPanelViewport  };
-			layoutManager.layOutComponents (comps, 3, 0, midiToolbar.isVisible() ? CTRLR_TOOLBAR_HEIGHT : 0, getWidth(), getHeight() - (midiToolbar.isVisible() ? CTRLR_TOOLBAR_HEIGHT : 0), false, true);
+			layoutManager.layOutComponents (comps, 3, 0, 0, getWidth(), getHeight(), false, true);
 		}
 		else
 		{
 			Component* comps[] = { ctrlrPanelViewport, spacerComponent, ctrlrPanelProperties  };
-			layoutManager.layOutComponents (comps, 3, 0, midiToolbar.isVisible() ? CTRLR_TOOLBAR_HEIGHT : 0, getWidth(), getHeight() - (midiToolbar.isVisible() ? CTRLR_TOOLBAR_HEIGHT : 0), false, true);
+			layoutManager.layOutComponents (comps, 3, 0, 0, getWidth(), getHeight(), false, true);
 		}
 	}
 	else
 	{
-		layoutManager.layOutComponents (editorComponents, 1, 0, midiToolbar.isVisible() ? CTRLR_TOOLBAR_HEIGHT : 0, getWidth(), getHeight() - (midiToolbar.isVisible() ? CTRLR_TOOLBAR_HEIGHT : 0), false, true);
+		layoutManager.layOutComponents (editorComponents, 1, 0, 0, getWidth(), getHeight(), false, true);
 	}
 }
 
@@ -360,11 +345,6 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 				resized();
 			}
 		}
-		else if (property == Ids::uiPanelMidiToolbarVisible)
-		{
-			midiToolbar.setVisible ((bool)getProperty(property));
-			resized();
-		}
 		else if (property == Ids::uiPanelDisableCombosOnEdit)
 		{
 			if ((bool)getProperty(property) && getMode())
@@ -480,11 +460,6 @@ void CtrlrPanelEditor::changeListenerCallback (ChangeBroadcaster *source)
 			ctrlrPanelNotifier->setVisible (false);
 		}
 	}
-}
-
-void CtrlrPanelEditor::toggleMIDIToolbar()
-{
-	setProperty (Ids::uiPanelMidiToolbarVisible, !getProperty(Ids::uiPanelMidiToolbarVisible));
 }
 
 void CtrlrPanelEditor::reloadResources (Array <CtrlrPanelResource*> resourcesThatChanged)

@@ -85,7 +85,6 @@ namespace Ids
 	DECLARE_ID (uiPanelInvisibleComponentAlpha);
 	DECLARE_ID (uiPanelModulatorListViewTree);
 	DECLARE_ID (uiPanelModulatorListTreeState);
-	DECLARE_ID (uiPanelMidiToolbarVisible);
 	DECLARE_ID (uiPanelDisableCombosOnEdit);
 
 	DECLARE_ID (uiPanelTooltipBackgroundColour);

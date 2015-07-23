@@ -47,7 +47,6 @@
   <id name="uiPanelClipboardTree" 			text="uiPanelClipboardTree" type="Text"/>
   <id name="uiPanelPropertiesOnRight" 		text="Properties panel on the right side" type="Bool"/>
   <id name="uiPanelInvisibleComponentAlpha" text="Alpha for invisible components in edit mode" type="Numeric" max="1" int="0.01"/>
-  <id name="uiPanelMidiToolbarVisible"  	text="MIDI Toolbar visible" type="Bool" />
   <id name="uiPanelDisableCombosOnEdit" 	text="Disable combos when editing panel" type="Bool" />
 
   <id name="uiPanelTooltipBackgroundColour" text="Tooltip background colour" 		type="Colour" />

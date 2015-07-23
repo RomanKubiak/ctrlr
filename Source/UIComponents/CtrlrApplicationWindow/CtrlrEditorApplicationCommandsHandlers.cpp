@@ -231,15 +231,6 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::BufferEditor, true);
 			break;
 
-		case showMidiToolbar:
-			if (getActivePanel())
-				if (getActivePanel()->getEditor())
-				{
-					getActivePanel()->getEditor()->toggleMIDIToolbar ();
-					resized();
-				}
-			break;
-
 		case doSaveSaveToCurrentProgram:
 		case doSaveSaveToNewProgram:
 		case doNewBank:
