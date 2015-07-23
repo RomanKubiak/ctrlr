@@ -13,7 +13,6 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
                                 showMidiMonitor,
                                 showLogViewer,
                                 showMidiCalculator,
-								showMidiToolbar,
                                 showAboutDialog,
 								showKeyboardMappingDialog,
 								doViewPropertyDisplayIDs,
@@ -121,11 +120,6 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 		case showMidiCalculator:
 			result.setInfo ("MIDI Calculator", "A useful tool to translate Heximal, Binary, Decimal values", globalCategory, 0);
 			result.addDefaultKeypress ('j', ModifierKeys::commandModifier);
-			break;
-
-		case showMidiToolbar:
-			result.setInfo ("MIDI Toolbar", "MIDI toolbar for managing programs,devices", panelCategory, 0);
-			result.setActive (isPanelActive(false));
 			break;
 
 		case showAboutDialog:

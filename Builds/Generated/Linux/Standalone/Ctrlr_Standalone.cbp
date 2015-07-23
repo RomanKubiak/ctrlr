@@ -2860,8 +2860,6 @@
 		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.h" />
-		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.cpp" />
-		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorListTree.cpp" />

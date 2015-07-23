@@ -12,7 +12,6 @@
 #include "CtrlrPanelProperties.h"
 #include "CtrlrPanelViewport.h"
 #include "CtrlrPanel/CtrlrPanelUndoManager.h"
-#include "CtrlrPanel/CtrlrPanelMIDIToolbar.h"
 
 class CtrlrPanelEditor;
 
@@ -82,8 +81,6 @@ class CtrlrPanelEditor  :	public Component,
 		void notify(const String &notification, CtrlrNotificationCallback *callback, const CtrlrNotificationType ctrlrNotificationType = NotifyInformation);
 		void notificationClicked(const MouseEvent e);
 		void changeListenerCallback (ChangeBroadcaster *source);
-		void toggleMIDIToolbar();
-		const bool isMidiToolbarVisible() { return (midiToolbar.isVisible()); }
 		void setAllCombosDisabled();
 		void setAllCombosEnabled();
 		void saveLayout();
@@ -108,7 +105,6 @@ class CtrlrPanelEditor  :	public Component,
 		StretchableLayoutResizerBar* spacerComponent;
 		CtrlrPanelViewport* ctrlrPanelViewport;
 		WeakReference<CtrlrNotificationCallback> notificationCallback;
-		CtrlrPanelMIDIToolbar midiToolbar;
 		Component* editorComponentsInEditMode[3];
 		Component* editorComponents[2];
 };
