@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.3.0"
-              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="3.1.1"
+              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="3.2.0"
               defines="" companyName="Instigator" includeBinaryInAppConfig="1"
               companyWebsite="http://ctrlr.org" companyEmail="ctrlr@ctrlr.org">
   <EXPORTFORMATS>
@@ -1197,10 +1197,6 @@
         <FILE id="lYtsBd" name="CtrlrViewport.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp"/>
         <FILE id="O8D1Ll" name="CtrlrViewport.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.h"/>
-        <FILE id="NWhCCn" name="CtrlrPanelMIDIToolbar.cpp" compile="1" resource="0"
-              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.cpp"/>
-        <FILE id="mS4jyc" name="CtrlrPanelMIDIToolbar.h" compile="0" resource="0"
-              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.h"/>
         <FILE id="sAqwhg" name="CtrlrPanelCanvas.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvas.cpp"/>
         <FILE id="uiUQFi" name="CtrlrPanelCanvas.h" compile="0" resource="0"

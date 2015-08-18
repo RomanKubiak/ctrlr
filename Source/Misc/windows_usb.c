@@ -22,7 +22,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 #if defined(_MSC_VER)
-#include "configs/windows.h"
+#include "libusb_windows.h"
 #include <windows.h>
 #include <setupapi.h>
 #include <ctype.h>
