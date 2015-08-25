@@ -1,8 +1,13 @@
 BUILDDIR=../build/$HOSTTYPE
 CPUS=`cat /proc/cpuinfo  | grep processor | wc -l`
-let JOBS='CPUS / 4'
 
-echo "CTRLR[linux]: Building for $HOSTTYPE"
+if [ $CPUS -ge 4 ]; then
+	let JOBS='CPUS / 4'
+else
+	let JOBS=2
+fi
+
+echo "CTRLR[linux]: Building for $HOSTTYPE, JOBS $JOBS"
 
 if [ "$1" == "-f" ]; then
 	echo "CTRLR[linux]: Compile PCH"
