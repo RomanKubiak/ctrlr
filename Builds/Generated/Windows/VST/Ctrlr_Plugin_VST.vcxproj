@@ -60,7 +60,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_DEBUG;_CRT_SECURE_NO_WARNINGS;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -106,7 +106,7 @@
     <ClCompile>
       <Optimization>MinSpace</Optimization>
       <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CTRLR_NIGHTLY=0;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;CTRLR_NIGHTLY=0;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -153,7 +153,7 @@
     <ClCompile>
       <Optimization>MinSpace</Optimization>
       <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -420,7 +420,6 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelMIDIToolbar.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvas.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvasHandlers.cpp"/>
@@ -1894,7 +1893,6 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelMIDIToolbar.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvas.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvasLayer.h"/>

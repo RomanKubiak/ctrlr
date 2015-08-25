@@ -8,7 +8,7 @@
               pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="3.1.1" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
+              jucerVersion="3.2.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
               aaxIdentifier="com.instigator.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
@@ -1196,10 +1196,6 @@
         <FILE id="QYoO69" name="CtrlrMIDIMon.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIMon.h"/>
       </GROUP>
       <GROUP id="{3BD2D29D-3C59-3475-8680-C402E8E4321A}" name="CtrlrPanel">
-        <FILE id="JpP9su" name="CtrlrPanelMIDIToolbar.cpp" compile="1" resource="0"
-              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.cpp"/>
-        <FILE id="IuhnRD" name="CtrlrPanelMIDIToolbar.h" compile="0" resource="0"
-              file="../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.h"/>
         <FILE id="i6sFBs" name="CtrlrViewport.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp"/>
         <FILE id="nJqYrW" name="CtrlrViewport.h" compile="0" resource="0" file="../../Source/UIComponents/CtrlrPanel/CtrlrViewport.h"/>

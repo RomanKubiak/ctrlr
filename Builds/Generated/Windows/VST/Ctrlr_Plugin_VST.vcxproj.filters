@@ -1147,9 +1147,6 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelMIDIToolbar.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
     </ClCompile>
@@ -3422,9 +3419,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelMIDIToolbar.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>

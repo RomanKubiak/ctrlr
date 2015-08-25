@@ -1967,11 +1967,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.cpp"/>
-    <Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelMIDIToolbar.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp"/>
     <Unit filename="../../../../Source/UIComponents/CtrlrPanel/CtrlrViewport.h">
       <Option compile="0"/>
@@ -2662,6 +2657,26 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode1.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode2.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode3.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinUtilities.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_Wrapper.cpp">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_MacUtilities.mm">
       <Option compile="0"/>
       <Option link="0"/>
@@ -2675,6 +2690,10 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST3/juce_VST3_Wrapper.mm">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/AAX/juce_AAX_Wrapper.cpp">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -5667,7 +5686,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/AAX/juce_AAX_Wrapper.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_basics/juce_audio_basics.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_devices/juce_audio_devices.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_formats/juce_audio_formats.cpp"/>
@@ -5682,15 +5700,6 @@
     <Unit filename="../../../../Juce/modules/juce_gui_extra/juce_gui_extra.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_opengl/juce_opengl.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/utility/juce_PluginUtilities.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode1.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode2.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_DigiCode3.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinResources.rsr">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_WinUtilities.cpp"/>
-    <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/RTAS/juce_RTAS_Wrapper.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST/juce_VST_Wrapper.cpp"/>
     <Unit filename="../../../../Juce/modules/juce_audio_plugin_client/VST3/juce_VST3_Wrapper.cpp"/>
     <Unit filename="../../../VST/JuceLibraryCode/JuceHeader.h">
