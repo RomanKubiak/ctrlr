@@ -171,7 +171,6 @@ Result CtrlrManager::importInstanceResources(CtrlrNative *native)
 
 void CtrlrManager::restoreInstanceState(const ValueTree &instanceState)
 {
-	_DBG("CtrlrManager::restoreInstanceState");
 	if (ctrlrEditor)
 	{
 		restoreEditorState();

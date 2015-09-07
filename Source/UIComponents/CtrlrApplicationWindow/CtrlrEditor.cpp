@@ -9,8 +9,13 @@
 #include "CtrlrLookAndFeel.h"
 
 CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
-	: AudioProcessorEditor (_ownerFilter), ownerFilter(_ownerFilter), owner(_owner), resizer(this, 0), tempResult(Result::ok()), menuHandlerCalled(false)
+	:	AudioProcessorEditor (_ownerFilter), ownerFilter(_ownerFilter), 
+		owner(_owner), resizer(this, 0), 
+		tempResult(Result::ok()), 
+		menuHandlerCalled(false)
 {
+	Rectangle<int> editorRect;
+
     lastCommandInvocationMillis = Time::getCurrentTime().toMilliseconds();
     // http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
     owner.getCommandManager().setFirstCommandTarget (this);
@@ -47,14 +52,21 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 
 	if (owner.getProperty (Ids::ctrlrEditorBounds).toString() != String::empty)
 	{
-		setBounds (VAR2RECT(owner.getProperty (Ids::ctrlrEditorBounds)));
+		if (owner.getInstanceMode() != InstanceSingle 
+			&& owner.getInstanceMode() != InstanceSingleRestriced)
+		{
+			editorRect = VAR2RECT(owner.getProperty (Ids::ctrlrEditorBounds));
+		}
+		else if (owner.getActivePanel())
+		{
+			editorRect = VAR2RECT(owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelCanvasRectangle));
+			editorRect.setHeight (editorRect.getHeight() + CTRLR_MENUBAR_HEIGHT);
+		}
 	}
 	else
-	{
-		setSize (640, 480);
-	}
+		editorRect.setSize(640,480);
 
-	initTest();
+	setBounds (editorRect);
 
 	lookAndFeelChanged();
 	activeCtrlrChanged();
@@ -72,10 +84,13 @@ void CtrlrEditor::paint (Graphics& g)
 
 void CtrlrEditor::resized()
 {
+	
 	menuBar->setBounds (0, 0, getWidth(), CTRLR_MENUBAR_HEIGHT);
 	owner.getCtrlrDocumentPanel().setBounds (0, CTRLR_MENUBAR_HEIGHT, getWidth(), getHeight() - (CTRLR_MENUBAR_HEIGHT));
 	owner.setProperty (Ids::ctrlrEditorBounds, getBounds().toString());
 	resizer.setBounds (getWidth()-24, getHeight()-24, 24, 24);
+
+	_DBG("CtrlrEditor::resized " + getBounds().toString());
 }
 
 void CtrlrEditor::activeCtrlrChanged()

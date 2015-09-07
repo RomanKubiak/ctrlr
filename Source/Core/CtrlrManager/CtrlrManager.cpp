@@ -387,8 +387,7 @@ void CtrlrManager::restoreEditorState()
 		{
 			if (getActivePanel() && getActivePanel()->getEditor())
 			{
-				Rectangle<int> r1 = VAR2RECT(getActivePanel()->getEditor()->getProperty (Ids::uiPanelCanvasRectangle));
-				r = r1.withHeight (r1.getHeight());
+				r = VAR2RECT(getActivePanel()->getEditor()->getProperty (Ids::uiPanelCanvasRectangle));
 			}
 		}
 	}
@@ -396,6 +395,8 @@ void CtrlrManager::restoreEditorState()
 	{
 		r = VAR2RECT(getProperty(Ids::ctrlrEditorBounds, "0 0 720 480"));
 	}
+
+	_DBG("CtrlrManager::restoreEditorState setting editor size to: " + r.toString());
 
 	ctrlrEditor->setSize (r.getWidth(), r.getHeight());
 }
