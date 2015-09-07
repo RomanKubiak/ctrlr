@@ -152,7 +152,7 @@ const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, con
 const Result CtrlrWindows::getDefaultPanel(MemoryBlock &dataToWrite)
 {
 #ifdef DEBUG_INSTANCE
-	File temp("c:\\devel\\debug.bpanelz");
+	File temp("c:\\devel\\debug_small.bpanelz");
 	temp.loadFileAsData (dataToWrite);
 	return (Result::ok());
 #endif
@@ -163,7 +163,8 @@ const Result CtrlrWindows::getDefaultPanel(MemoryBlock &dataToWrite)
 const Result CtrlrWindows::getDefaultResources(MemoryBlock& dataToWrite)
 {
 #ifdef DEBUG_INSTANCE
-	File temp("c:\\devel\\debug.bpanelz");
+	File temp("c:\\devel\\debug_small.bpanelz");
+
 	MemoryBlock data;
 	{
 		ScopedPointer <FileInputStream> fis (temp.createInputStream());

@@ -198,6 +198,8 @@ void CtrlrPanel::savePanelVersioned()
 const String CtrlrPanel::exportPanel(CtrlrPanel *panel, const File &lastBrowsedDir, const File &destinationFile, MemoryBlock *outputPanelData, MemoryBlock *outputResourcesData, const bool isRestricted)
 {
 	Image panelSnapshot (Image::ARGB, 400, 400, true);
+	CtrlrPanelCanvas *canvas = panel->getEditor()->getCanvas();
+	CtrlrPanelEditor *editor = panel->getEditor();
 
 	if (panel == 0 || panel == nullptr)
 		return ("Undefined panel passeed to exporter");
@@ -214,9 +216,9 @@ const String CtrlrPanel::exportPanel(CtrlrPanel *panel, const File &lastBrowsedD
 
 	panel->luaSavePanel (PanelFileExport, exportedFile);
 
-	if (panel->getEditor()->getCanvas())
+	if (canvas)
 	{
-		Image snap	= panel->getEditor()->getCanvas()->createComponentSnapshot (panel->getEditor()->getCanvas()->getBounds(), true);
+		Image snap	= canvas->createComponentSnapshot (canvas->getBounds(), true);
 		Graphics g(panelSnapshot);
 		g.drawImageWithin (snap, 0, 0, 400, 400, RectanglePlacement::centred | RectanglePlacement::onlyReduceInSize, false);
 	}
