@@ -95,7 +95,8 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
 			]
 		,
 		class_<CtrlrNative>("CtrlrNative")
-            .def("sendKeyPressEvent", &CtrlrNative::sendKeyPressEvent)
+            .def("sendKeyPressEvent", (const Result (CtrlrNative::*) (const KeyPress &, const String &)) &CtrlrNative::sendKeyPressEvent)
+			.def("sendKeyPressEvent", (const Result (CtrlrNative::*) (const KeyPress &)) &CtrlrNative::sendKeyPressEvent)
             .scope
             [
                 def("getNativeObject", &CtrlrNative::getNativeObject)
