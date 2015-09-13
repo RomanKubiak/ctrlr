@@ -218,7 +218,7 @@ const Result CtrlrWindows::registerFileHandler()
 	return (Result::ok());
 }
 
-const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event)
+static void sendKey(const KeyPress &event)
 {
 	INPUT input;
 	input.type = INPUT_KEYBOARD;
@@ -250,7 +250,7 @@ const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event)
 
 	// KEY Up
 	input.ki.dwFlags = KEYEVENTF_KEYUP;
-	SendInput( 1, &input, sizeof( INPUT ) );
+	SendInput(1, &input, sizeof(INPUT));
 
 	// MODIFIER Up
 	if (event.getModifiers().isCommandDown())
@@ -268,7 +268,37 @@ const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event)
 		input.ki.wVk = VK_SHIFT;
 		SendInput(1, &input, sizeof(INPUT));
 	}
+}
 
+const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event)
+{
+	return (sendKeyPressEvent(event, String::empty));
+}
+
+const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event, const String &targetWindowName)
+{
+	HWND firstwindow = FindWindowEx(NULL, NULL, NULL, NULL);
+    HWND window = firstwindow;
+    TCHAR windowtext[MAX_PATH];
+	INPUT input;
+
+	if (targetWindowName != String::empty)
+	{
+		while(1)
+		{         
+
+			GetWindowText(window, windowtext, MAX_PATH);
+			if (strstr(windowtext, targetWindowName.getCharPointer()) != NULL)
+				break;
+
+			window = FindWindowEx(NULL, window, NULL, NULL);
+			if (window == NULL || window == firstwindow)
+				return (Result::fail("Can't find target window: " + targetWindowName));
+		}
+	}
+
+	SetForegroundWindow(window);
+	sendKey(event);
 	return (Result::ok());
 }
 #endif

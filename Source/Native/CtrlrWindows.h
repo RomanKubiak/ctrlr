@@ -20,6 +20,7 @@ class CtrlrWindows : public CtrlrNative
 		const Result getSignature(MemoryBlock &dataToWrite);
 		const Result registerFileHandler();
 		const Result sendKeyPressEvent (const KeyPress &event);
+		const Result sendKeyPressEvent (const KeyPress &event, const String &targetWindowName);
     private:
         CtrlrManager &owner;
 };
