@@ -196,6 +196,7 @@ void CtrlrManager::addPanel (CtrlrPanelEditor *panelToAdd)
 
 void CtrlrManager::restoreState (const ValueTree &savedTree)
 {
+	_DBG("CtrlrManager::restoreState enter");
 	if (savedTree.isValid())
 	{
 		ctrlrManagerRestoring = true;
@@ -227,6 +228,7 @@ void CtrlrManager::restoreState (const ValueTree &savedTree)
 		if (getInstanceMode() != InstanceMulti && savedTree.hasType (Ids::panelState))
 		{
 			restoreInstanceState (savedTree);
+			_DBG("CtrlrManager::restoreState exit restoreInstanceState");
 			return;
 		}
 
@@ -245,6 +247,8 @@ void CtrlrManager::restoreState (const ValueTree &savedTree)
 
 		ctrlrManagerRestoring = false;
 	}
+
+	_DBG("CtrlrManager::restoreState exit");
 }
 
 void CtrlrManager::restoreState (const XmlElement &savedState)

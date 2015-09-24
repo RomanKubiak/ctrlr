@@ -12,6 +12,7 @@ class CtrlrModulator;
 
 struct CtrlrModulatorValue
 {
+	CtrlrModulatorValue() : value(-1) {}
 	enum LastChangeSource
 	{
 		changedByHost,
@@ -21,7 +22,7 @@ struct CtrlrModulatorValue
 		changeByUnknown
 	};
 
-	int value = -1;
+	int value;
 	LastChangeSource lastChangeSource;
 };
 //==============================================================================

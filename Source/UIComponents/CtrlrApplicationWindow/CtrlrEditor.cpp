@@ -89,8 +89,6 @@ void CtrlrEditor::resized()
 	owner.getCtrlrDocumentPanel().setBounds (0, CTRLR_MENUBAR_HEIGHT, getWidth(), getHeight() - (CTRLR_MENUBAR_HEIGHT));
 	owner.setProperty (Ids::ctrlrEditorBounds, getBounds().toString());
 	resizer.setBounds (getWidth()-24, getHeight()-24, 24, 24);
-
-	_DBG("CtrlrEditor::resized " + getBounds().toString());
 }
 
 void CtrlrEditor::activeCtrlrChanged()
