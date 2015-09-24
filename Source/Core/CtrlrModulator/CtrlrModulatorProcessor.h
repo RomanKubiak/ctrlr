@@ -10,6 +10,20 @@
 class CtrlrProcessor;
 class CtrlrModulator;
 
+struct CtrlrModulatorValue
+{
+	enum LastChangeSource
+	{
+		changedByHost,
+		changedByMidi,
+		changedByGUI,
+		changedByLua,
+		changeByUnknown
+	};
+
+	int value = -1;
+	LastChangeSource lastChangeSource;
+};
 //==============================================================================
 /** @brief Class that represents a Ctrlr Modulator processor, some explanation about expressions are found here
 			This class always belongs to a CtrlrModulator and is responsible for handling value changes
@@ -133,7 +147,8 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 		Expression reverseProcess;
 		String forwardEvaluationErrors, reverseEvaluationErrors;
 		ScopedPointer <CtrlrOwnedMidiMessage> ctrlrMidiMessage, ctrlrMidiControllerMessage;
-		int currentValue, currentMidiValue, maxValue, minValue, globalIndex;
+		CtrlrModulatorValue currentValue;
+		int currentMidiValue, maxValue, minValue, globalIndex;
 		WeakReference <CtrlrLuaMethod> valueChangedCbk, getValueForMidiCbk, getValueFromMidiCbk;
 		CtrlrValueMap valueMap;
 };
