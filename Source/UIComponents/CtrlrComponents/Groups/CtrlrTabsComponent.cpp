@@ -302,7 +302,7 @@ void CtrlrTabsComponent::setComponentValue (const double newValue, const bool se
 
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue,CtrlrModulatorValue::changedByGUI));
 	}
 }
 

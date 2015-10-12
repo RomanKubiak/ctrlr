@@ -410,7 +410,7 @@ void CtrlrModulator::allModulatorsInitialized()
 
 	if (owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingle || owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingleRestriced)
 	{
-		processor.setValueFromGUI (getProperty(Ids::modulatorValue),true);
+		processor.setValueGeneric (CtrlrModulatorValue {getProperty(Ids::modulatorValue), CtrlrModulatorValue::changedByProgram}, true);
 	}
 }
 
@@ -466,7 +466,7 @@ void CtrlrModulator::modifyReference(const int newValue)
 		{
 			if ((bool)getProperty(Ids::modulatorLinkedToModulatorSource) == true) /* true means we are using Numeric values */
 			{
-				ctrlrModulatorReference->getProcessor().setValueFromGUI (processor.getValueForMidiMessage(newValue));
+				ctrlrModulatorReference->getProcessor().setValueGeneric (CtrlrModulatorValue (processor.getValueForMidiMessage(newValue), CtrlrModulatorValue::changedByLink));
 			}
 		}
 		else /* the target property is not the value, treat it as string */

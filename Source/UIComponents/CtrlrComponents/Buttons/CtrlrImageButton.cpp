@@ -156,7 +156,7 @@ void CtrlrImageButton::setComponentValue (const double newValue, const bool send
 
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue, sendChangeMessage);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue,CtrlrModulatorValue::changedByGUI), sendChangeMessage);
 	}
 }
 
@@ -177,7 +177,7 @@ void CtrlrImageButton::setComponentMidiValue (const int newValue, const bool sen
 
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue, sendChangeMessage);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByGUI), sendChangeMessage);
 	}
 }
 
