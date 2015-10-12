@@ -12,7 +12,6 @@ class CtrlrModulator;
 
 struct CtrlrModulatorValue
 {
-	CtrlrModulatorValue() : value(-1) {}
 	enum LastChangeSource
 	{
 		initialValue,

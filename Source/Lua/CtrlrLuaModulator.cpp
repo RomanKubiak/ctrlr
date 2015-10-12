@@ -115,9 +115,9 @@ void CtrlrModulator::wrapForLua (lua_State *L)
 				value("changedByMidiIn", 2),
 				value("changedByMidiController", 3),
 				value("changedByGUI", 4),
-				value("changedByLua", 5)
-				value("changedByProgram", 6)
-				value("changedByLink", 7)
+				value("changedByLua", 5),
+				value("changedByProgram", 6),
+				value("changedByLink", 7),
 				value("changeByUnknown", 8)
 			]
 	];

@@ -410,7 +410,7 @@ void CtrlrModulator::allModulatorsInitialized()
 
 	if (owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingle || owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingleRestriced)
 	{
-		processor.setValueGeneric (CtrlrModulatorValue {getProperty(Ids::modulatorValue), CtrlrModulatorValue::changedByProgram}, true);
+		processor.setValueGeneric (CtrlrModulatorValue (getProperty(Ids::modulatorValue), CtrlrModulatorValue::changedByProgram), true);
 	}
 }
 
