@@ -6,7 +6,7 @@
     -- @mod   http://ctrlr.org/api/class_ctrlr_modulator.html
     -- @value    new numeric value of the modulator
     --
-    __method_name = function(--[[ CtrlrModulator --]] mod, --[[ number --]] value, --[[ number --]] sourceř)
+    __method_name = function(--[[ CtrlrModulator --]] mod, --[[ number --]] value, --[[ number --]] source)
     end
   </luaMethod>
 
