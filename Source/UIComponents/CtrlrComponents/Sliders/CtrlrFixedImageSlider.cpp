@@ -159,7 +159,7 @@ void CtrlrFixedImageSlider::setComponentValue (const double newValue, const bool
 	ctrlrSlider->setValue (newValue, dontSendNotification);
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue,CtrlrModulatorValue::changedByGUI));
 	}
 }
 

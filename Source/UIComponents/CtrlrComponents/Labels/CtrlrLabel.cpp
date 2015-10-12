@@ -168,7 +168,7 @@ void CtrlrLabel::setComponentValue (const double newValue, const bool sendChange
 {
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue, true);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue,CtrlrModulatorValue::changedByGUI), true);
 	}
 }
 

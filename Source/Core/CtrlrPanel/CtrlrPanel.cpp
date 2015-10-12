@@ -847,7 +847,7 @@ void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 				if (m)
 				{
 					m->setRestoreState (true);
-					m->getProcessor().setValueFromGUI (program.getChild(i).getProperty(Ids::value), true);
+					m->getProcessor().setValueGeneric (CtrlrModulatorValue(program.getChild(i).getProperty(Ids::value), CtrlrModulatorValue::changedByProgram), true);
 					if (m->getComponent())
 					{
 						m->getComponent()->setComponentValue (program.getChild(i).getProperty(Ids::value), false);

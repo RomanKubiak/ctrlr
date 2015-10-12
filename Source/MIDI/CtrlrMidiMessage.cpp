@@ -115,7 +115,6 @@ CtrlrMidiMessage::CtrlrMidiMessage (const luabind::object &luaArray)
 
 	MemoryBlock possibleMidiData = luaArrayTomemoryBlock(luaArray);
 
-	_DBG("ctor: "+dumpMemoryBlock (possibleMidiData));
 	if (possibleMidiData.getSize() > 0)
 	{
 		initializationResult = fillMessagePropertiesFromData(possibleMidiData);
@@ -137,8 +136,6 @@ CtrlrMidiMessage::CtrlrMidiMessage (const luabind::object &luaArray)
 	{
 		_WRN("CtrlrMidiMessage::ctor LUA input data is zero size");
 	}
-
-	_DBG("ctor message size: "+_STR(getNumMessages()));
 }
 
 CtrlrMidiMessage::CtrlrMidiMessage (const CtrlrMidiMessage &other)

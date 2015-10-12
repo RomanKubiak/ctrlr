@@ -6,7 +6,7 @@
 #ifdef JUCE_DEBUG
 #define _DBG(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Debug)
 #else
-#define _DBG(message)
+#define _DBG(message)										do {} while (0)
 #endif
 
 #define _WRN(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Warn)

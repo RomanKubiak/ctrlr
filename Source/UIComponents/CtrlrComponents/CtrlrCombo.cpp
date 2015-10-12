@@ -164,7 +164,7 @@ void CtrlrCombo::setComponentValue (const double newValue, const bool sendChange
 
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue, sendChangeMessage);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue,CtrlrModulatorValue::changedByGUI), sendChangeMessage);
 	}
 }
 

@@ -116,7 +116,7 @@ void CtrlrHyperlink::setComponentValue (const double newValue, const bool sendCh
 
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue, sendChangeMessage);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue,CtrlrModulatorValue::changedByGUI), sendChangeMessage);
 	}
 }
 

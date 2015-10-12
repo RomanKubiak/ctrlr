@@ -6,8 +6,7 @@
 
 void CtrlrModulator::setValue(const int newValue, const bool force)
 {
-	_DBG("CtrlrModulator::setValue ["+getName()+"]");
-	processor.setValueFromGUI (newValue, force, false);
+	processor.setValueGeneric (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByLua), force, false);
 }
 
 /** @brief Set the value of the modulator
@@ -16,18 +15,17 @@ void CtrlrModulator::setValue(const int newValue, const bool force)
 */
 void CtrlrModulator::setValue(const int newValue, const bool force, const bool mute)
 {
-	_DBG("CtrlrModulator::setValue ["+getName()+"]");
-	processor.setValueFromGUI (newValue, force, mute);
+	processor.setValueGeneric (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByLua), force, mute);
 }
 
 void CtrlrModulator::setValueMapped (const int newValue, const bool force, const bool mute)
 {
-	processor.setMappedValue (newValue, force, mute);
+	processor.setMappedValue (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByLua), force, mute);
 }
 
 void CtrlrModulator::setValueNonMapped (const int newValue, const bool force, const bool mute)
 {
-	processor.setValueFromGUI (newValue, force, mute);
+	processor.setValueGeneric (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByLua), force, mute);
 }
 
 /** @brief Set the modulator value only the midi parameter works
@@ -39,8 +37,7 @@ void CtrlrModulator::setValueNonMapped (const int newValue, const bool force, co
 */
 void CtrlrModulator::setModulatorValue(const int newValue, bool vst, bool midi, bool ui)
 {
-	processor.setValueFromGUI (newValue, true, !midi);
-	processor.handleUpdateNowIfNeeded();
+	processor.setValueGeneric (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByLua));
 }
 
 int CtrlrModulator::getValueMapped() const
@@ -111,6 +108,18 @@ void CtrlrModulator::wrapForLua (lua_State *L)
 			.def("setModulatorValue", &CtrlrModulator::setModulatorValue)
 			.def("getLuaName", &CtrlrModulator::getName)
 			.def("getModulatorName", &CtrlrModulator::getName)
+			.enum_("CtrlrModulatorValue")
+			[
+				value("initialValue", 0),
+				value("changedByHost", 1),
+				value("changedByMidiIn", 2),
+				value("changedByMidiController", 3),
+				value("changedByGUI", 4),
+				value("changedByLua", 5)
+				value("changedByProgram", 6)
+				value("changedByLink", 7)
+				value("changeByUnknown", 8)
+			]
 	];
 
 }

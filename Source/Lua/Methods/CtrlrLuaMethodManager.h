@@ -75,6 +75,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 
 		/** Calls */
 		const bool call(CtrlrLuaMethod *o, CtrlrModulator *param1, const int param2);
+		const bool call(CtrlrLuaMethod *o, CtrlrModulator *param1, const int param2, const uint8 param3);
 		const bool call(CtrlrLuaMethod *o, CtrlrModulator *param1, const String param2);
 		const bool call(CtrlrLuaMethod *o, CtrlrComponent *param1, const String param2);
 		const bool call(CtrlrLuaMethod *o, CtrlrComponent *param1, const MouseEvent &param2);
