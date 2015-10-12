@@ -135,7 +135,7 @@ void CtrlrListBox::setComponentValue (const double newValue, const bool sendChan
 
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue,CtrlrModulatorValue::changedByGUI));
 	}
 }
 

@@ -134,12 +134,12 @@ void CtrlrMidiKeyboard::handleNoteOn (MidiKeyboardState* source, int midiChannel
 	if (getProperty(Ids::uiMidiKeyboardMapToNoteNumber))
     {
         owner.getMidiMessage().setValue (127.0*velocity);
-        owner.getProcessor().setValueFromGUI (midiNoteNumber, true);
+        owner.getProcessor().setValueGeneric (CtrlrModulatorValue(midiNoteNumber,CtrlrModulatorValue::changedByGUI), true);
     }
 	else
 	{
         owner.getMidiMessage().setNumber (midiNoteNumber);
-        owner.getProcessor().setValueFromGUI ((int)(velocity*127), true);
+        owner.getProcessor().setValueGeneric (CtrlrModulatorValue((int)(velocity*127),CtrlrModulatorValue::changedByGUI), true);
 	}
 }
 
@@ -150,12 +150,12 @@ void CtrlrMidiKeyboard::handleNoteOff (MidiKeyboardState* source, int midiChanne
 	if (getProperty(Ids::uiMidiKeyboardMapToNoteNumber))
     {
         owner.getMidiMessage().setValue (0);
-        owner.getProcessor().setValueFromGUI (midiNoteNumber, true);
+        owner.getProcessor().setValueGeneric (CtrlrModulatorValue(midiNoteNumber,CtrlrModulatorValue::changedByGUI), true);
     }
 	else
     {
         owner.getMidiMessage().setNumber (midiNoteNumber);
-        owner.getProcessor().setValueFromGUI (0, true);
+        owner.getProcessor().setValueGeneric (CtrlrModulatorValue(0,CtrlrModulatorValue::changedByGUI), true);
     }
 }
 

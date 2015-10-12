@@ -115,7 +115,7 @@ void CtrlrSlider::setComponentValue (const double newValue, const bool sendChang
 	ctrlrSlider.setValue (newValue, dontSendNotification);
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue,CtrlrModulatorValue::changedByGUI));
 	}
 }
 

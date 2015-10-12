@@ -15,12 +15,26 @@ struct CtrlrModulatorValue
 	CtrlrModulatorValue() : value(-1) {}
 	enum LastChangeSource
 	{
+		initialValue,
 		changedByHost,
-		changedByMidi,
+		changedByMidiIn,
+		changedByMidiController,
 		changedByGUI,
 		changedByLua,
+		changedByProgram,
+		changedByLink,
 		changeByUnknown
 	};
+	CtrlrModulatorValue()
+		: value(-1), lastChangeSource(initialValue) {}
+
+	CtrlrModulatorValue(int _value, LastChangeSource _lastChangedSource)
+		: value(_value), lastChangeSource(_lastChangedSource) {}
+
+	bool operator==(const CtrlrModulatorValue &other)
+	{
+		return (other.value == value);
+	}
 
 	int value;
 	LastChangeSource lastChangeSource;
@@ -107,7 +121,8 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 
 		int getValueForMidiMessage(const int value);
 		int getValueFromMidiMessage(const CtrlrMIDIDeviceType source = inputDevice);
-		void setValueFromGUI(const double inValue, const bool force=false, const bool mute=false);
+		void setValueGeneric(const CtrlrModulatorValue inValue, const bool force=false, const bool mute=false);
+		void setValueFromLua(const double inValue, const bool force=false, const bool mute=false);
 		void setValueFromMIDI(CtrlrMidiMessage &m, const CtrlrMIDIDeviceType source = inputDevice);
 		void setValueFromHost(const float inValue);
 		void handleAsyncUpdate();
@@ -116,7 +131,7 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 		CtrlrMidiMessage &getMidiMessage(const CtrlrMIDIDeviceType source = inputDevice);
 		CtrlrOwnedMidiMessage &getOwnedMidiMessage(const CtrlrMIDIDeviceType source = inputDevice);
 		void sendMidiMessage();
-		void setMappedValue (const int mappedValue, const bool force, const bool mute=false);
+		void setMappedValue (const CtrlrModulatorValue mappedValue, const bool force, const bool mute=false);
 
 		/** This is important for packed values, if we get a midi message that matches this modulator
 			(is the same type and number), but it's value is out of defined range then we can't accept
