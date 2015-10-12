@@ -50,7 +50,7 @@ void CtrlrModulatorProcessor::handleAsyncUpdate()
 	{
 		if (valueChangedCbk->isValid())
 		{
-			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (valueChangedCbk, &owner, (int)owner.getProperty(Ids::modulatorValue));
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (valueChangedCbk, &owner, currentValue.value, (uint8)currentValue.lastChangeSource);
 		}
 	}
 
@@ -158,12 +158,12 @@ void CtrlrModulatorProcessor::setGetValueFromMidiCallback (const String &methodN
 	getValueFromMidiCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(methodName);
 }
 
-void CtrlrModulatorProcessor::setMappedValue (const int mappedValue, const bool force, const bool mute)
+void CtrlrModulatorProcessor::setMappedValue (const CtrlrModulatorValue mappedValue, const bool force, const bool mute)
 {
-	setValueFromGUI (valueMap.getIndexForValue (mappedValue), force, mute);
+	setValueGeneric (CtrlrModulatorValue (valueMap.getIndexForValue (mappedValue.value), mappedValue.lastChangeSource), force, mute);
 }
 
-void CtrlrModulatorProcessor::setValueFromGUI(const double inValue, const bool force, const bool mute)
+void CtrlrModulatorProcessor::setValueGeneric(const CtrlrModulatorValue inValue, const bool force, const bool mute)
 {
 	/* there are 3 sources of value changes
 
@@ -192,7 +192,7 @@ void CtrlrModulatorProcessor::setValueFromGUI(const double inValue, const bool f
 
 		const ScopedReadLock sl(processorLock);
 
-		if (currentValue.value == inValue && force == false)
+		if (currentValue.value == inValue.value && force == false)
 		{
 			return;
 		}
@@ -207,7 +207,7 @@ void CtrlrModulatorProcessor::setValueFromGUI(const double inValue, const bool f
 			don't inform the host, it already knows about it
 
 			if mute is true, no midi goes out */
-		if (currentValue.value == inValue && force == true)
+		if (currentValue.value == inValue.value && force == true)
 		{
 			if (!mute)
 				sendMidiMessage();
@@ -220,7 +220,7 @@ void CtrlrModulatorProcessor::setValueFromGUI(const double inValue, const bool f
 		/* first we se the currentValue to the new value comming from the gui, it's needed for the
 			expressions evaluations to work */
 
-		currentValue.value = inValue;
+		currentValue = inValue;
 
 		/* send the midi message, this is done using a special thread so it won't wait until it's actualy sent */
 		if (!mute)
@@ -255,7 +255,8 @@ void CtrlrModulatorProcessor::setValueFromHost(const float inValue)
 		const ScopedWriteLock sl(processorLock);
 
 		/* set the new value for the modulator */
-		currentValue.value = denormalizeValue (inValue, minValue, maxValue);
+		currentValue.value 				= denormalizeValue (inValue, minValue, maxValue);
+ 		currentValue.lastChangeSource	= CtrlrModulatorValue::changedByHost;
 
 		/* send a midi message */
 		sendMidiMessage();
@@ -282,7 +283,8 @@ void CtrlrModulatorProcessor::setValueFromMIDI(CtrlrMidiMessage &m, const CtrlrM
 		{
 			if (isInValidMappedRange (possibleValue))
 			{
-				currentValue.value = possibleValue;
+				currentValue.value 				= possibleValue;
+				currentValue.lastChangeSource	= CtrlrModulatorValue::changedByMidiIn;
 
 				/* notify the pluginHost about the change */
 				setParameterNotifyingHost();

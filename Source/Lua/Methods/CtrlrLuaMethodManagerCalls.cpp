@@ -105,6 +105,27 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrModulator *param1
 	return (true);
 }
 
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrModulator *param1, const int param2, const uint8 param3)
+{
+	const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
+		}
+	}
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
+}
+
 const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrModulator *param1, const String param2)
 {
 	const ScopedLock sl(methodManagerCriticalSection);

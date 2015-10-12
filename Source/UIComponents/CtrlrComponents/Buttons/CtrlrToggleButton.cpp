@@ -129,7 +129,7 @@ void CtrlrToggleButton::setComponentValue (const double newValue, const bool sen
 
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue, true);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue, CtrlrModulatorValue::changedByGUI), true);
 	}
 }
 
@@ -145,7 +145,7 @@ void CtrlrToggleButton::setComponentMidiValue (const int newValue, const bool se
 
 	if (sendChangeMessage)
 	{
-		owner.getProcessor().setValueFromGUI (newValue, true);
+		owner.getProcessor().setValueGeneric (CtrlrModulatorValue(newValue, CtrlrModulatorValue::changedByGUI), true);
 	}
 }
 

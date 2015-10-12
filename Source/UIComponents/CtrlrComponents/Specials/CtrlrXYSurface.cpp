@@ -284,12 +284,12 @@ void CtrlrXYSurface::modulatorMoved()
 
 	if (destinationX)
 	{
-		destinationX->getProcessor().setValueFromGUI (getValueForPosition(c.getX(), true));
+		destinationX->getProcessor().setValueGeneric (CtrlrModulatorValue(getValueForPosition(c.getX(), true),CtrlrModulatorValue::changedByGUI));
 	}
 
 	if (destinationY)
 	{
-		destinationY->getProcessor().setValueFromGUI (getValueForPosition(c.getY(), false));
+		destinationY->getProcessor().setValueGeneric (CtrlrModulatorValue(getValueForPosition(c.getY(), false),CtrlrModulatorValue::changedByGUI));
 	}
 
 	repaint();

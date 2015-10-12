@@ -152,15 +152,15 @@
 				<Compiler>
 					<Add option="-Os" />
 					<Add option="-std=c++11" />
+					<Add option="-std=c++0x" />
+					<Add option="-w" />
 					<Add option="-mstackrealign" />
 					<Add option="-fpermissive" />
-					<Add option="-std=c++0x" />
 					<Add option="-Wno-ignored-qualifiers" />
 					<Add option="-Wno-unused-variable" />
 					<Add option="-Wno-unused-parameter" />
 					<Add option="-Wno-reorder" />
 					<Add option="-Wno-empty-body" />
-					<Add option="-w" />
 					<Add option="-fexceptions" />
 					<Add option="-D__MINGW__=1" />
 					<Add option="-D__MINGW_EXTENSION=" />
@@ -204,19 +204,6 @@
 					<Add option="-lbfd" />
 					<Add option="-lGL" />
 					<Add option="-ludev" />
-					<Add library="comdlg32" />
-					<Add library="imm32" />
-					<Add library="ole32" />
-					<Add library="oleaut32" />
-					<Add library="opengl32" />
-					<Add library="rpcrt4" />
-					<Add library="shlwapi" />
-					<Add library="uuid" />
-					<Add library="version" />
-					<Add library="wininet" />
-					<Add library="winmm" />
-					<Add library="ws2_32" />
-					<Add library="wsock32" />
 				</Linker>
 			</Target>
 		</Build>
