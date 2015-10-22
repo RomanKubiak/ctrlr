@@ -19,7 +19,7 @@
  */
 
 #ifdef __APPLE__
-#include "../configs/osx.h"
+#include "libusb_osx.h"
 #include <ctype.h>
 #include <errno.h>
 #include <pthread.h>
