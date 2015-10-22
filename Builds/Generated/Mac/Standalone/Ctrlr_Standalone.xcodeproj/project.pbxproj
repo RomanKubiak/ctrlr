@@ -3790,7 +3790,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				OTHER_CPLUSPLUSFLAGS = "-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder";
-				SDKROOT = macosx10.8;
 				SDKROOT_ppc = macosx10.5; }; name = Debug; };
 		8EC3271D63053D3CC10A8541 = {isa = XCBuildConfiguration; buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
@@ -3853,10 +3852,9 @@
 				HEADER_SEARCH_PATHS = ("../../../Standalone/JuceLibraryCode", "../../../../Juce/modules", "../../../../Boost", "../../../../Source/Lua", "../../../../Source/Lua/luabind", "../../../../Source/Lua/luabind/luabind", "../../../../Source/Misc", "../../../../Source/Misc/include", "../../../../Source/MIDI", "../../../../Source", "../../../../Source/UIComponents", "../../../../Source/Core", "../../../../Source/Plugin", "../../../../Source/Application", "$(inherited)");
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				OTHER_CPLUSPLUSFLAGS = "-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder";
-				SDKROOT = macosx10.8;
 				SDKROOT_ppc = macosx10.5; }; name = "Release_Nightly"; };
 		B2DC424E514676A409757BB3 = {isa = XCBuildConfiguration; buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
