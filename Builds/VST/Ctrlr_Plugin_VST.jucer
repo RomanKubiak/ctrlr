@@ -131,27 +131,27 @@
         <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <CODEBLOCKS targetFolder="../Generated/Linux/VST/" vstFolder="/home/atom/devel/ctrlr/VST"
-                extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lXext -lfreetype -lpthread -lasound -lz -lbfd -lGL -ludev"
-                externalLibraries="" extraDefs="LINUX=1&#10;_LINUX=1" extraCompilerFlags="-w -fpermissive -fPIC"
-                userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
+    <CODEBLOCKS_LINUX targetFolder="../Generated/Linux/VST/" vstFolder="/home/atom/devel/ctrlr/VST"
+                      extraDefs="LINUX=1&#10;_LINUX=1" extraCompilerFlags="-w -fpermissive -fPIC"
+                      extraLinkerFlags="-lz -lbfd -ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-VST"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
                        defines="JUCE_FORCE_DEBUG=1&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1"
                        binaryPath="../../../../Bin"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
-                       defines="CTRLR_NIGHTLY=0&#10;JucePlugin_Build_VST=1" binaryPath="../../../../Bin"/>
-        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
-                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
-                       binaryPath="../../../../Bin"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr_Plugin_VST"/>
+        <CONFIGURATION name="Release_Nightly" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1"
+                       optimisation="3" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../VST&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
+                       binaryPath="../../../../Bin" targetName="Ctrlr"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_gui_audio" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_events" path="../../Juce/modules"/>
         <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
         <MODULEPATH id="juce_core" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
@@ -159,12 +159,8 @@
         <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
-        <MODULEPATH id="juce_gui_extra" path="..\..\Juce\modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
-    </CODEBLOCKS>
+    </CODEBLOCKS_LINUX>
   </EXPORTFORMATS>
   <MAINGROUP id="wm289X" name="Ctrlr_Plugin_VST">
     <GROUP id="{ECD6AAB8-662A-C993-F81E-8E140F62602F}" name="Core">

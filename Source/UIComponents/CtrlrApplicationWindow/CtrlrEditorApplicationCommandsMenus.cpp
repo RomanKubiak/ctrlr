@@ -147,8 +147,6 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, doZoomIn);
 		menu.addCommandItem (commandManager, doZoomOut);
 		menu.addSeparator();
-		menu.addCommandItem (commandManager, showMidiToolbar);
-		menu.addSeparator();
 		if (!isRestricted()) menu.addCommandItem (commandManager, doRefreshPropertyLists);
 		if (!isRestricted()) menu.addCommandItem (commandManager, doViewPropertyDisplayIDs);
 	}
@@ -179,7 +177,9 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addSectionHeader ("Output "+getMidiSummary(outputDevice));
 		menu.addSubMenu ("Device", getMidiDeviceMenu(outputDevice), isPanelActive());
 		menu.addSubMenu ("Channel", getMidiChannelMenu(outputDevice), isPanelActive());
-
+		menu.addSeparator();
+		menu.addCommandItem (commandManager, doRefreshDeviceList);
+		menu.addSeparator();
 		PopupMenu thru;
 		thru.addCommandItem (commandManager, optMidiThruD2D);
 		thru.addCommandItem (commandManager, optMidiThruD2DChannelize);
@@ -200,29 +200,6 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
     }
 	else if (topLevelMenuIndex == MenuPrograms) // Programs
 	{
-	/*	menu.addCommandItem (commandManager, showMidiLibrary);
-		menu.addSectionHeader("Local operations");
-		menu.addCommandItem (commandManager, doSnapshotStore);
-		menu.addCommandItem (commandManager, doSaveSaveToCurrentProgram);
-		menu.addCommandItem (commandManager, doSaveSaveToNewProgram);
-		menu.addCommandItem (commandManager, doNewBank);
-
-		menu.addSectionHeader ("Request from device");
-		menu.addCommandItem (commandManager, doIdentityRequest);
-		menu.addCommandItem (commandManager, doEditBufferRequest);
-		menu.addCommandItem (commandManager, doCurrentBankRequest);
-		menu.addCommandItem (commandManager, doCurrentProgramRequest);
-		menu.addCommandItem (commandManager, doAllProgramsRequest);
-	*/
-		if (getActivePanel())
-		{
-			// menu.addSectionHeader ("Custom requests");
-			// getActivePanel()->getCtrlrMIDILibrary().attachCustomRequests (menu);
-
-			menu.addSectionHeader ("Program change");
-			getActivePanel()->getCtrlrMIDILibrary().attachToPopupMenu (menu);
-		}
-
 		menu.addSectionHeader ("Snapshots");
 		menu.addCommandItem (commandManager, doSnapshotStore);
 		menu.addCommandItem (commandManager, doSendSnapshot);
@@ -237,8 +214,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, showLogViewer);
 		menu.addCommandItem (commandManager, showComparatorTables);
 		menu.addCommandItem (commandManager, doRegisterExtension);
-		// menu.addCommandItem (commandManager, doKeyGenerator);
-		// menu.addCommandItem (commandManager, doProgramWizard);
+		menu.addCommandItem (commandManager, doKeyGenerator);
 	}
 	else if (topLevelMenuIndex == MenuHelp) // Help
 	{
@@ -281,17 +257,6 @@ void CtrlrEditor::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 		if (menuItemID >= 0x9000 && menuItemID < 0x9100)
 		{
 			performRecentFileOpen (menuItemID);
-		}
-	}
-	else if (topLevelMenuIndex == 5)
-	{
-		if (menuItemID >= MENU_OFFSET_CUSTOM_REQUESTS && menuItemID < MENU_OFFSET_CUSTOM_REQUESTS+512)
-		{
-			performCustomRequest (menuItemID);
-		}
-		else if (menuItemID >= MENU_OFFSET_PROGRAM_LIST)
-		{
-			performProgramChange(menuItemID);
 		}
 	}
 }

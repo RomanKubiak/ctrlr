@@ -74,7 +74,9 @@ class CtrlrLuaUtils
 			@param	button1Text				text for the first button
 			@param	button2Text				text for the second button
 		*/
-		static String askForTextInputWindow (const String title, const String message, const String initialInputContent, const String onScreenLabel, const bool isPassword, const String button1Text, const String button2Text);
+		static String askForTextInputWindow (const String title, const String message, const String initialInputContent,
+											const String onScreenLabel, const bool isPassword, const String button1Text,
+											const String button2Text);
 
 		/** @brief Ask for a File to open
 
@@ -82,8 +84,25 @@ class CtrlrLuaUtils
 			@param initialFileOrDirectory
 			@param filePatternsAllowed
 			@param useOSNativeDialogBox
+
+			@return If a valid file was selected, a File object that represents that file
 		*/
-		static File openFileWindow (const String &dialogBoxTitle, const File &initialFileOrDirectory, const String &filePatternsAllowed, bool useOSNativeDialogBox);
+		static File openFileWindow (const String &dialogBoxTitle, const File &initialFileOrDirectory,
+									const String &filePatternsAllowed, bool useOSNativeDialogBox);
+
+		/** @brief Ask for multiple files to open
+
+			@param dialogBoxTitle
+			@param initialFileOrDirectory
+			@param filePatternsAllowed
+			@param useOSNativeDialogBox
+			@param resultArray
+
+			@return A lua array of File objects selected
+		*/
+		void openMultipleFilesWindow(const String &dialogBoxTitle, const File &initialFileOrDirectory,
+									const String &filePatternsAllowed, bool useOSNativeDialogBox,
+									luabind::object const& table);
 
 		/** @brief Ask for a File to save
 
@@ -92,7 +111,8 @@ class CtrlrLuaUtils
 			@param filePatternsAllowed
 			@param useOSNativeDialogBox
 		*/
-		static File saveFileWindow(const String &dialogBoxTitle, const File &initialFileOrDirectory, const String &filePatternsAllowed, bool useOSNativeDialogBox);
+		static File saveFileWindow(const String &dialogBoxTitle, const File &initialFileOrDirectory,
+									const String &filePatternsAllowed, bool useOSNativeDialogBox);
 
 		/** @brief Ask for a directory
 

@@ -132,12 +132,14 @@ void CtrlrLuaUtils::infoWindow (const String title, const String message)
 	AlertWindow::showMessageBox (AlertWindow::InfoIcon, title, message);
 }
 
-bool CtrlrLuaUtils::questionWindow (const String title, const String message, const String button1Text, const String button2Text)
+bool CtrlrLuaUtils::questionWindow (const String title, const String message, const String button1Text,
+									const String button2Text)
 {
 	return (AlertWindow::showOkCancelBox (AlertWindow::QuestionIcon, title, message, button1Text, button2Text));
 }
 
-File CtrlrLuaUtils::openFileWindow(const String &dialogBoxTitle, const File &initialFileOrDirectory, const String &filePatternsAllowed, bool useOSNativeDialogBox)
+File CtrlrLuaUtils::openFileWindow(const String &dialogBoxTitle, const File &initialFileOrDirectory,
+									const String &filePatternsAllowed, bool useOSNativeDialogBox)
 {
 	FileChooser dialog(dialogBoxTitle, initialFileOrDirectory, filePatternsAllowed, useOSNativeDialogBox);
 	if (dialog.browseForFileToOpen(0))
@@ -150,7 +152,27 @@ File CtrlrLuaUtils::openFileWindow(const String &dialogBoxTitle, const File &ini
 	}
 }
 
-File CtrlrLuaUtils::saveFileWindow(const String &dialogBoxTitle, const File &initialFileOrDirectory, const String &filePatternsAllowed, bool useOSNativeDialogBox)
+void CtrlrLuaUtils::openMultipleFilesWindow(const String &dialogBoxTitle, const File &initialFileOrDirectory,
+											const String &filePatternsAllowed, bool useOSNativeDialogBox,
+											luabind::object const& table)
+{
+	FileChooser dialog(dialogBoxTitle, initialFileOrDirectory, filePatternsAllowed, useOSNativeDialogBox);
+	if (dialog.browseForMultipleFilesToOpen(nullptr))
+	{
+		if (luabind::type(table) == LUA_TTABLE)
+		{
+			Array <File> res = dialog.getResults();
+
+			for (unsigned int i=0; i<res.size(); i++)
+			{
+				table[i+1] = res[i];
+			}
+		}
+	}
+}
+
+File CtrlrLuaUtils::saveFileWindow(const String &dialogBoxTitle, const File &initialFileOrDirectory,
+									const String &filePatternsAllowed, bool useOSNativeDialogBox)
 {
 	FileChooser dialog(dialogBoxTitle, initialFileOrDirectory, filePatternsAllowed, useOSNativeDialogBox);
 	if (dialog.browseForFileToSave (true))
@@ -209,6 +231,7 @@ void CtrlrLuaUtils::wrapForLua (lua_State *L)
 			.def("infoWindow", &CtrlrLuaUtils::infoWindow)
 			.def("questionWindow", &CtrlrLuaUtils::questionWindow)
 			.def("openFileWindow", &CtrlrLuaUtils::openFileWindow)
+			.def("openMultipleFilesWindow", &CtrlrLuaUtils::openMultipleFilesWindow)
 			.def("saveFileWindow", &CtrlrLuaUtils::saveFileWindow)
 			.def("getDirectoryWindow", &CtrlrLuaUtils::getDirectoryWindow)
 			.def("askForTextInputWindow", &CtrlrLuaUtils::askForTextInputWindow)

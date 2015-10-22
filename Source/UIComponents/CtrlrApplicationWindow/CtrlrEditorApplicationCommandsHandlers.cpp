@@ -47,11 +47,8 @@ class CtrlrKeyGenerator : public ThreadWithProgressWindow
 
 bool CtrlrEditor::perform (const InvocationInfo &info)
 {
-	_DBG("CtrlrEditor::perform commandID="+STR(info.commandID));
-
     if (Time::getCurrentTime().toMilliseconds() - lastCommandInvocationMillis < 10)
     {
-        _INF("\tCtrlrEditor::perform commands executing too fast");
         return (true);
     }
 
@@ -199,6 +196,10 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::LuaMethodEditor, true);
 			break;
 
+		case doRefreshDeviceList:
+			performMidiDeviceRefresh();
+			break;
+
 		case showLuaConsole:
 			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::LuaConsole, true);
 			break;
@@ -229,41 +230,6 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 
 		case showBufferEditor:
 			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::BufferEditor, true);
-			break;
-
-		case doSaveSaveToCurrentProgram:
-		case doSaveSaveToNewProgram:
-		case doNewBank:
-			break;
-
-		case doIdentityRequest:
-			if (isPanelActive())
-			{
-			}
-			break;
-
-		case doEditBufferRequest:
-			if (isPanelActive())
-			{
-			}
-			break;
-
-		case doCurrentBankRequest:
-			if (isPanelActive())
-			{
-			}
-			break;
-
-		case doCurrentProgramRequest:
-			if (isPanelActive())
-			{
-			}
-			break;
-
-		case doAllProgramsRequest:
-			if (isPanelActive())
-			{
-			}
 			break;
 
 		case optMidiInputFromHost:
@@ -321,10 +287,6 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 
         case doKeyGenerator:
             performKeyGenerator();
-            break;
-
-        case doProgramWizard:
-            performProgramWizard();
             break;
 
 		default:
@@ -433,7 +395,6 @@ void CtrlrEditor::performMidiOptionChange(const int menuItemID)
 
 void CtrlrEditor::performProgramChange(const int menuItemID)
 {
-	_DBG("CtrlrEditor::performProgramChange");
 	if (isPanelActive())
 	{
 		getActivePanel()->getCtrlrMIDILibrary().setProgram (menuItemID);
@@ -459,13 +420,6 @@ void CtrlrEditor::sliderValueChanged (Slider* slider)
 	}
 }
 
-void CtrlrEditor::performCustomRequest(const int menuItemID)
-{
-	if (isPanelActive())
-	{
-	}
-}
-
 void CtrlrEditor::performKeyGenerator()
 {
     CtrlrKeyGenerator generator;
@@ -487,9 +441,7 @@ void CtrlrEditor::performKeyGenerator()
     }
 }
 
-void CtrlrEditor::performProgramWizard()
+void CtrlrEditor::performMidiDeviceRefresh()
 {
-    ScopedPointer <CtrlrProgramWizard> wz (new CtrlrProgramWizard(*this));
-
-    CtrlrDialogWindow::showModalDialog ("Program wizard", wz, false, this);
+	owner.getCtrlrMidiDeviceManager().refreshDevices();
 }

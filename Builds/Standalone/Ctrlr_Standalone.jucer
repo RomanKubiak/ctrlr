@@ -121,41 +121,35 @@
         <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <CODEBLOCKS targetFolder="../Generated/Linux/Standalone/" externalLibraries=""
-                extraLinkerFlags="-ldl -lrt -lXinerama -lX11 -lXext -lfreetype -lpthread -lasound -lz -lbfd -lGL -ludev"
-                extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions"
-                smallIcon="xQ5dKQ" bigIcon="ugOMDZ" extraDefs="LINUX=1&#10;_LINUX=1"
-                userNotes="Need to enable stdafx.h compiling&#10;Remove libraries in all build configurations (auto added win32 libs)&#10;Disable CPU optimizations (pentium!?)">
+    <CODEBLOCKS_LINUX targetFolder="../Generated/Linux/Standalone/" extraDefs="LINUX=1&#10;_LINUX=1"
+                      extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions"
+                      extraLinkerFlags="-lz -lbfd -ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
-                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;DEBUG=1&#10;_DEBUG=1&#10;JUCE_DEBUG=1"
-                       binaryPath="../../../../Bin"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
+                       binaryPath="../../../../Bin" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;DEBUG=1&#10;_DEBUG=1&#10;JUCE_DEBUG=1"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr_Standalone"/>
+        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="3" targetName="Ctrlr"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
-                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_Standalone"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
                        binaryPath="../../../../Bin"/>
-        <CONFIGURATION name="Release_Nightly" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
-                       targetName="Ctrlr" binaryPath="../../../../Bin" optimisation="2"
-                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
+        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_gui_audio" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_events" path="../../Juce/modules"/>
         <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
         <MODULEPATH id="juce_core" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
-    </CODEBLOCKS>
+    </CODEBLOCKS_LINUX>
   </EXPORTFORMATS>
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
