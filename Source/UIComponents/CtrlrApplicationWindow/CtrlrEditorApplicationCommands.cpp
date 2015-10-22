@@ -31,14 +31,7 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
 								doPanelLock,
 								doPanelDisableCombosOnEdit,
 								doSendSnapshot,
-								doSaveSaveToCurrentProgram,
-								doSaveSaveToNewProgram,
-								doNewBank,
-								doIdentityRequest,
-								doEditBufferRequest,
-								doCurrentBankRequest,
-								doCurrentProgramRequest,
-								doAllProgramsRequest,
+								doRefreshDeviceList,
 								showLuaEditor,
 								showLuaConsole,
 								showComparatorTables,
@@ -233,6 +226,11 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 			result.setActive (isPanelActive(true));
 			break;
 
+		case doRefreshDeviceList:
+			result.setInfo ("MIDI device refresh", "Refresh the list of devices available in the OS", panelCategory, 0);
+			result.setActive (true);
+			break;
+
 		case showLuaConsole:
 			result.setInfo ("LUA Console", "Show/hide the LUA console", panelCategory, 0);
 			result.setActive (isPanelActive(true));
@@ -270,53 +268,8 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 			result.setActive (isPanelActive());
 			break;
 
-		case doSaveSaveToCurrentProgram:
-			result.setInfo ("Save to current program", "Save the current panel state to the current program, replacing it", panelCategory, 0);
-			result.setActive (isPanelActive());
-			break;
-
-		case doSaveSaveToNewProgram:
-			result.setInfo ("Save to new program", "Save the current panel state as a new program", panelCategory, 0);
-			result.setActive (isPanelActive());
-			break;
-
 		case doSnapshotStore:
 			result.setInfo ("Program snapshot", "Save the current panel state as a snapshot", panelCategory, 0);
-			result.setActive (isPanelActive());
-			break;
-
-		case doNewBank:
-			result.setInfo ("New bank", "Create a new bank", panelCategory, 0);
-			result.setActive (isPanelActive());
-			break;
-
-		case doIdentityRequest:
-			result.setInfo ("Request Identity ", "Send identity request on the current MIDI OUT device", panelCategory, 0);
-			result.addDefaultKeypress ('i', ModifierKeys::commandModifier + ModifierKeys::altModifier);
-			result.setActive (isPanelActive());
-			break;
-
-		case doEditBufferRequest:
-			result.setInfo ("Request Edit Buffer", "Get edit buffer contents (if supported by device)", panelCategory, 0);
-			result.addDefaultKeypress ('e', ModifierKeys::commandModifier + ModifierKeys::altModifier);
-			result.setActive (isPanelActive());
-			break;
-
-		case doCurrentBankRequest:
-			result.setInfo ("Request current bank", "Get the contents of the current selected bank (all programs in it)", panelCategory, 0);
-			result.addDefaultKeypress ('b', ModifierKeys::commandModifier + ModifierKeys::altModifier);
-			result.setActive (isPanelActive());
-			break;
-
-		case doCurrentProgramRequest:
-			result.setInfo ("Request current program", "Get the current selected program on the device", panelCategory, 0);
-			result.addDefaultKeypress ('p', ModifierKeys::commandModifier + ModifierKeys::altModifier);
-			result.setActive (isPanelActive());
-			break;
-
-		case doAllProgramsRequest:
-			result.setInfo ("Request all programs", "Get all programs stored on the device", panelCategory, 0);
-			result.addDefaultKeypress ('a', ModifierKeys::commandModifier + ModifierKeys::altModifier);
 			result.setActive (isPanelActive());
 			break;
 
@@ -486,6 +439,5 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 
 ApplicationCommandTarget* CtrlrEditor::getNextCommandTarget()
 {
-	_DBG ("CtrlrEditor::getNextCommandTarget");
 	return findFirstTargetParentComponent();
 }

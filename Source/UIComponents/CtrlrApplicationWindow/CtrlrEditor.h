@@ -40,7 +40,6 @@ class CtrlrEditor  : public AudioProcessorEditor,
 			showMidiCalculator          = 0x2007,
 			showAboutDialog             = 0x2008,
 			showKeyboardMappingDialog	= 0x200a,
-			showMidiToolbar				= 0x200b,
 
 			/* Panel commands */
 
@@ -58,14 +57,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 			doPanelLock					= 0x300b,
 			doPanelDisableCombosOnEdit	= 0x3027,
 			doSendSnapshot				= 0x300c,
-			doSaveSaveToCurrentProgram	= 0x300d,
-			doSaveSaveToNewProgram		= 0x300e,
-			doNewBank					= 0x3010,
-			doIdentityRequest			= 0x300f,
-			doEditBufferRequest			= 0x3021,
-			doCurrentBankRequest		= 0x3022,
-			doCurrentProgramRequest		= 0x3023,
-			doAllProgramsRequest		= 0x3026,
+			doRefreshDeviceList			= 0x200b,
 			showLuaEditor				= 0x3011,
 			showMidiLibrary				= 0x3012,
 			showModulatorList			= 0x3013,
@@ -138,7 +130,6 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		const StringArray getRecentOpenedFilesList();
 		const var getPanelProperty(const Identifier &propertyName);
 		const String getMidiSummary(const CtrlrMIDIDeviceType type=inputDevice);
-
 		bool isRestricted();
 		void performShowKeyboardMappingDialog(const int menuItemID);
 		void performMidiChannelChange(const int menuItemID);
@@ -147,11 +138,9 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		void performProgramChange(const int menuItemID);
 		void performMidiHostOptionChange(const int menuItemID);
 		void performMidiThruChange(const int menuItemID);
-		void performGetEditBuffer();
 		void performRecentFileOpen(const int menuItemID);
-		void performCustomRequest(const int menuItemID);
 		void performKeyGenerator();
-		void performProgramWizard();
+		void performMidiDeviceRefresh();
 		void initTest();
 		StringArray getRenderingEngines() const;
 		int getActiveRenderingEngine() const;

@@ -809,26 +809,6 @@ String CtrlrMIDILibrary::getItemName(const int itemId)
 			return ("Waveform");
 		case Data:
 			return ("Data");
-		case CtrlrEditor::doIdentityRequest:
-			return ("REQUEST Identity");
-		case CtrlrEditor::doEditBufferRequest:
-			return ("REQUEST edit buffer");
-		case CtrlrEditor::doAllProgramsRequest:
-			return ("REQUEST all programs");
-		case CtrlrEditor::showMidiLibrary:
-			return ("Program manager");
-		case CtrlrEditor::doSnapshotStore:
-			return ("Save snapshot");
-		case CtrlrEditor::doSendSnapshot:
-			return ("SEND snapshot");
-		case CtrlrEditor::doPrevProgram:
-			return ("Previous program");
-		case CtrlrEditor::doNextProgram:
-			return ("Next program");
-		case CtrlrEditor::doPrevBank:
-			return ("Previous bank");
-		case CtrlrEditor::doNextBank:
-			return ("Next bank");
 		default:
 			break;
 	}
