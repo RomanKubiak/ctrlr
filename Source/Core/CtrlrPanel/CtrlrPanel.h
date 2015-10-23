@@ -1,5 +1,5 @@
-#ifndef __CTRLR_PANEL__
-#define __CTRLR_PANEL__
+#ifndef CTRLR_PANEL
+#define CTRLR_PANEL
 
 #include "CtrlrMacros.h"
 #include "CtrlrMidiDeviceManager.h"
@@ -17,6 +17,7 @@
 #include "CtrlrPanelResourceManager.h"
 #include "CtrlrPanelUndoManager.h"
 #include "CtrlrPanelSchemeMigration.h"
+#include "CtrlrPanelOSC.h"
 
 typedef WeakReference <CtrlrModulator>					ModulatorReference;
 typedef WeakReference <CtrlrComponent>					ComponentReference;
@@ -340,6 +341,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		Array <int,CriticalSection> panelResources;
 		CtrlrPanelResourceManager resourceManager;
 		HashMap<String,CtrlrModulator*> modulatorsByName;
+		ScopedPointer <CtrlrPanelOSC> ctrlrPanelOSC;
 };
 
 #endif

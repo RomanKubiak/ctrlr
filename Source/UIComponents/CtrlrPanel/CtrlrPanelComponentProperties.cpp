@@ -120,6 +120,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 		Array <PropertyComponent*> panelProperties;
 		Array <PropertyComponent*> panelEditorProperties;
 		Array <PropertyComponent*> panelMidiProperties;
+		Array <PropertyComponent*> panelOSCProperties;
 
 		for (int i=0; i<treeToEdit.getNumProperties(); i++)
 		{
@@ -190,6 +191,18 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					)
 				);
 			}
+			else if (treeToEdit.getPropertyName(i).toString().startsWith("panelOSC"))
+			{
+				panelOSCProperties.add
+				(
+					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+					(
+						treeToEdit.getPropertyName(i),
+						treeToEdit,
+						&owner.getOwner()
+					)
+				);
+			}
 			else
 			{
 				panelProperties.add
@@ -245,6 +258,9 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 
 		if (panelMidiProperties.size() != 0)
 			propertyPanel->addSection ("MIDI", panelMidiProperties);
+
+		if (panelOSCProperties.size() != 0)
+			propertyPanel->addSection ("OSC", panelOSCProperties);
 
 		if (panelMidiProperties.size() != 0)
 			propertyPanel->addSection ("Editor", panelEditorProperties);

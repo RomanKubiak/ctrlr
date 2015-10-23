@@ -2173,6 +2173,8 @@
 		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.h" />
 		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp" />
 		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.h" />
+		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrPanelOSC.cpp" />
+		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrPanelOSC.h" />
 		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.cpp" />
 		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.h" />
 		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrPanelResource.cpp" />
@@ -2502,6 +2504,15 @@
 		<Unit filename="../../../../Source/MIDI/CtrlrMidiMessageEx.h" />
 		<Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.h" />
+		<Unit filename="../../../../Source/Misc/address.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/blob.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/bundle.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../../../Source/Misc/compat.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -2534,6 +2545,23 @@
 		<Unit filename="../../../../Source/Misc/include/libusb_windows.h" />
 		<Unit filename="../../../../Source/Misc/include/libusbi.h" />
 		<Unit filename="../../../../Source/Misc/include/linux_usbfs.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/Makefile" />
+		<Unit filename="../../../../Source/Misc/include/lo/Makefile.am" />
+		<Unit filename="../../../../Source/Misc/include/lo/Makefile.in" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_config_linux.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_cpp.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_endian.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_endian.h.in" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_errors.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_internal.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_lowlevel.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_macros.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_osc_types.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_serverthread.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_throw.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_types.h" />
+		<Unit filename="../../../../Source/Misc/include/lo/lo_types_internal.h" />
 		<Unit filename="../../../../Source/Misc/include/poll_posix.h" />
 		<Unit filename="../../../../Source/Misc/include/poll_windows.h" />
 		<Unit filename="../../../../Source/Misc/include/structs.h" />
@@ -2562,10 +2590,28 @@
 		<Unit filename="../../../../Source/Misc/lua.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../../../Source/Misc/message.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/method.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/pattern_match.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../../../Source/Misc/poll_posix.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../../../Source/Misc/poll_windows.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/send.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/server.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/server_thread.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../../../Source/Misc/strerror.c">
@@ -2583,7 +2629,13 @@
 		<Unit filename="../../../../Source/Misc/threads_windows.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../../../Source/Misc/timetag.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../../../Source/Misc/usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../../../Source/Misc/version.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../../../Source/Misc/windows_usb.c">

@@ -229,10 +229,10 @@ namespace BinaryData
     const int            CtrlrMIDIVendors_xmlSize = 15061;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 81525;
+    const int            CtrlrIDs_xmlSize = 81272;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 21266;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 21507;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
@@ -240,11 +240,23 @@ namespace BinaryData
     extern const char*   CtrlrRevision_template;
     const int            CtrlrRevision_templateSize = 199;
 
+    extern const char*   lo_endian_h_in;
+    const int            lo_endian_h_inSize = 3760;
+
+    extern const char*   Makefile;
+    const int            MakefileSize = 18440;
+
+    extern const char*   Makefile_am;
+    const int            Makefile_amSize = 261;
+
+    extern const char*   Makefile_in;
+    const int            Makefile_inSize = 18414;
+
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 77;
+    const int namedResourceListSize = 81;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

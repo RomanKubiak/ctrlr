@@ -24,7 +24,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		resourceManager(*this),
 		midiInputThread(*this, inputDevice),
 		midiControllerInputThread(*this, controllerDevice),
-		ctrlrLuaManager(nullptr)
+		ctrlrLuaManager(nullptr),
+		ctrlrPanelOSC(nullptr)
 {
 }
 
@@ -47,12 +48,14 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 		initialProgram(Ids::panelState),
 		boostrapStateStatus(false),
 		outputDevicePtr(nullptr),
-		ctrlrPanelUndoManager(nullptr)
+		ctrlrPanelUndoManager(nullptr),
+		ctrlrPanelOSC(nullptr)
 
 {
 	ctrlrPanelUndoManager	= new CtrlrPanelUndoManager(*this);
 	ctrlrLuaManager 		= new CtrlrLuaManager(*this);
 	ctrlrMIDILibrary 		= new CtrlrMIDILibrary(*this);
+	ctrlrPanelOSC			= new CtrlrPanelOSC(*this);
 
 	ctrlrLuaManager->getMethodManager().setDebug ((bool)owner.getProperty(Ids::ctrlrLuaDebug));
 	ctrlrPanelUndoManager->addChangeListener (this);
@@ -65,6 +68,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	panelTree.addChild (resourceManager.getManagerTree(), -1, 0);
 
 	panelTree.addListener (this);
+	panelTree.addListener (ctrlrPanelOSC);
+
 	setProperty (Ids::panelScheme, CTRLR_PANEL_SCHEME);
 	setProperty (Ids::panelShowDialogs, true);
 	setProperty (Ids::panelMessageTime, 10000);
@@ -112,6 +117,10 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::panelMidiGlobalDelay, 0);
 	setProperty (Ids::panelMidiPauseOut, false);
 	setProperty (Ids::panelMidiPauseIn, false);
+
+	setProperty (Ids::panelOSCEnabled, false);
+	setProperty (Ids::panelOSCPort, 7770);
+	setProperty (Ids::panelOSCProtocol, 0);
 
     setProperty (Ids::luaPanelMidiChannelChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelMidiReceived, COMBO_ITEM_NONE);

@@ -79,6 +79,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrManagerVst_43428ed9.o \
   $(OBJDIR)/CtrlrModulator_46c05ee8.o \
   $(OBJDIR)/CtrlrModulatorProcessor_7fe26354.o \
+  $(OBJDIR)/CtrlrPanelOSC_d70b84a1.o \
   $(OBJDIR)/CtrlrPanelUndoManager_d8053dcb.o \
   $(OBJDIR)/CtrlrEvaluationScopes_156ffc41.o \
   $(OBJDIR)/CtrlrPanel_bc84f48.o \
@@ -212,6 +213,9 @@ OBJECTS := \
   $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
   $(OBJDIR)/CtrlrMidiMessage_58a157ae.o \
   $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
+  $(OBJDIR)/address_7a9598ba.o \
+  $(OBJDIR)/blob_6e9d9821.o \
+  $(OBJDIR)/bundle_1833bc06.o \
   $(OBJDIR)/compat_419eff06.o \
   $(OBJDIR)/core_707e1fa3.o \
   $(OBJDIR)/darwin_usb_594f06f0.o \
@@ -223,14 +227,22 @@ OBJECTS := \
   $(OBJDIR)/libr-bfd_c5515a4.o \
   $(OBJDIR)/libr_7f7e1b11.o \
   $(OBJDIR)/linux_udev_659c49af.o \
+  $(OBJDIR)/message_f0a0440d.o \
+  $(OBJDIR)/method_4af3c0a5.o \
+  $(OBJDIR)/pattern_match_f4afc7dc.o \
   $(OBJDIR)/linux_usbfs_67550e0c.o \
   $(OBJDIR)/lua_422403e.o \
+  $(OBJDIR)/send_8b3ce94c.o \
+  $(OBJDIR)/server_b7920e87.o \
+  $(OBJDIR)/server_thread_a53b7a0c.o \
   $(OBJDIR)/poll_posix_37a8f9c7.o \
   $(OBJDIR)/poll_windows_7e84da07.o \
   $(OBJDIR)/strerror_5e4de4fb.o \
   $(OBJDIR)/structs_4f124184.o \
   $(OBJDIR)/sync_8c56bb9f.o \
+  $(OBJDIR)/timetag_49c3d033.o \
   $(OBJDIR)/threads_posix_2509d033.o \
+  $(OBJDIR)/version_f296709e.o \
   $(OBJDIR)/threads_windows_9709c573.o \
   $(OBJDIR)/usb_4a02eca.o \
   $(OBJDIR)/windows_usb_69ee250e.o \
@@ -423,6 +435,11 @@ $(OBJDIR)/CtrlrModulator_46c05ee8.o: ../../../../Source/Core/CtrlrModulator/Ctrl
 $(OBJDIR)/CtrlrModulatorProcessor_7fe26354.o: ../../../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrModulatorProcessor.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelOSC_d70b84a1.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelOSC.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelOSC.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrPanelUndoManager_d8053dcb.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.cpp
@@ -1090,6 +1107,21 @@ $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o: ../../../../Source/MIDI/CtrlrOwnedMi
 	@echo "Compiling CtrlrOwnedMidiMessage.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/address_7a9598ba.o: ../../../../Source/Misc/address.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling address.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/blob_6e9d9821.o: ../../../../Source/Misc/blob.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling blob.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/bundle_1833bc06.o: ../../../../Source/Misc/bundle.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling bundle.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/compat_419eff06.o: ../../../../Source/Misc/compat.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling compat.c"
@@ -1145,6 +1177,21 @@ $(OBJDIR)/linux_udev_659c49af.o: ../../../../Source/Misc/linux_udev.c
 	@echo "Compiling linux_udev.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/message_f0a0440d.o: ../../../../Source/Misc/message.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling message.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/method_4af3c0a5.o: ../../../../Source/Misc/method.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling method.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/pattern_match_f4afc7dc.o: ../../../../Source/Misc/pattern_match.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling pattern_match.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/linux_usbfs_67550e0c.o: ../../../../Source/Misc/linux_usbfs.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling linux_usbfs.c"
@@ -1153,6 +1200,21 @@ $(OBJDIR)/linux_usbfs_67550e0c.o: ../../../../Source/Misc/linux_usbfs.c
 $(OBJDIR)/lua_422403e.o: ../../../../Source/Misc/lua.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling lua.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/send_8b3ce94c.o: ../../../../Source/Misc/send.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling send.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/server_b7920e87.o: ../../../../Source/Misc/server.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling server.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/server_thread_a53b7a0c.o: ../../../../Source/Misc/server_thread.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling server_thread.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/poll_posix_37a8f9c7.o: ../../../../Source/Misc/poll_posix.c
@@ -1180,9 +1242,19 @@ $(OBJDIR)/sync_8c56bb9f.o: ../../../../Source/Misc/sync.c
 	@echo "Compiling sync.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/timetag_49c3d033.o: ../../../../Source/Misc/timetag.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling timetag.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/threads_posix_2509d033.o: ../../../../Source/Misc/threads_posix.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling threads_posix.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/version_f296709e.o: ../../../../Source/Misc/version.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling version.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/threads_windows_9709c573.o: ../../../../Source/Misc/threads_windows.c
