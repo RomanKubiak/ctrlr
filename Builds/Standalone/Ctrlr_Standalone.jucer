@@ -338,6 +338,9 @@
               file="../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.h"/>
       </GROUP>
       <GROUP id="{54F2B3F4-3185-4B50-C69B-02CB41839CFB}" name="CtrlrPanel">
+        <FILE id="X1eCDl" name="CtrlrPanelOSC.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelOSC.cpp"/>
+        <FILE id="wiVkXC" name="CtrlrPanelOSC.h" compile="0" resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanelOSC.h"/>
         <FILE id="C0WapQ" name="CtrlrPanelUndoManager.cpp" compile="1" resource="0"
               file="../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.cpp"/>
         <FILE id="hmg4Ca" name="CtrlrPanelUndoManager.h" compile="0" resource="0"
@@ -867,6 +870,9 @@
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
     </GROUP>
     <GROUP id="{15BCC855-3712-E6FF-7B07-0711370584D7}" name="Misc">
+      <FILE id="AY6RF4" name="address.c" compile="1" resource="0" file="../../Source/Misc/address.c"/>
+      <FILE id="fSLJ6h" name="blob.c" compile="1" resource="0" file="../../Source/Misc/blob.c"/>
+      <FILE id="HZFcOY" name="bundle.c" compile="1" resource="0" file="../../Source/Misc/bundle.c"/>
       <FILE id="SXpQf1" name="compat.c" compile="1" resource="0" file="../../Source/Misc/compat.c"/>
       <FILE id="uxsv2c" name="core.c" compile="1" resource="0" file="../../Source/Misc/core.c"/>
       <FILE id="BkmaNf" name="darwin_usb.c" compile="1" resource="0" file="../../Source/Misc/darwin_usb.c"/>
@@ -874,6 +880,28 @@
       <FILE id="gSGn88" name="enums.c" compile="1" resource="0" file="../../Source/Misc/enums.c"/>
       <FILE id="Psiemy" name="hotplug.c" compile="1" resource="0" file="../../Source/Misc/hotplug.c"/>
       <GROUP id="{C3DA49B5-638B-BAA0-DA18-70E57F042D7E}" name="include">
+        <GROUP id="{639303ED-7B91-2AF0-C463-F13D50416F90}" name="lo">
+          <FILE id="IbreLy" name="lo.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo.h"/>
+          <FILE id="KxFxLi" name="lo_config_linux.h" compile="0" resource="0"
+                file="../../Source/Misc/include/lo/lo_config_linux.h"/>
+          <FILE id="OmyJQv" name="lo_cpp.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_cpp.h"/>
+          <FILE id="w00QOd" name="lo_endian.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_endian.h"/>
+          <FILE id="b6NOu7" name="lo_endian.h.in" compile="0" resource="1" file="../../Source/Misc/include/lo/lo_endian.h.in"/>
+          <FILE id="u9oW9q" name="lo_errors.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_errors.h"/>
+          <FILE id="vJGOFz" name="lo_internal.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_internal.h"/>
+          <FILE id="uw9eM3" name="lo_lowlevel.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_lowlevel.h"/>
+          <FILE id="tRjE1F" name="lo_macros.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_macros.h"/>
+          <FILE id="BqbXvG" name="lo_osc_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_osc_types.h"/>
+          <FILE id="VHu6kN" name="lo_serverthread.h" compile="0" resource="0"
+                file="../../Source/Misc/include/lo/lo_serverthread.h"/>
+          <FILE id="Mb3cee" name="lo_throw.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_throw.h"/>
+          <FILE id="sYHGkK" name="lo_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_types.h"/>
+          <FILE id="IqZdab" name="lo_types_internal.h" compile="0" resource="0"
+                file="../../Source/Misc/include/lo/lo_types_internal.h"/>
+          <FILE id="P0340N" name="Makefile" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile"/>
+          <FILE id="bzdZkm" name="Makefile.am" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.am"/>
+          <FILE id="wLoYXm" name="Makefile.in" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.in"/>
+        </GROUP>
         <FILE id="ub4XU3" name="compat.h" compile="0" resource="0" file="../../Source/Misc/include/compat.h"/>
         <FILE id="vjmBmx" name="darwin_usb.h" compile="0" resource="0" file="../../Source/Misc/include/darwin_usb.h"/>
         <FILE id="TcRVrd" name="enums.h" compile="0" resource="0" file="../../Source/Misc/include/enums.h"/>
@@ -906,20 +934,23 @@
       <FILE id="VlmOgy" name="keys.cpp" compile="1" resource="0" file="../../Source/Misc/keys.cpp"/>
       <FILE id="UmkLLC" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Misc/libr-bfd.c"/>
       <FILE id="Xde4M1" name="libr.c" compile="1" resource="0" file="../../Source/Misc/libr.c"/>
-      <GROUP id="{AEB995AE-13C2-157F-0D76-06B563626FAA}" name="libusb">
-        <GROUP id="{F712C2C1-454B-A797-133A-8C139408DF0E}" name="configs"/>
-        <GROUP id="{7C4850FE-F200-D57E-1D86-4F8253DEB588}" name="lua"/>
-        <GROUP id="{A0457F5F-AA38-C8D6-B389-1A18E15DAA87}" name="os"/>
-      </GROUP>
       <FILE id="IK6XxB" name="linux_udev.c" compile="1" resource="0" file="../../Source/Misc/linux_udev.c"/>
+      <FILE id="LfjLr4" name="message.c" compile="1" resource="0" file="../../Source/Misc/message.c"/>
+      <FILE id="b2RMLx" name="method.c" compile="1" resource="0" file="../../Source/Misc/method.c"/>
+      <FILE id="IhkZsM" name="pattern_match.c" compile="1" resource="0" file="../../Source/Misc/pattern_match.c"/>
       <FILE id="iK37su" name="linux_usbfs.c" compile="1" resource="0" file="../../Source/Misc/linux_usbfs.c"/>
       <FILE id="nLLa6p" name="lua.c" compile="1" resource="0" file="../../Source/Misc/lua.c"/>
+      <FILE id="U0q92o" name="send.c" compile="1" resource="0" file="../../Source/Misc/send.c"/>
+      <FILE id="VDwlCr" name="server.c" compile="1" resource="0" file="../../Source/Misc/server.c"/>
+      <FILE id="q1ya7F" name="server_thread.c" compile="1" resource="0" file="../../Source/Misc/server_thread.c"/>
       <FILE id="ksTSSs" name="poll_posix.c" compile="1" resource="0" file="../../Source/Misc/poll_posix.c"/>
       <FILE id="cWOVFT" name="poll_windows.c" compile="1" resource="0" file="../../Source/Misc/poll_windows.c"/>
       <FILE id="jmARjh" name="strerror.c" compile="1" resource="0" file="../../Source/Misc/strerror.c"/>
       <FILE id="pn5TlR" name="structs.c" compile="1" resource="0" file="../../Source/Misc/structs.c"/>
       <FILE id="F7Di5r" name="sync.c" compile="1" resource="0" file="../../Source/Misc/sync.c"/>
+      <FILE id="E9uATj" name="timetag.c" compile="1" resource="0" file="../../Source/Misc/timetag.c"/>
       <FILE id="hi0HWy" name="threads_posix.c" compile="1" resource="0" file="../../Source/Misc/threads_posix.c"/>
+      <FILE id="vRPVHI" name="version.c" compile="1" resource="0" file="../../Source/Misc/version.c"/>
       <FILE id="P3w7B8" name="threads_windows.c" compile="1" resource="0"
             file="../../Source/Misc/threads_windows.c"/>
       <FILE id="jgkc3a" name="usb.c" compile="1" resource="0" file="../../Source/Misc/usb.c"/>

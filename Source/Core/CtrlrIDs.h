@@ -155,6 +155,11 @@ namespace Ids
 	DECLARE_ID (panelMidiThruD2H);
 	DECLARE_ID (panelMidiThruD2HChannelize);
 
+	/* OSC options */
+	DECLARE_ID (panelOSCEnabled);
+	DECLARE_ID (panelOSCPort);
+    DECLARE_ID (panelOSCProtocol);
+
 	DECLARE_ID (panelScheme);
 	DECLARE_ID (panelShowDialogs);
 	DECLARE_ID (panelMidiRealtimeIgnore);
@@ -773,6 +778,7 @@ namespace Ids
 	DECLARE_ID (luaPanelPaintBackground);
 	DECLARE_ID (luaPanelSaved);
 	DECLARE_ID (luaPanelResized);
+	DECLARE_ID (luaPanelOSCReceived);
 	DECLARE_ID (luaPanelProgramChanged);
 	DECLARE_ID (luaPanelGlobalChanged);
 	DECLARE_ID (luaPanelMenubarCustom);

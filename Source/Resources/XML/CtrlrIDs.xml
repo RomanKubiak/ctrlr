@@ -98,6 +98,10 @@
   <id name="panelMidiPauseIn"                           text="No MIDI input to panel"                           type="Bool" />
   <id name="panelMidiSnapshotShowProgress"              text="Show progress bar window when sending snapshot"   type="Bool" />
 
+  <id name="panelOSCEnabled"                            text="Enable OSC for this panel"                        type="Bool" />
+  <id name="panelOSCPort"                               text="OSC port to listen on"                            type="Numeric" min="1" max="65535" />
+  <id name="panelOSCProtocol"                           text="OSC network protocol"                             type="VarNumeric" defaults="UDP,TCP,LOCAL" />
+
   <!-- General -->
   <id name="panelFilePath"                  text="Panel file path" type="ReadOnly"/>
   <id name="panelIndex"                     text="Panel global index" type="ReadOnly"/>
@@ -748,7 +752,8 @@
   <id name="luaPanelModulatorValueChanged"    text="Called when any modulator changes it's value"         type="LuaMethod" />
   <id name="luaPanelBeforeLoad"               text="Called before any modulators are created"             type="LuaMethod" />
   <id name="luaPanelMidiChannelChanged"       text="Called when a MIDI channel changes for a panel"       type="LuaMethod" />
-  <id name="luaPanelMidiReceived"             text="Called when panels receives a MIDI message"           type="LuaMethod" />
+  <id name="luaPanelMidiReceived"             text="Called when a panel receives a MIDI message"          type="LuaMethod" />
+  <id name="luaPanelOSCReceived"              text="Called when a panel receives a OSC message"           type="LuaMethod" />
   <id name="luaPanelPaintBackground"          text="Called to paint a custom panel background"            type="LuaMethod" />
   <id name="luaPanelSaved"                    text="Called before a panel is saved"                       type="LuaMethod" />
   <id name="luaPanelResized"                  text="Called when a panel is resized"                       type="LuaMethod" />

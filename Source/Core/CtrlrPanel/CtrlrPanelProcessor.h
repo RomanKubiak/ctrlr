@@ -1,5 +1,5 @@
-#ifndef __CTRLR_PANEL_PROCESSOR__
-#define __CTRLR_PANEL_PROCESSOR__
+#ifndef CTRLR_PANEL_PROCESSOR
+#define CTRLR_PANEL_PROCESSOR
 
 #include "CtrlrMacros.h"
 #include "Methods/CtrlrLuaMethod.h"

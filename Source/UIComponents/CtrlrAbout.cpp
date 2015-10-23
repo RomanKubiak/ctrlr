@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.1.0
+  Created with Introjucer version: 3.2.0
 
   ------------------------------------------------------------------------------
 
   The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-13 by Raw Material Software Ltd.
+  Copyright (c) 2015 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -35,6 +35,9 @@
 CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     : owner(_owner)
 {
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
     addAndMakeVisible (ctrlrName = new Label (String::empty,
                                               TRANS("Ctrlr")));
     ctrlrName->setFont (Font (48.00f, Font::bold));
@@ -59,6 +62,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     versionInfoLabel->setCaretVisible (false);
     versionInfoLabel->setPopupMenuEnabled (true);
     versionInfoLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    versionInfoLabel->setColour (TextEditor::outlineColourId, Colour (0x9c000000));
     versionInfoLabel->setColour (TextEditor::shadowColourId, Colour (0x00000000));
     versionInfoLabel->setText (String::empty);
 
@@ -151,6 +155,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 	addVersionInfo ("Juce", SystemStats::getJUCEVersion().fromLastOccurrenceOf("JUCE v", false, true));
 
 	addVersionInfo ("libusb", "1.0.19");
+    addVersionInfo ("liblo", "0.28");
 
 	shadow.setShadowProperties (DropShadow (Colours::black, 5, Point <int> (2,2)));
 	ctrlrName->setComponentEffect (&shadow);
@@ -182,7 +187,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 	}
 	else
 	{
-		setSize (600, 64);
+		setSize (600, 96);
 	}
 	updateVersionLabel();
     //[/Constructor]
@@ -226,9 +231,12 @@ void CtrlrAbout::paint (Graphics& g)
 
 void CtrlrAbout::resized()
 {
-    ctrlrName->setBounds ((proportionOfWidth (0.0200f)) + (proportionOfWidth (0.0800f)) - -8, 8, proportionOfWidth (0.2000f), 48);
+    //[UserPreResize] Add your own custom resize code here..
+    //[/UserPreResize]
+
+    ctrlrName->setBounds (proportionOfWidth (0.0200f) + proportionOfWidth (0.0800f) - -8, 8, proportionOfWidth (0.2000f), 48);
     ctrlrLogo->setBounds (proportionOfWidth (0.0200f), 8, proportionOfWidth (0.0800f), 48);
-    versionInfoLabel->setBounds (((proportionOfWidth (0.0200f)) + (proportionOfWidth (0.0800f)) - -8) + (proportionOfWidth (0.2000f)) - -8, 8, proportionOfWidth (0.6600f), 48);
+    versionInfoLabel->setBounds ((proportionOfWidth (0.0200f) + proportionOfWidth (0.0800f) - -8) + proportionOfWidth (0.2000f) - -8, 8, proportionOfWidth (0.6600f), 76);
     label->setBounds (proportionOfWidth (0.0133f), 120, proportionOfWidth (0.4600f), 24);
     label2->setBounds (proportionOfWidth (0.0133f), 176, proportionOfWidth (0.4600f), 24);
     label3->setBounds (proportionOfWidth (0.0133f), 216, proportionOfWidth (0.4600f), 24);
@@ -301,9 +309,10 @@ BEGIN_JUCER_METADATA
                colourOver="0" resourceDown="" opacityDown="0.99000000953674316406"
                colourDown="0"/>
   <TEXTEDITOR name="" id="f62f729d279478eb" memberName="versionInfoLabel" virtualName=""
-              explicitFocusOrder="0" pos="-8R 8 66% 48" posRelativeX="cb1b7e33d5cdf245"
-              bkgcol="0" shadowcol="0" initialText="" multiline="1" retKeyStartsLine="1"
-              readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
+              explicitFocusOrder="0" pos="-8R 8 66% 76" posRelativeX="cb1b7e33d5cdf245"
+              bkgcol="0" outlinecol="9c000000" shadowcol="0" initialText=""
+              multiline="1" retKeyStartsLine="1" readonly="1" scrollbars="1"
+              caret="0" popupmenu="1"/>
   <LABEL name="new label" id="eb972e3a417aa275" memberName="label" virtualName=""
          explicitFocusOrder="0" pos="1.333% 120 46% 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Instance name" editableSingleClick="0"
