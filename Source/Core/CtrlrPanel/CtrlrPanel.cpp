@@ -11,6 +11,7 @@
 #include "CtrlrPanel/CtrlrPanelCanvas.h"
 #include "CtrlrComponents/CtrlrComponentTypeManager.h"
 #include "JuceClasses/LMemoryBlock.h"
+#include "CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.h"
 
 CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		: owner(_owner),
@@ -1773,4 +1774,28 @@ void CtrlrPanel::addMIDIControllerListener(CtrlrMidiDevice::Listener *listenerTo
 
 void CtrlrPanel::removeMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToRemove)
 {
+}
+
+void CtrlrPanel::performInternalComponentFunction(CtrlrComponent *sourceComponent)
+{
+	const CtrlrComponentInternalFunctions functionId = (CtrlrComponentInternalFunctions)(int)sourceComponent->getProperty(Ids::componentInternalFunction);
+
+	switch (functionId)
+	{
+		case MIDIDeviceSelection:
+			CtrlrMIDIDeviceSelectionDialog::showDialog(owner, getEditor());
+			break;
+		case none:
+		default:
+			break;
+	}
+}
+
+String CtrlrPanel::getInternalFunctionsProperty(CtrlrComponent *component)
+{
+	if (CtrlrComponentTypeManager::findType(component) == Ids::uiButton)
+	{
+		return (_STR(COMBO_ITEM_NONE) + "\nShow MIDI device settings");
+	}
+	return (String::empty);
 }

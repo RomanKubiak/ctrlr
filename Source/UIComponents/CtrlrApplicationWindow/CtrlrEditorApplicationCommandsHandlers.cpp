@@ -4,7 +4,6 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
-#include "CtrlrMIDI/CtrlrProgramWizard.h"
 #include "CtrlrWindowManagers/CtrlrDialogWindow.h"
 
 class CtrlrKeyGenerator : public ThreadWithProgressWindow

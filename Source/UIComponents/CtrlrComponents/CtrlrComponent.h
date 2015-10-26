@@ -10,6 +10,12 @@ class LookAndFeelBase;
 class CtrlrPanelResource;
 class CtrlrComponent;
 
+enum CtrlrComponentInternalFunctions
+{
+	none,
+	MIDIDeviceSelection
+};
+
 class CtrlrGrouppingComponent
 {
 	public:
@@ -105,7 +111,7 @@ class CtrlrComponent :	public Component,
 		// Deprecated
 		CtrlrLuaRectangle getLuaBounds();
 		void setLuaBounds(CtrlrLuaRectangle newBounds);
-
+		bool isInternal();
 		JUCE_LEAK_DETECTOR(CtrlrComponent)
 
 	protected:

@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.1.0
+  Created with Introjucer version: 3.2.0
 
   ------------------------------------------------------------------------------
 
   The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-13 by Raw Material Software Ltd.
+  Copyright (c) 2015 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -33,6 +33,9 @@
 CtrlrMIDIBufferEditor::CtrlrMIDIBufferEditor (CtrlrPanel &_owner)
     : owner(_owner), bufferState(Ids::uiChildWindowContentState)
 {
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
     addAndMakeVisible (layoutResizerBar = new StretchableLayoutResizerBar (&layoutManager, 1, true));
 
     addAndMakeVisible (bufferLeft = new CtrlrMIDIBuffer (owner));
@@ -77,6 +80,9 @@ void CtrlrMIDIBufferEditor::paint (Graphics& g)
 
 void CtrlrMIDIBufferEditor::resized()
 {
+    //[UserPreResize] Add your own custom resize code here..
+    //[/UserPreResize]
+
     layoutResizerBar->setBounds ((getWidth() / 2) + -4, 0, 8, getHeight() - 0);
     bufferLeft->setBounds (0, 0, 122, 200);
     bufferRight->setBounds (264, 0, 130, 200);
@@ -188,7 +194,7 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="CtrlrMIDIBufferEditor" componentName=""
                  parentClasses="public CtrlrChildWindowContent" constructorParams="CtrlrPanel &amp;_owner"
                  variableInitialisers="owner(_owner), bufferState(Ids::uiChildWindowContentState)"
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.33000001311302185059"
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="400" initialHeight="400">
   <BACKGROUND backgroundColour="ffffff"/>
   <GENERICCOMPONENT name="" id="fd385958e4170e67" memberName="layoutResizerBar" virtualName=""

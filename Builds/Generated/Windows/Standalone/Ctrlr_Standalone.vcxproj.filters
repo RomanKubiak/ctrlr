@@ -1132,10 +1132,7 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.cpp">
-      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.cpp">
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.cpp">
@@ -3405,10 +3402,7 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.h">
-      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.h">
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.h">

@@ -281,6 +281,9 @@ class CtrlrPanel:	public ValueTree::Listener,
         void addMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToAdd);
         void removeMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToRemove);
 		void dumpDebugData();
+		void performInternalComponentFunction(CtrlrComponent *sourceComponent);
+		String getInternalFunctionsProperty(CtrlrComponent *component);
+
 		static const String globalsToString(const Array<int,CriticalSection> &arrayOfGlobals);
 		static const Array<int,CriticalSection> globalsFromString(const String &globalsString);
 		static void wrapForLua (lua_State *L);
