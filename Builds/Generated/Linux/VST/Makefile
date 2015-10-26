@@ -290,6 +290,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaMethodEditorTabs_9f9d2de6.o \
   $(OBJDIR)/CtrlrLuaMethodFind_e941a694.o \
   $(OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o \
+  $(OBJDIR)/CtrlrMIDIDeviceSelectionDialog_468c7683.o \
   $(OBJDIR)/CtrlrProgramWizard_c826c3d5.o \
   $(OBJDIR)/CtrlrProgramWizardMonitor_c2db5cf.o \
   $(OBJDIR)/CtrlrMIDIBuffer_8a274ae5.o \
@@ -1477,6 +1478,11 @@ $(OBJDIR)/CtrlrLuaMethodFind_e941a694.o: ../../../../Source/UIComponents/CtrlrLu
 $(OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrMethodEditorTabCloseButton.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrMethodEditorTabCloseButton.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrMIDIDeviceSelectionDialog_468c7683.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrMIDIDeviceSelectionDialog.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrProgramWizard_c826c3d5.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.cpp

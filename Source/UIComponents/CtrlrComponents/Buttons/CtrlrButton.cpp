@@ -57,6 +57,7 @@ CtrlrButton::CtrlrButton (CtrlrModulator &owner)
 	setProperty (Ids::uiButtonRepeat, false);
 	setProperty (Ids::uiButtonRepeatRate, 100);
 	setProperty (Ids::uiButtonTriggerOnMouseDown, false);
+	setProperty (Ids::componentInternalFunction, owner.getOwnerPanel().getInternalFunctionsProperty(this));
     //[/UserPreSize]
 
     setSize (88, 32);
@@ -94,6 +95,12 @@ void CtrlrButton::resized()
 void CtrlrButton::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
+    if (isInternal())
+	{
+		owner.getOwnerPanel().performInternalComponentFunction(this);
+		return;
+	}
+
 	if (!owner.getOwnerPanel().checkRadioGroup(this, buttonThatWasClicked->getToggleState()))
 		return;
     //[/UserbuttonClicked_Pre]

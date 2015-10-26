@@ -703,6 +703,12 @@ void CtrlrComponent::setCustomLookAndFeel (const luabind::object &_customLookAnd
     }
 }
 
+bool CtrlrComponent::isInternal()
+{
+	if (getProperty(Ids::componentInternalFunction, String::empty) != String::empty)
+		return (true);
+}
+
 void CtrlrComponent::wrapForLua (lua_State *L)
 {
 	using namespace luabind;

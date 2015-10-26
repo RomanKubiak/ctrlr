@@ -1155,6 +1155,10 @@
         </GROUP>
       </GROUP>
       <GROUP id="{56955E24-D55D-EDAC-5C31-8CA84BA65627}" name="CtrlrMIDI">
+        <FILE id="w97cgN" name="CtrlrMIDIDeviceSelectionDialog.cpp" compile="1"
+              resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.cpp"/>
+        <FILE id="J8PMwx" name="CtrlrMIDIDeviceSelectionDialog.h" compile="0"
+              resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.h"/>
         <FILE id="pB0r1J" name="CtrlrProgramWizard.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.cpp"/>
         <FILE id="RKCZvh" name="CtrlrProgramWizard.h" compile="0" resource="0"

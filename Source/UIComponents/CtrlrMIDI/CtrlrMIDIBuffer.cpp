@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.1.0
+  Created with Introjucer version: 3.2.0
 
   ------------------------------------------------------------------------------
 
   The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-13 by Raw Material Software Ltd.
+  Copyright (c) 2015 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -228,20 +228,23 @@ void CtrlrMidiBufferStatus::mouseDrag (const MouseEvent &e)
 CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     : owner(_owner), tokeniser(*this)
 {
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
     addAndMakeVisible (documentEditor = new CodeEditorComponent (document, &tokeniser));
 
     addAndMakeVisible (bufferSource = new ComboBox (String::empty));
     bufferSource->setEditableText (false);
     bufferSource->setJustificationType (Justification::centredLeft);
-    bufferSource->setTextWhenNothingSelected ("Select buffer source");
-    bufferSource->setTextWhenNoChoicesAvailable ("(no choices)");
-    bufferSource->addItem ("Custom data", 1);
-    bufferSource->addItem ("File - SYX", 2);
-    bufferSource->addItem ("File - Text", 3);
+    bufferSource->setTextWhenNothingSelected (TRANS("Select buffer source"));
+    bufferSource->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
+    bufferSource->addItem (TRANS("Custom data"), 1);
+    bufferSource->addItem (TRANS("File - SYX"), 2);
+    bufferSource->addItem (TRANS("File - Text"), 3);
     bufferSource->addListener (this);
 
     addAndMakeVisible (label = new Label ("new label",
-                                          "Prefix"));
+                                          TRANS("Prefix")));
     label->setFont (Font (11.00f, Font::bold | Font::italic));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
@@ -249,7 +252,7 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (prefixLengthLabel = new Label ("new label",
-                                                      "4"));
+                                                      TRANS("4")));
     prefixLengthLabel->setFont (Font (12.00f, Font::plain));
     prefixLengthLabel->setJustificationType (Justification::centred);
     prefixLengthLabel->setEditable (true, true, false);
@@ -260,8 +263,8 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     prefixLengthLabel->addListener (this);
 
     addAndMakeVisible (nameLengthLabel = new Label ("new label",
-                                                    "16"));
-    nameLengthLabel->setTooltip ("Name section length");
+                                                    TRANS("16")));
+    nameLengthLabel->setTooltip (TRANS("Name section length"));
     nameLengthLabel->setFont (Font (12.00f, Font::plain));
     nameLengthLabel->setJustificationType (Justification::centred);
     nameLengthLabel->setEditable (true, true, false);
@@ -272,8 +275,8 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     nameLengthLabel->addListener (this);
 
     addAndMakeVisible (dataOffsetLabel = new Label ("new label",
-                                                    "4"));
-    dataOffsetLabel->setTooltip ("Data section offset");
+                                                    TRANS("4")));
+    dataOffsetLabel->setTooltip (TRANS("Data section offset"));
     dataOffsetLabel->setFont (Font (12.00f, Font::plain));
     dataOffsetLabel->setJustificationType (Justification::centred);
     dataOffsetLabel->setEditable (true, true, false);
@@ -284,7 +287,7 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     dataOffsetLabel->addListener (this);
 
     addAndMakeVisible (suffixLengthLabel = new Label ("new label",
-                                                      "4"));
+                                                      TRANS("4")));
     suffixLengthLabel->setFont (Font (12.00f, Font::plain));
     suffixLengthLabel->setJustificationType (Justification::centred);
     suffixLengthLabel->setEditable (true, true, false);
@@ -295,7 +298,7 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     suffixLengthLabel->addListener (this);
 
     addAndMakeVisible (label7 = new Label ("new label",
-                                           "Name"));
+                                           TRANS("Name")));
     label7->setFont (Font (11.00f, Font::bold | Font::italic));
     label7->setJustificationType (Justification::centred);
     label7->setEditable (false, false, false);
@@ -303,7 +306,7 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     label7->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (label8 = new Label ("new label",
-                                           "Data"));
+                                           TRANS("Data")));
     label8->setFont (Font (11.00f, Font::bold | Font::italic));
     label8->setJustificationType (Justification::centred);
     label8->setEditable (false, false, false);
@@ -311,7 +314,7 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     label8->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (label9 = new Label ("new label",
-                                           "Suffix"));
+                                           TRANS("Suffix")));
     label9->setFont (Font (11.00f, Font::bold | Font::italic));
     label9->setJustificationType (Justification::centred);
     label9->setEditable (false, false, false);
@@ -319,8 +322,8 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     label9->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (nameOffsetLabel = new Label ("new label",
-                                                    "16"));
-    nameOffsetLabel->setTooltip ("Name section offset");
+                                                    TRANS("16")));
+    nameOffsetLabel->setTooltip (TRANS("Name section offset"));
     nameOffsetLabel->setFont (Font (12.00f, Font::plain));
     nameOffsetLabel->setJustificationType (Justification::centred);
     nameOffsetLabel->setEditable (true, true, false);
@@ -331,7 +334,7 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     nameOffsetLabel->addListener (this);
 
     addAndMakeVisible (dataLengthLabel = new Label ("new label",
-                                                    "4"));
+                                                    TRANS("4")));
     dataLengthLabel->setFont (Font (12.00f, Font::plain));
     dataLengthLabel->setJustificationType (Justification::centred);
     dataLengthLabel->setEditable (true, true, false);
@@ -342,7 +345,7 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     dataLengthLabel->addListener (this);
 
     addAndMakeVisible (reloadButton = new TextButton (String::empty));
-    reloadButton->setButtonText ("Reload");
+    reloadButton->setButtonText (TRANS("Reload"));
     reloadButton->addListener (this);
     reloadButton->setColour (TextButton::buttonColourId, Colour (0xff8cff7f));
 
@@ -403,6 +406,9 @@ void CtrlrMIDIBuffer::paint (Graphics& g)
 
 void CtrlrMIDIBuffer::resized()
 {
+    //[UserPreResize] Add your own custom resize code here..
+    //[/UserPreResize]
+
     documentEditor->setBounds (0, 88, getWidth() - 0, getHeight() - 104);
     bufferSource->setBounds (8, 8, proportionOfWidth (0.4000f), 24);
     label->setBounds (8, 40, 32, 16);
@@ -415,7 +421,7 @@ void CtrlrMIDIBuffer::resized()
     label9->setBounds (192, 40, 32, 16);
     nameOffsetLabel->setBounds (48, 56, 32, 24);
     dataLengthLabel->setBounds (152, 56, 32, 24);
-    reloadButton->setBounds ((8) + (proportionOfWidth (0.4000f)), 8, proportionOfWidth (0.1525f), 24);
+    reloadButton->setBounds (8 + proportionOfWidth (0.4000f), 8, proportionOfWidth (0.1537f), 24);
     status->setBounds (0, getHeight() - 16, getWidth() - 0, 16);
     //[UserResized] Add your own custom resize handling here..
 	const int columnsVisible	= documentEditor->getNumColumnsOnScreen();
@@ -822,7 +828,7 @@ BEGIN_JUCER_METADATA
          editableSingleClick="1" editableDoubleClick="1" focusDiscardsChanges="0"
          fontname="Default font" fontsize="12" bold="0" italic="0" justification="36"/>
   <TEXTBUTTON name="" id="4308facfa36a7140" memberName="reloadButton" virtualName=""
-              explicitFocusOrder="0" pos="0R 8 15.25% 24" posRelativeX="89bbcb18489c2790"
+              explicitFocusOrder="0" pos="0R 8 15.365% 24" posRelativeX="89bbcb18489c2790"
               bgColOff="ff8cff7f" buttonText="Reload" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
   <GENERICCOMPONENT name="" id="d3e76702cdb231b8" memberName="status" virtualName=""

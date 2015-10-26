@@ -1859,6 +1859,11 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.cpp"/>
+    <Unit filename="../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.cpp"/>
     <Unit filename="../../../../Source/UIComponents/CtrlrMIDI/CtrlrProgramWizard.h">
       <Option compile="0"/>

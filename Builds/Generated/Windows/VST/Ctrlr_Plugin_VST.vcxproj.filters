@@ -1120,6 +1120,9 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua\MethodEditor</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
@@ -3386,6 +3389,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua\MethodEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>

@@ -183,6 +183,7 @@
   <id name="componentLuaMouseDown"                text="Called when a mouse is down on this component" type="LuaMethod" />
   <id name="componentLuaMouseDrag"                text="Called when a mouse is dragged (down + left click) over this component" type="LuaMethod" />
   <id name="componentLuaMouseDoubleClick"         text="Called when a double-click event occurs on this component" type="LuaMethod" />
+  <id name="componentInternalFunction"            text="Internal function this component should execute" type="VarNumeric" defaults="@internalFunctions" />
 
   <!-- Slider -->
   <id name="uiSliderStyle" 					text="Slider style" type="VarNumeric" defaults="LinearHorizontal,LinearVertical,LinearBar,Rotary,RotaryHorizontalDrag,RotaryVerticalDrag,IncDecButtons"/>
@@ -834,6 +835,7 @@
     <const name="imageEffect"       value="No Effect,Glow,Shadow" />
     <const name="dynamicContent"    value="None=0,Modulator List=1,Filesystem=2,Bank,Program=3" />
     <const name="lcdFonts"          value="LCD=0,Digital-7=1,Dotty-Shadow=2,ZX81=3,Invasion2000=4,Digit=5,Computerfont=6,Electronic-Highway-Sign=7,Karmatic-Arcade=8,60sekuntia=9" />
+    <const name="internalFunctions" value="-- None=0,MIDI Device Selection=1" />
   </constants>
 
 </ctrlrIds>
