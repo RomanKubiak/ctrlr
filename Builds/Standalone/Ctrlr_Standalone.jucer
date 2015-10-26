@@ -14,7 +14,7 @@
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        osxSDK="default" osxCompatibility="10.7 SDK" osxArchitecture="Native"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/include/lo"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;LUA_USE_LINUX&#10;LUABIND_CPP0x"
                        binaryPath="" customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        cppLibType=""/>
@@ -26,7 +26,7 @@
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
                        osxSDK="default" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;LUA_USE_LINUX"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/include/lo"
                        binaryPath="" customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -51,7 +51,7 @@
             extraLinkerFlags="" bigIcon="Mln0s5" smallIcon="Pl8W9J" extraDefs="_CRT_SECURE_NO_WARNINGS">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(Platform)$(NATIVE_ARCH)"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        defines="CTRLR_NIGHTLY=1 &#10;JucePlugin_Build_Standalone" binaryPath="../../Bin/Standalone/$(Platform)$(NATIVE_ARCH)"
                        winWarningLevel="2" winArchitecture="32-bit" generateManifest="0"
                        prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2010\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\Standalone\Ctrlr_Standalone.jucer"
@@ -64,7 +64,7 @@
                        userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        binaryPath="" winWarningLevel="2" winArchitecture="32-bit" generateManifest="1"
                        postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin" libraryPath=""
                        wholeProgramOptimisation="1" userNotes="Disable the Pre-build Command if you just want to rebuild a svn checkout"
@@ -92,7 +92,7 @@
                 extraLinkerFlags="libbfd-$(ARCH).a&#10;libiberty-$(ARCH).a&#10;-lz&#10;-lGL&#10;-ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Lua/LuaSocket/include&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Lua/LuaSocket/include&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone" binaryPath="../../Bin"
                        libraryPath="/usr/X11R6/lib/"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr"
@@ -101,7 +101,7 @@
                        binaryPath="../../Bin" libraryPath="/usr/X11R6/lib/"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-$(ARCH)"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        binaryPath="../../Bin" libraryPath="/usr/X11R6/lib/" linuxArchitecture=""/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -126,11 +126,11 @@
                       extraLinkerFlags="-lz -lbfd -ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        binaryPath="../../../../Bin" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;DEBUG=1&#10;_DEBUG=1&#10;JUCE_DEBUG=1"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr_Standalone"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="3" targetName="Ctrlr"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
                        binaryPath="../../../../Bin"/>
       </CONFIGURATIONS>
@@ -824,10 +824,6 @@
             file="../../Source/MIDI/CtrlrMidiMessageEx.cpp"/>
       <FILE id="lXkGwG" name="CtrlrMidiMessageEx.h" compile="0" resource="0"
             file="../../Source/MIDI/CtrlrMidiMessageEx.h"/>
-      <FILE id="kWf7cN" name="CtrlrMIDITransaction.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrMIDITransaction.cpp"/>
-      <FILE id="R0bW1U" name="CtrlrMIDITransaction.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrMIDITransaction.h"/>
       <FILE id="n8DbR2" name="CtrlrMidiDevice.cpp" compile="1" resource="0"
             file="../../Source/MIDI/CtrlrMidiDevice.cpp"/>
       <FILE id="tt8keI" name="CtrlrMidiDevice.h" compile="0" resource="0"
@@ -851,13 +847,9 @@
       <FILE id="KNMPCK" name="CtrlrMidiInputComparatorTypes.h" compile="0"
             resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorTypes.h"/>
       <GROUP id="{9BFF7497-2A6D-9119-C8FA-92D38F0D9D5A}" name="CtrlrMIDILibrary">
-        <FILE id="fEEEK7" name="CtrlrMIDILibraryRequest.cpp" compile="1" resource="0"
-              file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibraryRequest.cpp"/>
-        <FILE id="IyZGmN" name="CtrlrMIDILibraryRequest.h" compile="0" resource="0"
-              file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibraryRequest.h"/>
-        <FILE id="NXr8Zi" name="CtrlrMIDILibrary.cpp" compile="1" resource="0"
+        <FILE id="Dn3TSF" name="CtrlrMIDILibrary.cpp" compile="1" resource="0"
               file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp"/>
-        <FILE id="MyXRcU" name="CtrlrMIDILibrary.h" compile="0" resource="0"
+        <FILE id="EwPxAi" name="CtrlrMIDILibrary.h" compile="0" resource="0"
               file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"/>
       </GROUP>
       <FILE id="HKToE0" name="CtrlrMidiMessage.cpp" compile="1" resource="0"

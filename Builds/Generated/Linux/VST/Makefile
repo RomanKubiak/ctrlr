@@ -200,13 +200,11 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaMethodManager_3a1a8cc8.o \
   $(OBJDIR)/CtrlrLuaMethodManagerCalls_c7bf9bb7.o \
   $(OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o \
-  $(OBJDIR)/CtrlrMIDITransaction_54a29e25.o \
   $(OBJDIR)/CtrlrMidiDevice_859d4f59.o \
   $(OBJDIR)/CtrlrMidiDeviceManager_d5a0de9e.o \
   $(OBJDIR)/CtrlrMidiInputComparator_51adcd67.o \
   $(OBJDIR)/CtrlrMidiInputComparatorMulti_aee497dc.o \
   $(OBJDIR)/CtrlrMidiInputComparatorSingle_1c507c4f.o \
-  $(OBJDIR)/CtrlrMIDILibraryRequest_1d9ac64f.o \
   $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
   $(OBJDIR)/CtrlrMidiMessage_58a157ae.o \
   $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
@@ -1031,11 +1029,6 @@ $(OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o: ../../../../Source/MIDI/CtrlrMidiMessag
 	@echo "Compiling CtrlrMidiMessageEx.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDITransaction_54a29e25.o: ../../../../Source/MIDI/CtrlrMIDITransaction.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrMIDITransaction.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
 $(OBJDIR)/CtrlrMidiDevice_859d4f59.o: ../../../../Source/MIDI/CtrlrMidiDevice.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrMidiDevice.cpp"
@@ -1059,11 +1052,6 @@ $(OBJDIR)/CtrlrMidiInputComparatorMulti_aee497dc.o: ../../../../Source/MIDI/Ctrl
 $(OBJDIR)/CtrlrMidiInputComparatorSingle_1c507c4f.o: ../../../../Source/MIDI/CtrlrMidiInputComparatorSingle.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrMidiInputComparatorSingle.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrMIDILibraryRequest_1d9ac64f.o: ../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibraryRequest.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrMIDILibraryRequest.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o: ../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp

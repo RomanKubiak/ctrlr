@@ -60,7 +60,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;../../../../Source/Misc/include/lo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2010_FC975A20=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -151,7 +151,7 @@
     </Midl>
     <ClCompile>
       <Optimization>MinSpace</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;../../../../Source/Misc/include/lo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2010_FC975A20=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -322,13 +322,11 @@
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDITransaction.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibraryRequest.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp"/>
@@ -1789,14 +1787,12 @@
     <ClInclude Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.h"/>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDITransaction.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorTypes.h"/>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibraryRequest.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h"/>

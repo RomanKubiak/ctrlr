@@ -58,8 +58,6 @@ void CtrlrMIDILibrary::factoryReset()
 	getRoot().addChild (firmwareTree, -1, nullptr);
 	getRoot().addChild (editBufferTree, -1, nullptr);
 	getRoot().addChild (transactions, -1, nullptr);
-
-	attachStandardTransactions();
 }
 
 void CtrlrMIDILibrary::restoreState (const ValueTree &savedState)
@@ -484,16 +482,6 @@ void CtrlrMIDILibrary::addNewCustomData (const String dataName, const int number
 	}
 }
 
-void CtrlrMIDILibrary::addNewTransaction (const String transactionName, ValueTree unitToAddTo)
-{
-	ValueTree transaction = CtrlrMIDITransaction::createEmptyTransactionTree(transactionName);
-
-	if (unitToAddTo.isValid())
-	{
-		unitToAddTo.addChild (transaction, -1, nullptr);
-	}
-}
-
 void CtrlrMIDILibrary::addNewBank (const String bankName, const String bankDescription, const int number, const int lsb, const int msb, ValueTree unitToAddTo)
 {
 	ValueTree b(Ids::midiLibraryBank);
@@ -658,16 +646,6 @@ void CtrlrMIDILibrary::processMidi (MidiBuffer &incommingData)
 	MidiBuffer::Iterator it(incommingData);
 	MidiMessage midiMessage;
 	int samplePosition;
-
-	ScopedLock sl(transactionQueue.getLock());
-
-	while (it.getNextEvent (midiMessage, samplePosition))
-	{
-		for (int i=0; i<transactionQueue.size(); i++)
-		{
-			transactionQueue[i]->checkPossibleResponse (midiMessage);
-		}
-	}
 }
 
 void CtrlrMIDILibrary::handleAsyncUpdate()
@@ -676,13 +654,6 @@ void CtrlrMIDILibrary::handleAsyncUpdate()
 
 void CtrlrMIDILibrary::changeListenerCallback(ChangeBroadcaster *changeSource)
 {
-	CtrlrMIDITransaction *transaction = dynamic_cast<CtrlrMIDITransaction*>(changeSource);
-
-	if (transaction != nullptr)
-	{
-		ScopedLock sl(transactionQueue.getLock());
-		transactionQueue.removeObject (transaction);
-	}
 }
 
 void CtrlrMIDILibrary::timerCallback(int timerId)
@@ -747,14 +718,6 @@ bool CtrlrMIDILibrary::isItem(const ValueTree item)
     }
 
     return (false);
-}
-
-bool CtrlrMIDILibrary::isTransaction(const ValueTree item)
-{
-	if (item.hasType(Ids::trans))
-		return (true);
-
-	return (false);
 }
 
 void CtrlrMIDILibrary::wrapForLua (lua_State *L)
@@ -840,16 +803,6 @@ Image CtrlrMIDILibrary::getItemIcon(const int itemId)
 	}
 
 	return (IMAGE(ico_unknown_png));
-}
-
-void CtrlrMIDILibrary::addListener (CtrlrMIDILibrary::Listener *listenerToAdd)
-{
-	listeners.add (listenerToAdd);
-}
-
-void CtrlrMIDILibrary::removeListener (CtrlrMIDILibrary::Listener *listenerToRemove)
-{
-	listeners.remove (listenerToRemove);
 }
 
 PopupMenu CtrlrMIDILibrary::getProgramMenu()
@@ -1007,126 +960,3 @@ Uuid CtrlrMIDILibrary::getUuid(const ValueTree &vt)
 	return (Uuid(vt.getProperty(Ids::uuid)));
 }
 
-void CtrlrMIDILibrary::queueTransaction(ValueTree transactionState, ValueTree transactionItem)
-{
-	_TRANS("["+getName(transactionState)+"] creating");
-	CtrlrMIDITransaction *transaction = new CtrlrMIDITransaction(*this);
-	transaction->setTransactionItem (transactionItem);
-	transaction->restoreState (transactionState);
-	transaction->addChangeListener (this);
-
-	{
-		ScopedLock sl(transactionQueue.getLock());
-		transactionQueue.add (transaction);
-	}
-
-	if (!transaction->sendRequest())
-	{
-		_TRANS("["+transaction->getName()+"] sending request failed, removing from queue");
-        ScopedLock sl(transactionQueue.getLock());
-        transactionQueue.removeObject (transaction);
-	}
-}
-
-CtrlrMIDITransaction *CtrlrMIDILibrary::getTransactionByName(const String &transactionName)
-{
-	ScopedLock sl(transactionQueue.getLock());
-	for (int i=0; i<transactionQueue.size(); i++)
-	{
-		if (transactionQueue[i]->getName() == transactionName)
-			return (transactionQueue[i]);
-	}
-	return (nullptr);
-}
-
-void CtrlrMIDILibrary::attachStandardTransactions()
-{
-	ScopedPointer <XmlElement> root(nullptr);
-	ValueTree builtInTransactions;
-
-	if (File (owner.getProperty(Ids::midiLibraryTransactionsFile)).existsAsFile())
-	{
-		root = XmlDocument::parse (File(owner.getProperty(Ids::midiLibraryTransactionsFile)));
-	}
-	else
-	{
-		root = XmlDocument::parse (String::createStringFromData (BinaryData::CtrlrMIDITransactions_xml, BinaryData::CtrlrMIDITransactions_xmlSize));
-	}
-
-	if (root)
-	{
-		builtInTransactions = ValueTree::fromXml(*root);
-
-		if (getTransactions().isValid())
-		{
-            for (int i=0; i<builtInTransactions.getNumChildren(); i++)
-			{
-				getTransactions().addChild (builtInTransactions.getChild(i).createCopy(), -1, nullptr);
-			}
-		}
-	}
-}
-
-bool CtrlrMIDILibrary::transactionCanHandle(const ValueTree &transactionState, const ValueTree transactionItem)
-{
-	if (transactionState.isValid() && transactionState.hasType(Ids::trans))
-	{
-		if (luaTransInfoCbk)
-		{
-			if (luaTransInfoCbk->isValid())
-			{
-				const int ret = owner.getCtrlrLuaManager().getMethodManager().callWithRet (luaTransInfoCbk, transactionState, transactionItem);
-				if (ret < 0)
-				{
-					_WRN("CtrlrMIDILibrary::transactionCanHandle luaTransInfoCbk defined but failed to execute");
-				}
-				else
-				{
-					return (ret ? true : false);
-				}
-			}
-		}
-		else
-		{
-			return (transactionCanHandleType(transactionState, transactionItem));
-		}
-	}
-
-	return (false);
-}
-
-bool CtrlrMIDILibrary::transactionCanHandleType(const ValueTree &transactionState, const ValueTree transactionItem)
-{
-	StringArray types = StringArray::fromTokens (transactionState.getProperty(Ids::transCap).toString(), ",; ", "\"\'");
-	for (int i=0; i<types.size(); i++)
-	{
-		if (types[i] == transactionItem.getType().toString())
-			return (true);
-	}
-
-	return (false);
-}
-
-void CtrlrMIDILibrary::getTransactionMenu(PopupMenu &m, ValueTree transactionItem)
-{
-	if (isTransaction(transactionItem) || transactionItem == getTransactions())
-		return;
-
-	m.addSectionHeader ("Transactions");
-
-	for (int i=0; i<getTransactions().getNumChildren(); i++)
-	{
-		if (transactionCanHandle (getTransactions().getChild(i), transactionItem))
-		{
-			m.addItem (i + MENU_TRANSACTIONS_START, getName(getTransactions().getChild(i)), true);
-		}
-	}
-}
-
-void CtrlrMIDILibrary::handleTransactionMenu(ValueTree transactionItem, const int resultId)
-{
-	if (getTransactions().getChild(resultId - MENU_TRANSACTIONS_START).isValid())
-	{
-        queueTransaction (getTransactions().getChild(resultId - MENU_TRANSACTIONS_START), transactionItem);
-	}
-}

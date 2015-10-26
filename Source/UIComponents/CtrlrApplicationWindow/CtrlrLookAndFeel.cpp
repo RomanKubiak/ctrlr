@@ -13,6 +13,10 @@ CtrlrLookAndFeel::CtrlrLookAndFeel(CtrlrManager &_owner) : owner(_owner)
 void CtrlrLookAndFeel::setActivePanelEditor(CtrlrPanelEditor *_editor)
 {
 	editor = _editor;
+	if (owner.getEditor())
+	{
+		owner.getEditor()->setMenuBarVisible(editor->getProperty(Ids::uiPanelMenuBarVisible));
+	}
 }
 
 Typeface::Ptr CtrlrLookAndFeel::getTypefaceForFont(const Font &font)

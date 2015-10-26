@@ -9,9 +9,9 @@
 #include "CtrlrLookAndFeel.h"
 
 CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
-	:	AudioProcessorEditor (_ownerFilter), ownerFilter(_ownerFilter), 
-		owner(_owner), resizer(this, 0), 
-		tempResult(Result::ok()), 
+	:	AudioProcessorEditor (_ownerFilter), ownerFilter(_ownerFilter),
+		owner(_owner), resizer(this, 0),
+		tempResult(Result::ok()),
 		menuHandlerCalled(false)
 {
 	Rectangle<int> editorRect;
@@ -52,7 +52,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 
 	if (owner.getProperty (Ids::ctrlrEditorBounds).toString() != String::empty)
 	{
-		if (owner.getInstanceMode() != InstanceSingle 
+		if (owner.getInstanceMode() != InstanceSingle
 			&& owner.getInstanceMode() != InstanceSingleRestriced)
 		{
 			editorRect = VAR2RECT(owner.getProperty (Ids::ctrlrEditorBounds));
@@ -84,11 +84,18 @@ void CtrlrEditor::paint (Graphics& g)
 
 void CtrlrEditor::resized()
 {
-	
-	menuBar->setBounds (0, 0, getWidth(), CTRLR_MENUBAR_HEIGHT);
-	owner.getCtrlrDocumentPanel().setBounds (0, CTRLR_MENUBAR_HEIGHT, getWidth(), getHeight() - (CTRLR_MENUBAR_HEIGHT));
-	owner.setProperty (Ids::ctrlrEditorBounds, getBounds().toString());
+	if (menuBar->isVisible())
+	{
+		menuBar->setBounds (0, 0, getWidth(), CTRLR_MENUBAR_HEIGHT);
+		owner.getCtrlrDocumentPanel().setBounds (0, CTRLR_MENUBAR_HEIGHT, getWidth(), getHeight() - (CTRLR_MENUBAR_HEIGHT));
+	}
+	else
+	{
+		owner.getCtrlrDocumentPanel().setBounds (0, 0, getWidth(), getHeight());
+	}
+
 	resizer.setBounds (getWidth()-24, getHeight()-24, 24, 24);
+	owner.setProperty (Ids::ctrlrEditorBounds, getBounds().toString());
 }
 
 void CtrlrEditor::activeCtrlrChanged()
@@ -215,4 +222,10 @@ void CtrlrEditor::setUsingOpenGL(const bool isUsingOpenGL)
     {
         setRenderingEngine (0);
     }
+}
+
+void CtrlrEditor::setMenuBarVisible(const bool shouldBeVisible)
+{
+	menuBar->setVisible (shouldBeVisible);
+	resized();
 }

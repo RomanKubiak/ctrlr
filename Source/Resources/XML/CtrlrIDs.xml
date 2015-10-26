@@ -55,6 +55,7 @@
   <id name="uiPanelTooltipPlacement" 		text="Tooltip placement" 				type="VarNumeric" defaults="Above=1,Below=2,Left=4,Right=8"/>
   <id name="uiPanelTooltipFont" 			text="Tooltip font"						type="Font" />
   <id name="uiPanelTooltipColour" 			text="Tooltip font colour"				type="Colour" />
+  <id name="uiPanelMenuBarVisible"      text="Is menu bar visible for this panel" type="Bool" />
 
   <!-- Panel properties -->
 

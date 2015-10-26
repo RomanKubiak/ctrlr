@@ -825,10 +825,6 @@
             file="../../Source/MIDI/CtrlrMidiMessageEx.cpp"/>
       <FILE id="HMTHDZ" name="CtrlrMidiMessageEx.h" compile="0" resource="0"
             file="../../Source/MIDI/CtrlrMidiMessageEx.h"/>
-      <FILE id="h2wTG6" name="CtrlrMIDITransaction.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrMIDITransaction.cpp"/>
-      <FILE id="K8ZYmf" name="CtrlrMIDITransaction.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrMIDITransaction.h"/>
       <FILE id="gZU1C0" name="CtrlrMidiDevice.cpp" compile="1" resource="0"
             file="../../Source/MIDI/CtrlrMidiDevice.cpp"/>
       <FILE id="sFpvIE" name="CtrlrMidiDevice.h" compile="0" resource="0"
@@ -852,13 +848,9 @@
       <FILE id="zSmO2s" name="CtrlrMidiInputComparatorTypes.h" compile="0"
             resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorTypes.h"/>
       <GROUP id="{97DAE068-BC86-4157-1D77-1B44262F7431}" name="CtrlrMIDILibrary">
-        <FILE id="fWKsu8" name="CtrlrMIDILibraryRequest.cpp" compile="1" resource="0"
-              file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibraryRequest.cpp"/>
-        <FILE id="G8mTeC" name="CtrlrMIDILibraryRequest.h" compile="0" resource="0"
-              file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibraryRequest.h"/>
-        <FILE id="W0Sw6n" name="CtrlrMIDILibrary.cpp" compile="1" resource="0"
+        <FILE id="Ty9x2h" name="CtrlrMIDILibrary.cpp" compile="1" resource="0"
               file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp"/>
-        <FILE id="C9vu4M" name="CtrlrMIDILibrary.h" compile="0" resource="0"
+        <FILE id="gPwYPI" name="CtrlrMIDILibrary.h" compile="0" resource="0"
               file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"/>
       </GROUP>
       <FILE id="Xxpzqo" name="CtrlrMidiMessage.cpp" compile="1" resource="0"
