@@ -1,9 +1,8 @@
 #ifndef __CTRLR_MIDI_LIBRARY__
 #define __CTRLR_MIDI_LIBRARY__
 
-#include "CtrlrMIDILibraryRequest.h"
+#include "CtrlrMidiDevice.h"
 #include "CtrlrOwnedMidiMessage.h"
-#include "CtrlrMIDITransaction.h"
 
 class CtrlrPanel;
 class CtrlrMIDIProgramManager;
@@ -158,15 +157,6 @@ class CtrlrMIDILibrary : public ValueTree::Listener,
 		static int getLSB(const ValueTree &vt);
 		static int getMSB(const ValueTree &vt);
 		Uuid getUuid(const ValueTree &tree);
-		bool transactionCanHandle(const ValueTree &transactionState, ValueTree transactionItem);
-		bool transactionCanHandleType(const ValueTree &transactionState, const ValueTree transactionItem);
-		void queueTransaction(ValueTree transactionState, ValueTree transactionItem=ValueTree::invalid);
-		CtrlrMIDITransaction *getTransactionByName(const String &transactionName);
-		void attachStandardTransactions();
-		void addListener (CtrlrMIDILibrary::Listener *listenerToAdd);
-		void removeListener (CtrlrMIDILibrary::Listener *listenerToRemove);
-		void getTransactionMenu(PopupMenu &m, ValueTree transactionItem);
-		void handleTransactionMenu(ValueTree transactionItem, const int resultId);
 		CtrlrPanel &getOwner() { return (owner); }
 		static void wrapForLua (lua_State *L);
 
@@ -177,7 +167,6 @@ class CtrlrMIDILibrary : public ValueTree::Listener,
 		ValueTree invalidTree;
 		CtrlrPanel &owner;
 		ValueTree libraryTree;
-		OwnedArray <CtrlrMIDITransaction, CriticalSection> transactionQueue;
 		ListenerList <CtrlrMIDILibrary::Listener> listeners;
 		int midiBankNumber, midiProgramNumber, midiBankNumberLSB, midiBankNumberMSB;
 		CtrlrMidiDevice *inputDevice;

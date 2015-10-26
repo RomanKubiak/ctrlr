@@ -107,6 +107,7 @@ namespace Ids
 	DECLARE_ID (uiPanelCanvasLayerMouseHandle);
 	DECLARE_ID (uiPanelCanvasLayerVisibility);
 	DECLARE_ID (uiPanelCanvasLayer);
+	DECLARE_ID (uiPanelMenuBarVisible);
 
 	DECLARE_ID (panelMidiProgram);
 	DECLARE_ID (panelMidiBankLsb);
@@ -842,31 +843,6 @@ namespace Ids
 	DECLARE_ID (midiBufferEditorFilePath);
 	DECLARE_ID (midiBufferEditorContent);
     DECLARE_ID (midiBufferEditorCodeEditor);
-
-	DECLARE_ID (trans);
-	DECLARE_ID (transCap);
-	DECLARE_ID (transModIdxProp);
-
-	DECLARE_ID (transReqFormulaPrefix);
-	DECLARE_ID (transReqFormulaSuffix);
-	DECLARE_ID (transReqDataLen);
-	DECLARE_ID (transReqNameOffset);
-	DECLARE_ID (transReqNameLen);
-	DECLARE_ID (transReqExists);
-
-	DECLARE_ID (transConfFormulaPrefix);
-	DECLARE_ID (transConfFormulaSuffix);
-	DECLARE_ID (transConfDataLen);
-	DECLARE_ID (transConfExists);
-
-	DECLARE_ID (transRespFormulaPrefix);
-	DECLARE_ID (transRespFormulaSuffix);
-	DECLARE_ID (transRespDataLen);
-	DECLARE_ID (transRespNameOffset);
-	DECLARE_ID (transRespNameLen);
-	DECLARE_ID (transRespDataCheck);
-	DECLARE_ID (transRespSizeCheck);
-	DECLARE_ID (transRespExists);
 
 	DECLARE_ID(midiFilter);
 }

@@ -14,7 +14,6 @@
 #include "CtrlrPanel/CtrlrPanelResourceManager.h"
 #include "MIDI/CtrlrMidiInputComparator.h"
 #include "MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"
-#include "MIDI/CtrlrMIDITransaction.h"
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "CtrlrComponents/Specials/CtrlrWaveform.h"
 #include "CtrlrComponents/Specials/CtrlrListBox.h"
@@ -196,7 +195,6 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrLuaRectangle::wrapForLua (L);
 	CtrlrLuaComponentAnimator::wrapForLua (L);
 	CtrlrComponent::wrapForLua (L);
-	CtrlrMIDITransaction::wrapForLua (L);
 	CtrlrMIDILibrary::wrapForLua (L);
 
 	CtrlrCustomComponent::wrapForLua (L);

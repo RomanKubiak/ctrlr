@@ -120,10 +120,6 @@ const AttributedString CtrlrMIDILibraryEditor::getDisplayString(const ValueTree 
 	{
 		as.append (item.getProperty(Ids::name).toString(), groupFont, Colours::black);
 	}
-	else if (item.hasType (Ids::trans))
-	{
-		as.append (item.getProperty(Ids::name).toString(), groupFont, Colours::black);
-	}
 	else if (item.hasType (Ids::midiLibraryProgram))
 	{
 		as.append (item.getProperty(Ids::name).toString(), itemFont, Colours::black);
@@ -232,9 +228,6 @@ void CtrlrMIDILibraryEditor::itemClicked(const MouseEvent &e, ValueTree &item)
 
     /* Always get the utilities */
 	getUtilityMenu (m, item);
-
-	getCore().getTransactionMenu (m, item);
-
 	handleItemMenu (item, m.show());
 }
 
@@ -248,12 +241,6 @@ void CtrlrMIDILibraryEditor::itemDoubleClicked(const MouseEvent &e, ValueTree &i
 
 void CtrlrMIDILibraryEditor::handleItemMenu(ValueTree &item, const int itemId)
 {
-	if (itemId >= MENU_TRANSACTIONS_START)
-	{
-		getCore().handleTransactionMenu (item, itemId);
-		return;
-	}
-
 	switch (itemId)
 	{
 	    case ActCopy:
@@ -282,9 +269,6 @@ void CtrlrMIDILibraryEditor::handleItemMenu(ValueTree &item, const int itemId)
 			break;
 		case ActAddBank:
 			dialogAddBank(item);
-			break;
-		case ActAddTransaction:
-			dialogAddTransaction(item);
 			break;
 	}
 }
@@ -650,20 +634,6 @@ void CtrlrMIDILibraryEditor::dialogAddCustomData(ValueTree unitToAddTo)
                             w.getTextEditorContents("number").getIntValue(),
                             unitToAddTo
                         );
-	}
-}
-
-void CtrlrMIDILibraryEditor::dialogAddTransaction(ValueTree unitToAddTo)
-{
-	AlertWindow w("Add new transaction", "Set description", AlertWindow::QuestionIcon);
-	w.addTextEditor ("name", "Transaction", "Name", false);
-
-	w.addButton ("OK", 1, KeyPress(KeyPress::returnKey));
-	w.addButton ("Cancel", 0, KeyPress(KeyPress::escapeKey));
-
-	if (w.runModalLoop() == 1)
-	{
-        getCore().addNewTransaction (w.getTextEditorContents("name"),unitToAddTo);
 	}
 }
 

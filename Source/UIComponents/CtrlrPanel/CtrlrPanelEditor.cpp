@@ -110,6 +110,7 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
  	setProperty(Ids::uiPanelEditMode, true);
 	setProperty(Ids::uiPanelLock, false);
 	setProperty(Ids::uiPanelDisabledOnEdit, false);
+	setProperty(Ids::uiPanelMenuBarVisible, true);
 
  	setProperty(Ids::uiPanelWidth, 400);
  	setProperty(Ids::uiPanelHeight, 400);
@@ -132,6 +133,7 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	setProperty(Ids::uiPanelTooltipPlacement, BubbleComponent::below);
 	setProperty(Ids::uiPanelTooltipFont, Font(15.0f, Font::bold).toString());
 	setProperty(Ids::uiPanelZoom, 1.0);
+
  	ctrlrComponentSelection->addChangeListener (ctrlrPanelProperties);
 
     setSize (600, 400);
@@ -359,6 +361,13 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		else if (property == Ids::uiPanelZoom)
 		{
 			getPanelViewport()->setZoom (getProperty(property), getCanvas()->getBounds().getCentre().getX(), getCanvas()->getBounds().getCentre().getY());
+		}
+		else if (property == Ids::uiPanelMenuBarVisible)
+		{
+			if (owner.getCtrlrManagerOwner().getEditor())
+			{
+				owner.getCtrlrManagerOwner().getEditor()->activeCtrlrChanged();
+			}
 		}
 		else if (property == Ids::uiPanelBackgroundGradientType
 					|| property == Ids::uiPanelBackgroundColour1

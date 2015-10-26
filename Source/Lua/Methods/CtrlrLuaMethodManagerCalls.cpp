@@ -496,50 +496,6 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const ValueTree &param
 	return (true);
 }
 
-const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const ValueTree &param1, CtrlrMIDILibraryRequest *param2)
-{
-	const ScopedLock sl(methodManagerCriticalSection);
-
-	LUA_DEBUG
-
-	if (isLuaDisabled())
-		return (true);
-
-	try
-	{
-		if (o->isValid())
-		{
-			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
-		}
-	}
-
-	CATCH_METHOD_EXCEPTION
-
-	return (true);
-}
-
-const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrMIDILibraryRequest *param1)
-{
-	const ScopedLock sl(methodManagerCriticalSection);
-
-	LUA_DEBUG
-
-	if (isLuaDisabled())
-		return (true);
-
-	try
-	{
-		if (o->isValid())
-		{
-			luabind::call_function<void>(o->getObject().getObject(), param1);
-		}
-	}
-
-	CATCH_METHOD_EXCEPTION
-
-	return (true);
-}
-
 const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const String &param1, const CtrlrNotificationType param2)
 {
 	const ScopedLock sl(methodManagerCriticalSection);
@@ -646,71 +602,6 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const StringArray &par
 	CATCH_METHOD_EXCEPTION
 
 	return (true);
-}
-
-const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrMIDITransaction *midiTransaction)
-{
-	const ScopedLock sl(methodManagerCriticalSection);
-
-	LUA_DEBUG
-
-	if (isLuaDisabled())
-		return (true);
-
-	try
-	{
-		if (o->isValid())
-		{
-			luabind::call_function<void>(o->getObject().getObject(), midiTransaction);
-		}
-	}
-
-	CATCH_METHOD_EXCEPTION
-
-	return (true);
-}
-
-const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrMIDITransaction *midiTransaction, MemoryBlock *destinationMemoryBlock)
-{
-	const ScopedLock sl(methodManagerCriticalSection);
-
-	LUA_DEBUG
-
-	if (isLuaDisabled())
-		return (true);
-
-	try
-	{
-		if (o->isValid())
-		{
-			luabind::call_function<void>(o->getObject().getObject(), midiTransaction, destinationMemoryBlock);
-		}
-	}
-
-	CATCH_METHOD_EXCEPTION
-
-	return (true);
-}
-
-int CtrlrLuaMethodManager::callWithRet(CtrlrLuaMethod *o, CtrlrMIDITransaction *midiTransaction, ValueTree valueTree)
-{
-	const ScopedLock sl(methodManagerCriticalSection);
-
-	LUA_DEBUG
-
-	if (isLuaDisabled())
-		return (-2);
-
-	try
-	{
-		if (o->isValid())
-		{
-			return (luabind::call_function<int>(o->getObject().getObject(), midiTransaction, valueTree));
-		}
-	}
-	CATCH_METHOD_EXCEPTION
-
-	return (-1);
 }
 
 int CtrlrLuaMethodManager::callWithRet(CtrlrLuaMethod *o, ValueTree valueTree1, ValueTree valueTree2)

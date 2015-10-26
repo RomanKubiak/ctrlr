@@ -829,9 +829,6 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDITransaction.cpp">
-      <Filter>Ctrlr_Standalone\MIDI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClCompile>
@@ -846,9 +843,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibraryRequest.cpp">
-      <Filter>Ctrlr_Standalone\MIDI\CtrlrMIDILibrary</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp">
       <Filter>Ctrlr_Standalone\MIDI\CtrlrMIDILibrary</Filter>
@@ -3099,9 +3093,6 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.h">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDITransaction.h">
-      <Filter>Ctrlr_Standalone\MIDI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.h">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClInclude>
@@ -3119,9 +3110,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorTypes.h">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibraryRequest.h">
-      <Filter>Ctrlr_Standalone\MIDI\CtrlrMIDILibrary</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h">
       <Filter>Ctrlr_Standalone\MIDI\CtrlrMIDILibrary</Filter>
