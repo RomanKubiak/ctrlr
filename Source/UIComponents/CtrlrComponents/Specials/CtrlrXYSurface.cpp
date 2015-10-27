@@ -24,6 +24,7 @@
 #include "CtrlrManager/CtrlrManager.h"
 #include "../CtrlrComponentTypeManager.h"
 #include "CtrlrModulator/CtrlrModulator.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrLog.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"

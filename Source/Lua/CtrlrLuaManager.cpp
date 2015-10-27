@@ -32,6 +32,11 @@
 #include "CtrlrComponents/Sliders/CtrlrSlider.h"
 #include "JuceClasses/LAudioFormat.h"
 #include "JuceClasses/LGlobalFunctions.h"
+#include "CtrlrLuaUtils.h"
+#include "CtrlrLuaMultiTimer.h"
+#include "CtrlrLuaAudioConverter.h"
+#include "CtrlrLuaDebugger.h"
+
 // Deprecated classes
 #include "Deprecated/CtrlrLuaBigInteger.h"
 #include "Deprecated/CtrlrLuaFile.h"
@@ -43,7 +48,9 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 	:	owner(_owner),
 		luaManagerTree(Ids::luaManager),
 		luaAudioFormatManager(nullptr),
-		ctrlrLuaDebugger(nullptr)
+		ctrlrLuaDebugger(nullptr),
+		utils(nullptr),
+		audioConverter(nullptr)
 {
 	if ((bool)owner.getCtrlrManagerOwner().getProperty (Ids::ctrlrLuaDisabled))
 	{
@@ -117,7 +124,8 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 	multiTimer				= new CtrlrLuaMultiTimer();
 	methodManager			= new CtrlrLuaMethodManager(*this);
 	luaAudioFormatManager	= new LAudioFormatManager();
-
+	audioConverter			= new CtrlrLuaAudioConverter();
+	utils					= new CtrlrLuaUtils();
 	{
 		createAudioThreadState();
 		LGlobalFunctions::wrapForLua(luaState);
@@ -138,6 +146,8 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 CtrlrLuaManager::~CtrlrLuaManager()
 {
 	deleteAndZero (methodManager);
+	deleteAndZero (utils);
+	deleteAndZero (audioConverter);
 	luaManagerTree.removeListener (this);
 	deleteAndZero (multiTimer);
 	deleteAndZero (luaAudioFormatManager);
@@ -217,11 +227,11 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 void CtrlrLuaManager::assignDefaultObjects(lua_State* L)
 {
 	luabind::globals(L)["panel"]					= &owner;
-	luabind::globals(L)["utils"]					= &utils;
+	luabind::globals(L)["utils"]					= utils;
 	luabind::globals(L)["timer"]					= multiTimer;
 	luabind::globals(L)["afm"]						= luaAudioFormatManager;
 	luabind::globals(L)["atc"]						= &owner.getCtrlrManagerOwner().getAudioThumbnailCache();
-	luabind::globals(L)["converter"]				= &audioConverter;
+	luabind::globals(L)["converter"]				= audioConverter;
 	luabind::globals(L)["resources"]				= &owner.getResourceManager();
 	luabind::globals(L)["library"]					= &owner.getCtrlrMIDILibrary();
 	luabind::globals(L)["native"]                   = CtrlrNative::getNativeObject(owner.getCtrlrManagerOwner());

@@ -1,5 +1,5 @@
-#ifndef __L_ALERT_WINDOW__
-#define __L_ALERT_WINDOW__
+#ifndef L_ALERT_WINDOW
+#define L_ALERT_WINDOW
 
 #include "CtrlrLuaManager.h"
 

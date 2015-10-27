@@ -3,6 +3,7 @@
 #include "CtrlrMacros.h"
 #include "CtrlrProcessor.h"
 #include "CtrlrLuaManager.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "../CtrlrComponentSelection.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "Groups/CtrlrTabsComponent.h"

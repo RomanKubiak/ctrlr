@@ -7,6 +7,7 @@
 #include "CtrlrMacros.h"
 #include "CtrlrPanelEditor.h"
 #include "CtrlrProcessor.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrComponents/CtrlrComponentTypeManager.h"
 #include "CtrlrComponents/Groups/CtrlrTabsComponent.h"

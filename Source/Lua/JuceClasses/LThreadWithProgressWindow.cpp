@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LThreadWithProgressWindow.h"
+#include "CtrlrLog.h"
 
 LThreadWithProgressWindow::LThreadWithProgressWindow(const String &windowTitle, bool hasProgressBar, bool hasCancelButton, int timeOutMsWhenCancelling, const String &cancelButtonText)
 	: ThreadWithProgressWindow(windowTitle, hasProgressBar, hasCancelButton, timeOutMsWhenCancelling, cancelButtonText, nullptr)

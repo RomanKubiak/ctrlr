@@ -304,7 +304,9 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaMethodEditorTabs_9f9d2de6.o \
   $(OBJDIR)/CtrlrLuaMethodFind_e941a694.o \
   $(OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o \
-  $(OBJDIR)/CtrlrMIDIDeviceSelectionDialog_468c7683.o \
+  $(OBJDIR)/CtrlrMIDISettingsRouting_28f00268.o \
+  $(OBJDIR)/CtrlrMIDISettingsDevices_4b0f6aff.o \
+  $(OBJDIR)/CtrlrMIDISettingsDialog_57e50870.o \
   $(OBJDIR)/CtrlrMIDIBuffer_8a274ae5.o \
   $(OBJDIR)/CtrlrMIDIBufferEditor_370fe5f2.o \
   $(OBJDIR)/CtrlrMIDILibraryEditor_837e6cd.o \
@@ -1559,9 +1561,19 @@ $(OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o: ../../../../Source/UICompo
 	@echo "Compiling CtrlrMethodEditorTabCloseButton.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDIDeviceSelectionDialog_468c7683.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.cpp
+$(OBJDIR)/CtrlrMIDISettingsRouting_28f00268.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsRouting.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrMIDIDeviceSelectionDialog.cpp"
+	@echo "Compiling CtrlrMIDISettingsRouting.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrMIDISettingsDevices_4b0f6aff.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDevices.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrMIDISettingsDevices.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrMIDISettingsDialog_57e50870.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDialog.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrMIDISettingsDialog.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrMIDIBuffer_8a274ae5.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp

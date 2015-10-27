@@ -2,6 +2,7 @@
 #include "CtrlrFilmStripPainter.h"
 #include "CtrlrComponentTypeManager.h"
 #include "CtrlrUtilities.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "CtrlrFontManager.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
@@ -45,7 +46,7 @@ Label *CtrlrImageSliderLF::createSliderTextBox (Slider &slider)
 }
 
 /**
- 
+
  */
 
 CtrlrImageToggleButton::CtrlrImageToggleButton(CtrlrComponent &_owner) : owner(_owner)
@@ -112,7 +113,7 @@ void CtrlrFilmStripPainter::setImage (const Image imageToSet, const int _frameWi
 	else
 	{
 		totalSpace		= filmStripImage.getWidth()/frameWidth;
-		for (int x=0; x<totalSpace; x++)		
+		for (int x=0; x<totalSpace; x++)
 		{
 			Rectangle<int> rect(x*frameWidth, 0, frameWidth, frameHeight);
 			possibleValues.add (rect);
@@ -180,12 +181,12 @@ void CtrlrFilmStripPainter::paint(Graphics& g, int x, int y, int width, int heig
 {
 	Rectangle<int> r = getCoordsForValue (slider);
 
-	g.drawImageWithin (filmStripImage.getClippedImage(r), 
-						x, 
-						y, 
-						width, 
-						height, 
-						paintMode, 
+	g.drawImageWithin (filmStripImage.getClippedImage(r),
+						x,
+						y,
+						width,
+						height,
+						paintMode,
 						false);
 }
 
@@ -193,12 +194,12 @@ void CtrlrFilmStripPainter::paint(Graphics &g, ToggleButton &button, bool isMous
 {
 	Rectangle<int> r = getCoordsForValue ((int)button.getToggleState());
 
-	g.drawImageWithin (filmStripImage.getClippedImage(r), 
-						0, 
-						0, 
-						button.getWidth(), 
-						button.getHeight(), 
-						paintMode, 
+	g.drawImageWithin (filmStripImage.getClippedImage(r),
+						0,
+						0,
+						button.getWidth(),
+						button.getHeight(),
+						paintMode,
 						false);
 }
 
@@ -206,11 +207,11 @@ void CtrlrFilmStripPainter::paint(Graphics &g, Button &button, bool isMouseOverB
 {
 	Rectangle<int> r = getCoordsForValue ((int)button.getToggleState());
 
-	g.drawImageWithin (filmStripImage.getClippedImage(r), 
-						0, 
-						0, 
-						button.getWidth(), 
-						button.getHeight(), 
-						paintMode, 
+	g.drawImageWithin (filmStripImage.getClippedImage(r),
+						0,
+						0,
+						button.getWidth(),
+						button.getHeight(),
+						paintMode,
 						false);
 }

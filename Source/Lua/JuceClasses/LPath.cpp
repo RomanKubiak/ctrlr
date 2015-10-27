@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LPath.h"
+#include "CtrlrUtilities.h"
 
 void LPath::wrapForLua (lua_State *L)
 {
@@ -97,11 +98,5 @@ void LPath::wrapForLua (lua_State *L)
 void LPathStrokeType::createDashedStrokeWrap (Path &destPath, const Path &sourcePath, const luabind::object dashLengths, const AffineTransform &transform, float extraAccuracy)
 {
     Array<float> dashLengthsFloat = luaArrayToFloat (dashLengths);
-
-    _DBG("LPathStrokeType::createDashedStrokeWrap");
-    for (int i=0; i<dashLengthsFloat.size(); i++)
-    {
-        _DBG("\t"+_STR(dashLengthsFloat[i]));
-    }
     PathStrokeType::createDashedStroke (destPath, sourcePath, dashLengthsFloat.getRawDataPointer(), dashLengthsFloat.size(), transform, extraAccuracy);
 }

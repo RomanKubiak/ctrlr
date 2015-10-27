@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "stdafx_lua.h"
 #include "CtrlrLuaBigInteger.h"
 
 CtrlrLuaBigInteger::CtrlrLuaBigInteger(const int integer) : bi(integer)

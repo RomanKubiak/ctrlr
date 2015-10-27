@@ -69,7 +69,6 @@ class CtrlrColourEditorComponent : 	public Component,
 
 				void mouseDown (const MouseEvent &e)
 				{
-					_DBG("mouseDown");
 				}
 
 				void resized()

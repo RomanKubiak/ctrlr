@@ -30,6 +30,7 @@
 #include "CtrlrProcessor.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrComponentTypeManager.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "CtrlrLog.h"
 #include "Lua/JuceClasses/LLookAndFeel.h"
 //[/MiscUserDefs]

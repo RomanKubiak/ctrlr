@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "CtrlrMacros.h"
+#include "CtrlrLog.h"
 #include "CtrlrStandaloneWindow.h"
 
 #ifdef JucePlugin_Build_Standalone

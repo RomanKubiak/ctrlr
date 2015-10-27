@@ -24,6 +24,7 @@
 #include "CtrlrXYSurface.h"
 #include "../CtrlrComponentTypeManager.h"
 #include "CtrlrUtilities.h"
+#include "CtrlrUtilitiesGUI.h"
 //[/Headers]
 
 #include "CtrlrXYModulator.h"

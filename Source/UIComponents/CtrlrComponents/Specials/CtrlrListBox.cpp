@@ -24,6 +24,7 @@
 #include "CtrlrUtilities.h"
 #include "CtrlrIDs.h"
 #include "CtrlrListBox.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrLuaManager.h"

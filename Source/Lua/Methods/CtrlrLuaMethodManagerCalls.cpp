@@ -10,6 +10,7 @@
 #include "CtrlrPanel/CtrlrPanelCanvas.h"
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "JuceClasses/LMemoryBlock.h"
+#include "CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h"
 
 #define CATCH_METHOD_EXCEPTION \
 catch (luabind::error &e)\

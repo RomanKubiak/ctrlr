@@ -22,7 +22,7 @@
 
 #define LUABIND_BUILDING
 
-#include "stdafx.h"
+#include "stdafx_lua.h"
 
 namespace luabind { namespace detail {
 
@@ -37,12 +37,12 @@ namespace luabind { namespace detail {
     }
 
     } // namespace detail
-    
+
     scope::scope()
         : m_chain(0)
     {
     }
-    
+
     scope::scope(std::auto_ptr<detail::registration> reg)
         : m_chain(reg.release())
     {
@@ -66,16 +66,16 @@ namespace luabind { namespace detail {
     {
         delete m_chain;
     }
-    
+
     scope& scope::operator,(scope s)
     {
-        if (!m_chain) 
+        if (!m_chain)
         {
             m_chain = s.m_chain;
             s.m_chain = 0;
             return *this;
         }
-        
+
         for (detail::registration* c = m_chain;; c = c->m_next)
         {
             if (!c->m_next)
@@ -120,7 +120,7 @@ namespace luabind {
         };
 
     } // namespace unnamed
-    
+
     module_::module_(lua_State* L, char const* name = 0)
         : m_state(L)
         , m_name(name)
@@ -196,7 +196,7 @@ namespace luabind {
 
     namespace_& namespace_::operator[](scope s)
     {
-        m_registration->m_scope.operator,(s);        
+        m_registration->m_scope.operator,(s);
         return *this;
     }
 
