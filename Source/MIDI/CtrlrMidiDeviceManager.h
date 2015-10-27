@@ -44,7 +44,7 @@ class CtrlrMidiDeviceManager
 		void addProcessingListener(CtrlrMidiDevice::Listener *l)										{ processingListeners.add(l); }
 		void removeProcessingListener(CtrlrMidiDevice::Listener *l)										{ processingListeners.remove(l); }
 
-		void reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type = inputDevice);
+		void reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type = inputDevice, CtrlrPanel *panel = nullptr);
 
 
 		JUCE_LEAK_DETECTOR(CtrlrMidiDeviceManager)

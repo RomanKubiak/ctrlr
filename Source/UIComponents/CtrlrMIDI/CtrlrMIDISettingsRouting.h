@@ -22,7 +22,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-class CtrlrManager;
+class CtrlrPanel;
 //[/Headers]
 
 
@@ -35,11 +35,12 @@ class CtrlrManager;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class CtrlrMIDISettingsRouting  : public Component
+class CtrlrMIDISettingsRouting  : public Component,
+                                  public ButtonListener
 {
 public:
     //==============================================================================
-    CtrlrMIDISettingsRouting (CtrlrManager &_owner);
+    CtrlrMIDISettingsRouting (CtrlrPanel &_owner);
     ~CtrlrMIDISettingsRouting();
 
     //==============================================================================
@@ -48,15 +49,18 @@ public:
 
     void paint (Graphics& g);
     void resized();
+    void buttonClicked (Button* buttonThatWasClicked);
 
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    CtrlrManager &owner;
+    CtrlrPanel &owner;
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<GroupComponent> groupComponent;
+    ScopedPointer<ToggleButton> inDev2outDev;
 
 
     //==============================================================================

@@ -1783,7 +1783,7 @@ void CtrlrPanel::performInternalComponentFunction(CtrlrComponent *sourceComponen
 	switch (functionId)
 	{
 		case MIDIDeviceSelection:
-			CtrlrMIDISettingsDialog::showDialog(owner, getEditor());
+			CtrlrMIDISettingsDialog::showDialog(*this);
 			break;
 		case none:
 		default:

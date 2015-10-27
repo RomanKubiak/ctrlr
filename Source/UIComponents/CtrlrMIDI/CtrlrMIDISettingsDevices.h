@@ -22,7 +22,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-class CtrlrManager;
+class CtrlrPanel;
 //[/Headers]
 
 
@@ -35,11 +35,14 @@ class CtrlrManager;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class CtrlrMIDISettingsDevices  : public Component
+class CtrlrMIDISettingsDevices  : public Component,
+                                  public ComboBoxListener,
+                                  public LabelListener,
+                                  public ButtonListener
 {
 public:
     //==============================================================================
-    CtrlrMIDISettingsDevices (CtrlrManager &_owner);
+    CtrlrMIDISettingsDevices (CtrlrPanel &_owner);
     ~CtrlrMIDISettingsDevices();
 
     //==============================================================================
@@ -48,15 +51,34 @@ public:
 
     void paint (Graphics& g);
     void resized();
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged);
+    void labelTextChanged (Label* labelThatHasChanged);
+    void buttonClicked (Button* buttonThatWasClicked);
 
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    CtrlrManager &owner;
+    CtrlrPanel &owner;
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<ComboBox> inputDevices;
+    ScopedPointer<ComboBox> controllerDevices;
+    ScopedPointer<ComboBox> outputDevices;
+    ScopedPointer<Label> label;
+    ScopedPointer<Label> label2;
+    ScopedPointer<Label> label3;
+    ScopedPointer<ComboBox> oscProtocol;
+    ScopedPointer<Label> label4;
+    ScopedPointer<Label> oscPort;
+    ScopedPointer<Label> label5;
+    ScopedPointer<Label> label6;
+    ScopedPointer<ToggleButton> oscEnabled;
+    ScopedPointer<Label> label7;
+    ScopedPointer<ComboBox> inputChannel;
+    ScopedPointer<ComboBox> controllerChannel;
+    ScopedPointer<ComboBox> outputChannel;
 
 
     //==============================================================================
