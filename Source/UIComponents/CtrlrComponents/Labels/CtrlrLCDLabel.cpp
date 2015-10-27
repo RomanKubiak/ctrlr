@@ -31,6 +31,7 @@
 #include "CtrlrUtilities.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrLuaManager.h"
+#include "CtrlrUtilitiesGUI.h"
 //[/MiscUserDefs]
 
 //==============================================================================

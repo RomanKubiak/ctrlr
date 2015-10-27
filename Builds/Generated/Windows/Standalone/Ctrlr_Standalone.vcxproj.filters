@@ -1132,7 +1132,13 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.cpp">
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsRouting.cpp">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDevices.cpp">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDialog.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.cpp">
@@ -2487,6 +2493,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Source\Core\stdafx_lua.h">
+      <Filter>Ctrlr_Standalone\Core</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
@@ -3402,7 +3411,13 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrLua\MethodEditor</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.h">
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsRouting.h">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDevices.h">
+      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDialog.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.h">

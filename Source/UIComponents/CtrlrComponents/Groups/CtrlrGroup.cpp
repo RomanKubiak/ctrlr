@@ -26,6 +26,7 @@
 #endif
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"
+#include "CtrlrUtilitiesGUI.h"
 //[/Headers]
 
 #include "CtrlrGroup.h"

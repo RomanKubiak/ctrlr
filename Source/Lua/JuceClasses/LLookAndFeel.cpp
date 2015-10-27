@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LLookAndFeel.h"
+#include "CtrlrLog.h"
 #include <luabind/adopt_policy.hpp>
 
 #define TRY_CALL(method,...)\
@@ -61,22 +62,18 @@ LookAndFeelBase::LookAndFeelBase()
 
 void LookAndFeelBase::setMethod (const String &methodName, const luabind::object &method)
 {
-    _DBG("LookAndFeelBase::setMethod name="+methodName);
     if (luabind::type(method) != LUA_TNIL)
     {
-        _DBG("\tmethod looks valid, set it in hash table");
         methods.set (methodName, method);
     }
     else
     {
-        _DBG("\tmethod looks like a null pointer, clear it");
         methods.remove(methodName);
     }
 }
 
 void LookAndFeelBase::setImplementation (const luabind::object &implementationAsTable)
 {
-    _DBG("LookAndFeelBase::setImplementation");
     if (luabind::type(implementationAsTable) == LUA_TTABLE)
     {
         for (luabind::iterator i(implementationAsTable), end; i!=end; ++i)
@@ -86,7 +83,6 @@ void LookAndFeelBase::setImplementation (const luabind::object &implementationAs
 
             if (luabind::type(val) == LUA_TFUNCTION)
             {
-                _DBG("\tfound a function for implementation \""+key+"\"");
                 setMethod (key, val);
             }
         }

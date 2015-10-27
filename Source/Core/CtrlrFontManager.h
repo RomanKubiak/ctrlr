@@ -4,6 +4,7 @@
 #include "CtrlrMacros.h"
 
 class CtrlrPanel;
+class CtrlrManager;
 
 class CtrlrFontManager
 {

@@ -11,7 +11,7 @@
 #include "CtrlrPanel/CtrlrPanelCanvas.h"
 #include "CtrlrComponents/CtrlrComponentTypeManager.h"
 #include "JuceClasses/LMemoryBlock.h"
-#include "CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.h"
+#include "CtrlrMIDI/CtrlrMIDISettingsDialog.h"
 
 CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		: owner(_owner),
@@ -1783,7 +1783,7 @@ void CtrlrPanel::performInternalComponentFunction(CtrlrComponent *sourceComponen
 	switch (functionId)
 	{
 		case MIDIDeviceSelection:
-			CtrlrMIDIDeviceSelectionDialog::showDialog(owner, getEditor());
+			CtrlrMIDISettingsDialog::showDialog(owner, getEditor());
 			break;
 		case none:
 		default:

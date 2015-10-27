@@ -22,7 +22,7 @@
 
 #define LUABIND_BUILDING
 
-#include "stdafx.h"
+#include "stdafx_lua.h"
 
 using namespace luabind::detail;
 
