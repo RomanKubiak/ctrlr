@@ -23,6 +23,7 @@
 //[Headers] You can add your own extra header files here...
 #include "../../CtrlrPanel/CtrlrPanelEditor.h"
 #include "../CtrlrComponentTypeManager.h"
+#include "CtrlrUtilitiesGUI.h"
 //[/Headers]
 
 #include "CtrlrHyperlink.h"

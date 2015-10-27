@@ -2,6 +2,7 @@
 #include "LGlobalFunctions.h"
 #include "Native/CtrlrNative.h"
 #include "CtrlrManager/CtrlrManager.h"
+#include "CtrlrUtilities.h"
 
 static const String getNativeKeyMapping()
 {

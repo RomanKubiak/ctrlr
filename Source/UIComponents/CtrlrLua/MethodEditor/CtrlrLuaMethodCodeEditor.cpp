@@ -4,6 +4,7 @@
 #include "CtrlrLuaMethodEditor.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "../Methods/CtrlrLuaMethodManager.h"
+#include "CtrlrLuaDebugger.h"
 #include "CtrlrLuaManager.h"
 
 CtrlrLuaMethodCodeEditor::CtrlrLuaMethodCodeEditor(CtrlrLuaMethodEditor &_owner, CtrlrLuaMethod *_method)
@@ -1052,6 +1053,5 @@ CtrlrLuaDebugger &GenericCodeEditorComponent::getDebugger()
 
 void GenericCodeEditorComponent::markedLinesChanged(int lineNumber, bool isNowSelected)
 {
-    _DBG("GenericCodeEditorComponent::markedLinesChanged line="+_STR(lineNumber)+" selected? "+_STR(isNowSelected));
     getDebugger().setBreakpoint (lineNumber, owner.getMethod() ? owner.getMethod()->getName() : "ctrlr", isNowSelected);
 }

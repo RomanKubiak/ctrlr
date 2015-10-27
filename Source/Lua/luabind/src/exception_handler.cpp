@@ -4,7 +4,7 @@
 
 #define LUABIND_BUILDING
 
-#include "stdafx.h"
+#include "stdafx_lua.h"
 
 #ifndef LUABIND_NO_EXCEPTIONS
 

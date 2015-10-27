@@ -25,6 +25,7 @@
 #include "../CtrlrComponentTypeManager.h"
 #include "CtrlrIDs.h"
 #include "CtrlrUtilities.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "CtrlrFontManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 //[/Headers]

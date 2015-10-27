@@ -291,6 +291,7 @@
       </GROUP>
     </GROUP>
     <GROUP id="{10E7F410-8B6D-D0E5-3586-A8B60E222A7E}" name="Core">
+      <FILE id="HftYBS" name="stdafx_lua.h" compile="0" resource="0" file="../../Source/Core/stdafx_lua.h"/>
       <FILE id="pwNeqS" name="CtrlrInlineUtilitiesGUI.h" compile="0" resource="0"
             file="../../Source/Core/CtrlrInlineUtilitiesGUI.h"/>
       <FILE id="tz5mmG" name="CtrlrUtilitiesGUI.cpp" compile="1" resource="0"
@@ -1182,10 +1183,18 @@
         </GROUP>
       </GROUP>
       <GROUP id="{E5B1CE63-5334-0AB5-2F3D-7652B433DE0C}" name="CtrlrMIDI">
-        <FILE id="svLeS9" name="CtrlrMIDIDeviceSelectionDialog.cpp" compile="1"
-              resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.cpp"/>
-        <FILE id="kA9dUw" name="CtrlrMIDIDeviceSelectionDialog.h" compile="0"
-              resource="0" file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIDeviceSelectionDialog.h"/>
+        <FILE id="hlsFF6" name="CtrlrMIDISettingsRouting.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsRouting.cpp"/>
+        <FILE id="jSD402" name="CtrlrMIDISettingsRouting.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsRouting.h"/>
+        <FILE id="w2h4YG" name="CtrlrMIDISettingsDevices.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDevices.cpp"/>
+        <FILE id="ZgL8Mj" name="CtrlrMIDISettingsDevices.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDevices.h"/>
+        <FILE id="jtLIGg" name="CtrlrMIDISettingsDialog.cpp" compile="1" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDialog.cpp"/>
+        <FILE id="MQFEFv" name="CtrlrMIDISettingsDialog.h" compile="0" resource="0"
+              file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDialog.h"/>
         <FILE id="Cx6hUr" name="CtrlrMIDIBuffer.cpp" compile="1" resource="0"
               file="../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp"/>
         <FILE id="vdQEZs" name="CtrlrMIDIBuffer.h" compile="0" resource="0"

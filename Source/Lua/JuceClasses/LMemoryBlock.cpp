@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LMemoryBlock.h"
+#include "CtrlrUtilities.h"
 
 LMemoryBlock::LMemoryBlock(const String &hexData)
 {

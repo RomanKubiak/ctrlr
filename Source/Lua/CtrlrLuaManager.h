@@ -1,18 +1,18 @@
-#ifndef __CTRLR_LUA_MANAGER__
-#define __CTRLR_LUA_MANAGER__
+#ifndef CTRLR_LUA_MANAGER
+#define CTRLR_LUA_MANAGER
 #ifdef _WIN32
 #pragma warning(disable:4100)
 #endif
 
 #include "Methods/CtrlrLuaMethodManager.h"
-#include "CtrlrLuaUtils.h"
-#include "CtrlrLuaMultiTimer.h"
-#include "CtrlrLuaAudioConverter.h"
-#include "CtrlrLuaDebugger.h"
 
 class LAudioFormatManager;
 class CtrlrPanel;
 class CtrlrModulator;
+class CtrlrLuaAudioConverter;
+class CtrlrLuaUtils;
+class CtrlrLuaMultiTimer;
+class CtrlrLuaDebugger;
 
 class CtrlrLuaManager : public ValueTree::Listener
 {
@@ -72,9 +72,9 @@ class CtrlrLuaManager : public ValueTree::Listener
 		File importersDir;
 		CtrlrPanel &owner;
 		lua_State* luaState, *audioThreadState;
-		CtrlrLuaUtils utils;
+		CtrlrLuaUtils *utils;
 		CtrlrLuaMultiTimer *multiTimer;
-		CtrlrLuaAudioConverter audioConverter;
+		CtrlrLuaAudioConverter *audioConverter;
 		CtrlrLuaDebugger *ctrlrLuaDebugger;
 		LAudioFormatManager *luaAudioFormatManager;
 };

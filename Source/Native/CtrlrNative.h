@@ -3,7 +3,7 @@
 
 #include "JuceHeader.h"
 class CtrlrPanel;
-
+class CtrlrManager;
 #define CTRLR_NEW_INSTANCE_DIALOG_TITLE		L"Write new instance here"
 
 #define	CTRLR_INTERNAL_PANEL_RESID				1040
