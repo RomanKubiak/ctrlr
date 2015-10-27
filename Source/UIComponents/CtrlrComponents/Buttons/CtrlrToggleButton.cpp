@@ -92,6 +92,12 @@ void CtrlrToggleButton::resized()
 void CtrlrToggleButton::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
+    if (isInternal())
+	{
+		owner.getOwnerPanel().performInternalComponentFunction(this);
+		return;
+	}
+
 	if (!owner.getOwnerPanel().checkRadioGroup(this, buttonThatWasClicked->getToggleState()))
 		return;
     //[/UserbuttonClicked_Pre]

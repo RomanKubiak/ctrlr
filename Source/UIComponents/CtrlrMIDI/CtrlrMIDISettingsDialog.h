@@ -22,7 +22,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-class CtrlrManager;
+class CtrlrPanel;
 //[/Headers]
 
 
@@ -39,12 +39,12 @@ class CtrlrMIDISettingsDialog  : public Component
 {
 public:
     //==============================================================================
-    CtrlrMIDISettingsDialog (CtrlrManager &_owner, Component *_editor);
+    CtrlrMIDISettingsDialog (CtrlrPanel &_owner);
     ~CtrlrMIDISettingsDialog();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    static void showDialog(CtrlrManager &owner, Component *editor);
+    static void showDialog(CtrlrPanel &_owner);
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -54,8 +54,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    CtrlrManager &owner;
-    Component *editor;
+    CtrlrPanel &owner;
     //[/UserVariables]
 
     //==============================================================================

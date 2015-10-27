@@ -320,6 +320,12 @@ bool CtrlrImageButton::getToggleState()
 
 void CtrlrImageButton::buttonClicked (Button* button)
 {
+	if (isInternal())
+	{
+		owner.getOwnerPanel().performInternalComponentFunction(this);
+		return;
+	}
+
 	if (!owner.getOwnerPanel().checkRadioGroup(this, button->getToggleState()))
 		return;
 

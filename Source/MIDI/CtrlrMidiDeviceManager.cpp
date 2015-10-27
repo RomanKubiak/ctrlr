@@ -6,6 +6,7 @@
 #include "CtrlrMidiDevice.h"
 #include "CtrlrLog.h"
 #include "CtrlrUtilities.h"
+#include "CtrlrPanel/CtrlrPanel.h"
 
 CtrlrMidiDeviceManager::CtrlrMidiDeviceManager(CtrlrManager &_owner)
 	:	managerTree(Ids::midiDeviceManager),
@@ -189,24 +190,59 @@ CtrlrMidiDevice *CtrlrMidiDeviceManager::getDeviceByIndex(const int idx, const C
 	return (nullptr);
 }
 
-void CtrlrMidiDeviceManager::reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type)
+void CtrlrMidiDeviceManager::reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type, CtrlrPanel *panel)
 {
 //	refreshDevices();  //This worked, but it would never send output to the "new" device, even though it found it.
 	comboToUpdate.clear();
 	if (type == outputDevice)
 	{
 		comboToUpdate.addItem (COMBO_NONE_ITEM, 1);
+
 		for (int i=0; i<outDevs.size(); i++)
 		{
 			comboToUpdate.addItem (outDevs[i]->getProperty(Ids::name).toString(), i+2);
+
+			if (panel)
+			{
+				if (outDevs[i]->getProperty(Ids::name).toString() == panel->getProperty(Ids::panelMidiOutputDevice).toString())
+				{
+					comboToUpdate.setSelectedId (i+2);
+				}
+			}
 		}
 	}
-	else if (type == controllerDevice || type == inputDevice)
+	else if (type == controllerDevice)
 	{
 		comboToUpdate.addItem (COMBO_NONE_ITEM, 1);
+
 		for (int i=0; i<inDevs.size(); i++)
 		{
 			comboToUpdate.addItem (inDevs[i]->getProperty(Ids::name).toString(), i+2);
+
+			if (panel)
+			{
+				if (inDevs[i]->getProperty(Ids::name).toString() == panel->getProperty(Ids::panelMidiControllerDevice).toString())
+				{
+					comboToUpdate.setSelectedId (i+2);
+				}
+			}
+		}
+	}
+	else if (type == inputDevice)
+	{
+		comboToUpdate.addItem (COMBO_NONE_ITEM, 1);
+
+		for (int i=0; i<inDevs.size(); i++)
+		{
+			comboToUpdate.addItem (inDevs[i]->getProperty(Ids::name).toString(), i+2);
+
+			if (panel)
+			{
+				if (inDevs[i]->getProperty(Ids::name).toString() == panel->getProperty(Ids::panelMidiInputDevice).toString())
+				{
+					comboToUpdate.setSelectedId (i+2);
+				}
+			}
 		}
 	}
 }
