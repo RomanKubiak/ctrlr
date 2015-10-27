@@ -1,7 +1,15 @@
 #ifndef __CTRLR_LUA_METHOD__
 #define __CTRLR_LUA_METHOD__
 
+extern "C"
+{
+	#include <luabind/lua.h>
+	#include <luabind/lualib.h>
+	#include <luabind/lauxlib.h>
+}
+
 #include "JuceHeader.h"
+
 #ifdef _WIN32
 #pragma warning(disable:4100)
 #endif // _WIN

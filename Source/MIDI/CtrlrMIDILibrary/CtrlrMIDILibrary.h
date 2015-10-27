@@ -104,13 +104,10 @@ class CtrlrMIDILibrary : public ValueTree::Listener,
 		void savePanelStateToCurrentProgram();
 		void setProgram (const ValueTree &item);
 		void setProgram (const int programMenuIndex);
-		void sendCurrentProgram();
-		void receiveCurrentProgram();
 
 		void addNewBank (const String bankName, const String bankDescription, const int number, const int lsb, const int msb, ValueTree unitToAddTo=ValueTree());
 		void addNewProgram (const String programName, const int number, ValueTree unitToAddTo=ValueTree());
 		void addNewCustomData (const String dataName, const int number, ValueTree unitToAddTo=ValueTree());
-		void addNewTransaction (const String transactionName, ValueTree unitToAddTo=ValueTree());
 		void addListener (ValueTree::Listener *listener)												{ libraryTree.addListener(listener); }
 		void removeListener (ValueTree::Listener *listener)												{ libraryTree.removeListener(listener); }
 

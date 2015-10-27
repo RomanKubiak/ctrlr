@@ -1,10 +1,12 @@
-#ifndef __CTRLR_LUA_AUDIO_SAMPLE_BUFFER__
-#define __CTRLR_LUA_AUDIO_SAMPLE_BUFFER__
+#ifndef CTRLR_LUA_AUDIO_CONVERTER
+#define CTRLR_LUA_AUDIO_CONVERTER
+
 #ifdef _WIN32
 #pragma warning(disable:4100)
 #endif // _WIN32
 
-#include "JuceHeader.h"
+#include "CtrlrMacros.h"
+#include "JuceClasses/LMemoryBlock.h"
 
 //==============================================================================
 /** @brief A class for holding audio samples

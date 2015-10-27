@@ -4,6 +4,13 @@
 #pragma warning(disable:4100)
 #endif
 
+extern "C"
+{
+	#include <luabind/lua.h>
+	#include <luabind/lualib.h>
+	#include <luabind/lauxlib.h>
+}
+
 #include "JuceHeader.h"
 
 //==============================================================================

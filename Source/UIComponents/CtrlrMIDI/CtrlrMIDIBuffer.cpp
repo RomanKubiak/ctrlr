@@ -828,7 +828,7 @@ BEGIN_JUCER_METADATA
          editableSingleClick="1" editableDoubleClick="1" focusDiscardsChanges="0"
          fontname="Default font" fontsize="12" bold="0" italic="0" justification="36"/>
   <TEXTBUTTON name="" id="4308facfa36a7140" memberName="reloadButton" virtualName=""
-              explicitFocusOrder="0" pos="0R 8 15.365% 24" posRelativeX="89bbcb18489c2790"
+              explicitFocusOrder="0" pos="0R 8 15.25% 24" posRelativeX="89bbcb18489c2790"
               bgColOff="ff8cff7f" buttonText="Reload" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
   <GENERICCOMPONENT name="" id="d3e76702cdb231b8" memberName="status" virtualName=""

@@ -1,9 +1,14 @@
 #ifndef __CTRLR_LUA_MULTI_TIMER__
 #define __CTRLR_LUA_MULTI_TIMER__
+
 #ifdef _WIN32
 #pragma warning(disable:4100)
 #endif // _WIN32
 
+#include <luabind/config.hpp>
+#include <luabind/class.hpp>
+#include <luabind/function.hpp>
+#include <luabind/open.hpp>
 #include "Methods/CtrlrLuaMethod.h"
 
 struct LuaTimerCallback

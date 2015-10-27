@@ -31,6 +31,7 @@
 #include "../CtrlrComponentTypeManager.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrLuaManager.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "Lua/JuceClasses/LLookAndFeel.h"
 
 CtrlrLabelInternal::CtrlrLabelInternal(CtrlrLabel &_owner, const String &componentName, const String &labelText)

@@ -4,6 +4,7 @@
 #include "../CtrlrComponentTypeManager.h"
 #include "CtrlrMacros.h"
 #include "CtrlrUtilities.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 
 class CtrlrSliderInternal : public Slider

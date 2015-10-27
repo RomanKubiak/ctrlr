@@ -22,14 +22,14 @@
 
 #define LUABIND_BUILDING
 
-#include "stdafx.h"
+#include "stdafx_lua.h"
 
 namespace luabind
 {
 	LUABIND_API class_info get_class_info(argument const& o)
 	{
 		lua_State* L = o.interpreter();
-	
+
 		o.push(L);
         detail::object_rep* obj = detail::get_instance(L, -1);
 
@@ -107,7 +107,7 @@ namespace luabind
 				.def_readonly("name", &class_info::name)
 				.def_readonly("methods", &class_info::methods)
 				.def_readonly("attributes", &class_info::attributes),
-		
+
             def("class_info", &get_class_info),
             def("class_names", &get_class_names)
 		];

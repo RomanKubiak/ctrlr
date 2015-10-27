@@ -3,7 +3,6 @@
 
 #include "CtrlrMidiMessage.h"
 #include "CtrlrLuaMethod.h"
-#include "MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 
 class CtrlrPanel;
 class CtrlrModulator;

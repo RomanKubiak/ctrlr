@@ -2,6 +2,7 @@
 #include "CtrlrLuaManager.h"
 #include "CtrlrLog.h"
 #include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
@@ -506,12 +507,6 @@ void CtrlrPanel::setModulatorValuesFromData (const MemoryBlock &dataSource, cons
 	}
 }
 
-ValueTree CtrlrPanel::createProgramFromData(const MemoryBlock &dataSource, const String &propertyToIndexBy, const CtrlrByteEncoding byteEncoding, int propertyOffset, int bytesPerValue, const bool useMappedValues)
-{
-	ValueTree program = getCtrlrMIDILibrary().createEmptyProgramTree();
-	return (program.createCopy());
-}
-
 void CtrlrPanel::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -574,8 +569,6 @@ void CtrlrPanel::wrapForLua (lua_State *L)
 			.def("getModulatorValuesAsData", (LMemoryBlock (CtrlrPanel::*)(const ValueTree &, const String &, const CtrlrByteEncoding, const int, const bool))&CtrlrPanel::getModulatorValuesAsData)
 			.def("getModulatorValuesAsData", (LMemoryBlock (CtrlrPanel::*)(const String &, const CtrlrByteEncoding, const int, const int, const int, const bool))&CtrlrPanel::getModulatorValuesAsData)
 			.def("setModulatorValuesFromData", &CtrlrPanel::setModulatorValuesFromData)
-			.def("createProgramFromData", &CtrlrPanel::createProgramFromData)
-			.def("getLibrary", &CtrlrPanel::getCtrlrMIDILibrary)
 			.def("getCtrlrMIDILibrary", &CtrlrPanel::getCtrlrMIDILibrary)
 			.def("dumpDebugData", &CtrlrPanel::dumpDebugData)
 			.enum_("CtrlrPanelFileType")
