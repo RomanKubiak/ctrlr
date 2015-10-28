@@ -57,6 +57,11 @@ void LGlobalFunctions::console (const String &arg)
     _LUA(removeInvalidChars(arg, true));
 }
 
+void LGlobalFunctions::console (const std::string &arg)
+{
+    _LUA(removeInvalidChars(_STR(arg), true));
+}
+
 void LGlobalFunctions::sleep(const int milliseconds)
 {
     Thread::sleep(milliseconds);
@@ -72,7 +77,8 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
     [
         def("getNativeKeyMapping", &getNativeKeyMapping)
         ,
-        def("console", &LGlobalFunctions::console)
+        def("console", (void (*) (const std::string &)) &LGlobalFunctions::console),
+        def("console", (void (*) (const String &)) &LGlobalFunctions::console)
         ,
 		def("J", (const String (*) (const std::string &)) &LGlobalFunctions::toJuceString),
 		def("toJuceString", (const String (*) (const std::string &)) &LGlobalFunctions::toJuceString)

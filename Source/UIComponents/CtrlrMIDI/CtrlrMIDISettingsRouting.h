@@ -60,7 +60,17 @@ private:
 
     //==============================================================================
     ScopedPointer<GroupComponent> groupComponent;
-    ScopedPointer<ToggleButton> inDev2outDev;
+    ScopedPointer<ToggleButton> inDev2OutDev;
+    ScopedPointer<ToggleButton> ctrlDev2OutDev;
+    ScopedPointer<ToggleButton> host2OutDev;
+    ScopedPointer<ToggleButton> host2Host;
+    ScopedPointer<ToggleButton> inDev2OutDevCh;
+    ScopedPointer<ToggleButton> ctrlDev2OutDevCh;
+    ScopedPointer<ToggleButton> host2OutDevCh;
+    ScopedPointer<ToggleButton> host2HostCh;
+    ScopedPointer<Label> label;
+    ScopedPointer<ToggleButton> inDev2Host;
+    ScopedPointer<ToggleButton> inDev2HostCh;
 
 
     //==============================================================================

@@ -36,6 +36,7 @@
 #include "CtrlrLuaMultiTimer.h"
 #include "CtrlrLuaAudioConverter.h"
 #include "CtrlrLuaDebugger.h"
+#include "CtrlrPanel/CtrlrPanelOSC.h"
 
 // Deprecated classes
 #include "Deprecated/CtrlrLuaBigInteger.h"
@@ -222,6 +223,7 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrFixedSlider::wrapForLua (L);
 	CtrlrSlider::wrapForLua (L);
 	CtrlrGroup::wrapForLua (L);
+	CtrlrPanelOSC::wrapForLua (L);
 }
 
 void CtrlrLuaManager::assignDefaultObjects(lua_State* L)

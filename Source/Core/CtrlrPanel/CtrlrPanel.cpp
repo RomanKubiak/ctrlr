@@ -138,6 +138,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
     setProperty (Ids::luaPanelMidiSnapshotPost, COMBO_ITEM_NONE);
     setProperty (Ids::luaPanelMidiSnapshotPre, COMBO_ITEM_NONE);
     setProperty (Ids::luaAudioProcessBlock, COMBO_ITEM_NONE);
+    setProperty (Ids::luaPanelOSCReceived, COMBO_ITEM_NONE);
+
 	setProperty (Ids::panelFilePath, String::empty);
 	setProperty (Ids::panelUID, generateRandomUnique());
 	setProperty (Ids::panelInstanceUID, generateRandomUniquePluginId());

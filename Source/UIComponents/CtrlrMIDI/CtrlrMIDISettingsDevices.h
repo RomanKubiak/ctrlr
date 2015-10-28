@@ -79,6 +79,12 @@ private:
     ScopedPointer<ComboBox> inputChannel;
     ScopedPointer<ComboBox> controllerChannel;
     ScopedPointer<ComboBox> outputChannel;
+    ScopedPointer<Label> label8;
+    ScopedPointer<ComboBox> pluginOutputChannel;
+    ScopedPointer<ToggleButton> pluginOutput;
+    ScopedPointer<Label> label9;
+    ScopedPointer<ToggleButton> pluginInput;
+    ScopedPointer<ComboBox> pluginInputChannel;
 
 
     //==============================================================================
