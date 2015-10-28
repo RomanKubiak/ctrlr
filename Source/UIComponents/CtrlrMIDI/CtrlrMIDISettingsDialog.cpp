@@ -49,7 +49,7 @@ CtrlrMIDISettingsDialog::CtrlrMIDISettingsDialog (CtrlrPanel &_owner)
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (600, 400);
+    setSize (500, 500);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -121,8 +121,8 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="CtrlrMIDISettingsDialog"
                  componentName="" parentClasses="public Component" constructorParams="CtrlrPanel &amp;_owner"
                  variableInitialisers="owner(_owner)" snapPixels="8" snapActive="1"
-                 snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="600"
-                 initialHeight="400">
+                 snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="500"
+                 initialHeight="500">
   <BACKGROUND backgroundColour="ffffff"/>
   <TABBEDCOMPONENT name="" id="d45866974b3b880b" memberName="midiTabs" virtualName=""
                    explicitFocusOrder="0" pos="0 0 0M 0M" orientation="top" tabBarDepth="30"

@@ -156,6 +156,9 @@ namespace Ids
 	DECLARE_ID (panelMidiThruD2H);
 	DECLARE_ID (panelMidiThruD2HChannelize);
 
+	DECLARE_ID (panelMidiThruC2D);
+	DECLARE_ID (panelMidiThruC2DChannelize);
+
 	/* OSC options */
 	DECLARE_ID (panelOSCEnabled);
 	DECLARE_ID (panelOSCPort);

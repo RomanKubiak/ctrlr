@@ -15,6 +15,7 @@ class LGlobalFunctions
 		static std::string stringToLua (const String &string);
 		static String toJuceString (const std::string &string);
 		static void console (const String &arg);
+		static void console (const std::string &arg);
 		static void wrapForLua (lua_State *L);
 		static void setLookAndFeel (Component *component, luabind::object lookAndFeelObject);
 };
