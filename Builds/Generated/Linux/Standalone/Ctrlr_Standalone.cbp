@@ -31,6 +31,7 @@
 					<Add option="-DCTRLR_NIGHTLY=1" />
 					<Add option="-DJucePlugin_Build_Standalone=" />
 					<Add option="-DJUCE_DEBUG=1" />
+					<Add option="-DUSE_ANSI_C=1" />
 					<Add option="-D_LINUX=1" />
 					<Add option="-DJUCER_CODEBLOCKS_LINUX_C6428F40=1" />
 					<Add option="-DJUCE_APP_VERSION=5.3.0" />
@@ -88,6 +89,7 @@
 					<Add option="-fexceptions" />
 					<Add option="-DLINUX=1" />
 					<Add option="-DNDEBUG=1" />
+					<Add option="-DUSE_ANSI_C=1" />
 					<Add option="-D_LINUX=1" />
 					<Add option="-DJUCER_CODEBLOCKS_LINUX_C6428F40=1" />
 					<Add option="-DJUCE_APP_VERSION=5.3.0" />
@@ -135,6 +137,7 @@
 					<Add option="-DJUCE_FORCE_DEBUG=0" />
 					<Add option="-DCTRLR_NIGHTLY=1" />
 					<Add option="-DJucePlugin_Build_Standalone=" />
+					<Add option="-DUSE_ANSI_C=1" />
 					<Add option="-D_LINUX=1" />
 					<Add option="-DJUCER_CODEBLOCKS_LINUX_C6428F40=1" />
 					<Add option="-DJUCE_APP_VERSION=5.3.0" />
@@ -2166,6 +2169,8 @@
 		<Unit filename="../../../../Source/Core/CtrlrModulator/CtrlrModulator.h" />
 		<Unit filename="../../../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.cpp" />
 		<Unit filename="../../../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.h" />
+		<Unit filename="../../../../Source/Core/CtrlrOSC.cpp" />
+		<Unit filename="../../../../Source/Core/CtrlrOSC.h" />
 		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.cpp" />
 		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.h" />
 		<Unit filename="../../../../Source/Core/CtrlrPanel/CtrlrPanel.cpp" />
@@ -2225,6 +2230,8 @@
 		<Unit filename="../../../../Source/Lua/CtrlrLuaModulator.cpp" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaMultiTimer.cpp" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaMultiTimer.h" />
+		<Unit filename="../../../../Source/Lua/CtrlrLuaOSC.cpp" />
+		<Unit filename="../../../../Source/Lua/CtrlrLuaOSC.h" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaObject.cpp" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaObject.h" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaObjectWrapper.cpp" />
@@ -2245,138 +2252,72 @@
 		<Unit filename="../../../../Source/Lua/Deprecated/CtrlrLuaMemoryBlock.h" />
 		<Unit filename="../../../../Source/Lua/Deprecated/CtrlrLuaRectangle.cpp" />
 		<Unit filename="../../../../Source/Lua/Deprecated/CtrlrLuaRectangle.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/CtrlrWrap.cpp" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LAffineTransform.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAffineTransform.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LAlertWindow.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAlertWindow.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LAsyncUpdater.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAsyncUpdater.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LAttributedString.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAttributedString.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioFile.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioFile.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioFormat.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioFormat.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioPlayHead.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioPlayHead.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioSampleBuffer.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioSampleBuffer.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioThumbnail.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LAudioThumbnail.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LBigInteger.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LBigInteger.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LBorderSize.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LBorderSize.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LBubbleMessageComponent.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LBubbleMessageComponent.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LButton.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LButton.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LColour.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LColour.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LColourGradient.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LColourGradient.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LComboBox.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LComboBox.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LComponent.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LComponent.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LComponentPeer.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LComponentPeer.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LDrawable.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LDrawable.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LExpression.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LExpression.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LFile.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LFile.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LFileListComponent.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LFileListComponent.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LFileTreeComponent.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LFileTreeComponent.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LFont.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LFont.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LGlobalFunctions.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LGlobalFunctions.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LGlyphArrangement.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LGlyphArrangement.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LGraphics.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LGraphics.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LImage.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LImage.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LInputStream.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LInputStream.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LJustification.cpp" />
+		<Unit filename="../../../../Source/Lua/JuceClasses/LJuce.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LJustification.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LKeyPress.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LKeyPress.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LLabel.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LLabel.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LLine.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LLine.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LLookAndFeel.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LLookAndFeel.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LMemoryBlock.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMemoryBlock.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LMemoryInputStream.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMemoryInputStream.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiBuffer.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiBuffer.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiKeyboardComponent.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiMessage.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMidiMessage.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LModifierKeys.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LModifierKeys.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LMouseCursor.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMouseCursor.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LMouseEvent.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LMouseEvent.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LPath.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LPath.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LPoint.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LPoint.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LPopupMenu.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LPopupMenu.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LRandom.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LRandom.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LRange.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LRange.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LRectangle.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LRectangle.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LRelativeCoordinate.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LRelativeCoordinate.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LResult.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LResult.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LSlider.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LSlider.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LSparseSet.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LSparseSet.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LString.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LString.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LTextButton.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LTextButton.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LTextEditor.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LTextEditor.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LThread.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LThread.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LThreadWithProgressWindow.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LThreadWithProgressWindow.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LTime.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LTime.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LTimer.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LTimer.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LToggleButton.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LToggleButton.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LTypeface.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LTypeface.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LURL.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LURL.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LValue.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LValue.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LValueTree.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LValueTree.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LXmlElement.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LXmlElement.h" />
-		<Unit filename="../../../../Source/Lua/JuceClasses/LZipFile.cpp" />
 		<Unit filename="../../../../Source/Lua/JuceClasses/LZipFile.h" />
 		<Unit filename="../../../../Source/Lua/Methods/CtrlrLuaMethod.cpp" />
 		<Unit filename="../../../../Source/Lua/Methods/CtrlrLuaMethod.h" />
@@ -2394,6 +2335,7 @@
 		<Unit filename="../../../../Source/Lua/luabind/luabind/dependency_policy.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/calc_arity.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call.hpp" />
+		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call_0x.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call_function.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call_member.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call_operator_iterate.hpp" />
@@ -2411,6 +2353,7 @@
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/format_signature.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/garbage_collector.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/has_get_pointer.hpp" />
+		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/index_tuple.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/inheritance.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/instance_holder.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/is_indirect_const.hpp" />

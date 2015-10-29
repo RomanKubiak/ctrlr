@@ -1,5 +1,5 @@
-#ifndef __CTRLR_PROPERTIES__
-#define __CTRLR_PROPERTIES__
+#ifndef CTRLR_PROPERTIES
+#define CTRLR_PROPERTIES
 
 #include "CtrlrMacros.h"
 

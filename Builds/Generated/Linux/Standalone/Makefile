@@ -18,7 +18,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Lua/LuaSocket/include -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "USE_ANSI_C=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Lua/LuaSocket/include -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0 -fpermissive -w -fPIC -std=c++0x -fexceptions
   CXXFLAGS += $(CFLAGS) -std=c++11
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
@@ -38,7 +38,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_Standalone" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_Standalone" -D "USE_ANSI_C=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Os -fpermissive -w -fPIC -std=c++0x -fexceptions
   CXXFLAGS += $(CFLAGS) -std=c++11
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
@@ -58,7 +58,7 @@ ifeq ($(CONFIG),Release_Nightly)
     TARGET_ARCH := 
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "USE_ANSI_C=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Os -fpermissive -w -fPIC -std=c++0x -fexceptions
   CXXFLAGS += $(CFLAGS) -std=c++11
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
@@ -69,6 +69,7 @@ ifeq ($(CONFIG),Release_Nightly)
 endif
 
 OBJECTS := \
+  $(OBJDIR)/CtrlrOSC_bdc93ba9.o \
   $(OBJDIR)/CtrlrUtilitiesGUI_4d233a31.o \
   $(OBJDIR)/CtrlrSysexProcessorOwned_b505063d.o \
   $(OBJDIR)/CtrlrFontManager_54d87888.o \
@@ -97,74 +98,9 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
+  $(OBJDIR)/LJuce_c2f9d4cd.o \
+  $(OBJDIR)/CtrlrLuaOSC_2f2874f8.o \
   $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
-  $(OBJDIR)/LAsyncUpdater_d1f1198d.o \
-  $(OBJDIR)/LAudioPlayHead_2fd31d94.o \
-  $(OBJDIR)/LMidiBuffer_d1dab261.o \
-  $(OBJDIR)/LBorderSize_ecfcd7ed.o \
-  $(OBJDIR)/LButton_b8659fd2.o \
-  $(OBJDIR)/LTextButton_e8537f5f.o \
-  $(OBJDIR)/LTypeface_963867f7.o \
-  $(OBJDIR)/LXmlElement_f51e885.o \
-  $(OBJDIR)/LThread_5c655aaa.o \
-  $(OBJDIR)/LThreadWithProgressWindow_a962c8ed.o \
-  $(OBJDIR)/LAudioThumbnail_55fa4156.o \
-  $(OBJDIR)/LSparseSet_87c3cd0c.o \
-  $(OBJDIR)/CtrlrWrap_382e7425.o \
-  $(OBJDIR)/LAlertWindow_465bd516.o \
-  $(OBJDIR)/LAffineTransform_2319dc77.o \
-  $(OBJDIR)/LAttributedString_db4a72d9.o \
-  $(OBJDIR)/LAudioFile_c2b0295c.o \
-  $(OBJDIR)/LAudioFormat_bf375797.o \
-  $(OBJDIR)/LAudioSampleBuffer_4938306a.o \
-  $(OBJDIR)/LBigInteger_cd31b13e.o \
-  $(OBJDIR)/LBubbleMessageComponent_3f076002.o \
-  $(OBJDIR)/LColour_f601596c.o \
-  $(OBJDIR)/LComboBox_fd631dbd.o \
-  $(OBJDIR)/LFileListComponent_37dd3b4d.o \
-  $(OBJDIR)/LFileTreeComponent_854e584d.o \
-  $(OBJDIR)/LColourGradient_2f12e5bc.o \
-  $(OBJDIR)/LComponent_c76bde67.o \
-  $(OBJDIR)/LComponentPeer_7b1a09e9.o \
-  $(OBJDIR)/LDrawable_623b547e.o \
-  $(OBJDIR)/LExpression_88737ab8.o \
-  $(OBJDIR)/LFile_b805f7dc.o \
-  $(OBJDIR)/LFont_f9a86d2f.o \
-  $(OBJDIR)/LGlobalFunctions_ba343b62.o \
-  $(OBJDIR)/LGlyphArrangement_55693f1e.o \
-  $(OBJDIR)/LGraphics_a64ebfeb.o \
-  $(OBJDIR)/LImage_657eee45.o \
-  $(OBJDIR)/LInputStream_796e1d94.o \
-  $(OBJDIR)/LKeyPress_ea4d5a04.o \
-  $(OBJDIR)/LMidiKeyboardComponent_c4245d9f.o \
-  $(OBJDIR)/LJustification_1a98a75c.o \
-  $(OBJDIR)/LLabel_759d4f5e.o \
-  $(OBJDIR)/LMouseCursor_eeedd585.o \
-  $(OBJDIR)/LLine_2ab6b654.o \
-  $(OBJDIR)/LLookAndFeel_2f64a028.o \
-  $(OBJDIR)/LMemoryBlock_bf2138b6.o \
-  $(OBJDIR)/LMemoryInputStream_656eca93.o \
-  $(OBJDIR)/LMidiMessage_7531a950.o \
-  $(OBJDIR)/LModifierKeys_3e79f94b.o \
-  $(OBJDIR)/LMouseEvent_ae81d695.o \
-  $(OBJDIR)/LPath_2d70ea05.o \
-  $(OBJDIR)/LPoint_f71777fa.o \
-  $(OBJDIR)/LPopupMenu_987c3e95.o \
-  $(OBJDIR)/LRandom_a9eb2ce3.o \
-  $(OBJDIR)/LRange_6d09bd27.o \
-  $(OBJDIR)/LRectangle_be30e5d9.o \
-  $(OBJDIR)/LRelativeCoordinate_8f7e4484.o \
-  $(OBJDIR)/LResult_80f0d33d.o \
-  $(OBJDIR)/LSlider_e4f58201.o \
-  $(OBJDIR)/LString_45435131.o \
-  $(OBJDIR)/LTextEditor_762fe41a.o \
-  $(OBJDIR)/LToggleButton_e9b0206.o \
-  $(OBJDIR)/LTime_680b44ad.o \
-  $(OBJDIR)/LTimer_9d03472f.o \
-  $(OBJDIR)/LURL_d54a4599.o \
-  $(OBJDIR)/LValue_6c32db5b.o \
-  $(OBJDIR)/LValueTree_87eff119.o \
-  $(OBJDIR)/LZipFile_9ce5b2e7.o \
   $(OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o \
   $(OBJDIR)/CtrlrLuaCustomComponent_32c93605.o \
   $(OBJDIR)/CtrlrLuaManager_5810d0a6.o \
@@ -386,6 +322,11 @@ strip:
 	@echo Stripping Ctrlr_Standalone
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
+$(OBJDIR)/CtrlrOSC_bdc93ba9.o: ../../../../Source/Core/CtrlrOSC.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrOSC.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/CtrlrUtilitiesGUI_4d233a31.o: ../../../../Source/Core/CtrlrUtilitiesGUI.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrUtilitiesGUI.cpp"
@@ -526,344 +467,19 @@ $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 	@echo "Compiling stdafx.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/LJuce_c2f9d4cd.o: ../../../../Source/Lua/JuceClasses/LJuce.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LJuce.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrLuaOSC_2f2874f8.o: ../../../../Source/Lua/CtrlrLuaOSC.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrLuaOSC.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLuaDebugger.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LAsyncUpdater_d1f1198d.o: ../../../../Source/Lua/JuceClasses/LAsyncUpdater.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LAsyncUpdater.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LAudioPlayHead_2fd31d94.o: ../../../../Source/Lua/JuceClasses/LAudioPlayHead.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LAudioPlayHead.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LMidiBuffer_d1dab261.o: ../../../../Source/Lua/JuceClasses/LMidiBuffer.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LMidiBuffer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LBorderSize_ecfcd7ed.o: ../../../../Source/Lua/JuceClasses/LBorderSize.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LBorderSize.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LButton_b8659fd2.o: ../../../../Source/Lua/JuceClasses/LButton.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LButton.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LTextButton_e8537f5f.o: ../../../../Source/Lua/JuceClasses/LTextButton.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LTextButton.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LTypeface_963867f7.o: ../../../../Source/Lua/JuceClasses/LTypeface.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LTypeface.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LXmlElement_f51e885.o: ../../../../Source/Lua/JuceClasses/LXmlElement.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LXmlElement.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LThread_5c655aaa.o: ../../../../Source/Lua/JuceClasses/LThread.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LThread.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LThreadWithProgressWindow_a962c8ed.o: ../../../../Source/Lua/JuceClasses/LThreadWithProgressWindow.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LThreadWithProgressWindow.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LAudioThumbnail_55fa4156.o: ../../../../Source/Lua/JuceClasses/LAudioThumbnail.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LAudioThumbnail.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LSparseSet_87c3cd0c.o: ../../../../Source/Lua/JuceClasses/LSparseSet.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LSparseSet.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrWrap_382e7425.o: ../../../../Source/Lua/JuceClasses/CtrlrWrap.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrWrap.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LAlertWindow_465bd516.o: ../../../../Source/Lua/JuceClasses/LAlertWindow.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LAlertWindow.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LAffineTransform_2319dc77.o: ../../../../Source/Lua/JuceClasses/LAffineTransform.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LAffineTransform.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LAttributedString_db4a72d9.o: ../../../../Source/Lua/JuceClasses/LAttributedString.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LAttributedString.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LAudioFile_c2b0295c.o: ../../../../Source/Lua/JuceClasses/LAudioFile.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LAudioFile.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LAudioFormat_bf375797.o: ../../../../Source/Lua/JuceClasses/LAudioFormat.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LAudioFormat.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LAudioSampleBuffer_4938306a.o: ../../../../Source/Lua/JuceClasses/LAudioSampleBuffer.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LAudioSampleBuffer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LBigInteger_cd31b13e.o: ../../../../Source/Lua/JuceClasses/LBigInteger.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LBigInteger.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LBubbleMessageComponent_3f076002.o: ../../../../Source/Lua/JuceClasses/LBubbleMessageComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LBubbleMessageComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LColour_f601596c.o: ../../../../Source/Lua/JuceClasses/LColour.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LColour.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LComboBox_fd631dbd.o: ../../../../Source/Lua/JuceClasses/LComboBox.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LComboBox.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LFileListComponent_37dd3b4d.o: ../../../../Source/Lua/JuceClasses/LFileListComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LFileListComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LFileTreeComponent_854e584d.o: ../../../../Source/Lua/JuceClasses/LFileTreeComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LFileTreeComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LColourGradient_2f12e5bc.o: ../../../../Source/Lua/JuceClasses/LColourGradient.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LColourGradient.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LComponent_c76bde67.o: ../../../../Source/Lua/JuceClasses/LComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LComponentPeer_7b1a09e9.o: ../../../../Source/Lua/JuceClasses/LComponentPeer.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LComponentPeer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LDrawable_623b547e.o: ../../../../Source/Lua/JuceClasses/LDrawable.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LDrawable.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LExpression_88737ab8.o: ../../../../Source/Lua/JuceClasses/LExpression.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LExpression.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LFile_b805f7dc.o: ../../../../Source/Lua/JuceClasses/LFile.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LFile.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LFont_f9a86d2f.o: ../../../../Source/Lua/JuceClasses/LFont.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LFont.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LGlobalFunctions_ba343b62.o: ../../../../Source/Lua/JuceClasses/LGlobalFunctions.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LGlobalFunctions.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LGlyphArrangement_55693f1e.o: ../../../../Source/Lua/JuceClasses/LGlyphArrangement.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LGlyphArrangement.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LGraphics_a64ebfeb.o: ../../../../Source/Lua/JuceClasses/LGraphics.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LGraphics.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LImage_657eee45.o: ../../../../Source/Lua/JuceClasses/LImage.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LImage.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LInputStream_796e1d94.o: ../../../../Source/Lua/JuceClasses/LInputStream.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LInputStream.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LKeyPress_ea4d5a04.o: ../../../../Source/Lua/JuceClasses/LKeyPress.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LKeyPress.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LMidiKeyboardComponent_c4245d9f.o: ../../../../Source/Lua/JuceClasses/LMidiKeyboardComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LMidiKeyboardComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LJustification_1a98a75c.o: ../../../../Source/Lua/JuceClasses/LJustification.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LJustification.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LLabel_759d4f5e.o: ../../../../Source/Lua/JuceClasses/LLabel.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LLabel.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LMouseCursor_eeedd585.o: ../../../../Source/Lua/JuceClasses/LMouseCursor.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LMouseCursor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LLine_2ab6b654.o: ../../../../Source/Lua/JuceClasses/LLine.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LLine.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LLookAndFeel_2f64a028.o: ../../../../Source/Lua/JuceClasses/LLookAndFeel.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LLookAndFeel.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LMemoryBlock_bf2138b6.o: ../../../../Source/Lua/JuceClasses/LMemoryBlock.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LMemoryBlock.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LMemoryInputStream_656eca93.o: ../../../../Source/Lua/JuceClasses/LMemoryInputStream.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LMemoryInputStream.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LMidiMessage_7531a950.o: ../../../../Source/Lua/JuceClasses/LMidiMessage.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LMidiMessage.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LModifierKeys_3e79f94b.o: ../../../../Source/Lua/JuceClasses/LModifierKeys.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LModifierKeys.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LMouseEvent_ae81d695.o: ../../../../Source/Lua/JuceClasses/LMouseEvent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LMouseEvent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LPath_2d70ea05.o: ../../../../Source/Lua/JuceClasses/LPath.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LPath.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LPoint_f71777fa.o: ../../../../Source/Lua/JuceClasses/LPoint.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LPoint.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LPopupMenu_987c3e95.o: ../../../../Source/Lua/JuceClasses/LPopupMenu.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LPopupMenu.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LRandom_a9eb2ce3.o: ../../../../Source/Lua/JuceClasses/LRandom.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LRandom.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LRange_6d09bd27.o: ../../../../Source/Lua/JuceClasses/LRange.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LRange.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LRectangle_be30e5d9.o: ../../../../Source/Lua/JuceClasses/LRectangle.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LRectangle.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LRelativeCoordinate_8f7e4484.o: ../../../../Source/Lua/JuceClasses/LRelativeCoordinate.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LRelativeCoordinate.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LResult_80f0d33d.o: ../../../../Source/Lua/JuceClasses/LResult.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LResult.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LSlider_e4f58201.o: ../../../../Source/Lua/JuceClasses/LSlider.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LSlider.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LString_45435131.o: ../../../../Source/Lua/JuceClasses/LString.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LString.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LTextEditor_762fe41a.o: ../../../../Source/Lua/JuceClasses/LTextEditor.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LTextEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LToggleButton_e9b0206.o: ../../../../Source/Lua/JuceClasses/LToggleButton.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LToggleButton.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LTime_680b44ad.o: ../../../../Source/Lua/JuceClasses/LTime.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LTime.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LTimer_9d03472f.o: ../../../../Source/Lua/JuceClasses/LTimer.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LTimer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LURL_d54a4599.o: ../../../../Source/Lua/JuceClasses/LURL.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LURL.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LValue_6c32db5b.o: ../../../../Source/Lua/JuceClasses/LValue.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LValue.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LValueTree_87eff119.o: ../../../../Source/Lua/JuceClasses/LValueTree.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LValueTree.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/LZipFile_9ce5b2e7.o: ../../../../Source/Lua/JuceClasses/LZipFile.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LZipFile.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o: ../../../../Source/Lua/CtrlrLuaAudioConverter.cpp
