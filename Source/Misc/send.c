@@ -14,9 +14,7 @@
  *  $Id$
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#include "lo_config_linux.h"
 
 #include <stdarg.h>
 #include <stdlib.h>
@@ -219,7 +217,7 @@ int lo_send_from(lo_address to, lo_server from, lo_timetag ts,
 }
 #endif
 
-/* Don't call lo_send_from_internal directly, use macros wrapping this 
+/* Don't call lo_send_from_internal directly, use macros wrapping this
  * function with appropriate values for file and line */
 
 int lo_send_from_internal(lo_address to, lo_server from, const char *file,
@@ -387,7 +385,7 @@ static int create_socket(lo_address a)
 				   (const char*)&option, sizeof(option));
     }
 #endif
-    
+
     return 0;
 }
 

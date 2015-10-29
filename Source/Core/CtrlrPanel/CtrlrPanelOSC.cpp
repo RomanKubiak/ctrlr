@@ -7,6 +7,10 @@
 #include "Methods/CtrlrLuaMethodManager.h"
 #include "CtrlrLuaManager.h"
 
+static bool serverFailed = false;
+static String serverFailureMessge;
+static String serverFailurePath;
+
 CtrlrPanelOSC::CtrlrPanelOSC(CtrlrPanel &_owner)
 	: owner(_owner), Thread("CtrlrPanelOSC thread")
 {
@@ -79,6 +83,7 @@ void CtrlrPanelOSC::run()
 		}
 		else if (retval == 0)
 		{
+			/* timeout */
 		}
 	}
 }
@@ -86,6 +91,11 @@ void CtrlrPanelOSC::run()
 Result CtrlrPanelOSC::startServer ()
 {
 	loServerHandle = lo_server_new_with_proto (owner.getProperty(Ids::panelOSCPort).toString().getCharPointer(), loProtocol, errorHandler);
+
+	if (serverFailed)
+	{
+		return (Result::fail("Can't create new OSC server \""+serverFailureMessge+"\", path \""+serverFailurePath+"\""));
+	}
 
 	lo_server_add_method (loServerHandle, NULL, NULL, messageHandler, this);
 
@@ -124,8 +134,6 @@ void CtrlrPanelOSC::handleAsyncUpdate()
 
 		if (luaPanelOSCReceivedCbk)
 		{
-			_DBG("CtrlrPanelOSC::handleAsyncUpdate table size: " + _STR(messageQueue[i].arguments.size()));
-
 			owner.getCtrlrLuaManager().getMethodManager().call (luaPanelOSCReceivedCbk, messageQueue[i].path, messageQueue[i].types, luaArguments);
 		}
 	}
@@ -142,21 +150,20 @@ void CtrlrPanelOSC::queueMessage(const char *path, const char *types, lo_arg **a
 	for (int i=0; i<argc; i++)
 		message.arguments.add (*argv[i]);
 
-	_DBG("CtrlrPanelOSC::queueMessage arguments=" + _STR(message.arguments.size()) + "argc="+_STR(argc));
-
 	messageQueue.add (message);
 	triggerAsyncUpdate();
 }
 
 void CtrlrPanelOSC::errorHandler(int num, const char *m, const char *path)
 {
-	_ERR("CtrlrPanelOSC::errorHandler: " + _STR(m) + " " + _STR(path));
+	serverFailureMessge = m;
+	serverFailurePath = path;
+	serverFailed = true;
 }
 
 void CtrlrPanelOSC::messageHandler(const char *path, const char *types, lo_arg **argv,
 									int argc, void *data, void *user_data)
 {
-	_DBG("CtrlrPanelOSC::messageHandler path=["+_STR(path)+"] types=["+_STR(types)+"]");
 	CtrlrPanelOSC *panelOSC = (CtrlrPanelOSC *)user_data;
 
 	panelOSC->queueMessage(path,types,argv,argc);
@@ -168,11 +175,11 @@ void CtrlrPanelOSC::wrapForLua(lua_State *L)
 
 	module(L)
     [
-		class_<lo_timetag>("lo_timetag")
+		class_<lo_timetag>("oscTimetag")
 			.def_readonly("sec", &lo_timetag::sec)
 			.def_readonly("frac", &lo_timetag::frac)
 		,
-		class_<lo_arg>("lo_arg")
+		class_<lo_arg>("oscArg")
 			.def_readonly("i", &lo_arg::i)
 			.def_readonly("i32", &lo_arg::i32)
 			.def_readonly("h", &lo_arg::h)

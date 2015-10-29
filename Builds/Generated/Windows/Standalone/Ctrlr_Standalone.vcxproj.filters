@@ -427,6 +427,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrOSC.cpp">
+      <Filter>Ctrlr_Standalone\Core</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.cpp">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClCompile>
@@ -511,209 +514,14 @@
     <ClCompile Include="..\..\..\..\Source\Core\stdafx.cpp">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.cpp">
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LJuce.cpp">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaOSC.cpp">
       <Filter>Ctrlr_Standalone\Lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioPlayHead.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LButton.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSparseSet.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\CtrlrWrap.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFile.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBigInteger.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColour.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComboBox.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColourGradient.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponent.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponentPeer.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LDrawable.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LExpression.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFile.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFont.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlobalFunctions.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlyphArrangement.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGraphics.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LImage.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLine.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiMessage.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPath.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRandom.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRange.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRectangle.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRelativeCoordinate.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LResult.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSlider.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LString.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextEditor.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LToggleButton.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTime.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTimer.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LURL.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValue.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.cpp">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.cpp">
+      <Filter>Ctrlr_Standalone\Lua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.cpp">
       <Filter>Ctrlr_Standalone\Lua</Filter>
@@ -2493,6 +2301,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrOSC.h">
+      <Filter>Ctrlr_Standalone\Core</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Core\stdafx_lua.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
@@ -2592,49 +2403,13 @@
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.h">
-      <Filter>Ctrlr_Standalone\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioPlayHead.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LButton.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThread.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LSparseSet.h">
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.h">
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.h">
@@ -2646,28 +2421,34 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioPlayHead.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBigInteger.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LButton.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LColour.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LComboBox.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LColourGradient.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LComboBox.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LComponent.h">
@@ -2683,6 +2464,12 @@
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFile.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LFont.h">
@@ -2703,19 +2490,13 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.h">
-      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.h">
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.h">
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLine.h">
@@ -2730,10 +2511,19 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiMessage.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.h">
@@ -2766,19 +2556,34 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LSlider.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LSparseSet.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LString.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTextEditor.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LToggleButton.h">
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThread.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTime.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTimer.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LToggleButton.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LURL.h">
@@ -2790,8 +2595,17 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h">
+      <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.h">
       <Filter>Ctrlr_Standalone\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaOSC.h">
+      <Filter>Ctrlr_Standalone\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.h">
+      <Filter>Ctrlr_Standalone\Lua</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.h">
       <Filter>Ctrlr_Standalone\Lua</Filter>

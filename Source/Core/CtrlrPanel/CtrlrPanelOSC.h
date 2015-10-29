@@ -1,18 +1,9 @@
 #ifndef CTRLR_PANEL_OSC
 #define CTRLR_PANEL_OSC
 
-#include "CtrlrMacros.h"
+#include "CtrlrOSC.h"
 #include "CtrlrLuaObject.h"
 #include "Methods/CtrlrLuaMethod.h"
-
-#include "lo/lo.h"
-
-struct CtrlrOSCMessage
-{
-	String path;
-	String types;
-    Array<lo_arg> arguments;
-};
 
 class CtrlrPanel;
 
