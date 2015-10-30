@@ -20368,7 +20368,7 @@ static const unsigned char temp_binary_data_74[] =
 "\t\tret = ret .. \"\\t\".. v .. \"\\n\"\n"
 "\tend\n"
 "\tret = ret .. \"\\n-----------------------------------------------------------------\"\n"
-"\tconsole (ret)\n"
+"\tconsole (J(ret))\n"
 "\treturn ret\n"
 "end\n"
 "  </utility>\n"
@@ -21886,7 +21886,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
         case 0xa5970535:  numBytes = 1963; return CtrlrMIDITransactions_xml;
         case 0x37e081fb:  numBytes = 15061; return CtrlrMIDIVendors_xml;
         case 0xa32a74e9:  numBytes = 81612; return CtrlrIDs_xml;
-        case 0x75a28bbf:  numBytes = 21513; return CtrlrLuaMethodTemplates_xml;
+        case 0x75a28bbf:  numBytes = 21516; return CtrlrLuaMethodTemplates_xml;
         case 0xcfea1483:  numBytes = 662; return CtrlrMidiMultiTemplate_xml;
         case 0xcb59a7d7:  numBytes = 199; return CtrlrRevision_template;
         case 0x978a1dc4:  numBytes = 3760; return lo_endian_h_in;

@@ -2,7 +2,7 @@
 #define CTRLR_LUA_OBJECT_WRAPPER
 
 
-#include "stdafx_lua.h"
+#include "stdafx.h"
 
 //==============================================================================
 /** \brief A wrapper class for luabind::object class

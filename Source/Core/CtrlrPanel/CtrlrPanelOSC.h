@@ -26,7 +26,6 @@ class CtrlrPanelOSC : public Thread, public ValueTree::Listener, public AsyncUpd
 		static void errorHandler(int num, const char *m, const char *path);
 		static void messageHandler(const char *path, const char *types, lo_arg **argv,
 									int argc, void *data, void *user_data);
-		static void wrapForLua(lua_State *L);
 
 	private:
 		CtrlrPanel &owner;

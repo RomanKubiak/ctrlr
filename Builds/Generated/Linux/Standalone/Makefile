@@ -118,23 +118,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaFile_e08e54f3.o \
   $(OBJDIR)/CtrlrLuaMemoryBlock_902143bf.o \
   $(OBJDIR)/CtrlrLuaRectangle_849a1f22.o \
-  $(OBJDIR)/class_7f21c0dd.o \
-  $(OBJDIR)/class_info_44cb3c9a.o \
-  $(OBJDIR)/class_registry_4824b529.o \
-  $(OBJDIR)/class_rep_8d5435bb.o \
-  $(OBJDIR)/create_class_b8c3d9fa.o \
-  $(OBJDIR)/error_935a216d.o \
-  $(OBJDIR)/exception_handler_1ec3ddbf.o \
-  $(OBJDIR)/function_9cb00bdd.o \
-  $(OBJDIR)/inheritance_f17c372f.o \
-  $(OBJDIR)/link_compatibility_8e43bc70.o \
-  $(OBJDIR)/object_rep_52fbed22.o \
-  $(OBJDIR)/open_cd335d4f.o \
-  $(OBJDIR)/pcall_535c3f33.o \
-  $(OBJDIR)/scope_fb3187b9.o \
-  $(OBJDIR)/stack_content_by_name_fad5e85b.o \
-  $(OBJDIR)/weak_ref_50b7c951.o \
-  $(OBJDIR)/wrapper_base_6c697482.o \
+  $(OBJDIR)/luabind_8688111a.o \
   $(OBJDIR)/CtrlrLuaMethod_e854dc6f.o \
   $(OBJDIR)/CtrlrLuaMethodManager_3a1a8cc8.o \
   $(OBJDIR)/CtrlrLuaMethodManagerCalls_c7bf9bb7.o \
@@ -567,89 +551,9 @@ $(OBJDIR)/CtrlrLuaRectangle_849a1f22.o: ../../../../Source/Lua/Deprecated/CtrlrL
 	@echo "Compiling CtrlrLuaRectangle.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/class_7f21c0dd.o: ../../../../Source/Lua/luabind/src/class.cpp
+$(OBJDIR)/luabind_8688111a.o: ../../../../Source/Lua/luabind/src/luabind.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling class.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/class_info_44cb3c9a.o: ../../../../Source/Lua/luabind/src/class_info.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling class_info.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/class_registry_4824b529.o: ../../../../Source/Lua/luabind/src/class_registry.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling class_registry.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/class_rep_8d5435bb.o: ../../../../Source/Lua/luabind/src/class_rep.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling class_rep.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/create_class_b8c3d9fa.o: ../../../../Source/Lua/luabind/src/create_class.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling create_class.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/error_935a216d.o: ../../../../Source/Lua/luabind/src/error.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling error.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/exception_handler_1ec3ddbf.o: ../../../../Source/Lua/luabind/src/exception_handler.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling exception_handler.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/function_9cb00bdd.o: ../../../../Source/Lua/luabind/src/function.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling function.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/inheritance_f17c372f.o: ../../../../Source/Lua/luabind/src/inheritance.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling inheritance.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/link_compatibility_8e43bc70.o: ../../../../Source/Lua/luabind/src/link_compatibility.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling link_compatibility.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/object_rep_52fbed22.o: ../../../../Source/Lua/luabind/src/object_rep.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling object_rep.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/open_cd335d4f.o: ../../../../Source/Lua/luabind/src/open.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling open.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/pcall_535c3f33.o: ../../../../Source/Lua/luabind/src/pcall.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling pcall.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/scope_fb3187b9.o: ../../../../Source/Lua/luabind/src/scope.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling scope.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/stack_content_by_name_fad5e85b.o: ../../../../Source/Lua/luabind/src/stack_content_by_name.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling stack_content_by_name.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/weak_ref_50b7c951.o: ../../../../Source/Lua/luabind/src/weak_ref.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling weak_ref.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/wrapper_base_6c697482.o: ../../../../Source/Lua/luabind/src/wrapper_base.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling wrapper_base.cpp"
+	@echo "Compiling luabind.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaMethod_e854dc6f.o: ../../../../Source/Lua/Methods/CtrlrLuaMethod.cpp

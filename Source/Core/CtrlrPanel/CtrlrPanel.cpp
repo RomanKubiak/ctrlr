@@ -12,6 +12,7 @@
 #include "CtrlrComponents/CtrlrComponentTypeManager.h"
 #include "JuceClasses/LMemoryBlock.h"
 #include "CtrlrMIDI/CtrlrMIDISettingsDialog.h"
+#include "CtrlrPanelOSC.h"
 
 CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		: owner(_owner),

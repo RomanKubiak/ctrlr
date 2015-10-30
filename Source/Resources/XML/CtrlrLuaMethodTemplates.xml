@@ -717,7 +717,7 @@ function how()
 		ret = ret .. "\t".. v .. "\n"
 	end
 	ret = ret .. "\n-----------------------------------------------------------------"
-	console (ret)
+	console (J(ret))
 	return ret
 end
   </utility>

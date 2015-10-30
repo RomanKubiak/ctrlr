@@ -21,7 +21,7 @@
 #define __JUCE_HEADER_76E483A2275D56C__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "JuceHeader.h"
+#include "CtrlrMacros.h"
 class CtrlrPanel;
 //[/Headers]
 

@@ -59,14 +59,14 @@
     <Filter Include="Ctrlr_Standalone\Lua\luabind">
       <UniqueIdentifier>{46C74924-313C-7627-8AB7-324B9C36F078}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ctrlr_Standalone\Lua\luabind\src">
+      <UniqueIdentifier>{F44EBA54-F653-B7E4-2748-C9E4DBD63683}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Ctrlr_Standalone\Lua\luabind\luabind">
       <UniqueIdentifier>{B6D90793-ACA5-A732-C40A-9AC153C12295}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Standalone\Lua\luabind\luabind\detail">
       <UniqueIdentifier>{1C4D4DFC-DCB6-678A-FAD9-C7FFD927B8F5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Standalone\Lua\luabind\src">
-      <UniqueIdentifier>{F44EBA54-F653-B7E4-2748-C9E4DBD63683}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Standalone\Lua\Methods">
       <UniqueIdentifier>{3DC89D00-0159-0E25-87B5-90217590BD64}</UniqueIdentifier>
@@ -574,55 +574,7 @@
     <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaRectangle.cpp">
       <Filter>Ctrlr_Standalone\Lua\Deprecated</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_info.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_registry.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_rep.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\create_class.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\error.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\exception_handler.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\function.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\inheritance.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\link_compatibility.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\object_rep.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\open.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\pcall.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\scope.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\stack_content_by_name.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\weak_ref.cpp">
-      <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\wrapper_base.cpp">
+    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\luabind.cpp">
       <Filter>Ctrlr_Standalone\Lua\luabind\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.cpp">
@@ -2302,9 +2254,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrOSC.h">
-      <Filter>Ctrlr_Standalone\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\stdafx_lua.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h">

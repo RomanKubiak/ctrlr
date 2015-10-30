@@ -2215,10 +2215,6 @@
 			<Option compile="1" />
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../../../Source/Core/stdafx_lua.h">
-			<Option compile="1" />
-			<Option weight="0" />
-		</Unit>
 		<Unit filename="../../../../Source/Lua/CtrlrLuaAudioConverter.cpp" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaAudioConverter.h" />
 		<Unit filename="../../../../Source/Lua/CtrlrLuaConverters.h" />
@@ -2335,7 +2331,6 @@
 		<Unit filename="../../../../Source/Lua/luabind/luabind/dependency_policy.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/calc_arity.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call.hpp" />
-		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call_0x.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call_function.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call_member.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/call_operator_iterate.hpp" />
@@ -2353,7 +2348,6 @@
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/format_signature.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/garbage_collector.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/has_get_pointer.hpp" />
-		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/index_tuple.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/inheritance.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/instance_holder.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/detail/is_indirect_const.hpp" />
@@ -2413,23 +2407,7 @@
 		<Unit filename="../../../../Source/Lua/luabind/luabind/weak_ref.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/wrapper_base.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/yield_policy.hpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/class.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/class_info.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/class_registry.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/class_rep.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/create_class.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/error.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/exception_handler.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/function.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/inheritance.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/link_compatibility.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/object_rep.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/open.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/pcall.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/scope.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/stack_content_by_name.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/weak_ref.cpp" />
-		<Unit filename="../../../../Source/Lua/luabind/src/wrapper_base.cpp" />
+		<Unit filename="../../../../Source/Lua/luabind/src/luabind.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMidiDevice.cpp" />

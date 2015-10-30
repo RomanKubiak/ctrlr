@@ -1,4 +1,4 @@
-#include "stdafx_lua.h"
+#include "stdafx.h"
 #include "CtrlrPanelOSC.h"
 #include "CtrlrMacros.h"
 #include "CtrlrUtilities.h"
@@ -127,14 +127,14 @@ void CtrlrPanelOSC::handleAsyncUpdate()
 	{
 		luabind::object luaArguments = luabind::newtable(owner.getCtrlrLuaManager().getLuaState());
 
-        for (int j=0; j<messageQueue[i].arguments.size(); j++)
+        for (int j=0; j<messageQueue[i].getArguments().size(); j++)
 		{
-			luaArguments[j] = messageQueue[i].arguments[j];
+			luaArguments[j] = messageQueue[i].getArguments()[j];
 		}
 
 		if (luaPanelOSCReceivedCbk)
 		{
-			owner.getCtrlrLuaManager().getMethodManager().call (luaPanelOSCReceivedCbk, messageQueue[i].path, messageQueue[i].types, luaArguments);
+			owner.getCtrlrLuaManager().getMethodManager().call (luaPanelOSCReceivedCbk, messageQueue[i].getPath(), messageQueue[i].getTypes(), luaArguments);
 		}
 	}
 
@@ -144,11 +144,11 @@ void CtrlrPanelOSC::handleAsyncUpdate()
 void CtrlrPanelOSC::queueMessage(const char *path, const char *types, lo_arg **argv, int argc)
 {
 	CtrlrOSCMessage message;
-	message.path = path;
-	message.types = types;
+	message.setPath(path);
+	message.setTypes(types);
 
 	for (int i=0; i<argc; i++)
-		message.arguments.add (*argv[i]);
+		message.addArgument(*argv[i]);
 
 	messageQueue.add (message);
 	triggerAsyncUpdate();
@@ -167,31 +167,4 @@ void CtrlrPanelOSC::messageHandler(const char *path, const char *types, lo_arg *
 	CtrlrPanelOSC *panelOSC = (CtrlrPanelOSC *)user_data;
 
 	panelOSC->queueMessage(path,types,argv,argc);
-}
-
-void CtrlrPanelOSC::wrapForLua(lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<lo_timetag>("oscTimetag")
-			.def_readonly("sec", &lo_timetag::sec)
-			.def_readonly("frac", &lo_timetag::frac)
-		,
-		class_<lo_arg>("oscArg")
-			.def_readonly("i", &lo_arg::i)
-			.def_readonly("i32", &lo_arg::i32)
-			.def_readonly("h", &lo_arg::h)
-			.def_readonly("i64", &lo_arg::i64)
-			.def_readonly("f", &lo_arg::f)
-			.def_readonly("f32", &lo_arg::f32)
-			.def_readonly("d", &lo_arg::d)
-			.def_readonly("f64", &lo_arg::f64)
-			.def_readonly("s", &lo_arg::s)
-			.def_readonly("S", &lo_arg::S)
-			.def_readonly("c", &lo_arg::c)
-			.def_readonly("m", &lo_arg::m)
-			.def_readonly("t", &lo_arg::t)
-	];
 }

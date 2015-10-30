@@ -17,7 +17,6 @@
 #include "CtrlrPanelResourceManager.h"
 #include "CtrlrPanelUndoManager.h"
 #include "CtrlrPanelSchemeMigration.h"
-#include "CtrlrPanelOSC.h"
 
 typedef WeakReference <CtrlrModulator>					ModulatorReference;
 typedef WeakReference <CtrlrComponent>					ComponentReference;
@@ -43,6 +42,7 @@ class CtrlrSlider;
 class CtrlrFixedImageSlider;
 class CtrlrImageSlider;
 class CtrlrFixedSlider;
+class CtrlrPanelOSC;
 
 //==============================================================================
 /** @brief Class that represents a Ctrlr Panel
