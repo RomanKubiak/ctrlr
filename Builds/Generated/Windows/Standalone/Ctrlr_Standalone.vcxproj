@@ -237,23 +237,7 @@
     <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaFile.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaMemoryBlock.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaRectangle.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_info.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_registry.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_rep.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\create_class.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\error.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\exception_handler.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\function.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\inheritance.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\link_compatibility.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\object_rep.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\open.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\pcall.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\scope.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\stack_content_by_name.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\weak_ref.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\wrapper_base.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\luabind.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp"/>
@@ -1524,7 +1508,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrOSC.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\stdafx_lua.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrSysexProcessorOwned.h"/>

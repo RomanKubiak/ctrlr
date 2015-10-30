@@ -294,7 +294,6 @@
     <GROUP id="{10E7F410-8B6D-D0E5-3586-A8B60E222A7E}" name="Core">
       <FILE id="noYqdY" name="CtrlrOSC.cpp" compile="1" resource="0" file="../../Source/Core/CtrlrOSC.cpp"/>
       <FILE id="T5YFTr" name="CtrlrOSC.h" compile="0" resource="0" file="../../Source/Core/CtrlrOSC.h"/>
-      <FILE id="HftYBS" name="stdafx_lua.h" compile="0" resource="0" file="../../Source/Core/stdafx_lua.h"/>
       <FILE id="pwNeqS" name="CtrlrInlineUtilitiesGUI.h" compile="0" resource="0"
             file="../../Source/Core/CtrlrInlineUtilitiesGUI.h"/>
       <FILE id="tz5mmG" name="CtrlrUtilitiesGUI.cpp" compile="1" resource="0"
@@ -565,6 +564,9 @@
               file="../../Source/Lua/Deprecated/CtrlrLuaRectangle.h"/>
       </GROUP>
       <GROUP id="{A9C46841-D99C-4084-D338-B234A49F183E}" name="luabind">
+        <GROUP id="{ADF83A40-B6B5-D49B-B96D-2CE472E00B89}" name="src">
+          <FILE id="CMPsx8" name="luabind.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/luabind.cpp"/>
+        </GROUP>
         <GROUP id="{ECFB8DB2-6F69-A475-00A4-BE4A700E8E44}" name="luabind">
           <FILE id="joD41s" name="adopt_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/adopt_policy.hpp"/>
@@ -692,31 +694,6 @@
                 file="../../Source/Lua/luabind/luabind/wrapper_base.hpp"/>
           <FILE id="gIjvVP" name="yield_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/yield_policy.hpp"/>
-        </GROUP>
-        <GROUP id="{ADF83A40-B6B5-D49B-B96D-2CE472E00B89}" name="src">
-          <FILE id="aIT8X3" name="class.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class.cpp"/>
-          <FILE id="XgTdV3" name="class_info.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class_info.cpp"/>
-          <FILE id="FcxBmy" name="class_registry.cpp" compile="1" resource="0"
-                file="../../Source/Lua/luabind/src/class_registry.cpp"/>
-          <FILE id="vFUJTH" name="class_rep.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/class_rep.cpp"/>
-          <FILE id="wjkdu1" name="create_class.cpp" compile="1" resource="0"
-                file="../../Source/Lua/luabind/src/create_class.cpp"/>
-          <FILE id="fxdzWT" name="error.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/error.cpp"/>
-          <FILE id="YzCssq" name="exception_handler.cpp" compile="1" resource="0"
-                file="../../Source/Lua/luabind/src/exception_handler.cpp"/>
-          <FILE id="Lr0EdY" name="function.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/function.cpp"/>
-          <FILE id="LOKy5w" name="inheritance.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/inheritance.cpp"/>
-          <FILE id="Z7jDuS" name="link_compatibility.cpp" compile="1" resource="0"
-                file="../../Source/Lua/luabind/src/link_compatibility.cpp"/>
-          <FILE id="RHukn2" name="object_rep.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/object_rep.cpp"/>
-          <FILE id="BONDGk" name="open.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/open.cpp"/>
-          <FILE id="KJzvVi" name="pcall.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/pcall.cpp"/>
-          <FILE id="xLVWs9" name="scope.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/scope.cpp"/>
-          <FILE id="xQoYv0" name="stack_content_by_name.cpp" compile="1" resource="0"
-                file="../../Source/Lua/luabind/src/stack_content_by_name.cpp"/>
-          <FILE id="t1x0KF" name="weak_ref.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/weak_ref.cpp"/>
-          <FILE id="Q3TvX7" name="wrapper_base.cpp" compile="1" resource="0"
-                file="../../Source/Lua/luabind/src/wrapper_base.cpp"/>
         </GROUP>
       </GROUP>
       <GROUP id="{F8744615-2BDF-B423-092B-019F8EFD32E5}" name="Methods">
