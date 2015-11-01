@@ -101,7 +101,7 @@
 
   <id name="panelOSCEnabled"                            text="Enable OSC for this panel"                        type="Bool" />
   <id name="panelOSCPort"                               text="OSC port to listen on"                            type="Numeric" min="1" max="65535" />
-  <id name="panelOSCProtocol"                           text="OSC network protocol"                             type="VarNumeric" defaults="UDP=0,TCP=1,LOCAL=2" />
+  <id name="panelOSCProtocol"                           text="OSC network protocol"                             type="VarNumeric" defaults="Default=0,UDP=1,UNIX/LOCAL=2,TCP=4" />
 
   <!-- General -->
   <id name="panelFilePath"                  text="Panel file path" type="ReadOnly"/>

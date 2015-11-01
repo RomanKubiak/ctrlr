@@ -2,7 +2,7 @@
 #include "CtrlrOSC.h"
 #include "JuceClasses/LMemoryBlock.h"
 
-bool CtrlrOSC::sendMessage(const CtrlrOSCAddress &address, const CtrlrOSCMessage &message)
+bool CtrlrOSC::sendMessage(CtrlrOSCAddress address, const CtrlrOSCMessage &message)
 {
 	return (lo_send_message (address.getLoAddress(), message.getPath().getCharPointer(), message.loMessage) < 0 ? false : true);
 }

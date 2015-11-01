@@ -152,7 +152,6 @@ OBJECTS := \
   $(OBJDIR)/lua_422403e.o \
   $(OBJDIR)/send_8b3ce94c.o \
   $(OBJDIR)/server_b7920e87.o \
-  $(OBJDIR)/server_thread_a53b7a0c.o \
   $(OBJDIR)/poll_posix_37a8f9c7.o \
   $(OBJDIR)/poll_windows_7e84da07.o \
   $(OBJDIR)/strerror_5e4de4fb.o \
@@ -719,11 +718,6 @@ $(OBJDIR)/send_8b3ce94c.o: ../../../../Source/Misc/send.c
 $(OBJDIR)/server_b7920e87.o: ../../../../Source/Misc/server.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling server.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/server_thread_a53b7a0c.o: ../../../../Source/Misc/server_thread.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling server_thread.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/poll_posix_37a8f9c7.o: ../../../../Source/Misc/poll_posix.c

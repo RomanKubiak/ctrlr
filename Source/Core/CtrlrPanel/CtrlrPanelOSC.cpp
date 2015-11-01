@@ -42,6 +42,10 @@ void CtrlrPanelOSC::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 			stopServer();
 		}
 	}
+	else if (property == Ids::panelOSCProtocol)
+	{
+		loProtocol = owner.getProperty(property);
+	}
 	else if (property == Ids::luaPanelOSCReceived)
 	{
 		if (owner.getProperty(property) == String::empty)
@@ -88,8 +92,10 @@ void CtrlrPanelOSC::run()
 	}
 }
 
-Result CtrlrPanelOSC::startServer ()
+Result CtrlrPanelOSC::startServer()
 {
+	_DBG("CtrlrPanelOSC::startServer port:"+owner.getProperty(Ids::panelOSCPort).toString()+" proto:"+_STR(loProtocol));
+
 	loServerHandle = lo_server_new_with_proto (owner.getProperty(Ids::panelOSCPort).toString().getCharPointer(), loProtocol, errorHandler);
 
 	if (serverFailed)
@@ -97,7 +103,7 @@ Result CtrlrPanelOSC::startServer ()
 		return (Result::fail("Can't create new OSC server \""+serverFailureMessge+"\", path \""+serverFailurePath+"\""));
 	}
 
-	lo_server_add_method (loServerHandle, NULL, NULL, messageHandler, this);
+	lo_server_add_method (loServerHandle, NULL, NULL, (lo_method_handler) &messageHandler, this);
 
 	loServerDescriptor = lo_server_get_socket_fd(loServerHandle);
 
@@ -162,7 +168,7 @@ void CtrlrPanelOSC::errorHandler(int num, const char *m, const char *path)
 }
 
 void CtrlrPanelOSC::messageHandler(const char *path, const char *types, lo_arg **argv,
-									int argc, void *data, void *user_data)
+									int argc, lo_message msg, void *user_data)
 {
 	CtrlrPanelOSC *panelOSC = (CtrlrPanelOSC *)user_data;
 

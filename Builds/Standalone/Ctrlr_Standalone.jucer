@@ -47,8 +47,9 @@
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2010 targetFolder="../Generated/Windows/Standalone" libraryType="1"
-            extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm512"
-            extraLinkerFlags="" bigIcon="Mln0s5" smallIcon="Pl8W9J" extraDefs="_CRT_SECURE_NO_WARNINGS">
+            extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm2000 /bigobj"
+            extraLinkerFlags="" bigIcon="Mln0s5" smallIcon="Pl8W9J" extraDefs="_CRT_SECURE_NO_WARNINGS"
+            externalLibraries="iphlpapi.lib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(Platform)$(NATIVE_ARCH)"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
@@ -763,6 +764,8 @@
       <FILE id="Psiemy" name="hotplug.c" compile="1" resource="0" file="../../Source/Misc/hotplug.c"/>
       <GROUP id="{C3DA49B5-638B-BAA0-DA18-70E57F042D7E}" name="include">
         <GROUP id="{639303ED-7B91-2AF0-C463-F13D50416F90}" name="lo">
+          <FILE id="CTczxn" name="lo_config_win32.h" compile="0" resource="0"
+                file="../../Source/Misc/include/lo/lo_config_win32.h"/>
           <FILE id="IbreLy" name="lo.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo.h"/>
           <FILE id="KxFxLi" name="lo_config_linux.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_config_linux.h"/>
@@ -824,7 +827,6 @@
       <FILE id="nLLa6p" name="lua.c" compile="1" resource="0" file="../../Source/Misc/lua.c"/>
       <FILE id="U0q92o" name="send.c" compile="1" resource="0" file="../../Source/Misc/send.c"/>
       <FILE id="VDwlCr" name="server.c" compile="1" resource="0" file="../../Source/Misc/server.c"/>
-      <FILE id="q1ya7F" name="server_thread.c" compile="1" resource="0" file="../../Source/Misc/server_thread.c"/>
       <FILE id="ksTSSs" name="poll_posix.c" compile="1" resource="0" file="../../Source/Misc/poll_posix.c"/>
       <FILE id="cWOVFT" name="poll_windows.c" compile="1" resource="0" file="../../Source/Misc/poll_windows.c"/>
       <FILE id="jmARjh" name="strerror.c" compile="1" resource="0" file="../../Source/Misc/strerror.c"/>

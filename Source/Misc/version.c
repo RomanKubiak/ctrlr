@@ -15,7 +15,11 @@
  */
 
 #ifdef LINUX
-#include "lo/lo_config_linux.h"
+#include "lo_config_linux.h"
+#endif
+
+#ifdef _WIN32
+#include "lo_config_win32.h"
 #endif
 
 #include <stdio.h>

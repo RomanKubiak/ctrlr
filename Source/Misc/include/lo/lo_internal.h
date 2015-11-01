@@ -1,7 +1,13 @@
 #ifndef LO_INTERNAL_H
 #define LO_INTERNAL_H
 
+#ifdef LINUX
 #include "lo_config_linux.h"
+#endif
+
+#ifdef _WIN32
+#include "lo_config_win32.h"
+#endif
 #include <lo/lo_osc_types.h>
 
 /**
