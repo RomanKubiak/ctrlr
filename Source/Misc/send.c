@@ -14,7 +14,13 @@
  *  $Id$
  */
 
+#ifdef LINUX
 #include "lo_config_linux.h"
+#endif
+
+#ifdef _WIN32
+#include "lo_config_win32.h"
+#endif
 
 #include <stdarg.h>
 #include <stdlib.h>

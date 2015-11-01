@@ -708,6 +708,8 @@ bool CtrlrComponent::isInternal()
 {
 	if (getProperty(Ids::componentInternalFunction, String::empty) != String::empty)
 		return (true);
+
+	return (false);
 }
 
 void CtrlrComponent::wrapForLua (lua_State *L)

@@ -25,7 +25,7 @@ class CtrlrPanelOSC : public Thread, public ValueTree::Listener, public AsyncUpd
 		void queueMessage(const char *path, const char *types, lo_arg **argv, int argc);
 		static void errorHandler(int num, const char *m, const char *path);
 		static void messageHandler(const char *path, const char *types, lo_arg **argv,
-									int argc, void *data, void *user_data);
+									int argc, lo_message msg, void *user_data);
 
 	private:
 		CtrlrPanel &owner;

@@ -5,6 +5,10 @@
 #include "lo_config_linux.h"
 #endif
 
+#ifdef _WIN32
+#include "lo_config_win32.h"
+#endif
+
 #ifdef HAVE_SYS_SOCKET_H
 #include <sys/types.h>
 #include <sys/socket.h>

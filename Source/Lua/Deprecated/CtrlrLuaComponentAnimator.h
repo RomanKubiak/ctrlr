@@ -21,7 +21,7 @@ class CtrlrLuaComponentAnimator
 		void fadeIn (CtrlrComponent *component, int millisecondsToTake);
 		void cancelAnimation (CtrlrComponent *component, bool moveComponentToItsFinalPosition);
 		void cancelAllAnimations (bool moveComponentsToTheirFinalPositions);
-		const Rectangle<int> getComponentDestination (CtrlrComponent *component);
+		const juce::Rectangle<int> getComponentDestination (CtrlrComponent *component);
 		bool isAnimating (CtrlrComponent *component);
 
 		static void wrapForLua (lua_State *L);

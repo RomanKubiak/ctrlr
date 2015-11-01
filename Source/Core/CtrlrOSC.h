@@ -12,6 +12,12 @@ struct CtrlrOSCTimetag
 
 struct CtrlrOSCAddress
 {
+	private:
+		void* loAddress;
+		int protocol;
+		int port;
+		String host;
+
 	public:
 		CtrlrOSCAddress(String _host, int _port, int _protocol=-1)
 			: protocol(_protocol), port(_port), host(_host)
@@ -24,12 +30,10 @@ struct CtrlrOSCAddress
 			loAddress = lo_address_new_from_url (url.getCharPointer());
 		}
 
-		lo_address getLoAddress() { return (loAddress); }
-	private:
-		lo_address loAddress;
-		int protocol;
-		int port;
-		String host;
+		void* getLoAddress()
+		{ 
+			return (loAddress); 
+		}
 };
 
 struct CtrlrOSCMessage
@@ -38,8 +42,8 @@ struct CtrlrOSCMessage
 		void setPath(const String &_path) 			{ path = _path; }
 		void setTypes(const String &_types) 		{ types = _types; }
 		Array<lo_arg> &getArguments() 				{ return (arguments); }
-		const String &getPath() 					{ return (path); }
-		const String &getTypes() 					{ return (types); }
+		const String &getPath() const 				{ return (path); }
+		const String &getTypes() const 				{ return (types); }
 		void addArgument(const lo_arg argument) 	{ arguments.add(argument); }
 
 		lo_message loMessage;
@@ -53,14 +57,14 @@ struct CtrlrOSCMessage
 class CtrlrOSC
 {
 	public:
-		static bool sendMessage(const CtrlrOSCAddress &destinationAddress,
+		static bool sendMessage(CtrlrOSCAddress destinationAddress,
 								const CtrlrOSCMessage &message);
 		static void wrapForLua(lua_State *L);
 
 		static void messageAddInt32(CtrlrOSCMessage &m, const int32_t i) 		{ lo_message_add_int32(m.loMessage, i); }
 		static void messageAddFloat(CtrlrOSCMessage &m, const float f)			{ lo_message_add_float(m.loMessage, f); }
 		static void messageAddString(CtrlrOSCMessage &m, const String &s)		{ lo_message_add_string(m.loMessage, s.getCharPointer()); }
-		static void messageAddInt64(CtrlrOSCMessage &m, const int64_t i)		{ lo_message_add_string(m.loMessage, i); }
+		static void messageAddInt64(CtrlrOSCMessage &m, const int64_t i)		{ lo_message_add_int64(m.loMessage, i); }
 		static void messageAddTimetag(CtrlrOSCMessage &m, const lo_timetag t)	{ lo_message_add_timetag(m.loMessage, t); }
 		static void messageAddDouble(CtrlrOSCMessage &m, const double d)		{ lo_message_add_double(m.loMessage, d); }
 		static void messageAddTrue(CtrlrOSCMessage &m, const double d)			{ lo_message_add_true(m.loMessage); }
