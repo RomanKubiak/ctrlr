@@ -1,7 +1,10 @@
-#ifndef __L_EXPRESSION__
-#define __L_EXPRESSION__
+#ifndef L_EXPRESSION
+#define L_EXPRESSION
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LExpression
 {

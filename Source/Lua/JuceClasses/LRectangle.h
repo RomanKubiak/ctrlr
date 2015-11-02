@@ -1,10 +1,16 @@
-#ifndef __L_RECTANGLE__
-#define __L_RECTANGLE__
+#ifndef L_RECTANGLE
+#define L_RECTANGLE
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
+
 #ifdef _WIN32
 #pragma warning(disable:4244)
 #endif
+
 class LRectangle : public Rectangle<float>
 {
 	public:

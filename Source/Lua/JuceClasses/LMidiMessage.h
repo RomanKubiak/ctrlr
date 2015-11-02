@@ -1,7 +1,10 @@
-#ifndef __L_MIDI_MESSAGE__
-#define __L_MIDI_MESSAGE__
+#ifndef L_MIDI_MESSAGE
+#define L_MIDI_MESSAGE
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LMidiMessage
 {

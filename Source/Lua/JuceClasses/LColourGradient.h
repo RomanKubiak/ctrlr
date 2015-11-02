@@ -1,7 +1,10 @@
-#ifndef __L_COLOUR_GRADIENT__
-#define __L_COLOUR_GRADIENT__
+#ifndef L_COLOUR_GRADIENT
+#define L_COLOUR_GRADIENT
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LColourGradient
 {

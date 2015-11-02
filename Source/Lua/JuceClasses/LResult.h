@@ -1,7 +1,10 @@
-#ifndef __L_RESULT__
-#define __L_RESULT__
+#ifndef L_RESULT
+#define L_RESULT
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LResult
 {

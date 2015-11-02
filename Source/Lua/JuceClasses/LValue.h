@@ -1,7 +1,10 @@
-#ifndef __L_VALUE__
-#define __L_VALUE__
+#ifndef L_VALUE
+#define L_VALUE
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LValue
 {

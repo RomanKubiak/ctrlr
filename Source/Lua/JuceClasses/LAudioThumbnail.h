@@ -1,7 +1,10 @@
-#ifndef __L_AUDIO_THUMBNAIL__
-#define __L_AUDIO_THUMBNAIL__
+#ifndef L_AUDIO_THUMBNAIL
+#define L_AUDIO_THUMBNAIL
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LAudioThumbnail
 {

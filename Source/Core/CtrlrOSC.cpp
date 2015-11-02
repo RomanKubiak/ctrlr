@@ -4,6 +4,11 @@
 
 bool CtrlrOSC::sendMessage(CtrlrOSCAddress address, const CtrlrOSCMessage &message)
 {
+	if (message.getPath() == String::empty)
+		return (false);
+    if (address.getHost() == String::empty)
+		return (false);
+
 	return (lo_send_message (address.getLoAddress(), message.getPath().getCharPointer(), message.loMessage) < 0 ? false : true);
 }
 
@@ -20,12 +25,41 @@ void CtrlrOSC::messageAddBlob(CtrlrOSCMessage &m, const LMemoryBlock &blob)
 	lo_message_add_blob (m.loMessage, b);
 }
 
+CtrlrOSCAddress CtrlrOSC::createAddress(const String &host, const int port, const int proto)
+{
+	return (CtrlrOSCAddress(host, port, proto));
+}
+
+CtrlrOSCAddress CtrlrOSC::createAddress(const String &host, const int port)
+{
+	return (CtrlrOSCAddress(host, port));
+}
+
+CtrlrOSCMessage CtrlrOSC::createMessage()
+{
+	return (CtrlrOSCMessage());
+}
+
+CtrlrOSCMessage CtrlrOSC::createMessage(const String &path, const String &types)
+{
+	return (CtrlrOSCMessage(path, types));
+}
+
 void CtrlrOSC::wrapForLua(lua_State *L)
 {
 	using namespace luabind;
 
 	module(L)
     [
+		class_<CtrlrOSCAddress>("CtrlrOSCAddress")
+			.def(constructor<const String&, int, int>())
+			.def(constructor<const String&, int>())
+			.def(constructor<const String&>())
+		,
+		class_<CtrlrOSCMessage>("CtrlrOSCMessage")
+			.def(constructor<const String &, const String &>())
+			.def(constructor<>())
+		,
 		class_<CtrlrOSC>("osc")
 		.scope
 		[
@@ -40,7 +74,11 @@ void CtrlrOSC::wrapForLua(lua_State *L)
 			def("messageAddFalse", &CtrlrOSC::messageAddFalse),
 			def("messageAddNil", &CtrlrOSC::messageAddNil),
 			def("messageAddMidi", &CtrlrOSC::messageAddMidi),
-			def("messageAddBlob", &CtrlrOSC::messageAddBlob)
+			def("messageAddBlob", &CtrlrOSC::messageAddBlob),
+			def("createMessage", (CtrlrOSCMessage (*)(const String &, const String &))&CtrlrOSC::createMessage),
+			def("createMessage", (CtrlrOSCMessage (*)())&CtrlrOSC::createMessage),
+			def("createAddress", (CtrlrOSCAddress (*)(const String &, const int, const int))&CtrlrOSC::createAddress),
+			def("createAddress", (CtrlrOSCAddress (*)(const String &, const int))&CtrlrOSC::createAddress)
 		]
 		,
 		class_<lo_timetag>("lo_timetag")

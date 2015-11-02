@@ -1,7 +1,11 @@
 #ifndef __L_STRING__
 #define __L_STRING__
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LString
 {

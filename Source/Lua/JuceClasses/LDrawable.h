@@ -1,7 +1,11 @@
-#ifndef __L_DRAWABLE__
-#define __L_DRAWABLE__
+#ifndef L_DRAWABLE
+#define L_DRAWABLE
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LDrawable
 {

@@ -1,7 +1,10 @@
 #ifndef L_MIDI_BUFFER
 #define L_MIDI_BUFFER
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LMidiBuffer
 {

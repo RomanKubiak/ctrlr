@@ -1,7 +1,11 @@
 #ifndef __L_AUDIO_FORMAT__
 #define __L_AUDIO_FORMAT__
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LAudioFormatManager : public AudioFormatManager
 {

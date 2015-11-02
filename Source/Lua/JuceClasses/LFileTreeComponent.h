@@ -1,7 +1,10 @@
-#ifndef __L_FILE_TREE_COMPONENT__
-#define __L_FILE_TREE_COMPONENT__
+#ifndef L_FILE_TREE_COMPONENT
+#define L_FILE_TREE_COMPONENT
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LFileTreeComponent
 {

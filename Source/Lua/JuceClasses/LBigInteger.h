@@ -1,7 +1,11 @@
-#ifndef __L_BIG_INTEGER__
-#define __L_BIG_INTEGER__
+#ifndef L_BIG_INTEGER
+#define L_BIG_INTEGER
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LBigInteger : public BigInteger
 {

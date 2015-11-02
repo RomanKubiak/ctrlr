@@ -1,7 +1,10 @@
-#ifndef __L_AUDIO_SAMPLE_BUFFER__
-#define __L_AUDIO_SAMPLE_BUFFER__
+#ifndef L_AUDIO_SAMPLE_BUFFER
+#define L_AUDIO_SAMPLE_BUFFER
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LAudioSampleBuffer
 {

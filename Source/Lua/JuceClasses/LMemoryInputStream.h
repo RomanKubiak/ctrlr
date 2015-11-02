@@ -1,7 +1,10 @@
-#ifndef __L_MEMORY_INPUT_STREAM__
-#define __L_MEMORY_INPUT_STREAM__
+#ifndef L_MEMORY_INPUT_STREAM
+#define L_MEMORY_INPUT_STREAM
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LMemoryInputStream
 {

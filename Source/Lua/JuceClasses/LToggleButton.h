@@ -1,7 +1,10 @@
 #ifndef L_TOGGLE_BUTTON
 #define L_TOGGLE_BUTTON
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LToggleButton
 {

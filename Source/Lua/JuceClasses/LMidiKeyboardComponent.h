@@ -1,7 +1,10 @@
-#ifndef __L_MIDI_KEYBOARD_COMPONENT__
-#define __L_MIDI_KEYBOARD_COMPONENT__
+#ifndef L_MIDI_KEYBOARD_COMPONENT
+#define L_MIDI_KEYBOARD_COMPONENT
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LMidiKeyboardComponent
 {

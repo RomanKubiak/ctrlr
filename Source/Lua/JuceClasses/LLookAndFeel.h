@@ -1,7 +1,11 @@
 #ifndef L_LOOK_AND_FEEL
 #define L_LOOK_AND_FEEL
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LookAndFeelBase : public LookAndFeel_V3
 {

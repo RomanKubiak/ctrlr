@@ -1,7 +1,10 @@
-#ifndef __L_LINE__
-#define __L_LINE__
+#ifndef L_LINE
+#define L_LINE
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LLine
 {

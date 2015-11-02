@@ -1,7 +1,10 @@
-#ifndef __L_JUSTIFICATION__
-#define __L_JUSTIFICATION__
+#ifndef L_JUSTIFICATION
+#define L_JUSTIFICATION
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LJustification
 {

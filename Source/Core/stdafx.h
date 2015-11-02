@@ -27,12 +27,6 @@ extern "C"
 	#include <luabind/lauxlib.h>
 }
 
-#include <boost/foreach.hpp>
-#include <boost/dynamic_bitset.hpp>
-#include <boost/tuple/tuple.hpp>
-#include <boost/tuple/tuple_comparison.hpp>
-#include <boost/version.hpp>
-
 #ifdef check
 #undef check
 #endif

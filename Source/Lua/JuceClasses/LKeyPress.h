@@ -1,7 +1,11 @@
 #ifndef __L_KEY_PRESS__
 #define __L_KEY_PRESS__
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LKeyPress : public KeyPress
 {

@@ -1,7 +1,10 @@
-#ifndef __L_URL__
-#define __L_URL__
+#ifndef L_URL
+#define L_URL
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LURL
 {

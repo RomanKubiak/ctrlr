@@ -1,7 +1,10 @@
-#ifndef __L_AFFINE_TRANSFORM__
-#define __L_AFFINE_TRANSFORM__
+#ifndef L_AFFINE_TRANSFORM
+#define L_AFFINE_TRANSFORM
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LAffineTransform
 {

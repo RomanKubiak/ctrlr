@@ -1,7 +1,10 @@
 #ifndef L_TEXT_BUTTON
 #define L_TEXT_BUTTON
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LTextButton
 {

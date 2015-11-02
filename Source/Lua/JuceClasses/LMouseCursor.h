@@ -1,7 +1,10 @@
 #ifndef L_MOUSE_CURSOR
 #define L_MOUSE_CURSOR
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LMouseCursor
 {

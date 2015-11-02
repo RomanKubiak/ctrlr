@@ -1,7 +1,10 @@
-#ifndef __L_TEXT_EDITOR__
-#define __L_TEXT_EDITOR__
+#ifndef L_TEXT_EDITOR
+#define L_TEXT_EDITOR
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LTextEditor
 {

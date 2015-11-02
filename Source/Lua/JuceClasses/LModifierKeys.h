@@ -1,7 +1,10 @@
-#ifndef __L_MODIFIER_KEYS__
-#define __L_MODIFIER_KEYS__
+#ifndef L_MODIFIER_KEYS
+#define L_MODIFIER_KEYS
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LModifierKeys
 {

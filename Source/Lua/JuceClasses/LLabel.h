@@ -1,7 +1,10 @@
-#ifndef __L_LABEL__
-#define __L_LABEL__
+#ifndef L_LABEL
+#define L_LABEL
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LLabel
 {

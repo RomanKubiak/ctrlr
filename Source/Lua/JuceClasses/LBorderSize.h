@@ -1,7 +1,10 @@
 #ifndef L_BORDERSIZE
 #define L_BORDERSIZE
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LBorderSize
 {

@@ -1,7 +1,10 @@
 #ifndef __L_ZIP_FILE__
 #define __L_ZIP_FILE__
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LZipEntry
 {
