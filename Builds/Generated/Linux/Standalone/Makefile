@@ -98,7 +98,12 @@ OBJECTS := \
   $(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
   $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
   $(OBJDIR)/stdafx_b1a20461.o \
+  $(OBJDIR)/LAudio_a50e2b40.o \
+  $(OBJDIR)/LComponents_29c3fc36.o \
+  $(OBJDIR)/LCore_c804e87f.o \
+  $(OBJDIR)/LGraphics_a64ebfeb.o \
   $(OBJDIR)/LJuce_c2f9d4cd.o \
+  $(OBJDIR)/LMemory_1958b621.o \
   $(OBJDIR)/CtrlrLuaOSC_2f2874f8.o \
   $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
   $(OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o \
@@ -450,9 +455,34 @@ $(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
 	@echo "Compiling stdafx.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/LAudio_a50e2b40.o: ../../../../Source/Lua/JuceClasses/LAudio.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LAudio.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LComponents_29c3fc36.o: ../../../../Source/Lua/JuceClasses/LComponents.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LComponents.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LCore_c804e87f.o: ../../../../Source/Lua/JuceClasses/LCore.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LCore.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LGraphics_a64ebfeb.o: ../../../../Source/Lua/JuceClasses/LGraphics.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LGraphics.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/LJuce_c2f9d4cd.o: ../../../../Source/Lua/JuceClasses/LJuce.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LJuce.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LMemory_1958b621.o: ../../../../Source/Lua/JuceClasses/LMemory.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LMemory.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaOSC_2f2874f8.o: ../../../../Source/Lua/CtrlrLuaOSC.cpp
