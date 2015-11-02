@@ -1,7 +1,11 @@
 #ifndef L_ASYNC_UPDATER_H
 #define L_ASYNC_UPDATER_H
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LAsyncUpdater : public AsyncUpdater
 {

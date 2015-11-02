@@ -1,7 +1,10 @@
-#ifndef __L_GLYPH_ARRANGEMENT__
-#define __L_GLYPH_ARRANGEMENT__
+#ifndef L_GLYPH_ARRANGEMENT
+#define L_GLYPH_ARRANGEMENT
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LGlyphArrangement
 {

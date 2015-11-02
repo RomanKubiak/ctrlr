@@ -1,7 +1,11 @@
-#ifndef __L_RELATIVE_COORDINATE__
-#define __L_RELATIVE_COORDINATE__
+#ifndef L_RELATIVE_COORDINATE
+#define L_RELATIVE_COORDINATE
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LRelativeCoordinate : public RelativeCoordinate
 {
@@ -19,7 +23,7 @@ class LRelativeCoordinate : public RelativeCoordinate
 		{
 			return (RelativeCoordinate::references(coordName, evaluationScope));
 		}
-		
+
 		static void wrapForLua (lua_State *L);
 };
 

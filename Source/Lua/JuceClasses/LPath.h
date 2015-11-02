@@ -1,7 +1,11 @@
-#ifndef __L_PATH__
-#define __L_PATH__
+#ifndef L_PATH
+#define L_PATH
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LPath
 {

@@ -1,7 +1,10 @@
 #ifndef LXMLELEMENT_H_INCLUDED
 #define LXMLELEMENT_H_INCLUDED
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LXmlElement
 {

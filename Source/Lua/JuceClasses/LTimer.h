@@ -1,7 +1,12 @@
-#ifndef __L_TIMER__
-#define __L_TIMER__
+#ifndef L_TIMER
+#define L_TIMER
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LTimer : public Timer
 {

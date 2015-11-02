@@ -1,7 +1,11 @@
 #ifndef __L_GLOBAL_FUNCTIONS__
 #define __L_GLOBAL_FUNCTIONS__
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LGlobalFunctions
 {

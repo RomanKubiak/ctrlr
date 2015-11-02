@@ -1,7 +1,10 @@
-#ifndef __L_COMPONENT_PEER__
-#define __L_COMPONENT_PEER__
+#ifndef L_COMPONENT_PEER
+#define L_COMPONENT_PEER
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LComponentPeer
 {

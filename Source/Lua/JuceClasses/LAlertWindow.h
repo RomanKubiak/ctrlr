@@ -1,7 +1,11 @@
 #ifndef L_ALERT_WINDOW
 #define L_ALERT_WINDOW
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LAlertWindow : public AlertWindow
 {

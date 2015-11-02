@@ -1,7 +1,11 @@
-#ifndef __L_IMAGE__
-#define __L_IMAGE__
+#ifndef L_IMAGE
+#define L_IMAGE
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LImage
 {

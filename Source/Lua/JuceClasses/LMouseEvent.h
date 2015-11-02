@@ -1,7 +1,10 @@
-#ifndef __L_MOUSE_EVENT__
-#define __L_MOUSE_EVENT__
+#ifndef L_MOUSE_EVENT
+#define L_MOUSE_EVENT
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LMouseEvent
 {

@@ -1,7 +1,10 @@
-#ifndef __L_VALUE_TREE__
-#define __L_VALUE_TREE__
+#ifndef L_VALUE_TREE
+#define L_VALUE_TREE
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LValueTree
 {

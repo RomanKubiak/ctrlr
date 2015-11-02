@@ -1,7 +1,11 @@
-#ifndef __L_POPUP_MENU__
-#define __L_POPUP_MENU__
+#ifndef L_POPUP_MENU
+#define L_POPUP_MENU
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LPopupMenu : public PopupMenu
 {

@@ -1,7 +1,10 @@
-#ifndef __L_FONT__
-#define __L_FONT__
+#ifndef L_FONT
+#define L_FONT
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LFont : public Font
 {

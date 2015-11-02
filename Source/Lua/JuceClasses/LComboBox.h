@@ -1,7 +1,10 @@
-#ifndef __L_COMBO_BOX__
-#define __L_COMBO_BOX__
+#ifndef L_COMBO_BOX
+#define L_COMBO_BOX
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LComboBox
 {

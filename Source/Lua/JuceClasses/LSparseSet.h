@@ -1,7 +1,11 @@
-#ifndef __L_SPARSE_SET__
-#define __L_SPARSE_SET__
+#ifndef L_SPARSE_SET
+#define L_SPARSE_SET
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LSparseSet : public SparseSet<int>
 {

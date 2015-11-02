@@ -1,10 +1,15 @@
-#ifndef __L_RANGE__
-#define __L_RANGE__
+#ifndef L_RANGE
+#define L_RANGE
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
+
 #ifdef _WIN32
 #pragma warning(disable:4244)
 #endif
+
 class LRange
 {
 	public:

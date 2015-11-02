@@ -1,7 +1,10 @@
-#ifndef __L_RANDOM__
-#define __L_RANDOM__
+#ifndef L_RANDOM
+#define L_RANDOM
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LRandom
 {

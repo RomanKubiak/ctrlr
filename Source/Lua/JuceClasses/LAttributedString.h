@@ -1,7 +1,10 @@
-#ifndef __L_ATTRIBUTED_STRING__
-#define __L_ATTRIBUTED_STRING__
+#ifndef L_ATTRIBUTED_STRING
+#define L_ATTRIBUTED_STRING
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LAttributedString
 {

@@ -1,7 +1,10 @@
-#ifndef __L_SLIDER__
-#define __L_SLIDER__
+#ifndef L_SLIDER
+#define L_SLIDER
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LSlider
 {

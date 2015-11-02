@@ -1,7 +1,11 @@
-#ifndef __L_TIME__
-#define __L_TIME__
+#ifndef L_TIME
+#define L_TIME
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LTime : public Time
 {
@@ -10,7 +14,7 @@ class LTime : public Time
 		{
 		}
 
-		LTime(int year, int month, int day, int hours, int minutes, int seconds, int milliseconds, bool useLocalTime) 
+		LTime(int year, int month, int day, int hours, int minutes, int seconds, int milliseconds, bool useLocalTime)
 			: Time(year, month, day, hours, minutes, seconds, milliseconds, useLocalTime)
 		{}
 
@@ -27,7 +31,7 @@ class LTime : public Time
 		{
 			return ( (double) Time::toMilliseconds());
 		}
-		
+
 		static LTime getCurrentTime()
 		{
 			return (Time::getCurrentTime());

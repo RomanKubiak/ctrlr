@@ -1,7 +1,11 @@
-#ifndef __L_BUBBLE_MESSAGE_COMPONENT__
-#define __L_BUBBLE_MESSAGE_COMPONENT__
+#ifndef L_BUBBLE_MESSAGE_COMPONENT
+#define L_BUBBLE_MESSAGE_COMPONENT
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LBubbleMessageComponent : public BubbleMessageComponent
 {

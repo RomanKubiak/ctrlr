@@ -1,7 +1,10 @@
-#ifndef __L_COLOUR__
-#define __L_COLOUR__
+#ifndef L_COLOUR
+#define L_COLOUR
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LColour
 {

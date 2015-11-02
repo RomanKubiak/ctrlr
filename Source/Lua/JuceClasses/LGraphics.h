@@ -1,7 +1,10 @@
-#ifndef __L_GRAPHICS__
-#define __L_GRAPHICS__
+#ifndef L_GRAPHICS
+#define L_GRAPHICS
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LGraphics
 {

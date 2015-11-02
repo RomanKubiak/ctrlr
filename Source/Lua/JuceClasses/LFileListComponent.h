@@ -1,7 +1,10 @@
-#ifndef __L_FILE_LIST_COMPONENT__
-#define __L_FILE_LIST_COMPONENT__
+#ifndef L_FILE_LIST_COMPONENT
+#define L_FILE_LIST_COMPONENT
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LFileListComponent
 {

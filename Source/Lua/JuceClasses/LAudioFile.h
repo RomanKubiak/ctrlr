@@ -1,7 +1,10 @@
-#ifndef __L_AUDIO_FILE__
-#define __L_AUDIO_FILE__
+#ifndef L_AUDIO_FILE
+#define L_AUDIO_FILE
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LAudioFile
 {

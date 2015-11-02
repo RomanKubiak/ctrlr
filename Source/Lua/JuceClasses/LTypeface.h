@@ -1,7 +1,10 @@
 #ifndef L_TYPEFACE
 #define L_TYPEFACE
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LTypeface
 {

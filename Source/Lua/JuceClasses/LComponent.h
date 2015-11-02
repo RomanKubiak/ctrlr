@@ -1,7 +1,11 @@
-#ifndef __L_COMPONENT__
-#define __L_COMPONENT__
+#ifndef L_COMPONENT
+#define L_COMPONENT
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LComponent : public Component
 {

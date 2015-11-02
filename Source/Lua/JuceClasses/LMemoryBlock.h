@@ -1,7 +1,11 @@
 #ifndef __L_MEMORY_BLOCK__
 #define __L_MEMORY_BLOCK__
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LMemoryBlock : public MemoryBlock
 {

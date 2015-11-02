@@ -1,7 +1,11 @@
 #ifndef L_THREADWITHPROGRESSWINDOW_H
 #define L_THREADWITHPROGRESSWINDOW_H
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LThreadWithProgressWindow : public ThreadWithProgressWindow
 {

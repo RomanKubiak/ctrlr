@@ -1,7 +1,10 @@
-#ifndef __L_POINT__
-#define __L_POINT__
+#ifndef L_POINT
+#define L_POINT
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LPoint
 {

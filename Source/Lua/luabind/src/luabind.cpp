@@ -23,6 +23,11 @@
 #define LUABIND_BUILDING
 
 #include "stdafx.h"
+#include <boost/foreach.hpp>
+#include <boost/dynamic_bitset.hpp>
+#include <boost/tuple/tuple.hpp>
+#include <boost/tuple/tuple_comparison.hpp>
+#include <boost/version.hpp>
 
 namespace luabind
 {

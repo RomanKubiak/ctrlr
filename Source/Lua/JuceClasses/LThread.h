@@ -1,7 +1,11 @@
 #ifndef L_THREAD_H
 #define L_THREAD_H
 
-#include "CtrlrLuaManager.h"
+#include "JuceHeader.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LThread : public Thread
 {

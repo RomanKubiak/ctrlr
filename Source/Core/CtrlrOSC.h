@@ -19,10 +19,16 @@ struct CtrlrOSCAddress
 		String host;
 
 	public:
-		CtrlrOSCAddress(String _host, int _port, int _protocol=-1)
+		CtrlrOSCAddress(String _host, int _port, int _protocol)
 			: protocol(_protocol), port(_port), host(_host)
 		{
 			loAddress = lo_address_new_with_proto(protocol < 0 ? LO_UDP : protocol, host.getCharPointer(), _STR(port).getCharPointer());
+		}
+
+		CtrlrOSCAddress(String _host, int _port)
+			: port(_port), host(_host)
+		{
+			loAddress = lo_address_new(host.getCharPointer(), _STR(port).getCharPointer());
 		}
 
 		CtrlrOSCAddress(const String &url)
@@ -30,20 +36,35 @@ struct CtrlrOSCAddress
 			loAddress = lo_address_new_from_url (url.getCharPointer());
 		}
 
+		const String &getHost()
+		{
+			return (host);
+		}
 		void* getLoAddress()
-		{ 
-			return (loAddress); 
+		{
+			return (loAddress);
 		}
 };
 
 struct CtrlrOSCMessage
 {
 	public:
+		CtrlrOSCMessage()
+		{
+			loMessage = lo_message_new();
+		}
+		CtrlrOSCMessage(const String &_path, const String &_types)
+		{
+			loMessage = lo_message_new();
+			path = _path;
+			types = _types;
+		}
 		void setPath(const String &_path) 			{ path = _path; }
 		void setTypes(const String &_types) 		{ types = _types; }
-		Array<lo_arg> &getArguments() 				{ return (arguments); }
 		const String &getPath() const 				{ return (path); }
 		const String &getTypes() const 				{ return (types); }
+
+		Array<lo_arg> &getArguments() 				{ return (arguments); }
 		void addArgument(const lo_arg argument) 	{ arguments.add(argument); }
 
 		lo_message loMessage;
@@ -59,6 +80,10 @@ class CtrlrOSC
 	public:
 		static bool sendMessage(CtrlrOSCAddress destinationAddress,
 								const CtrlrOSCMessage &message);
+		static CtrlrOSCAddress createAddress(const String &host, const int port, const int proto);
+		static CtrlrOSCAddress createAddress(const String &host, const int port);
+		static CtrlrOSCMessage createMessage();
+		static CtrlrOSCMessage createMessage(const String &path, const String &types);
 		static void wrapForLua(lua_State *L);
 
 		static void messageAddInt32(CtrlrOSCMessage &m, const int32_t i) 		{ lo_message_add_int32(m.loMessage, i); }

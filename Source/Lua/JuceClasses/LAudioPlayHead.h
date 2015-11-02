@@ -1,7 +1,10 @@
-#ifndef __L_AUDIO_PLAYHEAD__
-#define __L_AUDIO_PLAYHEAD__
+#ifndef L_AUDIO_PLAYHEAD
+#define L_AUDIO_PLAYHEAD
 
-#include "CtrlrLuaManager.h"
+extern  "C"
+{
+	#include "lua.h"
+}
 
 class LAudioPlayHead
 {

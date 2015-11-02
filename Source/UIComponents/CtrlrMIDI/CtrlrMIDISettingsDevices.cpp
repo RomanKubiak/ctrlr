@@ -87,9 +87,10 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
     oscProtocol->setJustificationType (Justification::centredLeft);
     oscProtocol->setTextWhenNothingSelected (TRANS("TCP"));
     oscProtocol->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
-    oscProtocol->addItem (TRANS("UDP"), 1);
-    oscProtocol->addItem (TRANS("TCP"), 2);
-    oscProtocol->addItem (TRANS("SOCKET"), 3);
+    oscProtocol->addItem (TRANS("Default"), 1);
+    oscProtocol->addItem (TRANS("UDP"), 2);
+    oscProtocol->addItem (TRANS("Local/UNIX"), 3);
+    oscProtocol->addItem (TRANS("TCP"), 4);
     oscProtocol->addListener (this);
 
     addAndMakeVisible (label4 = new Label ("new label",
@@ -281,6 +282,10 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
 
 
     //[UserPreSize]
+    oscProtocol->addItem (TRANS("Default"), 1);
+    oscProtocol->addItem (TRANS("UDP"), 2);
+    oscProtocol->addItem (TRANS("Local/UNIX"), 3);
+    oscProtocol->addItem (TRANS("TCP"), 5);
     //[/UserPreSize]
 
     setSize (400, 500);
@@ -351,28 +356,28 @@ void CtrlrMIDISettingsDevices::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    inputDevices->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.1109f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
-    controllerDevices->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.2409f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
-    outputDevices->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.3689f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
-    label->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.0490f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
-    label2->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.1770f), proportionOfWidth (0.7992f), proportionOfHeight (0.0597f));
-    label3->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.3028f), proportionOfWidth (0.7992f), proportionOfHeight (0.0597f));
-    oscProtocol->setBounds (proportionOfWidth (0.6305f), proportionOfHeight (0.8614f), proportionOfWidth (0.2008f), proportionOfHeight (0.0810f));
-    label4->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.7313f), proportionOfWidth (0.7992f), proportionOfHeight (0.0810f));
-    oscPort->setBounds (proportionOfWidth (0.2309f), proportionOfHeight (0.8614f), proportionOfWidth (0.2992f), proportionOfHeight (0.0810f));
-    label5->setBounds (proportionOfWidth (0.6305f), proportionOfHeight (0.8124f), proportionOfWidth (0.2992f), proportionOfHeight (0.0490f));
-    label6->setBounds (proportionOfWidth (0.2309f), proportionOfHeight (0.8124f), proportionOfWidth (0.2992f), proportionOfHeight (0.0490f));
-    oscEnabled->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.8614f), proportionOfWidth (0.0502f), proportionOfHeight (0.0810f));
-    label7->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.8124f), proportionOfWidth (0.1506f), proportionOfHeight (0.0490f));
-    inputChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.1109f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
-    controllerChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.2409f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
-    outputChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.3689f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
-    label8->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.4307f), proportionOfWidth (0.7992f), proportionOfHeight (0.0597f));
-    pluginOutputChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.4968f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
-    pluginOutput->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.4968f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
-    label9->setBounds (proportionOfWidth (0.7209f), proportionOfHeight (0.0490f), proportionOfWidth (0.2410f), proportionOfHeight (0.0597f));
-    pluginInput->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.6226f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
-    pluginInputChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.6226f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
+    inputDevices->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.1100f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
+    controllerDevices->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.2400f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
+    outputDevices->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.3680f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
+    label->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.0500f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
+    label2->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.1760f), proportionOfWidth (0.8000f), proportionOfHeight (0.0600f));
+    label3->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.3020f), proportionOfWidth (0.8000f), proportionOfHeight (0.0600f));
+    oscProtocol->setBounds (proportionOfWidth (0.6300f), proportionOfHeight (0.8620f), proportionOfWidth (0.2000f), proportionOfHeight (0.0820f));
+    label4->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.7320f), proportionOfWidth (0.8000f), proportionOfHeight (0.0820f));
+    oscPort->setBounds (proportionOfWidth (0.2300f), proportionOfHeight (0.8620f), proportionOfWidth (0.3000f), proportionOfHeight (0.0820f));
+    label5->setBounds (proportionOfWidth (0.6300f), proportionOfHeight (0.8120f), proportionOfWidth (0.3000f), proportionOfHeight (0.0500f));
+    label6->setBounds (proportionOfWidth (0.2300f), proportionOfHeight (0.8120f), proportionOfWidth (0.3000f), proportionOfHeight (0.0500f));
+    oscEnabled->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.8620f), proportionOfWidth (0.0500f), proportionOfHeight (0.0820f));
+    label7->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.8120f), proportionOfWidth (0.1500f), proportionOfHeight (0.0500f));
+    inputChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.1100f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
+    controllerChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.2400f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
+    outputChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.3680f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
+    label8->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.4300f), proportionOfWidth (0.8000f), proportionOfHeight (0.0600f));
+    pluginOutputChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.4960f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
+    pluginOutput->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.4960f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
+    label9->setBounds (proportionOfWidth (0.7200f), proportionOfHeight (0.0500f), proportionOfWidth (0.2400f), proportionOfHeight (0.0600f));
+    pluginInput->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.6220f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
+    pluginInputChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.6220f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -533,8 +538,8 @@ BEGIN_JUCER_METADATA
          fontsize="16" bold="1" italic="0" justification="33"/>
   <COMBOBOX name="OSC Protocol" id="fd4453150a503c5a" memberName="oscProtocol"
             virtualName="" explicitFocusOrder="0" pos="63% 86.2% 20% 8.2%"
-            editable="0" layout="33" items="UDP&#10;TCP&#10;SOCKET" textWhenNonSelected="TCP"
-            textWhenNoItems="(no choices)"/>
+            editable="0" layout="33" items="Default&#10;UDP&#10;Local/UNIX&#10;TCP"
+            textWhenNonSelected="TCP" textWhenNoItems="(no choices)"/>
   <LABEL name="new label" id="c30076b859684a74" memberName="label4" virtualName=""
          explicitFocusOrder="0" pos="8% 73.2% 80% 8.2%" edTextCol="ff000000"
          edBkgCol="0" labelText="OSC Server settings" editableSingleClick="0"
