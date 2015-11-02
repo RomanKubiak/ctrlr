@@ -421,6 +421,7 @@
         <FILE id="OxMbIf" name="LAsyncUpdater.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAsyncUpdater.h"/>
         <FILE id="PI2VOZ" name="LAttributedString.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LAttributedString.h"/>
+        <FILE id="vGPxBX" name="LAudio.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LAudio.cpp"/>
         <FILE id="Az8O2k" name="LAudioFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAudioFile.h"/>
         <FILE id="vQDXao" name="LAudioFormat.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LAudioFormat.h"/>
         <FILE id="yuzLnj" name="LAudioPlayHead.h" compile="0" resource="0"
@@ -441,6 +442,8 @@
         <FILE id="Z4KcrL" name="LComponent.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LComponent.h"/>
         <FILE id="Y7DQyE" name="LComponentPeer.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LComponentPeer.h"/>
+        <FILE id="DCMzJp" name="LComponents.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LComponents.cpp"/>
+        <FILE id="F0TfBu" name="LCore.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LCore.cpp"/>
         <FILE id="HCh0K0" name="LDrawable.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LDrawable.h"/>
         <FILE id="RgTBNW" name="LExpression.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LExpression.h"/>
         <FILE id="wDMIJk" name="LFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LFile.h"/>
@@ -453,16 +456,19 @@
               file="../../Source/Lua/JuceClasses/LGlobalFunctions.h"/>
         <FILE id="zffpfY" name="LGlyphArrangement.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LGlyphArrangement.h"/>
+        <FILE id="CtD4ky" name="LGraphics.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LGraphics.cpp"/>
         <FILE id="fOSAkk" name="LGraphics.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LGraphics.h"/>
         <FILE id="nvGzfV" name="LImage.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LImage.h"/>
         <FILE id="qVZo1k" name="LInputStream.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LInputStream.h"/>
         <FILE id="zwrzNC" name="LJuce.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LJuce.cpp"/>
+        <FILE id="zSDCSy" name="LJuce.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LJuce.h"/>
         <FILE id="xDc5FO" name="LJustification.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LJustification.h"/>
         <FILE id="q5hiLJ" name="LKeyPress.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LKeyPress.h"/>
         <FILE id="jnrZq2" name="LLabel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLabel.h"/>
         <FILE id="ddjQkk" name="LLine.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLine.h"/>
         <FILE id="OSYrRF" name="LLookAndFeel.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LLookAndFeel.h"/>
+        <FILE id="AspOdi" name="LMemory.cpp" compile="1" resource="0" file="../../Source/Lua/JuceClasses/LMemory.cpp"/>
         <FILE id="jrC9Io" name="LMemoryBlock.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LMemoryBlock.h"/>
         <FILE id="ouIhwu" name="LMemoryInputStream.h" compile="0" resource="0"
               file="../../Source/Lua/JuceClasses/LMemoryInputStream.h"/>
