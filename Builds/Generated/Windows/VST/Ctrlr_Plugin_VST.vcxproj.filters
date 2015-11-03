@@ -14,47 +14,17 @@
     <Filter Include="Ctrlr_Plugin_VST\Core\CtrlrModulator">
       <UniqueIdentifier>{AD27CB85-0EE5-2344-9657-AAEF44DFB8E6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Core\CtrlrPanel">
-      <UniqueIdentifier>{856F0570-8080-41C8-8A43-4061C157504F}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Core\StandaloneWrapper">
       <UniqueIdentifier>{E0ECAB0D-8B0F-F861-80EF-F42CA3FA4D40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Resources">
-      <UniqueIdentifier>{BD2112C5-39D2-EA50-36D5-66554967F159}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Resources\Lua">
-      <UniqueIdentifier>{D2BD6351-56EC-E23B-8474-59D61BEFEAEB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Resources\Lua\json4lua">
-      <UniqueIdentifier>{1F5FD36D-A25E-39FD-CFC5-D329048F16E0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Resources\Lua\clidebugger">
-      <UniqueIdentifier>{99FAE155-6C20-7C7E-2E66-802439C1FFC0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Resources\Misc">
-      <UniqueIdentifier>{56643B69-035E-47C5-6FBA-559B266DF8D9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Resources\Icons">
-      <UniqueIdentifier>{9B9B3AE2-678A-C5C6-D228-DC62EBF7F6B2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Resources\Fonts">
-      <UniqueIdentifier>{E66DCA14-2E26-77A1-B517-843187924309}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Resources\Images">
-      <UniqueIdentifier>{A0271844-B390-E5A6-8830-76E7664C1E2D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Resources\XML">
-      <UniqueIdentifier>{4360F259-2173-BD19-880A-0D6D0438A057}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Lua">
       <UniqueIdentifier>{5960E9B6-946D-930A-BD89-9086FD48C5FB}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Lua\JuceClasses">
-      <UniqueIdentifier>{36FE6DF2-30CD-B360-C7E6-CC66C74580E3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Lua\Deprecated">
       <UniqueIdentifier>{CBE62F3E-FE56-1471-D24A-A74DB6ECFB39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Lua\JuceClasses">
+      <UniqueIdentifier>{36FE6DF2-30CD-B360-C7E6-CC66C74580E3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Lua\luabind">
       <UniqueIdentifier>{F8E24AD2-F8FB-84CB-6FEC-0D9B25AFE3CF}</UniqueIdentifier>
@@ -83,23 +53,47 @@
     <Filter Include="Ctrlr_Plugin_VST\Misc\include">
       <UniqueIdentifier>{7A0FB082-C527-98A0-7F74-8C39E6A8DEC5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb">
-      <UniqueIdentifier>{B935D0DC-44A5-116F-0DBF-F96129D07EDE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb\configs">
-      <UniqueIdentifier>{55AFD953-8DDA-8D72-E140-52411004EB1D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb\lua">
-      <UniqueIdentifier>{73E066E9-212E-9DD4-4BB4-462C777F8B32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb\os">
-      <UniqueIdentifier>{EEC67C30-1C4B-C4D2-C356-6F5B125E8A6F}</UniqueIdentifier>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\include\lo">
+      <UniqueIdentifier>{FF538628-7428-C348-F012-2616DD748227}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Native">
       <UniqueIdentifier>{90D113A8-C8B6-9FE4-4EB4-94F9737839D9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Native\Linux">
+      <UniqueIdentifier>{FDF3FF53-5D60-98AE-94B3-F3DAAEB0C9FA}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Plugin">
       <UniqueIdentifier>{A8D2694E-B5AD-567C-768C-57A5407BCED5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources">
+      <UniqueIdentifier>{BD2112C5-39D2-EA50-36D5-66554967F159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources\Fonts">
+      <UniqueIdentifier>{E66DCA14-2E26-77A1-B517-843187924309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources\Icons">
+      <UniqueIdentifier>{9B9B3AE2-678A-C5C6-D228-DC62EBF7F6B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources\Images">
+      <UniqueIdentifier>{A0271844-B390-E5A6-8830-76E7664C1E2D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources\Lua">
+      <UniqueIdentifier>{D2BD6351-56EC-E23B-8474-59D61BEFEAEB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources\Lua\clidebugger">
+      <UniqueIdentifier>{99FAE155-6C20-7C7E-2E66-802439C1FFC0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources\Lua\debugger.lua">
+      <UniqueIdentifier>{5322805A-4BF4-5E12-7C0F-1AD9B78654DD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources\Lua\json4lua">
+      <UniqueIdentifier>{1F5FD36D-A25E-39FD-CFC5-D329048F16E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources\Misc">
+      <UniqueIdentifier>{56643B69-035E-47C5-6FBA-559B266DF8D9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Resources\XML">
+      <UniqueIdentifier>{4360F259-2173-BD19-880A-0D6D0438A057}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Plugin_VST\UIComponents">
       <UniqueIdentifier>{3F873349-9B9E-8096-84B7-8106522D49CF}</UniqueIdentifier>
@@ -457,18 +451,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrFontManager.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrIDManager.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrLog.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManager.cpp">
       <Filter>Ctrlr_Plugin_VST\Core\CtrlrManager</Filter>
     </ClCompile>
@@ -484,32 +466,26 @@
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulatorProcessor.cpp">
       <Filter>Ctrlr_Plugin_VST\Core\CtrlrModulator</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelUndoManager.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
+    <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneApplication.cpp">
+      <Filter>Ctrlr_Plugin_VST\Core\StandaloneWrapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrEvaluationScopes.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
+    <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.cpp">
+      <Filter>Ctrlr_Plugin_VST\Core\StandaloneWrapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanel.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrFontManager.cpp">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelFileOperations.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrIDManager.cpp">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDIInputThread.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrLog.cpp">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDISnapshot.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrMasterClock.cpp">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelProcessor.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResource.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResourceManager.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrOSC.cpp">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrProperties.cpp">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
@@ -529,217 +505,64 @@
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrUtilities.cpp">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneApplication.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\StandaloneWrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.cpp">
-      <Filter>Ctrlr_Plugin_VST\Core\StandaloneWrapper</Filter>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.cpp">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Core\stdafx.cpp">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaBigInteger.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.cpp">
+    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaComponentAnimator.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaFile.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaMemoryBlock.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaRectangle.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudio.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\CtrlrWrap.cpp">
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponents.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFile.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBigInteger.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LButton.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColour.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColourGradient.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComboBox.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponentPeer.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LDrawable.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LExpression.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFile.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFont.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlobalFunctions.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlyphArrangement.cpp">
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LCore.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGraphics.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LImage.cpp">
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LJuce.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.cpp">
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemory.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\luabind.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\Methods</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\Methods</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLine.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiMessage.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPath.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRandom.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRange.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRectangle.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRelativeCoordinate.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LResult.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSlider.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSparseSet.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LString.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextEditor.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTime.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTimer.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LToggleButton.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LURL.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValue.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\Methods</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaCustomComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaManager.cpp">
@@ -757,6 +580,9 @@
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaObjectWrapper.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaOSC.cpp">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanel.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
     </ClCompile>
@@ -772,88 +598,16 @@
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaBigInteger.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaComponentAnimator.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaFile.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaMemoryBlock.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaRectangle.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_info.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_registry.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_rep.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\create_class.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\error.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\exception_handler.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\function.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\inheritance.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\link_compatibility.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\object_rep.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\open.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\pcall.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\scope.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\stack_content_by_name.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\weak_ref.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\wrapper_base.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\Methods</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\Methods</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\Methods</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp">
-      <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp">
+      <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.cpp">
+      <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.cpp">
@@ -865,14 +619,23 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp">
-      <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.cpp">
+      <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\address.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\blob.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\bundle.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\compat.c">
       <Filter>Ctrlr_Plugin_VST\Misc</Filter>
@@ -913,10 +676,28 @@
     <ClCompile Include="..\..\..\..\Source\Misc\lua.c">
       <Filter>Ctrlr_Plugin_VST\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\message.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\method.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\pattern_match.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\poll_posix.c">
       <Filter>Ctrlr_Plugin_VST\Misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\poll_windows.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\send.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\server.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\server_thread.c">
       <Filter>Ctrlr_Plugin_VST\Misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\strerror.c">
@@ -934,7 +715,13 @@
     <ClCompile Include="..\..\..\..\Source\Misc\threads_windows.c">
       <Filter>Ctrlr_Plugin_VST\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\timetag.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\usb.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\version.c">
       <Filter>Ctrlr_Plugin_VST\Misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\windows_usb.c">
@@ -958,9 +745,6 @@
     <ClCompile Include="..\..\..\..\Source\Plugin\CtrlrProcessorEditorForLive.cpp">
       <Filter>Ctrlr_Plugin_VST\Plugin</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrAbout.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrDocumentPanel.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrApplicationWindow</Filter>
     </ClCompile>
@@ -982,9 +766,6 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrSettings.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrApplicationWindow</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Buttons</Filter>
     </ClCompile>
@@ -999,21 +780,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrToggleButton.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Buttons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrGroup.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Groups</Filter>
@@ -1045,9 +811,6 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Sliders</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrFileListBox.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
     </ClCompile>
@@ -1055,6 +818,9 @@
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrMidiKeyboard.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrWaveform.cpp">
@@ -1069,14 +835,23 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Statics\CtrlrArrow.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Statics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua</Filter>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniser.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua\MethodEditor</Filter>
@@ -1120,14 +895,8 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua\MethodEditor</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
@@ -1135,17 +904,23 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.cpp">
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.cpp">
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDevices.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDialog.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsRouting.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvas.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
@@ -1189,11 +964,8 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelViewport.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrModulatorListProperty.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrBooleanPropertyComponent.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
@@ -1219,6 +991,9 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrLuaMethodProperty.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrModulatorListProperty.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrMultiMidiPropertyComponent.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClCompile>
@@ -1240,17 +1015,11 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTextPropertyComponent.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrUnknownPropertyComponent.cpp">
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrTextEditor.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrValueMap.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.cpp">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrUnknownPropertyComponent.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindow.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrWindowManagers</Filter>
@@ -1269,6 +1038,24 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrPanelWindowManager.cpp">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrWindowManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrAbout.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrTextEditor.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrValueMap.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.cpp">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -2523,11 +2310,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h">
-      <Filter>Ctrlr_Plugin_VST\Core</Filter>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManager.h">
+      <Filter>Ctrlr_Plugin_VST\Core\CtrlrManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.h">
-      <Filter>Ctrlr_Plugin_VST\Core</Filter>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManagerVst.h">
+      <Filter>Ctrlr_Plugin_VST\Core\CtrlrManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulator.h">
+      <Filter>Ctrlr_Plugin_VST\Core\CtrlrModulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulatorProcessor.h">
+      <Filter>Ctrlr_Plugin_VST\Core\CtrlrModulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h">
+      <Filter>Ctrlr_Plugin_VST\Core\StandaloneWrapper</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrFontManager.h">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
@@ -2541,6 +2337,9 @@
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilities.h">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrLog.h">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
@@ -2550,41 +2349,11 @@
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrMainPage.h">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManager.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrManager</Filter>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrMasterClock.h">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManagerVst.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrManager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulator.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrModulator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulatorProcessor.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrModulator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelUndoManager.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrEvaluationScopes.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanel.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDIInputThread.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDISnapshot.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelProcessor.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResource.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResourceManager.h">
-      <Filter>Ctrlr_Plugin_VST\Core\CtrlrPanel</Filter>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrOSC.h">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrProperties.h">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
@@ -2607,25 +2376,37 @@
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrUtilities.h">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\dxtrans.h">
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.h">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h">
-      <Filter>Ctrlr_Plugin_VST\Core\StandaloneWrapper</Filter>
+    <ClInclude Include="..\..\..\..\Source\Core\dxtrans.h">
+      <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.h">
-      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaBigInteger.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaComponentAnimator.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaFile.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaMemoryBlock.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaRectangle.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.h">
@@ -2635,6 +2416,9 @@
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioPlayHead.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.h">
@@ -2703,6 +2487,9 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LJuce.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
@@ -2722,6 +2509,9 @@
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.h">
+      <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.h">
@@ -2811,73 +2601,13 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.h">
       <Filter>Ctrlr_Plugin_VST\Lua\JuceClasses</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.h">
-      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaConverters.h">
-      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaManager.h">
-      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaMultiTimer.h">
-      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObject.h">
-      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObjectWrapper.h">
-      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.h">
-      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaBigInteger.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaComponentAnimator.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaFile.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaMemoryBlock.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaRectangle.h">
-      <Filter>Ctrlr_Plugin_VST\Lua\Deprecated</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\adopt_policy.hpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\back_reference.hpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\back_reference_fwd.hpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\class.hpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\class_info.hpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\config.hpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\container_policy.hpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\copy_policy.hpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\dependency_policy.hpp">
-      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\calc_arity.hpp">
       <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind\detail</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\call.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\call_0x.hpp">
       <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind\detail</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\call_function.hpp">
@@ -2929,6 +2659,9 @@
       <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind\detail</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\has_get_pointer.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\index_tuple.hpp">
       <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind\detail</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\inheritance.hpp">
@@ -2999,6 +2732,33 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\yes_no.hpp">
       <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\adopt_policy.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\back_reference.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\back_reference_fwd.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\class.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\class_info.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\config.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\container_policy.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\copy_policy.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\dependency_policy.hpp">
+      <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\discard_result_policy.hpp">
       <Filter>Ctrlr_Plugin_VST\Lua\luabind\luabind</Filter>
@@ -3114,13 +2874,43 @@
     <ClInclude Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.h">
       <Filter>Ctrlr_Plugin_VST\Lua\Methods</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.h">
-      <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.h">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaConverters.h">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.h">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaManager.h">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaMultiTimer.h">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObject.h">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObjectWrapper.h">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaOSC.h">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.h">
+      <Filter>Ctrlr_Plugin_VST\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h">
+      <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.h">
+      <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.h">
@@ -3135,14 +2925,53 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorTypes.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h">
-      <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h">
+      <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_linux.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_cpp.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_endian.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_errors.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_internal.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_lowlevel.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_macros.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_osc_types.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_serverthread.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_throw.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_types.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_types_internal.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\include\compat.h">
       <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
@@ -3234,9 +3063,6 @@
     <ClInclude Include="..\..\..\..\Source\Plugin\CtrlrProcessorEditorForLive.h">
       <Filter>Ctrlr_Plugin_VST\Plugin</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrAbout.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrDocumentPanel.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrApplicationWindow</Filter>
     </ClInclude>
@@ -3248,9 +3074,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrSettings.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrApplicationWindow</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Buttons</Filter>
@@ -3266,21 +3089,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrToggleButton.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Buttons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrGroup.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Groups</Filter>
@@ -3312,9 +3120,6 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Sliders</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrFileListBox.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
     </ClInclude>
@@ -3322,6 +3127,9 @@
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrMidiKeyboard.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Specials</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrWaveform.h">
@@ -3336,14 +3144,23 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Statics\CtrlrArrow.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents\Statics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua</Filter>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrComponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniser.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua\MethodEditor</Filter>
@@ -3390,14 +3207,8 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua\MethodEditor</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrLua</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
@@ -3405,17 +3216,23 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.h">
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.h">
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDevices.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDialog.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsRouting.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvas.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
@@ -3453,11 +3270,8 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelViewport.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrModulatorListProperty.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPanel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrBooleanPropertyComponent.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
@@ -3483,6 +3297,9 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrLuaMethodProperty.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrModulatorListProperty.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrMultiMidiPropertyComponent.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClInclude>
@@ -3504,17 +3321,11 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTextPropertyComponent.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrUnknownPropertyComponent.h">
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrTextEditor.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrValueMap.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.h">
-      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrUnknownPropertyComponent.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrPropertyEditors</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindow.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrWindowManagers</Filter>
@@ -3533,6 +3344,24 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrPanelWindowManager.h">
       <Filter>Ctrlr_Plugin_VST\UIComponents\CtrlrWindowManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrAbout.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrTextEditor.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrValueMap.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.h">
+      <Filter>Ctrlr_Plugin_VST\UIComponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -4937,41 +4766,50 @@
     <None Include="..\..\..\..\Source\Core\CtrlrRevision.template">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\json.lua">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua\json4lua</Filter>
+    <None Include="..\..\..\..\Source\Misc\include\lo\lo_endian.h.in">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\LICENCE.txt">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua\json4lua</Filter>
+    <None Include="..\..\..\..\Source\Misc\include\lo\Makefile">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\debugger.lua">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua\clidebugger</Filter>
+    <None Include="..\..\..\..\Source\Misc\include\lo\Makefile.am">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\LICENSE">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua\clidebugger</Filter>
+    <None Include="..\..\..\..\Source\Misc\include\lo\Makefile.in">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\README.md">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua\clidebugger</Filter>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\test.lua">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua\clidebugger</Filter>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Computerfont.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.cpp.sh">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digit.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.h.sh">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digital-7.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeel.lua.sh">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_DottyShadow.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\lf.template">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Electronic Highway Sign.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Lua\LookAndFeel.lua">
-      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Invasion2000.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Misc\RSRC.zip">
-      <Filter>Ctrlr_Plugin_VST\Resources\Misc</Filter>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Karmatic Arcade.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Warenhaus-Standard.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.ttf">
+      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.control.play.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
@@ -4994,19 +4832,16 @@
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.stop.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png">
-      <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
-    </None>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_box.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_bug.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_ctrlr_mac.icns">
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_copy.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_copy.png">
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_ctrlr_mac.icns">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_cut.png">
@@ -5102,6 +4937,9 @@
     <None Include="..\..\..\..\Source\Resources\Icons\ico_snapshot_new.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png">
+      <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
+    </None>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_unit.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
@@ -5114,55 +4952,79 @@
     <None Include="..\..\..\..\Source\Resources\Icons\ico_waveform.png">
       <Filter>Ctrlr_Plugin_VST\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Computerfont.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digit.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digital-7.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_DottyShadow.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Electronic Highway Sign.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Invasion2000.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Karmatic Arcade.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Warenhaus-Standard.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.ttf">
-      <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
-    </None>
     <None Include="..\..\..\..\Source\Resources\Images\tile.gif">
       <Filter>Ctrlr_Plugin_VST\Resources\Images</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDITransactions.xml">
-      <Filter>Ctrlr_Plugin_VST\Resources\XML</Filter>
+    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\debugger.lua">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua\clidebugger</Filter>
     </None>
-    <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDIVendors.xml">
-      <Filter>Ctrlr_Plugin_VST\Resources\XML</Filter>
+    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\LICENSE">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua\clidebugger</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\README.md">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua\clidebugger</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\test.lua">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua\clidebugger</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\json.lua">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua\json4lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\LICENCE.txt">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua\json4lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.cpp.sh">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.h.sh">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeel.lua.sh">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeelBase.cpp.sh">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeelBase.h.sh">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeelParamWrapper-Lua-Member-Binding.sh">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeelParamWrapper.h.sh">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\inspect.lua">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\lf.template">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\LookAndFeel.lua">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Lua\paramWrapper.template">
+      <Filter>Ctrlr_Plugin_VST\Resources\Lua</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\Misc\RSRC.zip">
+      <Filter>Ctrlr_Plugin_VST\Resources\Misc</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrIDs.xml">
+      <Filter>Ctrlr_Plugin_VST\Resources\XML</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\XML\CtrlrLuaClassTemplates.xml">
       <Filter>Ctrlr_Plugin_VST\Resources\XML</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrLuaMethodTemplates.xml">
       <Filter>Ctrlr_Plugin_VST\Resources\XML</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrMidiMultiTemplate.xml">
+      <Filter>Ctrlr_Plugin_VST\Resources\XML</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDITransactions.xml">
+      <Filter>Ctrlr_Plugin_VST\Resources\XML</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDIVendors.xml">
       <Filter>Ctrlr_Plugin_VST\Resources\XML</Filter>
     </None>
     <None Include="..\..\..\..\Juce\modules\juce_audio_basics\juce_module_info">

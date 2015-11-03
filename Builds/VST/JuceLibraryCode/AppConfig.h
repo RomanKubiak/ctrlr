@@ -54,7 +54,7 @@
 #endif
 
 #ifndef    JUCE_WASAPI_EXCLUSIVE
- //#define JUCE_WASAPI_EXCLUSIVE
+ #define   JUCE_WASAPI_EXCLUSIVE 0
 #endif
 
 #ifndef    JUCE_DIRECTSOUND
@@ -112,11 +112,11 @@
 #endif
 
 #ifndef    JUCE_PLUGINHOST_VST3
- //#define JUCE_PLUGINHOST_VST3
+ #define   JUCE_PLUGINHOST_VST3 0
 #endif
 
 #ifndef    JUCE_PLUGINHOST_AU
- #define   JUCE_PLUGINHOST_AU 1
+ #define   JUCE_PLUGINHOST_AU 0
 #endif
 
 //==============================================================================
@@ -248,13 +248,13 @@
  #define JucePlugin_EditorRequiresKeyboardFocus  1
 #endif
 #ifndef  JucePlugin_Version
- #define JucePlugin_Version                5.3.0
+ #define JucePlugin_Version                5.4.0
 #endif
 #ifndef  JucePlugin_VersionCode
- #define JucePlugin_VersionCode            0x50300
+ #define JucePlugin_VersionCode            0x50400
 #endif
 #ifndef  JucePlugin_VersionString
- #define JucePlugin_VersionString          "5.3.0"
+ #define JucePlugin_VersionString          "5.4.0"
 #endif
 #ifndef  JucePlugin_VSTUniqueID
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode

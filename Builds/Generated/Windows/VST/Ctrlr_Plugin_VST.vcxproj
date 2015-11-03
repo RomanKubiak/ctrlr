@@ -59,8 +59,8 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;../../../../Source/Misc/include/lo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -70,7 +70,7 @@
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm512 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm2000 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -85,6 +85,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalDependencies>iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/FORCE:multiple %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Bscmake>
@@ -105,8 +106,8 @@
     </Midl>
     <ClCompile>
       <Optimization>MinSpace</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;CTRLR_NIGHTLY=0;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;../../../../Source/Misc/include/lo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;CTRLR_NIGHTLY=0;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -116,7 +117,7 @@
       <WarningLevel>Level2</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm512 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm2000 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -132,6 +133,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalDependencies>iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/FORCE:multiple %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Bscmake>
@@ -152,8 +154,8 @@
     </Midl>
     <ClCompile>
       <Optimization>MinSpace</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.3.0;JUCE_APP_VERSION_HEX=0x50300;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\VST\JuceLibraryCode;..\..\..\..\Juce\modules;..\..\..\..\VST;../../../../Boost;../../../../Source/Lua;../../../../Source/Lua/luabind;../../../../Source/Lua/luabind/luabind;../../../../Source/Misc;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb;../../../../Source/Misc/include/lo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2010_C0EFDBDC=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -163,7 +165,7 @@
       <WarningLevel>Level2</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm512 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm2000 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -179,6 +181,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalDependencies>iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/FORCE:multiple %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Bscmake>
@@ -190,145 +193,68 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrFontManager.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrIDManager.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrLog.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManagerInstance.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManagerVst.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulator.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulatorProcessor.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelUndoManager.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrEvaluationScopes.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanel.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelFileOperations.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDIInputThread.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDISnapshot.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelProcessor.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResource.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResourceManager.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneApplication.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrFontManager.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrIDManager.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrLog.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrMasterClock.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrOSC.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrProperties.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrSysexProcessor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrSysexProcessorOwned.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrSysexToken.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrUpdateManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrUtilities.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneApplication.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Core\stdafx.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\CtrlrWrap.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFile.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBigInteger.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBorderSize.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LBubbleMessageComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LButton.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColour.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LColourGradient.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComboBox.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponentPeer.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LDrawable.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LExpression.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFile.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileListComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFileTreeComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LFont.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlobalFunctions.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGlyphArrangement.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGraphics.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LImage.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLine.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMidiMessage.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseCursor.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMouseEvent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPath.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPoint.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LPopupMenu.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRandom.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRange.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRectangle.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LRelativeCoordinate.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LResult.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSlider.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LSparseSet.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LString.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextButton.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTextEditor.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThread.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LThreadWithProgressWindow.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTime.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTimer.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LToggleButton.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LTypeface.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LURL.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValue.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaCustomComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaManager.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaModulator.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaMultiTimer.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaObject.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaObjectWrapper.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanel.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanelCanvas.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanelCanvasLayer.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanelEditor.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaBigInteger.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaComponentAnimator.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaFile.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaMemoryBlock.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaRectangle.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_info.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_registry.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\class_rep.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\create_class.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\error.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\exception_handler.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\function.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\inheritance.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\link_compatibility.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\object_rep.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\open.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\pcall.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\scope.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\stack_content_by_name.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\weak_ref.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\wrapper_base.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LAudio.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LComponents.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LCore.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LGraphics.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LJuce.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\JuceClasses\LMemory.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\luabind\src\luabind.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaCustomComponent.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaManager.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaModulator.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaMultiTimer.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaObject.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaObjectWrapper.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaOSC.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanel.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanelCanvas.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanelCanvasLayer.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanelEditor.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\address.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\blob.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\bundle.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\compat.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\core.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\darwin_usb.c"/>
@@ -342,14 +268,22 @@
     <ClCompile Include="..\..\..\..\Source\Misc\linux_udev.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\linux_usbfs.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\lua.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\message.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\method.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\pattern_match.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\poll_posix.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\poll_windows.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\send.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\server.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\server_thread.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\strerror.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\structs.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\sync.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\threads_posix.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\threads_windows.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\timetag.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\usb.c"/>
+    <ClCompile Include="..\..\..\..\Source\Misc\version.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\windows_usb.c"/>
     <ClCompile Include="..\..\..\..\Source\Native\CtrlrLinux.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Native\CtrlrMac.cpp"/>
@@ -357,7 +291,6 @@
     <ClCompile Include="..\..\..\..\Source\Native\CtrlrWindows.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Plugin\CtrlrProcessor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Plugin\CtrlrProcessorEditorForLive.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrAbout.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrDocumentPanel.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditorApplicationCommands.cpp"/>
@@ -365,17 +298,11 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditorApplicationCommandsMenus.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrLookAndFeel.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrSettings.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrCustomButtonInternal.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrHyperlink.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrImageButton.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrToggleButton.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrGroup.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrTabsComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Labels\CtrlrImage.cpp"/>
@@ -386,17 +313,20 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrImageSlider.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSlider.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrFileListBox.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrListBox.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrMidiKeyboard.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrWaveform.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrXYModulator.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrXYSurface.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Statics\CtrlrArrow.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniser.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodCodeEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodCodeEditorSettings.cpp"/>
@@ -411,15 +341,15 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditorTabs.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodFind.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDevices.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDialog.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsRouting.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvas.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvasHandlers.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvasLayer.cpp"/>
@@ -434,8 +364,7 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelResourceEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelUtilities.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelViewport.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrModulatorListProperty.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrBooleanPropertyComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrButtonPropertyComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrChoicePropertyComponent.cpp"/>
@@ -444,6 +373,7 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrFilePropertyComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrFontPropertyComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrLuaMethodProperty.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrModulatorListProperty.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrMultiMidiPropertyComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrPropertyComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSliderPropertyComponent.cpp"/>
@@ -451,16 +381,20 @@
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExFormulaEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExPropertyComponent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTextPropertyComponent.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrUnknownPropertyComponent.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrTextEditor.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrValueMap.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindow.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindowContainer.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindowContent.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrDialogWindow.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrManagerWindowManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrPanelWindowManager.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrAbout.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrTextEditor.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrValueMap.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.cpp"/>
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1594,27 +1528,21 @@
     <ClCompile Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrFontManager.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrIDManager.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrIDs.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilities.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrLog.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrMacros.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrMainPage.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManager.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrManager\CtrlrManagerVst.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulator.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrModulator\CtrlrModulatorProcessor.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelUndoManager.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrEvaluationScopes.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanel.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDIInputThread.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDISnapshot.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelProcessor.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResource.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResourceManager.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrFontManager.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrIDManager.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrIDs.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilities.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrLog.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrMacros.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrMainPage.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrMasterClock.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrOSC.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrProperties.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrRevision.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrSysexProcessor.h"/>
@@ -1622,16 +1550,21 @@
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrSysexToken.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrUpdateManager.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrUtilities.h"/>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\dxtrans.h"/>
-    <ClInclude Include="..\..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h"/>
     <ClInclude Include="..\..\..\..\Source\Core\stdafx.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaBigInteger.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaComponentAnimator.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaFile.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaMemoryBlock.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaRectangle.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAffineTransform.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAlertWindow.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAttributedString.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFile.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioFormat.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioSampleBuffer.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LAudioThumbnail.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LBigInteger.h"/>
@@ -1654,6 +1587,7 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LGraphics.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LImage.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LInputStream.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LJuce.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LJustification.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LKeyPress.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLabel.h"/>
@@ -1661,6 +1595,7 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LLookAndFeel.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryBlock.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMemoryInputStream.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiBuffer.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiKeyboardComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LMidiMessage.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LModifierKeys.h"/>
@@ -1690,29 +1625,9 @@
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LValueTree.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LXmlElement.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\JuceClasses\LZipFile.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaConverters.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaManager.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaMultiTimer.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObject.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObjectWrapper.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaBigInteger.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaComponentAnimator.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaFile.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaMemoryBlock.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\Deprecated\CtrlrLuaRectangle.h"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\adopt_policy.hpp"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\back_reference.hpp"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\back_reference_fwd.hpp"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\class.hpp"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\class_info.hpp"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\config.hpp"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\container_policy.hpp"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\copy_policy.hpp"/>
-    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\dependency_policy.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\calc_arity.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\call.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\call_0x.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\call_function.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\call_member.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\call_operator_iterate.hpp"/>
@@ -1730,6 +1645,7 @@
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\format_signature.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\garbage_collector.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\has_get_pointer.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\index_tuple.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\inheritance.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\instance_holder.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\is_indirect_const.hpp"/>
@@ -1753,6 +1669,15 @@
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\stack_utils.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\typetraits.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\detail\yes_no.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\adopt_policy.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\back_reference.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\back_reference_fwd.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\class.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\class_info.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\config.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\container_policy.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\copy_policy.hpp"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\dependency_policy.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\discard_result_policy.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\error.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\exception_handler.hpp"/>
@@ -1791,16 +1716,39 @@
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\yield_policy.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.h"/>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaAudioConverter.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaConverters.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaDebugger.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaManager.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaMultiTimer.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObject.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObjectWrapper.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaOSC.h"/>
+    <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.h"/>
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.h"/>
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorTypes.h"/>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h"/>
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_linux.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_cpp.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_endian.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_errors.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_internal.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_lowlevel.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_macros.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_osc_types.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_serverthread.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_throw.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_types.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_types_internal.h"/>
     <ClInclude Include="..\..\..\..\Source\Misc\include\compat.h"/>
     <ClInclude Include="..\..\..\..\Source\Misc\include\darwin_usb.h"/>
     <ClInclude Include="..\..\..\..\Source\Misc\include\enums.h"/>
@@ -1831,22 +1779,15 @@
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrWindows.h"/>
     <ClInclude Include="..\..\..\..\Source\Plugin\CtrlrProcessor.h"/>
     <ClInclude Include="..\..\..\..\Source\Plugin\CtrlrProcessorEditorForLive.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrAbout.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrDocumentPanel.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrEditor.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrLookAndFeel.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrApplicationWindow\CtrlrSettings.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrButton.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrCustomButtonInternal.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrHyperlink.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrImageButton.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrToggleButton.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrGroup.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Groups\CtrlrTabsComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Labels\CtrlrImage.h"/>
@@ -1857,17 +1798,20 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrImageSlider.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSlider.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Sliders\CtrlrSliderInternal.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrFileListBox.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrListBox.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrMidiKeyboard.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrProgressBar.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrWaveform.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrXYModulator.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Specials\CtrlrXYSurface.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\Statics\CtrlrArrow.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentRuntimeConfig.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniser.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaCodeTokeniserFunctions.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodCodeEditor.h"/>
@@ -1883,15 +1827,15 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodEditorTabs.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrLuaMethodFind.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\MethodEditor\CtrlrMethodEditorTabCloseButton.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIDeviceSelectionDialog.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizard.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrProgramWizardMonitor.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLua\CtrlrLuaConsole.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDevices.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDialog.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsRouting.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvas.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvasLayer.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelComponentProperties.h"/>
@@ -1904,8 +1848,7 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelResourceEditor.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelUtilities.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelViewport.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrModulatorListProperty.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPanel\CtrlrViewport.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrBooleanPropertyComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrButtonPropertyComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrChoicePropertyComponent.h"/>
@@ -1914,6 +1857,7 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrFilePropertyComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrFontPropertyComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrLuaMethodProperty.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrModulatorListProperty.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrMultiMidiPropertyComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrPropertyComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSliderPropertyComponent.h"/>
@@ -1921,16 +1865,20 @@
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExFormulaEditor.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrSysExPropertyComponent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTextPropertyComponent.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrTimestampProperty.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrPropertyEditors\CtrlrUnknownPropertyComponent.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrTextEditor.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrValueMap.h"/>
-    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindow.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindowContainer.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrChildWindowContent.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrDialogWindow.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrManagerWindowManager.h"/>
     <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrWindowManagers\CtrlrPanelWindowManager.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrAbout.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrComponentSelection.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrLogViewer.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrTextEditor.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrValueMap.h"/>
+    <ClInclude Include="..\..\..\..\Source\UIComponents\CtrlrValueTreeEditor.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>
@@ -2400,18 +2348,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Source\Core\CtrlrRevision.template"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\json.lua"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\LICENCE.txt"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\debugger.lua"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\LICENSE"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\README.md"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\test.lua"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.cpp.sh"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.h.sh"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeel.lua.sh"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\lf.template"/>
-    <None Include="..\..\..\..\Source\Resources\Lua\LookAndFeel.lua"/>
-    <None Include="..\..\..\..\Source\Resources\Misc\RSRC.zip"/>
+    <None Include="..\..\..\..\Source\Misc\include\lo\lo_endian.h.in"/>
+    <None Include="..\..\..\..\Source\Misc\include\lo\Makefile"/>
+    <None Include="..\..\..\..\Source\Misc\include\lo\Makefile.am"/>
+    <None Include="..\..\..\..\Source\Misc\include\lo\Makefile.in"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Computerfont.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digit.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digital-7.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_DottyShadow.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Electronic Highway Sign.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Invasion2000.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Karmatic Arcade.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Warenhaus-Standard.ttf"/>
+    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.ttf"/>
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.control.play.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.clean.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.restart.png"/>
@@ -2419,11 +2370,10 @@
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.step.out.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.step.over.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\appbar.debug.stop.png"/>
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_box.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_bug.png"/>
-    <None Include="..\..\..\..\Source\Resources\Icons\ico_ctrlr_mac.icns"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_copy.png"/>
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_ctrlr_mac.icns"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_cut.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_delete.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_document.png"/>
@@ -2455,27 +2405,36 @@
     <None Include="..\..\..\..\Source\Resources\Icons\ico_send.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_snapshot.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_snapshot_new.png"/>
+    <None Include="..\..\..\..\Source\Resources\Icons\ico_transaction.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_unit.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_unit_alt.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_unknown.png"/>
     <None Include="..\..\..\..\Source\Resources\Icons\ico_waveform.png"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Computerfont.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digit.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Digital-7.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_DottyShadow.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Electronic Highway Sign.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Invasion2000.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Karmatic Arcade.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_LCD.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_Warenhaus-Standard.ttf"/>
-    <None Include="..\..\..\..\Source\Resources\Fonts\FONT_ZX81.ttf"/>
     <None Include="..\..\..\..\Source\Resources\Images\tile.gif"/>
-    <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDITransactions.xml"/>
-    <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDIVendors.xml"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\debugger.lua"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\LICENSE"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\README.md"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\clidebugger\test.lua"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\json.lua"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\json4lua\LICENCE.txt"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.cpp.sh"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LLookAndFeel.h.sh"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeel.lua.sh"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeelBase.cpp.sh"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeelBase.h.sh"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeelParamWrapper-Lua-Member-Binding.sh"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\gen_LookAndFeelParamWrapper.h.sh"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\inspect.lua"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\lf.template"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\LookAndFeel.lua"/>
+    <None Include="..\..\..\..\Source\Resources\Lua\paramWrapper.template"/>
+    <None Include="..\..\..\..\Source\Resources\Misc\RSRC.zip"/>
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrIDs.xml"/>
+    <None Include="..\..\..\..\Source\Resources\XML\CtrlrLuaClassTemplates.xml"/>
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrLuaMethodTemplates.xml"/>
     <None Include="..\..\..\..\Source\Resources\XML\CtrlrMidiMultiTemplate.xml"/>
+    <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDITransactions.xml"/>
+    <None Include="..\..\..\..\Source\Resources\XML\CtrlrMIDIVendors.xml"/>
     <None Include="..\..\..\..\Juce\modules\juce_audio_basics\juce_module_info"/>
     <None Include="..\..\..\..\Juce\modules\juce_audio_devices\juce_module_info"/>
     <None Include="..\..\..\..\Juce\modules\juce_audio_formats\juce_module_info"/>
