@@ -772,32 +772,32 @@
   <id name="luaPanelMidiSnapshotPre"          text="Called before a MIDI snapshot is sent"                                    type="LuaMethod" />
   <id name="luaPanelMidiSnapshotPost"         text="Called after a MIDI snapshot has been sent"                               type="LuaMethod" />
 
-  <id name="luaTransProcess"		  text="Transaction process" 					type="LuaMethod" />
-  <id name="luaTransDataUnpack"		text="Transaction data unpacking" 			type="LuaMethod" />
-  <id name="luaTransDataPack"		  text="Transaction data packing" 			type="LuaMethod" />
-  <id name="luaTransRequest"		  text="Transaction request" 					type="LuaMethod" />
-  <id name="luaTransNameData"		  text="Transaction get name" 				type="LuaMethod" />
-  <id name="luaTransRequestData"	  text="Transaction get request data" 		type="LuaMethod" />
-  <id name="luaTransResponseData"	  text="Transaction get response data" 		type="LuaMethod" />
-  <id name="luaTransConfData"		    text="Transaction get confirmation data" 	type="LuaMethod" />
-  <id name="luaTransTimeout"		    text="Transaction timeout handler" 			type="LuaMethod" />
-  <id name="luaTransInfo"			      text="Transaction information query"		type="LuaMethod" />
-  <id name="luaCtrlrSaveState"      text="Called when Ctrlr state is saved (DAW saves a project)" type="LuaMethod" />
-  <id name="luaCtrlrRestoreState"   text="Called when Ctrlr is loaded (DAW opens a project)" type="LuaMethod" />
-  <id name="uiLuaConsoleInputRemoveAfterRun"    text="Clear console input after execute" type="Bool" />
+  <id name="luaTransProcess"		              text="Transaction process" 					type="LuaMethod" />
+  <id name="luaTransDataUnpack"		            text="Transaction data unpacking" 			type="LuaMethod" />
+  <id name="luaTransDataPack"		              text="Transaction data packing" 			type="LuaMethod" />
+  <id name="luaTransRequest"		              text="Transaction request" 					type="LuaMethod" />
+  <id name="luaTransNameData"		              text="Transaction get name" 				type="LuaMethod" />
+  <id name="luaTransRequestData"	            text="Transaction get request data" 		type="LuaMethod" />
+  <id name="luaTransResponseData"	            text="Transaction get response data" 		type="LuaMethod" />
+  <id name="luaTransConfData"		              text="Transaction get confirmation data" 	type="LuaMethod" />
+  <id name="luaTransTimeout"		              text="Transaction timeout handler" 			type="LuaMethod" />
+  <id name="luaTransInfo"			                text="Transaction information query"		type="LuaMethod" />
+  <id name="luaCtrlrSaveState"                text="Called when Ctrlr state is saved (DAW saves a project)" type="LuaMethod" />
+  <id name="luaCtrlrRestoreState"             text="Called when Ctrlr is loaded (DAW opens a project)" type="LuaMethod" />
+  <id name="uiLuaConsoleInputRemoveAfterRun"  text="Clear console input after execute" type="Bool" />
 
-  <id name="luaAudioProcessBlock"       text="AUDIO: main process block for the audio/midi thread" type="LuaMethod" />
+  <id name="luaAudioProcessBlock"             text="AUDIO: main process block for the audio/midi thread" type="LuaMethod" />
 
-  <id name="midiLibraryTreeState"     				text="Tree state"     												type="ReadOnly" />
-  <id name="midiLibraryCanGetItem"    				text="Can get item"   												type="Bool" />
-  <id name="midiLibraryCanSendItem"   				text="Can send item"  												type="Bool" />
-  <id name="midiLibraryAllProgramsSupport"  		text="Device supports sending all program data in one request"  	type="Bool" />
-  <id name="midiLibrarySendSnapAfterPChg"			text="Send MIDI snapshot after changing programs" 					type="Bool" />
-  <id name="midiLibraryParameterIndexProperty"		text="What property holds the parameter index in the dump data" 	type="Text" />
-  <id name="midiLibraryMidiProgramChangeControl"	text="Send MIDI program change event after changing the program" 	type="Bool" />
-  <id name="midiLibraryDefaultBankName"				text="Default bank name (This uses the C strftime)"					type="Text" />
-  <id name="midiLibraryDefaultProgramName"			text="Default bank name (This uses the C strftime)"					type="Text" />
-  <id name="midiLibraryDefaultSnapshotName"       	text="Default snapshot name (This uses the C strftime)"				type="Text" />
+  <id name="midiLibraryTreeState"     				    text="Tree state"     												type="ReadOnly" />
+  <id name="midiLibraryCanGetItem"    				    text="Can get item"   												type="Bool" />
+  <id name="midiLibraryCanSendItem"   				    text="Can send item"  												type="Bool" />
+  <id name="midiLibraryAllProgramsSupport"  	    text="Device supports sending all program data in one request"  	type="Bool" />
+  <id name="midiLibrarySendSnapAfterPChg"			    text="Send MIDI snapshot after changing programs" 					type="Bool" />
+  <id name="midiLibraryParameterIndexProperty"	  text="What property holds the parameter index in the dump data" 	type="Text" />
+  <id name="midiLibraryMidiProgramChangeControl"  text="Send MIDI program change event after changing the program" 	type="Bool" />
+  <id name="midiLibraryDefaultBankName"				    text="Default bank name (This uses the C strftime)"					type="Text" />
+  <id name="midiLibraryDefaultProgramName"			  text="Default bank name (This uses the C strftime)"					type="Text" />
+  <id name="midiLibraryDefaultSnapshotName"       text="Default snapshot name (This uses the C strftime)"				type="Text" />
   <id name="midiLibraryCustomRequests"  	        text="Custom request to add to the menu bar"                      	type="MultiLine" />
 
 	<!-- Transaction -->

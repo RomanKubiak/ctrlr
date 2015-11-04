@@ -51,74 +51,18 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 		luaAudioFormatManager(nullptr),
 		ctrlrLuaDebugger(nullptr),
 		utils(nullptr),
-		audioConverter(nullptr)
+		audioConverter(nullptr),
+		luaStateAudio(nullptr),
+		luaState(nullptr)
 {
 	if ((bool)owner.getCtrlrManagerOwner().getProperty (Ids::ctrlrLuaDisabled))
 	{
 		_INF("CtrlrLuaManager::ctor, lua is disabled");
+		return;
 	}
 
-	luaState = lua_open();
-
-    lua_pushcfunction(luaState, luaopen_base);
-    lua_pushliteral(luaState, "base");
-    _INF("CtrlrLuaManager::ctor luaopen_base");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_table);
-    _INF("CtrlrLuaManager::ctor luaopen_table");
-    lua_pushliteral(luaState, "table");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_string);
-    _INF("CtrlrLuaManager::ctor luaopen_string");
-    lua_pushliteral(luaState, "string");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_math);
-    _INF("CtrlrLuaManager::ctor luaopen_math");
-    lua_pushliteral(luaState, "math");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_io);
-    _INF("CtrlrLuaManager::ctor luaopen_io");
-    lua_pushliteral(luaState, "io");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_debug);
-    _INF("CtrlrLuaManager::ctor luaopen_debug");
-    lua_pushliteral(luaState, "debug");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_package);
-    _INF("CtrlrLuaManager::ctor luaopen_package");
-    lua_pushliteral(luaState, "package");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_os);
-    _INF("CtrlrLuaManager::ctor luaopen_os");
-    lua_pushliteral(luaState, "os");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_bit);
-    _INF("CtrlrLuaManager::ctor luaopen_bit");
-    lua_pushliteral(luaState, "bit");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_usb);
-    _INF("CtrlrLuaManager::ctor luaopen_usb");
-    lua_pushliteral(luaState, "usb");
-    lua_call(luaState, 1, 0);
-
-	using namespace luabind;
-
-	_INF("CtrlrLuaManager::ctor luabind open");
-    open(luaState);
-
-    _INF("CtrlrLuaManager::ctor luabind bind_class_info");
-	luabind::bind_class_info(luaState);
-
-	set_pcall_callback (add_file_and_line);
+	createLuaState();
+	createLuaStateAudio();
 
 	luaManagerTree.addListener (this);
 
@@ -127,17 +71,18 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 	luaAudioFormatManager	= new LAudioFormatManager();
 	audioConverter			= new CtrlrLuaAudioConverter();
 	utils					= new CtrlrLuaUtils();
-	{
-		createAudioThreadState();
-		LGlobalFunctions::wrapForLua(luaState);
-		wrapCore (luaState);
-		wrapJuceClasses (luaState);
-		wrapCtrlrClasses (luaState);
-	}
 
-	{
-		assignDefaultObjects (luaState);
-	}
+	LGlobalFunctions::wrapForLua(luaState);
+	LGlobalFunctions::wrapForLua(luaStateAudio);
+
+	wrapCore(luaState);
+	wrapJuceClasses(luaState);
+
+	wrapCore(luaStateAudio);
+	wrapJuceClasses(luaStateAudio);
+
+	wrapCtrlrClasses(luaState);
+	assignDefaultObjects(luaState);
 
     ctrlrLuaDebugger        = new CtrlrLuaDebugger (*this);
 
@@ -153,11 +98,123 @@ CtrlrLuaManager::~CtrlrLuaManager()
 	deleteAndZero (multiTimer);
 	deleteAndZero (luaAudioFormatManager);
 	lua_close(luaState);
+	lua_close(luaStateAudio);
 	deleteAndZero (ctrlrLuaDebugger);
 }
 
-void CtrlrLuaManager::createAudioThreadState()
+void CtrlrLuaManager::createLuaState()
 {
+	luaState 		= lua_open();
+
+    lua_pushcfunction(luaState, luaopen_base);
+    lua_pushliteral(luaState, "base");
+    _INF("CtrlrLuaManager::createLuaState luaopen_base");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_table);
+    _INF("CtrlrLuaManager::createLuaState luaopen_table");
+    lua_pushliteral(luaState, "table");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_string);
+    _INF("CtrlrLuaManager::createLuaState luaopen_string");
+    lua_pushliteral(luaState, "string");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_math);
+    _INF("CtrlrLuaManager::createLuaState luaopen_math");
+    lua_pushliteral(luaState, "math");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_io);
+    _INF("CtrlrLuaManager::createLuaState luaopen_io");
+    lua_pushliteral(luaState, "io");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_debug);
+    _INF("CtrlrLuaManager::createLuaState luaopen_debug");
+    lua_pushliteral(luaState, "debug");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_package);
+    _INF("CtrlrLuaManager::createLuaState luaopen_package");
+    lua_pushliteral(luaState, "package");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_os);
+    _INF("CtrlrLuaManager::createLuaState luaopen_os");
+    lua_pushliteral(luaState, "os");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_bit);
+    _INF("CtrlrLuaManager::createLuaState luaopen_bit");
+    lua_pushliteral(luaState, "bit");
+    lua_call(luaState, 1, 0);
+
+    lua_pushcfunction(luaState, luaopen_usb);
+    _INF("CtrlrLuaManager::createLuaState luaopen_usb");
+    lua_pushliteral(luaState, "usb");
+    lua_call(luaState, 1, 0);
+
+	using namespace luabind;
+
+	_INF("CtrlrLuaManager::createLuaState luabind open");
+    open(luaState);
+
+    _INF("CtrlrLuaManager::createLuaState luabind bind_class_info");
+	luabind::bind_class_info(luaState);
+
+	set_pcall_callback (add_file_and_line);
+}
+
+void CtrlrLuaManager::createLuaStateAudio()
+{
+	luaStateAudio 		= lua_open();
+
+    lua_pushcfunction(luaStateAudio, luaopen_base);
+    lua_pushliteral(luaStateAudio, "base");
+    _INF("CtrlrLuaManager::createLuaStateAudio luaopen_base");
+    lua_call(luaStateAudio, 1, 0);
+
+    lua_pushcfunction(luaStateAudio, luaopen_table);
+    _INF("CtrlrLuaManager::createLuaStateAudio luaopen_table");
+    lua_pushliteral(luaStateAudio, "table");
+    lua_call(luaStateAudio, 1, 0);
+
+    lua_pushcfunction(luaStateAudio, luaopen_string);
+    _INF("CtrlrLuaManager::createLuaStateAudio luaopen_string");
+    lua_pushliteral(luaStateAudio, "string");
+    lua_call(luaStateAudio, 1, 0);
+
+    lua_pushcfunction(luaStateAudio, luaopen_math);
+    _INF("CtrlrLuaManager::createLuaStateAudio luaopen_math");
+    lua_pushliteral(luaStateAudio, "math");
+    lua_call(luaStateAudio, 1, 0);
+
+    lua_pushcfunction(luaStateAudio, luaopen_debug);
+    _INF("CtrlrLuaManager::createLuaStateAudio luaopen_debug");
+    lua_pushliteral(luaStateAudio, "debug");
+    lua_call(luaStateAudio, 1, 0);
+
+    lua_pushcfunction(luaStateAudio, luaopen_package);
+    _INF("CtrlrLuaManager::createLuaStateAudio luaopen_package");
+    lua_pushliteral(luaStateAudio, "package");
+    lua_call(luaStateAudio, 1, 0);
+
+    lua_pushcfunction(luaStateAudio, luaopen_bit);
+    _INF("CtrlrLuaManager::createLuaStateAudio luaopen_bit");
+    lua_pushliteral(luaStateAudio, "bit");
+    lua_call(luaStateAudio, 1, 0);
+
+    using namespace luabind;
+
+	_INF("CtrlrLuaManager::createLuaStateAudio luabind open luaStateAudio");
+    open(luaStateAudio);
+
+    _INF("CtrlrLuaManager::createLuaStateAudio luabind bind_class_info luaStateAudio");
+	luabind::bind_class_info(luaStateAudio);
+
+	set_pcall_callback (add_file_and_line);
 }
 
 CtrlrLuaMethodManager &CtrlrLuaManager::getMethodManager()

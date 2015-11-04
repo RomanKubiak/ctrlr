@@ -652,6 +652,20 @@
     end
   </luaMethod>
 
+  <luaMethod name="luaAudioProcessBlock">
+    --
+    -- Called on the audio thread, can't access any
+    -- panel/modulator/component properties or objects
+    -- this is only for MIDI data processing
+    --
+    -- @midiData midi data coming from the plugin host
+    -- @position sample accurate position, midi events in the buffer will
+    --           be timestamped according to this data
+    --
+    __method_name = function(--[[ MidiBuffer --]] midiData, --[[ AudioProcessor::CurrentPositionInfo --]] position)
+    end
+  </luaMethod>
+
   <luaMethod name="LookAndFeel" resource="LookAndFeel_lua">
   </luaMethod>
 

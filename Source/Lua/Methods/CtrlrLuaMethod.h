@@ -41,9 +41,8 @@ class CtrlrLuaMethod : public ValueTree::Listener
 		CtrlrLuaObjectWrapper &getObject();
 		bool isValid() const;
 		void setValid (const bool _methodIsValid);
-
 		void remove();
-		ValueTree &getMethodTree()								{ return (methodTree); }
+		ValueTree &getMethodTree()											{ return (methodTree); }
 		Uuid getUuid();
 		const String getCode();
 		const AttributedString getLastError()								{ return (errorString); }
