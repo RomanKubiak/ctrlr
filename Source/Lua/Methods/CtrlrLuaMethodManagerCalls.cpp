@@ -865,7 +865,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const ValueTree &param
 	return (true);
 }
 
-const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, MidiBuffer &param1, const AudioPlayHead::CurrentPositionInfo &param2)
+const bool CtrlrLuaMethodManager::callAudio(CtrlrLuaMethod *o, MidiBuffer &param1, const AudioPlayHead::CurrentPositionInfo &param2)
 {
     const ScopedLock sl(methodManagerCriticalSection);
 

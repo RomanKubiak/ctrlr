@@ -91,11 +91,8 @@ CtrlrPanel &CtrlrPanelProcessor::getOwner()
 
 void CtrlrPanelProcessor::processLua(MidiBuffer &midiMessages, const AudioPlayHead::CurrentPositionInfo &info)
 {
-    if (luaAudioProcessBlockCbk && !luaAudioProcessBlockCbk.wasObjectDeleted())
+    if (luaAudioProcessBlockCbk && luaAudioProcessBlockCbk->isValid())
 	{
-		if (luaAudioProcessBlockCbk->isValid())
-		{
-		    owner.getCtrlrLuaManager().getMethodManager().call (luaAudioProcessBlockCbk, midiMessages, info);
-		}
+		owner.getCtrlrLuaManager().getMethodManager().callAudio(luaAudioProcessBlockCbk, midiMessages, info);
 	}
 }

@@ -50,7 +50,10 @@ void CtrlrModulatorProcessor::handleAsyncUpdate()
 	{
 		if (valueChangedCbk->isValid())
 		{
-			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (valueChangedCbk, &owner, currentValue.value, (uint8)currentValue.lastChangeSource);
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (valueChangedCbk,
+																				&owner,
+																				currentValue.value,
+																				(uint8)currentValue.lastChangeSource);
 		}
 	}
 

@@ -124,7 +124,7 @@ lua_State *CtrlrLuaMethod::getLuaState()
 {
 	if (isAudioThreadMethod())
 	{
-		return(owner.getOwner().getAudioThreadLuaState());
+		return(owner.getOwner().getLuaStateAudio());
 	}
 
 	return(owner.getOwner().getLuaState());

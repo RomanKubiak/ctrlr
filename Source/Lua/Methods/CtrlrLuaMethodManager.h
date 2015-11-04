@@ -107,15 +107,17 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		const bool call(CtrlrLuaMethod *o, ValueTree &param1);
 		const bool call(CtrlrLuaMethod *o, MidiBuffer *param1);
 		const bool call(CtrlrLuaMethod *o, const ValueTree &param1);
-		const bool call(CtrlrLuaMethod *o, MidiBuffer &param1, const AudioPlayHead::CurrentPositionInfo &param2);
 		const bool call(CtrlrLuaMethod *o, const String &param1, const String &param2, luabind::object const &param3);
-		int callWithRet(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, DragAndDropSourceDetails param2);
 
+		int callWithRet(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, DragAndDropSourceDetails param2);
 		int callWithRet(CtrlrLuaMethod *o, ValueTree valueTree1, ValueTree valueTree2);
 		int callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1, const int param2);
 		int callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1, const CtrlrMidiMessage &param2, const int param3);
+
 		DragAndDropSourceDetails callWithRet (CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const MouseEvent &param2);
         String callWithRetString(CtrlrLuaMethod *o, CtrlrCustomComponent *param1);
+
+		const bool callAudio(CtrlrLuaMethod *o, MidiBuffer &param1, const AudioPlayHead::CurrentPositionInfo &param2);
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMethodManager)
 

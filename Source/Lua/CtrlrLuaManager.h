@@ -51,12 +51,13 @@ class CtrlrLuaManager : public ValueTree::Listener
 		void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& child, int){}
 		void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int){}
 		static void log(const String &message);
-		void createAudioThreadState();
+		void createLuaState();
+		void createLuaStateAudio();
 
 		void restoreState (const ValueTree &savedState);
 		const String getLastError()							{ return (lastError); }
 		lua_State *getLuaState()							{ return (luaState); }
-		lua_State *getAudioThreadLuaState()					{ return (audioThreadState); }
+		lua_State *getLuaStateAudio()						{ return (luaStateAudio); }
 
 		const bool isRestoring();
 		CtrlrPanel &getOwner()								{ return (owner); }
@@ -71,7 +72,7 @@ class CtrlrLuaManager : public ValueTree::Listener
 		File scriptsDir;
 		File importersDir;
 		CtrlrPanel &owner;
-		lua_State* luaState, *audioThreadState;
+		lua_State* luaState, *luaStateAudio;
 		CtrlrLuaUtils *utils;
 		CtrlrLuaMultiTimer *multiTimer;
 		CtrlrLuaAudioConverter *audioConverter;
