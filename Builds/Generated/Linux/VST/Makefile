@@ -69,6 +69,17 @@ ifeq ($(CONFIG),Release_Nightly)
 endif
 
 OBJECTS := \
+  $(OBJDIR)/CtrlrEvaluationScopes_156ffc41.o \
+  $(OBJDIR)/CtrlrPanel_bc84f48.o \
+  $(OBJDIR)/CtrlrPanelFileOperations_281288b0.o \
+  $(OBJDIR)/CtrlrPanelMIDIInputThread_483dbcd5.o \
+  $(OBJDIR)/CtrlrPanelMIDISnapshot_fe24244d.o \
+  $(OBJDIR)/CtrlrPanelOSC_d70b84a1.o \
+  $(OBJDIR)/CtrlrPanelProcessor_e852def4.o \
+  $(OBJDIR)/CtrlrPanelResource_d3aa6d76.o \
+  $(OBJDIR)/CtrlrPanelResourceManager_36b815e1.o \
+  $(OBJDIR)/CtrlrPanelSchemeMigration_8da0e0cb.o \
+  $(OBJDIR)/CtrlrPanelUndoManager_d8053dcb.o \
   $(OBJDIR)/CtrlrManager_ea5c8368.o \
   $(OBJDIR)/CtrlrManagerInstance_3849b69d.o \
   $(OBJDIR)/CtrlrManagerVst_43428ed9.o \
@@ -151,7 +162,6 @@ OBJECTS := \
   $(OBJDIR)/poll_windows_7e84da07.o \
   $(OBJDIR)/send_8b3ce94c.o \
   $(OBJDIR)/server_b7920e87.o \
-  $(OBJDIR)/server_thread_a53b7a0c.o \
   $(OBJDIR)/strerror_5e4de4fb.o \
   $(OBJDIR)/structs_4f124184.o \
   $(OBJDIR)/sync_8c56bb9f.o \
@@ -305,6 +315,61 @@ clean:
 strip:
 	@echo Stripping Ctrlr_Plugin_VST
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
+
+$(OBJDIR)/CtrlrEvaluationScopes_156ffc41.o: ../../../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrEvaluationScopes.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanel_bc84f48.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanel.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanel.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelFileOperations_281288b0.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelFileOperations.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelFileOperations.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelMIDIInputThread_483dbcd5.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelMIDIInputThread.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelMIDISnapshot_fe24244d.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelMIDISnapshot.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelOSC_d70b84a1.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelOSC.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelOSC.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelProcessor_e852def4.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelProcessor.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelResource_d3aa6d76.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelResource.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelResource.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelResourceManager_36b815e1.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelResourceManager.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelResourceManager.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelSchemeMigration_8da0e0cb.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelSchemeMigration.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelSchemeMigration.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrPanelUndoManager_d8053dcb.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrPanelUndoManager.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrManager_ea5c8368.o: ../../../../Source/Core/CtrlrManager/CtrlrManager.cpp
 	-@mkdir -p $(OBJDIR)
@@ -714,11 +779,6 @@ $(OBJDIR)/send_8b3ce94c.o: ../../../../Source/Misc/send.c
 $(OBJDIR)/server_b7920e87.o: ../../../../Source/Misc/server.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling server.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/server_thread_a53b7a0c.o: ../../../../Source/Misc/server_thread.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling server_thread.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/strerror_5e4de4fb.o: ../../../../Source/Misc/strerror.c

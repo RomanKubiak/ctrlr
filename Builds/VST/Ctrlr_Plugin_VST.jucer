@@ -166,6 +166,47 @@
   </EXPORTFORMATS>
   <MAINGROUP id="wm289X" name="Ctrlr_Plugin_VST">
     <GROUP id="{99978006-965B-2B18-342A-84582811419C}" name="Core">
+      <GROUP id="{DF5834CD-B260-AA10-1C7B-BF2038384B66}" name="CtrlrPanel">
+        <FILE id="frpCXw" name="CtrlrEvaluationScopes.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.cpp"/>
+        <FILE id="RxviFK" name="CtrlrEvaluationScopes.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.h"/>
+        <FILE id="cwc85Z" name="CtrlrPanel.cpp" compile="1" resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanel.cpp"/>
+        <FILE id="wFDBTT" name="CtrlrPanel.h" compile="0" resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanel.h"/>
+        <FILE id="Z0j5Ko" name="CtrlrPanelFileOperations.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelFileOperations.cpp"/>
+        <FILE id="TMoqVE" name="CtrlrPanelMIDIInputThread.cpp" compile="1"
+              resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.cpp"/>
+        <FILE id="Qz5igx" name="CtrlrPanelMIDIInputThread.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.h"/>
+        <FILE id="pPIwxZ" name="CtrlrPanelMIDISnapshot.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp"/>
+        <FILE id="zSlpUT" name="CtrlrPanelMIDISnapshot.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.h"/>
+        <FILE id="D3QnGw" name="CtrlrPanelOSC.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelOSC.cpp"/>
+        <FILE id="Cu3TXX" name="CtrlrPanelOSC.h" compile="0" resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanelOSC.h"/>
+        <FILE id="qMzdJ8" name="CtrlrPanelProcessor.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.cpp"/>
+        <FILE id="i8E8ZW" name="CtrlrPanelProcessor.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.h"/>
+        <FILE id="E5dtHH" name="CtrlrPanelResource.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelResource.cpp"/>
+        <FILE id="lzc7oO" name="CtrlrPanelResource.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelResource.h"/>
+        <FILE id="WRabJs" name="CtrlrPanelResourceManager.cpp" compile="1"
+              resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanelResourceManager.cpp"/>
+        <FILE id="pjAGKO" name="CtrlrPanelResourceManager.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelResourceManager.h"/>
+        <FILE id="b8g05R" name="CtrlrPanelSchemeMigration.cpp" compile="1"
+              resource="0" file="../../Source/Core/CtrlrPanel/CtrlrPanelSchemeMigration.cpp"/>
+        <FILE id="JSZ5TL" name="CtrlrPanelSchemeMigration.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelSchemeMigration.h"/>
+        <FILE id="sw7eep" name="CtrlrPanelUndoManager.cpp" compile="1" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.cpp"/>
+        <FILE id="WcvJFB" name="CtrlrPanelUndoManager.h" compile="0" resource="0"
+              file="../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.h"/>
+      </GROUP>
       <GROUP id="{625F9B83-210F-E34F-8586-F880A0354F28}" name="CtrlrManager">
         <FILE id="LrC5AU" name="CtrlrManager.cpp" compile="1" resource="0"
               file="../../Source/Core/CtrlrManager/CtrlrManager.cpp"/>
@@ -607,6 +648,8 @@
     <GROUP id="{0D293395-B616-18D7-D7C0-A8BECB02051A}" name="Misc">
       <GROUP id="{E8D71461-9A85-E7B8-8A27-99CD4107B7B1}" name="include">
         <GROUP id="{7F348ADD-B158-6927-6999-56422CAC66F4}" name="lo">
+          <FILE id="Ypv3ly" name="lo_config_win32.h" compile="0" resource="0"
+                file="../../Source/Misc/include/lo/lo_config_win32.h"/>
           <FILE id="sCbJAO" name="lo.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo.h"/>
           <FILE id="ZdR4PF" name="lo_config_linux.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_config_linux.h"/>
@@ -679,7 +722,6 @@
       <FILE id="VqP4K7" name="poll_windows.c" compile="1" resource="0" file="../../Source/Misc/poll_windows.c"/>
       <FILE id="mt4Qhz" name="send.c" compile="1" resource="0" file="../../Source/Misc/send.c"/>
       <FILE id="FauKrl" name="server.c" compile="1" resource="0" file="../../Source/Misc/server.c"/>
-      <FILE id="r8AphL" name="server_thread.c" compile="1" resource="0" file="../../Source/Misc/server_thread.c"/>
       <FILE id="GSMZJx" name="strerror.c" compile="1" resource="0" file="../../Source/Misc/strerror.c"/>
       <FILE id="hi3Sev" name="structs.c" compile="1" resource="0" file="../../Source/Misc/structs.c"/>
       <FILE id="eryDZc" name="sync.c" compile="1" resource="0" file="../../Source/Misc/sync.c"/>
