@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the juce_core module of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission to use, copy, modify, and/or distribute this software for any purpose with
    or without fee is hereby granted, provided that the above copyright notice and this
@@ -49,7 +49,7 @@ public:
     virtual int toInt (const ValueUnion&) const noexcept                        { return 0; }
     virtual int64 toInt64 (const ValueUnion&) const noexcept                    { return 0; }
     virtual double toDouble (const ValueUnion&) const noexcept                  { return 0; }
-    virtual String toString (const ValueUnion&) const                           { return String::empty; }
+    virtual String toString (const ValueUnion&) const                           { return String(); }
     virtual bool toBool (const ValueUnion&) const noexcept                      { return false; }
     virtual ReferenceCountedObject* toObject (const ValueUnion&) const noexcept { return nullptr; }
     virtual Array<var>* toArray (const ValueUnion&) const noexcept              { return nullptr; }
@@ -274,7 +274,7 @@ public:
     }
 
     String toString (const ValueUnion& data) const override                            { return "Object 0x" + String::toHexString ((int) (pointer_sized_int) data.objectValue); }
-    bool toBool (const ValueUnion& data) const noexcept override                       { return data.objectValue != 0; }
+    bool toBool (const ValueUnion& data) const noexcept override                       { return data.objectValue != nullptr; }
     ReferenceCountedObject* toObject (const ValueUnion& data) const noexcept override  { return data.objectValue; }
     bool isObject() const noexcept override                                            { return true; }
 
@@ -576,7 +576,7 @@ var var::clone() const noexcept
 }
 
 //==============================================================================
-const var& var::operator[] (Identifier propertyName) const
+const var& var::operator[] (const Identifier& propertyName) const
 {
     if (DynamicObject* const o = getDynamicObject())
         return o->getProperty (propertyName);
@@ -589,7 +589,7 @@ const var& var::operator[] (const char* const propertyName) const
     return operator[] (Identifier (propertyName));
 }
 
-var var::getProperty (const Identifier propertyName, const var& defaultReturnValue) const
+var var::getProperty (const Identifier& propertyName, const var& defaultReturnValue) const
 {
     if (DynamicObject* const o = getDynamicObject())
         return o->getProperties().getWithDefault (propertyName, defaultReturnValue);
@@ -602,7 +602,7 @@ var::NativeFunction var::getNativeFunction() const
     return isMethod() ? value.methodValue : nullptr;
 }
 
-var var::invoke (Identifier method, const var* arguments, int numArguments) const
+var var::invoke (const Identifier& method, const var* arguments, int numArguments) const
 {
     if (DynamicObject* const o = getDynamicObject())
         return o->invokeMethod (method, var::NativeFunctionArgs (*this, arguments, numArguments));
@@ -610,35 +610,35 @@ var var::invoke (Identifier method, const var* arguments, int numArguments) cons
     return var();
 }
 
-var var::call (const Identifier method) const
+var var::call (const Identifier& method) const
 {
     return invoke (method, nullptr, 0);
 }
 
-var var::call (const Identifier method, const var& arg1) const
+var var::call (const Identifier& method, const var& arg1) const
 {
     return invoke (method, &arg1, 1);
 }
 
-var var::call (const Identifier method, const var& arg1, const var& arg2) const
+var var::call (const Identifier& method, const var& arg1, const var& arg2) const
 {
     var args[] = { arg1, arg2 };
     return invoke (method, args, 2);
 }
 
-var var::call (const Identifier method, const var& arg1, const var& arg2, const var& arg3)
+var var::call (const Identifier& method, const var& arg1, const var& arg2, const var& arg3)
 {
     var args[] = { arg1, arg2, arg3 };
     return invoke (method, args, 3);
 }
 
-var var::call (const Identifier method, const var& arg1, const var& arg2, const var& arg3, const var& arg4) const
+var var::call (const Identifier& method, const var& arg1, const var& arg2, const var& arg3, const var& arg4) const
 {
     var args[] = { arg1, arg2, arg3, arg4 };
     return invoke (method, args, 4);
 }
 
-var var::call (const Identifier method, const var& arg1, const var& arg2, const var& arg3, const var& arg4, const var& arg5) const
+var var::call (const Identifier& method, const var& arg1, const var& arg2, const var& arg3, const var& arg4, const var& arg5) const
 {
     var args[] = { arg1, arg2, arg3, arg4, arg5 };
     return invoke (method, args, 5);

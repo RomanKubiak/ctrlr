@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -246,15 +246,6 @@ public:
     */
     Colour getColourForTokenType (int tokenType) const;
 
-    /** Marks a line so that it's diftinguished in the gutter component */
-    void setMarkedLine (int lineNumber, bool shouldBeMarked = true);
-
-    /** Get a range of all currently marked lines */
-    Array<int> getMarkedLines() const;
-
-    /** Toggle a marked line */
-    void toggleLineMark(int lineNumber);
-
     //==============================================================================
     /** A set of colour IDs to use to change the colour of various aspects of the editor.
 
@@ -270,8 +261,6 @@ public:
         defaultTextColourId         = 0x1004503,  /**< The colour to use for text when no syntax colouring is enabled. */
         lineNumberBackgroundId      = 0x1004504,  /**< The colour to use for filling the background of the line-number gutter. */
         lineNumberTextId            = 0x1004505,  /**< The colour to use for drawing the line numbers. */
-        markedLineNumberBackroundId = 0x1004506,  /**< The colour to use for fillin the background of marked line-numbers gutter. */
-        markedLineNumberTextId      = 0x1004507   /**< The colour to use for drawing the marked line numbers. */
     };
 
     //==============================================================================
@@ -288,8 +277,10 @@ public:
     virtual void handleTabKey();
     /** Called when the escape key is pressed - this can be overridden for custom behaviour. */
     virtual void handleEscapeKey();
-    /** Called when the list of marked lines changes. */
-    virtual void markedLinesChanged(int lineNumber, bool isNowMarked);
+
+    /** Called when the view position is scrolled horizontally or vertically. */
+    virtual void editorViewportPositionChanged();
+
     //==============================================================================
     /** This adds the items to the popup menu.
 
@@ -378,7 +369,6 @@ private:
     int scrollbarThickness, columnToTryToMaintain;
     bool readOnly, useSpacesForTabs, showLineNumbers, shouldFollowDocumentChanges;
     double xOffset;
-    Array<int> markedLines;
 
     CodeDocument::Position caretPos, selectionStart, selectionEnd;
 

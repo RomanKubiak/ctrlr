@@ -31,8 +31,10 @@ void CtrlrManagerVst::set(CtrlrModulator *mod, const int idx)
 		return;
 	}
 
-    if (isAlreadyIndexed(mod) && idx == 0)
-       return;
+    if (isAlreadyIndexed(mod) && idx == -1)
+	{
+		return;
+	}
 
 	removeIfAlreadyThere (mod);
 	vstIndexes.addUsingDefaultSort (idx);
@@ -69,14 +71,21 @@ CtrlrModulator *CtrlrManagerVst::get(const int idx)
 	CtrlrVstMapIterator it = map.find (idx);
 
 	if (it != map.end())
+	{
 		return (it->second);
+	}
 	else
+	{
 		return (nullptr);
+	}
 }
 
 int CtrlrManagerVst::getFirstFree()
 {
     /* kamder fix */
+    if (vstIndexes.size() == 0)
+		return (0);
+
 	return (vstIndexes.getLast() + 1);
 }
 

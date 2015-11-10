@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -23,6 +23,15 @@
 */
 
 extern bool isIOSAppActive;
+
+struct AppInactivityCallback // NB: careful, this declaration is duplicated in other modules
+{
+    virtual ~AppInactivityCallback() {}
+    virtual void appBecomingInactive() = 0;
+};
+
+// This is an internal list of callbacks (but currently used between modules)
+Array<AppInactivityCallback*> appBecomingInactiveCallbacks;
 
 } // (juce namespace)
 
@@ -89,6 +98,9 @@ extern bool isIOSAppActive;
 {
     ignoreUnused (application);
     isIOSAppActive = false;
+
+    for (int i = appBecomingInactiveCallbacks.size(); --i >= 0;)
+        appBecomingInactiveCallbacks.getReference(i)->appBecomingInactive();
 }
 
 @end

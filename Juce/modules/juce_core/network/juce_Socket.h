@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the juce_core module of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission to use, copy, modify, and/or distribute this software for any purpose with
    or without fee is hereby granted, provided that the above copyright notice and this
@@ -64,6 +64,18 @@ public:
                     on the same port
     */
     bool bindToPort (int localPortNumber);
+
+    /** Binds the socket to the specified local port and local address.
+
+        If localAddress is not an empty string then the socket will be bound to localAddress
+        as well. This is useful if you would like to bind your socket to a specific network
+        adapter. Note that localAddress must be an IP address assigned to one of your
+        network address otherwise this function will fail.
+        @returns    true on success; false may indicate that another socket is already bound
+                    on the same port
+        @see bindToPort(int localPortNumber), IPAddress::findAllAddresses
+    */
+    bool bindToPort (int localPortNumber, const String& localAddress);
 
     /** Returns the local port number to which this socket is currently bound.
 
@@ -218,6 +230,18 @@ public:
     */
     bool bindToPort (int localPortNumber);
 
+    /** Binds the socket to the specified local port and local address.
+
+        If localAddress is not an empty string then the socket will be bound to localAddress
+        as well. This is useful if you would like to bind your socket to a specific network
+        adapter. Note that localAddress must be an IP address assigned to one of your
+        network address otherwise this function will fail.
+        @returns    true on success; false may indicate that another socket is already bound
+                    on the same port
+        @see bindToPort(int localPortNumber), IPAddress::findAllAddresses
+    */
+    bool bindToPort (int localPortNumber, const String& localAddress);
+
     /** Returns the local port number to which this socket is currently bound.
 
         This is useful if you need to know to which port the OS has actually bound your
@@ -282,11 +306,49 @@ public:
     int write (const String& remoteHostname, int remotePortNumber,
                const void* sourceBuffer, int numBytesToWrite);
 
+    /** Closes the underlying socket object.
+
+        Closes the underlying socket object and aborts any read or write operations.
+        Note that all other methods will return an error after this call. This
+        method is useful if another thread is blocking in a read/write call and you
+        would like to abort the read/write thread. Simply deleting the socket
+        object without calling shutdown may cause a race-condition where the read/write
+        returns just before the socket is deleted and the subsequent read/write would
+        try to read from an invalid pointer. By calling shutdown first, the socket
+        object remains valid but all current and subsequent calls to read/write will
+        return immediately.
+    */
+    void shutdown();
+
+    //==============================================================================
+    /** Join a multicast group
+
+        @returns true if it succeeds.
+    */
+    bool joinMulticast (const String& multicastIPAddress);
+
+    /** Leave a multicast group
+
+        @returns true if it succeeds.
+    */
+    bool leaveMulticast (const String& multicastIPAddress);
+
+    //==============================================================================
+    /** Allow other applications to re-use the port.
+
+        Allow any other application currently running to bind to the same port.
+        Do not use this if your socket handles sensitive data as it could be
+        read by any, possibly malicious, third-party apps.
+
+        Returns true on success.
+    */
+    bool setEnablePortReuse (bool enabled);
+
 private:
     //==============================================================================
     int handle;
     bool isBound;
-    String lastServerHost;
+    String lastBindAddress, lastServerHost;
     int lastServerPort;
     void* lastServerAddress;
     mutable CriticalSection readLock;

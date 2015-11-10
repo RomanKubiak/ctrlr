@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the juce_core module of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission to use, copy, modify, and/or distribute this software for any purpose with
    or without fee is hereby granted, provided that the above copyright notice and this
@@ -292,12 +292,12 @@ void FileOutputStream::closeHandle()
     CloseHandle ((HANDLE) fileHandle);
 }
 
-ssize_t FileOutputStream::writeInternal (const void* buffer, size_t numBytes)
+ssize_t FileOutputStream::writeInternal (const void* bufferToWrite, size_t numBytes)
 {
     if (fileHandle != nullptr)
     {
         DWORD actualNum = 0;
-        if (! WriteFile ((HANDLE) fileHandle, buffer, (DWORD) numBytes, &actualNum, 0))
+        if (! WriteFile ((HANDLE) fileHandle, bufferToWrite, (DWORD) numBytes, &actualNum, 0))
             status = WindowsFileHelpers::getResultForLastError();
 
         return (ssize_t) actualNum;
@@ -631,13 +631,45 @@ String File::getVersion() const
 }
 
 //==============================================================================
-bool File::isLink() const
+bool File::isSymbolicLink() const
+{
+    return (GetFileAttributes (fullPath.toWideCharPointer()) & FILE_ATTRIBUTE_REPARSE_POINT) != 0;
+}
+
+bool File::isShortcut() const
 {
     return hasFileExtension (".lnk");
 }
 
 File File::getLinkedTarget() const
 {
+    {
+        HANDLE h = CreateFile (getFullPathName().toWideCharPointer(),
+                               GENERIC_READ, FILE_SHARE_READ, nullptr,
+                               OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, 0);
+
+        if (h != INVALID_HANDLE_VALUE)
+        {
+            DWORD requiredSize = ::GetFinalPathNameByHandleW (h, nullptr, 0, FILE_NAME_NORMALIZED);
+
+            if (requiredSize > 0)
+            {
+                HeapBlock<WCHAR> buffer (requiredSize + 2);
+                buffer.clear (requiredSize + 2);
+
+                requiredSize = ::GetFinalPathNameByHandleW (h, buffer, requiredSize, FILE_NAME_NORMALIZED);
+
+                if (requiredSize > 0)
+                {
+                    CloseHandle (h);
+                    return File (String (buffer));
+                }
+            }
+
+            CloseHandle (h);
+        }
+    }
+
     File result (*this);
     String p (getFullPathName());
 
@@ -664,7 +696,7 @@ File File::getLinkedTarget() const
     return result;
 }
 
-bool File::createLink (const String& description, const File& linkFileToCreate) const
+bool File::createShortcut (const String& description, const File& linkFileToCreate) const
 {
     linkFileToCreate.deleteFile();
 
@@ -788,25 +820,26 @@ void File::revealToUser() const
 class NamedPipe::Pimpl
 {
 public:
-    Pimpl (const String& pipeName, const bool createPipe)
+    Pimpl (const String& pipeName, const bool createPipe, bool mustNotExist)
         : filename ("\\\\.\\pipe\\" + File::createLegalFileName (pipeName)),
           pipeH (INVALID_HANDLE_VALUE),
           cancelEvent (CreateEvent (0, FALSE, FALSE, 0)),
           connected (false), ownsPipe (createPipe), shouldStop (false)
     {
         if (createPipe)
+        {
             pipeH = CreateNamedPipe (filename.toWideCharPointer(),
                                      PIPE_ACCESS_DUPLEX | FILE_FLAG_OVERLAPPED, 0,
                                      PIPE_UNLIMITED_INSTANCES, 4096, 4096, 0, 0);
+
+            if (mustNotExist && GetLastError() == ERROR_ALREADY_EXISTS)
+                closePipeHandle();
+        }
     }
 
     ~Pimpl()
     {
-        disconnectPipe();
-
-        if (pipeH != INVALID_HANDLE_VALUE)
-            CloseHandle (pipeH);
-
+        closePipeHandle();
         CloseHandle (cancelEvent);
     }
 
@@ -865,6 +898,16 @@ public:
         {
             DisconnectNamedPipe (pipeH);
             connected = false;
+        }
+    }
+
+    void closePipeHandle()
+    {
+        if (pipeH != INVALID_HANDLE_VALUE)
+        {
+            disconnectPipe();
+            CloseHandle (pipeH);
+            pipeH = INVALID_HANDLE_VALUE;
         }
     }
 
@@ -984,9 +1027,9 @@ void NamedPipe::close()
     }
 }
 
-bool NamedPipe::openInternal (const String& pipeName, const bool createPipe)
+bool NamedPipe::openInternal (const String& pipeName, const bool createPipe, bool mustNotExist)
 {
-    pimpl = new Pimpl (pipeName, createPipe);
+    pimpl = new Pimpl (pipeName, createPipe, mustNotExist);
 
     if (createPipe && pimpl->pipeH == INVALID_HANDLE_VALUE)
     {

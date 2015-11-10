@@ -25,6 +25,7 @@
 					<Add option="-Wno-empty-body" />
 					<Add option="-w" />
 					<Add option="-fexceptions" />
+					<Add option="-fPIC" />
 					<Add option="-DLINUX=1" />
 					<Add option="-DDEBUG=1" />
 					<Add option="-D_DEBUG=1" />
@@ -87,6 +88,7 @@
 					<Add option="-Wno-empty-body" />
 					<Add option="-w" />
 					<Add option="-fexceptions" />
+					<Add option="-fPIC" />
 					<Add option="-DLINUX=1" />
 					<Add option="-DNDEBUG=1" />
 					<Add option="-DUSE_ANSI_C=1" />
@@ -132,6 +134,7 @@
 					<Add option="-Wno-empty-body" />
 					<Add option="-w" />
 					<Add option="-fexceptions" />
+					<Add option="-fPIC" />
 					<Add option="-DLINUX=1" />
 					<Add option="-DNDEBUG=1" />
 					<Add option="-DJUCE_FORCE_DEBUG=0" />
@@ -563,6 +566,20 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_audio_processors/scanning/juce_PluginListComponent.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/utilities/juce_AudioParameterBool.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/utilities/juce_AudioParameterChoice.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/utilities/juce_AudioParameterFloat.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/utilities/juce_AudioParameterInt.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/utilities/juce_AudioProcessorParameterWithID.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/utilities/juce_AudioProcessorParameters.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/utilities/juce_AudioProcessorValueTreeState.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_audio_processors/utilities/juce_AudioProcessorValueTreeState.h" />
 		<Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioAppComponent.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -584,6 +601,12 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioThumbnailCache.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioVisualiserComponent.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_AudioVisualiserComponent.h" />
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_BluetoothMidiDevicePairingDialogue.h" />
 		<Unit filename="../../../../Juce/modules/juce_audio_utils/gui/juce_MidiKeyboardComponent.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -592,6 +615,20 @@
 		<Unit filename="../../../../Juce/modules/juce_audio_utils/juce_audio_utils.cpp" />
 		<Unit filename="../../../../Juce/modules/juce_audio_utils/juce_audio_utils.h" />
 		<Unit filename="../../../../Juce/modules/juce_audio_utils/juce_module_info" />
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/native/juce_android_BluetoothMidiDevicePairingDialogue.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/native/juce_ios_BluetoothMidiDevicePairingDialogue.mm" />
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/native/juce_linux_BluetoothMidiDevicePairingDialogue.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/native/juce_mac_BluetoothMidiDevicePairingDialogue.mm" />
+		<Unit filename="../../../../Juce/modules/juce_audio_utils/native/juce_win_BluetoothMidiDevicePairingDialogue.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_audio_utils/players/juce_AudioProcessorPlayer.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -764,6 +801,10 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_core/native/juce_curl_Network.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_core/native/juce_linux_CommonFile.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -886,6 +927,11 @@
 		</Unit>
 		<Unit filename="../../../../Juce/modules/juce_core/system/juce_SystemStats.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/system/juce_TargetPlatform.h" />
+		<Unit filename="../../../../Juce/modules/juce_core/text/juce_Base64.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="../../../../Juce/modules/juce_core/text/juce_Base64.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_ASCII.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_UTF16.h" />
 		<Unit filename="../../../../Juce/modules/juce_core/text/juce_CharPointer_UTF32.h" />

@@ -18,7 +18,7 @@ class CtrlrManagerVst
 		int getFirstFree();
 		int size();
 		int getLargestIndex();
-		void set(CtrlrModulator *mod, const int idx = 0);
+		void set(CtrlrModulator *mod, const int idx = -1);
 		void dumpDebugData();
 		void removeIfAlreadyThere(CtrlrModulator *mod);
 		bool isAlreadyIndexed(CtrlrModulator *mod);

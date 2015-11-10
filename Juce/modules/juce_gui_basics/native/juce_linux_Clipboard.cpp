@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -22,8 +22,8 @@
   ==============================================================================
 */
 
-extern Display* display;
-extern Window juce_messageWindowHandle;
+extern ::Display* display;
+extern ::Window juce_messageWindowHandle;
 
 namespace ClipboardHelpers
 {
@@ -68,7 +68,7 @@ namespace ClipboardHelpers
                                     (unsigned char**) &clipData) == Success)
             {
                 if (actualType == atom_UTF8_STRING && actualFormat == 8)
-                    returnData = String::fromUTF8 (clipData, numItems);
+                    returnData = String::fromUTF8 (clipData, (int) numItems);
                 else if (actualType == XA_STRING && actualFormat == 8)
                     returnData = String (clipData, numItems);
 
@@ -184,7 +184,7 @@ namespace ClipboardHelpers
                     XChangeProperty (evt.display, evt.requestor,
                                      evt.property, evt.target,
                                      propertyFormat /* 8 or 32 */, PropModeReplace,
-                                     reinterpret_cast<const unsigned char*> (data.getData()), numDataItems);
+                                     reinterpret_cast<const unsigned char*> (data.getData()), (int) numDataItems);
                     reply.property = evt.property; // " == success"
                 }
             }

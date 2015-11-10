@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the juce_core module of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission to use, copy, modify, and/or distribute this software for any purpose with
    or without fee is hereby granted, provided that the above copyright notice and this
@@ -62,17 +62,25 @@ namespace SocketHelpers
        #endif
     }
 
+    template <typename Type>
+    static bool setOption (const SocketHandle handle, int mode, int property, Type value) noexcept
+    {
+        return setsockopt (handle, mode, property, reinterpret_cast<const char*> (&value), sizeof (value)) == 0;
+    }
+
+    template <typename Type>
+    static bool setOption (const SocketHandle handle, int property, Type value) noexcept
+    {
+        return setOption (handle, SOL_SOCKET, property, value);
+    }
+
     static bool resetSocketOptions (const SocketHandle handle, const bool isDatagram, const bool allowBroadcast) noexcept
     {
-        const int sndBufSize = 65536;
-        const int rcvBufSize = 65536;
-        const int one = 1;
-
         return handle > 0
-                && setsockopt (handle, SOL_SOCKET, SO_RCVBUF, (const char*) &rcvBufSize, sizeof (rcvBufSize)) == 0
-                && setsockopt (handle, SOL_SOCKET, SO_SNDBUF, (const char*) &sndBufSize, sizeof (sndBufSize)) == 0
-                && (isDatagram ? ((! allowBroadcast) || setsockopt (handle, SOL_SOCKET, SO_BROADCAST, (const char*) &one, sizeof (one)) == 0)
-                               : (setsockopt (handle, IPPROTO_TCP, TCP_NODELAY, (const char*) &one, sizeof (one)) == 0));
+                && setOption (handle, SO_RCVBUF, (int) 65536)
+                && setOption (handle, SO_SNDBUF, (int) 65536)
+                && (isDatagram ? ((! allowBroadcast) || setOption (handle, SO_BROADCAST, (int) 1))
+                               : setOption (handle, IPPROTO_TCP, TCP_NODELAY, (int) 1));
     }
 
     static void closeSocket (volatile int& handle, CriticalSection& readLock,
@@ -118,14 +126,14 @@ namespace SocketHelpers
                 ::close (h);
                #else
                 ::close (h);
-                CriticalSection::ScopedLockType lock(readLock);
+                CriticalSection::ScopedLockType lock (readLock);
               #endif
             }
         }
        #endif
     }
 
-    static bool bindSocketToPort (const SocketHandle handle, const int port) noexcept
+    static bool bindSocket (const SocketHandle handle, const int port, const String& address) noexcept
     {
         if (handle <= 0 || port < 0)
             return false;
@@ -136,6 +144,13 @@ namespace SocketHelpers
         servTmpAddr.sin_addr.s_addr = htonl (INADDR_ANY);
         servTmpAddr.sin_port = htons ((uint16) port);
 
+       #if JUCE_WINDOWS
+        if (address.isNotEmpty())
+            servTmpAddr.sin_addr.s_addr = ::inet_addr (address.toUTF8());
+       #else
+        ignoreUnused (address);
+       #endif
+
         return bind (handle, (struct sockaddr*) &servTmpAddr, sizeof (struct sockaddr_in)) >= 0;
     }
 
@@ -144,30 +159,30 @@ namespace SocketHelpers
         if (handle <= 0)
             return -1;
 
-        struct sockaddr_in sin;
-        socklen_t len = sizeof(sin);
+        struct sockaddr_in sin_addr;
+        socklen_t len = sizeof (sin_addr);
 
-        if (getsockname (handle, (struct sockaddr*) &sin, &len) == 0)
-            return ntohs (sin.sin_port);
+        if (getsockname (handle, (struct sockaddr*) &sin_addr, &len) == 0)
+            return ntohs (sin_addr.sin_port);
 
         return -1;
     }
 
     static int readSocket (const SocketHandle handle,
-                           void* const destBuffer, const ssize_t maxBytesToRead,
+                           void* const destBuffer, const int maxBytesToRead,
                            bool volatile& connected,
                            const bool blockUntilSpecifiedAmountHasArrived,
                            CriticalSection& readLock,
                            String* senderIP = nullptr,
                            int* senderPort = nullptr) noexcept
     {
-        ssize_t bytesRead = 0;
+        int bytesRead = 0;
 
         while (bytesRead < maxBytesToRead)
         {
-            ssize_t bytesThisTime = -1;
+            long bytesThisTime = -1;
             char* const buffer = static_cast<char*> (destBuffer) + bytesRead;
-            const size_t numToRead = (size_t) (maxBytesToRead - bytesRead);
+            const juce_socklen_t numToRead = (juce_socklen_t) (maxBytesToRead - bytesRead);
 
             {
                 // avoid race-condition
@@ -184,7 +199,7 @@ namespace SocketHelpers
                         sockaddr_in client;
                         socklen_t clientLen = sizeof (sockaddr);
 
-                        bytesThisTime = (int) ::recvfrom (handle, buffer, numToRead, 0, (sockaddr*) &client, &clientLen);
+                        bytesThisTime = ::recvfrom (handle, buffer, numToRead, 0, (sockaddr*) &client, &clientLen);
 
                         *senderIP = String::fromUTF8 (inet_ntoa (client.sin_addr), 16);
                         *senderPort = ntohs (client.sin_port);
@@ -194,7 +209,7 @@ namespace SocketHelpers
 
             if (bytesThisTime <= 0 || ! connected)
             {
-                if (bytesRead == 0)
+                if (bytesRead == 0 && blockUntilSpecifiedAmountHasArrived)
                     bytesRead = -1;
 
                 break;
@@ -305,8 +320,7 @@ namespace SocketHelpers
         hints.ai_flags = AI_NUMERICSERV;
 
         struct addrinfo* info = nullptr;
-        if (getaddrinfo (hostName.toUTF8(), String (portNumber).toUTF8(), &hints, &info) == 0
-             && info != nullptr)
+        if (getaddrinfo (hostName.toUTF8(), String (portNumber).toUTF8(), &hints, &info) == 0)
             return info;
 
         return nullptr;
@@ -318,50 +332,68 @@ namespace SocketHelpers
                                const int portNumber,
                                const int timeOutMillisecs) noexcept
     {
-        if (struct addrinfo* info = getAddressInfo (false, hostName, portNumber))
+        struct addrinfo* info = getAddressInfo (false, hostName, portNumber);
+
+        if (info == nullptr)
+            return false;
+
+        if (handle < 0)
+            handle = (int) socket (info->ai_family, info->ai_socktype, 0);
+
+        if (handle < 0)
         {
-            if (handle < 0)
-                handle = (int) socket (info->ai_family, info->ai_socktype, 0);
-
-            if (handle < 0)
-            {
-                freeaddrinfo (info);
-                return false;
-            }
-
-            setSocketBlockingState (handle, false);
-            const int result = ::connect (handle, info->ai_addr, (socklen_t) info->ai_addrlen);
             freeaddrinfo (info);
-
-            if (result < 0)
-            {
-               #if JUCE_WINDOWS
-                if (result == SOCKET_ERROR && WSAGetLastError() == WSAEWOULDBLOCK)
-               #else
-                if (errno == EINPROGRESS)
-               #endif
-                    {
-                        if (waitForReadiness (handle, readLock, false, timeOutMillisecs) != 1)
-                        {
-                            setSocketBlockingState (handle, true);
-                            return false;
-                        }
-                    }
-            }
-
-            setSocketBlockingState (handle, true);
-            resetSocketOptions (handle, false, false);
-
-            return true;
+            return false;
         }
 
-        return false;
+        setSocketBlockingState (handle, false);
+        const int result = ::connect (handle, info->ai_addr, (socklen_t) info->ai_addrlen);
+        freeaddrinfo (info);
+
+        bool retval = (result >= 0);
+
+        if (result < 0)
+        {
+           #if JUCE_WINDOWS
+            if (result == SOCKET_ERROR && WSAGetLastError() == WSAEWOULDBLOCK)
+           #else
+            if (errno == EINPROGRESS)
+           #endif
+            {
+                if (waitForReadiness (handle, readLock, false, timeOutMillisecs) == 1)
+                    retval = true;
+            }
+        }
+
+        setSocketBlockingState (handle, true);
+
+        if (retval)
+            resetSocketOptions (handle, false, false);
+
+        return retval;
     }
 
     static void makeReusable (int handle) noexcept
     {
-        const int reuse = 1;
-        setsockopt (handle, SOL_SOCKET, SO_REUSEADDR, (const char*) &reuse, sizeof (reuse));
+        setOption (handle, SO_REUSEADDR, (int) 1);
+    }
+
+    static bool multicast (int handle, const String& multicastIPAddress,
+                           const String& interfaceIPAddress, bool join) noexcept
+    {
+        struct ip_mreq mreq;
+
+        zerostruct (mreq);
+        mreq.imr_multiaddr.s_addr = inet_addr (multicastIPAddress.toUTF8());
+        mreq.imr_interface.s_addr = INADDR_ANY;
+
+        if (interfaceIPAddress.isNotEmpty())
+            mreq.imr_interface.s_addr = inet_addr (interfaceIPAddress.toUTF8());
+
+        return setsockopt (handle, IPPROTO_IP,
+                           join ? IP_ADD_MEMBERSHIP
+                                : IP_DROP_MEMBERSHIP,
+                           (const char*) &mreq, sizeof (mreq)) == 0;
     }
 }
 
@@ -404,7 +436,7 @@ int StreamingSocket::write (const void* sourceBuffer, const int numBytesToWrite)
     if (isListener || ! connected)
         return -1;
 
-    return (int) ::send (handle, (const char*) sourceBuffer, (size_t) numBytesToWrite, 0);
+    return (int) ::send (handle, (const char*) sourceBuffer, (juce_socklen_t) numBytesToWrite, 0);
 }
 
 //==============================================================================
@@ -418,7 +450,12 @@ int StreamingSocket::waitUntilReady (const bool readyForReading,
 //==============================================================================
 bool StreamingSocket::bindToPort (const int port)
 {
-    return SocketHelpers::bindSocketToPort (handle, port);
+    return bindToPort (port, String());
+}
+
+bool StreamingSocket::bindToPort (const int port, const String& addr)
+{
+    return SocketHelpers::bindSocket (handle, port, addr);
 }
 
 int StreamingSocket::getBoundPort() const noexcept
@@ -543,25 +580,48 @@ DatagramSocket::DatagramSocket (const bool canBroadcast)
     SocketHelpers::initSockets();
 
     handle = (int) socket (AF_INET, SOCK_DGRAM, 0);
-    SocketHelpers::resetSocketOptions (handle, true, canBroadcast);
-    SocketHelpers::makeReusable (handle);
+
+    if (handle >= 0)
+    {
+        SocketHelpers::resetSocketOptions (handle, true, canBroadcast);
+        SocketHelpers::makeReusable (handle);
+    }
 }
 
 DatagramSocket::~DatagramSocket()
 {
     if (lastServerAddress != nullptr)
-        freeaddrinfo (static_cast <struct addrinfo*> (lastServerAddress));
+        freeaddrinfo (static_cast<struct addrinfo*> (lastServerAddress));
 
-    bool connected = false;
-    SocketHelpers::closeSocket (handle, readLock, false, 0, connected);
+    shutdown();
 }
 
+void DatagramSocket::shutdown()
+{
+    if (handle < 0)
+        return;
+
+    int copyOfHandle = handle;
+    handle = -1;
+    bool connected = false;
+    SocketHelpers::closeSocket (copyOfHandle, readLock, false, 0, connected);
+}
 
 bool DatagramSocket::bindToPort (const int port)
 {
-    if (SocketHelpers::bindSocketToPort (handle, port))
+    return bindToPort (port, String());
+}
+
+bool DatagramSocket::bindToPort (const int port, const String& addr)
+{
+    if (handle < 0)
+        return false;
+
+    if (SocketHelpers::bindSocket (handle, port, addr))
     {
         isBound = true;
+        lastBindAddress = addr;
+
         return true;
     }
 
@@ -570,6 +630,9 @@ bool DatagramSocket::bindToPort (const int port)
 
 int DatagramSocket::getBoundPort() const noexcept
 {
+    if (handle < 0)
+        return -1;
+
     return isBound ? SocketHelpers::getBoundPort (handle) : -1;
 }
 
@@ -577,27 +640,43 @@ int DatagramSocket::getBoundPort() const noexcept
 int DatagramSocket::waitUntilReady (const bool readyForReading,
                                     const int timeoutMsecs) const
 {
+    if (handle < 0)
+        return -1;
+
     return SocketHelpers::waitForReadiness (handle, readLock, readyForReading, timeoutMsecs);
 }
 
 int DatagramSocket::read (void* destBuffer, int maxBytesToRead, bool shouldBlock)
 {
+    if (handle < 0 || ! isBound)
+        return -1;
+
     bool connected = true;
-    return isBound ? SocketHelpers::readSocket (handle, destBuffer, maxBytesToRead,
-                    connected, shouldBlock, readLock) : -1;
+
+    SocketHelpers::setSocketBlockingState (handle, shouldBlock);
+    return SocketHelpers::readSocket (handle, destBuffer, maxBytesToRead,
+                                      connected, shouldBlock, readLock);
 }
 
 int DatagramSocket::read (void* destBuffer, int maxBytesToRead, bool shouldBlock, String& senderIPAddress, int& senderPort)
 {
+    if (handle < 0 || ! isBound)
+        return -1;
+
     bool connected = true;
-    return isBound ? SocketHelpers::readSocket (handle, destBuffer, maxBytesToRead, connected,
-                    shouldBlock, readLock, &senderIPAddress, &senderPort) : -1;
+
+    SocketHelpers::setSocketBlockingState (handle, shouldBlock);
+    return SocketHelpers::readSocket (handle, destBuffer, maxBytesToRead, connected,
+                                      shouldBlock, readLock, &senderIPAddress, &senderPort);
 }
 
 int DatagramSocket::write (const String& remoteHostname, int remotePortNumber,
                            const void* sourceBuffer, int numBytesToWrite)
 {
-    struct addrinfo*& info = reinterpret_cast <struct addrinfo*&> (lastServerAddress);
+    if (handle < 0)
+        return -1;
+
+    struct addrinfo*& info = reinterpret_cast<struct addrinfo*&> (lastServerAddress);
 
     // getaddrinfo can be quite slow so cache the result of the address lookup
     if (info == nullptr || remoteHostname != lastServerHost || remotePortNumber != lastServerPort)
@@ -613,7 +692,40 @@ int DatagramSocket::write (const String& remoteHostname, int remotePortNumber,
     }
 
     return (int) ::sendto (handle, (const char*) sourceBuffer,
-                           (size_t) numBytesToWrite, 0, info->ai_addr, info->ai_addrlen);
+                           (juce_socklen_t) numBytesToWrite, 0,
+                           info->ai_addr, (socklen_t) info->ai_addrlen);
+}
+
+bool DatagramSocket::joinMulticast (const String& multicastIPAddress)
+{
+    if (! isBound || handle < 0)
+        return false;
+
+    return SocketHelpers::multicast (handle, multicastIPAddress, lastBindAddress, true);
+}
+
+bool DatagramSocket::leaveMulticast (const String& multicastIPAddress)
+{
+    if (! isBound || handle < 0)
+        return false;
+
+    return SocketHelpers::multicast (handle, multicastIPAddress, lastBindAddress, false);
+}
+
+bool DatagramSocket::setEnablePortReuse (bool enabled)
+{
+   #if ! JUCE_ANDROID
+    if (handle >= 0)
+        return SocketHelpers::setOption (handle,
+                                        #if JUCE_WINDOWS || JUCE_LINUX
+                                         SO_REUSEADDR,  // port re-use is implied by addr re-use on these platforms
+                                        #else
+                                         SO_REUSEPORT,
+                                        #endif
+                                         (int) (enabled ? 1 : 0));
+   #endif
+
+    return false;
 }
 
 #if JUCE_MSVC

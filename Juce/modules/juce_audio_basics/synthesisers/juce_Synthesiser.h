@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -182,9 +182,12 @@ public:
         involve rendering as little as 1 sample at a time. In between rendering callbacks,
         the voice's methods will be called to tell it about note and controller events.
     */
-    virtual void renderNextBlock (AudioSampleBuffer& outputBuffer,
+    virtual void renderNextBlock (AudioBuffer<float>& outputBuffer,
                                   int startSample,
                                   int numSamples) = 0;
+    virtual void renderNextBlock (AudioBuffer<double>& outputBuffer,
+                                  int startSample,
+                                  int numSamples);
 
     /** Changes the voice's reference sample rate.
 
@@ -214,8 +217,17 @@ public:
     */
     bool isKeyDown() const noexcept                             { return keyIsDown; }
 
+    /** Returns true if the sustain pedal is currently active for this voice. */
+    bool isSustainPedalDown() const noexcept                    { return sustainPedalDown; }
+
     /** Returns true if the sostenuto pedal is currently active for this voice. */
     bool isSostenutoPedalDown() const noexcept                  { return sostenutoPedalDown; }
+
+    /** Returns true if a voice is sounding in its release phase **/
+    bool isPlayingButReleased() const noexcept
+    {
+        return isVoiceActive() && ! (isKeyDown() || isSostenutoPedalDown() || isSustainPedalDown());
+    }
 
     /** Returns true if this voice started playing its current note before the other voice did. */
     bool wasStartedBefore (const SynthesiserVoice& other) const noexcept;
@@ -244,7 +256,9 @@ private:
     int currentlyPlayingNote, currentPlayingMidiChannel;
     uint32 noteOnTime;
     SynthesiserSound::Ptr currentlyPlayingSound;
-    bool keyIsDown, sostenutoPedalDown;
+    bool keyIsDown, sustainPedalDown, sostenutoPedalDown;
+
+    AudioBuffer<float> tempBuffer;
 
    #if JUCE_CATCH_DEPRECATED_CODE_MISUSE
     // Note the new parameters for this method.
@@ -495,10 +509,17 @@ public:
         both to the audio output buffer and the midi input buffer, so any midi events
         with timestamps outside the specified region will be ignored.
     */
-    void renderNextBlock (AudioSampleBuffer& outputAudio,
+    inline void renderNextBlock (AudioBuffer<float>& outputAudio,
                           const MidiBuffer& inputMidi,
                           int startSample,
-                          int numSamples);
+                          int numSamples)
+        { processNextBlock (outputAudio, inputMidi, startSample, numSamples); }
+
+    inline void renderNextBlock (AudioBuffer<double>& outputAudio,
+                          const MidiBuffer& inputMidi,
+                          int startSample,
+                          int numSamples)
+        { processNextBlock (outputAudio, inputMidi, startSample, numSamples); }
 
     /** Returns the current target sample rate at which rendering is being done.
         Subclasses may need to know this so that they can pitch things correctly.
@@ -536,7 +557,9 @@ protected:
         By default this just calls renderNextBlock() on each voice, but you may need
         to override it to handle custom cases.
     */
-    virtual void renderVoices (AudioSampleBuffer& outputAudio,
+    virtual void renderVoices (AudioBuffer<float>& outputAudio,
+                               int startSample, int numSamples);
+    virtual void renderVoices (AudioBuffer<double>& outputAudio,
                                int startSample, int numSamples);
 
     /** Searches through the voices to find one that's not currently playing, and
@@ -562,7 +585,6 @@ protected:
                                                 int midiNoteNumber) const;
 
     /** Starts a specified voice playing a particular sound.
-
         You'll probably never need to call this, it's used internally by noteOn(), but
         may be needed by subclasses for custom behaviours.
     */
@@ -572,18 +594,29 @@ protected:
                      int midiNoteNumber,
                      float velocity);
 
+    /** Stops a given voice.
+        You should never need to call this, it's used internally by noteOff, but is protected
+        in case it's useful for some custom subclasses. It basically just calls through to
+        SynthesiserVoice::stopNote(), and has some assertions to sanity-check a few things.
+    */
+    void stopVoice (SynthesiserVoice*, float velocity, bool allowTailOff);
+
     /** Can be overridden to do custom handling of incoming midi events. */
     virtual void handleMidiEvent (const MidiMessage&);
 
 private:
+    //==============================================================================
+    template <typename floatType>
+    void processNextBlock (AudioBuffer<floatType>& outputAudio,
+                           const MidiBuffer& inputMidi,
+                           int startSample,
+                           int numSamples);
     //==============================================================================
     double sampleRate;
     uint32 lastNoteOnCounter;
     int minimumSubBlockSize;
     bool shouldStealNotes;
     BigInteger sustainPedalsDown;
-
-    void stopVoice (SynthesiserVoice*, float velocity, bool allowTailOff);
 
    #if JUCE_CATCH_DEPRECATED_CODE_MISUSE
     // Note the new parameters for these methods.

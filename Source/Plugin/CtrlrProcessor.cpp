@@ -307,7 +307,7 @@ void CtrlrProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMe
 void CtrlrProcessor::processPanels(MidiBuffer &midiMessages, const AudioPlayHead::CurrentPositionInfo &positionInfo)
 {
 	leftoverBuffer.clear();
-	
+
 	for (int i=0; i<panelProcessors.size(); i++)
 	{
 		if (!panelProcessors[i].wasObjectDeleted())

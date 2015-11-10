@@ -36,7 +36,7 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 	nullModulator			= new CtrlrModulator (*nullPanel);
     ctrlrFontManager        = new CtrlrFontManager (*this);
 
-	
+
 }
 
 CtrlrManager::~CtrlrManager()
@@ -199,6 +199,10 @@ void CtrlrManager::restoreState (const ValueTree &savedTree)
 	_DBG("CtrlrManager::restoreState enter");
 	if (savedTree.isValid())
 	{
+		// Something has changed in Juce 4.0
+		// and a lock is needed
+		MessageManagerLock mmlock;
+
 		ctrlrManagerRestoring = true;
 
 		restoreProperties (savedTree, managerTree);

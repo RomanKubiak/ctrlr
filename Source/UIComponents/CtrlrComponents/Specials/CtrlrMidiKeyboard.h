@@ -60,7 +60,7 @@ public:
     void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int){}
 	void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int){}
 	void handleNoteOn (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity);
-	void handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber);
+	void handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity);
 	void midiReceived(MidiMessage &message);
 	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
     //[/UserMethods]
