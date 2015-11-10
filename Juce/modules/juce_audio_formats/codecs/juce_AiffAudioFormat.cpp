@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -341,10 +341,10 @@ namespace AiffFileHelpers
                     out.writeByte ((char) labelLength + 1);
                     out.write (label.toUTF8(), labelLength);
                     out.writeByte (0);
-                }
 
-                if ((out.getDataSize() & 1) != 0)
-                    out.writeByte (0);
+                    if ((out.getDataSize() & 1) != 0)
+                        out.writeByte (0);
+                }
             }
         }
     }
@@ -643,7 +643,7 @@ public:
 
         if (metadataValues.size() > 0)
         {
-            // The meta data should have been santised for the AIFF format.
+            // The meta data should have been sanitised for the AIFF format.
             // If it was originally sourced from a WAV file the MetaDataSource
             // key should be removed (or set to "AIFF") once this has been done
             jassert (metadataValues.getValue ("MetaDataSource", "None") != "WAV");

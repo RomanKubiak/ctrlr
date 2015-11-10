@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -597,7 +597,7 @@ public:
 
         If you pass a component as the parentComponentToUse parameter, the pop-up
         bubble will be added as a child of that component when it's needed. If you
-        pass 0, the pop-up will be placed on the desktop instead (note that it's a
+        pass nullptr, the pop-up will be placed on the desktop instead (note that it's a
         transparent window, so if you're using an OS that can't do transparent windows
         you'll have to add it to a parent component instead).
     */
@@ -726,7 +726,7 @@ public:
         If the slider is rotary, this will throw an assertion and return 0. If the
         value is out-of-range, it will be constrained to the length of the slider.
     */
-    float getPositionOfValue (double value);
+    float getPositionOfValue (double value) const;
 
     //==============================================================================
     /** This can be overridden to allow the slider to snap to user-definable values.
@@ -756,6 +756,8 @@ public:
     bool isVertical() const noexcept;
     /** True if the slider is in a rotary mode. */
     bool isRotary() const noexcept;
+    /** True if the slider is in a linear bar mode. */
+    bool isBar() const noexcept;
 
     //==============================================================================
     /** A set of colour IDs to use to change the colour of various aspects of the slider.
@@ -778,6 +780,16 @@ public:
         textBoxBackgroundColourId   = 0x1001500,  /**< The background colour for the text-editor box. */
         textBoxHighlightColourId    = 0x1001600,  /**< The text highlight colour for the text-editor box. */
         textBoxOutlineColourId      = 0x1001700   /**< The colour to use for a border around the text-editor box. */
+    };
+
+    //==============================================================================
+    /** A struct defining the placement of the slider area and the text box area
+        relative to the bounds of the whole Slider component.
+     */
+    struct SliderLayout
+    {
+        Rectangle<int> sliderBounds;
+        Rectangle<int> textBoxBounds;
     };
 
     //==============================================================================
@@ -829,6 +841,8 @@ public:
 
         virtual Font getSliderPopupFont (Slider&) = 0;
         virtual int getSliderPopupPlacement (Slider&) = 0;
+
+        virtual SliderLayout getSliderLayout (Slider&) = 0;
 
        #if JUCE_CATCH_DEPRECATED_CODE_MISUSE
         // These methods' parameters have changed: see the new method signatures.

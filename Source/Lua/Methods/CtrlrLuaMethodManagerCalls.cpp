@@ -908,3 +908,25 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const String &param1, 
 
 	return (true);
 }
+
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const uint8 param1)
+{
+	const ScopedLock sl(methodManagerCriticalSection);
+
+	LUA_DEBUG
+
+	if (isLuaDisabled())
+		return (true);
+
+	try
+	{
+		if (o->isValid())
+		{
+			luabind::call_function<void>(o->getObject().getObject(), param1);
+		}
+	}
+
+	CATCH_METHOD_EXCEPTION
+
+	return (true);
+}

@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -27,13 +27,16 @@ namespace MouseCursorHelpers
     extern NSImage* createNSImage (const Image&);
 }
 
-class SystemTrayIconComponent::Pimpl
+extern NSMenu* createNSMenu (const PopupMenu&, const String& name, int topLevelMenuId,
+                             int topLevelIndex, bool addDelegate);
+
+class SystemTrayIconComponent::Pimpl  : private Timer
 {
 public:
     Pimpl (SystemTrayIconComponent& iconComp, const Image& im)
         : owner (iconComp), statusItem (nil),
           statusIcon (MouseCursorHelpers::createNSImage (im)),
-          isHighlighted (false)
+          view (nil), isHighlighted (false)
     {
         static SystemTrayViewClass cls;
         view = [cls.createInstance() init];
@@ -101,25 +104,40 @@ public:
             const Time now (Time::getCurrentTime());
 
             MouseInputSource mouseSource = Desktop::getInstance().getMainMouseSource();
+            const float pressure = (float) e.pressure;
 
             if (isLeft || isRight)  // Only mouse up is sent by the OS, so simulate a down/up
             {
+                setHighlighted (true);
+                startTimer (150);
+
                 owner.mouseDown (MouseEvent (mouseSource, Point<float>(),
                                              eventMods.withFlags (isLeft ? ModifierKeys::leftButtonModifier
                                                                          : ModifierKeys::rightButtonModifier),
-                                             &owner, &owner, now,
+                                             pressure, &owner, &owner, now,
                                              Point<float>(), now, 1, false));
 
                 owner.mouseUp (MouseEvent (mouseSource, Point<float>(), eventMods.withoutMouseButtons(),
-                                           &owner, &owner, now,
+                                           pressure, &owner, &owner, now,
                                            Point<float>(), now, 1, false));
             }
             else if (type == NSMouseMoved)
             {
                 owner.mouseMove (MouseEvent (mouseSource, Point<float>(), eventMods,
-                                             &owner, &owner, now,
+                                             pressure, &owner, &owner, now,
                                              Point<float>(), now, 1, false));
             }
+        }
+    }
+
+    void showMenu (const PopupMenu& menu)
+    {
+        if (NSMenu* m = createNSMenu (menu, "MenuBarItem", -2, -3, true))
+        {
+            setHighlighted (true);
+            stopTimer();
+            [statusItem popUpStatusItemMenu: m];
+            startTimer (1);
         }
     }
 
@@ -134,6 +152,12 @@ private:
     void setIconSize()
     {
         [statusIcon setSize: NSMakeSize (20.0f, 20.0f)];
+    }
+
+    void timerCallback() override
+    {
+        stopTimer();
+        setHighlighted (false);
     }
 
     struct SystemTrayViewClass : public ObjCClass<NSControl>
@@ -171,10 +195,7 @@ private:
         static void handleEventDown (id self, SEL, NSEvent* e)
         {
             if (Pimpl* const owner = getOwner (self))
-            {
-                owner->setHighlighted (! owner->isHighlighted);
                 owner->handleStatusItemAction (e);
-            }
         }
 
         static void drawRect (id self, SEL, NSRect)
@@ -243,4 +264,10 @@ void SystemTrayIconComponent::hideInfoBubble()
 void* SystemTrayIconComponent::getNativeHandle() const
 {
     return pimpl != nullptr ? pimpl->statusItem : nullptr;
+}
+
+void SystemTrayIconComponent::showDropdownMenu (const PopupMenu& menu)
+{
+    if (pimpl != nullptr)
+        pimpl->showMenu (menu);
 }

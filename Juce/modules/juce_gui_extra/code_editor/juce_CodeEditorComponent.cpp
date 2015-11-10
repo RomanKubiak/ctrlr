@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -103,11 +103,11 @@ public:
                 break;
 
             const SyntaxToken& token = tokens.getReference(i);
-            as.append (token.text.removeCharacters ("\r\n"), fontToUse, owner.getColourForTokenType (token.tokenType));
+            as.append (token.text.initialSectionNotContaining ("\r\n"), fontToUse, owner.getColourForTokenType (token.tokenType));
             column += token.length;
         }
 
-        as.draw (g, Rectangle<float> (x, (float) y, 10000.0f, (float) lineH));
+        as.draw (g, Rectangle<float> (x, (float) y, column * characterWidth + 10.0f, (float) lineH));
     }
 
 private:
@@ -294,7 +294,6 @@ public:
                     .overlaidWith (editor.findColour (lineNumberBackgroundId)));
 
         const Rectangle<int> clip (g.getClipBounds());
-        const Array<int> markedLines = editor.getMarkedLines();
         const int lineH = editor.lineHeight;
         const float lineHeightFloat = (float) lineH;
         const int firstLineToDraw = jmax (0, clip.getY() / lineH);
@@ -305,26 +304,10 @@ public:
         const float w = getWidth() - 2.0f;
 
         GlyphArrangement ga;
-
-        // We can set the font now so we don't need to call it in the loop
-        g.setFont (lineNumberFont);
-
         for (int i = firstLineToDraw; i < lastLineToDraw; ++i)
-        {
-            if (markedLines.contains (editor.firstLineOnScreen + i + 1))
-            {
-                g.setColour (editor.findColour (markedLineNumberBackroundId));
-                g.fillRect (0.0f, (float) (lineH * i), w, lineHeightFloat);
-                g.setColour (editor.findColour (markedLineNumberTextId));
-                g.drawText (String (editor.firstLineOnScreen + i + 1), 0, lineH * i, (int)w, lineH, Justification::centredRight);
-            }
-            else
-            {
-                ga.addFittedText (lineNumberFont, String (editor.firstLineOnScreen + i + 1),
+            ga.addFittedText (lineNumberFont, String (editor.firstLineOnScreen + i + 1),
                               0, (float) (lineH * i), w, lineHeightFloat,
                               Justification::centredRight, 1, 0.2f);
-            }
-        }
 
         g.setColour (editor.findColour (lineNumberTextId));
         ga.draw (g);
@@ -340,15 +323,6 @@ public:
             lastNumLines = newNumLines;
             repaint();
         }
-    }
-
-    void mouseDoubleClick(const MouseEvent &e)
-    {
-        jassert (dynamic_cast<CodeEditorComponent*> (getParentComponent()) != nullptr);
-        CodeEditorComponent& editor = *static_cast<CodeEditorComponent*> (getParentComponent());
-
-        CodeDocument::Position position (editor.getPositionAt (e.x, e.y));
-        editor.toggleLineMark (position.getLineNumber() + 1);
     }
 
 private:
@@ -705,6 +679,8 @@ void CodeEditorComponent::scrollToLineInternal (int newFirstLineOnScreen)
         updateCachedIterators (firstLineOnScreen);
         rebuildLineTokensAsync();
         pimpl->handleUpdateNowIfNeeded();
+
+        editorViewportPositionChanged();
     }
 }
 
@@ -1255,6 +1231,10 @@ void CodeEditorComponent::handleEscapeKey()
     newTransaction();
 }
 
+void CodeEditorComponent::editorViewportPositionChanged()
+{
+}
+
 //==============================================================================
 ApplicationCommandTarget* CodeEditorComponent::getNextCommandTarget()
 {
@@ -1564,42 +1544,6 @@ Colour CodeEditorComponent::getColourForTokenType (const int tokenType) const
     return isPositiveAndBelow (tokenType, colourScheme.types.size())
                 ? colourScheme.types.getReference (tokenType).colour
                 : findColour (CodeEditorComponent::defaultTextColourId);
-}
-
-void CodeEditorComponent::setMarkedLine (int lineNumber, bool shouldBeMarked)
-{
-    if (shouldBeMarked)
-    {
-        markedLines.addIfNotAlreadyThere (lineNumber);
-    }
-    else
-    {
-        markedLines.removeAllInstancesOf (lineNumber);
-    }
-
-    markedLinesChanged(lineNumber, shouldBeMarked);
-    repaint();
-}
-
-Array<int> CodeEditorComponent::getMarkedLines() const
-{
-    return (markedLines);
-}
-
-void CodeEditorComponent::markedLinesChanged(int lineNumber, bool isNowMarked)
-{
-}
-
-void CodeEditorComponent::toggleLineMark(int lineNumber)
-{
-    if (markedLines.contains(lineNumber))
-        markedLines.removeAllInstancesOf(lineNumber);
-    else
-        markedLines.add (lineNumber);
-
-    markedLinesChanged(lineNumber, markedLines.contains(lineNumber));
-
-    repaint();
 }
 
 void CodeEditorComponent::clearCachedIterators (const int firstLineToBeInvalid)

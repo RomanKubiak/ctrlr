@@ -329,7 +329,7 @@ void CtrlrPanel::bootstrapPanel(const bool setInitialProgram)
 	{
 		if (luaPanelLoadedCbk->isValid())
 		{
-			getCtrlrLuaManager().getMethodManager().call (luaPanelLoadedCbk);
+			getCtrlrLuaManager().getMethodManager().call (luaPanelLoadedCbk, (uint8)owner.getInstanceMode());
 		}
 	}
 

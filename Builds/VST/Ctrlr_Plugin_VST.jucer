@@ -8,7 +8,7 @@
               pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="3.2.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
+              jucerVersion="4.0.1" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
               aaxIdentifier="com.instigator.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
@@ -133,7 +133,7 @@
       </MODULEPATHS>
     </LINUX_MAKE>
     <CODEBLOCKS_LINUX targetFolder="../Generated/Linux/VST/" vstFolder="../../../../VST"
-                      extraDefs="LINUX=1&#10;_LINUX=1" extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions"
+                      extraDefs="LINUX=1&#10;_LINUX=1" extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC"
                       extraLinkerFlags="-lz -lbfd -ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug-VST"

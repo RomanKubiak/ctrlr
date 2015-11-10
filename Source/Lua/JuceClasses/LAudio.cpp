@@ -364,7 +364,8 @@ void LMidiMessage::wrapForLua (lua_State *L)
 				[
 					def("noteOn", (MidiMessage (*)(int, int, float) noexcept)&MidiMessage::noteOn),
 					def("noteOn", (MidiMessage (*)(int, int, uint8) noexcept)&MidiMessage::noteOn),
-					def("noteOff", &MidiMessage::noteOff),
+					def("noteOff", (MidiMessage (*)(int, int, float) noexcept)&MidiMessage::noteOff),
+					def("noteOff", (MidiMessage (*)(int, int, uint8) noexcept)&MidiMessage::noteOff),
 					def("programChange", &MidiMessage::programChange),
 					def("pitchWheel", &MidiMessage::pitchWheel),
 					def("aftertouchChange", &MidiMessage::aftertouchChange),

@@ -449,7 +449,17 @@
     --
     -- Called when the panel has finished loading
     --
-    __method_name = function()
+    -- @type the type of instance beeing started, types available in the CtrlrPanel
+    -- class as enum
+    --
+    -- InstanceSingle
+	-- InstanceMulti
+	-- InstanceSingleRestriced
+	-- InstanceSingleEngine
+	-- InstanceMultiEngine
+	-- InstanceSingleRestrictedEngine
+	--
+    __method_name = function(--[[ CtrlrInstance --]] type)
     end
   </luaMethod>
 

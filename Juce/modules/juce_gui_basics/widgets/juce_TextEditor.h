@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -51,7 +51,7 @@ public:
                                     for a black splodge (not all fonts include this, though), or 0x2022,
                                     which is a bullet (probably the best choice for linux).
     */
-    explicit TextEditor (const String& componentName = String::empty,
+    explicit TextEditor (const String& componentName = String(),
                          juce_wchar passwordCharacter = 0);
 
     /** Destructor. */
@@ -123,7 +123,7 @@ public:
     void setReadOnly (bool shouldBeReadOnly);
 
     /** Returns true if the editor is in read-only mode. */
-    bool isReadOnly() const;
+    bool isReadOnly() const noexcept;
 
     //==============================================================================
     /** Makes the caret visible or invisible.
@@ -135,7 +135,7 @@ public:
     /** Returns true if the caret is enabled.
         @see setCaretVisible
     */
-    bool isCaretVisible() const noexcept                            { return caret != nullptr; }
+    bool isCaretVisible() const noexcept                            { return caretVisible && ! isReadOnly(); }
 
     //==============================================================================
     /** Enables/disables a vertical scrollbar.
@@ -194,6 +194,8 @@ public:
 
         These constants can be used either via the Component::setColour(), or LookAndFeel::setColour()
         methods.
+
+        NB: You can also set the caret colour using CaretComponent::caretColourId
 
         @see Component::setColour, Component::findColour, LookAndFeel::setColour, LookAndFeel::findColour
     */
@@ -345,7 +347,7 @@ public:
         this string, otherwise it will be inserted.
 
         To delete a section of text, you can use setHighlightedRegion() to
-        highlight it, and call insertTextAtCursor (String::empty).
+        highlight it, and call insertTextAtCaret (String()).
 
         @see setCaretPosition, getCaretPosition, setHighlightedRegion
     */
@@ -581,7 +583,7 @@ public:
                                     this string are allowed to be entered into the editor.
     */
     void setInputRestrictions (int maxTextLength,
-                               const String& allowedCharacters = String::empty);
+                               const String& allowedCharacters = String());
 
     void setKeyboardType (VirtualKeyboardType type) noexcept    { keyboardType = type; }
 
@@ -668,19 +670,20 @@ private:
     TextHolderComponent* textHolder;
     BorderSize<int> borderSize;
 
-    bool readOnly                   : 1;
-    bool multiline                  : 1;
-    bool wordWrap                   : 1;
-    bool returnKeyStartsNewLine     : 1;
-    bool popupMenuEnabled           : 1;
-    bool selectAllTextWhenFocused   : 1;
-    bool scrollbarVisible           : 1;
-    bool wasFocused                 : 1;
-    bool keepCaretOnScreen          : 1;
-    bool tabKeyUsed                 : 1;
-    bool menuActive                 : 1;
-    bool valueTextNeedsUpdating     : 1;
-    bool consumeEscAndReturnKeys    : 1;
+    bool readOnly;
+    bool caretVisible;
+    bool multiline;
+    bool wordWrap;
+    bool returnKeyStartsNewLine;
+    bool popupMenuEnabled;
+    bool selectAllTextWhenFocused;
+    bool scrollbarVisible;
+    bool wasFocused;
+    bool keepCaretOnScreen;
+    bool tabKeyUsed;
+    bool menuActive;
+    bool valueTextNeedsUpdating;
+    bool consumeEscAndReturnKeys;
 
     UndoManager undoManager;
     ScopedPointer<CaretComponent> caret;
@@ -710,6 +713,7 @@ private:
 
     void moveCaret (int newCaretPos);
     void moveCaretTo (int newPosition, bool isSelecting);
+    void recreateCaret();
     void handleCommandMessage (int) override;
     void coalesceSimilarSections();
     void splitSection (int sectionIndex, int charToSplitAt);

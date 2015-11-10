@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -263,15 +263,13 @@ private:
     //==============================================================================
     WeakReference<Component> contentComp;
     Rectangle<int> lastVisibleArea;
-    bool customScrollBarThickness;
     int scrollBarThickness;
     int singleStepX, singleStepY;
     bool showHScrollbar, showVScrollbar, deleteContent;
+    bool customScrollBarThickness;
     bool allowScrollingWithoutScrollbarV, allowScrollingWithoutScrollbarH;
     Component contentHolder;
     ScrollBar verticalScrollBar, horizontalScrollBar;
-    struct MouseWheelTimer;
-    ScopedPointer<Timer> mouseWheelTimer;
 
     Point<int> viewportPosToCompPos (Point<int>) const;
 

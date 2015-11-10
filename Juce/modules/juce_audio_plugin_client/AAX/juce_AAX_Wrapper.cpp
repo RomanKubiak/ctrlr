@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -45,6 +45,11 @@
  #pragma clang diagnostic ignored "-Wsign-conversion"
 #endif
 
+#ifdef _MSC_VER
+ #pragma warning (push)
+ #pragma warning (disable : 4127)
+#endif
+
 #include "AAX_Exports.cpp"
 #include "AAX_ICollection.h"
 #include "AAX_IComponentDescriptor.h"
@@ -62,6 +67,10 @@
 #include "AAX_IMIDINode.h"
 #include "AAX_UtilsNative.h"
 #include "AAX_Enums.h"
+
+#ifdef _MSC_VER
+ #pragma warning (pop)
+#endif
 
 #ifdef __clang__
  #pragma clang diagnostic pop
@@ -333,7 +342,7 @@ struct AAXClasses
                 {
                     AudioProcessorEditor::ParameterControlHighlightInfo info;
                     info.parameterIndex  = getParamIndexFromID (paramID);
-                    info.isHighlighted   = isHighlighted;
+                    info.isHighlighted   = (isHighlighted != 0);
                     info.suggestedColour = getColourFromHighlightEnum (colour);
 
                     component->pluginEditor->setControlHighlight (info);
@@ -429,7 +438,7 @@ struct AAXClasses
                                 public AudioProcessorListener
     {
     public:
-        JuceAAX_Processor()  : sampleRate (0), lastBufferSize (1024)
+        JuceAAX_Processor()  : sampleRate (0), lastBufferSize (1024), maxBufferSize (1024)
         {
             pluginInstance = createPluginFilterOfType (AudioProcessor::wrapperType_AAX);
             pluginInstance->setPlayHead (this);
@@ -858,7 +867,17 @@ struct AAXClasses
                     pluginInstance->setPlayConfigDetails (pluginInstance->getNumInputChannels(),
                                                           pluginInstance->getNumOutputChannels(),
                                                           sampleRate, bufferSize);
-                    pluginInstance->prepareToPlay (sampleRate, bufferSize);
+
+                    if (bufferSize > maxBufferSize)
+                    {
+                        // we only call prepareToPlay here if the new buffer size is larger than
+                        // the one used last time prepareToPlay was called.
+                        // currently, this should never actually happen, because as of Pro Tools 12,
+                        // the maximum possible value is 1024, and we call prepareToPlay with that
+                        // value during initialisation.
+                        pluginInstance->prepareToPlay (sampleRate, bufferSize);
+                        maxBufferSize = bufferSize;
+                    }
                 }
 
                 const ScopedLock sl (pluginInstance->getCallbackLock());
@@ -918,9 +937,11 @@ struct AAXClasses
 
             for (int parameterIndex = 0; parameterIndex < numParameters; ++parameterIndex)
             {
+                AAX_CString paramName (audioProcessor.getParameterName (parameterIndex, 31).toRawUTF8());
+
                 AAX_IParameter* parameter
                     = new AAX_CParameter<float> (IndexAsParamID (parameterIndex),
-                                                 audioProcessor.getParameterName (parameterIndex, 31).toRawUTF8(),
+                                                 paramName,
                                                  audioProcessor.getParameterDefaultValue (parameterIndex),
                                                  AAX_CLinearTaperDelegate<float, 0>(),
                                                  AAX_CNumberDisplayDelegate<float, 3>(),
@@ -960,6 +981,7 @@ struct AAXClasses
 
             audioProcessor.setPlayConfigDetails (numberOfInputChannels, numberOfOutputChannels, sampleRate, lastBufferSize);
             audioProcessor.prepareToPlay (sampleRate, lastBufferSize);
+            maxBufferSize = lastBufferSize;
 
             check (Controller()->SetSignalLatency (audioProcessor.getLatencySamples()));
         }
@@ -971,7 +993,7 @@ struct AAXClasses
         Array<float*> channelList;
         int32_t juceChunkIndex;
         AAX_CSampleRate sampleRate;
-        int lastBufferSize;
+        int lastBufferSize, maxBufferSize;
 
         struct ChunkMemoryBlock  : public ReferenceCountedObject
         {

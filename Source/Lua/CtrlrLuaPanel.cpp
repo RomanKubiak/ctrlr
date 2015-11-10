@@ -600,5 +600,14 @@ void CtrlrPanel::wrapForLua (lua_State *L)
 				value("Split7Bits", (uint8)Split7Bits),
 				value("Split8Bits", (uint8)Split8Bits)
 			]
+			.enum_("CtrlrInstance")
+			[
+				value("InstanceSingle", (uint8)InstanceSingle),
+				value("InstanceMulti", (uint8)InstanceMulti),
+				value("InstanceSingleRestriced", (uint8)InstanceSingleRestriced),
+				value("InstanceSingleEngine", (uint8)InstanceSingleEngine),
+				value("InstanceMultiEngine", (uint8)InstanceMultiEngine),
+				value("InstanceSingleRestrictedEngine", (uint8)InstanceSingleRestrictedEngine)
+			]
 	];
 }

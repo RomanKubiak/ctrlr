@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -188,8 +188,6 @@ LookAndFeel_V2::LookAndFeel_V2()
         0x1004503, /*CodeEditorComponent::defaultTextColourId*/               0xff000000,
         0x1004504, /*CodeEditorComponent::lineNumberBackgroundId*/            0x44999999,
         0x1004505, /*CodeEditorComponent::lineNumberTextId*/                  0x44000000,
-		0x1004506, /*CodeEditorComponent::markedLineNumberBackroundId */      0x80ff0000,
-		0x1004507, /*CodeEditorComponent::markedLineNumberTextId */           0xff000000,
 
         0x1007000, /*ColourSelector::backgroundColourId*/                     0xffe5e5e5,
         0x1007001, /*ColourSelector::labelTextColourId*/                      0xff000000,
@@ -490,6 +488,12 @@ int LookAndFeel_V2::getAlertBoxWindowFlags()
 int LookAndFeel_V2::getAlertWindowButtonHeight()
 {
     return 28;
+}
+
+Font LookAndFeel_V2::getAlertWindowTitleFont()
+{
+    Font messageFont = getAlertWindowMessageFont();
+    return messageFont.withHeight (messageFont.getHeight() * 1.1f).boldened();
 }
 
 Font LookAndFeel_V2::getAlertWindowMessageFont()
@@ -1492,6 +1496,75 @@ int LookAndFeel_V2::getSliderPopupPlacement (Slider&)
             | BubbleComponent::below
             | BubbleComponent::left
             | BubbleComponent::right;
+}
+
+//==============================================================================
+Slider::SliderLayout LookAndFeel_V2::getSliderLayout (Slider& slider)
+{
+    // 1. compute the actually visible textBox size from the slider textBox size and some additional constraints
+
+    int minXSpace = 0;
+    int minYSpace = 0;
+
+    Slider::TextEntryBoxPosition textBoxPos = slider.getTextBoxPosition();
+
+    if (textBoxPos == Slider::TextBoxLeft || textBoxPos == Slider::TextBoxRight)
+        minXSpace = 30;
+    else
+        minYSpace = 15;
+
+    Rectangle<int> localBounds = slider.getLocalBounds();
+
+    const int textBoxWidth = jmax (0, jmin (slider.getTextBoxWidth(),  localBounds.getWidth() - minXSpace));
+    const int textBoxHeight = jmax (0, jmin (slider.getTextBoxHeight(), localBounds.getHeight() - minYSpace));
+
+    Slider::SliderLayout layout;
+
+    // 2. set the textBox bounds
+
+    if (textBoxPos != Slider::NoTextBox)
+    {
+        if (slider.isBar())
+        {
+            layout.textBoxBounds = localBounds;
+        }
+        else
+        {
+            layout.textBoxBounds.setWidth (textBoxWidth);
+            layout.textBoxBounds.setHeight (textBoxHeight);
+
+            if (textBoxPos == Slider::TextBoxLeft)           layout.textBoxBounds.setX (0);
+            else if (textBoxPos == Slider::TextBoxRight)     layout.textBoxBounds.setX (localBounds.getWidth() - textBoxWidth);
+            else /* above or below -> centre horizontally */ layout.textBoxBounds.setX ((localBounds.getWidth() - textBoxWidth) / 2);
+
+            if (textBoxPos == Slider::TextBoxAbove)          layout.textBoxBounds.setY (0);
+            else if (textBoxPos == Slider::TextBoxBelow)     layout.textBoxBounds.setY (localBounds.getHeight() - textBoxHeight);
+            else /* left or right -> centre vertically */    layout.textBoxBounds.setY ((localBounds.getHeight() - textBoxHeight) / 2);
+        }
+    }
+
+    // 3. set the slider bounds
+
+    layout.sliderBounds = localBounds;
+
+    if (slider.isBar())
+    {
+        layout.sliderBounds.reduce (1, 1);   // bar border
+    }
+    else
+    {
+        if (textBoxPos == Slider::TextBoxLeft)       layout.sliderBounds.removeFromLeft (textBoxWidth);
+        else if (textBoxPos == Slider::TextBoxRight) layout.sliderBounds.removeFromRight (textBoxWidth);
+        else if (textBoxPos == Slider::TextBoxAbove) layout.sliderBounds.removeFromTop (textBoxHeight);
+        else if (textBoxPos == Slider::TextBoxBelow) layout.sliderBounds.removeFromBottom (textBoxHeight);
+
+        const int thumbIndent = getSliderThumbRadius (slider);
+
+        if (slider.isHorizontal())    layout.sliderBounds.reduce (thumbIndent, 0);
+        else if (slider.isVertical()) layout.sliderBounds.reduce (0, thumbIndent);
+    }
+
+    return layout;
 }
 
 //==============================================================================

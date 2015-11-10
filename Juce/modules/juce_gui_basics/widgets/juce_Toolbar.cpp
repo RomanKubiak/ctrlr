@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -36,7 +36,7 @@ public:
     }
 
     bool getToolbarItemSizes (int toolbarThickness, bool /*isToolbarVertical*/,
-                              int& preferredSize, int& minSize, int& maxSize)
+                              int& preferredSize, int& minSize, int& maxSize) override
     {
         if (fixedSize <= 0)
         {
@@ -219,7 +219,7 @@ public:
         setSize (maxX + 8, y + height + 8);
     }
 
-    void getIdealSize (int& idealWidth, int& idealHeight)
+    void getIdealSize (int& idealWidth, int& idealHeight) override
     {
         idealWidth = getWidth();
         idealHeight = getHeight();

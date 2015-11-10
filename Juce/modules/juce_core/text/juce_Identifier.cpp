@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the juce_core module of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission to use, copy, modify, and/or distribute this software for any purpose with
    or without fee is hereby granted, provided that the above copyright notice and this
@@ -31,7 +31,17 @@ Identifier::~Identifier() noexcept {}
 
 Identifier::Identifier (const Identifier& other) noexcept  : name (other.name) {}
 
-Identifier& Identifier::operator= (const Identifier other) noexcept
+#if JUCE_COMPILER_SUPPORTS_MOVE_SEMANTICS
+Identifier::Identifier (Identifier&& other) noexcept : name (static_cast<String&&> (other.name)) {}
+
+Identifier& Identifier::operator= (Identifier&& other) noexcept
+{
+    name = static_cast<String&&> (other.name);
+    return *this;
+}
+#endif
+
+Identifier& Identifier::operator= (const Identifier& other) noexcept
 {
     name = other.name;
     return *this;

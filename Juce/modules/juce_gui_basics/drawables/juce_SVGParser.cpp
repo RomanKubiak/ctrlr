@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -54,7 +54,7 @@ public:
 
         DrawableComposite* const drawable = new DrawableComposite();
 
-        setDrawableID (*drawable, xml);
+        setCommonAttributes (*drawable, xml);
 
         SVGState newState (*this);
 
@@ -272,7 +272,7 @@ public:
 
                     if (parseNextNumber (d, num, false))
                     {
-                        const float angle = num.getFloatValue() * (180.0f / float_Pi);
+                        const float angle = degreesToRadians (num.getFloatValue());
 
                         if (parseNextNumber (d, num, false))
                         {
@@ -345,11 +345,14 @@ private:
     AffineTransform transform;
     String cssStyleText;
 
-    static void setDrawableID (Drawable& d, const XmlPath& xml)
+    static void setCommonAttributes (Drawable& d, const XmlPath& xml)
     {
         String compID (xml->getStringAttribute ("id"));
         d.setName (compID);
         d.setComponentID (compID);
+
+        if (xml->getStringAttribute ("display") == "none")
+            d.setVisible (false);
     }
 
     //==============================================================================
@@ -374,6 +377,7 @@ private:
         if (tag == "polygon")     return parsePolygon (xml, false);
         if (tag == "text")        return parseText (xml, true);
         if (tag == "switch")      return parseSwitch (xml);
+        if (tag == "a")           return parseLinkElement (xml);
         if (tag == "style")       parseCSSStyle (xml);
 
         return nullptr;
@@ -391,7 +395,7 @@ private:
     {
         DrawableComposite* const drawable = new DrawableComposite();
 
-        setDrawableID (*drawable, xml);
+        setCommonAttributes (*drawable, xml);
 
         if (xml->hasAttribute ("transform"))
         {
@@ -407,6 +411,11 @@ private:
 
         drawable->resetContentAreaAndBoundingBoxToFitChildren();
         return drawable;
+    }
+
+    DrawableComposite* parseLinkElement (const XmlPath& xml)
+    {
+        return parseGroupElement (xml); // TODO: support for making this clickable
     }
 
     //==============================================================================
@@ -536,7 +545,7 @@ private:
         }
 
         DrawablePath* dp = new DrawablePath();
-        setDrawableID (*dp, xml);
+        setCommonAttributes (*dp, xml);
         dp->setFill (Colours::transparentBlack);
 
         path.applyTransform (transform);
@@ -825,7 +834,7 @@ private:
         const String anchorStr = getStyleAttribute(xml, "text-anchor");
 
         DrawableComposite* dc = new DrawableComposite();
-        setDrawableID (*dc, xml);
+        setCommonAttributes (*dc, xml);
 
         forEachXmlChildElement (*xml, e)
         {
@@ -1082,6 +1091,11 @@ private:
     }
 
     //==============================================================================
+    static bool isStartOfNumber (juce_wchar c) noexcept
+    {
+        return CharacterFunctions::isDigit (c) || c == '-' || c == '+';
+    }
+
     static bool parseNextNumber (String::CharPointerType& text, String& value, const bool allowUnits)
     {
         String::CharPointerType s (text);
@@ -1091,14 +1105,21 @@ private:
 
         String::CharPointerType start (s);
 
-        if (s.isDigit() || *s == '.' || *s == '-')
+        if (isStartOfNumber (*s))
             ++s;
 
-        while (s.isDigit() || *s == '.')
+        while (s.isDigit())
             ++s;
 
-        if ((*s == 'e' || *s == 'E')
-             && ((s + 1).isDigit() || s[1] == '-' || s[1] == '+'))
+        if (*s == '.')
+        {
+            ++s;
+
+            while (s.isDigit())
+                ++s;
+        }
+
+        if ((*s == 'e' || *s == 'E') && isStartOfNumber (s[1]))
         {
             s += 2;
 
@@ -1218,15 +1239,15 @@ private:
             }
             else if (t.startsWithIgnoreCase ("rotate"))
             {
-                trans = AffineTransform::rotation (numbers[0] / (180.0f / float_Pi), numbers[1], numbers[2]);
+                trans = AffineTransform::rotation (degreesToRadians (numbers[0]), numbers[1], numbers[2]);
             }
             else if (t.startsWithIgnoreCase ("skewX"))
             {
-                trans = AffineTransform::shear (std::tan (numbers[0] * (float_Pi / 180.0f)), 0.0f);
+                trans = AffineTransform::shear (std::tan (degreesToRadians (numbers[0])), 0.0f);
             }
             else if (t.startsWithIgnoreCase ("skewY"))
             {
-                trans = AffineTransform::shear (0.0f, std::tan (numbers[0] * (float_Pi / 180.0f)));
+                trans = AffineTransform::shear (0.0f, std::tan (degreesToRadians (numbers[0])));
             }
 
             result = trans.followedBy (result);

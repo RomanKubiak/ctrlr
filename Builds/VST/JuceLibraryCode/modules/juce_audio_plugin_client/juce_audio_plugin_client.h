@@ -2,4 +2,3 @@
 // module headers to the correct external folder.
 
 #include "../../../../../Juce/modules/juce_audio_plugin_client/juce_audio_plugin_client.h"
-

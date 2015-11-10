@@ -91,14 +91,12 @@ void CtrlrModulatorProcessor::setForwardExpression (const String &forwardExpress
 
 	{
 		const ScopedWriteLock sl (processorLock);
+		String parseError;
 
-		try
+		forwardProcess = Expression(forwardExpressionString, parseError);
+		if (!parseError.isEmpty())
 		{
-			forwardProcess = Expression(forwardExpressionString);
-		}
-		catch (Expression::ParseError err)
-		{
-			_ERR("CtrlrModulatorProcessor::setForwardExpression parse error: " + err.description);
+			_ERR("CtrlrModulatorProcessor::setForwardExpression parse error: " + parseError);
 			usingForwardProcess = false;
 
 			return;
@@ -120,14 +118,11 @@ void CtrlrModulatorProcessor::setReverseExpression (const String &reverseExpress
 
 	{
 		const ScopedWriteLock sl (processorLock);
-
-		try
+		String parseError;
+		reverseProcess = Expression(reverseExpressionString, parseError);
+		if (!parseError.isEmpty())
 		{
-			reverseProcess = Expression(reverseExpressionString);
-		}
-		catch (Expression::ParseError err)
-		{
-			_ERR("CtrlrModulatorProcessor::setReverseExpression parse error: " + err.description);
+			_ERR("CtrlrModulatorProcessor::setReverseExpression parse error: " + parseError);
 			usingReverseProcess = false;
 
 			return;

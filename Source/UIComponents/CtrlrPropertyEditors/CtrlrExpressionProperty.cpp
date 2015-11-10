@@ -68,23 +68,22 @@ void CtrlrExpressionProperty::textEditorReturnKeyPressed (TextEditor &editor)
 }
 
 void CtrlrExpressionProperty::textEditorFocusLost (TextEditor &editor)
-{	
+{
 	compile (true);
 }
 
 const bool CtrlrExpressionProperty::compile(const bool setPropertyIfValid)
 {
-	try
-	{
-		Expression e = Expression(text->getText());
-	}
-	catch (Expression::ParseError err)
+	String parseError;
+	Expression e = Expression(text->getText(), parseError);
+
+	if (!parseError.isEmpty())
 	{
 		text->setColour (TextEditor::backgroundColourId, Colours::lightpink);
-		AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Expression validation", "Validation failed: "+err.description, "OK", this);
+		AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Expression validation", "Validation failed: "+parseError, "OK", this);
 		return (false);
 	}
-	
+
 	text->setColour (TextEditor::backgroundColourId, Colours::white);
 
 	if (setPropertyIfValid)

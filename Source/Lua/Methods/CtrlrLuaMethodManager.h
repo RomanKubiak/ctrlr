@@ -93,6 +93,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 
 		const bool call(CtrlrLuaMethod *o, const CtrlrMidiMessage &param1);
 		const bool call(CtrlrLuaMethod *o, const MidiMessage &param1);
+		const bool call(CtrlrLuaMethod *o, const uint8 param1);
 		const bool call(CtrlrLuaMethod *o, const int param1, const int param2, const int param3, luabind::object const &param4);
 		const bool call(CtrlrLuaMethod *o, const int param1, const int param2, const int param3);
 		const bool call(CtrlrLuaMethod *o, const int param1, const int param2);

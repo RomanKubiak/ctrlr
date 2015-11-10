@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the juce_core module of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission to use, copy, modify, and/or distribute this software for any purpose with
    or without fee is hereby granted, provided that the above copyright notice and this
@@ -429,7 +429,7 @@ String SystemStats::getFullUserName()
 
 String SystemStats::getComputerName()
 {
-    TCHAR text [MAX_COMPUTERNAME_LENGTH + 1] = { 0 };
+    TCHAR text[128] = { 0 };
     DWORD len = (DWORD) numElementsInArray (text) - 1;
     GetComputerName (text, &len);
     return String (text, len);

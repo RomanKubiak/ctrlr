@@ -143,7 +143,7 @@ void CtrlrMidiKeyboard::handleNoteOn (MidiKeyboardState* source, int midiChannel
 	}
 }
 
-void CtrlrMidiKeyboard::handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber)
+void CtrlrMidiKeyboard::handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity)
 {
 	owner.getMidiMessage().setMidiMessageType(NoteOff);
 
