@@ -770,6 +770,7 @@
       <FILE id="Psiemy" name="hotplug.c" compile="1" resource="0" file="../../Source/Misc/hotplug.c"/>
       <GROUP id="{C3DA49B5-638B-BAA0-DA18-70E57F042D7E}" name="include">
         <GROUP id="{639303ED-7B91-2AF0-C463-F13D50416F90}" name="lo">
+          <FILE id="wXPjT3" name="lo_config_osx.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_config_osx.h"/>
           <FILE id="CTczxn" name="lo_config_win32.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_config_win32.h"/>
           <FILE id="IbreLy" name="lo.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo.h"/>

@@ -23,5 +23,10 @@
 
 //==============================================================================
 
+//==============================================================================
+#ifndef    JUCE_STANDALONE_APPLICATION
+ #define   JUCE_STANDALONE_APPLICATION 1
+#endif
+
 
 #endif  // __JUCE_APPCONFIG_HXKBEQ__

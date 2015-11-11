@@ -12,8 +12,50 @@ namespace BinaryData
     extern const char*   CtrlrRevision_template;
     const int            CtrlrRevision_templateSize = 199;
 
-    extern const char*   RSRC_zip;
-    const int            RSRC_zipSize = 49800;
+    extern const char*   lo_endian_h_in;
+    const int            lo_endian_h_inSize = 3760;
+
+    extern const char*   Makefile;
+    const int            MakefileSize = 18440;
+
+    extern const char*   Makefile_am;
+    const int            Makefile_amSize = 261;
+
+    extern const char*   Makefile_in;
+    const int            Makefile_inSize = 18414;
+
+    extern const char*   FONT_60sekuntia_ttf;
+    const int            FONT_60sekuntia_ttfSize = 97264;
+
+    extern const char*   FONT_Computerfont_ttf;
+    const int            FONT_Computerfont_ttfSize = 39104;
+
+    extern const char*   FONT_Digit_ttf;
+    const int            FONT_Digit_ttfSize = 13028;
+
+    extern const char*   FONT_Digital7_ttf;
+    const int            FONT_Digital7_ttfSize = 34360;
+
+    extern const char*   FONT_DottyShadow_ttf;
+    const int            FONT_DottyShadow_ttfSize = 569464;
+
+    extern const char*   FONT_Electronic_Highway_Sign_ttf;
+    const int            FONT_Electronic_Highway_Sign_ttfSize = 73060;
+
+    extern const char*   FONT_Invasion2000_ttf;
+    const int            FONT_Invasion2000_ttfSize = 30836;
+
+    extern const char*   FONT_Karmatic_Arcade_ttf;
+    const int            FONT_Karmatic_Arcade_ttfSize = 56908;
+
+    extern const char*   FONT_LCD_ttf;
+    const int            FONT_LCD_ttfSize = 27664;
+
+    extern const char*   FONT_WarenhausStandard_ttf;
+    const int            FONT_WarenhausStandard_ttfSize = 28212;
+
+    extern const char*   FONT_ZX81_ttf;
+    const int            FONT_ZX81_ttfSize = 17176;
 
     extern const char*   appbar_control_play_png;
     const int            appbar_control_play_pngSize = 434;
@@ -36,20 +78,17 @@ namespace BinaryData
     extern const char*   appbar_debug_stop_png;
     const int            appbar_debug_stop_pngSize = 218;
 
-    extern const char*   ico_transaction_png;
-    const int            ico_transaction_pngSize = 3798;
-
     extern const char*   ico_box_png;
     const int            ico_box_pngSize = 3869;
 
     extern const char*   ico_bug_png;
     const int            ico_bug_pngSize = 4091;
 
-    extern const char*   ico_ctrlr_mac_icns;
-    const int            ico_ctrlr_mac_icnsSize = 64064;
-
     extern const char*   ico_copy_png;
     const int            ico_copy_pngSize = 3721;
+
+    extern const char*   ico_ctrlr_mac_icns;
+    const int            ico_ctrlr_mac_icnsSize = 64064;
 
     extern const char*   ico_cut_png;
     const int            ico_cut_pngSize = 4206;
@@ -144,6 +183,9 @@ namespace BinaryData
     extern const char*   ico_snapshot_new_png;
     const int            ico_snapshot_new_pngSize = 1897;
 
+    extern const char*   ico_transaction_png;
+    const int            ico_transaction_pngSize = 3798;
+
     extern const char*   ico_unit_png;
     const int            ico_unit_pngSize = 4223;
 
@@ -156,53 +198,77 @@ namespace BinaryData
     extern const char*   ico_waveform_png;
     const int            ico_waveform_pngSize = 1520;
 
-    extern const char*   FONT_60sekuntia_ttf;
-    const int            FONT_60sekuntia_ttfSize = 97264;
-
-    extern const char*   FONT_Computerfont_ttf;
-    const int            FONT_Computerfont_ttfSize = 39104;
-
-    extern const char*   FONT_Digit_ttf;
-    const int            FONT_Digit_ttfSize = 13028;
-
-    extern const char*   FONT_Digital7_ttf;
-    const int            FONT_Digital7_ttfSize = 34360;
-
-    extern const char*   FONT_DottyShadow_ttf;
-    const int            FONT_DottyShadow_ttfSize = 569464;
-
-    extern const char*   FONT_Electronic_Highway_Sign_ttf;
-    const int            FONT_Electronic_Highway_Sign_ttfSize = 73060;
-
-    extern const char*   FONT_Invasion2000_ttf;
-    const int            FONT_Invasion2000_ttfSize = 30836;
-
-    extern const char*   FONT_Karmatic_Arcade_ttf;
-    const int            FONT_Karmatic_Arcade_ttfSize = 56908;
-
-    extern const char*   FONT_LCD_ttf;
-    const int            FONT_LCD_ttfSize = 27664;
-
-    extern const char*   FONT_WarenhausStandard_ttf;
-    const int            FONT_WarenhausStandard_ttfSize = 28212;
-
-    extern const char*   FONT_ZX81_ttf;
-    const int            FONT_ZX81_ttfSize = 17176;
-
     extern const char*   tile_gif;
     const int            tile_gifSize = 326;
 
-    extern const char*   CtrlrMIDITransactions_xml;
-    const int            CtrlrMIDITransactions_xmlSize = 1963;
+    extern const char*   debugger_lua;
+    const int            debugger_luaSize = 43371;
+
+    extern const char*   LICENSE;
+    const int            LICENSESize = 1079;
+
+    extern const char*   README_md;
+    const int            README_mdSize = 266;
+
+    extern const char*   test_lua;
+    const int            test_luaSize = 71;
+
+    extern const char*   json_lua;
+    const int            json_luaSize = 17174;
+
+    extern const char*   LICENCE_txt;
+    const int            LICENCE_txtSize = 1077;
+
+    extern const char*   gen_LLookAndFeel_cpp_sh;
+    const int            gen_LLookAndFeel_cpp_shSize = 2533;
+
+    extern const char*   gen_LLookAndFeel_h_sh;
+    const int            gen_LLookAndFeel_h_shSize = 3815;
+
+    extern const char*   gen_LookAndFeel_lua_sh;
+    const int            gen_LookAndFeel_lua_shSize = 2182;
+
+    extern const char*   gen_LookAndFeelBase_cpp_sh;
+    const int            gen_LookAndFeelBase_cpp_shSize = 3093;
+
+    extern const char*   gen_LookAndFeelBase_h_sh;
+    const int            gen_LookAndFeelBase_h_shSize = 1972;
+
+    extern const char*   gen_LookAndFeelParamWrapperLuaMemberBinding_sh;
+    const int            gen_LookAndFeelParamWrapperLuaMemberBinding_shSize = 530;
+
+    extern const char*   gen_LookAndFeelParamWrapper_h_sh;
+    const int            gen_LookAndFeelParamWrapper_h_shSize = 8195;
+
+    extern const char*   inspect_lua;
+    const int            inspect_luaSize = 9233;
+
+    extern const char*   lf_template;
+    const int            lf_templateSize = 13531;
+
+    extern const char*   LookAndFeel_lua;
+    const int            LookAndFeel_luaSize = 14795;
+
+    extern const char*   paramWrapper_template;
+    const int            paramWrapper_templateSize = 3379;
+
+    extern const char*   RSRC_zip;
+    const int            RSRC_zipSize = 49800;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 81525;
+    const int            CtrlrIDs_xmlSize = 81787;
+
+    extern const char*   CtrlrLuaClassTemplates_xml;
+    const int            CtrlrLuaClassTemplates_xmlSize = 109;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 21266;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 22351;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
+
+    extern const char*   CtrlrMIDITransactions_xml;
+    const int            CtrlrMIDITransactions_xmlSize = 1963;
 
     extern const char*   CtrlrMIDIVendors_xml;
     const int            CtrlrMIDIVendors_xmlSize = 15061;
@@ -211,7 +277,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 66;
+    const int namedResourceListSize = 88;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

@@ -21,6 +21,11 @@
 #ifdef _WIN32
 #include "lo_config_win32.h"
 #endif
+
+#ifdef __APPLE__
+#include "lo_config_osx.h"
+#endif
+
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>

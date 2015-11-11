@@ -28,6 +28,7 @@
 #include "MIDI/CtrlrMidiDeviceManager.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrMacros.h"
 //[/MiscUserDefs]
 
 //==============================================================================
@@ -292,9 +293,9 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
 
 
     //[Constructor] You can add your own custom stuff here..
-    owner.getCtrlrManagerOwner().getCtrlrMidiDeviceManager().reloadComboContents (*inputDevices, CtrlrMIDIDeviceType::inputDevice, &owner);
-    owner.getCtrlrManagerOwner().getCtrlrMidiDeviceManager().reloadComboContents (*controllerDevices, CtrlrMIDIDeviceType::controllerDevice, &owner);
-    owner.getCtrlrManagerOwner().getCtrlrMidiDeviceManager().reloadComboContents (*outputDevices, CtrlrMIDIDeviceType::outputDevice, &owner);
+    owner.getCtrlrManagerOwner().getCtrlrMidiDeviceManager().reloadComboContents (*inputDevices, inputDevice, &owner);
+    owner.getCtrlrManagerOwner().getCtrlrMidiDeviceManager().reloadComboContents (*controllerDevices, controllerDevice, &owner);
+    owner.getCtrlrManagerOwner().getCtrlrMidiDeviceManager().reloadComboContents (*outputDevices, outputDevice, &owner);
     oscEnabled->setToggleState (owner.getProperty(Ids::panelOSCEnabled), dontSendNotification);
     oscPort->setText (owner.getProperty(Ids::panelOSCPort), dontSendNotification);
     oscProtocol->setSelectedItemIndex(owner.getProperty(Ids::panelOSCProtocol), dontSendNotification);
