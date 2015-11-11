@@ -13,16 +13,16 @@ namespace BinaryData
     const int            CtrlrRevision_templateSize = 199;
 
     extern const char*   lo_endian_h_in;
-    const int            lo_endian_h_inSize = 3760;
+    const int            lo_endian_h_inSize = 3921;
 
     extern const char*   Makefile;
-    const int            MakefileSize = 18440;
+    const int            MakefileSize = 19036;
 
     extern const char*   Makefile_am;
-    const int            Makefile_amSize = 261;
+    const int            Makefile_amSize = 271;
 
     extern const char*   Makefile_in;
-    const int            Makefile_inSize = 18414;
+    const int            Makefile_inSize = 19010;
 
     extern const char*   FONT_60sekuntia_ttf;
     const int            FONT_60sekuntia_ttfSize = 97264;
@@ -202,67 +202,67 @@ namespace BinaryData
     const int            tile_gifSize = 326;
 
     extern const char*   debugger_lua;
-    const int            debugger_luaSize = 43371;
+    const int            debugger_luaSize = 44867;
 
     extern const char*   LICENSE;
-    const int            LICENSESize = 1079;
+    const int            LICENSESize = 1099;
 
     extern const char*   README_md;
-    const int            README_mdSize = 266;
+    const int            README_mdSize = 272;
 
     extern const char*   test_lua;
-    const int            test_luaSize = 71;
+    const int            test_luaSize = 77;
 
     extern const char*   json_lua;
     const int            json_luaSize = 17174;
 
     extern const char*   LICENCE_txt;
-    const int            LICENCE_txtSize = 1077;
+    const int            LICENCE_txtSize = 1097;
 
     extern const char*   gen_LLookAndFeel_cpp_sh;
-    const int            gen_LLookAndFeel_cpp_shSize = 2533;
+    const int            gen_LLookAndFeel_cpp_shSize = 2671;
 
     extern const char*   gen_LLookAndFeel_h_sh;
-    const int            gen_LLookAndFeel_h_shSize = 3815;
+    const int            gen_LLookAndFeel_h_shSize = 4001;
 
     extern const char*   gen_LookAndFeel_lua_sh;
-    const int            gen_LookAndFeel_lua_shSize = 2182;
+    const int            gen_LookAndFeel_lua_shSize = 2311;
 
     extern const char*   gen_LookAndFeelBase_cpp_sh;
-    const int            gen_LookAndFeelBase_cpp_shSize = 3093;
+    const int            gen_LookAndFeelBase_cpp_shSize = 3269;
 
     extern const char*   gen_LookAndFeelBase_h_sh;
-    const int            gen_LookAndFeelBase_h_shSize = 1972;
+    const int            gen_LookAndFeelBase_h_shSize = 2074;
 
     extern const char*   gen_LookAndFeelParamWrapperLuaMemberBinding_sh;
-    const int            gen_LookAndFeelParamWrapperLuaMemberBinding_shSize = 530;
+    const int            gen_LookAndFeelParamWrapperLuaMemberBinding_shSize = 556;
 
     extern const char*   gen_LookAndFeelParamWrapper_h_sh;
     const int            gen_LookAndFeelParamWrapper_h_shSize = 8195;
 
     extern const char*   inspect_lua;
-    const int            inspect_luaSize = 9233;
+    const int            inspect_luaSize = 9563;
 
     extern const char*   lf_template;
-    const int            lf_templateSize = 13531;
+    const int            lf_templateSize = 13631;
 
     extern const char*   LookAndFeel_lua;
-    const int            LookAndFeel_luaSize = 14795;
+    const int            LookAndFeel_luaSize = 15147;
 
     extern const char*   paramWrapper_template;
-    const int            paramWrapper_templateSize = 3379;
+    const int            paramWrapper_templateSize = 3520;
 
     extern const char*   RSRC_zip;
     const int            RSRC_zipSize = 49800;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 81787;
+    const int            CtrlrIDs_xmlSize = 82628;
 
     extern const char*   CtrlrLuaClassTemplates_xml;
     const int            CtrlrLuaClassTemplates_xmlSize = 109;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 22351;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 23104;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;
