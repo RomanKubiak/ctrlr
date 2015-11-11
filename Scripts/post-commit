@@ -246,7 +246,7 @@ function build_now_osx {
 	rm -f $TEMPLATE_DMG_TEMP
 	
 	echo "[CTRLR]: Copy to release server"
-	scp -v -i $CTRLR_ROOT/Packaging/ctrlr.key $PACKAGE $BUILD_LOG $OUTPUT
+	scp -v -i $CTRLR_KEY $PACKAGE $BUILD_LOG $OUTPUT
 }
 
 function build_now_linux {
@@ -329,7 +329,7 @@ function build_now_linux {
 		exit 1
 	fi
 	
-	scp -v -i $CTRLR_ROOT/Packaging/ctrlr.key $PACKAGE $BUILD_LOG $OUTPUT
+	scp -v -i $CTRLR_KEY $PACKAGE $BUILD_LOG $OUTPUT
 }
 
 detect_os
