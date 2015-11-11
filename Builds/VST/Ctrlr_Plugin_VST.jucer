@@ -648,6 +648,7 @@
     <GROUP id="{0D293395-B616-18D7-D7C0-A8BECB02051A}" name="Misc">
       <GROUP id="{E8D71461-9A85-E7B8-8A27-99CD4107B7B1}" name="include">
         <GROUP id="{7F348ADD-B158-6927-6999-56422CAC66F4}" name="lo">
+          <FILE id="iKnK9t" name="lo_config_osx.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_config_osx.h"/>
           <FILE id="Ypv3ly" name="lo_config_win32.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_config_win32.h"/>
           <FILE id="sCbJAO" name="lo.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo.h"/>

@@ -46,7 +46,7 @@
  #include <X11/Xatom.h>
  #undef KeyPress
 #else
- #include <Carbon/Carbon.h>
+ //#include <Carbon/Carbon.h>
 #endif
 
 #ifdef PRAGMA_ALIGN_SUPPORTED
@@ -241,7 +241,7 @@ juce_ImplementSingleton (SharedMessageThread)
 #endif
 
 static Array<void*> activePlugins;
-
+#include "../../juce_audio_processors/format_types/juce_VSTMidiEventList.h"
 //==============================================================================
 /**
     This is an AudioEffectX object that holds and wraps our AudioProcessor...

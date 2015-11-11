@@ -3033,6 +3033,9 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_osx.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_win32.h">
       <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
     </ClInclude>

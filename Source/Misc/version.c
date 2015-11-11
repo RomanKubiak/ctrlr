@@ -22,6 +22,10 @@
 #include "lo_config_win32.h"
 #endif
 
+#ifdef __APPLE__
+#include "lo_config_osx.h"
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

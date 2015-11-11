@@ -1740,6 +1740,7 @@
 		F61EE5669F179441F88B891D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrGeneric.h; path = ../../../../Source/Native/CtrlrGeneric.h; sourceTree = "SOURCE_ROOT"; };
 		F698FFEF9055AD5B2C92C984 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrUpdateManager.h; path = ../../../../Source/Core/CtrlrUpdateManager.h; sourceTree = "SOURCE_ROOT"; };
 		F6AADE6C3DD402AAE3D00D9F = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		F6D2613655AF03101C4BE25E = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "lo_config_osx.h"; path = "../../../../Source/Misc/include/lo/lo_config_osx.h"; sourceTree = "SOURCE_ROOT"; };
 		F6D812C3648C30054C70D7B3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaMethodEditorConsole.cpp; path = ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp; sourceTree = "SOURCE_ROOT"; };
 		F6E45A805B8AC86790196A3A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_AudioDataConverters.h"; path = "../../../../Juce/modules/juce_audio_basics/buffers/juce_AudioDataConverters.h"; sourceTree = "SOURCE_ROOT"; };
 		F6EB10843005C5CE71871129 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrStandaloneWindow.cpp; path = ../../../../Source/Core/StandaloneWrapper/CtrlrStandaloneWindow.cpp; sourceTree = "SOURCE_ROOT"; };
@@ -2198,6 +2199,7 @@
 					18F245B650098FAC13973B72,
 					A5F3B54BE7AF5FCBB9146E94, ); name = MIDI; sourceTree = "<group>"; };
 		DB3942DC6ECBACB880E97EF8 = {isa = PBXGroup; children = (
+					F6D2613655AF03101C4BE25E,
 					D5590EED0FE6051C5679AF9B,
 					5FC8D0549A2FB82D90372E2C,
 					0145D50AD56BBC199BD93FFE,

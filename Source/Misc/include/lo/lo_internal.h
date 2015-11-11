@@ -8,6 +8,11 @@
 #ifdef _WIN32
 #include "lo_config_win32.h"
 #endif
+
+#ifdef __APPLE__
+#include "lo_config_osx.h"
+#endif
+
 #include <lo/lo_osc_types.h>
 
 /**

@@ -1751,6 +1751,7 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h"/>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_osx.h"/>
     <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_win32.h"/>
     <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo.h"/>
     <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_linux.h"/>

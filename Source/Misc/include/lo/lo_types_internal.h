@@ -9,6 +9,10 @@
 #include "lo_config_win32.h"
 #endif
 
+#ifdef __APPLE__
+#include "lo_config_osx.h"
+#endif
+
 #ifdef HAVE_SYS_SOCKET_H
 #include <sys/types.h>
 #include <sys/socket.h>
