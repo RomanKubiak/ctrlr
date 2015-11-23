@@ -19,6 +19,7 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrManager(nullptr)
 {
 	_DBG("CtrlrProcessor::ctor");
+	
 	midiCollector.reset (SAMPLERATE);
 
 	currentExec		= File::getSpecialLocation(File::currentApplicationFile);

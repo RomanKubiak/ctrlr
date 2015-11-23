@@ -35,8 +35,6 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 	nullPanel				= new CtrlrPanel(*this);
 	nullModulator			= new CtrlrModulator (*nullPanel);
     ctrlrFontManager        = new CtrlrFontManager (*this);
-
-
 }
 
 CtrlrManager::~CtrlrManager()

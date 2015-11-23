@@ -643,6 +643,7 @@ bool File::isShortcut() const
 
 File File::getLinkedTarget() const
 {
+	if (SystemStats::getOperatingSystemType() > SystemStats::WinXP)
     {
         HANDLE h = CreateFile (getFullPathName().toWideCharPointer(),
                                GENERIC_READ, FILE_SHARE_READ, nullptr,
