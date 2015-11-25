@@ -57,7 +57,7 @@ CtrlrButton::CtrlrButton (CtrlrModulator &owner)
 	setProperty (Ids::uiButtonRepeat, false);
 	setProperty (Ids::uiButtonRepeatRate, 100);
 	setProperty (Ids::uiButtonTriggerOnMouseDown, false);
-	setProperty (Ids::componentInternalFunction, owner.getOwnerPanel().getInternalFunctionsProperty(this));
+	setProperty (Ids::componentInternalFunction, COMBO_ITEM_NONE);
     //[/UserPreSize]
 
     setSize (88, 32);
