@@ -75,7 +75,7 @@ CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
 	setProperty (Ids::componentLabelFont, FONT2STR (Font(12)));
 	setProperty (Ids::componentVisibleName, owner.getProperty(Ids::name));
 	setProperty (Ids::componentMouseCursor, (int)MouseCursor::NormalCursor);
-	setProperty (Ids::componentGroupName, "");
+	setProperty (Ids::componentGroupName, String::empty);
 	setProperty (Ids::componentGroupped, false);
 	setProperty (Ids::componentSnapSize, 0);
 	setProperty (Ids::componentIsLocked, false);
@@ -706,7 +706,10 @@ void CtrlrComponent::setCustomLookAndFeel (const luabind::object &_customLookAnd
 
 bool CtrlrComponent::isInternal()
 {
-	if (getProperty(Ids::componentInternalFunction, String::empty) != String::empty)
+	if (!componentTree.hasProperty(Ids::componentInternalFunction))
+		return (false);
+
+	if (getProperty(Ids::componentInternalFunction, String::empty) != COMBO_ITEM_NONE)
 		return (true);
 
 	return (false);
