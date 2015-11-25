@@ -36,7 +36,7 @@
 */
 #define JUCE_MAJOR_VERSION      4
 #define JUCE_MINOR_VERSION      0
-#define JUCE_BUILDNUMBER        1
+#define JUCE_BUILDNUMBER        2
 
 /** Current Juce version number.
 
@@ -52,8 +52,8 @@
 //==============================================================================
 #include <vector>  // included before platform defs to provide a definition of _LIBCPP_VERSION
 
-#include "juce_PlatformDefs.h"
 #include "juce_CompilerSupport.h"
+#include "juce_PlatformDefs.h"
 
 //==============================================================================
 // Now we'll include some common OS headers..
