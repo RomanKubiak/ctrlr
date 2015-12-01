@@ -2,7 +2,7 @@
 #define CTRLR_PANEL
 
 #include "CtrlrMacros.h"
-#include "CtrlrMidiDeviceManager.h"
+#include "CtrlrMIDIDeviceManager.h"
 #include "CtrlrMidiDevice.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrMidiInputComparator.h"

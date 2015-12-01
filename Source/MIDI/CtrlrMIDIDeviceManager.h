@@ -1,5 +1,5 @@
-#ifndef __CTRLR_MIDI_DEVICE_MANAGER__
-#define __CTRLR_MIDI_DEVICE_MANAGER__
+#ifndef CTRLR_MIDI_DEVICE_MANAGER
+#define CTRLR_MIDI_DEVICE_MANAGER
 
 #include "CtrlrMacros.h"
 #include "CtrlrModulator/CtrlrModulator.h"
@@ -11,11 +11,11 @@ class CtrlrManager;
 #define RUN		true
 #define STP		false
 
-class CtrlrMidiDeviceManager
+class CtrlrMIDIDeviceManager
 {
 	public:
-		CtrlrMidiDeviceManager(CtrlrManager &_ctrlrManager);
-		~CtrlrMidiDeviceManager();
+		CtrlrMIDIDeviceManager(CtrlrManager &_ctrlrManager);
+		~CtrlrMIDIDeviceManager();
 		void refreshDevices();
 
 		enum DeviceState
@@ -46,8 +46,9 @@ class CtrlrMidiDeviceManager
 
 		void reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type = inputDevice, CtrlrPanel *panel = nullptr);
 
+		static void wrapForLua(lua_State *L);
 
-		JUCE_LEAK_DETECTOR(CtrlrMidiDeviceManager)
+		JUCE_LEAK_DETECTOR(CtrlrMIDIDeviceManager)
 
 	private:
 		ListenerList <CtrlrMidiDevice::Listener,
