@@ -3,7 +3,7 @@
 #include "CtrlrMIDIDeviceManager.h"
 #include "CtrlrProcessor.h"
 #include "CtrlrMacros.h"
-#include "CtrlrMidiDevice.h"
+#include "CtrlrMIDIDevice.h"
 #include "CtrlrLog.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrPanel/CtrlrPanel.h"
@@ -117,7 +117,7 @@ void CtrlrMIDIDeviceManager::restoreState (const ValueTree &savedState)
 {
 }
 
-CtrlrMidiDevice *CtrlrMIDIDeviceManager::getDeviceByName(const String name, const CtrlrMIDIDeviceType type, const bool openIfClosed)
+CtrlrMIDIDevice *CtrlrMIDIDeviceManager::getDeviceByName(const String name, const CtrlrMIDIDeviceType type, const bool openIfClosed)
 {
 	if (type == outputDevice)
 	{
@@ -176,7 +176,7 @@ CtrlrMidiDevice *CtrlrMIDIDeviceManager::getDeviceByName(const String name, cons
 	return (nullptr);
 }
 
-CtrlrMidiDevice *CtrlrMIDIDeviceManager::getDeviceByIndex(const int idx, const CtrlrMIDIDeviceType type)
+CtrlrMIDIDevice *CtrlrMIDIDeviceManager::getDeviceByIndex(const int idx, const CtrlrMIDIDeviceType type)
 {
 	if (type == outputDevice)
 	{
@@ -285,7 +285,7 @@ void CtrlrMIDIDeviceManager::refreshDevices()
 	}
 	for (int i=0; i<in.size(); i++)
 	{
-		inDevs.add (new CtrlrMidiDevice (*this, i, in[i], inputDevice));
+		inDevs.add (new CtrlrMIDIDevice (*this, i, in[i], inputDevice));
 	}
 
 	for (int i=0; i<outDevs.size(); i++)
@@ -296,11 +296,11 @@ void CtrlrMIDIDeviceManager::refreshDevices()
 	}
 	for (int i=0; i<out.size(); i++)
 	{
-		outDevs.add (new CtrlrMidiDevice (*this, i, out[i], outputDevice));
+		outDevs.add (new CtrlrMIDIDevice (*this, i, out[i], outputDevice));
 	}
 }
 
-void CtrlrMIDIDeviceManager::removeListenerFromAllDevices (CtrlrMidiDevice::Listener *l)
+void CtrlrMIDIDeviceManager::removeListenerFromAllDevices (CtrlrMIDIDevice::Listener *l)
 {
 	for (int i=0; i<inDevs.size(); i++)
 	{
@@ -312,7 +312,7 @@ void CtrlrMIDIDeviceManager::processBlock (MidiBuffer& midiMessages)
 {
 	if (midiMessages.getNumEvents() > 0)
 	{
-		processingListeners.call (&CtrlrMidiDevice::Listener::handleMIDIFromHost, midiMessages);
+		processingListeners.call (&CtrlrMIDIDevice::Listener::handleMIDIFromHost, midiMessages);
 	}
 }
 
@@ -322,7 +322,14 @@ void CtrlrMIDIDeviceManager::wrapForLua(lua_State *L)
 
 	module(L)
     [
-		class_<CtrlrMidiDeviceManager>("CtrlrMIDIDeviceManager")
+		class_<CtrlrMIDIDeviceManager>("CtrlrMIDIDeviceManager")
+			.def("getNumDevices", &CtrlrMIDIDeviceManager::getNumDevices)
+			.def("getDeviceName", &CtrlrMIDIDeviceManager::getDeviceName)
+			.def("isDeviceOpened", &CtrlrMIDIDeviceManager::isDeviceOpened)
+			.def("getDeviceByIndex", &CtrlrMIDIDeviceManager::getDeviceByIndex)
+			.def("getDeviceByName", &CtrlrMIDIDeviceManager::getDeviceByName)
+			.def("getManagedDevices", &CtrlrMIDIDeviceManager::getManagedDevices)
+			.def("refreshDevices", &CtrlrMIDIDeviceManager::refreshDevices)
 			.enum_("CtrlrMIDIDeviceType")
 			[
 				value("outputDevice", CtrlrMIDIDeviceType::outputDevice),
@@ -333,7 +340,12 @@ void CtrlrMIDIDeviceManager::wrapForLua(lua_State *L)
 				value("oscInputDevice", CtrlrMIDIDeviceType::oscInputDevice),
 				value("oscOutputDevice", CtrlrMIDIDeviceType::oscOutputDevice),
 				value("serialDevice", CtrlrMIDIDeviceType::serialDevice)
-			],
-			def("getNumDevices", CtrlrMIDIDeviceManager::getNumDevices)
+			]
+			.enum_("DeviceState")
+			[
+				value("closed", CtrlrMIDIDeviceManager::closed),
+				value("opened", CtrlrMIDIDeviceManager::opened),
+				value("error", CtrlrMIDIDeviceManager::error)
+			]
 	];
 }

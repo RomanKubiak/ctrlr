@@ -227,8 +227,8 @@ class CtrlrManager :    public ValueTree::Listener,
 		/** Returns a reference to the MIDI Device Manager
 
 		*/
+		CtrlrMIDIDeviceManager &getCtrlrMIDIDeviceManager()														{ return (ctrlrMidiDeviceManager); }
 		CtrlrMIDIDeviceManager &getCtrlrMidiDeviceManager()														{ return (ctrlrMidiDeviceManager); }
-
 		/** Returns the index of the panel that contains this modulator index
 
 			@params modulatorIndex				the vst index of the searched modulator

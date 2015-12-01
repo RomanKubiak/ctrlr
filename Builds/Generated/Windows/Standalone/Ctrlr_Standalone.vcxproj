@@ -249,9 +249,9 @@
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp"/>
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIDevice.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIDeviceManager.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp"/>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.cpp"/>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.cpp"/>
@@ -1741,9 +1741,9 @@
     <ClInclude Include="..\..\..\..\Source\Lua\luabind\luabind\yield_policy.hpp"/>
     <ClInclude Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethod.h"/>
     <ClInclude Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.h"/>
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIDevice.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIDeviceManager.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.h"/>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.h"/>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.h"/>

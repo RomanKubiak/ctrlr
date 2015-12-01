@@ -48,6 +48,7 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
 								doExportFileInstance,
 								doExportFileInstanceRestricted,
 								doExportGenerateUID,
+								doShowMidiSettingsDialog,
 								optMidiInputFromHost,
 								optMidiInputFromHostCompare,
 								optMidiOutuptToHost,
@@ -227,7 +228,7 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 			break;
 
 		case doRefreshDeviceList:
-			result.setInfo ("MIDI device refresh", "Refresh the list of devices available in the OS", panelCategory, 0);
+			result.setInfo ("Refresh devices", "Refresh the list of devices available in the OS", panelCategory, 0);
 			result.setActive (true);
 			break;
 
@@ -322,6 +323,11 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 			result.setInfo ("Input from plugin host", "Accept MIDI events from host and process them", panelCategory, 0);
 			result.setActive (!JUCEApplication::isStandaloneApp());
 			result.setTicked (isPanelActive() ? getActivePanel()->getMidiOptionBool((const CtrlrPanelMidiOption)optMidiInputFromHost) : false);
+			break;
+
+		case doShowMidiSettingsDialog:
+			result.setInfo("Settings", "Show a more user friendly MIDI settings dialog", panelCategory, 0);
+			result.setActive (isPanelActive(true));
 			break;
 
 		case optMidiInputFromHostCompare:

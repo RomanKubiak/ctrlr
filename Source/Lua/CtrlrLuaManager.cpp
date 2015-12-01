@@ -264,6 +264,8 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrLuaComponentAnimator::wrapForLua (L);
 	CtrlrComponent::wrapForLua (L);
 	CtrlrMIDILibrary::wrapForLua (L);
+	CtrlrMIDIDevice::wrapForLua (L);
+	CtrlrMIDIDeviceManager::wrapForLua (L);
 
 	CtrlrCustomComponent::wrapForLua (L);
 	CtrlrToggleButton::wrapForLua (L);
@@ -294,6 +296,7 @@ void CtrlrLuaManager::assignDefaultObjects(lua_State* L)
 	luabind::globals(L)["resources"]				= &owner.getResourceManager();
 	luabind::globals(L)["library"]					= &owner.getCtrlrMIDILibrary();
 	luabind::globals(L)["native"]                   = CtrlrNative::getNativeObject(owner.getCtrlrManagerOwner());
+	luabind::globals(L)["devices"]                  = &owner.getCtrlrManagerOwner().getCtrlrMIDIDeviceManager();
 }
 
 void CtrlrLuaManager::restoreState (const ValueTree &savedState)
