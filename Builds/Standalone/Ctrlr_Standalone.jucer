@@ -717,6 +717,10 @@
       </GROUP>
     </GROUP>
     <GROUP id="{3DE79CD7-D2AE-85FB-961F-A00A05230DE1}" name="MIDI">
+      <FILE id="fyfAwf" name="CtrlrMIDIDeviceManager.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMIDIDeviceManager.cpp"/>
+      <FILE id="efFXQY" name="CtrlrMIDIDeviceManager.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMIDIDeviceManager.h"/>
       <FILE id="g4BUXq" name="CtrlrMidiMessageEx.cpp" compile="1" resource="0"
             file="../../Source/MIDI/CtrlrMidiMessageEx.cpp"/>
       <FILE id="lXkGwG" name="CtrlrMidiMessageEx.h" compile="0" resource="0"
@@ -725,10 +729,6 @@
             file="../../Source/MIDI/CtrlrMidiDevice.cpp"/>
       <FILE id="tt8keI" name="CtrlrMidiDevice.h" compile="0" resource="0"
             file="../../Source/MIDI/CtrlrMidiDevice.h"/>
-      <FILE id="Qb4dmo" name="CtrlrMidiDeviceManager.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrMidiDeviceManager.cpp"/>
-      <FILE id="QU7xWL" name="CtrlrMidiDeviceManager.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrMidiDeviceManager.h"/>
       <FILE id="DRAQmU" name="CtrlrMidiInputComparator.cpp" compile="1" resource="0"
             file="../../Source/MIDI/CtrlrMidiInputComparator.cpp"/>
       <FILE id="WAkqLt" name="CtrlrMidiInputComparator.h" compile="0" resource="0"

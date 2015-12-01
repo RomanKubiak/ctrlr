@@ -4,7 +4,7 @@
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "Native/CtrlrNative.h"
 #include "CtrlrApplicationWindow/CtrlrDocumentPanel.h"
-#include "CtrlrMidiDeviceManager.h"
+#include "CtrlrMIDIDeviceManager.h"
 #include "CtrlrUpdateManager.h"
 #include "CtrlrSysexProcessorOwned.h"
 #include "CtrlrWindowManagers/CtrlrManagerWindowManager.h"
@@ -227,7 +227,7 @@ class CtrlrManager :    public ValueTree::Listener,
 		/** Returns a reference to the MIDI Device Manager
 
 		*/
-		CtrlrMidiDeviceManager &getCtrlrMidiDeviceManager()														{ return (ctrlrMidiDeviceManager); }
+		CtrlrMIDIDeviceManager &getCtrlrMidiDeviceManager()														{ return (ctrlrMidiDeviceManager); }
 
 		/** Returns the index of the panel that contains this modulator index
 
@@ -322,7 +322,7 @@ class CtrlrManager :    public ValueTree::Listener,
 		ScopedPointer <CtrlrDocumentPanel> ctrlrDocumentPanel;
 		CtrlrManagerWindowManager ctrlrWindowManager;
 		ValueTree managerTree;
-		CtrlrMidiDeviceManager ctrlrMidiDeviceManager;
+		CtrlrMIDIDeviceManager ctrlrMidiDeviceManager;
 		WeakReference <CtrlrEditor> ctrlrEditor;
 		CtrlrLog &ctrlrLog;
 		ScopedPointer <CtrlrProperties> ctrlrProperties;

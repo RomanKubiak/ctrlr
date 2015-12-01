@@ -283,6 +283,7 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
 
 
     //[UserPreSize]
+    oscProtocol->clear();
     oscProtocol->addItem (TRANS("Default"), 1);
     oscProtocol->addItem (TRANS("UDP"), 2);
     oscProtocol->addItem (TRANS("Local/UNIX"), 3);

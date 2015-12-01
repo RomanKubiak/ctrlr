@@ -31,6 +31,7 @@ function detect_os {
 		VERSION=`$CTRLR_ROOT/Scripts/git-revision.sh`
 		PACKAGE=$CTRLR_ROOT/Packaging/Linux/Ctrlr-$ARCH-$VERSION.sh
 		BUILD_LOG=$CTRLR_ROOT/Builds/Ctrlr-$ARCH-$VERSION.linux.build.log
+		CTRLR_KEY=""
 		return
 	fi
 	
@@ -323,13 +324,21 @@ function build_now_linux {
 	strip $CTRLR_ROOT/Packaging/Linux/Ctrlr/libCtrlr-*.so
 	
 	echo "CTRLR: create self extracting package"
+	
 	$CTRLR_ROOT/Packaging/Linux/makeself.sh --bzip2 --notemp $CTRLR_ROOT/Packaging/Linux/Ctrlr $PACKAGE Ctrlr-$VERSION
 	if [ $? -ne 0 ]; then
 		echo "CTRLR: Creating self extractring package failed"
 		exit 1
 	fi
 	
-	scp -v -i $CTRLR_KEY $PACKAGE $BUILD_LOG $OUTPUT
+	echo "CTRLR: scp, key: $CTRLR_KEY, pkg: $PACKAGE, out: $OUTPUT"
+	
+	if [ -f $CTRLR_KEY ]; then	
+		scp -v -i "$CTRLR_KEY" $PACKAGE $BUILD_LOG $OUTPUT
+	else
+		echo "CTRLR: private key not specified, using defaults"
+		scp -v $PACKAGE $BUILD_LOG $OUTPUT
+	fi
 }
 
 detect_os

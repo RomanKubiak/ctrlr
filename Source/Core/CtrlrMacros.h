@@ -275,7 +275,8 @@ enum CtrlrMIDIDeviceType
     controllerDevice,
     hostInputDevice,
     hostOutputDevice,
-    networkDevice,
+    oscInputDevice,
+    oscOutputDevice,
     serialDevice
 };
 
