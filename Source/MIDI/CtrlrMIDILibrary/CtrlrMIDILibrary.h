@@ -1,7 +1,7 @@
-#ifndef __CTRLR_MIDI_LIBRARY__
-#define __CTRLR_MIDI_LIBRARY__
+#ifndef CTRLR_MIDI_LIBRARY
+#define CTRLR_MIDI_LIBRARY
 
-#include "CtrlrMidiDevice.h"
+#include "CtrlrMIDIDevice.h"
 #include "CtrlrOwnedMidiMessage.h"
 
 class CtrlrPanel;
@@ -166,7 +166,7 @@ class CtrlrMIDILibrary : public ValueTree::Listener,
 		ValueTree libraryTree;
 		ListenerList <CtrlrMIDILibrary::Listener> listeners;
 		int midiBankNumber, midiProgramNumber, midiBankNumberLSB, midiBankNumberMSB;
-		CtrlrMidiDevice *inputDevice;
+		CtrlrMIDIDevice *inputDevice;
 		WeakReference <CtrlrLuaMethod> 	luaTransInfoCbk;
 		ValueTree currentBank, currentProgram, snapshotsTree, firmwareTree, editBufferTree, currentSnapshot, transactions;
 };

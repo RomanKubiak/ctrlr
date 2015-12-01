@@ -1771,11 +1771,11 @@ const String CtrlrPanel::getPanelInstanceManufacturer()
     return (getProperty(Ids::panelAuthorName).toString());
 }
 
-void CtrlrPanel::addMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToAdd)
+void CtrlrPanel::addMIDIControllerListener(CtrlrMIDIDevice::Listener *listenerToAdd)
 {
 }
 
-void CtrlrPanel::removeMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToRemove)
+void CtrlrPanel::removeMIDIControllerListener(CtrlrMIDIDevice::Listener *listenerToRemove)
 {
 }
 

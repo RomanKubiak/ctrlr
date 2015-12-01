@@ -607,13 +607,13 @@
     <ClCompile Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp">
       <Filter>Ctrlr_Standalone\Lua\Methods</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIDevice.cpp">
+      <Filter>Ctrlr_Standalone\MIDI</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIDeviceManager.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp">
-      <Filter>Ctrlr_Standalone\MIDI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.cpp">
@@ -2910,13 +2910,13 @@
     <ClInclude Include="..\..\..\..\Source\Lua\Methods\CtrlrLuaMethodManager.h">
       <Filter>Ctrlr_Standalone\Lua\Methods</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIDevice.h">
+      <Filter>Ctrlr_Standalone\MIDI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIDeviceManager.h">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.h">
-      <Filter>Ctrlr_Standalone\MIDI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.h">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.h">

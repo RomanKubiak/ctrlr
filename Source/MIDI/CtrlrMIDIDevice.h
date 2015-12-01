@@ -9,16 +9,16 @@
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrIDs.h"
 #include "CtrlrMidiMessage.h"
-#include "CtrlrMidiDevice.h"
+#include "CtrlrMIDIDevice.h"
 
 class CtrlrMIDIDeviceManager;
 class CtrlrManager;
 
-class CtrlrMidiDevice : public ValueTree::Listener, public MidiInputCallback
+class CtrlrMIDIDevice : public ValueTree::Listener, public MidiInputCallback
 {
 	public:
-		CtrlrMidiDevice(CtrlrMIDIDeviceManager &_owner, const int idx, const String name, const bool type);
-		virtual ~CtrlrMidiDevice();
+		CtrlrMIDIDevice(CtrlrMIDIDeviceManager &_owner, const int idx, const String name, const bool type);
+		virtual ~CtrlrMIDIDevice();
 
 		class Listener
 		{
@@ -47,8 +47,8 @@ class CtrlrMidiDevice : public ValueTree::Listener, public MidiInputCallback
 		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/, int){}
 		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/, int, int){}
 
-		void addDeviceListener (CtrlrMidiDevice::Listener *l)											{ deviceListeners.add(l); }
-		void removeDeviceListener (CtrlrMidiDevice::Listener *l)										{ deviceListeners.remove(l); }
+		void addDeviceListener (CtrlrMIDIDevice::Listener *l)											{ deviceListeners.add(l); }
+		void removeDeviceListener (CtrlrMIDIDevice::Listener *l)										{ deviceListeners.remove(l); }
 
 		void handlePartialSysexMessage (MidiInput* source, const uint8* messageData, int numBytesSoFar, double timestamp);
 		void handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message);
@@ -63,7 +63,8 @@ class CtrlrMidiDevice : public ValueTree::Listener, public MidiInputCallback
 		virtual bool openDevice();
 		virtual void closeDevice();
 
-		JUCE_LEAK_DETECTOR(CtrlrMidiDevice)
+		static void wrapForLua(lua_State *L);
+		JUCE_LEAK_DETECTOR(CtrlrMIDIDevice)
 
 	protected:
         MemoryBlock dataCollector;
@@ -76,8 +77,8 @@ class CtrlrMidiDevice : public ValueTree::Listener, public MidiInputCallback
         bool lastMessageWasSysex;
 		double lastMessageSentTime;
 		MidiBuffer throwBuffer;
-		ListenerList	<CtrlrMidiDevice::Listener,
-							Array<CtrlrMidiDevice::Listener*,CriticalSection>
+		ListenerList	<CtrlrMIDIDevice::Listener,
+							Array<CtrlrMIDIDevice::Listener*,CriticalSection>
 						> deviceListeners;
 		CtrlrMidiMessage midiMessageCollector;
 };

@@ -12,11 +12,10 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 	:	AudioProcessorEditor (_ownerFilter), ownerFilter(_ownerFilter),
 		owner(_owner), resizer(this, 0),
 		tempResult(Result::ok()),
-		menuHandlerCalled(false)
+		menuHandlerCalled(false),
+		lastCommandInvocationMillis(0)
 {
 	Rectangle<int> editorRect;
-
-    lastCommandInvocationMillis = Time::getCurrentTime().toMilliseconds();
     // http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
     owner.getCommandManager().setFirstCommandTarget (this);
 

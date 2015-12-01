@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "CtrlrUtilities.h"
-#include "CtrlrMidiDeviceManager.h"
-#include "CtrlrMidiDevice.h"
+#include "CtrlrMIDIDeviceManager.h"
+#include "CtrlrMIDIDevice.h"
 #include "CtrlrProcessor.h"
 #include "CtrlrLog.h"
 
-CtrlrMidiDevice::CtrlrMidiDevice(CtrlrMidiDeviceManager &_owner, const int idx, const String name, const bool type)
+CtrlrMIDIDevice::CtrlrMIDIDevice(CtrlrMIDIDeviceManager &_owner, const int idx, const String name, const bool type)
 	:	deviceTree(Ids::midiDev),
 		owner(_owner),
 		outJucePtr(nullptr),
@@ -24,14 +24,14 @@ CtrlrMidiDevice::CtrlrMidiDevice(CtrlrMidiDeviceManager &_owner, const int idx, 
 	owner.getManagerTree().addChild (deviceTree, -1, 0);
 }
 
-CtrlrMidiDevice::~CtrlrMidiDevice()
+CtrlrMIDIDevice::~CtrlrMIDIDevice()
 {
 	deviceListeners.clear();
 	owner.getManagerTree().removeChild (deviceTree, 0);
 	closeDevice();
 }
 
-void CtrlrMidiDevice::restoreState(const ValueTree &savedState)
+void CtrlrMIDIDevice::restoreState(const ValueTree &savedState)
 {
 	for (int i=0; i<savedState.getNumProperties(); i++)
 	{
@@ -39,7 +39,7 @@ void CtrlrMidiDevice::restoreState(const ValueTree &savedState)
 	}
 }
 
-bool CtrlrMidiDevice::openDevice()
+bool CtrlrMIDIDevice::openDevice()
 {
 	if (getType() == outputDevice)
 	{
@@ -53,7 +53,7 @@ bool CtrlrMidiDevice::openDevice()
 		outJucePtr = MidiOutput::openDevice (getProperty(Ids::midiDevIndex));
 		if (outJucePtr == NULL)
 		{
-			_ERR("CtrlrMidiDevice::openDevice failed to open device \""+getName()+"\"");
+			_ERR("CtrlrMIDIDevice::openDevice failed to open device \""+getName()+"\"");
 			setProperty (Ids::midiDevState, false);
 			return (false);
 		}
@@ -75,7 +75,7 @@ bool CtrlrMidiDevice::openDevice()
 
 		if (inJucePtr == NULL)
 		{
-			_ERR("CtrlrMidiDevice::openDevice failed to open device \""+getName()+"\"");
+			_ERR("CtrlrMIDIDevice::openDevice failed to open device \""+getName()+"\"");
 			setProperty (Ids::midiDevState, false);
 			return (false);
 		}
@@ -88,7 +88,7 @@ bool CtrlrMidiDevice::openDevice()
 	}
 }
 
-void CtrlrMidiDevice::closeDevice()
+void CtrlrMIDIDevice::closeDevice()
 {
 	if (getType() == outputDevice)
 	{
@@ -114,12 +114,12 @@ void CtrlrMidiDevice::closeDevice()
 	setProperty (Ids::midiDevState, false);
 }
 
-void CtrlrMidiDevice::handlePartialSysexMessage (MidiInput* /*source*/, const uint8* messageData, int numBytesSoFar, double timestamp)
+void CtrlrMIDIDevice::handlePartialSysexMessage (MidiInput* /*source*/, const uint8* messageData, int numBytesSoFar, double timestamp)
 {
-	deviceListeners.call (&CtrlrMidiDevice::Listener::handlePartialMIDIFromDevice, messageData, numBytesSoFar, timestamp);
+	deviceListeners.call (&CtrlrMIDIDevice::Listener::handlePartialMIDIFromDevice, messageData, numBytesSoFar, timestamp);
 }
 
-void CtrlrMidiDevice::handleIncomingMidiMessage (MidiInput* /*source*/, const MidiMessage& message)
+void CtrlrMIDIDevice::handleIncomingMidiMessage (MidiInput* /*source*/, const MidiMessage& message)
 {
 	_MIN(getProperty(Ids::name), message, -1);
 
@@ -130,7 +130,7 @@ void CtrlrMidiDevice::handleIncomingMidiMessage (MidiInput* /*source*/, const Mi
     {
         dataCollector.append (ptr, message.getRawDataSize());
 
-        deviceListeners.call (&CtrlrMidiDevice::Listener::handleMIDIFromDevice, MidiMessage (dataCollector.getData(), dataCollector.getSize()));
+        deviceListeners.call (&CtrlrMIDIDevice::Listener::handleMIDIFromDevice, MidiMessage (dataCollector.getData(), dataCollector.getSize()));
 
         return;
     }
@@ -143,7 +143,7 @@ void CtrlrMidiDevice::handleIncomingMidiMessage (MidiInput* /*source*/, const Mi
 
         if (*(ptr + (message.getRawDataSize() - 1)) == 0xf7)
         {
-            deviceListeners.call (&CtrlrMidiDevice::Listener::handleMIDIFromDevice, message);
+            deviceListeners.call (&CtrlrMIDIDevice::Listener::handleMIDIFromDevice, message);
         }
         else
         {
@@ -169,22 +169,22 @@ void CtrlrMidiDevice::handleIncomingMidiMessage (MidiInput* /*source*/, const Mi
 	}
 }
 
-bool CtrlrMidiDevice::getType()
+bool CtrlrMIDIDevice::getType()
 {
 	return ((bool)getProperty(Ids::midiDevType));
 }
 
-bool CtrlrMidiDevice::getState()
+bool CtrlrMIDIDevice::getState()
 {
 	return (getProperty(Ids::midiDevState));
 }
 
-const String CtrlrMidiDevice::getName()
+const String CtrlrMIDIDevice::getName()
 {
 	return (getProperty(Ids::name));
 }
 
-void CtrlrMidiDevice::sendMidiBuffer (const MidiBuffer &buffer, double millisecondCounterToStartAt)
+void CtrlrMIDIDevice::sendMidiBuffer (const MidiBuffer &buffer, double millisecondCounterToStartAt)
 {
 	if (outJucePtr != nullptr)
 	{
@@ -203,7 +203,7 @@ void CtrlrMidiDevice::sendMidiBuffer (const MidiBuffer &buffer, double milliseco
 	}
 }
 
-void CtrlrMidiDevice::sendMidiMessage (const MidiMessage &message, double millisecondCounterToStartAt)
+void CtrlrMIDIDevice::sendMidiMessage (const MidiMessage &message, double millisecondCounterToStartAt)
 {
 	if (outJucePtr != nullptr)
 	{
@@ -226,7 +226,24 @@ void CtrlrMidiDevice::sendMidiMessage (const MidiMessage &message, double millis
 	}
 }
 
-MidiInput *CtrlrMidiDevice::getInputDevicePtr()
+MidiInput *CtrlrMIDIDevice::getInputDevicePtr()
 {
 	return (inJucePtr);
+}
+
+void CtrlrMIDIDevice::wrapForLua(lua_State *L)
+{
+		using namespace luabind;
+
+	module(L)
+    [
+		class_<CtrlrMIDIDevice, CtrlrLuaObject>("CtrlrMIDIDevice")
+			.def("openDevice", &CtrlrMIDIDevice::openDevice)
+			.def("closeDevice", &CtrlrMIDIDevice::closeDevice)
+			.def("sendMidiMessage", &CtrlrMIDIDevice::sendMidiMessage)
+			.def("sendMidiBuffer", &CtrlrMIDIDevice::sendMidiBuffer)
+			.def("getName", &CtrlrMIDIDevice::getName)
+			.def("getState", &CtrlrMIDIDevice::getState)
+			.def("getType", &CtrlrMIDIDevice::getType)
+	];
 }

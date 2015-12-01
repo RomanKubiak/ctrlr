@@ -160,12 +160,15 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, showModulatorList);
 		menu.addSeparator();
 		if (!isRestricted()) menu.addCommandItem (commandManager, showLayers);
-		menu.addCommandItem (commandManager, showLuaEditor);
-		menu.addCommandItem (commandManager, showLuaConsole);
+		if (!isRestricted()) menu.addCommandItem (commandManager, showLuaEditor);
+		if (!isRestricted()) menu.addCommandItem (commandManager, showLuaConsole);
 		// menu.addCommandItem (commandManager, showBufferEditor);
 	}
 	else if (topLevelMenuIndex == MenuMidi) // MIDI
 	{
+		menu.addCommandItem(commandManager, doShowMidiSettingsDialog);
+		menu.addCommandItem (commandManager, doRefreshDeviceList);
+		menu.addSeparator();
 		menu.addSectionHeader ("Input"+getMidiSummary(inputDevice));
 		menu.addSubMenu ("Device", getMidiDeviceMenu(inputDevice), isPanelActive());
 		menu.addSubMenu ("Channel", getMidiChannelMenu(inputDevice), isPanelActive());
@@ -177,8 +180,6 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addSectionHeader ("Output "+getMidiSummary(outputDevice));
 		menu.addSubMenu ("Device", getMidiDeviceMenu(outputDevice), isPanelActive());
 		menu.addSubMenu ("Channel", getMidiChannelMenu(outputDevice), isPanelActive());
-		menu.addSeparator();
-		menu.addCommandItem (commandManager, doRefreshDeviceList);
 		menu.addSeparator();
 		PopupMenu thru;
 		thru.addCommandItem (commandManager, optMidiThruD2D);
@@ -297,7 +298,8 @@ uint32 CtrlrEditor::getMidiDeviceMenuOffset(const CtrlrMIDIDeviceType type)
             return (MENU_OFFSET_MIDI_HOST_IN);
         case hostOutputDevice:
             return (MENU_OFFSET_MIDI_HOST_OUT);
-        case networkDevice:
+        case oscInputDevice:
+		case oscOutputDevice:
         case serialDevice:
             return (0);
     }

@@ -2460,12 +2460,12 @@
 		<Unit filename="../../../../Source/Lua/luabind/luabind/wrapper_base.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/luabind/yield_policy.hpp" />
 		<Unit filename="../../../../Source/Lua/luabind/src/luabind.cpp" />
+		<Unit filename="../../../../Source/MIDI/CtrlrMIDIDevice.cpp" />
+		<Unit filename="../../../../Source/MIDI/CtrlrMIDIDevice.h" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMIDIDeviceManager.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMIDIDeviceManager.h" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h" />
-		<Unit filename="../../../../Source/MIDI/CtrlrMidiDevice.cpp" />
-		<Unit filename="../../../../Source/MIDI/CtrlrMidiDevice.h" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMidiInputComparator.cpp" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMidiInputComparator.h" />
 		<Unit filename="../../../../Source/MIDI/CtrlrMidiInputComparatorMulti.cpp" />
@@ -2916,7 +2916,6 @@
 			<envvars />
 			<code_completion />
 			<debugger />
-			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

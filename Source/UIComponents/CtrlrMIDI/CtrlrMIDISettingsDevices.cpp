@@ -25,7 +25,7 @@
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
-#include "MIDI/CtrlrMidiDeviceManager.h"
+#include "MIDI/CtrlrMIDIDeviceManager.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrMacros.h"
