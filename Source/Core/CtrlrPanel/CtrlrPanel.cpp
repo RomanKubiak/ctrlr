@@ -59,7 +59,11 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	ctrlrMIDILibrary 		= new CtrlrMIDILibrary(*this);
 	ctrlrPanelOSC			= new CtrlrPanelOSC(*this);
 
-	ctrlrLuaManager->getMethodManager().setDebug ((bool)owner.getProperty(Ids::ctrlrLuaDebug));
+	if ((bool)getCtrlrManagerOwner().getProperty (Ids::ctrlrLuaDisabled) == false)
+	{
+		ctrlrLuaManager->getMethodManager().setDebug ((bool)owner.getProperty(Ids::ctrlrLuaDebug));
+	}
+
 	ctrlrPanelUndoManager->addChangeListener (this);
 
 	getUndoManager()->beginNewTransaction ("Panel::ctor");
