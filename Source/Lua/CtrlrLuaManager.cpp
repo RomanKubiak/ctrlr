@@ -55,6 +55,8 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 		luaStateAudio(nullptr),
 		luaState(nullptr)
 {
+	methodManager			= new CtrlrLuaMethodManager(*this);
+
 	if ((bool)owner.getCtrlrManagerOwner().getProperty (Ids::ctrlrLuaDisabled))
 	{
 		_INF("CtrlrLuaManager::ctor, lua is disabled");
@@ -67,7 +69,6 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 	luaManagerTree.addListener (this);
 
 	multiTimer				= new CtrlrLuaMultiTimer();
-	methodManager			= new CtrlrLuaMethodManager(*this);
 	luaAudioFormatManager	= new LAudioFormatManager();
 	audioConverter			= new CtrlrLuaAudioConverter();
 	utils					= new CtrlrLuaUtils();
@@ -92,14 +93,18 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 CtrlrLuaManager::~CtrlrLuaManager()
 {
 	deleteAndZero (methodManager);
-	deleteAndZero (utils);
-	deleteAndZero (audioConverter);
-	luaManagerTree.removeListener (this);
-	deleteAndZero (multiTimer);
-	deleteAndZero (luaAudioFormatManager);
-	lua_close(luaState);
-	lua_close(luaStateAudio);
-	deleteAndZero (ctrlrLuaDebugger);
+
+	if (luaState)
+	{
+		deleteAndZero (utils);
+		deleteAndZero (audioConverter);
+		luaManagerTree.removeListener (this);
+		deleteAndZero (multiTimer);
+		deleteAndZero (luaAudioFormatManager);
+		lua_close(luaState);
+		lua_close(luaStateAudio);
+		deleteAndZero (ctrlrLuaDebugger);
+	}
 }
 
 void CtrlrLuaManager::createLuaState()
@@ -326,17 +331,24 @@ int func_panic(lua_State *L)
 
 bool CtrlrLuaManager::runCode (const String &code, const String name)
 {
-	if (luaL_loadbuffer(luaState, code.toUTF8(), std::strlen(code.toUTF8()), name.isEmpty() ? "_runtime" : name.toUTF8())
-		|| lua_pcall(luaState, 0, 0, 0))
+	if (luaState)
 	{
-		const char* a = lua_tostring(luaState, -1);
-		_LERR("ERROR: " + String(a));
-		lastError = "ERROR: " + String(a);
-		lua_pop(luaState, 1);
+		if (luaL_loadbuffer(luaState, code.toUTF8(), std::strlen(code.toUTF8()), name.isEmpty() ? "_runtime" : name.toUTF8())
+			|| lua_pcall(luaState, 0, 0, 0))
+		{
+			const char* a = lua_tostring(luaState, -1);
+			_LERR("ERROR: " + String(a));
+			lastError = "ERROR: " + String(a);
+			lua_pop(luaState, 1);
+			return (false);
+		}
+
+		return (true);
+	}
+	else
+	{
 		return (false);
 	}
-
-	return (true);
 }
 
 void CtrlrLuaManager::log(const String &message)
