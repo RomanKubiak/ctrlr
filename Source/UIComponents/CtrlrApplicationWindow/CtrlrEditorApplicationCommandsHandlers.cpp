@@ -5,7 +5,7 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "CtrlrWindowManagers/CtrlrDialogWindow.h"
-
+#include "CtrlrMIDI/CtrlrMIDISettingsDialog.h"
 class CtrlrKeyGenerator : public ThreadWithProgressWindow
 {
         public:
@@ -46,7 +46,7 @@ class CtrlrKeyGenerator : public ThreadWithProgressWindow
 
 bool CtrlrEditor::perform (const InvocationInfo &info)
 {
-    if (Time::getCurrentTime().toMilliseconds() - lastCommandInvocationMillis < 10)
+    if (Time::getCurrentTime().toMilliseconds() - lastCommandInvocationMillis < 20)
     {
         return (true);
     }
@@ -229,6 +229,10 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 
 		case showBufferEditor:
 			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::BufferEditor, true);
+			break;
+
+		case doShowMidiSettingsDialog:
+			if (getActivePanel()) CtrlrMIDISettingsDialog::showDialog(*getActivePanel());
 			break;
 
 		case optMidiInputFromHost:

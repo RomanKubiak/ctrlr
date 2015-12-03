@@ -2,8 +2,8 @@
 #define CTRLR_PANEL
 
 #include "CtrlrMacros.h"
-#include "CtrlrMidiDeviceManager.h"
-#include "CtrlrMidiDevice.h"
+#include "CtrlrMIDIDeviceManager.h"
+#include "CtrlrMIDIDevice.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrMidiInputComparator.h"
 #include "CtrlrWindowManagers/CtrlrPanelWindowManager.h"
@@ -278,8 +278,8 @@ class CtrlrPanel:	public ValueTree::Listener,
 		int getPanelInstanceVersionInt();
         const String getPanelInstanceName();
         const String getPanelInstanceManufacturer();
-        void addMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToAdd);
-        void removeMIDIControllerListener(CtrlrMidiDevice::Listener *listenerToRemove);
+        void addMIDIControllerListener(CtrlrMIDIDevice::Listener *listenerToAdd);
+        void removeMIDIControllerListener(CtrlrMIDIDevice::Listener *listenerToRemove);
 		void dumpDebugData();
 		void performInternalComponentFunction(CtrlrComponent *sourceComponent);
 		String getInternalFunctionsProperty(CtrlrComponent *component);
@@ -337,7 +337,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		MidiMessageCollector midiMessageCollector;
 		CtrlrPanelProcessor processor;
 		CtrlrPanelMIDISnapshot snapshot;
-		CtrlrMidiDevice *outputDevicePtr;
+		CtrlrMIDIDevice *outputDevicePtr;
 		ScopedPointer <CtrlrPanelUndoManager> ctrlrPanelUndoManager;
 		CtrlrPanelEvaluationScope panelEvaluationScope;
 		CtrlrGlobalEvaluationScope globalEvaluationScope;

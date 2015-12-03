@@ -78,6 +78,7 @@ class CtrlrLuaManager : public ValueTree::Listener
 		CtrlrLuaAudioConverter *audioConverter;
 		CtrlrLuaDebugger *ctrlrLuaDebugger;
 		LAudioFormatManager *luaAudioFormatManager;
+		bool luaIsActive;
 };
 
 #endif

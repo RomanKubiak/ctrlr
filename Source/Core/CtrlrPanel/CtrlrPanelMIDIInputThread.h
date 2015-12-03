@@ -2,12 +2,12 @@
 #define __CTRLR_PANEL_MIDI_INPUT_THREAD__
 
 #include "CtrlrMacros.h"
-#include "CtrlrMidiDevice.h"
+#include "CtrlrMIDIDevice.h"
 #include "CtrlrMidiInputComparator.h"
 
 class CtrlrPanel;
 
-class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMidiDevice::Listener, public CtrlrPanelMidiProcessor
+class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMIDIDevice::Listener, public CtrlrPanelMidiProcessor
 {
 	public:
 		CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, CtrlrMIDIDeviceType _source);
@@ -31,7 +31,7 @@ class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMidiDevice::Listene
 		MidiBuffer deviceInputBuffer, hostInputBuffer, thruToDeviceBuffer, junkBuffer;
 		ReadWriteLock lock;
 		CtrlrPanel &owner;
-		CtrlrMidiDevice *inputDevicePtr;
+		CtrlrMIDIDevice *inputDevicePtr;
 		CtrlrMIDIDeviceType source;
 		ScopedPointer <CtrlrMidiInputComparator> inputComparator;
 };
