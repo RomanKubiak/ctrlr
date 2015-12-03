@@ -25,7 +25,7 @@
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
-#include "MIDI/CtrlrMidiDeviceManager.h"
+#include "MIDI/CtrlrMIDIDeviceManager.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrMacros.h"
@@ -283,6 +283,7 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
 
 
     //[UserPreSize]
+    oscProtocol->clear();
     oscProtocol->addItem (TRANS("Default"), 1);
     oscProtocol->addItem (TRANS("UDP"), 2);
     oscProtocol->addItem (TRANS("Local/UNIX"), 3);

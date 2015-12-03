@@ -1,21 +1,21 @@
-#ifndef __CTRLR_MIDI_DEVICE_MANAGER__
-#define __CTRLR_MIDI_DEVICE_MANAGER__
+#ifndef CTRLR_MIDI_DEVICE_MANAGER
+#define CTRLR_MIDI_DEVICE_MANAGER
 
 #include "CtrlrMacros.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrIDs.h"
-#include "CtrlrMidiDevice.h"
+#include "CtrlrMIDIDevice.h"
 
 class CtrlrManager;
 
 #define RUN		true
 #define STP		false
 
-class CtrlrMidiDeviceManager
+class CtrlrMIDIDeviceManager
 {
 	public:
-		CtrlrMidiDeviceManager(CtrlrManager &_ctrlrManager);
-		~CtrlrMidiDeviceManager();
+		CtrlrMIDIDeviceManager(CtrlrManager &_ctrlrManager);
+		~CtrlrMIDIDeviceManager();
 		void refreshDevices();
 
 		enum DeviceState
@@ -29,8 +29,8 @@ class CtrlrMidiDeviceManager
 		int getNumDevices(const CtrlrMIDIDeviceType type = inputDevice);
 		bool isDeviceOpened(const int idx, const CtrlrMIDIDeviceType type = inputDevice);
 		bool toggleDevice (const int idx, const CtrlrMIDIDeviceType type = inputDevice, const bool state=STP);
-		CtrlrMidiDevice *getDeviceByIndex(const int idx, const CtrlrMIDIDeviceType type = inputDevice);
-		CtrlrMidiDevice *getDeviceByName(const String name, const CtrlrMIDIDeviceType type = inputDevice, const bool openIfClosed=false);
+		CtrlrMIDIDevice *getDeviceByIndex(const int idx, const CtrlrMIDIDeviceType type = inputDevice);
+		CtrlrMIDIDevice *getDeviceByName(const String name, const CtrlrMIDIDeviceType type = inputDevice, const bool openIfClosed=false);
 		const StringArray getManagedDevices(const CtrlrMIDIDeviceType type = inputDevice);
 
 		void restoreState (const ValueTree &savedState);
@@ -39,24 +39,25 @@ class CtrlrMidiDeviceManager
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const				{ return managerTree.getProperty (name, defaultReturnValue); }
 		UndoManager* getUndoManager() const																{ return (0); }
 		ValueTree &getManagerTree()																		{ return (managerTree); }
-		void removeListenerFromAllDevices (CtrlrMidiDevice::Listener *l);
+		void removeListenerFromAllDevices (CtrlrMIDIDevice::Listener *l);
 		void processBlock (MidiBuffer& midiMessages);
-		void addProcessingListener(CtrlrMidiDevice::Listener *l)										{ processingListeners.add(l); }
-		void removeProcessingListener(CtrlrMidiDevice::Listener *l)										{ processingListeners.remove(l); }
+		void addProcessingListener(CtrlrMIDIDevice::Listener *l)										{ processingListeners.add(l); }
+		void removeProcessingListener(CtrlrMIDIDevice::Listener *l)										{ processingListeners.remove(l); }
 
 		void reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type = inputDevice, CtrlrPanel *panel = nullptr);
 
+		static void wrapForLua(lua_State *L);
 
-		JUCE_LEAK_DETECTOR(CtrlrMidiDeviceManager)
+		JUCE_LEAK_DETECTOR(CtrlrMIDIDeviceManager)
 
 	private:
-		ListenerList <CtrlrMidiDevice::Listener,
-							Array<CtrlrMidiDevice::Listener*,CriticalSection>
+		ListenerList <CtrlrMIDIDevice::Listener,
+							Array<CtrlrMIDIDevice::Listener*,CriticalSection>
 						> processingListeners;
 
 
-		OwnedArray <CtrlrMidiDevice,CriticalSection> inDevs;
-		OwnedArray <CtrlrMidiDevice,CriticalSection> outDevs;
+		OwnedArray <CtrlrMIDIDevice,CriticalSection> inDevs;
+		OwnedArray <CtrlrMIDIDevice,CriticalSection> outDevs;
 		ValueTree managerTree;
 		CtrlrManager &owner;
 };

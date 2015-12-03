@@ -1,14 +1,14 @@
 #include "stdafx.h"
 #include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrMidiDeviceManager.h"
+#include "CtrlrMIDIDeviceManager.h"
 #include "CtrlrProcessor.h"
 #include "CtrlrMacros.h"
-#include "CtrlrMidiDevice.h"
+#include "CtrlrMIDIDevice.h"
 #include "CtrlrLog.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 
-CtrlrMidiDeviceManager::CtrlrMidiDeviceManager(CtrlrManager &_owner)
+CtrlrMIDIDeviceManager::CtrlrMIDIDeviceManager(CtrlrManager &_owner)
 	:	managerTree(Ids::midiDeviceManager),
 		owner(_owner)
 {
@@ -17,14 +17,14 @@ CtrlrMidiDeviceManager::CtrlrMidiDeviceManager(CtrlrManager &_owner)
 	refreshDevices();
 }
 
-CtrlrMidiDeviceManager::~CtrlrMidiDeviceManager()
+CtrlrMIDIDeviceManager::~CtrlrMIDIDeviceManager()
 {
 	processingListeners.clear();
 	inDevs.clear();
 	outDevs.clear();
 }
 
-int CtrlrMidiDeviceManager::getNumDevices(const CtrlrMIDIDeviceType type)
+int CtrlrMIDIDeviceManager::getNumDevices(const CtrlrMIDIDeviceType type)
 {
 	if (type == outputDevice)
 	{
@@ -38,7 +38,7 @@ int CtrlrMidiDeviceManager::getNumDevices(const CtrlrMIDIDeviceType type)
 	return (0);
 }
 
-const String CtrlrMidiDeviceManager::getDeviceName(const int idx, const CtrlrMIDIDeviceType type)
+const String CtrlrMIDIDeviceManager::getDeviceName(const int idx, const CtrlrMIDIDeviceType type)
 {
 	if (type == outputDevice && outDevs[idx])
 	{
@@ -55,7 +55,7 @@ const String CtrlrMidiDeviceManager::getDeviceName(const int idx, const CtrlrMID
 	return (COMBO_NONE_ITEM);
 }
 
-bool CtrlrMidiDeviceManager::isDeviceOpened(const int idx, const CtrlrMIDIDeviceType type)
+bool CtrlrMIDIDeviceManager::isDeviceOpened(const int idx, const CtrlrMIDIDeviceType type)
 {
 	if (type == outputDevice)
 	{
@@ -69,7 +69,7 @@ bool CtrlrMidiDeviceManager::isDeviceOpened(const int idx, const CtrlrMIDIDevice
 	return (false);
 }
 
-bool CtrlrMidiDeviceManager::toggleDevice (const int idx, const CtrlrMIDIDeviceType type, const bool state)
+bool CtrlrMIDIDeviceManager::toggleDevice (const int idx, const CtrlrMIDIDeviceType type, const bool state)
 {
 	owner.sendChangeMessage();
 
@@ -113,11 +113,11 @@ bool CtrlrMidiDeviceManager::toggleDevice (const int idx, const CtrlrMIDIDeviceT
 	return (false);
 }
 
-void CtrlrMidiDeviceManager::restoreState (const ValueTree &savedState)
+void CtrlrMIDIDeviceManager::restoreState (const ValueTree &savedState)
 {
 }
 
-CtrlrMidiDevice *CtrlrMidiDeviceManager::getDeviceByName(const String name, const CtrlrMIDIDeviceType type, const bool openIfClosed)
+CtrlrMIDIDevice *CtrlrMIDIDeviceManager::getDeviceByName(const String name, const CtrlrMIDIDeviceType type, const bool openIfClosed)
 {
 	if (type == outputDevice)
 	{
@@ -176,7 +176,7 @@ CtrlrMidiDevice *CtrlrMidiDeviceManager::getDeviceByName(const String name, cons
 	return (nullptr);
 }
 
-CtrlrMidiDevice *CtrlrMidiDeviceManager::getDeviceByIndex(const int idx, const CtrlrMIDIDeviceType type)
+CtrlrMIDIDevice *CtrlrMIDIDeviceManager::getDeviceByIndex(const int idx, const CtrlrMIDIDeviceType type)
 {
 	if (type == outputDevice)
 	{
@@ -190,7 +190,7 @@ CtrlrMidiDevice *CtrlrMidiDeviceManager::getDeviceByIndex(const int idx, const C
 	return (nullptr);
 }
 
-void CtrlrMidiDeviceManager::reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type, CtrlrPanel *panel)
+void CtrlrMIDIDeviceManager::reloadComboContents (ComboBox &comboToUpdate, const CtrlrMIDIDeviceType type, CtrlrPanel *panel)
 {
 //	refreshDevices();  //This worked, but it would never send output to the "new" device, even though it found it.
 	comboToUpdate.clear();
@@ -247,7 +247,7 @@ void CtrlrMidiDeviceManager::reloadComboContents (ComboBox &comboToUpdate, const
 	}
 }
 
-const StringArray CtrlrMidiDeviceManager::getManagedDevices(const CtrlrMIDIDeviceType type)
+const StringArray CtrlrMIDIDeviceManager::getManagedDevices(const CtrlrMIDIDeviceType type)
 {
 	StringArray list;
 	list.clear();
@@ -269,7 +269,7 @@ const StringArray CtrlrMidiDeviceManager::getManagedDevices(const CtrlrMIDIDevic
 	return (list);
 }
 
-void CtrlrMidiDeviceManager::refreshDevices()
+void CtrlrMIDIDeviceManager::refreshDevices()
 {
 //	inDevs.clear();
 //	outDevs.clear();
@@ -285,7 +285,7 @@ void CtrlrMidiDeviceManager::refreshDevices()
 	}
 	for (int i=0; i<in.size(); i++)
 	{
-		inDevs.add (new CtrlrMidiDevice (*this, i, in[i], inputDevice));
+		inDevs.add (new CtrlrMIDIDevice (*this, i, in[i], inputDevice));
 	}
 
 	for (int i=0; i<outDevs.size(); i++)
@@ -296,11 +296,11 @@ void CtrlrMidiDeviceManager::refreshDevices()
 	}
 	for (int i=0; i<out.size(); i++)
 	{
-		outDevs.add (new CtrlrMidiDevice (*this, i, out[i], outputDevice));
+		outDevs.add (new CtrlrMIDIDevice (*this, i, out[i], outputDevice));
 	}
 }
 
-void CtrlrMidiDeviceManager::removeListenerFromAllDevices (CtrlrMidiDevice::Listener *l)
+void CtrlrMIDIDeviceManager::removeListenerFromAllDevices (CtrlrMIDIDevice::Listener *l)
 {
 	for (int i=0; i<inDevs.size(); i++)
 	{
@@ -308,10 +308,44 @@ void CtrlrMidiDeviceManager::removeListenerFromAllDevices (CtrlrMidiDevice::List
 	}
 }
 
-void CtrlrMidiDeviceManager::processBlock (MidiBuffer& midiMessages)
+void CtrlrMIDIDeviceManager::processBlock (MidiBuffer& midiMessages)
 {
 	if (midiMessages.getNumEvents() > 0)
 	{
-		processingListeners.call (&CtrlrMidiDevice::Listener::handleMIDIFromHost, midiMessages);
+		processingListeners.call (&CtrlrMIDIDevice::Listener::handleMIDIFromHost, midiMessages);
 	}
+}
+
+void CtrlrMIDIDeviceManager::wrapForLua(lua_State *L)
+{
+	using namespace luabind;
+
+	module(L)
+    [
+		class_<CtrlrMIDIDeviceManager>("CtrlrMIDIDeviceManager")
+			.def("getNumDevices", &CtrlrMIDIDeviceManager::getNumDevices)
+			.def("getDeviceName", &CtrlrMIDIDeviceManager::getDeviceName)
+			.def("isDeviceOpened", &CtrlrMIDIDeviceManager::isDeviceOpened)
+			.def("getDeviceByIndex", &CtrlrMIDIDeviceManager::getDeviceByIndex)
+			.def("getDeviceByName", &CtrlrMIDIDeviceManager::getDeviceByName)
+			.def("getManagedDevices", &CtrlrMIDIDeviceManager::getManagedDevices)
+			.def("refreshDevices", &CtrlrMIDIDeviceManager::refreshDevices)
+			.enum_("CtrlrMIDIDeviceType")
+			[
+				value("outputDevice", CtrlrMIDIDeviceType::outputDevice),
+				value("inputDevice", CtrlrMIDIDeviceType::inputDevice),
+				value("controllerDevice", CtrlrMIDIDeviceType::controllerDevice),
+				value("hostInputDevice", CtrlrMIDIDeviceType::hostInputDevice),
+				value("hostOutputDevice", CtrlrMIDIDeviceType::hostOutputDevice),
+				value("oscInputDevice", CtrlrMIDIDeviceType::oscInputDevice),
+				value("oscOutputDevice", CtrlrMIDIDeviceType::oscOutputDevice),
+				value("serialDevice", CtrlrMIDIDeviceType::serialDevice)
+			]
+			.enum_("DeviceState")
+			[
+				value("closed", CtrlrMIDIDeviceManager::closed),
+				value("opened", CtrlrMIDIDeviceManager::opened),
+				value("error", CtrlrMIDIDeviceManager::error)
+			]
+	];
 }
