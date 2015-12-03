@@ -1104,18 +1104,13 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp"/>
-    <Unit filename="../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h">
+    <Unit filename="../../../../Source/MIDI/CtrlrMIDIDevice.cpp"/>
+    <Unit filename="../../../../Source/MIDI/CtrlrMIDIDevice.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/MIDI/CtrlrMidiDevice.cpp"/>
-    <Unit filename="../../../../Source/MIDI/CtrlrMidiDevice.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../../../Source/MIDI/CtrlrMidiDeviceManager.cpp"/>
-    <Unit filename="../../../../Source/MIDI/CtrlrMidiDeviceManager.h">
+    <Unit filename="../../../../Source/MIDI/CtrlrMIDIDeviceManager.cpp"/>
+    <Unit filename="../../../../Source/MIDI/CtrlrMIDIDeviceManager.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -1155,6 +1150,11 @@
     </Unit>
     <Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp"/>
     <Unit filename="../../../../Source/MIDI/CtrlrOwnedMidiMessage.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp"/>
+    <Unit filename="../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

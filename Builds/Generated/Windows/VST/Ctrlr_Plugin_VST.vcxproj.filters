@@ -639,13 +639,10 @@
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.cpp">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp">
-      <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.cpp">
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIDevice.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.cpp">
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIDeviceManager.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.cpp">
@@ -668,6 +665,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp">
+      <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\address.c">
       <Filter>Ctrlr_Plugin_VST\Misc</Filter>
@@ -2909,13 +2909,10 @@
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.h">
       <Filter>Ctrlr_Plugin_VST\Lua</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h">
-      <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.h">
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIDevice.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.h">
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIDeviceManager.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.h">
@@ -2941,6 +2938,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h">
       <Filter>Ctrlr_Plugin_VST\MIDI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h">
+      <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_osx.h">
       <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>

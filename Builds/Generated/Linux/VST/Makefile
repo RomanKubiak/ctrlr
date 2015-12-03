@@ -129,9 +129,8 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaPanelCanvasLayer_aa926a26.o \
   $(OBJDIR)/CtrlrLuaPanelEditor_2edd318a.o \
   $(OBJDIR)/CtrlrLuaUtils_293d10aa.o \
-  $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
-  $(OBJDIR)/CtrlrMidiDevice_859d4f59.o \
-  $(OBJDIR)/CtrlrMidiDeviceManager_d5a0de9e.o \
+  $(OBJDIR)/CtrlrMIDIDevice_22717b39.o \
+  $(OBJDIR)/CtrlrMIDIDeviceManager_99dd96be.o \
   $(OBJDIR)/CtrlrMIDIFilter_974fc75b.o \
   $(OBJDIR)/CtrlrMidiInputComparator_51adcd67.o \
   $(OBJDIR)/CtrlrMidiInputComparatorMulti_aee497dc.o \
@@ -139,6 +138,7 @@ OBJECTS := \
   $(OBJDIR)/CtrlrMidiMessage_58a157ae.o \
   $(OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o \
   $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
+  $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
   $(OBJDIR)/address_7a9598ba.o \
   $(OBJDIR)/blob_6e9d9821.o \
   $(OBJDIR)/bundle_1833bc06.o \
@@ -616,19 +616,14 @@ $(OBJDIR)/CtrlrLuaUtils_293d10aa.o: ../../../../Source/Lua/CtrlrLuaUtils.cpp
 	@echo "Compiling CtrlrLuaUtils.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o: ../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp
+$(OBJDIR)/CtrlrMIDIDevice_22717b39.o: ../../../../Source/MIDI/CtrlrMIDIDevice.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrMIDILibrary.cpp"
+	@echo "Compiling CtrlrMIDIDevice.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMidiDevice_859d4f59.o: ../../../../Source/MIDI/CtrlrMidiDevice.cpp
+$(OBJDIR)/CtrlrMIDIDeviceManager_99dd96be.o: ../../../../Source/MIDI/CtrlrMIDIDeviceManager.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrMidiDevice.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrMidiDeviceManager_d5a0de9e.o: ../../../../Source/MIDI/CtrlrMidiDeviceManager.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrMidiDeviceManager.cpp"
+	@echo "Compiling CtrlrMIDIDeviceManager.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrMIDIFilter_974fc75b.o: ../../../../Source/MIDI/CtrlrMIDIFilter.cpp
@@ -664,6 +659,11 @@ $(OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o: ../../../../Source/MIDI/CtrlrMidiMessag
 $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o: ../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrOwnedMidiMessage.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o: ../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CtrlrMIDILibrary.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/address_7a9598ba.o: ../../../../Source/Misc/address.c

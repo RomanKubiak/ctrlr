@@ -433,9 +433,8 @@
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanelCanvasLayer.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaPanelEditor.cpp" />
     <ClCompile Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.cpp" />
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp" />
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.cpp" />
-    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.cpp" />
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIDevice.cpp" />
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIDeviceManager.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.cpp" />
@@ -443,6 +442,7 @@
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp" />
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp" />
+    <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp" />
     <ClCompile Include="..\..\..\..\Source\Misc\address.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -2989,9 +2989,8 @@
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaObjectWrapper.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaOSC.h" />
     <ClInclude Include="..\..\..\..\Source\Lua\CtrlrLuaUtils.h" />
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h" />
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDevice.h" />
-    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiDeviceManager.h" />
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIDevice.h" />
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIDeviceManager.h" />
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDIFilter.h" />
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparator.h" />
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiInputComparatorMulti.h" />
@@ -3000,6 +2999,7 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h" />
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessageEx.h" />
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h" />
+    <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_osx.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_win32.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo.h" />

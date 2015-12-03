@@ -8,7 +8,7 @@
               pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="4.0.1" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
+              jucerVersion="3.2.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
               aaxIdentifier="com.instigator.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
@@ -600,50 +600,50 @@
       <FILE id="nLlaR5" name="CtrlrLuaUtils.h" compile="0" resource="0" file="../../Source/Lua/CtrlrLuaUtils.h"/>
     </GROUP>
     <GROUP id="{2D46D34B-6F4E-4884-AA76-72A859FCF11D}" name="MIDI">
+      <FILE id="fs39oD" name="CtrlrMIDIDevice.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMIDIDevice.cpp"/>
+      <FILE id="iig9rU" name="CtrlrMIDIDevice.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMIDIDevice.h"/>
+      <FILE id="DKLSzg" name="CtrlrMIDIDeviceManager.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMIDIDeviceManager.cpp"/>
+      <FILE id="zbBOQ6" name="CtrlrMIDIDeviceManager.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMIDIDeviceManager.h"/>
+      <FILE id="QZg2qc" name="CtrlrMIDIFilter.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMIDIFilter.cpp"/>
+      <FILE id="YNgL7h" name="CtrlrMIDIFilter.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMIDIFilter.h"/>
+      <FILE id="QNq0hd" name="CtrlrMidiInputComparator.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiInputComparator.cpp"/>
+      <FILE id="ONHh0z" name="CtrlrMidiInputComparator.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiInputComparator.h"/>
+      <FILE id="oyb8T9" name="CtrlrMidiInputComparatorMulti.cpp" compile="1"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorMulti.cpp"/>
+      <FILE id="N6Ocu4" name="CtrlrMidiInputComparatorMulti.h" compile="0"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorMulti.h"/>
+      <FILE id="NqxtwD" name="CtrlrMidiInputComparatorSingle.cpp" compile="1"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorSingle.cpp"/>
+      <FILE id="B9Xoo1" name="CtrlrMidiInputComparatorSingle.h" compile="0"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorSingle.h"/>
+      <FILE id="uM9ffr" name="CtrlrMidiInputComparatorTypes.h" compile="0"
+            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorTypes.h"/>
+      <FILE id="zLYNUZ" name="CtrlrMidiMessage.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessage.cpp"/>
+      <FILE id="WrCZ64" name="CtrlrMidiMessage.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessage.h"/>
+      <FILE id="miWhZG" name="CtrlrMidiMessageEx.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessageEx.cpp"/>
+      <FILE id="yYTKvk" name="CtrlrMidiMessageEx.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrMidiMessageEx.h"/>
+      <FILE id="QpVzCj" name="CtrlrOwnedMidiMessage.cpp" compile="1" resource="0"
+            file="../../Source/MIDI/CtrlrOwnedMidiMessage.cpp"/>
+      <FILE id="fZpovH" name="CtrlrOwnedMidiMessage.h" compile="0" resource="0"
+            file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
       <GROUP id="{93F74B7F-76D4-2894-AF5B-5E9178F35F7C}" name="CtrlrMIDILibrary">
         <FILE id="rqBl0q" name="CtrlrMIDILibrary.cpp" compile="1" resource="0"
               file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp"/>
         <FILE id="eoDnZf" name="CtrlrMIDILibrary.h" compile="0" resource="0"
               file="../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"/>
       </GROUP>
-      <FILE id="WMbTk7" name="CtrlrMidiDevice.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrMidiDevice.cpp"/>
-      <FILE id="A7kOs9" name="CtrlrMidiDevice.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrMidiDevice.h"/>
-      <FILE id="wCv3yS" name="CtrlrMidiDeviceManager.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrMidiDeviceManager.cpp"/>
-      <FILE id="EU8C92" name="CtrlrMidiDeviceManager.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrMidiDeviceManager.h"/>
-      <FILE id="wkZoBr" name="CtrlrMIDIFilter.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrMIDIFilter.cpp"/>
-      <FILE id="vjirFG" name="CtrlrMIDIFilter.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrMIDIFilter.h"/>
-      <FILE id="WrpgYv" name="CtrlrMidiInputComparator.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrMidiInputComparator.cpp"/>
-      <FILE id="Jzhf4S" name="CtrlrMidiInputComparator.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrMidiInputComparator.h"/>
-      <FILE id="qfcyk7" name="CtrlrMidiInputComparatorMulti.cpp" compile="1"
-            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorMulti.cpp"/>
-      <FILE id="FZe1IX" name="CtrlrMidiInputComparatorMulti.h" compile="0"
-            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorMulti.h"/>
-      <FILE id="SkOsGO" name="CtrlrMidiInputComparatorSingle.cpp" compile="1"
-            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorSingle.cpp"/>
-      <FILE id="WhadjU" name="CtrlrMidiInputComparatorSingle.h" compile="0"
-            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorSingle.h"/>
-      <FILE id="R7BEIw" name="CtrlrMidiInputComparatorTypes.h" compile="0"
-            resource="0" file="../../Source/MIDI/CtrlrMidiInputComparatorTypes.h"/>
-      <FILE id="nlF2ha" name="CtrlrMidiMessage.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrMidiMessage.cpp"/>
-      <FILE id="HnNd8F" name="CtrlrMidiMessage.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrMidiMessage.h"/>
-      <FILE id="DAWdsa" name="CtrlrMidiMessageEx.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrMidiMessageEx.cpp"/>
-      <FILE id="W4kdnA" name="CtrlrMidiMessageEx.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrMidiMessageEx.h"/>
-      <FILE id="wwKFmS" name="CtrlrOwnedMidiMessage.cpp" compile="1" resource="0"
-            file="../../Source/MIDI/CtrlrOwnedMidiMessage.cpp"/>
-      <FILE id="fNFuma" name="CtrlrOwnedMidiMessage.h" compile="0" resource="0"
-            file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
     </GROUP>
     <GROUP id="{0D293395-B616-18D7-D7C0-A8BECB02051A}" name="Misc">
       <GROUP id="{E8D71461-9A85-E7B8-8A27-99CD4107B7B1}" name="include">
