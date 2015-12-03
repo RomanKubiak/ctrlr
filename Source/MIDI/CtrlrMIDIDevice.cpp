@@ -150,7 +150,7 @@ void CtrlrMIDIDevice::handleIncomingMidiMessage (MidiInput* /*source*/, const Mi
             dataCollector = MemoryBlock (ptr, message.getRawDataSize());
         }
 #else
-		deviceListeners.call (&CtrlrMidiDevice::Listener::handleMIDIFromDevice, message);
+		deviceListeners.call (&CtrlrMIDIDevice::Listener::handleMIDIFromDevice, message);
 #endif
 	}
 	else
