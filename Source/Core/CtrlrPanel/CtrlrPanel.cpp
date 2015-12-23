@@ -224,6 +224,8 @@ void CtrlrPanel::setProgramState(const bool _programState)
 
 Result CtrlrPanel::restoreState (const ValueTree &savedState)
 {
+	_DBG("CtrlrPanel::restoreState");
+
 	setRestoreState (true);
 
 	panelTree.removeProperty (Ids::panelScheme, nullptr);
@@ -796,7 +798,6 @@ ValueTree CtrlrPanel::getProgram(ValueTree treeToWriteTo)
 		}
 	}
 
-	_DBG(ScopedPointer <XmlElement> (program.createXml())->createDocument(String::empty));
 	return (program);
 }
 
@@ -838,6 +839,8 @@ void CtrlrPanel::setCustomData (const ValueTree &customData)
 
 void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 {
+	_DBG("CtrlrPanel::setProgram");
+
 	ValueTree program;
 
 	if (programTree.hasType(Ids::panelState))
@@ -1533,15 +1536,14 @@ int CtrlrPanel::getModulatorIndex (const String &modulatorToFind) const
 
 void CtrlrPanel::setInstanceProperties(const ValueTree &instanceState)
 {
-	_DBG("CtrlrPanel::setInstanceProperties "+instanceState.getType().toString());
 	/* here we need to set all the MIDI properties for the instance */
-	if (instanceState.hasType (Ids::panelState))
+	if (instanceState.hasType (Ids::panelState.toString()))
 	{
 		for (int i=0; i<instanceState.getNumProperties(); i++)
 		{
 			if (instanceState.getPropertyName(i).toString().startsWith ("panelMidi"))
 			{
-				// _DBG("\t"+instanceState.getPropertyName(i).toString());
+				// _DBG("\t"+instanceState.getPropertyName(i).toString() + "=" + instanceState.getProperty(instanceState.getPropertyName(i)).toString());
 				setProperty (instanceState.getPropertyName(i), instanceState.getProperty(instanceState.getPropertyName(i)));
 			}
 		}

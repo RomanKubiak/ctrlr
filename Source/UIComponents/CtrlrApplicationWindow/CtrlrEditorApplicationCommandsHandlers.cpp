@@ -408,7 +408,22 @@ void CtrlrEditor::performMidiHostOptionChange(const int menuItemID)
 {
 	if (isPanelActive())
 	{
-		getActivePanel()->setMidiOptionBool ((const CtrlrPanelMidiOption)(menuItemID - MENU_OFFSET_MIDI), !getActivePanel()->getMidiOptionBool((const CtrlrPanelMidiOption)(menuItemID - MENU_OFFSET_MIDI)));
+		CtrlrPanel *p = getActivePanel();
+
+		switch (menuItemID)
+		{
+			case optMidiInputFromHost:
+				p->setProperty(Ids::panelMidiInputFromHost, !(bool)p->getProperty(Ids::panelMidiInputFromHost));
+				break;
+			case optMidiInputFromHostCompare:
+				p->setProperty(Ids::panelMidiInputFromHostCompare, !(bool)p->getProperty(Ids::panelMidiInputFromHostCompare));
+				break;
+			case optMidiOutuptToHost:
+				p->setProperty(Ids::panelMidiOutputToHost, !(bool)p->getProperty(Ids::panelMidiOutputToHost));
+				break;
+		}
+		
+		//getActivePanel()->setMidiOptionBool ((const CtrlrPanelMidiOption)(menuItemID - MENU_OFFSET_MIDI), !getActivePanel()->getMidiOptionBool((const CtrlrPanelMidiOption)(menuItemID - MENU_OFFSET_MIDI)));
 	}
 }
 

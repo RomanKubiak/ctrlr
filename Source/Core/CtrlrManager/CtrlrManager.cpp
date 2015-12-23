@@ -230,7 +230,7 @@ void CtrlrManager::restoreState (const ValueTree &savedTree)
 		if (getInstanceMode() != InstanceMulti && savedTree.hasType (Ids::panelState))
 		{
 			restoreInstanceState (savedTree);
-			_DBG("CtrlrManager::restoreState exit restoreInstanceState");
+			_DBG("CtrlrManager::restoreState instance is not multi, exit restoreInstanceState");
 			return;
 		}
 

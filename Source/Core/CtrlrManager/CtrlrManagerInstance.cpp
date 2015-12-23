@@ -200,7 +200,6 @@ XmlElement *CtrlrManager::saveState()
 				panel->generateCustomData();
 			}
 		}
-
 		return (managerTree.createXml());
 	}
 	else
