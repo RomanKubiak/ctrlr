@@ -384,10 +384,10 @@ AudioProcessorEditor* CtrlrProcessor::createEditor()
 void CtrlrProcessor::getStateInformation (MemoryBlock& destData)
 {
 	_DBG("CtrlrProcessor::getStateInformation");
-	ScopedPointer <XmlElement> xml(ctrlrManager->saveState());
-	if (xml)
+	ScopedPointer <XmlElement> xmlState(ctrlrManager->saveState());
+	if (xmlState)
 	{
-		CtrlrProcessor::copyXmlToBinary (*xml, destData);
+		CtrlrProcessor::copyXmlToBinary (*xmlState, destData);
 	}
 }
 
@@ -395,7 +395,6 @@ void CtrlrProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
 	_DBG("CtrlrProcessor::setStateInformation");
 	ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
-
 	if (xmlState)
 	{
 		setStateInformation (xmlState);
