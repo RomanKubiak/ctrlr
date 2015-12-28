@@ -82,6 +82,7 @@ void CtrlrMidiInputComparatorMulti::match (const MidiMessage &m)
 			for (int i=0; i < (*it).second.targets.size(); i++)
 			{
 				(*it).second.targets[i]->getProcessor().setValueFromMIDI (messageContainer, source);
+				owner.multiMidiReceived(messageContainer);
 			}
 
 			updateCache (it);
@@ -104,7 +105,6 @@ bool CtrlrMidiInputComparatorMulti::basicMatch(const MidiMessage &m)
 	{
 		return (false);
 	}
-
 	return (true);
 }
 
@@ -117,16 +117,17 @@ bool CtrlrMidiInputComparatorMulti::cacheMatch ()
 		if (compareMemory(cache[i].key.toMemoryBlock(), messageContainer.getData()))
 		{
 			match = true;
-
+			
 			for (int j=0; j<cache[i].mapData.targets.size(); j++)
 			{
 				cache[i].mapData.targets[j]->getProcessor().setValueFromMIDI (messageContainer, source);
+				owner.multiMidiReceived(messageContainer);
 			}
 
 			break;
 		}
 	}
-
+	
 	return (match);
 }
 

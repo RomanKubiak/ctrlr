@@ -332,14 +332,14 @@ void CtrlrMIDIDeviceManager::wrapForLua(lua_State *L)
 			.def("refreshDevices", &CtrlrMIDIDeviceManager::refreshDevices)
 			.enum_("CtrlrMIDIDeviceType")
 			[
-				value("outputDevice", CtrlrMIDIDeviceType::outputDevice),
-				value("inputDevice", CtrlrMIDIDeviceType::inputDevice),
-				value("controllerDevice", CtrlrMIDIDeviceType::controllerDevice),
-				value("hostInputDevice", CtrlrMIDIDeviceType::hostInputDevice),
-				value("hostOutputDevice", CtrlrMIDIDeviceType::hostOutputDevice),
-				value("oscInputDevice", CtrlrMIDIDeviceType::oscInputDevice),
-				value("oscOutputDevice", CtrlrMIDIDeviceType::oscOutputDevice),
-				value("serialDevice", CtrlrMIDIDeviceType::serialDevice)
+				value("outputDevice", outputDevice),
+				value("inputDevice", inputDevice),
+				value("controllerDevice", controllerDevice),
+				value("hostInputDevice", hostInputDevice),
+				value("hostOutputDevice", hostOutputDevice),
+				value("oscInputDevice", oscInputDevice),
+				value("oscOutputDevice", oscOutputDevice),
+				value("serialDevice", serialDevice)
 			]
 			.enum_("DeviceState")
 			[

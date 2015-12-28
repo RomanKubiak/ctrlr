@@ -23,6 +23,7 @@ class CtrlrMidiInputComparatorMulti : public Timer
 		void updateState (const bool match);
 		void timerCallback();
 		const String dumpTableContents();
+		void queueMatchForLua();
 		JUCE_LEAK_DETECTOR(CtrlrMidiInputComparatorMulti)
 
 	private:
@@ -33,6 +34,7 @@ class CtrlrMidiInputComparatorMulti : public Timer
 		Array<unsigned int> messageSizeContainer;
 		DefaultElementComparator<unsigned int> messageSizeContainerSorter;
 		Array<CtrlrCacheDataMulti> cache;
+		Array<CtrlrMidiMessage,CriticalSection,4> luaQueue;
 		int cacheSize;
 		CtrlrMIDIDeviceType source;
 };

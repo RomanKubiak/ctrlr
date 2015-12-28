@@ -282,6 +282,7 @@ class CtrlrPanel:	public ValueTree::Listener,
         void removeMIDIControllerListener(CtrlrMIDIDevice::Listener *listenerToRemove);
 		void dumpDebugData();
 		void performInternalComponentFunction(CtrlrComponent *sourceComponent);
+		void multiMidiReceived(CtrlrMidiMessage &multiMidiMessage);
 		String getInternalFunctionsProperty(CtrlrComponent *component);
 
 		static const String globalsToString(const Array<int,CriticalSection> &arrayOfGlobals);
@@ -319,6 +320,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		Array <int,CriticalSection> globalVariables;
 		WeakReference <CtrlrLuaMethod>
 			luaPanelMidiReceivedCbk,
+			luaPanelMidiMultiReceivedCbk,
 			luaPanelLoadedCbk,
 			luaPanelBeforeLoadCbk,
 			luaPanelSavedCbk,
@@ -345,6 +347,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		CtrlrPanelResourceManager resourceManager;
 		HashMap<String,CtrlrModulator*> modulatorsByName;
 		ScopedPointer <CtrlrPanelOSC> ctrlrPanelOSC;
+		Array<CtrlrMidiMessage,CriticalSection,4> multiMidiQueue;
 };
 
 #endif

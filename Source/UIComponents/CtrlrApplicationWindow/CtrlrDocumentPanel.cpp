@@ -74,8 +74,6 @@ void CtrlrDocumentPanel::setEditor (CtrlrEditor *_editorToSet)
 void CtrlrDocumentPanel::buttonClicked (Button *button)
 {
     int index               = (int)button->getProperties().getWithDefault("index", -1);
-    CtrlrPanelEditor *ed    = dynamic_cast<CtrlrPanelEditor*> (getDocument(index));
-
     TabbedComponent *tc = getCurrentTabbedComponent();
 
     if (tc != nullptr)
