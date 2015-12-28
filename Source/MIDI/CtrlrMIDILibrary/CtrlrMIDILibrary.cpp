@@ -643,9 +643,6 @@ int CtrlrMIDILibrary::getListenerInputMidiChannel()
 
 void CtrlrMIDILibrary::processMidi (MidiBuffer &incommingData)
 {
-	MidiBuffer::Iterator it(incommingData);
-	MidiMessage midiMessage;
-	int samplePosition;
 }
 
 void CtrlrMIDILibrary::handleAsyncUpdate()

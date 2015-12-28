@@ -199,7 +199,7 @@ const String CtrlrPanel::exportPanel(CtrlrPanel *panel, const File &lastBrowsedD
 {
 	Image panelSnapshot (Image::ARGB, 400, 400, true);
 	CtrlrPanelCanvas *canvas = panel->getEditor()->getCanvas();
-	CtrlrPanelEditor *editor = panel->getEditor();
+	// CtrlrPanelEditor *editor = panel->getEditor();
 
 	if (panel == 0 || panel == nullptr)
 		return ("Undefined panel passeed to exporter");

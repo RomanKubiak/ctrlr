@@ -779,6 +779,7 @@ namespace Ids
 	DECLARE_ID (luaPanelModulatorValueChanged);
 	DECLARE_ID (luaPanelBeforeLoad);
 	DECLARE_ID (luaPanelMidiReceived);
+	DECLARE_ID (luaPanelMidiMultiReceived);
 	DECLARE_ID (luaPanelMidiChannelChanged);
 	DECLARE_ID (luaPanelPaintBackground);
 	DECLARE_ID (luaPanelSaved);

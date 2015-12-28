@@ -130,6 +130,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 
     setProperty (Ids::luaPanelMidiChannelChanged, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelMidiReceived, COMBO_ITEM_NONE);
+	setProperty (Ids::luaPanelMidiMultiReceived, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelLoaded, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelBeforeLoad, COMBO_ITEM_NONE);
 	setProperty (Ids::luaPanelSaved, COMBO_ITEM_NONE);
@@ -463,6 +464,13 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 			return;
 
 		luaPanelMidiReceivedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+	}
+	else if (property == Ids::luaPanelMidiMultiReceived)
+	{
+		if (getProperty(property) == String::empty)
+			return;
+
+		luaPanelMidiMultiReceivedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelMidiChannelChanged)
 	{
@@ -1031,6 +1039,16 @@ void CtrlrPanel::panelReceivedMidi(const MidiBuffer &buffer, const CtrlrMIDIDevi
 
 void CtrlrPanel::handleAsyncUpdate()
 {
+	/* let's check any pending multi midi messages
+	   in the queue */
+	for (int i=0; i<multiMidiQueue.size(); i++)
+	{
+		if (luaPanelMidiMultiReceivedCbk)
+			getCtrlrLuaManager().getMethodManager().call (luaPanelMidiMultiReceivedCbk, multiMidiQueue[i]);
+
+		multiMidiQueue.remove(i);
+	}
+
 	MidiBuffer buffer;
 
 	midiMessageCollector.removeNextBlockOfMessages (buffer, SAMPLERATE * 512);
@@ -1807,4 +1825,10 @@ String CtrlrPanel::getInternalFunctionsProperty(CtrlrComponent *component)
 		return (_STR(COMBO_ITEM_NONE) + "\nShow MIDI device settings");
 	}
 	return (String::empty);
+}
+
+void CtrlrPanel::multiMidiReceived(CtrlrMidiMessage &multiMidiMessage)
+{
+	multiMidiQueue.add (multiMidiMessage);
+	triggerAsyncUpdate();
 }

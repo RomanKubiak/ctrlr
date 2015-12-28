@@ -316,6 +316,18 @@
     end
   </luaMethod>
 
+  <luaMethod name="luaPanelMidiMultiReceived">
+    --
+    -- Called when a panel receives a multi MIDI message
+    -- (needs to match a modulator mask)
+    -- @midi   CtrlrMidiMessage object, this will contain all the midi messages
+    --         that make up this multi message
+    --
+
+    __method_name = function(--[[ CtrlrMidiMessage --]] multiMidi)
+    end
+  </luaMethod>
+  
   <luaMethod name="luaPanelOSCReceived">
       --
       -- Called when a panel receives a OSC message

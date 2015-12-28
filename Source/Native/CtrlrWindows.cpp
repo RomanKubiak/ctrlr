@@ -280,7 +280,7 @@ const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event, const Strin
 	HWND firstwindow = FindWindowEx(NULL, NULL, NULL, NULL);
     HWND window = firstwindow;
     TCHAR windowtext[MAX_PATH];
-	INPUT input;
+	// INPUT input;
 
 	if (targetWindowName != String::empty)
 	{

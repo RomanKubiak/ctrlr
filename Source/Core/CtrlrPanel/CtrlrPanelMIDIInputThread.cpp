@@ -110,7 +110,8 @@ void CtrlrPanelMIDIInputThread::handleMIDIFromHost(MidiBuffer &buffer)
 {
 	{
 		const ScopedWriteLock sl(lock);
-		hostInputBuffer.addEvents (buffer, 0, buffer.getNumEvents(), 1);
+		/* last event time is in samples, not event numbers you dumbass */
+		hostInputBuffer.addEvents (buffer, 0, buffer.getLastEventTime() + 1, 1);
 	}
 
 	notify();
