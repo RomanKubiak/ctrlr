@@ -232,7 +232,7 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			break;
 
 		case doShowMidiSettingsDialog:
-			if (getActivePanel()) CtrlrMIDISettingsDialog::showDialog(*getActivePanel());
+			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::MIDISettings, true);
 			break;
 
 		case optMidiInputFromHost:
@@ -422,7 +422,7 @@ void CtrlrEditor::performMidiHostOptionChange(const int menuItemID)
 				p->setProperty(Ids::panelMidiOutputToHost, !(bool)p->getProperty(Ids::panelMidiOutputToHost));
 				break;
 		}
-		
+
 		//getActivePanel()->setMidiOptionBool ((const CtrlrPanelMidiOption)(menuItemID - MENU_OFFSET_MIDI), !getActivePanel()->getMidiOptionBool((const CtrlrPanelMidiOption)(menuItemID - MENU_OFFSET_MIDI)));
 	}
 }

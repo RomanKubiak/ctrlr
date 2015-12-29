@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 4.0.1
+  Created with Introjucer version: 4.0.2
 
   ------------------------------------------------------------------------------
 
@@ -38,21 +38,21 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    addAndMakeVisible (inputDevices = new ComboBox (String::empty));
+    addAndMakeVisible (inputDevices = new ComboBox (String()));
     inputDevices->setEditableText (false);
     inputDevices->setJustificationType (Justification::centredLeft);
     inputDevices->setTextWhenNothingSelected (TRANS("No device selected"));
     inputDevices->setTextWhenNoChoicesAvailable (TRANS("No devices available"));
     inputDevices->addListener (this);
 
-    addAndMakeVisible (controllerDevices = new ComboBox (String::empty));
+    addAndMakeVisible (controllerDevices = new ComboBox (String()));
     controllerDevices->setEditableText (false);
     controllerDevices->setJustificationType (Justification::centredLeft);
     controllerDevices->setTextWhenNothingSelected (TRANS("No device selected"));
     controllerDevices->setTextWhenNoChoicesAvailable (TRANS("No devices available"));
     controllerDevices->addListener (this);
 
-    addAndMakeVisible (outputDevices = new ComboBox (String::empty));
+    addAndMakeVisible (outputDevices = new ComboBox (String()));
     outputDevices->setEditableText (false);
     outputDevices->setJustificationType (Justification::centredLeft);
     outputDevices->setTextWhenNothingSelected (TRANS("No device selected"));
@@ -131,7 +131,7 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
     label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (oscEnabled = new ToggleButton ("OSC Enabled"));
-    oscEnabled->setButtonText (String::empty);
+    oscEnabled->setButtonText (String());
     oscEnabled->addListener (this);
 
     addAndMakeVisible (label7 = new Label ("new label",
@@ -142,11 +142,11 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
     label7->setColour (TextEditor::textColourId, Colours::black);
     label7->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (inputChannel = new ComboBox (String::empty));
+    addAndMakeVisible (inputChannel = new ComboBox (String()));
     inputChannel->setEditableText (false);
     inputChannel->setJustificationType (Justification::centredLeft);
     inputChannel->setTextWhenNothingSelected (TRANS("All"));
-    inputChannel->setTextWhenNoChoicesAvailable (String::empty);
+    inputChannel->setTextWhenNoChoicesAvailable (String());
     inputChannel->addItem (TRANS("All"), 1);
     inputChannel->addItem (TRANS("1"), 2);
     inputChannel->addItem (TRANS("2"), 3);
@@ -165,11 +165,11 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
     inputChannel->addItem (TRANS("16"), 16);
     inputChannel->addListener (this);
 
-    addAndMakeVisible (controllerChannel = new ComboBox (String::empty));
+    addAndMakeVisible (controllerChannel = new ComboBox (String()));
     controllerChannel->setEditableText (false);
     controllerChannel->setJustificationType (Justification::centredLeft);
     controllerChannel->setTextWhenNothingSelected (TRANS("All"));
-    controllerChannel->setTextWhenNoChoicesAvailable (String::empty);
+    controllerChannel->setTextWhenNoChoicesAvailable (String());
     controllerChannel->addItem (TRANS("All"), 1);
     controllerChannel->addItem (TRANS("1"), 2);
     controllerChannel->addItem (TRANS("2"), 3);
@@ -188,11 +188,11 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
     controllerChannel->addItem (TRANS("16"), 16);
     controllerChannel->addListener (this);
 
-    addAndMakeVisible (outputChannel = new ComboBox (String::empty));
+    addAndMakeVisible (outputChannel = new ComboBox (String()));
     outputChannel->setEditableText (false);
     outputChannel->setJustificationType (Justification::centredLeft);
     outputChannel->setTextWhenNothingSelected (TRANS("All"));
-    outputChannel->setTextWhenNoChoicesAvailable (String::empty);
+    outputChannel->setTextWhenNoChoicesAvailable (String());
     outputChannel->addItem (TRANS("All"), 1);
     outputChannel->addItem (TRANS("1"), 2);
     outputChannel->addItem (TRANS("2"), 3);
@@ -219,11 +219,11 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
     label8->setColour (TextEditor::textColourId, Colours::black);
     label8->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (pluginOutputChannel = new ComboBox (String::empty));
+    addAndMakeVisible (pluginOutputChannel = new ComboBox (String()));
     pluginOutputChannel->setEditableText (false);
     pluginOutputChannel->setJustificationType (Justification::centredLeft);
     pluginOutputChannel->setTextWhenNothingSelected (TRANS("All"));
-    pluginOutputChannel->setTextWhenNoChoicesAvailable (String::empty);
+    pluginOutputChannel->setTextWhenNoChoicesAvailable (String());
     pluginOutputChannel->addItem (TRANS("All"), 1);
     pluginOutputChannel->addItem (TRANS("1"), 2);
     pluginOutputChannel->addItem (TRANS("2"), 3);
@@ -258,11 +258,11 @@ CtrlrMIDISettingsDevices::CtrlrMIDISettingsDevices (CtrlrPanel &_owner)
     pluginInput->setButtonText (TRANS("Enable input from plugin host"));
     pluginInput->addListener (this);
 
-    addAndMakeVisible (pluginInputChannel = new ComboBox (String::empty));
+    addAndMakeVisible (pluginInputChannel = new ComboBox (String()));
     pluginInputChannel->setEditableText (false);
     pluginInputChannel->setJustificationType (Justification::centredLeft);
     pluginInputChannel->setTextWhenNothingSelected (TRANS("All"));
-    pluginInputChannel->setTextWhenNoChoicesAvailable (String::empty);
+    pluginInputChannel->setTextWhenNoChoicesAvailable (String());
     pluginInputChannel->addItem (TRANS("All"), 1);
     pluginInputChannel->addItem (TRANS("1"), 2);
     pluginInputChannel->addItem (TRANS("2"), 3);
@@ -358,28 +358,28 @@ void CtrlrMIDISettingsDevices::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    inputDevices->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.1100f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
-    controllerDevices->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.2400f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
-    outputDevices->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.3680f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
-    label->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.0500f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
-    label2->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.1760f), proportionOfWidth (0.8000f), proportionOfHeight (0.0600f));
-    label3->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.3020f), proportionOfWidth (0.8000f), proportionOfHeight (0.0600f));
-    oscProtocol->setBounds (proportionOfWidth (0.6300f), proportionOfHeight (0.8620f), proportionOfWidth (0.2000f), proportionOfHeight (0.0820f));
-    label4->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.7320f), proportionOfWidth (0.8000f), proportionOfHeight (0.0820f));
-    oscPort->setBounds (proportionOfWidth (0.2300f), proportionOfHeight (0.8620f), proportionOfWidth (0.3000f), proportionOfHeight (0.0820f));
-    label5->setBounds (proportionOfWidth (0.6300f), proportionOfHeight (0.8120f), proportionOfWidth (0.3000f), proportionOfHeight (0.0500f));
-    label6->setBounds (proportionOfWidth (0.2300f), proportionOfHeight (0.8120f), proportionOfWidth (0.3000f), proportionOfHeight (0.0500f));
-    oscEnabled->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.8620f), proportionOfWidth (0.0500f), proportionOfHeight (0.0820f));
-    label7->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.8120f), proportionOfWidth (0.1500f), proportionOfHeight (0.0500f));
-    inputChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.1100f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
-    controllerChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.2400f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
-    outputChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.3680f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
-    label8->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.4300f), proportionOfWidth (0.8000f), proportionOfHeight (0.0600f));
-    pluginOutputChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.4960f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
-    pluginOutput->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.4960f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
-    label9->setBounds (proportionOfWidth (0.7200f), proportionOfHeight (0.0500f), proportionOfWidth (0.2400f), proportionOfHeight (0.0600f));
-    pluginInput->setBounds (proportionOfWidth (0.0800f), proportionOfHeight (0.6220f), proportionOfWidth (0.6000f), proportionOfHeight (0.0600f));
-    pluginInputChannel->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.6220f), proportionOfWidth (0.2000f), proportionOfHeight (0.0600f));
+    inputDevices->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.1109f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
+    controllerDevices->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.2409f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
+    outputDevices->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.3689f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
+    label->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.0490f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
+    label2->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.1770f), proportionOfWidth (0.7992f), proportionOfHeight (0.0597f));
+    label3->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.3028f), proportionOfWidth (0.7992f), proportionOfHeight (0.0597f));
+    oscProtocol->setBounds (proportionOfWidth (0.6305f), proportionOfHeight (0.8614f), proportionOfWidth (0.2008f), proportionOfHeight (0.0810f));
+    label4->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.7313f), proportionOfWidth (0.7992f), proportionOfHeight (0.0810f));
+    oscPort->setBounds (proportionOfWidth (0.2309f), proportionOfHeight (0.8614f), proportionOfWidth (0.2992f), proportionOfHeight (0.0810f));
+    label5->setBounds (proportionOfWidth (0.6305f), proportionOfHeight (0.8124f), proportionOfWidth (0.2992f), proportionOfHeight (0.0490f));
+    label6->setBounds (proportionOfWidth (0.2309f), proportionOfHeight (0.8124f), proportionOfWidth (0.2992f), proportionOfHeight (0.0490f));
+    oscEnabled->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.8614f), proportionOfWidth (0.0502f), proportionOfHeight (0.0810f));
+    label7->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.8124f), proportionOfWidth (0.1506f), proportionOfHeight (0.0490f));
+    inputChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.1109f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
+    controllerChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.2409f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
+    outputChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.3689f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
+    label8->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.4307f), proportionOfWidth (0.7992f), proportionOfHeight (0.0597f));
+    pluginOutputChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.4968f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
+    pluginOutput->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.4968f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
+    label9->setBounds (proportionOfWidth (0.7209f), proportionOfHeight (0.0490f), proportionOfWidth (0.2410f), proportionOfHeight (0.0597f));
+    pluginInput->setBounds (proportionOfWidth (0.0803f), proportionOfHeight (0.6226f), proportionOfWidth (0.6004f), proportionOfHeight (0.0597f));
+    pluginInputChannel->setBounds (proportionOfWidth (0.7410f), proportionOfHeight (0.6226f), proportionOfWidth (0.2008f), proportionOfHeight (0.0597f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }

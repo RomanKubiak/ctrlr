@@ -327,14 +327,16 @@
     __method_name = function(--[[ CtrlrMidiMessage --]] multiMidi)
     end
   </luaMethod>
-  
+
   <luaMethod name="luaPanelOSCReceived">
       --
       -- Called when a panel receives a OSC message
-      -- @osc - the OSC message received
+      -- @path - osc path
+      -- @types - a string representing what types are included in the incoming messages
+      -- @arguments - a lua table of all incoming arguments
       --
 
-      __method_name = function(--[[ CtrlrOSCMessage --]] osc)
+      __method_name = function(--[[ string --]] path, --[[ string --]] types, --[[ table --]] arguments)
       end
   </luaMethod>
 

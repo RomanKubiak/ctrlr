@@ -10,6 +10,7 @@
 #include "CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h"
 #include "CtrlrMIDI/CtrlrMIDILibraryEditor.h"
 #include "CtrlrMIDI/CtrlrMIDIBufferEditor.h"
+#include "CtrlrMIDI/CtrlrMIDISettingsDialog.h"
 
 CtrlrPanelWindowManager::CtrlrPanelWindowManager(CtrlrPanel &_owner)
 	: owner(_owner), managerTree(Ids::uiWindowManager)
@@ -122,6 +123,8 @@ const String CtrlrPanelWindowManager::getWindowName(const CtrlrPanelWindowManage
 			return ("MIDILibrary");
 		case BufferEditor:
 			return ("BufferEditor");
+		case MIDISettings:
+			return ("MIDISettings");
 		default:
 			return ("LuaConsole");
 	}
@@ -141,7 +144,8 @@ CtrlrPanelWindowManager::WindowType CtrlrPanelWindowManager::getWindowType(const
 		return (MIDILibrary);
 	if (windowName == "BufferEditor")
 		return (BufferEditor);
-
+	if (windowName == "MIDISettings")
+		return (MIDISettings);
 	return (LuaConsole);
 }
 
@@ -163,7 +167,7 @@ CtrlrChildWindow *CtrlrPanelWindowManager::createWindow(const CtrlrPanelWindowMa
 		case CtrlrPanelWindowManager::LuaMethodEditor:
 			w->setContent (new CtrlrLuaMethodEditor (owner));
 			break;
-      
+
 		case CtrlrPanelWindowManager::ModulatorList:
 			w->setContent (new CtrlrPanelModulatorList(owner));
 			break;
@@ -179,6 +183,9 @@ CtrlrChildWindow *CtrlrPanelWindowManager::createWindow(const CtrlrPanelWindowMa
 		case CtrlrPanelWindowManager::BufferEditor:
 			w->setContent (new CtrlrMIDIBufferEditor(owner));
 			break;
+
+		case CtrlrPanelWindowManager::MIDISettings:
+			w->setContent (new CtrlrMIDISettingsDialog(owner));
 	}
 
 	w->setName(owner.getProperty (Ids::name).toString() + "/" + w->getContent()->getContentName());

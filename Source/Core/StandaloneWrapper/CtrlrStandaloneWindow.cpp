@@ -15,6 +15,7 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 {
 	setTitleBarButtonsRequired (DocumentWindow::allButtons, false);
 	setUsingNativeTitleBar (true);
+	setResizable(true, false);
 
     JUCE_TRY
     {
@@ -40,8 +41,6 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 
 			/* get the properties pointer from the manager */
 			appProperties = ctrlrProcessor->getManager().getApplicationProperties();
-
-			setResizable (true, false);
 
 			if (appProperties != nullptr)
 			{

@@ -70,9 +70,6 @@ void CtrlrPanelMIDIInputThread::process()
 		owner.getCtrlrManagerOwner().getProcessorOwner()->addMidiToOutputQueue (deviceInputBuffer);
 	}
 
-	owner.getCtrlrMIDILibrary().processMidi (deviceInputBuffer);
-	owner.getCtrlrMIDILibrary().processMidi (hostInputBuffer);
-
 	hostInputBuffer.clear();
 	deviceInputBuffer.clear();
 }
