@@ -125,7 +125,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::panelMidiPauseIn, false);
 
 	setProperty (Ids::panelOSCEnabled, false);
-	setProperty (Ids::panelOSCPort, 7770);
+	setProperty (Ids::panelOSCPort, -1);
 	setProperty (Ids::panelOSCProtocol, 0);
 
     setProperty (Ids::luaPanelMidiChannelChanged, COMBO_ITEM_NONE);

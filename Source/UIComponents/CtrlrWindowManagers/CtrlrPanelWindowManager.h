@@ -15,6 +15,7 @@ class CtrlrPanelWindowManager : public CtrlrWindowManager
 			ModulatorList,
 			LayerEditor,
 			MIDILibrary,
+			MIDISettings,
 			BufferEditor
 		};
 

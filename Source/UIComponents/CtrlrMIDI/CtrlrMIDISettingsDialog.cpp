@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.2.0
+  Created with Introjucer version: 4.0.2
 
   ------------------------------------------------------------------------------
 
@@ -119,10 +119,10 @@ void CtrlrMIDISettingsDialog::showDialog(CtrlrPanel &_owner)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="CtrlrMIDISettingsDialog"
-                 componentName="" parentClasses="public Component" constructorParams="CtrlrPanel &amp;_owner"
-                 variableInitialisers="owner(_owner)" snapPixels="8" snapActive="1"
-                 snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="500"
-                 initialHeight="500">
+                 componentName="" parentClasses="public CtrlrChildWindowContent"
+                 constructorParams="CtrlrPanel &amp;_owner" variableInitialisers="owner(_owner)"
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
+                 fixedSize="1" initialWidth="500" initialHeight="500">
   <BACKGROUND backgroundColour="ffffff"/>
   <TABBEDCOMPONENT name="" id="d45866974b3b880b" memberName="midiTabs" virtualName=""
                    explicitFocusOrder="0" pos="0 0 0M 0M" orientation="top" tabBarDepth="30"

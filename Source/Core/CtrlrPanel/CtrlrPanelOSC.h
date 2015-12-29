@@ -22,6 +22,7 @@ class CtrlrPanelOSC : public Thread, public ValueTree::Listener, public AsyncUpd
 		void valueTreeChildRemoved (ValueTree& /*parentTree*/, ValueTree& /*childWhichHasBeenRemoved*/, int){}
 		void valueTreeChildOrderChanged (ValueTree& /*parentTreeWhoseChildrenHaveMoved*/, int, int){}
 		void handleAsyncUpdate();
+		void restartServer();
 		void queueMessage(const char *path, const char *types, lo_arg **argv, int argc);
 		static void errorHandler(int num, const char *m, const char *path);
 		static void messageHandler(const char *path, const char *types, lo_arg **argv,

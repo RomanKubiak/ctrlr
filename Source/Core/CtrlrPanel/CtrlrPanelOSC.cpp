@@ -28,23 +28,16 @@ void CtrlrPanelOSC::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 {
 	if (property == Ids::panelOSCEnabled)
 	{
-		if ((bool)owner.getProperty(property))
-		{
-			const Result res = startServer();
-			if (!res.wasOk())
-			{
-				_WRN("Unable to start OSC server: " + res.getErrorMessage());
-				return;
-			}
-		}
-		else
-		{
-			stopServer();
-		}
+		restartServer();
 	}
 	else if (property == Ids::panelOSCProtocol)
 	{
 		loProtocol = owner.getProperty(property);
+		restartServer();
+	}
+	else if (property == Ids::panelOSCPort)
+	{
+		restartServer();
 	}
 	else if (property == Ids::luaPanelOSCReceived)
 	{
@@ -52,6 +45,22 @@ void CtrlrPanelOSC::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 			return;
 
 		luaPanelOSCReceivedCbk = owner.getCtrlrLuaManager().getMethodManager().getMethod(owner.getProperty(property));
+	}
+}
+
+void CtrlrPanelOSC::restartServer()
+{
+	stopServer();
+
+	if ((bool)owner.getProperty(Ids::panelOSCEnabled) &&
+		(int)owner.getProperty(Ids::panelOSCPort) > 0)
+	{
+		const Result res = startServer();
+		if (!res.wasOk())
+		{
+			_WRN("Unable to start OSC server: " + res.getErrorMessage());
+			return;
+		}
 	}
 }
 

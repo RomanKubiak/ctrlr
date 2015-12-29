@@ -59,6 +59,8 @@ void CtrlrOSC::wrapForLua(lua_State *L)
 		class_<CtrlrOSCMessage>("CtrlrOSCMessage")
 			.def(constructor<const String &, const String &>())
 			.def(constructor<>())
+			.def("getPath", &CtrlrOSCMessage::getPath)
+			.def("getTypes", &CtrlrOSCMessage::getTypes)
 		,
 		class_<CtrlrOSC>("osc")
 		.scope
