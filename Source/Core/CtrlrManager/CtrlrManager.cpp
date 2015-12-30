@@ -83,6 +83,7 @@ void CtrlrManager::setDefaults()
 	setProperty (Ids::ctrlrUseEditorWrapper, true);
 	setProperty (Ids::ctrlrPropertiesAreURLs, true);
 	setProperty (Ids::ctrlrNativeAlerts, false);
+	setProperty (Ids::ctrlrNativeFileDialogs, true);
 	setProperty (Ids::ctrlrPrivateKey, String::empty);
 	setProperty (Ids::ctrlrUsingOpenGL, false);
 	setProperty (Ids::uiLuaConsoleInputRemoveAfterRun, true);
@@ -481,7 +482,10 @@ int CtrlrManager::getNextVstIndex()
 
 void CtrlrManager::openPanelFromFile(Component *componentToAttachMenu)
 {
-	FileChooser fc ("Open panel", File(getProperty(Ids::ctrlrLastBrowsedFileDirectory)), "*.panel;*.panelz;*.bpanel;*.bpanelz;*.*", true);
+	FileChooser fc ("Open panel",
+						File(getProperty(Ids::ctrlrLastBrowsedFileDirectory)),
+						"*.panel;*.panelz;*.bpanel;*.bpanelz;*.*",
+						(bool)getProperty(Ids::ctrlrNativeFileDialogs));
 
 	if (fc.browseForFileToOpen())
 	{

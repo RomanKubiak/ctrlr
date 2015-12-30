@@ -153,7 +153,10 @@ class CtrlrPanel:	public ValueTree::Listener,
 		static const ValueTree openXmlPanel(const File &panelFile);
 		static const ValueTree openBinPanel(const File &panelFile);
 		static const ValueTree openBinPanel(const MemoryBlock &panelData, const bool isCompressed=false);
-		static const File askForPanelFileToSave (CtrlrPanel *possiblePanel, const File &lastBrowsedDir, const bool isXml=true, const bool isCompressed=false);
+		static const File askForPanelFileToSave (CtrlrPanel *panel,
+													const File &lastBrowsedDir,
+													const bool isXml=true,
+													const bool isCompressed=false);
 
 		void luaSavePanel(const CtrlrPanelFileType fileType, const File &file);
 		void setInstanceProperties(const ValueTree &instanceState);
