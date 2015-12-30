@@ -734,6 +734,7 @@
   <id name="ctrlrMenuBarHighlightColour" 		text="Menu bar highlight colour" type="Colour" />
   <id name="ctrlrMenuBarFont" 					text="Menu bar font" type="Font" />
   <id name="ctrlrNativeAlerts"					text="Use OS native dialog windows" type="Bool" />
+  <id name="ctrlrNativeFileDialogs"     text="Use OS native file open/save dialogs (disable for Linux)" type="Bool" />
   <id name="ctrlrPrivateKey"                   text="RSA private key used to sign exported panels" type="FileProperty" />
   <id name="ctrlrUsingOpenGL"            text="Use OpenGL render" type="Bool" />
 

@@ -536,15 +536,18 @@ Result CtrlrPanel::savePanelXml(const File &fileToSave, CtrlrPanel *panel, const
 	}
 }
 
-const File CtrlrPanel::askForPanelFileToSave (CtrlrPanel *possiblePanel, const File &lastBrowsedDir, const bool isXml, const bool isCompressed)
+const File CtrlrPanel::askForPanelFileToSave (CtrlrPanel *panel,
+												const File &lastBrowsedDir,
+												const bool isXml,
+												const bool isCompressed)
 {
 	String panelFileName = "Ctrlr Panel";
 	File panelFile;
-
-	if (possiblePanel)
+	bool useOSDialog = panel ? (bool)panel->getCtrlrManagerOwner().getProperty(Ids::ctrlrNativeFileDialogs) : true;
+	if (panel)
 	{
-		panelFileName = possiblePanel->getProperty(Ids::name);
-		panelFileName << "_" + possiblePanel->getVersionString();
+		panelFileName = panel->getProperty(Ids::name);
+		panelFileName << "_" + panel->getVersionString();
 	}
 
 	if (isXml)
@@ -575,28 +578,28 @@ const File CtrlrPanel::askForPanelFileToSave (CtrlrPanel *possiblePanel, const F
 	{
 		if (isCompressed)
 		{
-			FileChooser fileChooser ("Panel file XML compressed", panelFile, "*.panelz");
+			FileChooser fileChooser ("Panel file XML compressed", panelFile, "*.panelz", useOSDialog);
 			if (fileChooser.browseForFileToSave (true))
 			{
 				return (fileChooser.getResult().withFileExtension("panelz"));
 			}
 			else
 			{
-				if (possiblePanel)
-					possiblePanel->notify ("Save file dialog failed", nullptr, NotifyFailure);
+				if (panel)
+					panel->notify ("Save file dialog failed", nullptr, NotifyFailure);
 			}
 		}
 		else
 		{
-			FileChooser fileChooser ("Panel file XML", panelFile, "*.panel");
+			FileChooser fileChooser ("Panel file XML", panelFile, "*.panel", useOSDialog);
 			if (fileChooser.browseForFileToSave (true))
 			{
 				return (fileChooser.getResult().withFileExtension("panel"));
 			}
 			else
 			{
-				if (possiblePanel)
-					possiblePanel->notify ("Save file dialog failed", nullptr, NotifyFailure);
+				if (panel)
+					panel->notify ("Save file dialog failed", nullptr, NotifyFailure);
 			}
 		}
 	}
@@ -604,28 +607,28 @@ const File CtrlrPanel::askForPanelFileToSave (CtrlrPanel *possiblePanel, const F
 	{
 		if (isCompressed)
 		{
-			FileChooser fileChooser ("Panel file binary compressed", panelFile, "*.bpanelz");
+			FileChooser fileChooser ("Panel file binary compressed", panelFile, "*.bpanelz", useOSDialog);
 			if (fileChooser.browseForFileToSave (true))
 			{
 				return (fileChooser.getResult().withFileExtension("bpanelz"));
 			}
 			else
 			{
-				if (possiblePanel)
-					possiblePanel->notify ("Save file dialog failed", nullptr, NotifyFailure);
+				if (panel)
+					panel->notify ("Save file dialog failed", nullptr, NotifyFailure);
 			}
 		}
 		else
 		{
-			FileChooser fileChooser ("Panel file binary", panelFile, "*.bpanel");
+			FileChooser fileChooser ("Panel file binary", panelFile, "*.bpanel", useOSDialog);
 			if (fileChooser.browseForFileToSave (true))
 			{
 				return (fileChooser.getResult().withFileExtension("bpanel"));
 			}
 			else
 			{
-				if (possiblePanel)
-					possiblePanel->notify ("Save file dialog failed", nullptr, NotifyFailure);
+				if (panel)
+					panel->notify ("Save file dialog failed", nullptr, NotifyFailure);
 			}
 		}
 	}
