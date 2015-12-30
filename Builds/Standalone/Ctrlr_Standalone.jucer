@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.3.0"
-              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="4.0.1"
+              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="4.0.2"
               defines="" companyName="Instigator" includeBinaryInAppConfig="1"
               companyWebsite="http://ctrlr.org" companyEmail="ctrlr@ctrlr.org">
   <EXPORTFORMATS>
@@ -506,8 +506,6 @@
         <FILE id="LmSzMO" name="LXmlElement.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LXmlElement.h"/>
         <FILE id="AKUkve" name="LZipFile.h" compile="0" resource="0" file="../../Source/Lua/JuceClasses/LZipFile.h"/>
       </GROUP>
-      <FILE id="WLaJ4C" name="CtrlrLuaOSC.cpp" compile="1" resource="0" file="../../Source/Lua/CtrlrLuaOSC.cpp"/>
-      <FILE id="yOfmRq" name="CtrlrLuaOSC.h" compile="0" resource="0" file="../../Source/Lua/CtrlrLuaOSC.h"/>
       <FILE id="m0xItC" name="CtrlrLuaDebugger.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaDebugger.cpp"/>
       <FILE id="z7iSMw" name="CtrlrLuaDebugger.h" compile="0" resource="0"

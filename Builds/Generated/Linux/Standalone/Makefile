@@ -104,7 +104,6 @@ OBJECTS := \
   $(OBJDIR)/LGraphics_a64ebfeb.o \
   $(OBJDIR)/LJuce_c2f9d4cd.o \
   $(OBJDIR)/LMemory_1958b621.o \
-  $(OBJDIR)/CtrlrLuaOSC_2f2874f8.o \
   $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
   $(OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o \
   $(OBJDIR)/CtrlrLuaCustomComponent_32c93605.o \
@@ -483,11 +482,6 @@ $(OBJDIR)/LJuce_c2f9d4cd.o: ../../../../Source/Lua/JuceClasses/LJuce.cpp
 $(OBJDIR)/LMemory_1958b621.o: ../../../../Source/Lua/JuceClasses/LMemory.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling LMemory.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrLuaOSC_2f2874f8.o: ../../../../Source/Lua/CtrlrLuaOSC.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrLuaOSC.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.cpp
