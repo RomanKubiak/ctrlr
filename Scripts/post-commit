@@ -20,7 +20,7 @@ function detect_os {
 		PACKAGE=$CTRLR_ROOT/Packaging/Windows/Ctrlr-$VERSION.exe
 		BUILD_LOG_WIN32=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win32.build.log
 		BUILD_LOG_WIN64=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win64.build.log
-		CTRLR_KEY=$CTRLR_ROOT/Packaging/ctrlr.key
+		CTRLR_KEY=""
 		return
 	fi
 		
@@ -107,7 +107,7 @@ function build_now_windows {
 		echo "CTRLR: failed to rename installer package"
 		exit 1
 	fi
-	scp -v -i  $CTRLR_KEY $PACKAGE $BUILD_LOG_WIN32 $BUILD_LOG_WIN64 $OUTPUT
+	scp -v $PACKAGE $BUILD_LOG_WIN32 $BUILD_LOG_WIN64 $OUTPUT
 	if [ $? -ne 0 ]; then
 		echo "CTRLR: failed to transfer package files to remote site"
 		exit 1
