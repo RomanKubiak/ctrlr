@@ -123,7 +123,6 @@ OBJECTS := \
   $(OBJDIR)/CtrlrLuaMultiTimer_5dca06fd.o \
   $(OBJDIR)/CtrlrLuaObject_b5e6b930.o \
   $(OBJDIR)/CtrlrLuaObjectWrapper_7f5b96cd.o \
-  $(OBJDIR)/CtrlrLuaOSC_2f2874f8.o \
   $(OBJDIR)/CtrlrLuaPanel_8a5b287d.o \
   $(OBJDIR)/CtrlrLuaPanelCanvas_e2d997f5.o \
   $(OBJDIR)/CtrlrLuaPanelCanvasLayer_aa926a26.o \
@@ -584,11 +583,6 @@ $(OBJDIR)/CtrlrLuaObject_b5e6b930.o: ../../../../Source/Lua/CtrlrLuaObject.cpp
 $(OBJDIR)/CtrlrLuaObjectWrapper_7f5b96cd.o: ../../../../Source/Lua/CtrlrLuaObjectWrapper.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrLuaObjectWrapper.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrLuaOSC_2f2874f8.o: ../../../../Source/Lua/CtrlrLuaOSC.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrLuaOSC.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrLuaPanel_8a5b287d.o: ../../../../Source/Lua/CtrlrLuaPanel.cpp

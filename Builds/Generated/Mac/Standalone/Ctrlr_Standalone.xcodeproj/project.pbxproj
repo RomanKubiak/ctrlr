@@ -54,7 +54,6 @@
 		E9006941FAEE48358CDD000B = {isa = PBXBuildFile; fileRef = 3625F983E886CD39478490F2; };
 		1AF13A21D78FA837D6C0D99C = {isa = PBXBuildFile; fileRef = D006C4AA6119C791DD8FA3CE; };
 		020629863E333FB7AA250095 = {isa = PBXBuildFile; fileRef = 7BE3086E2ECCF4F43791569D; };
-		C70FF4E0705222D7D690D4AE = {isa = PBXBuildFile; fileRef = 2EDABB2ED10FE4F0608B7560; };
 		E3CB86E33D8DC7C9C4A6F749 = {isa = PBXBuildFile; fileRef = DE66E5AB2B7EABA98F8F59A2; };
 		9B1728693B6C7E4695F2E473 = {isa = PBXBuildFile; fileRef = 187784F2C1D5384D459DB8B7; };
 		7EC88EAE8A24E1EF042CEDEC = {isa = PBXBuildFile; fileRef = 370E7547082C9AFA3DC56E68; };
@@ -546,7 +545,6 @@
 		2E3248A143306D2ACDB10A02 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "juce_mac_MouseCursor.mm"; path = "../../../../Juce/modules/juce_gui_basics/native/juce_mac_MouseCursor.mm"; sourceTree = "SOURCE_ROOT"; };
 		2E537EBB446D5FA75E0C9EAA = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrPanel.h; path = ../../../../Source/Core/CtrlrPanel/CtrlrPanel.h; sourceTree = "SOURCE_ROOT"; };
 		2EA0917C8438BFEEE12487A3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrSysExEditor.cpp; path = ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.cpp; sourceTree = "SOURCE_ROOT"; };
-		2EDABB2ED10FE4F0608B7560 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaOSC.cpp; path = ../../../../Source/Lua/CtrlrLuaOSC.cpp; sourceTree = "SOURCE_ROOT"; };
 		2EEDF8B344443056F0003E1F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = open.hpp; path = ../../../../Source/Lua/luabind/luabind/detail/open.hpp; sourceTree = "SOURCE_ROOT"; };
 		2EF305F9AB7481CBFC360F62 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_DrawablePath.cpp"; path = "../../../../Juce/modules/juce_gui_basics/drawables/juce_DrawablePath.cpp"; sourceTree = "SOURCE_ROOT"; };
 		2EF33C3D971C6578997D8A67 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_win32_Midi.cpp"; path = "../../../../Juce/modules/juce_audio_devices/native/juce_win32_Midi.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -1101,7 +1099,6 @@
 		91CDC3AB0D4CBD2B52186774 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_BigInteger.cpp"; path = "../../../../Juce/modules/juce_core/maths/juce_BigInteger.cpp"; sourceTree = "SOURCE_ROOT"; };
 		91D3D9AD71486E9E5780853D = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_TextDiff.cpp"; path = "../../../../Juce/modules/juce_core/text/juce_TextDiff.cpp"; sourceTree = "SOURCE_ROOT"; };
 		91F7BC00B891B1D1DBA973B2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MidiKeyboardComponent.h"; path = "../../../../Juce/modules/juce_audio_utils/gui/juce_MidiKeyboardComponent.h"; sourceTree = "SOURCE_ROOT"; };
-		9219910AC4B7E8012338D100 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrLuaOSC.h; path = ../../../../Source/Lua/CtrlrLuaOSC.h; sourceTree = "SOURCE_ROOT"; };
 		924FBADFB15579EA0AC8A9EB = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_ios_Audio.cpp"; path = "../../../../Juce/modules/juce_audio_devices/native/juce_ios_Audio.cpp"; sourceTree = "SOURCE_ROOT"; };
 		92B8A845AE479E751BE26F9C = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_MidiInput.h"; path = "../../../../Juce/modules/juce_audio_devices/midi_io/juce_MidiInput.h"; sourceTree = "SOURCE_ROOT"; };
 		9324BDF1E0EE327A9354CBC2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrLuaAudioConverter.h; path = ../../../../Source/Lua/CtrlrLuaAudioConverter.h; sourceTree = "SOURCE_ROOT"; };
@@ -2150,8 +2147,6 @@
 					4292C4D2C5451F1F913C59AF, ); name = Methods; sourceTree = "<group>"; };
 		369764A75E8CD0D7565E7D78 = {isa = PBXGroup; children = (
 					01040ADDA04E08B5BED25FA5,
-					2EDABB2ED10FE4F0608B7560,
-					9219910AC4B7E8012338D100,
 					DE66E5AB2B7EABA98F8F59A2,
 					AC70F3AD34BD7A3DC14B7D42,
 					187784F2C1D5384D459DB8B7,
@@ -3833,7 +3828,6 @@
 					E9006941FAEE48358CDD000B,
 					1AF13A21D78FA837D6C0D99C,
 					020629863E333FB7AA250095,
-					C70FF4E0705222D7D690D4AE,
 					E3CB86E33D8DC7C9C4A6F749,
 					9B1728693B6C7E4695F2E473,
 					7EC88EAE8A24E1EF042CEDEC,

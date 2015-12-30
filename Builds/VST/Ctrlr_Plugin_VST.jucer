@@ -8,7 +8,7 @@
               pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="3.2.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
+              jucerVersion="4.0.2" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
               aaxIdentifier="com.instigator.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
@@ -585,8 +585,6 @@
             file="../../Source/Lua/CtrlrLuaObjectWrapper.cpp"/>
       <FILE id="U6r6p9" name="CtrlrLuaObjectWrapper.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaObjectWrapper.h"/>
-      <FILE id="KGYhAK" name="CtrlrLuaOSC.cpp" compile="1" resource="0" file="../../Source/Lua/CtrlrLuaOSC.cpp"/>
-      <FILE id="CZYoeu" name="CtrlrLuaOSC.h" compile="0" resource="0" file="../../Source/Lua/CtrlrLuaOSC.h"/>
       <FILE id="CbTQWP" name="CtrlrLuaPanel.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaPanel.cpp"/>
       <FILE id="VBXHC5" name="CtrlrLuaPanelCanvas.cpp" compile="1" resource="0"
