@@ -111,7 +111,7 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	setProperty(Ids::uiPanelLock, false);
 	setProperty(Ids::uiPanelDisabledOnEdit, false);
 	setProperty(Ids::uiPanelMenuBarVisible, true);
-
+	setProperty(Ids::uiPanelMenuBarHideOnExport, false);
  	setProperty(Ids::uiPanelWidth, 400);
  	setProperty(Ids::uiPanelHeight, 400);
  	setProperty(Ids::name, panelName);
@@ -295,7 +295,8 @@ void CtrlrPanelEditor::restoreState(const ValueTree &savedState)
         getSelection()->sendChangeMessage();
     }
 
-	if (owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingle || owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingleRestriced)
+	if (owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingle
+		|| owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingleRestriced)
 	{
 		initSingleInstance();
 	}

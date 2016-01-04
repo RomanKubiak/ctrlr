@@ -114,7 +114,9 @@ void CtrlrWaveform::handlePopupMenu (const int popupMenuItem)
 	{
 		if (audioThumbnail->isFullyLoaded())
 		{
-			FileChooser fc("Load a file", currentFile.getParentDirectory(), owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager().getWildcardForAllFormats(), true);
+			FileChooser fc("Load a file", currentFile.getParentDirectory(),
+							owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager().getWildcardForAllFormats(),
+							owner.getOwnerPanel().getCtrlrManagerOwner().getProperty(Ids::ctrlrNativeFileDialogs));
 			if (fc.browseForFileToOpen())
 			{
 				loadFromFile (fc.getResult());
@@ -185,7 +187,7 @@ void CtrlrWaveform::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCha
 		if (audioThumbnail)
 			delete audioThumbnail.release();
 
-		audioThumbnail	= new AudioThumbnail (getProperty(property), owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager(), 
+		audioThumbnail	= new AudioThumbnail (getProperty(property), owner.getOwnerPanel().getCtrlrManagerOwner().getAudioFormatManager(),
 			owner.getOwnerPanel().getCtrlrManagerOwner().getAudioThumbnailCache());
 		audioThumbnail->addChangeListener (this);
 		audioThumbnail->clear();

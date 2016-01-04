@@ -1111,7 +1111,10 @@ void CtrlrPanelCanvas::exportComponent(CtrlrComponent *componentToExport)
 			owner.setProperty (Ids::lastBrowsedComponentDir, File::getSpecialLocation(File::userDocumentsDirectory).getFullPathName());
 		}
 
-		FileChooser fileChooser ("Ctrlr component file", File(owner.getProperty (Ids::lastBrowsedComponentDir)).getChildFile (componentToExport->getOwner().getName()+".component"), "*.component");
+		FileChooser fileChooser ("Ctrlr component file",
+									File(owner.getProperty (Ids::lastBrowsedComponentDir)).getChildFile (componentToExport->getOwner().getName()+".component"),
+									"*.component",
+									owner.getOwner().getCtrlrManagerOwner().getProperty(Ids::ctrlrNativeFileDialogs));
 		if (fileChooser.browseForFileToSave(true))
 		{
 			File fileToSave = fileChooser.getResult().withFileExtension(".component");
