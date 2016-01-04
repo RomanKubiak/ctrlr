@@ -287,7 +287,11 @@ void CtrlrLuaMethodEditor::addNewMethod(ValueTree parentGroup)
 
 void CtrlrLuaMethodEditor::addMethodFromFile(ValueTree parentGroup)
 {
-	FileChooser fc ("Select LUA files", lastBrowsedSourceDir, "*.lua;*.txt");
+	FileChooser fc ("Select LUA files",
+					lastBrowsedSourceDir,
+					"*.lua;*.txt",
+					owner.getCtrlrManagerOwner().getProperty(Ids::ctrlrNativeFileDialogs));
+
 	if (fc.browseForMultipleFilesToOpen ())
 	{
 		Array <File> results = fc.getResults();

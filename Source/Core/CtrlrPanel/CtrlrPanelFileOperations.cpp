@@ -20,7 +20,14 @@ ValueTree CtrlrPanel::getCleanPanelTree()
 		exportTree.removeProperty (Ids::panelMidiInputDevice, 0);
 		exportTree.removeProperty (Ids::panelMidiControllerDevice, 0);
 	}
+	ValueTree ed = exportTree.getChildWithName(Ids::uiPanelEditor);
 
+	if (ed.isValid())
+	{
+		ed.setProperty(Ids::uiPanelMenuBarVisible, !(bool)ed.getProperty(Ids::uiPanelMenuBarHideOnExport), nullptr);
+		Rectangle<int> rectToShrink = VAR2RECT(ed.getProperty(Ids::uiPanelCanvasRectangle));
+		ed.setProperty(Ids::uiPanelCanvasRectangle, rectToShrink.withTrimmedBottom(CTRLR_MENUBAR_HEIGHT).toString(), nullptr);
+	}
 	return (exportTree);
 }
 

@@ -444,7 +444,7 @@ void CtrlrEditor::performKeyGenerator()
     generator.runThread ();
     if (generator.waitForThreadToExit (60 * 1000))
     {
-        FileChooser fc ("RSA Key file name", File::getSpecialLocation (File::userHomeDirectory), "*.*", true);
+        FileChooser fc ("RSA Key file name", File::getSpecialLocation (File::userHomeDirectory), "*.*", false);
         if (fc.browseForFileToSave(true))
         {
             File privateKeyFile = fc.getResult().withFileExtension("private");

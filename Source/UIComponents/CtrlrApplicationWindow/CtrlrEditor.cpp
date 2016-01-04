@@ -59,7 +59,11 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 		else if (owner.getActivePanel())
 		{
 			editorRect = VAR2RECT(owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelCanvasRectangle));
-			editorRect.setHeight (editorRect.getHeight() + CTRLR_MENUBAR_HEIGHT);
+
+			if ((bool)owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMenuBarVisible))
+				editorRect.setHeight (editorRect.getHeight() + CTRLR_MENUBAR_HEIGHT);
+			else
+				editorRect.setHeight (editorRect.getHeight());
 		}
 	}
 	else

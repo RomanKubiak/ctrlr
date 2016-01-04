@@ -108,6 +108,7 @@ namespace Ids
 	DECLARE_ID (uiPanelCanvasLayerVisibility);
 	DECLARE_ID (uiPanelCanvasLayer);
 	DECLARE_ID (uiPanelMenuBarVisible);
+	DECLARE_ID (uiPanelMenuBarHideOnExport);
 
 	DECLARE_ID (panelMidiProgram);
 	DECLARE_ID (panelMidiBankLsb);

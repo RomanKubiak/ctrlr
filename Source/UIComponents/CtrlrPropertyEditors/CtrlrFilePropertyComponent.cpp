@@ -32,7 +32,10 @@ void CtrlrFileProperty::buttonClicked (Button* buttonThatWasClicked)
 {
     if (buttonThatWasClicked == browse)
     {
-		FileChooser myChooser ("Select a file", File::getSpecialLocation (File::userHomeDirectory), "*.*");
+		FileChooser myChooser ("Select a file",
+								File::getSpecialLocation (File::userHomeDirectory),
+								"*.*",
+								false);
 
         if (myChooser.browseForFileToOpen())
         {

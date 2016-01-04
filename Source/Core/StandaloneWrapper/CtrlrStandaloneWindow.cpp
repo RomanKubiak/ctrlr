@@ -61,8 +61,12 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 				}
 				else
 				{
-					Rectangle<int> r = VAR2RECT(ctrlrProcessor->getManager().getInstanceTree().getChildWithName(Ids::uiPanelEditor).getProperty(Ids::uiPanelCanvasRectangle, "0 0 800 600"));
-					centreWithSize (r.getWidth(), r.getHeight()+CTRLR_MENUBAR_HEIGHT/*Menubar*/);
+					if (ctrlrProcessor->getManager().getInstanceTree().getChildWithName(Ids::uiPanelEditor).isValid())
+					{
+						ValueTree ed = ctrlrProcessor->getManager().getInstanceTree().getChildWithName(Ids::uiPanelEditor);
+						Rectangle<int> r = VAR2RECT(ed.getProperty(Ids::uiPanelCanvasRectangle, "0 0 800 600"));
+						centreWithSize (r.getWidth(), r.getHeight() + ((bool)ed.getProperty(Ids::uiPanelMenuBarVisible) ? CTRLR_MENUBAR_HEIGHT : 0));
+					}
 				}
 
 				setContentOwned (editor, false);

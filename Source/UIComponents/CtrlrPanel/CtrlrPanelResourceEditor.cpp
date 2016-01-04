@@ -138,7 +138,10 @@ void CtrlrPanelResourceEditor::paintCell (Graphics& g, int rowNumber, int column
 
 void CtrlrPanelResourceEditor::addResourceFromFile()
 {
-	FileChooser fileChooser ("Resource file", File(owner.getOwner().getCtrlrManagerOwner().getProperty(Ids::ctrlrLastBrowsedResourceDir)));
+	FileChooser fileChooser ("Resource file",
+							File(owner.getOwner().getCtrlrManagerOwner().getProperty(Ids::ctrlrLastBrowsedResourceDir))
+							,"*.*"
+							,owner.getOwner().getCtrlrManagerOwner().getProperty(Ids::ctrlrNativeFileDialogs));
 	if (fileChooser.browseForMultipleFilesToOpen(0))
  	{
 		Array <File> filesToOpen = fileChooser.getResults();
