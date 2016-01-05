@@ -92,7 +92,10 @@ const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, con
 	MemoryBlock panelExportData,panelResourcesData;
 	MemoryBlock iconData(BinaryData::ico_midi_png, BinaryData::ico_midi_pngSize);
 
-	FileChooser fc(CTRLR_NEW_INSTANCE_DIALOG_TITLE, me.getParentDirectory().getChildFile(File::createLegalFileName(panelToWrite->getProperty(Ids::name))).withFileExtension(me.getFileExtension()), "*"+me.getFileExtension());
+	FileChooser fc(CTRLR_NEW_INSTANCE_DIALOG_TITLE,
+					me.getParentDirectory().getChildFile(File::createLegalFileName(panelToWrite->getProperty(Ids::name))).withFileExtension(me.getFileExtension()),
+					"*"+me.getFileExtension(),
+					panelToWrite->getOwner().getProperty(Ids::ctrlrNativeFileDialogs));
 
 	if (fc.browseForFileToSave(true))
 	{
@@ -224,7 +227,7 @@ static void sendKey(const KeyPress &event)
 	input.type = INPUT_KEYBOARD;
 	input.ki.time = 0;
 	input.ki.dwExtraInfo = 0;
-	input.ki.wScan = 0; 
+	input.ki.wScan = 0;
 	input.ki.dwFlags = 0;
 
 	// Modifier Down
@@ -285,7 +288,7 @@ const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event, const Strin
 	if (targetWindowName != String::empty)
 	{
 		while(1)
-		{         
+		{
 
 			GetWindowText(window, windowtext, MAX_PATH);
 			if (strstr(windowtext, targetWindowName.getCharPointer()) != NULL)

@@ -250,7 +250,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		const ValueTree getPanelTreeCopy()																{ return (panelTree); }
 		CtrlrPanelEditor *getPanelEditor()																{ return (getEditor(true)); }
 		CtrlrManager &getCtrlrManagerOwner()																	{ return (owner); }
-		//CtrlrManager &getOwner()																		{ return (owner); }
+		CtrlrManager &getOwner()																		{ return (owner); }
 		OwnedArray<CtrlrModulator,CriticalSection> &getModulators()										{ return (ctrlrModulators); }
 		CtrlrLuaManager &getCtrlrLuaManager()															{ return (*ctrlrLuaManager); }
 		CtrlrPanelWindowManager &getPanelWindowManager()												{ return (panelWindowManager); }
@@ -275,12 +275,6 @@ class CtrlrPanel:	public ValueTree::Listener,
 		void notify (const String &notification, CtrlrNotificationCallback *callback=nullptr, const CtrlrNotificationType ctrlrNotificationType = NotifyInformation);
 		bool getDialogStatus();
 		void upgradeScheme();
-		const String getPanelInstanceID();
-		const String getPanelInstanceManufacturerID();
-		const String getPanelInstanceVersionString();
-		int getPanelInstanceVersionInt();
-        const String getPanelInstanceName();
-        const String getPanelInstanceManufacturer();
         void addMIDIControllerListener(CtrlrMIDIDevice::Listener *listenerToAdd);
         void removeMIDIControllerListener(CtrlrMIDIDevice::Listener *listenerToRemove);
 		void dumpDebugData();
@@ -291,6 +285,15 @@ class CtrlrPanel:	public ValueTree::Listener,
 		static const String globalsToString(const Array<int,CriticalSection> &arrayOfGlobals);
 		static const Array<int,CriticalSection> globalsFromString(const String &globalsString);
 		static void wrapForLua (lua_State *L);
+
+		/* Instance information methods */
+		const String getPanelInstanceID();
+		const String getPanelInstanceManufacturerID();
+		const String getPanelInstanceVersionString();
+		int getPanelInstanceVersionInt();
+        const String getPanelInstanceName();
+        const String getPanelInstanceManufacturer();
+
 
 		WeakReference<CtrlrPanel>::Master masterReference;
 		friend class WeakReference<CtrlrPanel>;

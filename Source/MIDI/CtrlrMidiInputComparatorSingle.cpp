@@ -284,7 +284,8 @@ const String CtrlrMidiInputComparatorSingle::dumpTableContents()
 
 		if (&map != &mapNull)
 		{
-			ret << "\n\nMAP type: " << midiMessageTypeToString((const CtrlrMidiMessageType)i) << ", size=" << STR((uint32)map.size());
+			ret << "\n*****************************************************************************\n";
+			ret << "\t\tMAP type: " << midiMessageTypeToString((const CtrlrMidiMessageType)i) << ", size=" << STR((uint32)map.size());
 			ret << "\n*****************************************************************************\n";
 
 			for(CtrlrMidiMapIterator itr = map.begin(); itr != map.end(); ++itr)
@@ -295,11 +296,12 @@ const String CtrlrMidiInputComparatorSingle::dumpTableContents()
 					ret << "\n\t\ttarget=" << itr->second.targets[j]->getName();
 				}
 			}
-			ret << "\n*****************************************************************************\n";
+			ret << "\n*****************************************************************************\n\n";
 		}
 	}
 
-	ret << "\n\nMAP SysEx " << "size=" << STR((uint32)mapSysEx.size());
+	ret << "\n*****************************************************************************\n";
+	ret << "\t\tMAP SysEx " << "size=" << STR((uint32)mapSysEx.size());
 	ret << "\n*****************************************************************************\n";
 	for(CtrlrMultiMidiMapIterator itr = mapSysEx.begin(); itr != mapSysEx.end(); ++itr)
 	{
@@ -310,6 +312,6 @@ const String CtrlrMidiInputComparatorSingle::dumpTableContents()
 			ret << "\n\t\ttarget=" << itr->second.targets[j]->getName();
 		}
 	}
-	ret << "\n*****************************************************************************\n";
+	ret << "\n*****************************************************************************\n\n";
 	return (ret);
 }
