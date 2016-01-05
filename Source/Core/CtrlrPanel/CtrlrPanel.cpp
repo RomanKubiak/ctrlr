@@ -1575,12 +1575,14 @@ void CtrlrPanel::initEmbeddedInstance()
 
 void CtrlrPanel::dumpComparatorTables()
 {
-	_INF ("\n----------------- Comparator tables dump");
+	_INF ("\n----------------- MIDI INPUT START");
 	_INF (midiInputThread.getInputComparator().dumpTables());
-	_INF ("\n----------------- Comparator tables dump\n");
-	_INF ("\n----------------- Comparator tables dump for controllers\n");
+	_INF ("\n----------------- MIDI INPUT END");
+	_INF (".");
+	_INF (".");
+	_INF ("\n----------------- MIDI CONTROLLER START");
 	_INF (midiControllerInputThread.getInputComparator().dumpTables());
-	_INF ("\n----------------- Comparator tables dump for controllers\n");
+	_INF ("\n----------------- MIDI CONTROLLER END");
 }
 
 void CtrlrPanel::addPanelResource (const int hashCode)

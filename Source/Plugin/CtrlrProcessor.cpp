@@ -19,7 +19,7 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrManager(nullptr)
 {
 	_DBG("CtrlrProcessor::ctor");
-	
+
 	midiCollector.reset (SAMPLERATE);
 
 	currentExec		= File::getSpecialLocation(File::currentApplicationFile);
@@ -145,7 +145,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
         /* used internally */
         switch (channelIndex)
         {
-            case 1024:
+            case VST_INDEX_UNIQUEID:
                 if (ctrlrManager)
                 {
                     if (ctrlrManager->getActivePanel())
@@ -155,7 +155,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                 }
                 return ("CTRL");
 
-            case 1025:
+            case VST_INDEX_MANUFACTURER:
                 if (ctrlrManager)
                 {
                     if (ctrlrManager->getActivePanel())
@@ -165,7 +165,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                 }
                 return ("Instigator");
 
-            case 1026:
+            case VST_INDEX_NAME:
                 if (ctrlrManager)
                 {
                     if (ctrlrManager->getActivePanel())
@@ -175,7 +175,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                 }
                 return ("Ctrlr");
 
-            case 1027:
+            case VST_INDEX_VERSION_STRING:
                 if (ctrlrManager)
                 {
                     if (ctrlrManager->getActivePanel())
@@ -184,6 +184,16 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                     }
                 }
                 return (ProjectInfo::versionString);
+
+			case VST_INDEX_VERSION_CODE:
+                if (ctrlrManager)
+                {
+                    if (ctrlrManager->getActivePanel())
+                    {
+                        return (String(ctrlrManager->getActivePanel()->getPanelInstanceVersionInt()));
+                    }
+                }
+                return (String(ProjectInfo::versionNumber));
 
             default:
                 break;

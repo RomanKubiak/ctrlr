@@ -40,7 +40,8 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const 
 
 	FileChooser fc(CTRLR_NEW_INSTANCE_DIALOG_TITLE,
 					me.getParentDirectory().getChildFile(File::createLegalFileName(panelToWrite->getProperty(Ids::name))).withFileExtension(me.getFileExtension()),
-					me.getFileExtension());
+					me.getFileExtension(),
+					panelToWrite->getOwner().getProperty(Ids::ctrlrNativeFileDialogs));
 
 	if (fc.browseForFileToSave (true))
 	{

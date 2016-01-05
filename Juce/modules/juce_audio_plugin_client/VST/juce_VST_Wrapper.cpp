@@ -381,18 +381,23 @@ public:
     //==============================================================================
     bool getEffectName (char* name) override
     {
-        String (JucePlugin_Name).copyToUTF8 (name, 64);
+        filter->getInputChannelName(VST_INDEX_NAME).copyToUTF8 (name, 64);
         return true;
     }
 
     bool getVendorString (char* text) override
     {
-        String (JucePlugin_Manufacturer).copyToUTF8 (text, 64);
+        filter->getInputChannelName(VST_INDEX_MANUFACTURER).copyToUTF8 (text, 64);
         return true;
     }
 
     bool getProductString (char* text) override  { return getEffectName (text); }
-    VstInt32 getVendorVersion() override         { return convertHexVersionToDecimal (JucePlugin_VersionCode); }
+
+    VstInt32 getVendorVersion() override
+    {
+        return filter->getInputChannelName(VST_INDEX_VERSION_CODE).getIntValue();
+    }
+
     VstPlugCategory getPlugCategory() override   { return JucePlugin_VSTCategory; }
     bool keysRequired()                          { return (JucePlugin_EditorRequiresKeyboardFocus) != 0; }
 

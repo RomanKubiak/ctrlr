@@ -28,8 +28,11 @@ const Result CtrlrMac::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const b
 	File	newMe;
 	MemoryBlock panelExportData,panelResourcesData;
 	String error;
-    
-	FileChooser fc(CTRLR_NEW_INSTANCE_DIALOG_TITLE, me.getParentDirectory().getChildFile(File::createLegalFileName(panelToWrite->getProperty(Ids::name))).withFileExtension(me.getFileExtension()), me.getFileExtension());
+
+	FileChooser fc(CTRLR_NEW_INSTANCE_DIALOG_TITLE,
+		me.getParentDirectory().getChildFile(File::createLegalFileName(panelToWrite->getProperty(Ids::name))).withFileExtension(me.getFileExtension()),
+		me.getFileExtension(),
+		panelToWrite->getOwner().getProperty(Ids::ctrlrNativeFileDialogs));
 
 	if (fc.browseForDirectory())
 	{
@@ -55,7 +58,7 @@ const Result CtrlrMac::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const b
     {
         return (res);
     }
-    
+
 	if ( (error = CtrlrPanel::exportPanel (panelToWrite, File::nonexistent, newMe, &panelExportData, &panelResourcesData, isRestricted)) == String::empty)
 	{
 		File panelFile		= newMe.getChildFile("Contents/Resources/"+String(CTRLR_MAC_PANEL_FILE));
@@ -254,7 +257,7 @@ const Result CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle
 	{
 		 return (Result::fail("MAC native, Infp.plist does not exist or is not writable: \""+plist.getFullPathName()+"\""));
     }
-    
+
     return (Result::ok());
 }
 
@@ -265,7 +268,7 @@ const Result CtrlrMac::setBundleInfoCarbon (CtrlrPanel *sourceInfo, const File &
 #else
 	File rsrcFile = bundle.getChildFile ("Contents/Resources/Ctrlr.rsrc");
 #endif
-	
+
     const String instanceName           = sourceInfo->getPanelInstanceName();
     const String instanceManufacturer   = sourceInfo->getPanelInstanceManufacturer();
     const String instanceID             = sourceInfo->getPanelInstanceID();
@@ -275,39 +278,39 @@ const Result CtrlrMac::setBundleInfoCarbon (CtrlrPanel *sourceInfo, const File &
     const String idToWrite      = instanceID+instanceManufacturerID;
 	const int nameLength		= nameToWrite.length();
 	String zipFileEntryName		= "result_"+_STR(nameLength)+".rsrc";
-	
+
     if (idToWrite.length() != 8)
     {
         return (Result::fail("MAC native, id to write for Carbon information is not 8 characters \""+idToWrite+"\""));
     }
-    
+
 	MemoryInputStream zipStream (BinaryData::RSRC_zip, BinaryData::RSRC_zipSize, false);
     ZipFile zipFile (zipStream);
 	const ZipFile::ZipEntry *zipFileEntry = zipFile.getEntry(zipFileEntryName);
-	
+
 	_DBG("INSTANCE: trying to use zip file entry with name: "+zipFileEntryName);
-	
+
 	if (zipFileEntry)
 	{
 		_DBG("\tgot it");
 		ScopedPointer <InputStream> is (zipFile.createStreamForEntry(*zipFileEntry));
-	
+
 		if (is)
 		{
 			MemoryBlock data;
 			is->readIntoMemoryBlock (data, is->getTotalLength());
-		
+
 			if (data.getSize() > 0)
 			{
 				/* name data start 261 */
 				data.removeSection (261, 3 + nameLength);
-				
+
 				/* id data startx 579 - after the name is removed*/
 				data.removeSection (299, 8);
 				data.insert (idToWrite.toUTF8().getAddress(), 8, 299);
-				
+
 				data.insert (nameToWrite.toUTF8().getAddress(), 3+nameLength, 261);
-				
+
 				if (rsrcFile.hasWriteAccess())
 				{
 					if (rsrcFile.replaceWithData (data.getData(), data.getSize()))
@@ -330,7 +333,7 @@ const Result CtrlrMac::setBundleInfoCarbon (CtrlrPanel *sourceInfo, const File &
 	{
 		return (Result::fail("MAC native, can't find a resource file with name: \""+zipFileEntryName+"\""));
 	}
-	
+
 	return (Result::fail("MAC reached end of setBundleInfoCarbon() without any usable result"));
 }
 #endif

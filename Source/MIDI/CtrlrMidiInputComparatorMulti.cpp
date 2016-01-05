@@ -117,7 +117,7 @@ bool CtrlrMidiInputComparatorMulti::cacheMatch ()
 		if (compareMemory(cache[i].key.toMemoryBlock(), messageContainer.getData()))
 		{
 			match = true;
-			
+
 			for (int j=0; j<cache[i].mapData.targets.size(); j++)
 			{
 				cache[i].mapData.targets[j]->getProcessor().setValueFromMIDI (messageContainer, source);
@@ -127,7 +127,7 @@ bool CtrlrMidiInputComparatorMulti::cacheMatch ()
 			break;
 		}
 	}
-	
+
 	return (match);
 }
 
@@ -166,5 +166,24 @@ void CtrlrMidiInputComparatorMulti::timerCallback()
 
 const String CtrlrMidiInputComparatorMulti::dumpTableContents()
 {
-	return (String::empty);
+	CtrlrMultiMidiMapIterator it;
+	String ret;
+
+	ret << "\n*****************************************************************************\n";
+	ret << "\t\tMAP Multi " << "size=" << STR((uint32)map.size());
+	ret << "\n*****************************************************************************\n";
+	ret << "\n*                                                                           *\n";
+
+	for (it=map.begin(); it != map.end(); it++)
+	{
+		ret << "\n*\t" << String::toHexString((*it).first.toMemoryBlock().getData(), (*it).first.toMemoryBlock().getSize(), 1);
+		for (int i=0; i < (*it).second.targets.size(); i++)
+		{
+			ret << "\n*\t\t" << (*it).second.targets[i]->getName();
+		}
+	}
+
+	ret << "\n*                                                                           *\n";
+	ret << "\n*****************************************************************************\n\n";
+	return (ret);
 }
