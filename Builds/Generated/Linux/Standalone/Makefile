@@ -19,7 +19,7 @@ ifeq ($(CONFIG),Debug)
   endif
 
   CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "USE_ANSI_C=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Lua/LuaSocket/include -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
-  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0 -fpermissive -w -fPIC -std=c++0x -fexceptions
+  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0 -fpermissive -w -fPIC -std=c++0x -fexceptions -fexpensive-optimizations
   CXXFLAGS += $(CFLAGS) -std=c++11
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
 
@@ -39,7 +39,7 @@ ifeq ($(CONFIG),Release)
   endif
 
   CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_Standalone" -D "USE_ANSI_C=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
-  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Os -fpermissive -w -fPIC -std=c++0x -fexceptions
+  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Os -fpermissive -w -fPIC -std=c++0x -fexceptions -fexpensive-optimizations
   CXXFLAGS += $(CFLAGS) -std=c++11
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
 
@@ -59,7 +59,7 @@ ifeq ($(CONFIG),Release_Nightly)
   endif
 
   CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "USE_ANSI_C=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.3.0" -D "JUCE_APP_VERSION_HEX=0x50300" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
-  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Os -fpermissive -w -fPIC -std=c++0x -fexceptions
+  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Ofast -fpermissive -w -fPIC -std=c++0x -fexceptions -fexpensive-optimizations
   CXXFLAGS += $(CFLAGS) -std=c++11
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
 
