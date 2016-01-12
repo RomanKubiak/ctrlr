@@ -17,7 +17,7 @@ else
 fi
 
 echo "CTRLR[linux]: Remove the shared source, for main() compatibility"
-rm -f ../build/$HOSTTYPE/CtrlrStandaloneApplication*
+rm -rf ../build/*
 
 echo "CTRLR[linux]: Build now"
 echo
