@@ -142,7 +142,7 @@
         </Linker>
       </Target>
       <Target title="Release_Nightly">
-        <Option output="../../../../Bin/Ctrlr"
+        <Option output="../../../../Bin/libCtrlr-VST-$(ARCH)"
                 prefix_auto="1"
                 extension_auto="1"/>
         <Option object_output="obj/Release_Nightly"/>
@@ -168,6 +168,7 @@
           <Add option="-D_CRT_SECURE_NO_WARNINGS="/>
           <Add option="-DCTRLR_NIGHTLY=1"/>
           <Add option="-DJucePlugin_Build_VST=1"/>
+          <Add option="-DUSE_ANSI_C=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_BADCFFC2=1"/>
           <Add option="-DJUCE_APP_VERSION=5.4.0"/>
@@ -206,6 +207,7 @@
           <Add library="freetype"/>
           <Add library="pthread"/>
           <Add library="rt"/>
+          <Add directory="/usr/X11R6/lib/"/>
         </Linker>
       </Target>
     </Build>

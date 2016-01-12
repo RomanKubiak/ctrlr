@@ -18,10 +18,10 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "JUCE_DEBUG=1" -D "USE_ANSI_C=1" -D "LUA_USE_LINUX" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
-  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -fPIC -O0 -fpermissive -w -fPIC -fexceptions -fexpensive-optimizations
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "JUCE_DEBUG=1" -D "USE_ANSI_C=1" -D "_LINUX=1" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
+  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -fPIC -O0 -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
   CXXFLAGS += $(CFLAGS) -std=c++11
-  LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -Wl,--no-undefined -shared -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
+  LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -Wl,--no-undefined -shared -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -lz -lbfd -ludev
 
   TARGET := libCtrlr-VST-Debug-$(ARCH).so
   BLDCMD = $(CXX) -o $(OUTDIR)/$(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
@@ -38,10 +38,10 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_VST=1" -D "LUA_USE_LINUX" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
-  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -fPIC -Os -fpermissive -w -fPIC -fexceptions -fexpensive-optimizations
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_VST=1" -D "_LINUX=1" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
+  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -fPIC -Os -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
   CXXFLAGS += $(CFLAGS) -std=c++11
-  LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -Wl,--no-undefined -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
+  LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -Wl,--no-undefined -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -lz -lbfd -ludev
 
   TARGET := libCtrlr-VST-$(ARCH).so
   BLDCMD = $(CXX) -o $(OUTDIR)/$(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
@@ -58,10 +58,10 @@ ifeq ($(CONFIG),Release_Nightly)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "USE_ANSI_C=1" -D "LUA_USE_LINUX" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
-  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -fPIC -Ofast -fpermissive -w -fPIC -fexceptions -fexpensive-optimizations
+  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "USE_ANSI_C=1" -D "_LINUX=1" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
+  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -fPIC -Ofast -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
   CXXFLAGS += $(CFLAGS) -std=c++11
-  LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -Wl,--no-undefined -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
+  LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -Wl,--no-undefined -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -lz -lbfd -ludev
 
   TARGET := libCtrlr-VST-$(ARCH).so
   BLDCMD = $(CXX) -o $(OUTDIR)/$(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(TARGET_ARCH)

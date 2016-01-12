@@ -89,7 +89,7 @@
       </MODULEPATHS>
     </VS2010>
     <LINUX_MAKE targetFolder="../Generated/Linux/Standalone" extraDefs="" bigIcon="QqMgrL"
-                smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -w -fPIC -std=c++0x -fexceptions -fexpensive-optimizations"
+                smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations"
                 extraLinkerFlags="libbfd-$(ARCH).a&#10;libiberty-$(ARCH).a&#10;-lz&#10;-lGL&#10;-ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"

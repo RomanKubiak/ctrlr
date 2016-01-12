@@ -97,9 +97,9 @@
         <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
     </VS2010>
-    <LINUX_MAKE targetFolder="../Generated/Linux/VST" extraCompilerFlags="-fpermissive -w -fPIC -fexceptions -fexpensive-optimizations"
-                extraDefs="LUA_USE_LINUX" vstFolder="../../VST" bigIcon="PsrMEo"
-                smallIcon="QFDZIE" extraLinkerFlags="libbfd-$(ARCH).a&#10;libiberty-$(ARCH).a&#10;-lz&#10;-lGL&#10;-ludev">
+    <LINUX_MAKE targetFolder="../Generated/Linux/VST" extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations"
+                extraDefs="LINUX=1&#10;_LINUX=1" vstFolder="../../VST" bigIcon="PsrMEo"
+                smallIcon="QFDZIE" extraLinkerFlags="-lz -lbfd -ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="libCtrlr-VST-Debug-$(ARCH)"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
@@ -111,7 +111,7 @@
                        libraryPath="/usr/X11R6/lib/"/>
         <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="6" targetName="libCtrlr-VST-$(ARCH)"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1&#10;USE_ANSI_C=1"
-                       binaryPath="../../Bin/" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
+                       binaryPath="../../Bin" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        libraryPath="/usr/X11R6/lib/"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -142,9 +142,10 @@
                        binaryPath="../../../../Bin"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr_Plugin_VST"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo&#10;../../../../VST"/>
-        <CONFIGURATION name="Release_Nightly" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1"
+        <CONFIGURATION name="Release_Nightly" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST=1&#10;USE_ANSI_C=1"
                        optimisation="6" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo&#10;../../../../VST"
-                       binaryPath="../../../../Bin" targetName="Ctrlr"/>
+                       binaryPath="../../../../Bin" targetName="libCtrlr-VST-$(ARCH)"
+                       libraryPath="/usr/X11R6/lib/"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
