@@ -89,7 +89,7 @@
       </MODULEPATHS>
     </VS2010>
     <LINUX_MAKE targetFolder="../Generated/Linux/Standalone" extraDefs="" bigIcon="QqMgrL"
-                smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -w -fPIC -std=c++0x -fexceptions"
+                smallIcon="msKJzd" vstFolder="/home/atom/devel/vstsdk2.4" extraCompilerFlags="-fpermissive -w -fPIC -std=c++0x -fexceptions -fexpensive-optimizations"
                 extraLinkerFlags="libbfd-$(ARCH).a&#10;libiberty-$(ARCH).a&#10;-lz&#10;-lGL&#10;-ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
@@ -100,7 +100,7 @@
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=0&#10;JucePlugin_Build_Standalone&#10;USE_ANSI_C=1"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb"
                        binaryPath="../../Bin" libraryPath="/usr/X11R6/lib/"/>
-        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr-$(ARCH)"
+        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="6" targetName="Ctrlr-$(ARCH)"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;USE_ANSI_C=1"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        binaryPath="../../Bin" libraryPath="/usr/X11R6/lib/" linuxArchitecture=""/>
@@ -123,7 +123,7 @@
       </MODULEPATHS>
     </LINUX_MAKE>
     <CODEBLOCKS_LINUX targetFolder="../Generated/Linux/Standalone/" extraDefs="LINUX=1&#10;_LINUX=1"
-                      extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC"
+                      extraCompilerFlags="-fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations"
                       extraLinkerFlags="-lz -lbfd -ludev">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
@@ -131,7 +131,7 @@
                        binaryPath="../../../../Bin" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;DEBUG=1&#10;_DEBUG=1&#10;JUCE_DEBUG=1&#10;USE_ANSI_C=1"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr_Standalone"
                        defines="USE_ANSI_C=1"/>
-        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="3" targetName="Ctrlr"
+        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="6" targetName="Ctrlr"
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;/usr/include/freetype2&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone&#10;USE_ANSI_C=1"
                        binaryPath="../../../../Bin"/>

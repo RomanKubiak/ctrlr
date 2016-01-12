@@ -239,15 +239,18 @@ int CtrlrProcessor::getCurrentProgram()
 
 void CtrlrProcessor::setCurrentProgram (int index)
 {
+	_DBG("CtrlrProcessor::setCurrentProgram id:"+_STR(index));
 }
 
 const String CtrlrProcessor::getProgramName (int index)
 {
+	_DBG("CtrlrProcessor::getProgramName id:"+_STR(index));
     return ("Default CTRLR program");
 }
 
 void CtrlrProcessor::changeProgramName (int index, const String& newName)
 {
+	_DBG("CtrlrProcessor::changeProgramName id:"+_STR(index)+" newName:"+newName);
 }
 
 void CtrlrProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
