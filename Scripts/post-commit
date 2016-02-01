@@ -31,7 +31,7 @@ function detect_os {
 		VERSION=`$CTRLR_ROOT/Scripts/git-revision.sh`
 		PACKAGE=$CTRLR_ROOT/Packaging/Linux/Ctrlr-$ARCH-$VERSION.sh
 		BUILD_LOG=$CTRLR_ROOT/Builds/Ctrlr-$ARCH-$VERSION.linux.build.log
-		CTRLR_KEY=""
+		CTRLR_KEY="$CTRLR_ROOT/Packaging/ctrlr.key"
 		return
 	fi
 	
@@ -333,7 +333,8 @@ function build_now_linux {
 	
 	echo "CTRLR: scp, key: $CTRLR_KEY, pkg: $PACKAGE, out: $OUTPUT"
 	
-	if [ -f $CTRLR_KEY ]; then	
+	if [ -f $CTRLR_KEY ]; then
+		echo "CTRLR: using private key: $CTRLR_KEY"	
 		scp -v -i "$CTRLR_KEY" $PACKAGE $BUILD_LOG $OUTPUT
 	else
 		echo "CTRLR: private key not specified, using defaults"
