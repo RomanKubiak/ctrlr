@@ -16,10 +16,8 @@ else
 	echo "CTRLR[linux]: PCH not rebuilt, use -f to force"
 fi
 
-if [ "$1" == "clean" ]; then
-	echo "CTRLR[linux]: Remove the shared source, for main() compatibility"
-	rm -rf ../build/*
-fi
+echo "CTRLR[linux]: Remove the shared source, for main() compatibility"
+rm -rf ../build/*
 
 echo "CTRLR[linux]: Build now"
 echo
