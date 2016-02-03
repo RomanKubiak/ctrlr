@@ -1026,10 +1026,6 @@
               file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp"/>
         <FILE id="JUIzr6" name="CtrlrComponent.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.h"/>
-        <FILE id="N2qk66" name="CtrlrComponentRuntimeConfig.cpp" compile="1"
-              resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.cpp"/>
-        <FILE id="BnwMwx" name="CtrlrComponentRuntimeConfig.h" compile="0"
-              resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.h"/>
         <FILE id="PBhw74" name="CtrlrComponentTypeManager.cpp" compile="1"
               resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp"/>
         <FILE id="xvDDdr" name="CtrlrComponentTypeManager.h" compile="0" resource="0"

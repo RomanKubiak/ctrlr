@@ -2734,8 +2734,6 @@
 		<Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrCombo.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponent.h" />
-		<Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.cpp" />
-		<Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.h" />
 		<Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrCustomComponent.cpp" />

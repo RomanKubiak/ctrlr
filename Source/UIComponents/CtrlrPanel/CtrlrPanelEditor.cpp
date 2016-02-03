@@ -10,7 +10,6 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrComponents/CtrlrCombo.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"
-#include "CtrlrComponents/CtrlrComponentRuntimeConfig.h"
 
 CtrlrPanelNotifier::CtrlrPanelNotifier(CtrlrPanelEditor &_owner)
 	: owner(_owner), background(Colours::lightgrey)
@@ -492,9 +491,4 @@ void CtrlrPanelEditor::reloadResources (Array <CtrlrPanelResource*> resourcesTha
 	}
 
 	resized();
-}
-
-void CtrlrPanelEditor::showComponentRuntimeConfig(CtrlrComponent *componentToConfigure)
-{
-    CallOutBox::launchAsynchronously(new CtrlrComponentRuntimeConfig(componentToConfigure), componentToConfigure->getBounds(), this);
 }

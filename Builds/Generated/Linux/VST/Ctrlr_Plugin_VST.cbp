@@ -1872,11 +1872,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.cpp"/>
-    <Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp"/>
     <Unit filename="../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.h">
       <Option compile="0"/>

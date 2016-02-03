@@ -167,17 +167,6 @@ void CtrlrComponent::resized()
 
 void CtrlrComponent::mouseDoubleClick(const MouseEvent &e)
 {
-    if (e.mods.isCommandDown())
-    {
-        if (owner.getOwnerPanel().getEditor())
-        {
-            if (!owner.getOwnerPanel().getEditor()->getMode())
-            {
-                owner.getOwnerPanel().getEditor()->showComponentRuntimeConfig(this);
-            }
-        }
-    }
-
     if (mouseDoubleClickCbk && !mouseDoubleClickCbk.wasObjectDeleted())
 	{
 		if (mouseDoubleClickCbk->isValid())
@@ -196,17 +185,6 @@ void CtrlrComponent::mouseDown(const MouseEvent &e)
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDownCbk, this, e);
 		}
 	}
-
-    if (e.mods.isShiftDown())
-    {
-        if (owner.getOwnerPanel().getEditor())
-        {
-            if (!owner.getOwnerPanel().getEditor()->getMode())
-            {
-                owner.getOwnerPanel().getEditor()->showComponentRuntimeConfig(this);
-            }
-        }
-    }
 }
 
 int CtrlrComponent::snapDim(int dim)

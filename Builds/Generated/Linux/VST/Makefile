@@ -208,7 +208,6 @@ OBJECTS := \
   $(OBJDIR)/CtrlrArrow_1c791f44.o \
   $(OBJDIR)/CtrlrCombo_5229199f.o \
   $(OBJDIR)/CtrlrComponent_39b6278e.o \
-  $(OBJDIR)/CtrlrComponentRuntimeConfig_59982696.o \
   $(OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o \
   $(OBJDIR)/CtrlrCustomComponent_a77769d.o \
   $(OBJDIR)/CtrlrFilmStripPainter_73f10450.o \
@@ -1008,11 +1007,6 @@ $(OBJDIR)/CtrlrCombo_5229199f.o: ../../../../Source/UIComponents/CtrlrComponents
 $(OBJDIR)/CtrlrComponent_39b6278e.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CtrlrComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CtrlrComponentRuntimeConfig_59982696.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CtrlrComponentRuntimeConfig.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp
