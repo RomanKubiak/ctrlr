@@ -72,6 +72,7 @@ void CtrlrPanelMIDIInputThread::process()
 
 	hostInputBuffer.clear();
 	deviceInputBuffer.clear();
+	devicePartialBuffer.clear();
 }
 
 int CtrlrPanelMIDIInputThread::getListenerInputMidiChannel()
@@ -82,6 +83,8 @@ int CtrlrPanelMIDIInputThread::getListenerInputMidiChannel()
 void CtrlrPanelMIDIInputThread::handlePartialMIDIFromDevice (const uint8* messageData, const int numBytesSoFar, const double timestamp)
 {
 	const ScopedWriteLock sl (lock);
+
+	devicePartialBuffer.add (MemoryBlock (messageData, numBytesSoFar));
 }
 
 void CtrlrPanelMIDIInputThread::handleMIDIFromDevice (const MidiMessage &message)
