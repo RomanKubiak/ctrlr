@@ -354,6 +354,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		HashMap<String,CtrlrModulator*> modulatorsByName;
 		ScopedPointer <CtrlrPanelOSC> ctrlrPanelOSC;
 		Array<CtrlrMidiMessage,CriticalSection,4> multiMidiQueue;
+		Array<MemoryBlock,CriticalSection> partialMidiQueue;
 };
 
 #endif
