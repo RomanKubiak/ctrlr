@@ -161,7 +161,7 @@ const String CtrlrCombo::getComponentText()
 
 void CtrlrCombo::setComponentValue (const double newValue, const bool sendChangeMessage)
 {
-	ctrlrCombo->setSelectedId (newValue+1, sendNotification);
+	ctrlrCombo->setSelectedId (newValue+1, sendNotificationSync);
 
 	if (sendChangeMessage)
 	{
@@ -228,14 +228,14 @@ void CtrlrCombo::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
     {
         if ((int)getProperty(property) != -1)
         {
-            ctrlrCombo->setSelectedId (getProperty(property), sendNotificationAsync);
+            ctrlrCombo->setSelectedId (getProperty(property), sendNotificationSync);
         }
     }
     else if (property == Ids::uiComboSelectedIndex)
     {
         if ((int)getProperty(property) != -1)
         {
-            ctrlrCombo->setSelectedItemIndex (getProperty(property), sendNotificationAsync);
+            ctrlrCombo->setSelectedItemIndex (getProperty(property), sendNotificationSync);
         }
     }
     else
@@ -572,12 +572,12 @@ int CtrlrCombo::getSelectedItemIndex()
 
 void CtrlrCombo::setSelectedId(const int id, const bool dontNotify)
 {
-	ctrlrCombo->setSelectedId (id, dontNotify ? dontSendNotification : sendNotification);
+	ctrlrCombo->setSelectedId (id, dontNotify ? dontSendNotification : sendNotificationSync);
 }
 
 void CtrlrCombo::setSelectedItemIndex(const int index, const bool dontNotify)
 {
-	ctrlrCombo->setSelectedItemIndex (index, dontNotify ? dontSendNotification : sendNotification);
+	ctrlrCombo->setSelectedItemIndex (index, dontNotify ? dontSendNotification : sendNotificationSync);
 }
 
 const String CtrlrCombo::getText()
@@ -587,7 +587,7 @@ const String CtrlrCombo::getText()
 
 void CtrlrCombo::setText(const String &text, const bool dontNotify)
 {
-	return (ctrlrCombo->setText(text, dontNotify ? dontSendNotification : sendNotification));
+	return (ctrlrCombo->setText(text, dontNotify ? dontSendNotification : sendNotificationSync));
 }
 
 void CtrlrCombo::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)

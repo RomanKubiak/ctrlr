@@ -28,16 +28,9 @@ void CtrlrModulator::setValueNonMapped (const int newValue, const bool force, co
 	processor.setValueGeneric (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByLua), force, mute);
 }
 
-/** @brief Set the modulator value only the midi parameter works
-
-	@param newValue		the new value for the modualtor
-	@param vst			unused
-	@param midi			if false midi message will not be sent
-	@param ui			unused
-*/
 void CtrlrModulator::setModulatorValue(const int newValue, bool vst, bool midi, bool ui)
 {
-	processor.setValueGeneric (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByLua));
+	processor.setValueGeneric (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByLua), true, !midi);
 }
 
 int CtrlrModulator::getValueMapped() const
