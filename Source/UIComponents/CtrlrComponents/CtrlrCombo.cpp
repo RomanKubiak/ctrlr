@@ -161,7 +161,7 @@ const String CtrlrCombo::getComponentText()
 
 void CtrlrCombo::setComponentValue (const double newValue, const bool sendChangeMessage)
 {
-	ctrlrCombo->setSelectedId (newValue+1, sendNotificationSync);
+	ctrlrCombo->setSelectedId (newValue+1, sendChangeMessage ? sendNotificationSync : dontSendNotification);
 
 	if (sendChangeMessage)
 	{
