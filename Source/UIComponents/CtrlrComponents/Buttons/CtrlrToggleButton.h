@@ -61,8 +61,10 @@ public:
 	void click();
 	bool isToggleButton();
 	void setToggleState(const bool toggleState, const bool sendChangeMessage=false);
-	static void wrapForLua(lua_State *L);
+	CtrlrValueMap &getValueMap() { return (valueMap); }
 	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
+
+	static void wrapForLua(lua_State *L);
     //[/UserMethods]
 
     void paint (Graphics& g);

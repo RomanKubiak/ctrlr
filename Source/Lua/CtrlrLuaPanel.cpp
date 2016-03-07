@@ -298,6 +298,7 @@ CtrlrImageButton *CtrlrPanel::getImageButtonComponent (const String &componentNa
 	}
 	return (nullptr);
 }
+
 CtrlrCombo *CtrlrPanel::getComboComponent (const String &componentName)
 {
 	CtrlrModulator *m = getModulator(componentName);

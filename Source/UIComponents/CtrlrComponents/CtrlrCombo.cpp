@@ -115,6 +115,7 @@ void CtrlrCombo::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
     if (comboBoxThatHasChanged == ctrlrCombo)
     {
         //[UserComboBoxCode_ctrlrCombo] -- add your combo box handling code here..
+        _DBG("CtrlrCombo::comboBoxChanged");
 		setComponentValue (ctrlrCombo->getSelectedItemIndex(), true);
         //[/UserComboBoxCode_ctrlrCombo]
     }
@@ -592,8 +593,6 @@ void CtrlrCombo::setText(const String &text, const bool dontNotify)
 
 void CtrlrCombo::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
 {
-    _DBG("CtrlrCombo::customLookAndFeelChanged");
-
     if (customLookAndFeel == nullptr)
         ctrlrCombo->setLookAndFeel (&lf);
     else
@@ -614,6 +613,7 @@ void CtrlrCombo::wrapForLua(lua_State *L)
 			.def("setSelectedItemIndex", &CtrlrCombo::setSelectedItemIndex)
 			.def("getText", &CtrlrCombo::getText)
 			.def("setText", &CtrlrCombo::setText)
+			.def("getValueMap", &CtrlrCombo::getValueMap)
 	];
 }
 //[/MiscUserCode]
