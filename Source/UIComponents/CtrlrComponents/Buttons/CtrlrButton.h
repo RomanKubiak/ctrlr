@@ -67,6 +67,8 @@ public:
 	void setToggleState(const bool toggleState, const bool sendChangeMessage=false);
 	void timerCallback();
 	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
+	CtrlrValueMap &getValueMap() { return (valueMap); }
+
 	static void wrapForLua(lua_State *L);
     //[/UserMethods]
 

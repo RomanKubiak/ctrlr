@@ -5,12 +5,18 @@
 
 struct CtrlrValue
 {
-	public:
-		CtrlrValue(const int _numericValue, const String &_textRepresentation)
-			: numericValue(_numericValue), textRepresentation(_textRepresentation)
-		{}
-		CtrlrValue()
-		{}
+	CtrlrValue(const int _numericValue, const String &_textRepresentation)
+		: numericValue(_numericValue), textRepresentation(_textRepresentation)
+	{}
+	CtrlrValue()
+	{}
+
+	static const String toString(const CtrlrValue &value)
+	{
+		return ("\"" + value.textRepresentation + "\" [" + _STR(value.numericValue) + "]");
+	}
+	JUCE_LEAK_DETECTOR(CtrlrValue);
+
 	int		numericValue;
 	String	textRepresentation;
 };
@@ -110,7 +116,7 @@ class CtrlrValueMap
 		*/
 		int getCurrentMappedValue() const;
 
-		/** @bried If the map holds a state, this fetches the current text that represents a mapped value
+		/** @brief If the map holds a state, this fetches the current text that represents a mapped value
 
 			@return	the text value of the current value stored
 		*/
@@ -136,12 +142,19 @@ class CtrlrValueMap
 		*/
 		void setPair (const int index, const int value, const String &text);
 
+		/** @brief Empty the map
+
+		*/
+		void clear();
+
 		const Array<CtrlrValue> &getMap() const;
 		const Array<int> &getNumericValues() const;
 		const HashMap<int,String> &getAdditionalData() const;
 		void addAdditionalData (const int index, const String &data);
 		void fillCombo (ComboBox &comboToFill, const bool clearBeforeFill);
 		const String toString() const;
+
+		static void wrapForLua(lua_State *L);
 
 		JUCE_LEAK_DETECTOR(CtrlrValueMap);
 

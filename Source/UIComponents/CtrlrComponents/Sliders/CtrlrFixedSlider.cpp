@@ -281,6 +281,7 @@ void CtrlrFixedSlider::wrapForLua(lua_State *L)
     [
 		class_<CtrlrFixedSlider, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrSlider")
 			.def("getOwnedSlider", &CtrlrFixedSlider::getOwnedSlider)
+			.def("getValueMap", &CtrlrFixedSlider::getValueMap)
 	];
 }
 //[/MiscUserCode]

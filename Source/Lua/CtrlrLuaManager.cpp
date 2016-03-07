@@ -30,6 +30,7 @@
 #include "CtrlrComponents/Sliders/CtrlrFixedSlider.h"
 #include "CtrlrComponents/Sliders/CtrlrImageSlider.h"
 #include "CtrlrComponents/Sliders/CtrlrSlider.h"
+#include "CtrlrValueMap.h"
 #include "JuceClasses/LAudioFormat.h"
 #include "JuceClasses/LGlobalFunctions.h"
 #include "CtrlrLuaUtils.h"
@@ -228,6 +229,7 @@ void CtrlrLuaManager::wrapCore (lua_State* L)
 
 void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 {
+	CtrlrValueMap::wrapForLua (L);
 	CtrlrModulator::wrapForLua (L);
 	CtrlrPanel::wrapForLua (L);
 	CtrlrMidiInputComparator::wrapForLua (L);

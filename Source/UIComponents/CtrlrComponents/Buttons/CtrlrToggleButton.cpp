@@ -244,6 +244,7 @@ void CtrlrToggleButton::wrapForLua(lua_State *L)
 		class_<CtrlrToggleButton, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrToggleButton")
 			.def("getToggleState", &CtrlrToggleButton::getToggleState)
 			.def("setToggleState", &CtrlrToggleButton::setToggleState)
+			.def("getValueMap", &CtrlrToggleButton::getValueMap)
 	];
 }
 //[/MiscUserCode]

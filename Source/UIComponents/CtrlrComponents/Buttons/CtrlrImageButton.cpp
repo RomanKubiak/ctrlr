@@ -347,6 +347,7 @@ void CtrlrImageButton::wrapForLua(lua_State *L)
 			.def("isToggleButton", &CtrlrImageButton::isToggleButton)
 			.def("getToggleState", &CtrlrImageButton::getToggleState)
 			.def("setToggleState", &CtrlrImageButton::setToggleState)
+			.def("getValueMap", &CtrlrImageButton::getValueMap)
 	];
 }
 

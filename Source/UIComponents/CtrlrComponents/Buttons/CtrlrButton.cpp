@@ -303,6 +303,7 @@ void CtrlrButton::wrapForLua(lua_State *L)
 			.def("isToggleButton", &CtrlrButton::isToggleButton)
 			.def("getToggleState", &CtrlrButton::getToggleState)
 			.def("setToggleState", &CtrlrButton::setToggleState)
+			.def("getValueMap", &CtrlrButton::getValueMap)
 	];
 }
 //[/MiscUserCode]

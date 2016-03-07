@@ -92,8 +92,10 @@ public:
 	const String getText();
 	void setText(const String &text, const bool dontNotify);
 	ComboBox *getOwnedComboBox() { return (ctrlrCombo); }
-	static void wrapForLua(lua_State *L);
 	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr);
+	CtrlrValueMap &getValueMap() { return (valueMap); }
+
+	static void wrapForLua(lua_State *L);
     //[/UserMethods]
     void resized();
     void comboBoxChanged (ComboBox* comboBoxThatHasChanged);

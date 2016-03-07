@@ -81,12 +81,13 @@ public:
 	void click();
 	bool isToggleButton();
 	void setToggleState(const bool toggleState, const bool sendChangeMessage=false);
-	CtrlrValueMap &getValueMap() { return (valueMap); }
 	void timerCallback();
 	void reloadResources(Array <CtrlrPanelResource*> resourcesThatChanged);
 	void setResource();
-	static void wrapForLua(lua_State *L);
 	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
+	CtrlrValueMap &getValueMap() { return (valueMap); }
+
+	static void wrapForLua(lua_State *L);
     //[/UserMethods]
 
     void paint (Graphics& g);

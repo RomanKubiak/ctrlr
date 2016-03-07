@@ -252,21 +252,65 @@ void CtrlrValueMap::setCurrentMappedValue(const int _currentValue)
 
 const String CtrlrValueMap::toString() const
 {
-	String ret = "ValueMap";
+	String ret = "MAP: ";
 	ret << " mappedMax=" + STR(getMappedMax());
-	ret << " mappedMin=" + STR(getMappedMin());
-	ret << " values:";
+	ret << ", mappedMin=" + STR(getMappedMin());
+	ret << ", values:\n";
 
 	for (int i=0; i<values.size(); i++)
 	{
-		ret << " " + STR(values[i].numericValue);
+		ret << "{" << _STR(i) << "}: ( ";
+		ret << CtrlrValue::toString(values[i]);
+		ret << " )\n";
 	}
 
-	ret << "\nNumeric values:";
-
-	for (int i=0; i<numericValues.size(); i++)
-	{
-		ret << " " + STR(numericValues[i]);
-	}
 	return (ret);
+}
+
+void CtrlrValueMap::clear()
+{
+	currentValue = 0;
+	values.clear();
+	numericValues.clear();
+	additionalData.clear();
+}
+
+void CtrlrValueMap::wrapForLua(lua_State *L)
+{
+	using namespace luabind;
+
+	module(L)
+    [
+		class_<CtrlrValue>("CtrlrValue")
+			.def_readwrite("numericValue", &CtrlrValue::numericValue)
+			.def_readwrite("textRepresentation", &CtrlrValue::textRepresentation)
+		,
+		class_<CtrlrValueMap>("CtrlrValueMap")
+			.def("parseString", &CtrlrValueMap::parseString)
+			.def("copyFrom", &CtrlrValueMap::copyFrom)
+			.def("getMappedMax", &CtrlrValueMap::getMappedMax)
+			.def("getMappedMin", &CtrlrValueMap::getMappedMin)
+			.def("getNonMappedMax", &CtrlrValueMap::getNonMappedMax)
+			.def("getNonMappedMin", &CtrlrValueMap::getNonMappedMin)
+			.def("getIndexForValue", &CtrlrValueMap::getIndexForValue)
+			.def("getMappedValue", (int (CtrlrValueMap::*)(const String &) const) &CtrlrValueMap::getMappedValue)
+            .def("getMappedValue", (int (CtrlrValueMap::*)(const int) const) &CtrlrValueMap::getMappedValue)
+            .def("getNonMappedValue", &CtrlrValueMap::getNonMappedValue)
+            .def("getTextForIndex", &CtrlrValueMap::getTextForIndex)
+            .def("increment", &CtrlrValueMap::increment)
+            .def("decrement", &CtrlrValueMap::decrement)
+            .def("mappedValueExists", &CtrlrValueMap::mappedValueExists)
+            .def("getCurrentNonMappedValue", &CtrlrValueMap::getCurrentNonMappedValue)
+            .def("getCurrentMappedValue", &CtrlrValueMap::getCurrentMappedValue)
+            .def("getCurrentText", &CtrlrValueMap::getCurrentText)
+            .def("setCurrentNonMappedValue", &CtrlrValueMap::setCurrentNonMappedValue)
+            .def("setCurrentMappedValue", &CtrlrValueMap::setCurrentMappedValue)
+            .def("setPair", &CtrlrValueMap::setPair)
+            .def("getMap", &CtrlrValueMap::getMap)
+            .def("getNumericValues", &CtrlrValueMap::getNumericValues)
+            .def("addAdditionalData", &CtrlrValueMap::addAdditionalData)
+            .def("fillCombo", &CtrlrValueMap::fillCombo)
+            .def("toString", &CtrlrValueMap::toString)
+            .def("clear", &CtrlrValueMap::clear)
+	];
 }
