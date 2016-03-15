@@ -10,9 +10,9 @@ class CtrlrPanelMIDISnapshot : public AsyncUpdater, public Thread, public Timer
 		CtrlrPanelMIDISnapshot(CtrlrPanel &_owner);
 		~CtrlrPanelMIDISnapshot();
 		void sendSnapshot();
-		void handleAsyncUpdate();
+		void handleAsyncUpdate() override;
 		void gatherSnapshotData();
-		void run();
+		void run() override;
 		void setDelay(const int _snapshotDelay);
 		void setStatusMessage (const String& newStatusMessage);
 		void setPreLuaCallback(CtrlrLuaMethod *method);

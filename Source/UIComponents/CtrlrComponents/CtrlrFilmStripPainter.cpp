@@ -139,7 +139,7 @@ Rectangle<int> CtrlrFilmStripPainter::getCoordsForValue(Slider& slider)
 {
 	Rectangle<int> r;
 
-	const double range		= abs(slider.getMaximum()) + abs(slider.getMinimum());
+    const double range		= std::abs(slider.getMaximum()) + std::abs(slider.getMinimum());
 	const double divider	= range / getMaxValue();
 	const double value		= slider.getValue();
 	double position			= 0;
@@ -148,7 +148,7 @@ Rectangle<int> CtrlrFilmStripPainter::getCoordsForValue(Slider& slider)
 	{
 		if (value < 0)
 		{
-			position			= roundFloatToInt( (((float)range/2.0f) - (float)abs(value)) / (float)divider );
+            position			= roundFloatToInt( (((float)range/2.0f) - (float)std::abs(value)) / (float)divider );
 		}
 		else
 		{
@@ -169,7 +169,7 @@ Rectangle<int> CtrlrFilmStripPainter::getCoordsForValue(Slider& slider)
 	}
 	else if (slider.getMinimum() > 0 && slider.getMaximum() == 0)
 	{
-		position			= roundFloatToInt( abs((float)value - (float)range) / (float)divider);
+        position			= roundFloatToInt( std::abs((float)value - (float)range) / (float)divider);
 	}
 
 	//Logger::writeToLog("range="+String(range)+" divider="+String(divider)+" pos="+String(position)+" maxValue="+String(getMaxValue()));

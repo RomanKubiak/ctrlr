@@ -527,14 +527,7 @@ void CtrlrPanelCanvas::dragSelectedComps (int dx, int dy, const bool allowSnap)
         const int startX = c->getProperties() ["xDragStart"];
         const int startY = c->getProperties() ["yDragStart"];
 
-        if (getOwner().getSelection()->getNumSelected() == 1)
-        {
-            c->setTopLeftPosition (snapPosition (startX + dx, (int)getOwner().getProperty(Ids::uiPanelSnapSize), allowSnap), snapPosition (startY + dy, (int)getOwner().getProperty(Ids::uiPanelSnapSize), allowSnap));
-        }
-        else
-        {
-            c->setTopLeftPosition (snapPosition (startX + dx, (int)getOwner().getProperty(Ids::uiPanelSnapSize), allowSnap), snapPosition (startY + dy, (int)getOwner().getProperty(Ids::uiPanelSnapSize), allowSnap));
-        }
+        c->setTopLeftPosition (snapPosition (startX + dx, (int)getOwner().getProperty(Ids::uiPanelSnapSize), allowSnap), snapPosition (startY + dy, (int)getOwner().getProperty(Ids::uiPanelSnapSize), allowSnap));
     }
 }
 
