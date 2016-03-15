@@ -256,13 +256,13 @@ namespace BinaryData
     const int            RSRC_zipSize = 49800;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 81787;
+    const int            CtrlrIDs_xmlSize = 82139;
 
     extern const char*   CtrlrLuaClassTemplates_xml;
     const int            CtrlrLuaClassTemplates_xmlSize = 109;
 
     extern const char*   CtrlrLuaMethodTemplates_xml;
-    const int            CtrlrLuaMethodTemplates_xmlSize = 22351;
+    const int            CtrlrLuaMethodTemplates_xmlSize = 22906;
 
     extern const char*   CtrlrMidiMultiTemplate_xml;
     const int            CtrlrMidiMultiTemplate_xmlSize = 662;

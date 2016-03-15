@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="hxkBeQ" name="Wrapper" projectType="library" version="1.0.0"
-              bundleIdentifier="com.yourcompany.Wrapper" jucerVersion="4.0.1"
+              bundleIdentifier="com.yourcompany.Wrapper" jucerVersion="4.1.0"
               includeBinaryInAppConfig="1">
   <MAINGROUP id="RIPxTx" name="Wrapper">
     <GROUP id="{6D614C4E-1DDC-A4F1-0F79-204F752F4851}" name="Source">
@@ -309,7 +309,7 @@
         <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
                        isDebug="0" optimisation="2" targetName="au_wrapper" binaryPath="/usr/local/lib"/>
         <CONFIGURATION name="Release_Nightly" osxSDK="default" osxCompatibility="10.7 SDK"
-                       osxArchitecture="64BitUniversal" isDebug="0" optimisation="2"
+                       osxArchitecture="64BitUniversal" isDebug="0" optimisation="3"
                        targetName="au_wrapper" binaryPath="/usr/local/lib" defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_AU&#10;LUA_USE_LINUX"/>
       </CONFIGURATIONS>
       <MODULEPATHS/>
