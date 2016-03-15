@@ -691,7 +691,7 @@ public:
 		findNext.setBounds (findPrev.getRight(), y, 15, 24);
 	}
 
-	void comboBoxChanged(ComboBox* combo)
+	void comboBoxChanged(ComboBox* combo) override
 	{
 		if (combo == &searchInComboBox)
 		{

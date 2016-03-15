@@ -57,7 +57,7 @@ double evaluateFormulaFunction (CtrlrPanel &panel, const String& functionName, c
 	{
 		if (numParameters == 1)
 		{
-			return (abs(*parameters));
+            return (std::abs(*parameters));
 		}
 		else
 		{
