@@ -3790,6 +3790,7 @@
 				OTHER_CPLUSPLUSFLAGS = "-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder";
 				OTHER_LDFLAGS = "-bundle";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				SDKROOT_ppc = macosx10.5;
 				WRAPPER_EXTENSION = component; }; name = Debug; };
 		29B1AF4C6C0E90C4531A2329 = {isa = XCBuildConfiguration; buildSettings = {
@@ -3827,6 +3828,7 @@
 				OTHER_CPLUSPLUSFLAGS = "-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder";
 				OTHER_LDFLAGS = "-bundle";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				SDKROOT_ppc = macosx10.5;
 				WRAPPER_EXTENSION = component; }; name = Release; };
 		82CFE9DE970F5E2E4FF121D1 = {isa = XCBuildConfiguration; buildSettings = {
@@ -3838,7 +3840,7 @@
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER=YES;
 				GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3864,11 +3866,13 @@
 				OTHER_CPLUSPLUSFLAGS = "-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder";
 				OTHER_LDFLAGS = "-bundle";
 				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				SDKROOT_ppc = macosx10.5;
 				WRAPPER_EXTENSION = component; }; name = "Release_Nightly"; };
 		179736FE7059AE24D32C4782 = {isa = XCBuildConfiguration; buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf";
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;

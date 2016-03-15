@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string>Icon.icns</string>
     <key>CFBundleIdentifier</key>
-    <string>com.instigator.Ctrlr</string>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
     <key>CFBundleName</key>
     <string>Ctrlr_Standalone</string>
     <key>CFBundlePackageType</key>

@@ -8,11 +8,11 @@
               pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="4.0.2" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
+              jucerVersion="4.1.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
               aaxIdentifier="com.instigator.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
-              companyEmail="ctrlr@ctrlr.org">
+              companyEmail="ctrlr@ctrlr.org" pluginIsMidiEffectPlugin="0">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="../Generated/Mac/VST" vstFolder="../../VST" rtasFolder="~/SDKs/PT_80_SDK"
                objCExtraSuffix="CTRLRUNIQVST" extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
@@ -32,7 +32,7 @@
                        binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        customXcodeFlags="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        userNotes="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES"/>
-        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
+        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="3" targetName="Ctrlr"
                        osxSDK="default" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
                        defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST&#10;LUA_USE_LINUX"
                        binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"

@@ -260,7 +260,7 @@ private:
         VstTempBuffers() {}
         ~VstTempBuffers() { release(); }
 
-        void release() noexcept
+        void release()
         {
             for (int i = tempChannels.size(); --i >= 0;)
                 delete[] (tempChannels.getUnchecked(i));

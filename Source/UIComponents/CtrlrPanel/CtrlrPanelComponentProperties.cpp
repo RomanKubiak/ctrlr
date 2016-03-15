@@ -546,6 +546,7 @@ void CtrlrPanelComponentProperties::changeListenerCallback (ChangeBroadcaster* s
 
 void CtrlrPanelComponentProperties::refreshDynamicData()
 {
+    return;
 	midiOutputDevices.clear();
 	midiOutputDevices = owner.getOwner().getCtrlrManagerOwner().getCtrlrMidiDeviceManager().getManagedDevices(outputDevice);
 	midiOutputDevices.add (COMBO_NONE_ITEM);
@@ -588,7 +589,11 @@ void CtrlrPanelComponentProperties::refreshDynamicData()
 		panelPropertyList.add (owner.getOwner().getPanelTree().getPropertyName(i).toString());
 	}
 
-	Font::findFonts (fonts);
+    // This can't be done everytime, once is enough
+    // we should use the FontManager to provide this
+    // and update when needed
+    
+	//Font::findFonts (fonts);
 
 	componentGroupList.clear();
 	Array <CtrlrModulator*> groupModulators = owner.getOwner().getModulatorsByUIType(Ids::uiGroup);

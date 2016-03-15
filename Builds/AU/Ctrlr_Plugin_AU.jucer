@@ -8,11 +8,11 @@
               pluginSilenceInIsSilenceOut="0" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="4.0.1" defines="" aaxIdentifier="com.instigator.Ctrlr_Plugin_AU"
+              jucerVersion="4.1.0" defines="" aaxIdentifier="com.instigator.Ctrlr_Plugin_AU"
               companyName="Instigator" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
-              companyEmail="ctrlr@ctrlr.org">
+              companyEmail="ctrlr@ctrlr.org" pluginIsMidiEffectPlugin="0">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="../Generated/Mac/AU" vstFolder="~/devel/vstsdk2.4"
                rtasFolder="~/SDKs/PT_80_SDK" objCExtraSuffix="CTRLRUNIQAU" extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
@@ -34,7 +34,7 @@
                        customXcodeFlags="EXCLUDED_SOURCE_FILE_NAMES=&quot;*AU*.cpp Carbon*.cpp ComponentBase.cpp MusicDeviceBase.cpp&quot;,GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES,CLANG_CXX_LANGUAGE_STANDARD=compiler-default"
                        userNotes="GCC_PREFIX_HEADER=../../../../Source/Core/stdafx.h,GCC_PRECOMPILE_PREFIX_HEADER=YES"
                        libraryPath="/usr/lib&#10;/usr/local/lib"/>
-        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="2" targetName="Ctrlr"
+        <CONFIGURATION name="Release_Nightly" isDebug="0" optimisation="3" targetName="Ctrlr"
                        osxSDK="default" osxCompatibility="10.7 SDK" osxArchitecture="64BitUniversal"
                        defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_AU&#10;LUA_USE_LINUX"
                        binaryPath="" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/include/lo"
@@ -481,8 +481,6 @@
             file="../../Source/Lua/CtrlrLuaObjectWrapper.cpp"/>
       <FILE id="d75Scy" name="CtrlrLuaObjectWrapper.h" compile="0" resource="0"
             file="../../Source/Lua/CtrlrLuaObjectWrapper.h"/>
-      <FILE id="JGAB31" name="CtrlrLuaOSC.cpp" compile="1" resource="0" file="../../Source/Lua/CtrlrLuaOSC.cpp"/>
-      <FILE id="Q7Dmne" name="CtrlrLuaOSC.h" compile="0" resource="0" file="../../Source/Lua/CtrlrLuaOSC.h"/>
       <FILE id="OmnD7F" name="CtrlrLuaPanel.cpp" compile="1" resource="0"
             file="../../Source/Lua/CtrlrLuaPanel.cpp"/>
       <FILE id="Kp5iXB" name="CtrlrLuaPanelCanvas.cpp" compile="1" resource="0"
@@ -542,93 +540,93 @@
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
     </GROUP>
     <GROUP id="{65C0BAE1-5992-65D4-26F9-69F2E5AEEA76}" name="Misc">
-      <GROUP id="{E5977C7E-FFFD-2CF6-F18F-53B7C35333DD}" name="include">
-        <GROUP id="{464E0624-D71B-9565-17F5-B32C73E1E2B4}" name="lo">
-          <FILE id="BqqxIj" name="lo.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo.h"/>
-          <FILE id="BQLHJe" name="lo_config_linux.h" compile="0" resource="0"
+      <GROUP id="{8A56FD22-BB1A-68A4-992D-FB8D5CAA67FE}" name="include">
+        <GROUP id="{FD652A8C-8EAB-F5AD-3082-2748B1121901}" name="lo">
+          <FILE id="RHKVTO" name="lo.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo.h"/>
+          <FILE id="GcudlQ" name="lo_config_linux.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_config_linux.h"/>
-          <FILE id="aM2W7o" name="lo_config_osx.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_config_osx.h"/>
-          <FILE id="k3xRch" name="lo_config_win32.h" compile="0" resource="0"
+          <FILE id="ccvpZR" name="lo_config_osx.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_config_osx.h"/>
+          <FILE id="Q4rrhd" name="lo_config_win32.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_config_win32.h"/>
-          <FILE id="FPqpgO" name="lo_cpp.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_cpp.h"/>
-          <FILE id="DNJ842" name="lo_endian.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_endian.h"/>
-          <FILE id="yAxYt0" name="lo_endian.h.in" compile="0" resource="1" file="../../Source/Misc/include/lo/lo_endian.h.in"/>
-          <FILE id="l2qMYH" name="lo_errors.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_errors.h"/>
-          <FILE id="fKGQGm" name="lo_internal.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_internal.h"/>
-          <FILE id="y0Hhb9" name="lo_lowlevel.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_lowlevel.h"/>
-          <FILE id="SXLckC" name="lo_macros.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_macros.h"/>
-          <FILE id="Hyr4dD" name="lo_osc_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_osc_types.h"/>
-          <FILE id="ZfyaNP" name="lo_serverthread.h" compile="0" resource="0"
+          <FILE id="lyqr51" name="lo_cpp.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_cpp.h"/>
+          <FILE id="vDiTI1" name="lo_endian.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_endian.h"/>
+          <FILE id="k8jp1b" name="lo_endian.h.in" compile="0" resource="1" file="../../Source/Misc/include/lo/lo_endian.h.in"/>
+          <FILE id="xUB526" name="lo_errors.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_errors.h"/>
+          <FILE id="ccrPgS" name="lo_internal.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_internal.h"/>
+          <FILE id="HKNoDk" name="lo_lowlevel.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_lowlevel.h"/>
+          <FILE id="T8NGW9" name="lo_macros.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_macros.h"/>
+          <FILE id="mxKH81" name="lo_osc_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_osc_types.h"/>
+          <FILE id="blXCZc" name="lo_serverthread.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_serverthread.h"/>
-          <FILE id="q6CX60" name="lo_throw.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_throw.h"/>
-          <FILE id="syzd7O" name="lo_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_types.h"/>
-          <FILE id="R1NcAa" name="lo_types_internal.h" compile="0" resource="0"
+          <FILE id="N0tR3i" name="lo_throw.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_throw.h"/>
+          <FILE id="wwgPcy" name="lo_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_types.h"/>
+          <FILE id="peOXmT" name="lo_types_internal.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_types_internal.h"/>
-          <FILE id="HnUdIb" name="Makefile" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile"/>
-          <FILE id="eYwFhF" name="Makefile.am" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.am"/>
-          <FILE id="BjUHsV" name="Makefile.in" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.in"/>
+          <FILE id="WWCnE0" name="Makefile" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile"/>
+          <FILE id="g044Nt" name="Makefile.am" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.am"/>
+          <FILE id="ldYOZn" name="Makefile.in" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.in"/>
         </GROUP>
-        <FILE id="khhJhx" name="compat.h" compile="0" resource="0" file="../../Source/Misc/include/compat.h"/>
-        <FILE id="BO2eDV" name="darwin_usb.h" compile="0" resource="0" file="../../Source/Misc/include/darwin_usb.h"/>
-        <FILE id="NrfCwd" name="enums.h" compile="0" resource="0" file="../../Source/Misc/include/enums.h"/>
-        <FILE id="odGCUQ" name="hotplug.h" compile="0" resource="0" file="../../Source/Misc/include/hotplug.h"/>
-        <FILE id="sdAv5b" name="inttypes.h" compile="0" resource="0" file="../../Source/Misc/include/inttypes.h"/>
-        <FILE id="Mc0iNb" name="juce_PluginHostType.h" compile="0" resource="0"
+        <FILE id="ZFvcxD" name="compat.h" compile="0" resource="0" file="../../Source/Misc/include/compat.h"/>
+        <FILE id="xjGoyk" name="darwin_usb.h" compile="0" resource="0" file="../../Source/Misc/include/darwin_usb.h"/>
+        <FILE id="NBTker" name="enums.h" compile="0" resource="0" file="../../Source/Misc/include/enums.h"/>
+        <FILE id="boO46P" name="hotplug.h" compile="0" resource="0" file="../../Source/Misc/include/hotplug.h"/>
+        <FILE id="iZ19uE" name="inttypes.h" compile="0" resource="0" file="../../Source/Misc/include/inttypes.h"/>
+        <FILE id="iCp11Z" name="juce_PluginHostType.h" compile="0" resource="0"
               file="../../Source/Misc/include/juce_PluginHostType.h"/>
-        <FILE id="qoOCAw" name="keys.h" compile="0" resource="0" file="../../Source/Misc/include/keys.h"/>
-        <FILE id="ITpTjQ" name="libr.h" compile="0" resource="0" file="../../Source/Misc/include/libr.h"/>
-        <FILE id="rx0Oan" name="libusb.h" compile="0" resource="0" file="../../Source/Misc/include/libusb.h"/>
-        <FILE id="Nm0Ylu" name="libusb_linux.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_linux.h"/>
-        <FILE id="mhzUdl" name="libusb_osx.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_osx.h"/>
-        <FILE id="mZhrXS" name="libusb_windows.h" compile="0" resource="0"
+        <FILE id="RY5TjO" name="keys.h" compile="0" resource="0" file="../../Source/Misc/include/keys.h"/>
+        <FILE id="jhkJI5" name="libr.h" compile="0" resource="0" file="../../Source/Misc/include/libr.h"/>
+        <FILE id="abaxii" name="libusb.h" compile="0" resource="0" file="../../Source/Misc/include/libusb.h"/>
+        <FILE id="MV6YWU" name="libusb_linux.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_linux.h"/>
+        <FILE id="mTvVos" name="libusb_osx.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_osx.h"/>
+        <FILE id="hrSryo" name="libusb_windows.h" compile="0" resource="0"
               file="../../Source/Misc/include/libusb_windows.h"/>
-        <FILE id="kIyxVv" name="libusbi.h" compile="0" resource="0" file="../../Source/Misc/include/libusbi.h"/>
-        <FILE id="gPvGIb" name="linux_usbfs.h" compile="0" resource="0" file="../../Source/Misc/include/linux_usbfs.h"/>
-        <FILE id="UfKwJb" name="poll_posix.h" compile="0" resource="0" file="../../Source/Misc/include/poll_posix.h"/>
-        <FILE id="W6SgMo" name="poll_windows.h" compile="0" resource="0" file="../../Source/Misc/include/poll_windows.h"/>
-        <FILE id="nGBVyK" name="structs.h" compile="0" resource="0" file="../../Source/Misc/include/structs.h"/>
-        <FILE id="jt2nML" name="threads_posix.h" compile="0" resource="0" file="../../Source/Misc/include/threads_posix.h"/>
-        <FILE id="gBJx2B" name="threads_windows.h" compile="0" resource="0"
+        <FILE id="TJzJrU" name="libusbi.h" compile="0" resource="0" file="../../Source/Misc/include/libusbi.h"/>
+        <FILE id="QlPI1Q" name="linux_usbfs.h" compile="0" resource="0" file="../../Source/Misc/include/linux_usbfs.h"/>
+        <FILE id="AoV99u" name="poll_posix.h" compile="0" resource="0" file="../../Source/Misc/include/poll_posix.h"/>
+        <FILE id="o7C3D4" name="poll_windows.h" compile="0" resource="0" file="../../Source/Misc/include/poll_windows.h"/>
+        <FILE id="HBbdi8" name="structs.h" compile="0" resource="0" file="../../Source/Misc/include/structs.h"/>
+        <FILE id="F5Qgut" name="threads_posix.h" compile="0" resource="0" file="../../Source/Misc/include/threads_posix.h"/>
+        <FILE id="Nick5s" name="threads_windows.h" compile="0" resource="0"
               file="../../Source/Misc/include/threads_windows.h"/>
-        <FILE id="X1TsjS" name="version.h" compile="0" resource="0" file="../../Source/Misc/include/version.h"/>
-        <FILE id="cce3xT" name="version_nano.h" compile="0" resource="0" file="../../Source/Misc/include/version_nano.h"/>
-        <FILE id="JfZRFN" name="windows_common.h" compile="0" resource="0"
+        <FILE id="qev27N" name="version.h" compile="0" resource="0" file="../../Source/Misc/include/version.h"/>
+        <FILE id="nkBHc5" name="version_nano.h" compile="0" resource="0" file="../../Source/Misc/include/version_nano.h"/>
+        <FILE id="P76wtL" name="windows_common.h" compile="0" resource="0"
               file="../../Source/Misc/include/windows_common.h"/>
-        <FILE id="nERvvk" name="windows_usb.h" compile="0" resource="0" file="../../Source/Misc/include/windows_usb.h"/>
+        <FILE id="iTCjaa" name="windows_usb.h" compile="0" resource="0" file="../../Source/Misc/include/windows_usb.h"/>
       </GROUP>
-      <FILE id="weN7az" name="address.c" compile="1" resource="0" file="../../Source/Misc/address.c"/>
-      <FILE id="XcRl2Y" name="blob.c" compile="1" resource="0" file="../../Source/Misc/blob.c"/>
-      <FILE id="aecEoS" name="bundle.c" compile="1" resource="0" file="../../Source/Misc/bundle.c"/>
-      <FILE id="Nnx0Fr" name="compat.c" compile="1" resource="0" file="../../Source/Misc/compat.c"/>
-      <FILE id="OCLrSR" name="core.c" compile="1" resource="0" file="../../Source/Misc/core.c"/>
-      <FILE id="iRJcCD" name="darwin_usb.c" compile="1" resource="0" file="../../Source/Misc/darwin_usb.c"/>
-      <FILE id="shVDbr" name="descriptor.c" compile="1" resource="0" file="../../Source/Misc/descriptor.c"/>
-      <FILE id="s9WVxD" name="enums.c" compile="1" resource="0" file="../../Source/Misc/enums.c"/>
-      <FILE id="zyVb5B" name="hotplug.c" compile="1" resource="0" file="../../Source/Misc/hotplug.c"/>
-      <FILE id="vCNTEW" name="io.c" compile="1" resource="0" file="../../Source/Misc/io.c"/>
-      <FILE id="uqWiLa" name="keys.cpp" compile="1" resource="0" file="../../Source/Misc/keys.cpp"/>
-      <FILE id="uE2Kyw" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Misc/libr-bfd.c"/>
-      <FILE id="qymJK8" name="libr.c" compile="1" resource="0" file="../../Source/Misc/libr.c"/>
-      <FILE id="q5Q5x3" name="linux_udev.c" compile="1" resource="0" file="../../Source/Misc/linux_udev.c"/>
-      <FILE id="aN0F7C" name="linux_usbfs.c" compile="1" resource="0" file="../../Source/Misc/linux_usbfs.c"/>
-      <FILE id="c37ALM" name="lua.c" compile="1" resource="0" file="../../Source/Misc/lua.c"/>
-      <FILE id="zKluDP" name="message.c" compile="1" resource="0" file="../../Source/Misc/message.c"/>
-      <FILE id="q2Sf2f" name="method.c" compile="1" resource="0" file="../../Source/Misc/method.c"/>
-      <FILE id="SuiUTf" name="pattern_match.c" compile="1" resource="0" file="../../Source/Misc/pattern_match.c"/>
-      <FILE id="CDwhBk" name="poll_posix.c" compile="1" resource="0" file="../../Source/Misc/poll_posix.c"/>
-      <FILE id="jp5HfW" name="poll_windows.c" compile="1" resource="0" file="../../Source/Misc/poll_windows.c"/>
-      <FILE id="bFiIcf" name="send.c" compile="1" resource="0" file="../../Source/Misc/send.c"/>
-      <FILE id="LmCaUp" name="server.c" compile="1" resource="0" file="../../Source/Misc/server.c"/>
-      <FILE id="bZqc4e" name="strerror.c" compile="1" resource="0" file="../../Source/Misc/strerror.c"/>
-      <FILE id="zBSOc6" name="structs.c" compile="1" resource="0" file="../../Source/Misc/structs.c"/>
-      <FILE id="fDQwMe" name="sync.c" compile="1" resource="0" file="../../Source/Misc/sync.c"/>
-      <FILE id="peKDiT" name="threads_posix.c" compile="1" resource="0" file="../../Source/Misc/threads_posix.c"/>
-      <FILE id="ODhg4b" name="threads_windows.c" compile="1" resource="0"
+      <FILE id="JrGZsT" name="address.c" compile="1" resource="0" file="../../Source/Misc/address.c"/>
+      <FILE id="hqEc8Z" name="blob.c" compile="1" resource="0" file="../../Source/Misc/blob.c"/>
+      <FILE id="gOfv0L" name="bundle.c" compile="1" resource="0" file="../../Source/Misc/bundle.c"/>
+      <FILE id="nDbzbt" name="compat.c" compile="1" resource="0" file="../../Source/Misc/compat.c"/>
+      <FILE id="cec8mf" name="core.c" compile="1" resource="0" file="../../Source/Misc/core.c"/>
+      <FILE id="IOQmvd" name="darwin_usb.c" compile="1" resource="0" file="../../Source/Misc/darwin_usb.c"/>
+      <FILE id="WJou9Q" name="descriptor.c" compile="1" resource="0" file="../../Source/Misc/descriptor.c"/>
+      <FILE id="L32YwM" name="enums.c" compile="1" resource="0" file="../../Source/Misc/enums.c"/>
+      <FILE id="bzxtxd" name="hotplug.c" compile="1" resource="0" file="../../Source/Misc/hotplug.c"/>
+      <FILE id="b83UvD" name="io.c" compile="1" resource="0" file="../../Source/Misc/io.c"/>
+      <FILE id="Qgw6fz" name="keys.cpp" compile="1" resource="0" file="../../Source/Misc/keys.cpp"/>
+      <FILE id="HKrNKm" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Misc/libr-bfd.c"/>
+      <FILE id="Bxlmsi" name="libr.c" compile="1" resource="0" file="../../Source/Misc/libr.c"/>
+      <FILE id="GbtgbT" name="linux_udev.c" compile="1" resource="0" file="../../Source/Misc/linux_udev.c"/>
+      <FILE id="qhqAsE" name="linux_usbfs.c" compile="1" resource="0" file="../../Source/Misc/linux_usbfs.c"/>
+      <FILE id="FcdfIy" name="lua.c" compile="1" resource="0" file="../../Source/Misc/lua.c"/>
+      <FILE id="f3nnXZ" name="message.c" compile="1" resource="0" file="../../Source/Misc/message.c"/>
+      <FILE id="od5awe" name="method.c" compile="1" resource="0" file="../../Source/Misc/method.c"/>
+      <FILE id="piMShd" name="pattern_match.c" compile="1" resource="0" file="../../Source/Misc/pattern_match.c"/>
+      <FILE id="qndhkF" name="poll_posix.c" compile="1" resource="0" file="../../Source/Misc/poll_posix.c"/>
+      <FILE id="YqhlBN" name="poll_windows.c" compile="1" resource="0" file="../../Source/Misc/poll_windows.c"/>
+      <FILE id="UOlZiG" name="send.c" compile="1" resource="0" file="../../Source/Misc/send.c"/>
+      <FILE id="n2ewGw" name="server.c" compile="1" resource="0" file="../../Source/Misc/server.c"/>
+      <FILE id="OPkHBc" name="strerror.c" compile="1" resource="0" file="../../Source/Misc/strerror.c"/>
+      <FILE id="FTtZTg" name="structs.c" compile="1" resource="0" file="../../Source/Misc/structs.c"/>
+      <FILE id="rLst7X" name="sync.c" compile="1" resource="0" file="../../Source/Misc/sync.c"/>
+      <FILE id="QPPHsc" name="threads_posix.c" compile="1" resource="0" file="../../Source/Misc/threads_posix.c"/>
+      <FILE id="PUPV3w" name="threads_windows.c" compile="1" resource="0"
             file="../../Source/Misc/threads_windows.c"/>
-      <FILE id="Jqub5t" name="timetag.c" compile="1" resource="0" file="../../Source/Misc/timetag.c"/>
-      <FILE id="OuYhyf" name="usb.c" compile="1" resource="0" file="../../Source/Misc/usb.c"/>
-      <FILE id="WU0Jgy" name="version.c" compile="1" resource="0" file="../../Source/Misc/version.c"/>
-      <FILE id="tyAFUt" name="windows_usb.c" compile="1" resource="0" file="../../Source/Misc/windows_usb.c"/>
+      <FILE id="bp1FCF" name="timetag.c" compile="1" resource="0" file="../../Source/Misc/timetag.c"/>
+      <FILE id="Xuok0d" name="usb.c" compile="1" resource="0" file="../../Source/Misc/usb.c"/>
+      <FILE id="Fxw3M1" name="version.c" compile="1" resource="0" file="../../Source/Misc/version.c"/>
+      <FILE id="e5lyPV" name="windows_usb.c" compile="1" resource="0" file="../../Source/Misc/windows_usb.c"/>
     </GROUP>
     <GROUP id="{635EBE65-BBFC-47A7-3B44-9D63C50D96E9}" name="Native">
       <FILE id="OnA2BL" name="CtrlrGeneric.h" compile="0" resource="0" file="../../Source/Native/CtrlrGeneric.h"/>
@@ -921,10 +919,6 @@
               file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp"/>
         <FILE id="Ilnl4R" name="CtrlrComponent.h" compile="0" resource="0"
               file="../../Source/UIComponents/CtrlrComponents/CtrlrComponent.h"/>
-        <FILE id="AEIavD" name="CtrlrComponentRuntimeConfig.cpp" compile="1"
-              resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.cpp"/>
-        <FILE id="XfeF4p" name="CtrlrComponentRuntimeConfig.h" compile="0"
-              resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentRuntimeConfig.h"/>
         <FILE id="ekvaz4" name="CtrlrComponentTypeManager.cpp" compile="1"
               resource="0" file="../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp"/>
         <FILE id="PRINZg" name="CtrlrComponentTypeManager.h" compile="0" resource="0"
