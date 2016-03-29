@@ -22,9 +22,9 @@
 
 extern "C"
 {
-	#include <luabind/lua.h>
-	#include <luabind/lualib.h>
-	#include <luabind/lauxlib.h>
+#include <luabind/lua.h>
+#include <luabind/lualib.h>
+#include <luabind/lauxlib.h>
 }
 
 #ifdef check
