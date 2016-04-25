@@ -22,6 +22,8 @@
   ==============================================================================
 */
 
+#undef check
+
 const char* const openSLTypeName = "Android OpenSL";
 
 bool isOpenSLAvailable()
@@ -43,7 +45,7 @@ public:
     {
         // OpenSL has piss-poor support for determining latency, so the only way I can find to
         // get a number for this is by asking the AudioTrack/AudioRecord classes..
-        AndroidAudioIODevice javaDevice (String::empty);
+        AndroidAudioIODevice javaDevice (deviceName);
 
         // this is a total guess about how to calculate the latency, but seems to vaguely agree
         // with the devices I've tested.. YMMV
@@ -131,8 +133,8 @@ public:
         outputBuffer.setSize (jmax (1, numOutputChannels), actualBufferSize);
         outputBuffer.clear();
 
-        const int audioBuffersToEnqueue = hasLowLatencyAudioPath ? buffersToEnqueueForLowLatency
-                                                                 : buffersToEnqueueSlowAudio;
+        const int audioBuffersToEnqueue = hasLowLatencyAudioPath() ? buffersToEnqueueForLowLatency
+                                                                   : buffersToEnqueueSlowAudio;
 
         DBG ("OpenSL: numInputChannels = " << numInputChannels
               << ", numOutputChannels = " << numOutputChannels
@@ -143,12 +145,32 @@ public:
               << ", sampleRate = " << sampleRate);
 
         if (numInputChannels > 0)
-            recorder = engine.createRecorder (numInputChannels,  sampleRate,
-                                              audioBuffersToEnqueue, actualBufferSize);
+        {
+            if (! RuntimePermissions::isGranted (RuntimePermissions::recordAudio))
+            {
+                // If you hit this assert, you probably forgot to get RuntimePermissions::recordAudio
+                // before trying to open an audio input device. This is not going to work!
+                jassertfalse;
+                lastError = "Error opening OpenSL input device: the app was not granted android.permission.RECORD_AUDIO";
+            }
+            else
+            {
+                recorder = engine.createRecorder (numInputChannels,  sampleRate,
+                                                  audioBuffersToEnqueue, actualBufferSize);
+
+                if (recorder == nullptr)
+                    lastError = "Error opening OpenSL input device: creating Recorder failed.";
+            }
+        }
 
         if (numOutputChannels > 0)
-            player   = engine.createPlayer   (numOutputChannels, sampleRate,
-                                              audioBuffersToEnqueue, actualBufferSize);
+        {
+            player = engine.createPlayer   (numOutputChannels, sampleRate,
+                                            audioBuffersToEnqueue, actualBufferSize);
+
+            if (player == nullptr)
+                lastError = "Error opening OpenSL input device: creating Player failed.";
+        }
 
         // pre-fill buffers
         for (int i = 0; i < audioBuffersToEnqueue; ++i)
@@ -218,7 +240,7 @@ public:
     }
 
 private:
-    //==================================================================================================
+    //==============================================================================
     CriticalSection callbackLock;
     AudioIODeviceCallback* callback;
     int actualBufferSize, sampleRate;
@@ -240,7 +262,7 @@ private:
         defaultBufferSizeIsMultipleOfNative = 1
     };
 
-    //==================================================================================================
+    //==============================================================================
     static String audioManagerGetProperty (const String& property)
     {
         const LocalRef<jstring> jProperty (javaString (property));
@@ -279,7 +301,7 @@ private:
         return androidHasSystemFeature ("android.hardware.audio.low_latency");
     }
 
-    //==================================================================================================
+    //==============================================================================
     AudioIODeviceCallback* setCallback (AudioIODeviceCallback* const newCallback)
     {
         const ScopedLock sl (callbackLock);
@@ -310,7 +332,7 @@ private:
 
     void run() override
     {
-        setThreadToAudioPriority ();
+        setThreadToAudioPriority();
 
         if (recorder != nullptr)    recorder->start();
         if (player != nullptr)      player->start();
@@ -319,7 +341,7 @@ private:
             processBuffers();
     }
 
-    void setThreadToAudioPriority ()
+    void setThreadToAudioPriority()
     {
         // see android.os.Process.THREAD_PRIORITY_AUDIO
         const int THREAD_PRIORITY_AUDIO = -16;
@@ -329,7 +351,7 @@ private:
             DBG ("Unable to set audio thread priority: priority is still " << priority);
     }
 
-    //==================================================================================================
+    //==============================================================================
     struct Engine
     {
         Engine()
@@ -398,7 +420,7 @@ private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Engine)
     };
 
-    //==================================================================================================
+    //==============================================================================
     struct BufferList
     {
         BufferList (const int numChannels_, const int numBuffers_, const int numSamples_)
@@ -442,7 +464,7 @@ private:
         WaitableEvent dataArrived;
     };
 
-    //==================================================================================================
+    //==============================================================================
     struct Player
     {
         Player (int numChannels, int sampleRate, Engine& engine, int playerNumBuffers, int playerBufferSize)
@@ -550,14 +572,14 @@ private:
 
         static void staticCallback (SLAndroidSimpleBufferQueueItf queue, void* context) noexcept
         {
-            jassert (queue == static_cast<Player*> (context)->playerBufferQueue); (void) queue;
+            jassert (queue == static_cast<Player*> (context)->playerBufferQueue); ignoreUnused (queue);
             static_cast<Player*> (context)->bufferList.bufferReturned();
         }
 
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Player)
     };
 
-    //==================================================================================================
+    //==============================================================================
     struct Recorder
     {
         Recorder (int numChannels, int sampleRate, Engine& engine, const int numBuffers, const int numSamples)
@@ -685,7 +707,7 @@ private:
 
         static void staticCallback (SLAndroidSimpleBufferQueueItf queue, void* context) noexcept
         {
-            jassert (queue == static_cast<Recorder*> (context)->recorderBufferQueue); (void) queue;
+            jassert (queue == static_cast<Recorder*> (context)->recorderBufferQueue); ignoreUnused (queue);
             static_cast<Recorder*> (context)->bufferList.bufferReturned();
         }
 

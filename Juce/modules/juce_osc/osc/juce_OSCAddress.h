@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -45,7 +45,7 @@
 class JUCE_API  OSCAddress
 {
 public:
-    //==========================================================================
+    //==============================================================================
     /** Constructs a new OSCAddress from a String.
         @throw OSCFormatError if the string is not a valid OSC address.
     */
@@ -95,7 +95,7 @@ private:
 class JUCE_API  OSCAddressPattern
 {
 public:
-    //==========================================================================
+    //==============================================================================
     /** Constructs a new OSCAddressPattern from a String.
         @throw OSCFormatError if the string is not a valid OSC address pattern.
     */
@@ -140,7 +140,7 @@ public:
 
 
 private:
-    //==========================================================================
+    //==============================================================================
     StringArray oscSymbols;
     String asString;
     bool wasInitialisedWithWildcards;

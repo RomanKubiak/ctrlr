@@ -22,10 +22,7 @@
   ==============================================================================
 */
 
-// Your project must contain an AppConfig.h file with your project-specific settings in it,
-// and your header search path must make it accessible to the module's files.
-#include "AppConfig.h"
-
+#include "../../juce_core/system/juce_TargetPlatform.h"
 #include "../utility/juce_CheckSettingMacros.h"
 
 #if JucePlugin_Build_VST || JucePlugin_Build_VST3
@@ -37,15 +34,12 @@
 #include "../utility/juce_FakeMouseMoveGenerator.h"
 #include "../utility/juce_CarbonVisibility.h"
 
-#undef Component
-#undef Point
-
 //==============================================================================
 namespace juce
 {
 
 #if ! JUCE_64BIT
-void updateEditorCompBoundsVST (Component*);
+JUCE_API void updateEditorCompBoundsVST (Component*);
 void updateEditorCompBoundsVST (Component* comp)
 {
     HIViewRef dummyView = (HIViewRef) (void*) (pointer_sized_int)
@@ -69,10 +63,15 @@ static pascal OSStatus viewBoundsChangedEvent (EventHandlerCallRef, EventRef, vo
     updateEditorCompBoundsVST ((Component*) user);
     return noErr;
 }
+
+static bool shouldManuallyCloseHostWindow()
+{
+    return getHostType().isCubase7orLater() || getHostType().isRenoise();
+}
 #endif
 
 //==============================================================================
-void initialiseMacVST();
+JUCE_API void initialiseMacVST();
 void initialiseMacVST()
 {
    #if ! JUCE_64BIT
@@ -80,7 +79,7 @@ void initialiseMacVST()
    #endif
 }
 
-void* attachComponentToWindowRefVST (Component* comp, void* parentWindowOrView, bool isNSView);
+JUCE_API void* attachComponentToWindowRefVST (Component* comp, void* parentWindowOrView, bool isNSView);
 void* attachComponentToWindowRefVST (Component* comp, void* parentWindowOrView, bool isNSView)
 {
     JUCE_AUTORELEASEPOOL
@@ -90,7 +89,7 @@ void* attachComponentToWindowRefVST (Component* comp, void* parentWindowOrView, 
         {
             NSWindow* hostWindow = [[NSWindow alloc] initWithWindowRef: parentWindowOrView];
 
-            if (getHostType().isCubase7orLater())
+            if (shouldManuallyCloseHostWindow())
             {
                 [hostWindow setReleasedWhenClosed: NO];
             }
@@ -185,7 +184,7 @@ void* attachComponentToWindowRefVST (Component* comp, void* parentWindowOrView, 
     }
 }
 
-void detachComponentFromWindowRefVST (Component* comp, void* window, bool isNSView);
+JUCE_API void detachComponentFromWindowRefVST (Component* comp, void* window, bool isNSView);
 void detachComponentFromWindowRefVST (Component* comp, void* window, bool isNSView)
 {
     JUCE_AUTORELEASEPOOL
@@ -215,7 +214,7 @@ void detachComponentFromWindowRefVST (Component* comp, void* window, bool isNSVi
             comp->removeFromDesktop();
             [pluginView release];
 
-            if (getHostType().isCubase7orLater())
+            if (shouldManuallyCloseHostWindow())
                 [hostWindow close];
             else
                 [hostWindow release];
@@ -243,7 +242,7 @@ void detachComponentFromWindowRefVST (Component* comp, void* window, bool isNSVi
     }
 }
 
-void setNativeHostWindowSizeVST (void* window, Component* component, int newWidth, int newHeight, bool isNSView);
+JUCE_API void setNativeHostWindowSizeVST (void* window, Component* component, int newWidth, int newHeight, bool isNSView);
 void setNativeHostWindowSizeVST (void* window, Component* component, int newWidth, int newHeight, bool isNSView)
 {
     JUCE_AUTORELEASEPOOL
@@ -281,7 +280,7 @@ void setNativeHostWindowSizeVST (void* window, Component* component, int newWidt
     }
 }
 
-void checkWindowVisibilityVST (void* window, Component* comp, bool isNSView);
+JUCE_API void checkWindowVisibilityVST (void* window, Component* comp, bool isNSView);
 void checkWindowVisibilityVST (void* window, Component* comp, bool isNSView)
 {
     ignoreUnused (window, comp, isNSView);
@@ -292,7 +291,7 @@ void checkWindowVisibilityVST (void* window, Component* comp, bool isNSView)
    #endif
 }
 
-bool forwardCurrentKeyEventToHostVST (Component* comp, bool isNSView);
+JUCE_API bool forwardCurrentKeyEventToHostVST (Component* comp, bool isNSView);
 bool forwardCurrentKeyEventToHostVST (Component* comp, bool isNSView)
 {
    #if ! JUCE_64BIT

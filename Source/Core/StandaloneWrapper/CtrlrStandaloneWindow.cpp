@@ -80,7 +80,6 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 		restoreState = false;
 		setVisible (true);
     }
-    JUCE_CATCH_ALL
 }
 
 CtrlrStandaloneWindow::~CtrlrStandaloneWindow()

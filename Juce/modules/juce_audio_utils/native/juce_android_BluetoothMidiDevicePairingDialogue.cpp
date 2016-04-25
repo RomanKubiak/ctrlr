@@ -22,7 +22,6 @@
   ==============================================================================
 */
 
-
 //==============================================================================
 #define JNI_CLASS_MEMBERS(METHOD, STATICMETHOD, FIELD, STATICFIELD) \
  METHOD (getMidiBluetoothAddresses, "getMidiBluetoothAddresses", "()[Ljava/lang/String;") \
@@ -64,7 +63,7 @@ struct AndroidBluetoothMidiInterface
         return retval;
     }
 
-    //==========================================================================
+    //==============================================================================
     static bool pairBluetoothMidiDevice (const String& bluetoothAddress)
     {
         JNIEnv* env = getEnv();
@@ -90,7 +89,7 @@ struct AndroidBluetoothMidiInterface
                                  javaString (bluetoothAddress).get());
     }
 
-    //==========================================================================
+    //==============================================================================
     static String getHumanReadableStringForBluetoothAddress (const String& address)
     {
         JNIEnv* env = getEnv();
@@ -111,7 +110,7 @@ struct AndroidBluetoothMidiInterface
         return juceString (string);
     }
 
-    //==========================================================================
+    //==============================================================================
     static bool isBluetoothDevicePaired (const String& address)
     {
         JNIEnv* env = getEnv();
@@ -166,7 +165,7 @@ class AndroidBluetoothMidiDevicesListBox   : public ListBox,
                                              private Timer
 {
 public:
-    //==========================================================================
+    //==============================================================================
     AndroidBluetoothMidiDevicesListBox()
         : timerPeriodInMs (1000)
     {
@@ -184,7 +183,7 @@ public:
     }
 
 private:
-    //==========================================================================
+    //==============================================================================
     typedef AndroidBluetoothMidiDevice::ConnectionStatus DeviceStatus;
 
     int getNumRows() override
@@ -226,7 +225,7 @@ private:
         }
     }
 
-    //==========================================================================
+    //==============================================================================
     static Colour getDeviceNameFontColour (DeviceStatus deviceStatus) noexcept
     {
         if (deviceStatus == AndroidBluetoothMidiDevice::offline)
@@ -261,7 +260,7 @@ private:
         return "Status unknown";
     }
 
-    //==========================================================================
+    //==============================================================================
     void listBoxItemClicked (int row, const MouseEvent&) override
     {
         const AndroidBluetoothMidiDevice& device = devices.getReference (row);
@@ -278,7 +277,7 @@ private:
         updateDeviceList();
     }
 
-    //==========================================================================
+    //==============================================================================
     struct PairDeviceThread  : public Thread,
                                private AsyncUpdater
     {
@@ -310,7 +309,7 @@ private:
         Component::SafePointer<AndroidBluetoothMidiDevicesListBox> owner;
     };
 
-    //==========================================================================
+    //==============================================================================
     void disconnectedDeviceClicked (int row)
     {
         stopTimer();
@@ -332,7 +331,7 @@ private:
         AndroidBluetoothMidiInterface::unpairBluetoothMidiDevice (device.bluetoothAddress);
     }
 
-    //==========================================================================
+    //==============================================================================
     void updateDeviceList()
     {
         StringArray bluetoothAddresses = AndroidBluetoothMidiInterface::getBluetoothMidiDevicesNearby();
@@ -427,6 +426,15 @@ private:
 //==============================================================================
 bool BluetoothMidiDevicePairingDialogue::open()
 {
+    if (! RuntimePermissions::isGranted (RuntimePermissions::bluetoothMidi))
+    {
+        // If you hit this assert, you probably forgot to get RuntimePermissions::bluetoothMidi.
+        // This is not going to work, boo! The pairing dialogue won't be able to scan for or
+        // find any devices, it will just display an empty list, so don't bother opening it.
+        jassertfalse;
+        return false;
+    }
+
     BluetoothMidiSelectorOverlay* overlay = new BluetoothMidiSelectorOverlay;
     return true;
 }

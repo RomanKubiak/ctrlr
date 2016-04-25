@@ -114,6 +114,7 @@ void Synthesiser::clearVoices()
 SynthesiserVoice* Synthesiser::addVoice (SynthesiserVoice* const newVoice)
 {
     const ScopedLock sl (lock);
+    newVoice->setCurrentPlaybackSampleRate (sampleRate);
     return voices.add (newVoice);
 }
 
@@ -180,6 +181,7 @@ void Synthesiser::processNextBlock (AudioBuffer<floatType>& outputAudio,
     MidiBuffer::Iterator midiIterator (midiData);
     midiIterator.setNextSamplePosition (startSample);
 
+    bool firstEvent = true;
     int midiEventPos;
     MidiMessage m;
 
@@ -202,11 +204,13 @@ void Synthesiser::processNextBlock (AudioBuffer<floatType>& outputAudio,
             break;
         }
 
-        if (samplesToNextMidiMessage < minimumSubBlockSize)
+        if (samplesToNextMidiMessage < minimumSubBlockSize && ! firstEvent)
         {
             handleMidiEvent (m);
             continue;
         }
+
+        firstEvent = false;
 
         renderVoices (outputAudio, startSample, samplesToNextMidiMessage);
         handleMidiEvent (m);
@@ -511,13 +515,13 @@ void Synthesiser::handleSostenutoPedal (int midiChannel, bool isDown)
 
 void Synthesiser::handleSoftPedal (int midiChannel, bool /*isDown*/)
 {
-    (void) midiChannel;
+    ignoreUnused (midiChannel);
     jassert (midiChannel > 0 && midiChannel <= 16);
 }
 
 void Synthesiser::handleProgramChange (int midiChannel, int programNumber)
 {
-    (void) midiChannel; (void) programNumber;
+    ignoreUnused (midiChannel, programNumber);
     jassert (midiChannel > 0 && midiChannel <= 16);
 }
 
@@ -556,6 +560,9 @@ SynthesiserVoice* Synthesiser::findVoiceToSteal (SynthesiserSound* soundToPlay,
     // This voice-stealing algorithm applies the following heuristics:
     // - Re-use the oldest notes first
     // - Protect the lowest & topmost notes, even if sustained, but not if they've been released.
+
+    // apparently you are trying to render audio without having any voices...
+    jassert (voices.size() > 0);
 
     // These are the voices we want to protect (ie: only steal if unavoidable)
     SynthesiserVoice* low = nullptr; // Lowest sounding note, might be sustained, but NOT in release phase

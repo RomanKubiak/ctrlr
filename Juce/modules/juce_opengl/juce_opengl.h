@@ -22,10 +22,38 @@
   ==============================================================================
 */
 
+/*******************************************************************************
+ The block below describes the properties of this module, and is read by
+ the Projucer to automatically generate project code that uses it.
+ For details about the syntax and how to create or use a module, see the
+ JUCE Module Format.txt file.
+
+
+ BEGIN_JUCE_MODULE_DECLARATION
+
+  ID:               juce_opengl
+  vendor:           juce
+  version:          4.2.1
+  name:             JUCE OpenGL classes
+  description:      Classes for rendering OpenGL in a JUCE window.
+  website:          http://www.juce.com/juce
+  license:          GPL/Commercial
+
+  dependencies:     juce_gui_extra
+  OSXFrameworks:    OpenGL
+  iOSFrameworks:    OpenGLES
+  linuxLibs:        GL
+  mingwLibs:        opengl32
+
+ END_JUCE_MODULE_DECLARATION
+
+*******************************************************************************/
+
+
 #ifndef JUCE_OPENGL_H_INCLUDED
 #define JUCE_OPENGL_H_INCLUDED
 
-#include "../juce_gui_extra/juce_gui_extra.h"
+#include <juce_gui_extra/juce_gui_extra.h>
 
 #undef JUCE_OPENGL
 #define JUCE_OPENGL 1
@@ -43,7 +71,13 @@
   #define WINGDIAPI __declspec(dllimport)
   #define CLEAR_TEMP_WINGDIAPI 1
  #endif
- #include <gl/GL.h>
+
+ #if JUCE_MINGW
+  #include <GL/gl.h>
+ #else
+  #include <gl/GL.h>
+ #endif
+
  #ifdef CLEAR_TEMP_WINGDIAPI
   #undef WINGDIAPI
   #undef CLEAR_TEMP_WINGDIAPI
@@ -81,7 +115,7 @@
  #define JUCE_OPENGL3 1
 #endif
 
-//=============================================================================
+//==============================================================================
 /** This macro is a helper for use in GLSL shader code which needs to compile on both OpenGL 2.1 and OpenGL 3.0.
     It's mandatory in OpenGL 3.0 to specify the GLSL version.
 */
@@ -95,7 +129,7 @@
  #define JUCE_GLSL_VERSION ""
 #endif
 
-//=============================================================================
+//==============================================================================
 #if JUCE_OPENGL_ES || defined (DOXYGEN)
  /** This macro is a helper for use in GLSL shader code which needs to compile on both GLES and desktop GL.
      Since it's mandatory in GLES to mark a variable with a precision, but the keywords don't exist in normal GLSL,
@@ -120,7 +154,7 @@
  #define JUCE_LOWP
 #endif
 
-//=============================================================================
+//==============================================================================
 namespace juce
 {
 
