@@ -34,14 +34,14 @@ void CtrlrPanelCanvas::handleRightClickOnMultiSelection(const MouseEvent &e)
 		PopupMenu::MenuItemIterator iterator((const PopupMenu &)componentSubMenu);
 		while (iterator.next())
 		{
-			if (iterator.subMenu)
+			if (iterator.getItem().subMenu)
 			{
-				PopupMenu::MenuItemIterator iterator2(*iterator.subMenu);
+				PopupMenu::MenuItemIterator iterator2(*iterator.getItem().subMenu);
 				while (iterator2.next())
 				{
-					if (iterator2.itemId == ret)
+					if (iterator2.getItem().itemID == ret)
 					{
-						replaceWithComponentName = iterator2.itemName;
+						replaceWithComponentName = iterator2.getItem().text;
 						break;
 					}
 				}
@@ -105,14 +105,14 @@ void CtrlrPanelCanvas::handleRightClickOnCanvas(const MouseEvent &e)
 		PopupMenu::MenuItemIterator iterator((const PopupMenu &)m);
 		while (iterator.next())
 		{
-			if (iterator.subMenu)
+			if (iterator.getItem().subMenu)
 			{
-				PopupMenu::MenuItemIterator iterator2(*iterator.subMenu);
+				PopupMenu::MenuItemIterator iterator2(*iterator.getItem().subMenu);
 					while (iterator2.next())
 				{
-					if (iterator2.itemId == ret)
+					if (iterator2.getItem().itemID == ret)
 					{
-						addNewComponent (iterator2.itemName, e.getPosition(), e.eventComponent);
+						addNewComponent (iterator2.getItem().text, e.getPosition(), e.eventComponent);
 					}
 				}
 			}
@@ -204,16 +204,16 @@ void CtrlrPanelCanvas::handleRightClickOnComponent(const MouseEvent &e)
 		PopupMenu::MenuItemIterator iterator((const PopupMenu &)componentSubMenu);
 		while (iterator.next())
 		{
-			if (iterator.subMenu)
+			if (iterator.getItem().subMenu)
 			{
-				PopupMenu::MenuItemIterator iterator2(*iterator.subMenu);
+				PopupMenu::MenuItemIterator iterator2(*iterator.getItem().subMenu);
 				while (iterator2.next())
 				{
-					if (iterator2.itemId == ret)
+					if (iterator2.getItem().itemID == ret)
 					{
 						if (c)
 						{
-							replaceComponent (c->getOwner(), iterator2.itemName);
+							replaceComponent (c->getOwner(), iterator2.getItem().text);
 							return;
 						}
 					}

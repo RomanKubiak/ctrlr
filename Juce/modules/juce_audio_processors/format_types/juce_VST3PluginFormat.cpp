@@ -93,7 +93,7 @@ static int getHashForTUID (const TUID& tuid) noexcept
     return value;
 }
 
-template<typename ObjectType>
+template <typename ObjectType>
 static void fillDescriptionWith (PluginDescription& description, ObjectType& object)
 {
     description.version  = toString (object.version).trim();
@@ -110,6 +110,7 @@ static void createPluginDescription (PluginDescription& description,
 {
     description.fileOrIdentifier    = pluginFile.getFullPathName();
     description.lastFileModTime     = pluginFile.getLastModificationTime();
+    description.lastInfoUpdateTime  = Time::getCurrentTime();
     description.manufacturerName    = company;
     description.name                = name;
     description.descriptiveName     = name;
@@ -454,7 +455,7 @@ public:
 
     tresult PLUGIN_API requestOpenEditor (FIDString name) override
     {
-        (void) name;
+        ignoreUnused (name);
         jassertfalse;
         return kResultFalse;
     }
@@ -900,7 +901,7 @@ private:
         Atomic<int> refCount;
 
         //==============================================================================
-        template<typename Type>
+        template <typename Type>
         void addMessageToQueue (AttrID id, const Type& value)
         {
             jassert (id != nullptr);
@@ -919,7 +920,7 @@ private:
             owner->messageQueue.add (ComSmartPtr<Message> (new Message (*owner, this, id, value)));
         }
 
-        template<typename Type>
+        template <typename Type>
         bool findMessageOnQueueWithID (AttrID id, Type& value)
         {
             jassert (id != nullptr);
@@ -1189,6 +1190,7 @@ private:
         if (library.open (filePath))
         {
             typedef bool (PLUGIN_API *InitModuleProc) ();
+
             if (InitModuleProc proc = (InitModuleProc) getFunction ("InitDll"))
             {
                 if (proc())
@@ -1575,6 +1577,11 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (VST3PluginWindow)
 };
 
+#if JUCE_MSVC
+ #pragma warning (push)
+ #pragma warning (disable: 4996) // warning about overriding deprecated methods
+#endif
+
 //==============================================================================
 class VST3PluginInstance : public AudioPluginInstance
 {
@@ -1664,8 +1671,8 @@ public:
         createPluginDescription (description, module->file,
                                  company, module->name,
                                  *info, info2, infoW,
-                                 getNumInputChannels(),
-                                 getNumOutputChannels());
+                                 getTotalNumInputChannels(),
+                                 getTotalNumOutputChannels());
     }
 
     void* getPlatformSpecificData() override   { return component; }
@@ -1674,7 +1681,7 @@ public:
     //==============================================================================
     const String getName() const override
     {
-        return module != nullptr ? module->name : String::empty;
+        return module != nullptr ? module->name : String();
     }
 
     void repopulateArrangements()
@@ -1753,19 +1760,15 @@ public:
         if (! isActive)
             return; // Avoids redundantly calling things like setActive
 
-        JUCE_TRY
-        {
-            isActive = false;
+        isActive = false;
 
-            setStateForAllBusses (false);
+        setStateForAllBusses (false);
 
-            if (processor != nullptr)
-                warnOnFailure (processor->setProcessing (false));
+        if (processor != nullptr)
+            warnOnFailure (processor->setProcessing (false));
 
-            if (component != nullptr)
-                warnOnFailure (component->setActive (false));
-        }
-        JUCE_CATCH_ALL_ASSERT
+        if (component != nullptr)
+            warnOnFailure (component->setActive (false));
     }
 
     bool supportsDoublePrecisionProcessing() const override
@@ -1807,7 +1810,7 @@ public:
 
         updateTimingInformation (data, getSampleRate());
 
-        for (int i = getNumInputChannels(); i < buffer.getNumChannels(); ++i)
+        for (int i = getTotalNumInputChannels(); i < buffer.getNumChannels(); ++i)
             buffer.clear (i, 0, numSamples);
 
         associateTo (data, buffer);
@@ -1836,7 +1839,7 @@ public:
                 return toString (busInfo.name);
         }
 
-        return String::empty;
+        return String();
     }
 
     const String getInputChannelName  (int channelIndex) const override   { return getChannelName (channelIndex, true, true); }
@@ -1844,41 +1847,29 @@ public:
 
     bool isInputChannelStereoPair (int channelIndex) const override
     {
-        if (channelIndex < 0 || channelIndex >= getNumInputChannels())
-            return false;
-
-        return getBusInfo (true, true).channelCount == 2;
+        return isPositiveAndBelow (channelIndex, getTotalNumInputChannels())
+                 && getBusInfo (true, true).channelCount == 2;
     }
 
     bool isOutputChannelStereoPair (int channelIndex) const override
     {
-        if (channelIndex < 0 || channelIndex >= getNumOutputChannels())
-            return false;
-
-        return getBusInfo (false, true).channelCount == 2;
+        return isPositiveAndBelow (channelIndex, getTotalNumOutputChannels())
+                 && getBusInfo (false, true).channelCount == 2;
     }
 
     bool acceptsMidi() const override    { return getBusInfo (true,  false).channelCount > 0; }
     bool producesMidi() const override   { return getBusInfo (false, false).channelCount > 0; }
 
     //==============================================================================
-    bool silenceInProducesSilenceOut() const override
-    {
-        if (processor != nullptr)
-            return processor->getTailSamples() == Vst::kNoTail;
-
-        return true;
-    }
-
     /** May return a negative value as a means of informing us that the plugin has "infinite tail," or 0 for "no tail." */
     double getTailLengthSeconds() const override
     {
         if (processor != nullptr)
         {
-            const double currentSampleRate = getSampleRate();
+            const double sampleRate = getSampleRate();
 
-            if (currentSampleRate > 0.0)
-                return jlimit (0, 0x7fffffff, (int) processor->getTailSamples()) / currentSampleRate;
+            if (sampleRate > 0.0)
+                return jlimit (0, 0x7fffffff, (int) processor->getTailSamples()) / sampleRate;
         }
 
         return 0.0;
@@ -1940,7 +1931,7 @@ public:
             return toString (result);
         }
 
-        return String::empty;
+        return String();
     }
 
     void setParameter (int parameterIndex, float newValue) override
@@ -2022,8 +2013,7 @@ public:
     /** @note Not applicable to VST3 */
     void setCurrentProgramStateInformation (const void* data, int sizeInBytes) override
     {
-        (void) data;
-        (void) sizeInBytes;
+        ignoreUnused (data, sizeInBytes);
     }
 
     //==============================================================================
@@ -2459,6 +2449,10 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (VST3PluginInstance)
 };
 
+#if JUCE_MSVC
+ #pragma warning (pop)
+#endif
+
 };
 
 //==============================================================================
@@ -2473,9 +2467,14 @@ void VST3PluginFormat::findAllTypesForFile (OwnedArray<PluginDescription>& resul
     VST3Classes::VST3ModuleHandle::getAllDescriptionsForFile (results, fileOrIdentifier);
 }
 
-AudioPluginInstance* VST3PluginFormat::createInstanceFromDescription (const PluginDescription& description, double, int)
+void VST3PluginFormat::createPluginInstance (const PluginDescription& description,
+                                             double,
+                                             int,
+                                             void* userData,
+                                             void (*callback) (void*, AudioPluginInstance*, const String&))
 {
     ScopedPointer<VST3Classes::VST3PluginInstance> result;
+
 
     if (fileMightContainThisPluginType (description.fileOrIdentifier))
     {
@@ -2495,7 +2494,17 @@ AudioPluginInstance* VST3PluginFormat::createInstanceFromDescription (const Plug
         previousWorkingDirectory.setAsCurrentWorkingDirectory();
     }
 
-    return result.release();
+    String errorMsg;
+
+    if (result == nullptr)
+        errorMsg = String (NEEDS_TRANS ("Unable to load XXX plug-in file")).replace ("XXX", "VST-3");
+
+    callback (userData, result.release(), errorMsg);
+}
+
+bool VST3PluginFormat::requiresUnblockedMessageThreadDuringCreation (const PluginDescription&) const noexcept
+{
+    return false;
 }
 
 bool VST3PluginFormat::fileMightContainThisPluginType (const String& fileOrIdentifier)
@@ -2525,7 +2534,7 @@ bool VST3PluginFormat::doesPluginStillExist (const PluginDescription& descriptio
     return File (description.fileOrIdentifier).exists();
 }
 
-StringArray VST3PluginFormat::searchPathsForPlugins (const FileSearchPath& directoriesToSearch, const bool recursive)
+StringArray VST3PluginFormat::searchPathsForPlugins (const FileSearchPath& directoriesToSearch, const bool recursive, bool)
 {
     StringArray results;
 

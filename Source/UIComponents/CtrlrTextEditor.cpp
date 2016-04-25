@@ -17,15 +17,11 @@ void CtrlrTextEditor::setAttributedText (const AttributedString &text)
 
 	for (int i=0; i<text.getNumAttributes(); i++)
 	{
-		const AttributedString::Attribute *a = text.getAttribute(i);
+		const AttributedString::Attribute a = text.getAttribute(i);
+		setFont (a.font);
+		setColour (TextEditor::textColourId, a.colour);
 
-		if (a->getFont())
-			setFont (*a->getFont());
-
-		if (a->getColour())
-			setColour (TextEditor::textColourId, *a->getColour());
-
-		insertTextAtCaret (text.getText().substring (a->range.getStart(), a->range.getEnd()));
+		insertTextAtCaret (text.getText().substring (a.range.getStart(), a.range.getEnd()));
 	}
 }
 
@@ -51,24 +47,21 @@ void CtrlrTextEditor::insertAttributedText (const AttributedString &text)
 
 	Range<int> lastRange, currentRange;
 
-	currentRange = text.getAttribute(0)->range;
+	currentRange = text.getAttribute(0).range;
 
 	for (int i=0; i<text.getNumAttributes(); i++)
 	{
-		const AttributedString::Attribute *a = text.getAttribute(i);
+		const AttributedString::Attribute a = text.getAttribute(i);
 		
-		if (currentRange != a->range)
+		if (currentRange != a.range)
 		{			
 			insertTextAtCaret (text.getText().substring (currentRange.getStart(), currentRange.getEnd()));
 		}
 
-		currentRange = a->range;
+		currentRange = a.range;
 
-		if (a->getFont())
-			setFont (*a->getFont());
-
-		if (a->getColour())
-			setColour (TextEditor::textColourId, *a->getColour());
+		setFont (a.font);
+		setColour (TextEditor::textColourId, a.colour);
 	}
 
 	insertTextAtCaret (text.getText().substring (currentRange.getStart(), currentRange.getEnd()));

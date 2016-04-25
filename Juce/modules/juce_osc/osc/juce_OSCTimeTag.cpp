@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -38,7 +38,7 @@ OSCTimeTag::OSCTimeTag (uint64 t) noexcept  : rawTimeTag (t)
 
 OSCTimeTag::OSCTimeTag (Time time) noexcept
 {
-    const int64 milliseconds = time.toMilliseconds() + millisecondsBetweenOscAndJuceEpochs;
+    const uint64 milliseconds = (uint64) time.toMilliseconds() + millisecondsBetweenOscAndJuceEpochs;
 
     // something went seriously wrong if the line above didn't render the time nonnegative!
     jassert (milliseconds >= 0);
@@ -58,9 +58,9 @@ Time OSCTimeTag::toTime() const noexcept
     const double fractionalPartInMillis = (double) fractionalPart / 4294967.296;
 
     // now using signed integer, because this is allowed to become negative:
-    const int64 juceTimeInMillis = (seconds * 1000)
-                                    + roundToInt(fractionalPartInMillis)
-                                    - (int64) millisecondsBetweenOscAndJuceEpochs;
+    const int64 juceTimeInMillis = int64 ((seconds * 1000)
+                                           + (uint64) roundToInt(fractionalPartInMillis)
+                                           - millisecondsBetweenOscAndJuceEpochs);
 
     return Time (juceTimeInMillis);
 }

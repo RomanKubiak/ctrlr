@@ -183,6 +183,12 @@ public:
     */
     bool removeNode (uint32 nodeId);
 
+    /** Deletes a node within the graph which has the specified ID.
+
+        This will also delete any connections that are attached to this node.
+     */
+    bool removeNode (Node* node);
+
     //==============================================================================
     /** Returns the number of connections in the graph. */
     int getNumConnections() const                                       { return connections.size(); }
@@ -311,11 +317,6 @@ public:
         void processBlock (AudioBuffer<double>&, MidiBuffer&) override;
         bool supportsDoublePrecisionProcessing() const override;
 
-        const String getInputChannelName (int channelIndex) const override;
-        const String getOutputChannelName (int channelIndex) const override;
-        bool isInputChannelStereoPair (int index) const override;
-        bool isOutputChannelStereoPair (int index) const override;
-        bool silenceInProducesSilenceOut() const override;
         double getTailLengthSeconds() const override;
         bool acceptsMidi() const override;
         bool producesMidi() const override;
@@ -358,12 +359,6 @@ public:
     void setNonRealtime (bool) noexcept override;
     void setPlayHead (AudioPlayHead*) override;
 
-    const String getInputChannelName (int) const override;
-    const String getOutputChannelName (int) const override;
-    bool isInputChannelStereoPair (int) const override;
-    bool isOutputChannelStereoPair (int) const override;
-
-    bool silenceInProducesSilenceOut() const override;
     double getTailLengthSeconds() const override;
     bool acceptsMidi() const override;
     bool producesMidi() const override;

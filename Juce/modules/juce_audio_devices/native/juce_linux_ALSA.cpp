@@ -47,9 +47,6 @@ namespace
 
 #define JUCE_ALSA_FAILED(x)  failed (x)
 
-#include <sys/time.h>
-#include <sys/resource.h>
-
 static void getDeviceSampleRates (snd_pcm_t* handle, Array<double>& rates)
 {
     const int ratesToTry[] = { 22050, 32000, 44100, 48000, 88200, 96000, 176400, 192000, 0 };
@@ -996,7 +993,7 @@ public:
     {
         jassert (hasScanned); // need to call scanForDevices() before doing this
 
-        if (ALSAAudioIODevice* d = dynamic_cast <ALSAAudioIODevice*> (device))
+        if (ALSAAudioIODevice* d = dynamic_cast<ALSAAudioIODevice*> (device))
             return asInput ? inputIds.indexOf (d->inputId)
                            : outputIds.indexOf (d->outputId);
 

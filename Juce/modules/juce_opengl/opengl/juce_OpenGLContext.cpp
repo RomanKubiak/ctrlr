@@ -150,7 +150,10 @@ public:
         return false;
     }
 
-    void releaseResources() override {}
+    void releaseResources() override
+    {
+        stop();
+    }
 
     void triggerRepaint()
     {
@@ -237,6 +240,10 @@ public:
             if (isUpdating)
             {
                 paintComponent();
+
+                if (! hasInitialised)
+                    return false;
+
                 mmLock = nullptr;
                 lastMMLockReleaseTime = Time::getMillisecondCounter();
             }
@@ -279,7 +286,7 @@ public:
     {
        #if JUCE_OPENGL3
         if (vertexArrayObject != 0)
-            glBindVertexArray (vertexArrayObject);
+            context.extensions.glBindVertexArray (vertexArrayObject);
        #endif
     }
 
@@ -454,21 +461,24 @@ public:
         context.makeActive();
        #endif
 
+        context.extensions.initialise();
+
        #if JUCE_OPENGL3
         if (OpenGLShaderProgram::getLanguageVersion() > 1.2)
         {
-            glGenVertexArrays (1, &vertexArrayObject);
+            context.extensions.glGenVertexArrays (1, &vertexArrayObject);
             bindVertexArray();
         }
        #endif
 
         glViewport (0, 0, component.getWidth(), component.getHeight());
 
-        context.extensions.initialise();
         nativeContext->setSwapInterval (1);
 
        #if ! JUCE_OPENGL_ES
+        JUCE_CHECK_OPENGL_ERROR
         shadersAvailable = OpenGLShaderProgram::getLanguageVersion() > 0;
+        clearGLError();
        #endif
 
         if (context.renderer != nullptr)
@@ -482,7 +492,7 @@ public:
 
        #if JUCE_OPENGL3
         if (vertexArrayObject != 0)
-            glDeleteVertexArrays (1, &vertexArrayObject);
+            context.extensions.glDeleteVertexArrays (1, &vertexArrayObject);
        #endif
 
         associatedObjectNames.clear();
@@ -543,6 +553,23 @@ public:
     ~Attachment()
     {
         detach();
+    }
+
+    void detach()
+    {
+        stopTimer();
+
+        Component& comp = *getComponent();
+
+       #if JUCE_MAC
+        [[(NSView*) comp.getWindowHandle() window] disableScreenUpdatesUntilFlush];
+       #endif
+
+        if (CachedImage* const oldCachedImage = CachedImage::get (comp))
+            oldCachedImage->stop(); // (must stop this before detaching it from the component)
+
+        comp.setCachedComponentImage (nullptr);
+        context.nativeContext = nullptr;
     }
 
     void componentMovedOrResized (bool /*wasMoved*/, bool /*wasResized*/) override
@@ -635,23 +662,6 @@ private:
         startTimer (400);
     }
 
-    void detach()
-    {
-        stopTimer();
-
-        Component& comp = *getComponent();
-
-       #if JUCE_MAC
-        [[(NSView*) comp.getWindowHandle() window] disableScreenUpdatesUntilFlush];
-       #endif
-
-        if (CachedImage* const oldCachedImage = CachedImage::get (comp))
-            oldCachedImage->stop(); // (must stop this before detaching it from the component)
-
-        comp.setCachedComponentImage (nullptr);
-        context.nativeContext = nullptr;
-    }
-
     void timerCallback() override
     {
         if (CachedImage* const cachedImage = CachedImage::get (*getComponent()))
@@ -661,10 +671,13 @@ private:
 
 //==============================================================================
 OpenGLContext::OpenGLContext()
-    : nativeContext (nullptr), renderer (nullptr), currentRenderScale (1.0),
-      contextToShareWith (nullptr), versionRequired (OpenGLContext::defaultGLVersion),
+    : nativeContext (nullptr), renderer (nullptr),
+      currentRenderScale (1.0), contextToShareWith (nullptr),
+      versionRequired (OpenGLContext::defaultGLVersion),
       imageCacheMaxSize (8 * 1024 * 1024),
-      renderComponents (true), useMultisampling (false), continuousRepaint (false)
+      renderComponents (true),
+      useMultisampling (false),
+      continuousRepaint (false)
 {
 }
 
@@ -742,7 +755,12 @@ void OpenGLContext::attachTo (Component& component)
 
 void OpenGLContext::detach()
 {
-    attachment = nullptr;
+    if (Attachment* a = attachment)
+    {
+        a->detach(); // must detach before nulling our pointer
+        attachment = nullptr;
+    }
+
     nativeContext = nullptr;
 }
 
@@ -891,6 +909,27 @@ void OpenGLContext::setAssociatedObject (const char* name, ReferenceCountedObjec
 void OpenGLContext::setImageCacheSize (size_t newSize) noexcept     { imageCacheMaxSize = newSize; }
 size_t OpenGLContext::getImageCacheSize() const noexcept            { return imageCacheMaxSize; }
 
+//==============================================================================
+struct DepthTestDisabler
+{
+    DepthTestDisabler() noexcept
+    {
+        glGetBooleanv (GL_DEPTH_TEST, &wasEnabled);
+
+        if (wasEnabled)
+            glDisable (GL_DEPTH_TEST);
+    }
+
+    ~DepthTestDisabler() noexcept
+    {
+        if (wasEnabled)
+            glEnable (GL_DEPTH_TEST);
+    }
+
+    GLboolean wasEnabled;
+};
+
+//==============================================================================
 void OpenGLContext::copyTexture (const Rectangle<int>& targetClipArea,
                                  const Rectangle<int>& anchorPosAndTextureSize,
                                  const int contextWidth, const int contextHeight,
@@ -903,6 +942,8 @@ void OpenGLContext::copyTexture (const Rectangle<int>& targetClipArea,
     glBlendFunc (GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     glEnable (GL_BLEND);
 
+    DepthTestDisabler depthDisabler;
+
     if (areShadersAvailable())
     {
         struct OverlayShaderProgram  : public ReferenceCountedObject
@@ -914,7 +955,7 @@ void OpenGLContext::copyTexture (const Rectangle<int>& targetClipArea,
             static const OverlayShaderProgram& select (OpenGLContext& context)
             {
                 static const char programValueID[] = "juceGLComponentOverlayShader";
-                OverlayShaderProgram* program = static_cast <OverlayShaderProgram*> (context.getAssociatedObject (programValueID));
+                OverlayShaderProgram* program = static_cast<OverlayShaderProgram*> (context.getAssociatedObject (programValueID));
 
                 if (program == nullptr)
                 {
@@ -1040,13 +1081,11 @@ void OpenGLContext::NativeContext::surfaceCreated (jobject holder)
 void OpenGLContext::NativeContext::surfaceDestroyed (jobject holder)
 {
     ignoreUnused (holder);
-    // unlike the name suggets this will be called just before the
-    // surface is destroyed. We need to pause the render thread.
 
+    // unlike the name suggests this will be called just before the
+    // surface is destroyed. We need to pause the render thread.
     if (juceContext != nullptr)
-    {
         if (OpenGLContext::CachedImage* cachedImage = juceContext->getCachedImage())
             cachedImage->pause();
-    }
 }
 #endif

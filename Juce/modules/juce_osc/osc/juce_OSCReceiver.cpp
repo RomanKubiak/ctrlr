@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -24,7 +24,7 @@
 
 namespace
 {
-    //==========================================================================
+    //==============================================================================
     /** Allows a block of data to be accessed as a stream of OSC data.
 
         The memory is shared and will be neither copied nor owned by the OSCInputStream.
@@ -47,7 +47,7 @@ namespace
             : input (sourceData, sourceDataSize, false)
         {}
 
-        //======================================================================
+        //==============================================================================
         /** Returns a pointer to the source data block from which this stream is reading. */
         const void* getData() const noexcept        { return input.getData(); }
 
@@ -55,7 +55,7 @@ namespace
         size_t getDataSize() const noexcept         { return input.getDataSize(); }
 
         /** Returns the current position of the stream. */
-        int64 getPosition()                         { return input.getPosition(); }
+        uint64 getPosition()                         { return uint64 (input.getPosition()); }
 
         /** Attempts to set the current position of the stream. Returns true if this was successful. */
         bool setPosition (int64 pos)                { return input.setPosition (pos); }
@@ -66,7 +66,7 @@ namespace
         /** Returns true if the stream has no more data to read. */
         bool isExhausted()                          { return input.isExhausted(); }
 
-        //======================================================================
+        //==============================================================================
         int32 readInt32()
         {
             if (input.getNumBytesRemaining() < 4)
@@ -80,7 +80,7 @@ namespace
             if (input.getNumBytesRemaining() < 8)
                 throw OSCFormatError ("OSC input stream exhausted while reading uint64");
 
-            return input.readInt64BigEndian();
+            return (uint64) input.readInt64BigEndian();
         }
 
         float readFloat32()
@@ -114,14 +114,14 @@ namespace
             if (input.getNumBytesRemaining() < 4)
                 throw OSCFormatError ("OSC input stream exhausted while reading blob");
 
-            const size_t blobDataSize = static_cast<size_t> (input.readIntBigEndian());
+            const size_t blobDataSize = (size_t) input.readIntBigEndian();
 
-            if (input.getNumBytesRemaining() < (blobDataSize + 3) % 4)
+            if ((size_t) input.getNumBytesRemaining() < (blobDataSize + 3) % 4)
                 throw OSCFormatError ("OSC input stream exhausted before reaching end of blob");
 
             MemoryBlock blob;
 
-            const size_t bytesRead = input.readIntoMemoryBlock (blob, blobDataSize);
+            const size_t bytesRead = input.readIntoMemoryBlock (blob, (ssize_t) blobDataSize);
             readPaddingZeros (bytesRead);
 
             return blob;
@@ -132,7 +132,7 @@ namespace
             if (input.getNumBytesRemaining() < 8)
                 throw OSCFormatError ("OSC input stream exhausted while reading time tag");
 
-            return OSCTimeTag (input.readInt64BigEndian());
+            return OSCTimeTag (uint64 (input.readInt64BigEndian()));
         }
 
         OSCAddress readAddress()
@@ -145,7 +145,7 @@ namespace
             return OSCAddressPattern (readString());
         }
 
-        //======================================================================
+        //==============================================================================
         OSCTypeList readTypeTagString()
         {
             OSCTypeList typeList;
@@ -172,13 +172,13 @@ namespace
                 typeList.add (type);
             }
 
-            size_t bytesRead = typeList.size() + 2;
+            size_t bytesRead = (size_t) typeList.size() + 2;
             readPaddingZeros (bytesRead);
 
             return typeList;
         }
 
-        //==========================================================================
+        //==============================================================================
         OSCArgument readArgument (OSCType type)
         {
             switch (type)
@@ -195,7 +195,7 @@ namespace
             }
         }
 
-        //======================================================================
+        //==============================================================================
         OSCMessage readMessage()
         {
             OSCAddressPattern ap = readAddressPattern();
@@ -209,7 +209,7 @@ namespace
             return msg;
         }
 
-        //======================================================================
+        //==============================================================================
         OSCBundle readBundle()
         {
             if (input.getNumBytesRemaining() < 16)
@@ -226,13 +226,13 @@ namespace
             return bundle;
         }
 
-        //======================================================================
+        //==============================================================================
         OSCBundle::Element readElement()
         {
             if (input.getNumBytesRemaining() < 4)
                 throw OSCFormatError("OSC input stream exhausted while reading bundle element size");
 
-            const int elementSize = readInt32();
+            const size_t elementSize = (size_t) readInt32();
 
             if (elementSize < 4)
                 throw OSCFormatError("OSC input stream format error: invalid bundle element size");
@@ -240,10 +240,10 @@ namespace
             return readElementWithKnownSize (elementSize);
         }
 
-        //======================================================================
+        //==============================================================================
         OSCBundle::Element readElementWithKnownSize (size_t elementSize)
         {
-            if (input.getNumBytesRemaining() < elementSize)
+            if ((uint64) input.getNumBytesRemaining() < elementSize)
                 throw OSCFormatError ("OSC input stream exhausted while reading bundle element content");
 
             const char firstContentChar = static_cast<const char*> (getData()) [getPosition()];
@@ -257,7 +257,7 @@ namespace
     private:
         MemoryInputStream input;
 
-        //======================================================================
+        //==============================================================================
         void readPaddingZeros (size_t bytesRead)
         {
             size_t numZeros = ~(bytesRead - 1) & 0x03;
@@ -312,7 +312,7 @@ struct OSCReceiver::Pimpl   : private Thread,
         disconnect();
     }
 
-    //==========================================================================
+    //==============================================================================
     bool connectToPort (int portNum)
     {
         if (! disconnect())
@@ -340,7 +340,7 @@ struct OSCReceiver::Pimpl   : private Thread,
         return true;
     }
 
-    //==========================================================================
+    //==============================================================================
     void addListener (Listener<MessageLoopCallback>* listenerToAdd)
     {
         listeners.add (listenerToAdd);
@@ -383,7 +383,7 @@ struct OSCReceiver::Pimpl   : private Thread,
         removeListenerWithAddress (listenerToRemove, realtimeListenersWithAddress);
     }
 
-    //==========================================================================
+    //==============================================================================
     struct CallbackMessage   : public Message
     {
         CallbackMessage (OSCBundle::Element oscElement)  : content (oscElement) {}
@@ -392,8 +392,8 @@ struct OSCReceiver::Pimpl   : private Thread,
         OSCBundle::Element content;
     };
 
-    //==========================================================================
-    void handleBuffer (const char* data, int dataSize)
+    //==============================================================================
+    void handleBuffer (const char* data, size_t dataSize)
     {
         OSCInputStream inStream (data, dataSize);
 
@@ -416,33 +416,37 @@ struct OSCReceiver::Pimpl   : private Thread,
         catch (OSCFormatError)
         {
             if (formatErrorHandler != nullptr)
-                formatErrorHandler (data, dataSize);
+                formatErrorHandler (data, (int) dataSize);
         }
     }
 
-    //==========================================================================
+    //==============================================================================
     void registerFormatErrorHandler (OSCReceiver::FormatErrorHandler handler)
     {
         formatErrorHandler = handler;
     }
 
 private:
-    //==========================================================================
+    //==============================================================================
     void run() override
     {
         while (! threadShouldExit())
         {
             jassert (socket != nullptr);
             char buffer[oscBufferSize];
+            socket->waitUntilReady (true, -1);
 
-            const int bytesRead = socket->read (buffer, (int) sizeof (buffer), false);
+            if (threadShouldExit())
+                return;
+
+            const size_t bytesRead = (size_t) socket->read (buffer, (int) sizeof (buffer), false);
 
             if (bytesRead >= 4)
                 handleBuffer (buffer, bytesRead);
         }
     }
 
-    //==========================================================================
+    //==============================================================================
     template <typename ListenerType>
     void addListenerWithAddress (ListenerType* listenerToAdd,
                                  OSCAddress address,
@@ -455,7 +459,7 @@ private:
         array.add (std::make_pair (address, listenerToAdd));
     }
 
-    //==========================================================================
+    //==============================================================================
     template <typename ListenerType>
     void removeListenerWithAddress (ListenerType* listenerToRemove,
                                     Array<std::pair<OSCAddress, ListenerType*> >& array)
@@ -474,7 +478,7 @@ private:
         }
     }
 
-    //==========================================================================
+    //==============================================================================
     void handleMessage (const Message& msg) override
     {
         if (const CallbackMessage* callbackMessage = dynamic_cast<const CallbackMessage*> (&msg))
@@ -488,7 +492,7 @@ private:
         }
     }
 
-    //==========================================================================
+    //==============================================================================
     void callListeners (const OSCBundle::Element& content)
     {
         typedef OSCReceiver::Listener<OSCReceiver::MessageLoopCallback> Listener;
@@ -509,7 +513,7 @@ private:
             realtimeListeners.call (&Listener::oscBundleReceived, content.getBundle());
     }
 
-    //==========================================================================
+    //==============================================================================
     void callListenersWithAddress (const OSCMessage& message)
     {
         typedef OSCReceiver::ListenerWithOSCAddress<OSCReceiver::MessageLoopCallback> Listener;
@@ -538,7 +542,7 @@ private:
         }
     }
 
-    //==========================================================================
+    //==============================================================================
     ListenerList<OSCReceiver::Listener<OSCReceiver::MessageLoopCallback> > listeners;
     ListenerList<OSCReceiver::Listener<OSCReceiver::RealtimeCallback> >    realtimeListeners;
 

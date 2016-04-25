@@ -48,7 +48,7 @@ public:
     //==============================================================================
     /** Creates an (invalid) file object.
 
-        The file is initially set to an empty path, so getFullPath() will return
+        The file is initially set to an empty path, so getFullPathName() will return
         an empty string, and comparing the file to File::nonexistent will return
         true.
 
@@ -430,7 +430,8 @@ public:
 
         If it already exists or is a directory, this method will do nothing.
 
-        @returns    true if the file has been created (or if it already existed).
+        @returns    a result to indicate whether the file was created successfully,
+                    or an error message if it failed.
         @see createDirectory
     */
     Result create() const;

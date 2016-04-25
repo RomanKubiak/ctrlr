@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.3.0"
-              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="4.1.0"
+              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="4.2.1"
               defines="" companyName="Instigator" includeBinaryInAppConfig="1"
               companyWebsite="http://ctrlr.org" companyEmail="ctrlr@ctrlr.org">
   <EXPORTFORMATS>
@@ -84,7 +84,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
         <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
@@ -118,7 +118,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="..\..\Juce\modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Juce/modules"/>
         <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
         <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
       </MODULEPATHS>
@@ -153,6 +153,39 @@
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
+    <VS2013 targetFolder="../Generated/Windows/Standalone_2013" extraDefs="_CRT_SECURE_NO_WARNINGS"
+            extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm2000 /bigobj"
+            externalLibraries="iphlpapi.lib" smallIcon="Pl8W9J" bigIcon="Mln0s5">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="2" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(Platform)$(NATIVE_ARCH)"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
+                       defines="CTRLR_NIGHTLY=1 &#10;JucePlugin_Build_Standalone" prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2010\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\Standalone\Ctrlr_Standalone.jucer"
+                       wholeProgramOptimisation="1" binaryPath="../../Bin/Standalone/$(Platform)$(NATIVE_ARCH)"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="Ctrlr_Standalone"/>
+        <CONFIGURATION name="Release_Nightly" winWarningLevel="2" generateManifest="1"
+                       winArchitecture="32-bit" isDebug="0" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
+                       optimisation="2" wholeProgramOptimisation="1" postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2013>
   </EXPORTFORMATS>
   <MAINGROUP id="iS6GM" name="Ctrlr_Standalone">
     <GROUP id="{8FA42ED6-D3C7-CB61-BFCF-1A2A49E3AA3B}" name="Resources">
@@ -1305,4 +1338,7 @@
                DROWAUDIO_USE_FFTREAL="disabled" DROWAUDIO_USE_SOUNDTOUCH="disabled"
                DROWAUDIO_USE_CURL="disabled" JUCE_USE_LAME_AUDIO_FORMAT="disabled"
                JUCE_ENABLE_LIVE_CONSTANT_EDITOR="disabled"/>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+  </LIVE_SETTINGS>
 </JUCERPROJECT>

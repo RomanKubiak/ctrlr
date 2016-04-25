@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -63,7 +63,7 @@ public:
     class Element
     {
     public:
-        //==========================================================================
+        //==============================================================================
         /** Constructs an OSCBundle Element from an OSCMessage. */
         Element (OSCMessage message);
 
@@ -93,7 +93,7 @@ public:
         const OSCBundle& getBundle() const;
 
     private:
-        //==========================================================================
+        //==============================================================================
         ScopedPointer<OSCMessage> message;
         ScopedPointer<OSCBundle> bundle;
     };
@@ -103,10 +103,10 @@ public:
     int size() const noexcept                                    { return elements.size(); }
 
     /** Returns true if the bundle contains no elements; false otherwise. */
-    bool empty() const noexcept                                  { return elements.empty(); }
+    bool isEmpty() const noexcept                                { return elements.isEmpty(); }
 
     /** Returns a reference to the OSCBundle element at index i in this bundle.
-        This method does not check the range and results in undefined behavour
+        This method does not check the range and results in undefined behaviour
         in case i < 0 or i >= size().
     */
     OSCBundle::Element& operator[] (const int i) const noexcept

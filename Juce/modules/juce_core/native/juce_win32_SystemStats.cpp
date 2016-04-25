@@ -38,10 +38,6 @@ void Logger::outputDebugString (const String& text)
 #endif
 
 //==============================================================================
-#if JUCE_USE_MSVC_INTRINSICS
-
-// CPU info functions using intrinsics...
-
 #pragma intrinsic (__cpuid)
 #pragma intrinsic (__rdtsc)
 
@@ -49,37 +45,6 @@ static void callCPUID (int result[4], int infoType)
 {
     __cpuid (result, infoType);
 }
-
-#else
-
-static void callCPUID (int result[4], int infoType)
-{
-   #if ! JUCE_MINGW
-    __try
-   #endif
-    {
-       #if JUCE_GCC
-        __asm__ __volatile__ ("cpuid" : "=a" (result[0]), "=b" (result[1]), "=c" (result[2]),"=d" (result[3]) : "a" (infoType));
-       #else
-        __asm
-        {
-            mov    esi, result
-            mov    eax, infoType
-            xor    ecx, ecx
-            cpuid
-            mov    dword ptr [esi +  0], eax
-            mov    dword ptr [esi +  4], ebx
-            mov    dword ptr [esi +  8], ecx
-            mov    dword ptr [esi + 12], edx
-        }
-       #endif
-    }
-   #if ! JUCE_MINGW
-    __except (EXCEPTION_EXECUTE_HANDLER) {}
-   #endif
-}
-
-#endif
 
 String SystemStats::getCpuVendor()
 {
@@ -107,7 +72,13 @@ void CPUInformation::initialise() noexcept
     hasSSE3  = (info[2] & (1 <<  0)) != 0;
     hasAVX   = (info[2] & (1 << 28)) != 0;
     hasSSSE3 = (info[2] & (1 <<  9)) != 0;
+    hasSSE41 = (info[2] & (1 << 19)) != 0;
+    hasSSE42 = (info[2] & (1 << 20)) != 0;
     has3DNow = (info[1] & (1 << 31)) != 0;
+
+    callCPUID (info, 7);
+
+    hasAVX2 = (info[1] & (1 << 5)) != 0;
 
     SYSTEM_INFO systemInfo;
     GetNativeSystemInfo (&systemInfo);
@@ -275,7 +246,7 @@ public:
 
        #if JUCE_WIN32_TIMER_PERIOD > 0
         const MMRESULT res = timeBeginPeriod (JUCE_WIN32_TIMER_PERIOD);
-        (void) res;
+        ignoreUnused (res);
         jassert (res == TIMERR_NOERROR);
        #endif
 
@@ -321,11 +292,11 @@ double Time::getMillisecondCounterHiRes() noexcept       { return hiResCounterHa
 //==============================================================================
 static int64 juce_getClockCycleCounter() noexcept
 {
-   #if JUCE_USE_MSVC_INTRINSICS
+   #if JUCE_MSVC
     // MS intrinsics version...
     return (int64) __rdtsc();
 
-   #elif JUCE_GCC
+   #elif JUCE_GCC || JUCE_CLANG
     // GNU inline asm version...
     unsigned int hi = 0, lo = 0;
 
@@ -342,19 +313,7 @@ static int64 juce_getClockCycleCounter() noexcept
 
     return (int64) ((((uint64) hi) << 32) | lo);
    #else
-    // MSVC inline asm version...
-    unsigned int hi = 0, lo = 0;
-
-    __asm
-    {
-        xor eax, eax
-        xor edx, edx
-        rdtsc
-        mov lo, eax
-        mov hi, edx
-    }
-
-    return (int64) ((((uint64) hi) << 32) | lo);
+    #error "unknown compiler?"
    #endif
 }
 

@@ -48,7 +48,9 @@ void LAttributedString::wrapForLua (lua_State *L)
 	module(L)
     [
 		class_<AttributedString>("AttributedString")
+			.def(constructor<>())
 			.def(constructor<const String &>())
+			.def(constructor<const AttributedString &>())
 			.def("getText", &AttributedString::getText)
 			.def("setText", &AttributedString::setText)
 			.def("append", (void (AttributedString::*) (const String &)) &AttributedString::append)
@@ -86,10 +88,11 @@ void LAttributedString::wrapForLua (lua_State *L)
 			.scope
 			[
 				class_<AttributedString::Attribute>("Attribute")
-				.def(constructor<const Range<int> &, const Colour &>())
-				.def(constructor<const Range<int> &, const Font &>())
-				.def("getFont", &AttributedString::Attribute::getFont)
-				.def("getColour", &AttributedString::Attribute::getColour)
+				.def(constructor<const AttributedString::Attribute &>())
+				.def(constructor<const Range <int> &, const Font &, Colour>())
+				.def_readwrite("font", &AttributedString::Attribute::font)
+				.def_readwrite("colour", &AttributedString::Attribute::colour)
+				.def_readwrite("range", &AttributedString::Attribute::range)
 			]
 	];
 }
@@ -402,7 +405,8 @@ void LGraphics::wrapForLua (lua_State *L)
 			.def("drawVerticalLine", (void (Graphics::*)(int, float, float) const)&Graphics::drawVerticalLine)
 			.def("drawHorizontalLine", (void (Graphics::*)(int, float, float) const)&Graphics::drawHorizontalLine)
 
-			.def("fillPath", &Graphics::fillPath)
+			.def("fillPath", (void (Graphics::*)(const Path &, const AffineTransform &) const)&Graphics::fillPath)
+			.def("fillPath", (void (Graphics::*)(const Path &) const)&Graphics::fillPath)
 			.def("strokePath", (void (Graphics::*)(const Path &, const PathStrokeType &, const AffineTransform &) const)&Graphics::strokePath)
 
 			.def("drawArrow", &Graphics::drawArrow)
