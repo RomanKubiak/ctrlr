@@ -17,8 +17,6 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 	setUsingNativeTitleBar (true);
 	setResizable(true, false);
 
-    JUCE_TRY
-    {
         filter = createPluginFilter();
 
         if (filter != 0)
@@ -79,7 +77,6 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 
 		restoreState = false;
 		setVisible (true);
-    }
 }
 
 CtrlrStandaloneWindow::~CtrlrStandaloneWindow()

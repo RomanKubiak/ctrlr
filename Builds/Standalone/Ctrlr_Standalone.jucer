@@ -153,17 +153,22 @@
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
-    <VS2015 targetFolder="../Generated/Windows/Standalone_2015" extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Fp&quot;stdafx.pch&quot; /Zm2000 /bigobj"
+    <VS2015 targetFolder="../Generated/Windows/Standalone_2015" extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Zm2000 /bigobj"
             externalLibraries="iphlpapi.lib" smallIcon="Pl8W9J" bigIcon="Mln0s5">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="3" generateManifest="1" winArchitecture="32-bit"
                        isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(Platform)$(NATIVE_ARCH)"
-                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo&#10;./"
                        binaryPath="../../Bin/Standalone/$(Platform)$(NATIVE_ARCH)" defines="CTRLR_NIGHTLY=1 &#10;JucePlugin_Build_Standalone"
-                       prebuildCommand="C:\devel\JUCE\extras\Projucer\Builds\VisualStudio2015\x64\Release --resave-resources ..\..\..\..\Builds\Standalone\Ctrlr_Standalone.jucer"
+                       prebuildCommand="C:\devel\JUCE\extras\Projucer\Builds\VisualStudio2015\x64\Release\Projucer.exe --resave-resources ..\..\..\..\Builds\Standalone\Ctrlr_Standalone.jucer"
                        wholeProgramOptimisation="1"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="Ctrlr_Standalone"/>
+                       isDebug="0" optimisation="3" targetName="Ctrlr-$(Platform)$(NATIVE_ARCH)"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo&#10;./"/>
+        <CONFIGURATION name="Release_Nightly" winWarningLevel="2" generateManifest="1"
+                       winArchitecture="32-bit" targetName="Ctrlr_Standalone" headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo&#10;./"
+                       defines="JUCE_FORCE_DEBUG=0&#10;CTRLR_NIGHTLY=1&#10;JucePlugin_Build_Standalone"
+                       optimisation="3" wholeProgramOptimisation="1" postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>

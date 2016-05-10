@@ -18,7 +18,13 @@
 // [BEGIN_USER_CODE_SECTION]
 
 // (You can add your own code in this section, and the Projucer will not overwrite it)
-
+#define JUCE_ENABLE_REPAINT_DEBUGGING 	0
+#define JUCE_CATCH_UNHANDLED_EXCEPTIONS 1
+#define VST_INDEX_MANUFACTURER			1025
+#define VST_INDEX_VERSION_CODE			1026
+#define VST_INDEX_VERSION_STRING		1027
+#define VST_INDEX_UNIQUEID				1028
+#define VST_INDEX_NAME					1029
 // [END_USER_CODE_SECTION]
 
 //==============================================================================
