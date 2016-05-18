@@ -33,7 +33,6 @@ class CtrlrFontPropertyComponent  : public Component,
 
 	private:
 		Value valueToControl;
-		Font font;
 		StringArray choices;
 		CtrlrPanel *owner;
 		ComboBox* typeface;

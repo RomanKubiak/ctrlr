@@ -8,11 +8,11 @@
               pluginSilenceInIsSilenceOut="1" pluginTailLength="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="CtrlrAU" pluginAUViewClass="CtrlrAU_V1"
               pluginRTASCategory="" bundleIdentifier="com.instigator.Ctrlr"
-              jucerVersion="4.1.0" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
+              jucerVersion="4.2.1" defines="_CRT_SECURE_NO_WARNINGS" companyName="Instigator"
               aaxIdentifier="com.instigator.Ctrlr_Plugin_VST" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               includeBinaryInAppConfig="1" buildVST3="0" buildAAX="0" pluginManufacturerWebsite="www.yourcompany.com"
               pluginManufacturerEmail="support@yourcompany.com" companyWebsite="http://ctrlr.org"
-              companyEmail="ctrlr@ctrlr.org" pluginIsMidiEffectPlugin="0">
+              companyEmail="ctrlr@ctrlr.org" pluginIsMidiEffectPlugin="0" buildAUv3="0">
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="../Generated/Mac/VST" vstFolder="../../VST" rtasFolder="~/SDKs/PT_80_SDK"
                objCExtraSuffix="CTRLRUNIQVST" extraCompilerFlags="-Wno-missing-field-initializers -Wno-strict-aliasing -Wno-non-virtual-dtor -Wno-unused-variable -Wno-reorder"
@@ -65,7 +65,7 @@
                        headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo"
                        binaryPath="../../Bin/VST/$(Platform)$(NATIVE_ARCH)" defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST"
                        winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       postbuildCommand="" wholeProgramOptimisation="1" prebuildCommand="C:\devel\JUCE\extras\Introjucer\Builds\VisualStudio2010\Release\Introjucer.exe --resave-resources ..\..\..\..\Builds\VST\Ctrlr_Plugin_VST.jucer"
+                       postbuildCommand="" wholeProgramOptimisation="1" prebuildCommand=""
                        userNotes=""/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="Ctrlr-VST-$(Platform)$(NATIVE_ARCH)"
                        defines="CTRLR_NIGHTLY=0 JucePlugin_Build_VST" binaryPath=""
@@ -164,6 +164,40 @@
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
+    <VS2015 targetFolder="../Generated/Windows/VST_2015" vstFolder="../../VST"
+            extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Zm2000 /bigobj"
+            externalLibraries="iphlpapi.lib">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Ctrlr-VST-Debug-$(Platform)$(NATIVE_ARCH)"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo&#10;./"
+                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST" wholeProgramOptimisation="1"
+                       binaryPath="../../Bin/VST/$(Platform)$(NATIVE_ARCH)" prebuildCommand="C:\devel\JUCE\extras\Projucer\Builds\VisualStudio2015\x64\Release\Projucer.exe --resave-resources ..\..\..\..\Builds\Standalone\Ctrlr_Standalone.jucer"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="Ctrlr_Plugin_VST"/>
+        <CONFIGURATION name="Release_Nightly" winWarningLevel="2" generateManifest="1"
+                       winArchitecture="32-bit" isDebug="0" optimisation="3" targetName="Ctrlr-VST-$(Platform)$(NATIVE_ARCH)"
+                       headerPath="../../../../Boost&#10;../../../../Source/Lua&#10;../../../../Source/Lua/luabind&#10;../../../../Source/Lua/luabind/luabind&#10;../../../../Source/Misc&#10;../../../../Source/Misc/include&#10;../../../../Source/MIDI&#10;../../../../Source&#10;../../../../Source/UIComponents&#10;../../../../Source/Core&#10;../../../../Source/Plugin&#10;../../../../Source/Application&#10;../../../../Source/Misc/libusb&#10;../../../../Source/Misc/include/lo&#10;./"
+                       defines="CTRLR_NIGHTLY=1&#10;JucePlugin_Build_VST" postbuildCommand="copy /Y $(TargetPath) ..\..\..\..\Bin"
+                       wholeProgramOptimisation="1"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_opengl" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_core" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Juce/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
+      </MODULEPATHS>
+    </VS2015>
   </EXPORTFORMATS>
   <MAINGROUP id="wm289X" name="Ctrlr_Plugin_VST">
     <GROUP id="{99978006-965B-2B18-342A-84582811419C}" name="Core">

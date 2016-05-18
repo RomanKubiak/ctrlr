@@ -513,7 +513,7 @@ void CtrlrPanelComponentProperties::changeListenerCallback (ChangeBroadcaster* s
 
 			copyProperties (modTree, msTree);
 
-			for (int i=0; i<modTree.getNumChildren(); i++)
+			for (i=0; i<modTree.getNumChildren(); i++)
 			{
 				if (!msTree.getChildWithName(modTree.getChild(i).getType()).isValid())
 					msTree.addChild (modTree.getChild(i).createCopy(), i, 0);
