@@ -382,7 +382,6 @@ const ValueTree CtrlrPanel::openBinPanel(const MemoryBlock &panelData, const boo
 
 const ValueTree CtrlrPanel::openXmlPanel(const File &panelFile)
 {
-	ScopedPointer <XmlElement> xml;
 	String xmlData;
 
 	if (panelFile.hasFileExtension("panelz"))

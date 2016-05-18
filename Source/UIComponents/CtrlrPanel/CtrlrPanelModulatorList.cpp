@@ -384,8 +384,6 @@ void CtrlrPanelModulatorList::exportListItem(const int format)
 
 	if (format == 11)
 	{
-		String result,head;
-
 		for (int modulator=0; modulator<copyOfModulatorList.size(); modulator++)
 		{
 			for (int index=0; index<header.getNumColumns(false); index++)

@@ -130,7 +130,7 @@ void CtrlrFontPropertyComponent::sliderValueChanged (Slider* sliderThatWasMoved)
 
 void CtrlrFontPropertyComponent::refresh()
 {
-	font = owner->getCtrlrManagerOwner().getFontManager().getFontFromString(valueToControl.toString());
+	Font font = owner->getCtrlrManagerOwner().getFontManager().getFontFromString(valueToControl.toString());
 	typeface->setText (font.getTypefaceName(), sendNotification);
 	fontSize->setValue (font.getHeight(), dontSendNotification);
 	fontBold->setToggleState (font.isBold(), sendNotification);

@@ -22,7 +22,7 @@ void CtrlrButtonPropertyComponent::refresh()
 {
 }
 
-void CtrlrButtonPropertyComponent::buttonClicked (Button *button)
+void CtrlrButtonPropertyComponent::buttonClicked (Button *_button)
 {
 	valueToControl = true;
 }

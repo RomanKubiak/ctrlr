@@ -198,7 +198,7 @@ void CtrlrModulatorTreeViewItem::mouseDoubleClick (const MouseEvent &e)
 	listeners.call (&CtrlrTreeViewItemListener::itemDoubleClicked, e, itemToAttach);
 }
 
-CtrlrModulatorTreeLabel *CtrlrModulatorTreeViewItem::createItemLabel(const ValueTree &itemToAttach)
+CtrlrModulatorTreeLabel *CtrlrModulatorTreeViewItem::createItemLabel(const ValueTree &_itemToAttach)
 {
 	return (itemLabel);
 }
