@@ -39,8 +39,8 @@
           <Add option="-DUSE_ANSI_C=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_C6428F40=1"/>
-          <Add option="-DJUCE_APP_VERSION=5.3.0"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=0x50300"/>
+          <Add option="-DJUCE_APP_VERSION=5.4.0"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=0x50400"/>
           <Add directory="."/>
           <Add directory="..\..\..\Standalone\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
@@ -101,8 +101,8 @@
           <Add option="-DUSE_ANSI_C=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_C6428F40=1"/>
-          <Add option="-DJUCE_APP_VERSION=5.3.0"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=0x50300"/>
+          <Add option="-DJUCE_APP_VERSION=5.4.0"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=0x50400"/>
           <Add directory="."/>
           <Add directory="..\..\..\Standalone\JuceLibraryCode"/>
           <Add directory="/usr/include/freetype2"/>
@@ -153,8 +153,8 @@
           <Add option="-DUSE_ANSI_C=1"/>
           <Add option="-D_LINUX=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_C6428F40=1"/>
-          <Add option="-DJUCE_APP_VERSION=5.3.0"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=0x50300"/>
+          <Add option="-DJUCE_APP_VERSION=5.4.0"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=0x50400"/>
           <Add directory="."/>
           <Add directory="..\..\..\Standalone\JuceLibraryCode"/>
           <Add directory="../../../../Boost"/>
