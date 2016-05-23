@@ -57,10 +57,11 @@ CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 		luaState(nullptr)
 {
 	methodManager			= new CtrlrLuaMethodManager(*this);
-
-	if ((bool)owner.getCtrlrManagerOwner().getProperty (Ids::ctrlrLuaDisabled))
+	
+	if ((bool)owner.getCtrlrManagerOwner().getProperty(Ids::ctrlrLuaDisabled))
 	{
 		_INF("CtrlrLuaManager::ctor, lua is disabled");
+		luaManagerTree.addChild(methodManager->getManagerTree(), -1, 0);
 		return;
 	}
 
@@ -309,7 +310,7 @@ int func_panic(lua_State *L)
 
 bool CtrlrLuaManager::runCode (const String &code, const String name)
 {
-	if (luaState)
+	if (luaState && !isLuaDisabled())
 	{
 		if (luaL_loadbuffer(luaState, code.toUTF8(), std::strlen(code.toUTF8()), name.isEmpty() ? "_runtime" : name.toUTF8())
 			|| lua_pcall(luaState, 0, 0, 0))
@@ -338,4 +339,9 @@ void CtrlrLuaManager::log(const String &message)
 CtrlrLuaDebugger &CtrlrLuaManager::getDebugger()
 {
     return (*ctrlrLuaDebugger);
+}
+
+const bool CtrlrLuaManager::isLuaDisabled()
+{
+	return ((bool)owner.getCtrlrManagerOwner().getProperty(Ids::ctrlrLuaDisabled));
 }

@@ -27,6 +27,7 @@ CtrlrLuaMethodManager::CtrlrLuaMethodManager(CtrlrLuaManager &_owner)
 		methodTemplates = XmlElement(*methodsXml);
 		utilityMethods  = methodTemplates.getChildByName("utilityMethods");
 	}
+
 	managerTree.addListener(this);
 }
 

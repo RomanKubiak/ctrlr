@@ -63,6 +63,7 @@ class CtrlrLuaManager : public ValueTree::Listener
 		CtrlrPanel &getOwner()								{ return (owner); }
 		CtrlrLuaMethodManager &getMethodManager();
         CtrlrLuaDebugger &getDebugger();
+		const bool isLuaDisabled();
 
 	private:
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrLuaManager);
@@ -78,7 +79,6 @@ class CtrlrLuaManager : public ValueTree::Listener
 		CtrlrLuaAudioConverter *audioConverter;
 		CtrlrLuaDebugger *ctrlrLuaDebugger;
 		LAudioFormatManager *luaAudioFormatManager;
-		bool luaIsActive;
 };
 
 #endif

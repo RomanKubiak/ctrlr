@@ -151,9 +151,16 @@ const String CtrlrLuaMethod::getCode()
 
 bool CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
 {
-	bool compileRet			= owner.getOwner().runCode (newMethodCode, getName());
 	errorString.clear();
 	errorString.append ("Compile: "+getName()+" - ", out, Colours::black);
+
+	if (owner.isLuaDisabled())
+	{
+		errorString.append("FAILED lua is disabled\n", out.withStyle(Font::bold), Colours::darkred);
+		return (false);
+	}
+
+	bool compileRet = owner.getOwner().runCode(newMethodCode, getName());
 
 	String error;
 
@@ -180,7 +187,7 @@ bool CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
 	else
 	{
 		errorString.append ("FAILED\n", out.withStyle(Font::bold), Colours::darkred);
-		errorString.append (error+"\n", out, Colours::darkred);
+		errorString.append (error + "\n" , out, Colours::darkred);
 	}
 
 	setValid(compileRet);
