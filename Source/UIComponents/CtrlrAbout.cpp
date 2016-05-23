@@ -156,6 +156,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 
 	addVersionInfo ("libusb", "1.0.19");
     addVersionInfo ("liblo", "0.28");
+	addVersionInfo ("lua", "5.1");
 
 	shadow.setShadowProperties (DropShadow (Colours::black, 5, Point <int> (2,2)));
 	ctrlrName->setComponentEffect (&shadow);
