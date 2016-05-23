@@ -166,7 +166,7 @@
     </CODEBLOCKS_LINUX>
     <VS2015 targetFolder="../Generated/Windows/VST_2015" vstFolder="../../VST"
             extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Zm2000 /bigobj"
-            externalLibraries="iphlpapi.lib">
+            externalLibraries="iphlpapi.lib" toolset="v140_xp">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="1" optimisation="1" targetName="Ctrlr-VST-Debug-$(Platform)$(NATIVE_ARCH)"

@@ -42,7 +42,7 @@ namespace ProjectInfo
 {
     const char* const  projectName    = "Ctrlr_Standalone";
     const char* const  versionString  = "5.4.0";
-    const int          versionNumber  = 0x50300;
+    const int          versionNumber  = 0x50400;
 }
 #endif
 

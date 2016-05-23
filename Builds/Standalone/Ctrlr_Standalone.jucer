@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.3.0"
+<JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.4.0"
               bundleIdentifier="com.instigator.Ctrlr" jucerVersion="4.2.1"
               defines="" companyName="Instigator" includeBinaryInAppConfig="1"
               companyWebsite="http://ctrlr.org" companyEmail="ctrlr@ctrlr.org">
@@ -154,7 +154,8 @@
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
     <VS2015 targetFolder="../Generated/Windows/Standalone_2015" extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Zm2000 /bigobj"
-            externalLibraries="iphlpapi.lib" smallIcon="Pl8W9J" bigIcon="Mln0s5">
+            externalLibraries="iphlpapi.lib" smallIcon="Pl8W9J" bigIcon="Mln0s5"
+            toolset="v140_xp">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="3" generateManifest="1" winArchitecture="32-bit"
                        isDebug="1" optimisation="1" targetName="Ctrlr-Debug-$(Platform)$(NATIVE_ARCH)"

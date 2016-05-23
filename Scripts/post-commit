@@ -56,29 +56,30 @@ function build_now {
 }
 
 function windows_msbuild {	
-	if [ -x "$DOTNET/MSBuild.exe" ]; then
-		echo "CTRLR: MSBuild.exe found"
+	if [ -e "$MSBUILD" ]; then
+		echo "CTRLR: $MSBUILD found"
 		cd $CTRLR_ROOT/Builds
 		echo "CTRLR: Build Win32"
-		$DOTNET/MSBuild.exe $CTRLR_ROOT/Builds/Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:Platform=Win32 /maxcpucount:6
+		
+		"$MSBUILD" $CTRLR_ROOT/Builds/Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x86 /maxcpucount:6
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: Win32 build failed"
 			exit 1
 		fi
 		echo "CTRLR: Build x64"
-		$DOTNET/MSBuild.exe $CTRLR_ROOT/Builds/Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:Platform=x64 /maxcpucount:6
+		"$MSBUILD" $CTRLR_ROOT/Builds/Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x64 /maxcpucount:6
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: x64 build failed"
 			exit 1
 		fi
 	else
-		echo "CTRLR: $DOTNET/MSBuild.exe does not exist"
+		echo "CTRLR: $MSBUILD does not exist"
 		exit 1
 	fi
 }
 
 function build_now_windows {
-	DOTNET="/c/Windows/Microsoft.NET/Framework/v4.0.30319"
+	MSBUILD="/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
 	NSIS="/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
 	REVISION_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.h"
 	TEMPLATE_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.template"
