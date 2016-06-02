@@ -15,7 +15,11 @@ function detect_os {
 	UNAME=`uname 2>/dev/null`
 	if [ "$OS" == "Windows_NT" ]; then
 		OSNAME="WINDOWS"
-		CTRLR_ROOT="/c/devel/ctrlr"
+		if [ -d /cygdrive ]; then
+			CTRLR_ROOT="/cygdrive/c/devel/ctrlr"
+		else
+			CTRLR_ROOT="/c/devel/ctrlr"
+		fi
 		VERSION=`c:/devel/ctrlr/Scripts/git-revision.sh`
 		PACKAGE=$CTRLR_ROOT/Packaging/Windows/Ctrlr-$VERSION.exe
 		BUILD_LOG_WIN32=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win32.build.log
@@ -58,16 +62,21 @@ function build_now {
 function windows_msbuild {	
 	if [ -e "$MSBUILD" ]; then
 		echo "CTRLR: $MSBUILD found"
+		echo cd $CTRLR_ROOT/Builds
 		cd $CTRLR_ROOT/Builds
-		echo "CTRLR: Build Win32"
 		
-		"$MSBUILD" $CTRLR_ROOT/Builds/Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x86 /maxcpucount:6
+		echo "CTRLR: Build Win32"
+		echo "$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x86
+		"$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x86
+		
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: Win32 build failed"
 			exit 1
 		fi
 		echo "CTRLR: Build x64"
-		"$MSBUILD" $CTRLR_ROOT/Builds/Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x64 /maxcpucount:6
+		echo "$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x64
+		
+		"$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x64
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: x64 build failed"
 			exit 1
@@ -79,8 +88,13 @@ function windows_msbuild {
 }
 
 function build_now_windows {
-	MSBUILD="/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
-	NSIS="/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
+	if [ -d /cygdrive ]; then
+		MSBUILD="/cygdrive/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
+		NSIS="/cygdrive/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
+	else
+		MSBUILD="/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
+		NSIS="/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
+	fi
 	REVISION_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.h"
 	TEMPLATE_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.template"
 
