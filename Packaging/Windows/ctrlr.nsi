@@ -13,7 +13,7 @@ CRCCheck On
 SetCompressor /SOLID lzma
 Name "Ctrlr MIDI Editor"
 OutFile "Ctrlr.exe"
-RequestExecutionLevel user
+RequestExecutionLevel admin
 
 !include MUI2.nsh
 !include Sections.nsh
