@@ -3,9 +3,9 @@
 
 extern "C"
 {
-	#include <luabind/lua.h>
-	#include <luabind/lualib.h>
-	#include <luabind/lauxlib.h>
+	#include <lua.h>
+	#include <lualib.h>
+	#include <lauxlib.h>
 }
 
 #include "JuceHeader.h"

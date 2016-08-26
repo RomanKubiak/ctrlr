@@ -163,7 +163,7 @@ void CtrlrLuaUtils::openMultipleFilesWindow(const String &dialogBoxTitle, const 
 		{
 			Array <File> res = dialog.getResults();
 
-			for (unsigned int i=0; i<res.size(); i++)
+			for (int i=0; i<res.size(); i++)
 			{
 				table[i+1] = res[i];
 			}

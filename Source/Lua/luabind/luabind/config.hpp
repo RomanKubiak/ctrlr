@@ -47,7 +47,6 @@ namespace std
 
 #endif
 
-
 #if defined (BOOST_MSVC) && (BOOST_MSVC <= 1300)
 	#define LUABIND_MSVC_TYPENAME
 #else
