@@ -22,9 +22,9 @@
 
 extern "C"
 {
-#include <luabind/lua.h>
-#include <luabind/lualib.h>
-#include <luabind/lauxlib.h>
+#include <lua.h>
+#include <lualib.h>
+#include <lauxlib.h>
 }
 
 #ifdef check
@@ -74,7 +74,7 @@ extern "C"
 #include <luabind/discard_result_policy.hpp>
 #include <luabind/version.hpp>
 #include <luabind/shared_ptr_converter.hpp>
-#include <luabind/lua.hpp>
+#include <lua.hpp>
 
 #include "JuceHeader.h"
 #include "CtrlrMacros.h"

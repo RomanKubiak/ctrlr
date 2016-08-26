@@ -156,7 +156,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 
 	addVersionInfo ("libusb", "1.0.19");
     addVersionInfo ("liblo", "0.28");
-	addVersionInfo ("lua", "5.1");
+	addVersionInfo ("lua", LUA_COPYRIGHT);
 
 	shadow.setShadowProperties (DropShadow (Colours::black, 5, Point <int> (2,2)));
 	ctrlrName->setComponentEffect (&shadow);
@@ -166,7 +166,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 
 	versionInfoLabel->setFont (Font (14.0f, Font::bold));
 	versionInfoLabel->setColour (TextEditor::backgroundColourId, Colours::transparentBlack);
-	versionInfoLabel->setComponentEffect (&shadow);
+	//versionInfoLabel->setComponentEffect (&shadow);
 
 	if (owner.getInstanceMode() == InstanceSingle || owner.getInstanceMode() == InstanceSingleRestriced)
 	{

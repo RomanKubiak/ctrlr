@@ -745,7 +745,7 @@ struct default_converter<std::string>
 
     std::string from(lua_State* L, int index)
     {
-        return std::string(lua_tostring(L, index), lua_strlen(L, index));
+        return std::string(lua_tostring(L, index), lua_rawlen(L, index));
     }
 
     void to(lua_State* L, std::string const& value)

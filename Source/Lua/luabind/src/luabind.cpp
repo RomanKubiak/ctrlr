@@ -675,7 +675,7 @@ int luabind::detail::class_rep::constructor_dispatcher(lua_State* L)
         lua_pushvalue(L, 1);
         lua_pushvalue(L, -3);
         lua_pushcclosure(L, super_callback, 2);
-        lua_settable(L, LUA_GLOBALSINDEX);
+		lua_pushglobaltable(L);
     }
 
     lua_pushvalue(L, -1);
@@ -696,7 +696,7 @@ int luabind::detail::class_rep::constructor_dispatcher(lua_State* L)
     {
         lua_pushstring(L, "super");
         lua_pushnil(L);
-        lua_settable(L, LUA_GLOBALSINDEX);
+		lua_pushglobaltable(L);
     }
 
     return 1;
@@ -741,7 +741,7 @@ int luabind::detail::class_rep::super_callback(lua_State* L)
 	{
 		lua_pushstring(L, "super");
 		lua_pushnil(L);
-		lua_settable(L, LUA_GLOBALSINDEX);
+		lua_pushglobaltable(L);
 	}
 	else
 	{
@@ -749,7 +749,7 @@ int luabind::detail::class_rep::super_callback(lua_State* L)
 		lua_pushlightuserdata(L, base);
 		lua_pushvalue(L, lua_upvalueindex(2));
 		lua_pushcclosure(L, super_callback, 2);
-		lua_settable(L, LUA_GLOBALSINDEX);
+		lua_pushglobaltable(L);
 	}
 
 	base->get_table(L);
@@ -768,7 +768,7 @@ int luabind::detail::class_rep::super_callback(lua_State* L)
 	// have some kind of warning if the super global is used?
 	lua_pushstring(L, "super");
 	lua_pushnil(L);
-	lua_settable(L, LUA_GLOBALSINDEX);
+	lua_pushglobaltable(L);
 
 	return 0;
 }
@@ -817,7 +817,7 @@ int luabind::detail::class_rep::static_class_gettable(lua_State* L)
 
 	const char* key = lua_tostring(L, 2);
 
-	if (std::strlen(key) != lua_strlen(L, 2))
+	if (std::strlen(key) != lua_rawlen(L, 2))
 	{
 		lua_pushnil(L);
 		return 1;
@@ -1005,7 +1005,7 @@ namespace luabind { namespace detail
 			lua_error(L);
 		}
 
-		if (std::strlen(lua_tostring(L, 1)) != lua_strlen(L, 1))
+		if (std::strlen(lua_tostring(L, 1)) != lua_rawlen(L, 1))
 		{
 			lua_pushstring(L, "luabind does not support class names with extra nulls");
 			lua_error(L);
@@ -1021,7 +1021,7 @@ namespace luabind { namespace detail
 		// make the class globally available
 		lua_pushstring(L, name);
 		lua_pushvalue(L, -2);
-		lua_settable(L, LUA_GLOBALSINDEX);
+		lua_pushglobaltable(L);
 
 		// also add it to the closure as return value
 		lua_pushcclosure(L, &stage2, 1);
@@ -1616,7 +1616,7 @@ namespace luabind { namespace detail
 
       int set_instance_value(lua_State* L)
       {
-          lua_getfenv(L, 1);
+          lua_getuservalue(L, 1);
           lua_pushvalue(L, 2);
           lua_rawget(L, -2);
 
@@ -1651,7 +1651,7 @@ namespace luabind { namespace detail
           {
               lua_newtable(L);
               lua_pushvalue(L, -1);
-              lua_setfenv(L, 1);
+              lua_setuservalue(L, 1);
               lua_pushvalue(L, 4);
               lua_setmetatable(L, -2);
           }
@@ -1669,7 +1669,7 @@ namespace luabind { namespace detail
 
       int get_instance_value(lua_State* L)
       {
-          lua_getfenv(L, 1);
+		  lua_getuservalue(L, 1);
           lua_pushvalue(L, 2);
           lua_rawget(L, -2);
 
@@ -1779,7 +1779,7 @@ namespace luabind { namespace detail
         void* storage = lua_newuserdata(L, sizeof(object_rep));
         object_rep* result = new (storage) object_rep(0, cls);
         cls->get_table(L);
-        lua_setfenv(L, -2);
+        lua_setuservalue(L, -2);
         lua_rawgeti(L, LUA_REGISTRYINDEX, cls->metatable_ref());
         lua_setmetatable(L, -2);
         return result;
@@ -1939,11 +1939,11 @@ namespace
         // add functions (class, cast etc...)
         lua_pushstring(L, "class");
         lua_pushcclosure(L, detail::create_class::stage1, 0);
-        lua_settable(L, LUA_GLOBALSINDEX);
+		lua_pushglobaltable(L);
 
         lua_pushstring(L, "property");
         lua_pushcclosure(L, &make_property, 0);
-        lua_settable(L, LUA_GLOBALSINDEX);
+		lua_pushglobaltable(L);
 
         lua_pushlightuserdata(L, &main_thread_tag);
         lua_pushlightuserdata(L, L);
@@ -1951,7 +1951,7 @@ namespace
 
         lua_pushstring(L, "super");
         lua_pushcclosure(L, &deprecated_super, 0);
-        lua_settable(L, LUA_GLOBALSINDEX);
+		lua_pushglobaltable(L);
     }
 
 } // namespace luabind
@@ -2063,8 +2063,7 @@ namespace luabind {
     {
         if (m_name)
         {
-            lua_pushstring(m_state, m_name);
-            lua_gettable(m_state, LUA_GLOBALSINDEX);
+            lua_getglobal(m_state, m_name);
 
             if (!lua_istable(m_state, -1))
             {
@@ -2073,12 +2072,12 @@ namespace luabind {
                 lua_newtable(m_state);
                 lua_pushstring(m_state, m_name);
                 lua_pushvalue(m_state, -2);
-                lua_settable(m_state, LUA_GLOBALSINDEX);
+                lua_pushglobaltable(m_state);
             }
         }
         else
         {
-            lua_pushvalue(m_state, LUA_GLOBALSINDEX);
+			lua_pushglobaltable(m_state);
         }
 
         lua_pop_stack guard(m_state);
@@ -2337,7 +2336,7 @@ namespace luabind { namespace detail
 #if LUA_VERSION_NUM >= 501
 		// Lua 5.1 added  LUA_YIELD as a possible return value,
 		// this was causing crashes, because the caller expects 0 on success.
-		int res = lua_resume(L, nargs);
+		int res = lua_resume(L, NULL, nargs);
 		return (res == LUA_YIELD) ? 0 : res;
 #else
 		return lua_resume(L, nargs);
