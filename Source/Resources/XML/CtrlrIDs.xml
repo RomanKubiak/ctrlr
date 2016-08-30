@@ -738,7 +738,8 @@
   <id name="ctrlrNativeFileDialogs"     text="Use OS native file open/save dialogs (disable for Linux)" type="Bool" />
   <id name="ctrlrPrivateKey"                   text="RSA private key used to sign exported panels" type="FileProperty" />
   <id name="ctrlrUsingOpenGL"            text="Use OpenGL render" type="Bool" />
-
+  <id name="ctrlrFontSizeBaseValue" text="Base value for all font sizes in the Ctrlr UI (won't affect panel UI)" type="Numeric" min="8.0" max="128.0" int="0.1"/>
+  
   <!-- LUA callbacks -->
   <id name="luaManagerMethods"                text="luaManagerMethods"                                    type="Text" />
   <id name="luaMethodCode"                    text="luaMethodCode"                                        type="Text" />

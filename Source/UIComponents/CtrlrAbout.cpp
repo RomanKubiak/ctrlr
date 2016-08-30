@@ -156,17 +156,10 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 
 	addVersionInfo ("libusb", "1.0.19");
     addVersionInfo ("liblo", "0.28");
-	addVersionInfo ("lua", LUA_COPYRIGHT);
+	addVersionInfo ("lua", LUA_RELEASE);
 
-	shadow.setShadowProperties (DropShadow (Colours::black, 5, Point <int> (2,2)));
-	ctrlrName->setComponentEffect (&shadow);
-    instanceName->setComponentEffect (&shadow);
-    instanceAuthor->setComponentEffect (&shadow);
-    instanceVersion->setComponentEffect (&shadow);
-
-	versionInfoLabel->setFont (Font (14.0f, Font::bold));
-	versionInfoLabel->setColour (TextEditor::backgroundColourId, Colours::transparentBlack);
-	//versionInfoLabel->setComponentEffect (&shadow);
+	versionInfoLabel->setFont (owner.getFontManager().getDefaultLargeFont());
+	versionInfoLabel->setColour (TextEditor::backgroundColourId, Colours::white.withAlpha(0.8f));
 
 	if (owner.getInstanceMode() == InstanceSingle || owner.getInstanceMode() == InstanceSingleRestriced)
 	{
@@ -276,7 +269,12 @@ void CtrlrAbout::addVersionInfo (const String &componentName, const String &comp
 
 void CtrlrAbout::updateVersionLabel()
 {
-	versionInfoLabel->setText (versionInformationArray.getDescription());
+	for (int i = 0; i < versionInformationArray.size(); i++)
+	{
+		versionInfoLabel->insertTextAtCaret(versionInformationArray.getAllKeys()[i] + ": ");
+		versionInfoLabel->insertTextAtCaret(versionInformationArray.getAllValues()[i] + "\n");
+	}
+	//versionInfoLabel->setText (versionInformationArray.getDescription());
 }
 //[/MiscUserCode]
 

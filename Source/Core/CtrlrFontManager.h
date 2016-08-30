@@ -36,6 +36,10 @@ class CtrlrFontManager
 		FontSet getFontSetEnum (const Font &font);
 		Array<Font> &getFontSet (const FontSet fontSetToFetch);
 
+		Font getDefaultLargeFont();
+		Font getDefaultSmallFont();
+		Font getDefaultNormalFont();
+
 		static Font getBuiltInFont(const char *fontData, const int fontDataSize);
 		static Font getBuiltInFont(const String &fontResourceName);
 		static const Font getFont (const char *fontData, const int fontDataSize);

@@ -399,3 +399,18 @@ Array<Font> &CtrlrFontManager::getFontSet (const FontSet fontSetToFetch)
 			break;
 	}
 }
+
+Font CtrlrFontManager::getDefaultLargeFont()
+{
+	return (Font());
+}
+
+Font CtrlrFontManager::getDefaultSmallFont()
+{
+	return (Font());
+}
+
+Font CtrlrFontManager::getDefaultNormalFont()
+{
+	return (Font());
+}
