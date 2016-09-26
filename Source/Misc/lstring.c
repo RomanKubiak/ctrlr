@@ -19,7 +19,7 @@
 #include "lmem.h"
 #include "lobject.h"
 #include "lstate.h"
-#include "lstring.h"
+#include "./lstring.h"
 
 
 #define MEMERRMSG       "not enough memory"

@@ -24,7 +24,7 @@
 #include "lobject.h"
 #include "lopcodes.h"
 #include "lparser.h"
-#include "lstring.h"
+#include "./lstring.h"
 #include "ltable.h"
 #include "lvm.h"
 
