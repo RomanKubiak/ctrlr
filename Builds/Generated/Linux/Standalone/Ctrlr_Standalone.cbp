@@ -1730,7 +1730,6 @@
     <Unit filename="../../../../Source/Misc/ltable.c"/>
     <Unit filename="../../../../Source/Misc/ltablib.c"/>
     <Unit filename="../../../../Source/Misc/ltm.c"/>
-    <Unit filename="../../../../Source/Misc/lua.c"/>
     <Unit filename="../../../../Source/Misc/lundump.c"/>
     <Unit filename="../../../../Source/Misc/lutf8lib.c"/>
     <Unit filename="../../../../Source/Misc/lvm.c"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="zb9e8M" name="Ctrlr_Standalone" projectType="guiapp" version="5.4.0"
-              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="4.2.1"
+              bundleIdentifier="com.instigator.Ctrlr" jucerVersion="4.2.3"
               defines="" companyName="Instigator" includeBinaryInAppConfig="1"
               companyWebsite="http://ctrlr.org" companyEmail="ctrlr@ctrlr.org">
   <EXPORTFORMATS>
@@ -915,7 +915,6 @@
       <FILE id="kV8VKj" name="ltable.c" compile="1" resource="0" file="../../Source/Misc/ltable.c"/>
       <FILE id="JzUZe3" name="ltablib.c" compile="1" resource="0" file="../../Source/Misc/ltablib.c"/>
       <FILE id="nHw7NV" name="ltm.c" compile="1" resource="0" file="../../Source/Misc/ltm.c"/>
-      <FILE id="AfXEFP" name="lua.c" compile="1" resource="0" file="../../Source/Misc/lua.c"/>
       <FILE id="QLBs7A" name="lundump.c" compile="1" resource="0" file="../../Source/Misc/lundump.c"/>
       <FILE id="WdspDH" name="lutf8lib.c" compile="1" resource="0" file="../../Source/Misc/lutf8lib.c"/>
       <FILE id="WRb47C" name="lvm.c" compile="1" resource="0" file="../../Source/Misc/lvm.c"/>

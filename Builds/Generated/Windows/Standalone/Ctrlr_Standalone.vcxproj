@@ -301,7 +301,6 @@
     <ClCompile Include="..\..\..\..\Source\Misc\ltable.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\ltablib.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\ltm.c"/>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\lundump.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\lutf8lib.c"/>
     <ClCompile Include="..\..\..\..\Source\Misc\lvm.c"/>

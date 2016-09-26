@@ -175,7 +175,6 @@
 		9593B8BC1009CDF3B54805E3 /* CtrlrLuaMemoryBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79DA3B2F98E04EADCFC5E903 /* CtrlrLuaMemoryBlock.cpp */; };
 		95D0E893092D4F9B41BE1882 /* hotplug.c in Sources */ = {isa = PBXBuildFile; fileRef = BCF5A7B71B178E9D4D4C4221 /* hotplug.c */; };
 		96DDB3F81FF3118CC2350E54 /* CtrlrLuaMethodEditorTabs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1A43C31DBBCA9E624F7B1 /* CtrlrLuaMethodEditorTabs.cpp */; };
-		97A30F54464DA59035DB2FA6 /* lua.c in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1E24671ABDFDD9198C3F0 /* lua.c */; };
 		97CFDA5C7C5EF819DFFC6091 /* descriptor.c in Sources */ = {isa = PBXBuildFile; fileRef = 43B135E933027740C88E14D2 /* descriptor.c */; };
 		9A1E731D23E4ED0317A1E876 /* juce_audio_devices.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B742036F6231C8716BC6B50 /* juce_audio_devices.mm */; };
 		9B1728693B6C7E4695F2E473 /* CtrlrLuaAudioConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 187784F2C1D5384D459DB8B7 /* CtrlrLuaAudioConverter.cpp */; };
@@ -981,7 +980,6 @@
 		5C122FA79B03F09F46C31451 /* juce_CodeDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_CodeDocument.h; path = ../../../../Juce/modules/juce_gui_extra/code_editor/juce_CodeDocument.h; sourceTree = SOURCE_ROOT; };
 		5C2A187952230483AE443665 /* juce_TableListBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_TableListBox.h; path = ../../../../Juce/modules/juce_gui_basics/widgets/juce_TableListBox.h; sourceTree = SOURCE_ROOT; };
 		5CA4DE775CF15227AEF0EB89 /* juce_AudioProcessorParameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_AudioProcessorParameters.cpp; path = ../../../../Juce/modules/juce_audio_processors/utilities/juce_AudioProcessorParameters.cpp; sourceTree = SOURCE_ROOT; };
-		5CB1E24671ABDFDD9198C3F0 /* lua.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = lua.c; path = ../../../../Source/Misc/lua.c; sourceTree = SOURCE_ROOT; };
 		5CC5AAD1EB3842E44F8BB06F /* analysis.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = analysis.c; path = "../../../../Juce/modules/juce_audio_formats/codecs/oggvorbis/libvorbis-1.3.2/lib/analysis.c"; sourceTree = SOURCE_ROOT; };
 		5CD1F9DCDC69BB7B8A53FD76 /* juce_audio_basics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = juce_audio_basics.mm; path = ../../../Standalone/JuceLibraryCode/juce_audio_basics.mm; sourceTree = SOURCE_ROOT; };
 		5D28CB07050F8A91674F9E29 /* psych_16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = psych_16.h; path = "../../../../Juce/modules/juce_audio_formats/codecs/oggvorbis/libvorbis-1.3.2/lib/modes/psych_16.h"; sourceTree = SOURCE_ROOT; };
@@ -4608,7 +4606,6 @@
 				426394825C3458A0EB5F3603 /* ltable.c */,
 				5240A354E00991C55C6741ED /* ltablib.c */,
 				43AB72952889F98837A7DAD8 /* ltm.c */,
-				5CB1E24671ABDFDD9198C3F0 /* lua.c */,
 				E0621C5E09D5AB2D84651F7C /* lundump.c */,
 				9BFAF09CBCC7365129B0C10D /* lutf8lib.c */,
 				4060DE21AFFF7FCD3F924DD0 /* lvm.c */,
@@ -5567,7 +5564,6 @@
 				41DAB8AA55296D86553F5E0A /* ltable.c in Sources */,
 				5C5A2796DAAEBAB685DA12ED /* ltablib.c in Sources */,
 				E6B90256A69B354BBDCB8DBF /* ltm.c in Sources */,
-				97A30F54464DA59035DB2FA6 /* lua.c in Sources */,
 				7056D565EA79F2934CC374CE /* lundump.c in Sources */,
 				12B24028F3A98BD65C53E29C /* lutf8lib.c in Sources */,
 				AD1CA2975559E376DA1F5FC0 /* lvm.c in Sources */,
@@ -5763,7 +5759,7 @@
 				);
 				INFOPLIST_FILE = "Info-App.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-missing-field-initializers",
@@ -5773,7 +5769,6 @@
 					"-Wno-reorder",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
-				SDKROOT = macosx10.11;
 				SDKROOT_ppc = macosx10.5;
 			};
 			name = Debug;
@@ -5844,7 +5839,7 @@
 				);
 				INFOPLIST_FILE = "Info-App.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-missing-field-initializers",
@@ -5854,7 +5849,7 @@
 					"-Wno-reorder",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
-				SDKROOT = macosx10.11;
+				SDKROOT = macosx10.8;
 				SDKROOT_ppc = macosx10.5;
 			};
 			name = Release;
@@ -5927,7 +5922,7 @@
 				);
 				INFOPLIST_FILE = "Info-App.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-missing-field-initializers",
@@ -5937,7 +5932,6 @@
 					"-Wno-reorder",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
-				SDKROOT = macosx10.11;
 				SDKROOT_ppc = macosx10.5;
 			};
 			name = Release_Nightly;
