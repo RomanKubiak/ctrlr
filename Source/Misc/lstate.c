@@ -23,7 +23,7 @@
 #include "llex.h"
 #include "lmem.h"
 #include "lstate.h"
-#include "lstring.h"
+#include "./lstring.h"
 #include "ltable.h"
 #include "ltm.h"
 

@@ -24,7 +24,7 @@
 #include "lopcodes.h"
 #include "lparser.h"
 #include "lstate.h"
-#include "lstring.h"
+#include "./lstring.h"
 #include "ltable.h"
 
 
