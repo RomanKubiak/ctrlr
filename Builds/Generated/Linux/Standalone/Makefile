@@ -146,26 +146,59 @@ OBJECTS := \
   $(OBJDIR)/hotplug_4a7ef261.o \
   $(OBJDIR)/io_5af75f2a.o \
   $(OBJDIR)/keys_84371cb8.o \
+  $(OBJDIR)/lapi_7f139a72.o \
+  $(OBJDIR)/lauxlib_2fc7b333.o \
+  $(OBJDIR)/lbaselib_2b98be6c.o \
+  $(OBJDIR)/lbitlib_160ab68a.o \
+  $(OBJDIR)/lcode_66b9d01f.o \
+  $(OBJDIR)/lcorolib_4a57dc94.o \
+  $(OBJDIR)/lctype_7a3624f5.o \
+  $(OBJDIR)/ldblib_8faab99f.o \
+  $(OBJDIR)/ldebug_9441dfab.o \
+  $(OBJDIR)/ldo_41aba7d.o \
+  $(OBJDIR)/ldump_68c77666.o \
+  $(OBJDIR)/lfunc_6c316b36.o \
+  $(OBJDIR)/lgc_41bea8e.o \
   $(OBJDIR)/libr-bfd_c5515a4.o \
   $(OBJDIR)/libr_7f7e1b11.o \
+  $(OBJDIR)/linit_70eb4a82.o \
   $(OBJDIR)/linux_udev_659c49af.o \
+  $(OBJDIR)/linux_usbfs_67550e0c.o \
+  $(OBJDIR)/liolib_ae58e1f7.o \
+  $(OBJDIR)/llex_7fa9d537.o \
+  $(OBJDIR)/lmathlib_c48e4895.o \
+  $(OBJDIR)/lmem_7fb7c36d.o \
+  $(OBJDIR)/loadlib_99fa99e5.o \
+  $(OBJDIR)/lobject_d8b8cdb1.o \
+  $(OBJDIR)/lopcodes_8b7e76fd.o \
+  $(OBJDIR)/loslib_f291a7f9.o \
+  $(OBJDIR)/lparser_1a20ae91.o \
+  $(OBJDIR)/lstate_c7497669.o \
+  $(OBJDIR)/lstring_3e519e03.o \
+  $(OBJDIR)/lstrlib_3e798be6.o \
+  $(OBJDIR)/ltable_dbce1266.o \
+  $(OBJDIR)/ltablib_9df6c902.o \
+  $(OBJDIR)/ltm_421f8eb.o \
+  $(OBJDIR)/lua_422403e.o \
+  $(OBJDIR)/lundump_b97382ff.o \
+  $(OBJDIR)/lutf8lib_e5e839cc.o \
+  $(OBJDIR)/lvm_422e1a9.o \
+  $(OBJDIR)/lzio_8070cdf8.o \
   $(OBJDIR)/message_f0a0440d.o \
   $(OBJDIR)/method_4af3c0a5.o \
   $(OBJDIR)/pattern_match_f4afc7dc.o \
-  $(OBJDIR)/linux_usbfs_67550e0c.o \
-  $(OBJDIR)/lua_422403e.o \
-  $(OBJDIR)/send_8b3ce94c.o \
-  $(OBJDIR)/server_b7920e87.o \
   $(OBJDIR)/poll_posix_37a8f9c7.o \
   $(OBJDIR)/poll_windows_7e84da07.o \
+  $(OBJDIR)/send_8b3ce94c.o \
+  $(OBJDIR)/server_b7920e87.o \
   $(OBJDIR)/strerror_5e4de4fb.o \
   $(OBJDIR)/structs_4f124184.o \
   $(OBJDIR)/sync_8c56bb9f.o \
-  $(OBJDIR)/timetag_49c3d033.o \
   $(OBJDIR)/threads_posix_2509d033.o \
-  $(OBJDIR)/version_f296709e.o \
   $(OBJDIR)/threads_windows_9709c573.o \
+  $(OBJDIR)/timetag_49c3d033.o \
   $(OBJDIR)/usb_4a02eca.o \
+  $(OBJDIR)/version_f296709e.o \
   $(OBJDIR)/windows_usb_69ee250e.o \
   $(OBJDIR)/CtrlrLinux_891d1366.o \
   $(OBJDIR)/CtrlrMac_55cf0d81.o \
@@ -693,6 +726,71 @@ $(OBJDIR)/keys_84371cb8.o: ../../../../Source/Misc/keys.cpp
 	@echo "Compiling keys.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/lapi_7f139a72.o: ../../../../Source/Misc/lapi.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lapi.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lauxlib_2fc7b333.o: ../../../../Source/Misc/lauxlib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lauxlib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lbaselib_2b98be6c.o: ../../../../Source/Misc/lbaselib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lbaselib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lbitlib_160ab68a.o: ../../../../Source/Misc/lbitlib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lbitlib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lcode_66b9d01f.o: ../../../../Source/Misc/lcode.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lcode.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lcorolib_4a57dc94.o: ../../../../Source/Misc/lcorolib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lcorolib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lctype_7a3624f5.o: ../../../../Source/Misc/lctype.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lctype.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ldblib_8faab99f.o: ../../../../Source/Misc/ldblib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ldblib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ldebug_9441dfab.o: ../../../../Source/Misc/ldebug.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ldebug.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ldo_41aba7d.o: ../../../../Source/Misc/ldo.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ldo.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ldump_68c77666.o: ../../../../Source/Misc/ldump.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ldump.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lfunc_6c316b36.o: ../../../../Source/Misc/lfunc.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lfunc.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lgc_41bea8e.o: ../../../../Source/Misc/lgc.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lgc.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/libr-bfd_c5515a4.o: ../../../../Source/Misc/libr-bfd.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling libr-bfd.c"
@@ -703,9 +801,119 @@ $(OBJDIR)/libr_7f7e1b11.o: ../../../../Source/Misc/libr.c
 	@echo "Compiling libr.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/linit_70eb4a82.o: ../../../../Source/Misc/linit.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling linit.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/linux_udev_659c49af.o: ../../../../Source/Misc/linux_udev.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling linux_udev.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/linux_usbfs_67550e0c.o: ../../../../Source/Misc/linux_usbfs.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling linux_usbfs.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/liolib_ae58e1f7.o: ../../../../Source/Misc/liolib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling liolib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/llex_7fa9d537.o: ../../../../Source/Misc/llex.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling llex.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lmathlib_c48e4895.o: ../../../../Source/Misc/lmathlib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lmathlib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lmem_7fb7c36d.o: ../../../../Source/Misc/lmem.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lmem.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/loadlib_99fa99e5.o: ../../../../Source/Misc/loadlib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling loadlib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lobject_d8b8cdb1.o: ../../../../Source/Misc/lobject.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lobject.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lopcodes_8b7e76fd.o: ../../../../Source/Misc/lopcodes.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lopcodes.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/loslib_f291a7f9.o: ../../../../Source/Misc/loslib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling loslib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lparser_1a20ae91.o: ../../../../Source/Misc/lparser.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lparser.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lstate_c7497669.o: ../../../../Source/Misc/lstate.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lstate.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lstring_3e519e03.o: ../../../../Source/Misc/lstring.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lstring.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lstrlib_3e798be6.o: ../../../../Source/Misc/lstrlib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lstrlib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ltable_dbce1266.o: ../../../../Source/Misc/ltable.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ltable.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ltablib_9df6c902.o: ../../../../Source/Misc/ltablib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ltablib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ltm_421f8eb.o: ../../../../Source/Misc/ltm.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ltm.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lua_422403e.o: ../../../../Source/Misc/lua.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lua.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lundump_b97382ff.o: ../../../../Source/Misc/lundump.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lundump.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lutf8lib_e5e839cc.o: ../../../../Source/Misc/lutf8lib.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lutf8lib.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lvm_422e1a9.o: ../../../../Source/Misc/lvm.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lvm.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/lzio_8070cdf8.o: ../../../../Source/Misc/lzio.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling lzio.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/message_f0a0440d.o: ../../../../Source/Misc/message.c
@@ -723,14 +931,14 @@ $(OBJDIR)/pattern_match_f4afc7dc.o: ../../../../Source/Misc/pattern_match.c
 	@echo "Compiling pattern_match.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/linux_usbfs_67550e0c.o: ../../../../Source/Misc/linux_usbfs.c
+$(OBJDIR)/poll_posix_37a8f9c7.o: ../../../../Source/Misc/poll_posix.c
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling linux_usbfs.c"
+	@echo "Compiling poll_posix.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/lua_422403e.o: ../../../../Source/Misc/lua.c
+$(OBJDIR)/poll_windows_7e84da07.o: ../../../../Source/Misc/poll_windows.c
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling lua.c"
+	@echo "Compiling poll_windows.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/send_8b3ce94c.o: ../../../../Source/Misc/send.c
@@ -741,16 +949,6 @@ $(OBJDIR)/send_8b3ce94c.o: ../../../../Source/Misc/send.c
 $(OBJDIR)/server_b7920e87.o: ../../../../Source/Misc/server.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling server.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/poll_posix_37a8f9c7.o: ../../../../Source/Misc/poll_posix.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling poll_posix.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/poll_windows_7e84da07.o: ../../../../Source/Misc/poll_windows.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling poll_windows.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/strerror_5e4de4fb.o: ../../../../Source/Misc/strerror.c
@@ -768,19 +966,9 @@ $(OBJDIR)/sync_8c56bb9f.o: ../../../../Source/Misc/sync.c
 	@echo "Compiling sync.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/timetag_49c3d033.o: ../../../../Source/Misc/timetag.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling timetag.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
 $(OBJDIR)/threads_posix_2509d033.o: ../../../../Source/Misc/threads_posix.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling threads_posix.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/version_f296709e.o: ../../../../Source/Misc/version.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling version.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/threads_windows_9709c573.o: ../../../../Source/Misc/threads_windows.c
@@ -788,9 +976,19 @@ $(OBJDIR)/threads_windows_9709c573.o: ../../../../Source/Misc/threads_windows.c
 	@echo "Compiling threads_windows.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/timetag_49c3d033.o: ../../../../Source/Misc/timetag.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling timetag.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/usb_4a02eca.o: ../../../../Source/Misc/usb.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling usb.c"
+	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/version_f296709e.o: ../../../../Source/Misc/version.c
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling version.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/windows_usb_69ee250e.o: ../../../../Source/Misc/windows_usb.c
