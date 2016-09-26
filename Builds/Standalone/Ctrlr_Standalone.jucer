@@ -153,7 +153,7 @@
         <MODULEPATH id="juce_audio_basics" path="../../Juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
-    <VS2015 targetFolder="../Generated/Windows/Standalone_2015" extraCompilerFlags="/MP /Yu&quot;stdafx.h&quot; /Zm2000 /bigobj"
+    <VS2015 targetFolder="../Generated/Windows/Standalone_2015" extraCompilerFlags="/Yu&quot;stdafx.h&quot; /MP /Fp&quot;stdafx.pch&quot; /Zm2000 /bigobj"
             externalLibraries="iphlpapi.lib" smallIcon="Pl8W9J" bigIcon="Mln0s5"
             toolset="v140_xp">
       <CONFIGURATIONS>
@@ -604,136 +604,135 @@
               file="../../Source/Lua/Deprecated/CtrlrLuaRectangle.h"/>
       </GROUP>
       <GROUP id="{A9C46841-D99C-4084-D338-B234A49F183E}" name="luabind">
-        <GROUP id="{ADF83A40-B6B5-D49B-B96D-2CE472E00B89}" name="src">
-          <FILE id="CMPsx8" name="luabind.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/luabind.cpp"/>
-        </GROUP>
-        <GROUP id="{ECFB8DB2-6F69-A475-00A4-BE4A700E8E44}" name="luabind">
-          <FILE id="joD41s" name="adopt_policy.hpp" compile="0" resource="0"
-                file="../../Source/Lua/luabind/luabind/adopt_policy.hpp"/>
-          <FILE id="kjORY0" name="back_reference.hpp" compile="0" resource="0"
-                file="../../Source/Lua/luabind/luabind/back_reference.hpp"/>
-          <FILE id="jGgbvV" name="back_reference_fwd.hpp" compile="0" resource="0"
-                file="../../Source/Lua/luabind/luabind/back_reference_fwd.hpp"/>
-          <FILE id="rogCtN" name="class.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class.hpp"/>
-          <FILE id="mqiYGQ" name="class_info.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class_info.hpp"/>
-          <FILE id="pctY1t" name="config.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/config.hpp"/>
-          <FILE id="YHHQqX" name="container_policy.hpp" compile="0" resource="0"
-                file="../../Source/Lua/luabind/luabind/container_policy.hpp"/>
-          <FILE id="GlmkXg" name="copy_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/copy_policy.hpp"/>
-          <FILE id="Zndnar" name="dependency_policy.hpp" compile="0" resource="0"
-                file="../../Source/Lua/luabind/luabind/dependency_policy.hpp"/>
-          <GROUP id="{82CC5605-99DD-BB08-2BA8-D4FE5629FC17}" name="detail">
-            <FILE id="ziPmfp" name="calc_arity.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/calc_arity.hpp"/>
-            <FILE id="SXsVoN" name="call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call.hpp"/>
-            <FILE id="IGalan" name="call_function.hpp" compile="0" resource="0"
+        <GROUP id="{925DE48D-F6C7-4CC8-75F5-9188DDD3C418}" name="luabind">
+          <GROUP id="{4B4A11C1-16CE-6FDE-9146-B11E1A64D32B}" name="detail">
+            <FILE id="wKPrQJ" name="calc_arity.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/calc_arity.hpp"/>
+            <FILE id="UeVOGP" name="call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call.hpp"/>
+            <FILE id="Df8SCs" name="call_0x.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call_0x.hpp"/>
+            <FILE id="QpFJC1" name="call_function.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/call_function.hpp"/>
-            <FILE id="F2WfMY" name="call_member.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call_member.hpp"/>
-            <FILE id="eRiB9Q" name="call_operator_iterate.hpp" compile="0" resource="0"
+            <FILE id="xhDJ4S" name="call_member.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/call_member.hpp"/>
+            <FILE id="zw7Lyl" name="call_operator_iterate.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/call_operator_iterate.hpp"/>
-            <FILE id="o4FANO" name="class_cache.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_cache.hpp"/>
-            <FILE id="ENo2gC" name="class_registry.hpp" compile="0" resource="0"
+            <FILE id="iWOvRJ" name="class_cache.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_cache.hpp"/>
+            <FILE id="h58T1W" name="class_registry.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/class_registry.hpp"/>
-            <FILE id="dY58CP" name="class_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_rep.hpp"/>
-            <FILE id="QeV5UZ" name="compute_score.hpp" compile="0" resource="0"
+            <FILE id="Ul0HnH" name="class_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/class_rep.hpp"/>
+            <FILE id="SsHK55" name="compute_score.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/compute_score.hpp"/>
-            <FILE id="JGfhg2" name="constructor.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/constructor.hpp"/>
-            <FILE id="wQHQ9n" name="conversion_storage.hpp" compile="0" resource="0"
+            <FILE id="jkcvFi" name="constructor.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/constructor.hpp"/>
+            <FILE id="fLGzGR" name="conversion_storage.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/conversion_storage.hpp"/>
-            <FILE id="Kq1tx3" name="convert_to_lua.hpp" compile="0" resource="0"
+            <FILE id="dj7ICi" name="convert_to_lua.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/convert_to_lua.hpp"/>
-            <FILE id="HgprxI" name="debug.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/debug.hpp"/>
-            <FILE id="oJgfYa" name="decorate_type.hpp" compile="0" resource="0"
+            <FILE id="VwKJ82" name="debug.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/debug.hpp"/>
+            <FILE id="nBF3xx" name="decorate_type.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/decorate_type.hpp"/>
-            <FILE id="mvrh3n" name="deduce_signature.hpp" compile="0" resource="0"
+            <FILE id="E48xgb" name="deduce_signature.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/deduce_signature.hpp"/>
-            <FILE id="EkdttZ" name="enum_maker.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/enum_maker.hpp"/>
-            <FILE id="vY6oTQ" name="format_signature.hpp" compile="0" resource="0"
+            <FILE id="B5vRcb" name="enum_maker.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/enum_maker.hpp"/>
+            <FILE id="omuQuA" name="format_signature.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/format_signature.hpp"/>
-            <FILE id="Ui1C5B" name="garbage_collector.hpp" compile="0" resource="0"
+            <FILE id="hw9JoU" name="garbage_collector.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/garbage_collector.hpp"/>
-            <FILE id="GWu1EP" name="has_get_pointer.hpp" compile="0" resource="0"
+            <FILE id="bQmJ2X" name="has_get_pointer.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/has_get_pointer.hpp"/>
-            <FILE id="m9tg6n" name="inheritance.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/inheritance.hpp"/>
-            <FILE id="wPPxKt" name="instance_holder.hpp" compile="0" resource="0"
+            <FILE id="ZZu3ZW" name="index_tuple.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/index_tuple.hpp"/>
+            <FILE id="uaFJi4" name="inheritance.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/inheritance.hpp"/>
+            <FILE id="brVrgE" name="instance_holder.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/instance_holder.hpp"/>
-            <FILE id="FXLRO5" name="is_indirect_const.hpp" compile="0" resource="0"
+            <FILE id="zWXceW" name="is_indirect_const.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/is_indirect_const.hpp"/>
-            <FILE id="s9zIfu" name="link_compatibility.hpp" compile="0" resource="0"
+            <FILE id="DLDhS9" name="link_compatibility.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/link_compatibility.hpp"/>
-            <FILE id="E0yz9s" name="make_instance.hpp" compile="0" resource="0"
+            <FILE id="bRf8Wa" name="make_instance.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/make_instance.hpp"/>
-            <FILE id="yjdXLN" name="most_derived.hpp" compile="0" resource="0"
+            <FILE id="hUimQN" name="most_derived.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/most_derived.hpp"/>
-            <FILE id="fTTiZM" name="object_call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_call.hpp"/>
-            <FILE id="GcAapo" name="object_funs.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_funs.hpp"/>
-            <FILE id="KxxCuQ" name="object_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_rep.hpp"/>
-            <FILE id="ZsO2qs" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/open.hpp"/>
-            <FILE id="xSQQ1s" name="operator_id.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/operator_id.hpp"/>
-            <FILE id="I00een" name="other.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/other.hpp"/>
-            <FILE id="UH3ypz" name="pcall.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/pcall.hpp"/>
-            <FILE id="BA3AZS" name="pointee_sizeof.hpp" compile="0" resource="0"
+            <FILE id="mmRRiQ" name="object_call.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_call.hpp"/>
+            <FILE id="gRv6Gu" name="object_funs.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_funs.hpp"/>
+            <FILE id="rlJ311" name="object_rep.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/object_rep.hpp"/>
+            <FILE id="FkU0Wz" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/open.hpp"/>
+            <FILE id="yh7dTX" name="operator_id.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/operator_id.hpp"/>
+            <FILE id="Qwf2Rx" name="other.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/other.hpp"/>
+            <FILE id="r8pxtI" name="pcall.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/pcall.hpp"/>
+            <FILE id="Kb0FAw" name="pointee_sizeof.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/pointee_sizeof.hpp"/>
-            <FILE id="sMerfg" name="pointee_typeid.hpp" compile="0" resource="0"
+            <FILE id="WRRvWA" name="pointee_typeid.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/pointee_typeid.hpp"/>
-            <FILE id="SJUcJa" name="policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/policy.hpp"/>
-            <FILE id="Zu8FUv" name="primitives.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/primitives.hpp"/>
-            <FILE id="RXDva0" name="property.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/property.hpp"/>
-            <FILE id="uhzy2T" name="ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/ref.hpp"/>
-            <FILE id="pPpmOW" name="signature_match.hpp" compile="0" resource="0"
+            <FILE id="J4UJwU" name="policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/policy.hpp"/>
+            <FILE id="AUHun9" name="primitives.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/primitives.hpp"/>
+            <FILE id="Ee0SkX" name="property.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/property.hpp"/>
+            <FILE id="SYjL6f" name="ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/ref.hpp"/>
+            <FILE id="UFlnEe" name="signature_match.hpp" compile="0" resource="0"
                   file="../../Source/Lua/luabind/luabind/detail/signature_match.hpp"/>
-            <FILE id="FSiZVd" name="stack_utils.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/stack_utils.hpp"/>
-            <FILE id="IUgS1v" name="typetraits.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/typetraits.hpp"/>
-            <FILE id="Ljlw9P" name="yes_no.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/yes_no.hpp"/>
+            <FILE id="Fha2bH" name="stack_utils.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/stack_utils.hpp"/>
+            <FILE id="Z6WErq" name="typetraits.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/typetraits.hpp"/>
+            <FILE id="RiXhFJ" name="yes_no.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/detail/yes_no.hpp"/>
           </GROUP>
-          <FILE id="ercb8O" name="discard_result_policy.hpp" compile="0" resource="0"
+          <FILE id="SLx4go" name="adopt_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/adopt_policy.hpp"/>
+          <FILE id="TmACGW" name="back_reference.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/back_reference.hpp"/>
+          <FILE id="GslMB8" name="back_reference_fwd.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/back_reference_fwd.hpp"/>
+          <FILE id="A9IuQq" name="class.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class.hpp"/>
+          <FILE id="DotvYy" name="class_info.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/class_info.hpp"/>
+          <FILE id="ZYCzT7" name="config.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/config.hpp"/>
+          <FILE id="vKOqCS" name="container_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/container_policy.hpp"/>
+          <FILE id="MeSxrA" name="copy_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/copy_policy.hpp"/>
+          <FILE id="Yr2AMh" name="dependency_policy.hpp" compile="0" resource="0"
+                file="../../Source/Lua/luabind/luabind/dependency_policy.hpp"/>
+          <FILE id="b22jy1" name="discard_result_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/discard_result_policy.hpp"/>
-          <FILE id="ZZiLjV" name="error.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/error.hpp"/>
-          <FILE id="sWX6JY" name="exception_handler.hpp" compile="0" resource="0"
+          <FILE id="rxQJrE" name="error.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/error.hpp"/>
+          <FILE id="wzFZ3A" name="exception_handler.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/exception_handler.hpp"/>
-          <FILE id="xPz3aO" name="from_stack.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/from_stack.hpp"/>
-          <FILE id="pomDK8" name="function.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/function.hpp"/>
-          <FILE id="qT9HtM" name="get_main_thread.hpp" compile="0" resource="0"
+          <FILE id="BcWEB7" name="from_stack.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/from_stack.hpp"/>
+          <FILE id="JztoNA" name="function.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/function.hpp"/>
+          <FILE id="zvt7CP" name="get_main_thread.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/get_main_thread.hpp"/>
-          <FILE id="ubHblo" name="get_pointer.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/get_pointer.hpp"/>
-          <FILE id="rnbLi6" name="handle.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/handle.hpp"/>
-          <FILE id="OOAjiF" name="iterator_policy.hpp" compile="0" resource="0"
+          <FILE id="MY3dml" name="get_pointer.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/get_pointer.hpp"/>
+          <FILE id="wtsvLr" name="handle.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/handle.hpp"/>
+          <FILE id="GXsdvW" name="iterator_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/iterator_policy.hpp"/>
-          <FILE id="BtkYsr" name="lauxlib.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lauxlib.h"/>
-          <FILE id="R4krpK" name="lua.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua.h"/>
-          <FILE id="IXJGcW" name="lua.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua.hpp"/>
-          <FILE id="jlx91b" name="lua_include.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua_include.hpp"/>
-          <FILE id="fc6Hi4" name="luabind.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luabind.hpp"/>
-          <FILE id="t3gdwj" name="luaconf.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luaconf.h"/>
-          <FILE id="zVNRv7" name="lualib.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lualib.h"/>
-          <FILE id="MtY0Qk" name="make_function.hpp" compile="0" resource="0"
+          <FILE id="W6n2kg" name="lua_include.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lua_include.hpp"/>
+          <FILE id="JHSoHJ" name="luabind.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luabind.hpp"/>
+          <FILE id="LaOfaN" name="luaconf.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/luaconf.h"/>
+          <FILE id="mqUv61" name="lualib.h" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/lualib.h"/>
+          <FILE id="X0SUr7" name="make_function.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/make_function.hpp"/>
-          <FILE id="yboAjw" name="nil.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/nil.hpp"/>
-          <FILE id="SLVnwH" name="no_dependency.hpp" compile="0" resource="0"
+          <FILE id="UZZiWH" name="nil.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/nil.hpp"/>
+          <FILE id="Ghlj0b" name="no_dependency.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/no_dependency.hpp"/>
-          <FILE id="BwxbsP" name="object.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/object.hpp"/>
-          <FILE id="G1mEfi" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/open.hpp"/>
-          <FILE id="ysD8F0" name="operator.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/operator.hpp"/>
-          <FILE id="vn76yz" name="out_value_policy.hpp" compile="0" resource="0"
+          <FILE id="m53mHx" name="object.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/object.hpp"/>
+          <FILE id="y0nXhr" name="open.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/open.hpp"/>
+          <FILE id="UC0csb" name="operator.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/operator.hpp"/>
+          <FILE id="p5PUfG" name="out_value_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/out_value_policy.hpp"/>
-          <FILE id="uEAqPl" name="prefix.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/prefix.hpp"/>
-          <FILE id="lr3l6C" name="raw_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/raw_policy.hpp"/>
-          <FILE id="A9Fzpy" name="return_reference_to_policy.hpp" compile="0"
+          <FILE id="A73Tfw" name="prefix.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/prefix.hpp"/>
+          <FILE id="SWP0gQ" name="raw_policy.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/raw_policy.hpp"/>
+          <FILE id="yo6z09" name="return_reference_to_policy.hpp" compile="0"
                 resource="0" file="../../Source/Lua/luabind/luabind/return_reference_to_policy.hpp"/>
-          <FILE id="AGk8YW" name="scope.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/scope.hpp"/>
-          <FILE id="kJuNZR" name="shared_ptr_converter.hpp" compile="0" resource="0"
+          <FILE id="RJJMsG" name="scope.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/scope.hpp"/>
+          <FILE id="SI8IoC" name="shared_ptr_converter.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/shared_ptr_converter.hpp"/>
-          <FILE id="GmlLD8" name="tag_function.hpp" compile="0" resource="0"
+          <FILE id="utn9Iz" name="tag_function.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/tag_function.hpp"/>
-          <FILE id="fOr2bD" name="typeid.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/typeid.hpp"/>
-          <FILE id="F2XbaK" name="value_wrapper.hpp" compile="0" resource="0"
+          <FILE id="cI1in1" name="typeid.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/typeid.hpp"/>
+          <FILE id="knoaXC" name="value_wrapper.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/value_wrapper.hpp"/>
-          <FILE id="JgPmOP" name="vector.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/vector.hpp"/>
-          <FILE id="lio0qs" name="version.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/version.hpp"/>
-          <FILE id="hjUkwh" name="weak_ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/weak_ref.hpp"/>
-          <FILE id="l2jgX2" name="wrapper_base.hpp" compile="0" resource="0"
+          <FILE id="u99TQD" name="vector.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/vector.hpp"/>
+          <FILE id="HDa9G7" name="version.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/version.hpp"/>
+          <FILE id="ULEspJ" name="weak_ref.hpp" compile="0" resource="0" file="../../Source/Lua/luabind/luabind/weak_ref.hpp"/>
+          <FILE id="lqxzuO" name="wrapper_base.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/wrapper_base.hpp"/>
-          <FILE id="gIjvVP" name="yield_policy.hpp" compile="0" resource="0"
+          <FILE id="pQJqMo" name="yield_policy.hpp" compile="0" resource="0"
                 file="../../Source/Lua/luabind/luabind/yield_policy.hpp"/>
+        </GROUP>
+        <GROUP id="{EDE54496-C7BA-A8BD-D035-014A552A209F}" name="src">
+          <FILE id="u0cN5Y" name="luabind.cpp" compile="1" resource="0" file="../../Source/Lua/luabind/src/luabind.cpp"/>
         </GROUP>
       </GROUP>
       <GROUP id="{F8744615-2BDF-B423-092B-019F8EFD32E5}" name="Methods">
@@ -792,93 +791,152 @@
             file="../../Source/MIDI/CtrlrOwnedMidiMessage.h"/>
     </GROUP>
     <GROUP id="{15BCC855-3712-E6FF-7B07-0711370584D7}" name="Misc">
-      <FILE id="AY6RF4" name="address.c" compile="1" resource="0" file="../../Source/Misc/address.c"/>
-      <FILE id="fSLJ6h" name="blob.c" compile="1" resource="0" file="../../Source/Misc/blob.c"/>
-      <FILE id="HZFcOY" name="bundle.c" compile="1" resource="0" file="../../Source/Misc/bundle.c"/>
-      <FILE id="SXpQf1" name="compat.c" compile="1" resource="0" file="../../Source/Misc/compat.c"/>
-      <FILE id="uxsv2c" name="core.c" compile="1" resource="0" file="../../Source/Misc/core.c"/>
-      <FILE id="BkmaNf" name="darwin_usb.c" compile="1" resource="0" file="../../Source/Misc/darwin_usb.c"/>
-      <FILE id="xN9b1t" name="descriptor.c" compile="1" resource="0" file="../../Source/Misc/descriptor.c"/>
-      <FILE id="gSGn88" name="enums.c" compile="1" resource="0" file="../../Source/Misc/enums.c"/>
-      <FILE id="Psiemy" name="hotplug.c" compile="1" resource="0" file="../../Source/Misc/hotplug.c"/>
-      <GROUP id="{C3DA49B5-638B-BAA0-DA18-70E57F042D7E}" name="include">
-        <GROUP id="{639303ED-7B91-2AF0-C463-F13D50416F90}" name="lo">
-          <FILE id="wXPjT3" name="lo_config_osx.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_config_osx.h"/>
-          <FILE id="CTczxn" name="lo_config_win32.h" compile="0" resource="0"
-                file="../../Source/Misc/include/lo/lo_config_win32.h"/>
-          <FILE id="IbreLy" name="lo.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo.h"/>
-          <FILE id="KxFxLi" name="lo_config_linux.h" compile="0" resource="0"
+      <GROUP id="{453A0842-90FA-B69C-5F38-1828076D0CDC}" name="include">
+        <GROUP id="{F9B20CB7-F967-1D99-BFB1-701E09E4C82A}" name="lo">
+          <FILE id="rVMNlK" name="lo.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo.h"/>
+          <FILE id="YmlwGi" name="lo_config_linux.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_config_linux.h"/>
-          <FILE id="OmyJQv" name="lo_cpp.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_cpp.h"/>
-          <FILE id="w00QOd" name="lo_endian.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_endian.h"/>
-          <FILE id="b6NOu7" name="lo_endian.h.in" compile="0" resource="1" file="../../Source/Misc/include/lo/lo_endian.h.in"/>
-          <FILE id="u9oW9q" name="lo_errors.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_errors.h"/>
-          <FILE id="vJGOFz" name="lo_internal.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_internal.h"/>
-          <FILE id="uw9eM3" name="lo_lowlevel.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_lowlevel.h"/>
-          <FILE id="tRjE1F" name="lo_macros.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_macros.h"/>
-          <FILE id="BqbXvG" name="lo_osc_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_osc_types.h"/>
-          <FILE id="VHu6kN" name="lo_serverthread.h" compile="0" resource="0"
+          <FILE id="XsZZ1J" name="lo_config_osx.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_config_osx.h"/>
+          <FILE id="R36X12" name="lo_config_win32.h" compile="0" resource="0"
+                file="../../Source/Misc/include/lo/lo_config_win32.h"/>
+          <FILE id="FS157d" name="lo_cpp.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_cpp.h"/>
+          <FILE id="MLLlcT" name="lo_endian.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_endian.h"/>
+          <FILE id="iDvZiU" name="lo_endian.h.in" compile="0" resource="1" file="../../Source/Misc/include/lo/lo_endian.h.in"/>
+          <FILE id="GfLkxc" name="lo_errors.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_errors.h"/>
+          <FILE id="vi2qvl" name="lo_internal.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_internal.h"/>
+          <FILE id="n7uLsr" name="lo_lowlevel.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_lowlevel.h"/>
+          <FILE id="vfEoCa" name="lo_macros.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_macros.h"/>
+          <FILE id="GnoVCE" name="lo_osc_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_osc_types.h"/>
+          <FILE id="EuqnbF" name="lo_serverthread.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_serverthread.h"/>
-          <FILE id="Mb3cee" name="lo_throw.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_throw.h"/>
-          <FILE id="sYHGkK" name="lo_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_types.h"/>
-          <FILE id="IqZdab" name="lo_types_internal.h" compile="0" resource="0"
+          <FILE id="KAXfR1" name="lo_throw.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_throw.h"/>
+          <FILE id="fkcGX7" name="lo_types.h" compile="0" resource="0" file="../../Source/Misc/include/lo/lo_types.h"/>
+          <FILE id="a76mEB" name="lo_types_internal.h" compile="0" resource="0"
                 file="../../Source/Misc/include/lo/lo_types_internal.h"/>
-          <FILE id="P0340N" name="Makefile" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile"/>
-          <FILE id="bzdZkm" name="Makefile.am" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.am"/>
-          <FILE id="wLoYXm" name="Makefile.in" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.in"/>
+          <FILE id="faj8dq" name="Makefile" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile"/>
+          <FILE id="pZHeQ6" name="Makefile.am" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.am"/>
+          <FILE id="VVFpIL" name="Makefile.in" compile="0" resource="1" file="../../Source/Misc/include/lo/Makefile.in"/>
         </GROUP>
-        <FILE id="ub4XU3" name="compat.h" compile="0" resource="0" file="../../Source/Misc/include/compat.h"/>
-        <FILE id="vjmBmx" name="darwin_usb.h" compile="0" resource="0" file="../../Source/Misc/include/darwin_usb.h"/>
-        <FILE id="TcRVrd" name="enums.h" compile="0" resource="0" file="../../Source/Misc/include/enums.h"/>
-        <FILE id="nymG0e" name="hotplug.h" compile="0" resource="0" file="../../Source/Misc/include/hotplug.h"/>
-        <FILE id="AkqVtH" name="inttypes.h" compile="0" resource="0" file="../../Source/Misc/include/inttypes.h"/>
-        <FILE id="xSsylV" name="juce_PluginHostType.h" compile="0" resource="0"
+        <FILE id="IWSIDF" name="compat.h" compile="0" resource="0" file="../../Source/Misc/include/compat.h"/>
+        <FILE id="CZrxhL" name="darwin_usb.h" compile="0" resource="0" file="../../Source/Misc/include/darwin_usb.h"/>
+        <FILE id="jPzoKQ" name="enums.h" compile="0" resource="0" file="../../Source/Misc/include/enums.h"/>
+        <FILE id="CqMCpO" name="hotplug.h" compile="0" resource="0" file="../../Source/Misc/include/hotplug.h"/>
+        <FILE id="FpHfW2" name="inttypes.h" compile="0" resource="0" file="../../Source/Misc/include/inttypes.h"/>
+        <FILE id="xPWoML" name="juce_PluginHostType.h" compile="0" resource="0"
               file="../../Source/Misc/include/juce_PluginHostType.h"/>
-        <FILE id="NnOncG" name="keys.h" compile="0" resource="0" file="../../Source/Misc/include/keys.h"/>
-        <FILE id="DUrWzp" name="libr.h" compile="0" resource="0" file="../../Source/Misc/include/libr.h"/>
-        <FILE id="qyTSjk" name="libusb.h" compile="0" resource="0" file="../../Source/Misc/include/libusb.h"/>
-        <FILE id="V4l6qH" name="libusb_linux.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_linux.h"/>
-        <FILE id="qOaUvp" name="libusb_osx.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_osx.h"/>
-        <FILE id="AjxzdS" name="libusb_windows.h" compile="0" resource="0"
+        <FILE id="qJMRrh" name="keys.h" compile="0" resource="0" file="../../Source/Misc/include/keys.h"/>
+        <FILE id="kiYsBV" name="lapi.h" compile="0" resource="0" file="../../Source/Misc/include/lapi.h"/>
+        <FILE id="cGCoBu" name="lauxlib.h" compile="0" resource="0" file="../../Source/Misc/include/lauxlib.h"/>
+        <FILE id="OMFEH2" name="lcode.h" compile="0" resource="0" file="../../Source/Misc/include/lcode.h"/>
+        <FILE id="PUcqBT" name="lctype.h" compile="0" resource="0" file="../../Source/Misc/include/lctype.h"/>
+        <FILE id="haK182" name="ldebug.h" compile="0" resource="0" file="../../Source/Misc/include/ldebug.h"/>
+        <FILE id="o9A9bB" name="ldo.h" compile="0" resource="0" file="../../Source/Misc/include/ldo.h"/>
+        <FILE id="xxwgD9" name="lfunc.h" compile="0" resource="0" file="../../Source/Misc/include/lfunc.h"/>
+        <FILE id="ylK3ib" name="lgc.h" compile="0" resource="0" file="../../Source/Misc/include/lgc.h"/>
+        <FILE id="GWndc1" name="libr.h" compile="0" resource="0" file="../../Source/Misc/include/libr.h"/>
+        <FILE id="cp8aS1" name="libusb.h" compile="0" resource="0" file="../../Source/Misc/include/libusb.h"/>
+        <FILE id="ZcAv6x" name="libusb_linux.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_linux.h"/>
+        <FILE id="fg19IR" name="libusb_osx.h" compile="0" resource="0" file="../../Source/Misc/include/libusb_osx.h"/>
+        <FILE id="UzZniH" name="libusb_windows.h" compile="0" resource="0"
               file="../../Source/Misc/include/libusb_windows.h"/>
-        <FILE id="wvjrNP" name="libusbi.h" compile="0" resource="0" file="../../Source/Misc/include/libusbi.h"/>
-        <FILE id="K834gg" name="linux_usbfs.h" compile="0" resource="0" file="../../Source/Misc/include/linux_usbfs.h"/>
-        <FILE id="xoedjJ" name="poll_posix.h" compile="0" resource="0" file="../../Source/Misc/include/poll_posix.h"/>
-        <FILE id="S4ectB" name="poll_windows.h" compile="0" resource="0" file="../../Source/Misc/include/poll_windows.h"/>
-        <FILE id="sO9cbi" name="structs.h" compile="0" resource="0" file="../../Source/Misc/include/structs.h"/>
-        <FILE id="aPAVTb" name="threads_posix.h" compile="0" resource="0" file="../../Source/Misc/include/threads_posix.h"/>
-        <FILE id="ssPrev" name="threads_windows.h" compile="0" resource="0"
+        <FILE id="qmuJGz" name="libusbi.h" compile="0" resource="0" file="../../Source/Misc/include/libusbi.h"/>
+        <FILE id="Qy9j80" name="linux_usbfs.h" compile="0" resource="0" file="../../Source/Misc/include/linux_usbfs.h"/>
+        <FILE id="MbdtEA" name="llex.h" compile="0" resource="0" file="../../Source/Misc/include/llex.h"/>
+        <FILE id="THpyQE" name="llimits.h" compile="0" resource="0" file="../../Source/Misc/include/llimits.h"/>
+        <FILE id="lM6b38" name="lmem.h" compile="0" resource="0" file="../../Source/Misc/include/lmem.h"/>
+        <FILE id="Uo0aYo" name="lobject.h" compile="0" resource="0" file="../../Source/Misc/include/lobject.h"/>
+        <FILE id="uJSK4w" name="lopcodes.h" compile="0" resource="0" file="../../Source/Misc/include/lopcodes.h"/>
+        <FILE id="pyRMyL" name="lparser.h" compile="0" resource="0" file="../../Source/Misc/include/lparser.h"/>
+        <FILE id="emQCMK" name="lprefix.h" compile="0" resource="0" file="../../Source/Misc/include/lprefix.h"/>
+        <FILE id="cjj9pd" name="lstate.h" compile="0" resource="0" file="../../Source/Misc/include/lstate.h"/>
+        <FILE id="ZoQfGe" name="lstring.h" compile="0" resource="0" file="../../Source/Misc/include/lstring.h"/>
+        <FILE id="ScUilT" name="ltable.h" compile="0" resource="0" file="../../Source/Misc/include/ltable.h"/>
+        <FILE id="UrPXNh" name="ltm.h" compile="0" resource="0" file="../../Source/Misc/include/ltm.h"/>
+        <FILE id="plHyIY" name="lua.h" compile="0" resource="0" file="../../Source/Misc/include/lua.h"/>
+        <FILE id="VcALXM" name="lua.hpp" compile="0" resource="0" file="../../Source/Misc/include/lua.hpp"/>
+        <FILE id="yuTBkU" name="luaconf.h" compile="0" resource="0" file="../../Source/Misc/include/luaconf.h"/>
+        <FILE id="n89REh" name="lualib.h" compile="0" resource="0" file="../../Source/Misc/include/lualib.h"/>
+        <FILE id="o7IH1O" name="lundump.h" compile="0" resource="0" file="../../Source/Misc/include/lundump.h"/>
+        <FILE id="gmnyi9" name="lvm.h" compile="0" resource="0" file="../../Source/Misc/include/lvm.h"/>
+        <FILE id="S4TvgE" name="lzio.h" compile="0" resource="0" file="../../Source/Misc/include/lzio.h"/>
+        <FILE id="RclY6G" name="poll_posix.h" compile="0" resource="0" file="../../Source/Misc/include/poll_posix.h"/>
+        <FILE id="SooWCc" name="poll_windows.h" compile="0" resource="0" file="../../Source/Misc/include/poll_windows.h"/>
+        <FILE id="f8D6lt" name="structs.h" compile="0" resource="0" file="../../Source/Misc/include/structs.h"/>
+        <FILE id="DeGxDd" name="threads_posix.h" compile="0" resource="0" file="../../Source/Misc/include/threads_posix.h"/>
+        <FILE id="EFENaS" name="threads_windows.h" compile="0" resource="0"
               file="../../Source/Misc/include/threads_windows.h"/>
-        <FILE id="d5niU7" name="version.h" compile="0" resource="0" file="../../Source/Misc/include/version.h"/>
-        <FILE id="QQDorv" name="version_nano.h" compile="0" resource="0" file="../../Source/Misc/include/version_nano.h"/>
-        <FILE id="TI0SB6" name="windows_common.h" compile="0" resource="0"
+        <FILE id="d1hr2Q" name="version.h" compile="0" resource="0" file="../../Source/Misc/include/version.h"/>
+        <FILE id="hIqxa4" name="version_nano.h" compile="0" resource="0" file="../../Source/Misc/include/version_nano.h"/>
+        <FILE id="Jmacnw" name="windows_common.h" compile="0" resource="0"
               file="../../Source/Misc/include/windows_common.h"/>
-        <FILE id="q31ZOe" name="windows_usb.h" compile="0" resource="0" file="../../Source/Misc/include/windows_usb.h"/>
+        <FILE id="NLxrho" name="windows_usb.h" compile="0" resource="0" file="../../Source/Misc/include/windows_usb.h"/>
       </GROUP>
-      <FILE id="X5v8wy" name="io.c" compile="1" resource="0" file="../../Source/Misc/io.c"/>
-      <FILE id="VlmOgy" name="keys.cpp" compile="1" resource="0" file="../../Source/Misc/keys.cpp"/>
-      <FILE id="UmkLLC" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Misc/libr-bfd.c"/>
-      <FILE id="Xde4M1" name="libr.c" compile="1" resource="0" file="../../Source/Misc/libr.c"/>
-      <FILE id="IK6XxB" name="linux_udev.c" compile="1" resource="0" file="../../Source/Misc/linux_udev.c"/>
-      <FILE id="LfjLr4" name="message.c" compile="1" resource="0" file="../../Source/Misc/message.c"/>
-      <FILE id="b2RMLx" name="method.c" compile="1" resource="0" file="../../Source/Misc/method.c"/>
-      <FILE id="IhkZsM" name="pattern_match.c" compile="1" resource="0" file="../../Source/Misc/pattern_match.c"/>
-      <FILE id="iK37su" name="linux_usbfs.c" compile="1" resource="0" file="../../Source/Misc/linux_usbfs.c"/>
-      <FILE id="nLLa6p" name="lua.c" compile="1" resource="0" file="../../Source/Misc/lua.c"/>
-      <FILE id="U0q92o" name="send.c" compile="1" resource="0" file="../../Source/Misc/send.c"/>
-      <FILE id="VDwlCr" name="server.c" compile="1" resource="0" file="../../Source/Misc/server.c"/>
-      <FILE id="ksTSSs" name="poll_posix.c" compile="1" resource="0" file="../../Source/Misc/poll_posix.c"/>
-      <FILE id="cWOVFT" name="poll_windows.c" compile="1" resource="0" file="../../Source/Misc/poll_windows.c"/>
-      <FILE id="jmARjh" name="strerror.c" compile="1" resource="0" file="../../Source/Misc/strerror.c"/>
-      <FILE id="pn5TlR" name="structs.c" compile="1" resource="0" file="../../Source/Misc/structs.c"/>
-      <FILE id="F7Di5r" name="sync.c" compile="1" resource="0" file="../../Source/Misc/sync.c"/>
-      <FILE id="E9uATj" name="timetag.c" compile="1" resource="0" file="../../Source/Misc/timetag.c"/>
-      <FILE id="hi0HWy" name="threads_posix.c" compile="1" resource="0" file="../../Source/Misc/threads_posix.c"/>
-      <FILE id="vRPVHI" name="version.c" compile="1" resource="0" file="../../Source/Misc/version.c"/>
-      <FILE id="P3w7B8" name="threads_windows.c" compile="1" resource="0"
+      <FILE id="tNIymc" name="address.c" compile="1" resource="0" file="../../Source/Misc/address.c"/>
+      <FILE id="ppX2dE" name="blob.c" compile="1" resource="0" file="../../Source/Misc/blob.c"/>
+      <FILE id="SqVUlX" name="bundle.c" compile="1" resource="0" file="../../Source/Misc/bundle.c"/>
+      <FILE id="bN6Il0" name="compat.c" compile="1" resource="0" file="../../Source/Misc/compat.c"/>
+      <FILE id="uobo2h" name="core.c" compile="1" resource="0" file="../../Source/Misc/core.c"/>
+      <FILE id="Y66LPP" name="darwin_usb.c" compile="1" resource="0" file="../../Source/Misc/darwin_usb.c"/>
+      <FILE id="yJCgEv" name="descriptor.c" compile="1" resource="0" file="../../Source/Misc/descriptor.c"/>
+      <FILE id="SPCxEJ" name="enums.c" compile="1" resource="0" file="../../Source/Misc/enums.c"/>
+      <FILE id="pUH9x4" name="hotplug.c" compile="1" resource="0" file="../../Source/Misc/hotplug.c"/>
+      <FILE id="mTCgmf" name="io.c" compile="1" resource="0" file="../../Source/Misc/io.c"/>
+      <FILE id="VfjkON" name="keys.cpp" compile="1" resource="0" file="../../Source/Misc/keys.cpp"/>
+      <FILE id="ruTWJV" name="lapi.c" compile="1" resource="0" file="../../Source/Misc/lapi.c"/>
+      <FILE id="OyYTma" name="lauxlib.c" compile="1" resource="0" file="../../Source/Misc/lauxlib.c"/>
+      <FILE id="KmwK93" name="lbaselib.c" compile="1" resource="0" file="../../Source/Misc/lbaselib.c"/>
+      <FILE id="u47PdN" name="lbitlib.c" compile="1" resource="0" file="../../Source/Misc/lbitlib.c"/>
+      <FILE id="soaIr7" name="lcode.c" compile="1" resource="0" file="../../Source/Misc/lcode.c"/>
+      <FILE id="gqV0PP" name="lcorolib.c" compile="1" resource="0" file="../../Source/Misc/lcorolib.c"/>
+      <FILE id="demVSd" name="lctype.c" compile="1" resource="0" file="../../Source/Misc/lctype.c"/>
+      <FILE id="X46SMW" name="ldblib.c" compile="1" resource="0" file="../../Source/Misc/ldblib.c"/>
+      <FILE id="jAwaXX" name="ldebug.c" compile="1" resource="0" file="../../Source/Misc/ldebug.c"/>
+      <FILE id="pv9XLH" name="ldo.c" compile="1" resource="0" file="../../Source/Misc/ldo.c"/>
+      <FILE id="Aekd77" name="ldump.c" compile="1" resource="0" file="../../Source/Misc/ldump.c"/>
+      <FILE id="qaFU7S" name="lfunc.c" compile="1" resource="0" file="../../Source/Misc/lfunc.c"/>
+      <FILE id="EDI5fL" name="lgc.c" compile="1" resource="0" file="../../Source/Misc/lgc.c"/>
+      <FILE id="Dvciby" name="libr-bfd.c" compile="1" resource="0" file="../../Source/Misc/libr-bfd.c"/>
+      <FILE id="sRAw1R" name="libr.c" compile="1" resource="0" file="../../Source/Misc/libr.c"/>
+      <FILE id="Zb8KVa" name="linit.c" compile="1" resource="0" file="../../Source/Misc/linit.c"/>
+      <FILE id="BMRa2V" name="linux_udev.c" compile="1" resource="0" file="../../Source/Misc/linux_udev.c"/>
+      <FILE id="Y0oqnl" name="linux_usbfs.c" compile="1" resource="0" file="../../Source/Misc/linux_usbfs.c"/>
+      <FILE id="cDCz6Z" name="liolib.c" compile="1" resource="0" file="../../Source/Misc/liolib.c"/>
+      <FILE id="Lt7LPa" name="llex.c" compile="1" resource="0" file="../../Source/Misc/llex.c"/>
+      <FILE id="GUweTc" name="lmathlib.c" compile="1" resource="0" file="../../Source/Misc/lmathlib.c"/>
+      <FILE id="s963ce" name="lmem.c" compile="1" resource="0" file="../../Source/Misc/lmem.c"/>
+      <FILE id="aNBkM0" name="loadlib.c" compile="1" resource="0" file="../../Source/Misc/loadlib.c"/>
+      <FILE id="NBaKAv" name="lobject.c" compile="1" resource="0" file="../../Source/Misc/lobject.c"/>
+      <FILE id="xCIu3f" name="lopcodes.c" compile="1" resource="0" file="../../Source/Misc/lopcodes.c"/>
+      <FILE id="llM4e0" name="loslib.c" compile="1" resource="0" file="../../Source/Misc/loslib.c"/>
+      <FILE id="hL9W0p" name="lparser.c" compile="1" resource="0" file="../../Source/Misc/lparser.c"/>
+      <FILE id="Jrhw1M" name="lstate.c" compile="1" resource="0" file="../../Source/Misc/lstate.c"/>
+      <FILE id="ArdHoV" name="lstring.c" compile="1" resource="0" file="../../Source/Misc/lstring.c"/>
+      <FILE id="WKabAp" name="lstrlib.c" compile="1" resource="0" file="../../Source/Misc/lstrlib.c"/>
+      <FILE id="kV8VKj" name="ltable.c" compile="1" resource="0" file="../../Source/Misc/ltable.c"/>
+      <FILE id="JzUZe3" name="ltablib.c" compile="1" resource="0" file="../../Source/Misc/ltablib.c"/>
+      <FILE id="nHw7NV" name="ltm.c" compile="1" resource="0" file="../../Source/Misc/ltm.c"/>
+      <FILE id="AfXEFP" name="lua.c" compile="1" resource="0" file="../../Source/Misc/lua.c"/>
+      <FILE id="QLBs7A" name="lundump.c" compile="1" resource="0" file="../../Source/Misc/lundump.c"/>
+      <FILE id="WdspDH" name="lutf8lib.c" compile="1" resource="0" file="../../Source/Misc/lutf8lib.c"/>
+      <FILE id="WRb47C" name="lvm.c" compile="1" resource="0" file="../../Source/Misc/lvm.c"/>
+      <FILE id="taag8T" name="lzio.c" compile="1" resource="0" file="../../Source/Misc/lzio.c"/>
+      <FILE id="RzROUR" name="message.c" compile="1" resource="0" file="../../Source/Misc/message.c"/>
+      <FILE id="P9qogh" name="method.c" compile="1" resource="0" file="../../Source/Misc/method.c"/>
+      <FILE id="b0nwME" name="pattern_match.c" compile="1" resource="0" file="../../Source/Misc/pattern_match.c"/>
+      <FILE id="terv1D" name="poll_posix.c" compile="1" resource="0" file="../../Source/Misc/poll_posix.c"/>
+      <FILE id="ZXj3W7" name="poll_windows.c" compile="1" resource="0" file="../../Source/Misc/poll_windows.c"/>
+      <FILE id="J5wu6c" name="send.c" compile="1" resource="0" file="../../Source/Misc/send.c"/>
+      <FILE id="cJbZPV" name="server.c" compile="1" resource="0" file="../../Source/Misc/server.c"/>
+      <FILE id="MyR2qX" name="strerror.c" compile="1" resource="0" file="../../Source/Misc/strerror.c"/>
+      <FILE id="ZLyi4S" name="structs.c" compile="1" resource="0" file="../../Source/Misc/structs.c"/>
+      <FILE id="ICVgRN" name="sync.c" compile="1" resource="0" file="../../Source/Misc/sync.c"/>
+      <FILE id="aU3AYo" name="threads_posix.c" compile="1" resource="0" file="../../Source/Misc/threads_posix.c"/>
+      <FILE id="NvRGQd" name="threads_windows.c" compile="1" resource="0"
             file="../../Source/Misc/threads_windows.c"/>
-      <FILE id="jgkc3a" name="usb.c" compile="1" resource="0" file="../../Source/Misc/usb.c"/>
-      <FILE id="REqCRg" name="windows_usb.c" compile="1" resource="0" file="../../Source/Misc/windows_usb.c"/>
+      <FILE id="NMuKy2" name="timetag.c" compile="1" resource="0" file="../../Source/Misc/timetag.c"/>
+      <FILE id="wvpVPA" name="usb.c" compile="1" resource="0" file="../../Source/Misc/usb.c"/>
+      <FILE id="gfxWFo" name="version.c" compile="1" resource="0" file="../../Source/Misc/version.c"/>
+      <FILE id="plE32c" name="windows_usb.c" compile="1" resource="0" file="../../Source/Misc/windows_usb.c"/>
     </GROUP>
     <GROUP id="{138F8618-FDC8-A9D5-F382-2B2638854CB2}" name="Native">
       <FILE id="mLj3rx" name="CtrlrGeneric.h" compile="0" resource="0" file="../../Source/Native/CtrlrGeneric.h"/>
