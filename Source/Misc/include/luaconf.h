@@ -290,6 +290,7 @@
 */
 
 #define LUA_COMPAT_5_1
+#define LUA_COMPAT_5_2
 
 #if defined(LUA_COMPAT_5_2)	/* { */
 
