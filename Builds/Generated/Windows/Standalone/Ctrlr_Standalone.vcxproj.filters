@@ -814,9 +814,6 @@
     <ClCompile Include="..\..\..\..\Source\Misc\ltm.c">
       <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua.c">
-      <Filter>Ctrlr_Standalone\Misc</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\lundump.c">
       <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>

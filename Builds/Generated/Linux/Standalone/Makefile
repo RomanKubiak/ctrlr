@@ -18,7 +18,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "USE_ANSI_C=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Lua/LuaSocket/include -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
+  CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DCTRLR_NIGHTLY=1 -DJucePlugin_Build_Standalone -DUSE_ANSI_C=1 -DJUCER_LINUX_MAKE_CC96CACF=1 -DJUCE_APP_VERSION=5.4.0 -DJUCE_APP_VERSION_HEX=0x50400 -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Lua/LuaSocket/include -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0 -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
   CXXFLAGS += $(CFLAGS) -std=c++11
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
@@ -38,7 +38,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_Standalone" -D "USE_ANSI_C=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
+  CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCE_FORCE_DEBUG=0 -DCTRLR_NIGHTLY=0 -DJucePlugin_Build_Standalone -DUSE_ANSI_C=1 -DJUCER_LINUX_MAKE_CC96CACF=1 -DJUCE_APP_VERSION=5.4.0 -DJUCE_APP_VERSION_HEX=0x50400 -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Os -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
   CXXFLAGS += $(CFLAGS) -std=c++11
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
@@ -58,7 +58,7 @@ ifeq ($(CONFIG),Release_Nightly)
     TARGET_ARCH := 
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_Standalone" -D "USE_ANSI_C=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
+  CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCE_FORCE_DEBUG=0 -DCTRLR_NIGHTLY=1 -DJucePlugin_Build_Standalone -DUSE_ANSI_C=1 -DJUCER_LINUX_MAKE_CC96CACF=1 -DJUCE_APP_VERSION=5.4.0 -DJUCE_APP_VERSION_HEX=0x50400 -I /usr/include -I /usr/include/freetype2 -I ../../../Standalone/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -Ofast -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
   CXXFLAGS += $(CFLAGS) -std=c++11
   LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt libbfd-$(ARCH).a libiberty-$(ARCH).a -lz -lGL -ludev
@@ -179,7 +179,6 @@ OBJECTS := \
   $(OBJDIR)/ltable_dbce1266.o \
   $(OBJDIR)/ltablib_9df6c902.o \
   $(OBJDIR)/ltm_421f8eb.o \
-  $(OBJDIR)/lua_422403e.o \
   $(OBJDIR)/lundump_b97382ff.o \
   $(OBJDIR)/lutf8lib_e5e839cc.o \
   $(OBJDIR)/lvm_422e1a9.o \
@@ -889,11 +888,6 @@ $(OBJDIR)/ltablib_9df6c902.o: ../../../../Source/Misc/ltablib.c
 $(OBJDIR)/ltm_421f8eb.o: ../../../../Source/Misc/ltm.c
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling ltm.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/lua_422403e.o: ../../../../Source/Misc/lua.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling lua.c"
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/lundump_b97382ff.o: ../../../../Source/Misc/lundump.c
