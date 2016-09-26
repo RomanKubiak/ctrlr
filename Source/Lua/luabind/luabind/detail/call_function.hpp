@@ -81,7 +81,7 @@ namespace luabind
 					rhs.m_called = true;
 				}
 
-				~proxy_function_caller() NOEXCEPT(false)
+				~proxy_function_caller() noexcept (false)
 				{
 					if (m_called) return;
 
@@ -255,7 +255,7 @@ namespace luabind
 				{
 					rhs.m_called = true;
 				}
-				~proxy_function_void_caller() NOEXCEPT(false)
+				~proxy_function_void_caller() noexcept(false)
 				{
 					if (m_called) return;
 
