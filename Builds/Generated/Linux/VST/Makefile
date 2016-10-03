@@ -4,305 +4,345 @@
 # (this disables dependency generation if multiple architectures are set)
 DEPFLAGS := $(if $(word 2, $(TARGET_ARCH)), , -MMD)
 
+ifndef STRIP
+  STRIP=strip
+endif
+
+ifndef AR
+  AR=ar
+endif
+
 ifndef CONFIG
   CONFIG=Debug
 endif
 
 ifeq ($(CONFIG),Debug)
-  BINDIR := build
-  LIBDIR := build
-  OBJDIR := build/intermediate/Debug
-  OUTDIR := ../../../../Bin
+  JUCE_BINDIR := build
+  JUCE_LIBDIR := build
+  JUCE_OBJDIR := build/intermediate/Debug
+  JUCE_OUTDIR := ../../../../Bin
 
   ifeq ($(TARGET_ARCH),)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "JUCE_DEBUG=1" -D "USE_ANSI_C=1" -D "_LINUX=1" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
-  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -fPIC -O0 -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
-  CXXFLAGS += $(CFLAGS) -std=c++11
-  LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -Wl,--no-undefined -shared -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -lz -lbfd -ludev
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -D_CRT_SECURE_NO_WARNINGS -DCTRLR_NIGHTLY=1 -DJucePlugin_Build_VST=1 -DJUCE_DEBUG=1 -DUSE_ANSI_C=1 -D_LINUX=1 -DJUCER_LINUX_MAKE_168B420D=1 -DJUCE_APP_VERSION=5.4.0 -DJUCE_APP_VERSION_HEX=0x50400 -pthread -I../../../VST/JuceLibraryCode -I../../../../Juce/modules -I../../../../Boost -I../../../../Source/Lua -I../../../../Source/Lua/luabind -I../../../../Source/Lua/luabind/luabind -I../../../../Source/Misc -I../../../../Source/Misc/include -I../../../../Source/MIDI -I../../../../Source -I../../../../Source/UIComponents -I../../../../Source/Core -I../../../../Source/Plugin -I../../../../Source/Application -I../../../../Source/Misc/libusb -I../../../../Source/Misc/include/lo
+  JUCE_CFLAGS += $(CFLAGS) $(JUCE_CPPFLAGS) $(TARGET_ARCH) -g -ggdb -fPIC -O0 -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
+  JUCE_CXXFLAGS += $(CXXFLAGS) $(JUCE_CFLAGS) -std=c++11
+  JUCE_LDFLAGS += $(LDFLAGS) $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) -Wl,--no-undefined -shared -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -lz -lbfd -ludev
 
   TARGET := libCtrlr-VST-Debug-$(ARCH).so
-  BLDCMD = $(CXX) -o $(OUTDIR)/$(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
-  CLEANCMD = rm -rf $(OUTDIR)/$(TARGET) $(OBJDIR)
+  BLDCMD = $(CXX) -o $(JUCE_OUTDIR)/$(TARGET) $(OBJECTS) $(JUCE_LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
+  CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
 
 ifeq ($(CONFIG),Release)
-  BINDIR := build
-  LIBDIR := build
-  OBJDIR := build/intermediate/Release
-  OUTDIR := ../../../../Bin
+  JUCE_BINDIR := build
+  JUCE_LIBDIR := build
+  JUCE_OBJDIR := build/intermediate/Release
+  JUCE_OUTDIR := ../../../../Bin
 
   ifeq ($(TARGET_ARCH),)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=0" -D "JucePlugin_Build_VST=1" -D "_LINUX=1" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
-  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -fPIC -Os -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
-  CXXFLAGS += $(CFLAGS) -std=c++11
-  LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -Wl,--no-undefined -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -lz -lbfd -ludev
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -D_CRT_SECURE_NO_WARNINGS -DCTRLR_NIGHTLY=0 -DJucePlugin_Build_VST=1 -D_LINUX=1 -DJUCER_LINUX_MAKE_168B420D=1 -DJUCE_APP_VERSION=5.4.0 -DJUCE_APP_VERSION_HEX=0x50400 -pthread -I../../../VST/JuceLibraryCode -I../../../../Juce/modules -I../../../../Boost -I../../../../Source/Lua -I../../../../Source/Lua/luabind -I../../../../Source/Lua/luabind/luabind -I../../../../Source/Misc -I../../../../Source/Misc/include -I../../../../Source/MIDI -I../../../../Source -I../../../../Source/UIComponents -I../../../../Source/Core -I../../../../Source/Plugin -I../../../../Source/Application -I../../../../Source/Misc/libusb -I../../../../Source/Misc/include/lo
+  JUCE_CFLAGS += $(CFLAGS) $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -Os -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
+  JUCE_CXXFLAGS += $(CXXFLAGS) $(JUCE_CFLAGS) -std=c++11
+  JUCE_LDFLAGS += $(LDFLAGS) $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) -Wl,--no-undefined -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -lz -lbfd -ludev
 
   TARGET := libCtrlr-VST-$(ARCH).so
-  BLDCMD = $(CXX) -o $(OUTDIR)/$(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
-  CLEANCMD = rm -rf $(OUTDIR)/$(TARGET) $(OBJDIR)
+  BLDCMD = $(CXX) -o $(JUCE_OUTDIR)/$(TARGET) $(OBJECTS) $(JUCE_LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
+  CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
 
 ifeq ($(CONFIG),Release_Nightly)
-  BINDIR := build
-  LIBDIR := build
-  OBJDIR := build/intermediate/Release_Nightly
-  OUTDIR := ../../../../Bin
+  JUCE_BINDIR := build
+  JUCE_LIBDIR := build
+  JUCE_OBJDIR := build/intermediate/Release_Nightly
+  JUCE_OUTDIR := ../../../../Bin
 
   ifeq ($(TARGET_ARCH),)
     TARGET_ARCH := -march=native
   endif
 
-  CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "_CRT_SECURE_NO_WARNINGS" -D "CTRLR_NIGHTLY=1" -D "JucePlugin_Build_VST=1" -D "USE_ANSI_C=1" -D "_LINUX=1" -D "JUCER_LINUX_MAKE_168B420D=1" -D "JUCE_APP_VERSION=5.4.0" -D "JUCE_APP_VERSION_HEX=0x50400" -I /usr/include -I /usr/include/freetype2 -I ../../../../VST -I ../../../VST/JuceLibraryCode -I ../../../../Juce/modules -I ../../../../Boost -I ../../../../Source/Lua -I ../../../../Source/Lua/luabind -I ../../../../Source/Lua/luabind/luabind -I ../../../../Source/Misc -I ../../../../Source/Misc/include -I ../../../../Source/MIDI -I ../../../../Source -I ../../../../Source/UIComponents -I ../../../../Source/Core -I ../../../../Source/Plugin -I ../../../../Source/Application -I ../../../../Source/Misc/libusb -I ../../../../Source/Misc/include/lo
-  CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -fPIC -Ofast -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
-  CXXFLAGS += $(CFLAGS) -std=c++11
-  LDFLAGS += $(TARGET_ARCH) -L$(BINDIR) -L$(LIBDIR) -Wl,--no-undefined -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -lz -lbfd -ludev
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -D_CRT_SECURE_NO_WARNINGS -DCTRLR_NIGHTLY=1 -DJucePlugin_Build_VST=1 -DUSE_ANSI_C=1 -D_LINUX=1 -DJUCER_LINUX_MAKE_168B420D=1 -DJUCE_APP_VERSION=5.4.0 -DJUCE_APP_VERSION_HEX=0x50400 -pthread -I../../../VST/JuceLibraryCode -I../../../../Juce/modules -I../../../../Boost -I../../../../Source/Lua -I../../../../Source/Lua/luabind -I../../../../Source/Lua/luabind/luabind -I../../../../Source/Misc -I../../../../Source/Misc/include -I../../../../Source/MIDI -I../../../../Source -I../../../../Source/UIComponents -I../../../../Source/Core -I../../../../Source/Plugin -I../../../../Source/Application -I../../../../Source/Misc/libusb -I../../../../Source/Misc/include/lo
+  JUCE_CFLAGS += $(CFLAGS) $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -Ofast -fpermissive -std=c++0x -Wno-ignored-qualifiers -Wno-unused-variable -Wno-unused-parameter -Wno-reorder -Wno-empty-body -w -fexceptions -fPIC -fexpensive-optimizations
+  JUCE_CXXFLAGS += $(CXXFLAGS) $(JUCE_CFLAGS) -std=c++11
+  JUCE_LDFLAGS += $(LDFLAGS) $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) -Wl,--no-undefined -shared -fvisibility=hidden -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -lz -lbfd -ludev
 
   TARGET := libCtrlr-VST-$(ARCH).so
-  BLDCMD = $(CXX) -o $(OUTDIR)/$(TARGET) $(OBJECTS) $(LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
-  CLEANCMD = rm -rf $(OUTDIR)/$(TARGET) $(OBJDIR)
+  BLDCMD = $(CXX) -o $(JUCE_OUTDIR)/$(TARGET) $(OBJECTS) $(JUCE_LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
+  CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
 
 OBJECTS := \
-  $(OBJDIR)/CtrlrEvaluationScopes_156ffc41.o \
-  $(OBJDIR)/CtrlrPanel_bc84f48.o \
-  $(OBJDIR)/CtrlrPanelFileOperations_281288b0.o \
-  $(OBJDIR)/CtrlrPanelMIDIInputThread_483dbcd5.o \
-  $(OBJDIR)/CtrlrPanelMIDISnapshot_fe24244d.o \
-  $(OBJDIR)/CtrlrPanelOSC_d70b84a1.o \
-  $(OBJDIR)/CtrlrPanelProcessor_e852def4.o \
-  $(OBJDIR)/CtrlrPanelResource_d3aa6d76.o \
-  $(OBJDIR)/CtrlrPanelResourceManager_36b815e1.o \
-  $(OBJDIR)/CtrlrPanelSchemeMigration_8da0e0cb.o \
-  $(OBJDIR)/CtrlrPanelUndoManager_d8053dcb.o \
-  $(OBJDIR)/CtrlrManager_ea5c8368.o \
-  $(OBJDIR)/CtrlrManagerInstance_3849b69d.o \
-  $(OBJDIR)/CtrlrManagerVst_43428ed9.o \
-  $(OBJDIR)/CtrlrModulator_46c05ee8.o \
-  $(OBJDIR)/CtrlrModulatorProcessor_7fe26354.o \
-  $(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
-  $(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
-  $(OBJDIR)/CtrlrFontManager_54d87888.o \
-  $(OBJDIR)/CtrlrIDManager_f212d9c.o \
-  $(OBJDIR)/CtrlrLog_50d9896e.o \
-  $(OBJDIR)/CtrlrMasterClock_792b8bf6.o \
-  $(OBJDIR)/CtrlrOSC_bdc93ba9.o \
-  $(OBJDIR)/CtrlrProperties_e6224b53.o \
-  $(OBJDIR)/CtrlrSysexProcessor_2314a152.o \
-  $(OBJDIR)/CtrlrSysexProcessorOwned_b505063d.o \
-  $(OBJDIR)/CtrlrSysexToken_edd240b9.o \
-  $(OBJDIR)/CtrlrUpdateManager_a061528e.o \
-  $(OBJDIR)/CtrlrUtilities_b0fa9e74.o \
-  $(OBJDIR)/CtrlrUtilitiesGUI_4d233a31.o \
-  $(OBJDIR)/stdafx_b1a20461.o \
-  $(OBJDIR)/CtrlrLuaBigInteger_d3efa115.o \
-  $(OBJDIR)/CtrlrLuaComponentAnimator_a379a037.o \
-  $(OBJDIR)/CtrlrLuaFile_e08e54f3.o \
-  $(OBJDIR)/CtrlrLuaMemoryBlock_902143bf.o \
-  $(OBJDIR)/CtrlrLuaRectangle_849a1f22.o \
-  $(OBJDIR)/LAudio_a50e2b40.o \
-  $(OBJDIR)/LComponents_29c3fc36.o \
-  $(OBJDIR)/LCore_c804e87f.o \
-  $(OBJDIR)/LGraphics_a64ebfeb.o \
-  $(OBJDIR)/LJuce_c2f9d4cd.o \
-  $(OBJDIR)/LMemory_1958b621.o \
-  $(OBJDIR)/luabind_8688111a.o \
-  $(OBJDIR)/CtrlrLuaMethod_e854dc6f.o \
-  $(OBJDIR)/CtrlrLuaMethodManager_3a1a8cc8.o \
-  $(OBJDIR)/CtrlrLuaMethodManagerCalls_c7bf9bb7.o \
-  $(OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o \
-  $(OBJDIR)/CtrlrLuaCustomComponent_32c93605.o \
-  $(OBJDIR)/CtrlrLuaDebugger_31880a12.o \
-  $(OBJDIR)/CtrlrLuaManager_5810d0a6.o \
-  $(OBJDIR)/CtrlrLuaModulator_66e250e8.o \
-  $(OBJDIR)/CtrlrLuaMultiTimer_5dca06fd.o \
-  $(OBJDIR)/CtrlrLuaObject_b5e6b930.o \
-  $(OBJDIR)/CtrlrLuaObjectWrapper_7f5b96cd.o \
-  $(OBJDIR)/CtrlrLuaPanel_8a5b287d.o \
-  $(OBJDIR)/CtrlrLuaPanelCanvas_e2d997f5.o \
-  $(OBJDIR)/CtrlrLuaPanelCanvasLayer_aa926a26.o \
-  $(OBJDIR)/CtrlrLuaPanelEditor_2edd318a.o \
-  $(OBJDIR)/CtrlrLuaUtils_293d10aa.o \
-  $(OBJDIR)/CtrlrMIDIDevice_22717b39.o \
-  $(OBJDIR)/CtrlrMIDIDeviceManager_99dd96be.o \
-  $(OBJDIR)/CtrlrMIDIFilter_974fc75b.o \
-  $(OBJDIR)/CtrlrMidiInputComparator_51adcd67.o \
-  $(OBJDIR)/CtrlrMidiInputComparatorMulti_aee497dc.o \
-  $(OBJDIR)/CtrlrMidiInputComparatorSingle_1c507c4f.o \
-  $(OBJDIR)/CtrlrMidiMessage_58a157ae.o \
-  $(OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o \
-  $(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
-  $(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
-  $(OBJDIR)/address_7a9598ba.o \
-  $(OBJDIR)/blob_6e9d9821.o \
-  $(OBJDIR)/bundle_1833bc06.o \
-  $(OBJDIR)/compat_419eff06.o \
-  $(OBJDIR)/core_707e1fa3.o \
-  $(OBJDIR)/darwin_usb_594f06f0.o \
-  $(OBJDIR)/descriptor_c730b833.o \
-  $(OBJDIR)/enums_78c5918.o \
-  $(OBJDIR)/hotplug_4a7ef261.o \
-  $(OBJDIR)/io_5af75f2a.o \
-  $(OBJDIR)/keys_84371cb8.o \
-  $(OBJDIR)/libr-bfd_c5515a4.o \
-  $(OBJDIR)/libr_7f7e1b11.o \
-  $(OBJDIR)/linux_udev_659c49af.o \
-  $(OBJDIR)/linux_usbfs_67550e0c.o \
-  $(OBJDIR)/lua_422403e.o \
-  $(OBJDIR)/message_f0a0440d.o \
-  $(OBJDIR)/method_4af3c0a5.o \
-  $(OBJDIR)/pattern_match_f4afc7dc.o \
-  $(OBJDIR)/poll_posix_37a8f9c7.o \
-  $(OBJDIR)/poll_windows_7e84da07.o \
-  $(OBJDIR)/send_8b3ce94c.o \
-  $(OBJDIR)/server_b7920e87.o \
-  $(OBJDIR)/strerror_5e4de4fb.o \
-  $(OBJDIR)/structs_4f124184.o \
-  $(OBJDIR)/sync_8c56bb9f.o \
-  $(OBJDIR)/threads_posix_2509d033.o \
-  $(OBJDIR)/threads_windows_9709c573.o \
-  $(OBJDIR)/timetag_49c3d033.o \
-  $(OBJDIR)/usb_4a02eca.o \
-  $(OBJDIR)/version_f296709e.o \
-  $(OBJDIR)/windows_usb_69ee250e.o \
-  $(OBJDIR)/CtrlrLinux_891d1366.o \
-  $(OBJDIR)/CtrlrMac_55cf0d81.o \
-  $(OBJDIR)/CtrlrNative_d4f61d2f.o \
-  $(OBJDIR)/CtrlrWindows_d7428a35.o \
-  $(OBJDIR)/CtrlrProcessor_1100dce8.o \
-  $(OBJDIR)/CtrlrProcessorEditorForLive_e59e666a.o \
-  $(OBJDIR)/CtrlrDocumentPanel_929b23dc.o \
-  $(OBJDIR)/CtrlrEditor_9def7b64.o \
-  $(OBJDIR)/CtrlrEditorApplicationCommands_4671257e.o \
-  $(OBJDIR)/CtrlrEditorApplicationCommandsHandlers_606bd687.o \
-  $(OBJDIR)/CtrlrEditorApplicationCommandsMenus_7bb32260.o \
-  $(OBJDIR)/CtrlrLookAndFeel_6692d7b1.o \
-  $(OBJDIR)/CtrlrSettings_7ee9629a.o \
-  $(OBJDIR)/CtrlrButton_bea1a45d.o \
-  $(OBJDIR)/CtrlrCustomButtonInternal_52f32d8b.o \
-  $(OBJDIR)/CtrlrHyperlink_3eeb68e5.o \
-  $(OBJDIR)/CtrlrImageButton_153336ec.o \
-  $(OBJDIR)/CtrlrToggleButton_c9c63251.o \
-  $(OBJDIR)/CtrlrGroup_32821e65.o \
-  $(OBJDIR)/CtrlrTabsComponent_6616ae05.o \
-  $(OBJDIR)/CtrlrImage_366001b6.o \
-  $(OBJDIR)/CtrlrLabel_467e62cf.o \
-  $(OBJDIR)/CtrlrLCDLabel_2ac15b76.o \
-  $(OBJDIR)/CtrlrFixedImageSlider_75038da4.o \
-  $(OBJDIR)/CtrlrFixedSlider_699aa063.o \
-  $(OBJDIR)/CtrlrImageSlider_35266d8a.o \
-  $(OBJDIR)/CtrlrSlider_22b8e8bd.o \
-  $(OBJDIR)/CtrlrSliderInternal_b65dd51a.o \
-  $(OBJDIR)/CtrlrFileListBox_99e71cd1.o \
-  $(OBJDIR)/CtrlrListBox_8b28dd6d.o \
-  $(OBJDIR)/CtrlrMidiKeyboard_c15d02d2.o \
-  $(OBJDIR)/CtrlrProgressBar_b0e4e9c6.o \
-  $(OBJDIR)/CtrlrWaveform_4915e3e7.o \
-  $(OBJDIR)/CtrlrXYModulator_327a5f2e.o \
-  $(OBJDIR)/CtrlrXYSurface_2ece156c.o \
-  $(OBJDIR)/CtrlrArrow_1c791f44.o \
-  $(OBJDIR)/CtrlrCombo_5229199f.o \
-  $(OBJDIR)/CtrlrComponent_39b6278e.o \
-  $(OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o \
-  $(OBJDIR)/CtrlrCustomComponent_a77769d.o \
-  $(OBJDIR)/CtrlrFilmStripPainter_73f10450.o \
-  $(OBJDIR)/CtrlrLuaCodeTokeniser_e22d95d3.o \
-  $(OBJDIR)/CtrlrLuaMethodCodeEditor_94898995.o \
-  $(OBJDIR)/CtrlrLuaMethodCodeEditorSettings_5be9f058.o \
-  $(OBJDIR)/CtrlrLuaMethodDebuggerControls_7bab86d2.o \
-  $(OBJDIR)/CtrlrLuaMethodDebuggerInfo_76e344a.o \
-  $(OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o \
-  $(OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o \
-  $(OBJDIR)/CtrlrLuaMethodDebuggerVars_b2defec8.o \
-  $(OBJDIR)/CtrlrLuaMethodEditArea_d6845c92.o \
-  $(OBJDIR)/CtrlrLuaMethodEditor_7c70c6c8.o \
-  $(OBJDIR)/CtrlrLuaMethodEditorConsole_5d42ecf9.o \
-  $(OBJDIR)/CtrlrLuaMethodEditorTabs_9f9d2de6.o \
-  $(OBJDIR)/CtrlrLuaMethodFind_e941a694.o \
-  $(OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o \
-  $(OBJDIR)/CtrlrLuaConsole_70f9824e.o \
-  $(OBJDIR)/CtrlrMIDIBuffer_8a274ae5.o \
-  $(OBJDIR)/CtrlrMIDIBufferEditor_370fe5f2.o \
-  $(OBJDIR)/CtrlrMIDICalculator_ebca78a7.o \
-  $(OBJDIR)/CtrlrMIDILibraryEditor_837e6cd.o \
-  $(OBJDIR)/CtrlrMIDIMon_e8a545d1.o \
-  $(OBJDIR)/CtrlrMIDISettingsDevices_4b0f6aff.o \
-  $(OBJDIR)/CtrlrMIDISettingsDialog_57e50870.o \
-  $(OBJDIR)/CtrlrMIDISettingsRouting_28f00268.o \
-  $(OBJDIR)/CtrlrPanelCanvas_248178b.o \
-  $(OBJDIR)/CtrlrPanelCanvasHandlers_1eaa6b94.o \
-  $(OBJDIR)/CtrlrPanelCanvasLayer_b7523850.o \
-  $(OBJDIR)/CtrlrPanelCanvasLayers_36a8df6d.o \
-  $(OBJDIR)/CtrlrPanelComponentProperties_8d398a07.o \
-  $(OBJDIR)/CtrlrPanelEditor_4e4bb120.o \
-  $(OBJDIR)/CtrlrPanelLayerList_64b0b886.o \
-  $(OBJDIR)/CtrlrPanelLayerListItem_1a2585b9.o \
-  $(OBJDIR)/CtrlrPanelModulatorList_515624.o \
-  $(OBJDIR)/CtrlrPanelModulatorListTree_9f51df62.o \
-  $(OBJDIR)/CtrlrPanelProperties_92abdae6.o \
-  $(OBJDIR)/CtrlrPanelResourceEditor_6fc1b9ce.o \
-  $(OBJDIR)/CtrlrPanelUtilities_a6075081.o \
-  $(OBJDIR)/CtrlrPanelViewport_7f185c59.o \
-  $(OBJDIR)/CtrlrViewport_7e02dc41.o \
-  $(OBJDIR)/CtrlrBooleanPropertyComponent_696ccd48.o \
-  $(OBJDIR)/CtrlrButtonPropertyComponent_b941f3b8.o \
-  $(OBJDIR)/CtrlrChoicePropertyComponent_3c8068a9.o \
-  $(OBJDIR)/CtrlrColourPropertyComponent_b131615e.o \
-  $(OBJDIR)/CtrlrExpressionProperty_98008635.o \
-  $(OBJDIR)/CtrlrFilePropertyComponent_9cf08eee.o \
-  $(OBJDIR)/CtrlrFontPropertyComponent_fb3309fb.o \
-  $(OBJDIR)/CtrlrLuaMethodProperty_c1c1bd0.o \
-  $(OBJDIR)/CtrlrModulatorListProperty_417f3f84.o \
-  $(OBJDIR)/CtrlrMultiMidiPropertyComponent_2f5c07f6.o \
-  $(OBJDIR)/CtrlrPropertyComponent_808f8d8a.o \
-  $(OBJDIR)/CtrlrSliderPropertyComponent_3cfad569.o \
-  $(OBJDIR)/CtrlrSysExEditor_8120b80f.o \
-  $(OBJDIR)/CtrlrSysExFormulaEditor_4a7f649b.o \
-  $(OBJDIR)/CtrlrSysExPropertyComponent_54ec74d0.o \
-  $(OBJDIR)/CtrlrTextPropertyComponent_43b7a7dd.o \
-  $(OBJDIR)/CtrlrTimestampProperty_5aa7a6d.o \
-  $(OBJDIR)/CtrlrUnknownPropertyComponent_48ed5666.o \
-  $(OBJDIR)/CtrlrChildWindow_ca5e1fdd.o \
-  $(OBJDIR)/CtrlrChildWindowContainer_92d8566e.o \
-  $(OBJDIR)/CtrlrChildWindowContent_23e81066.o \
-  $(OBJDIR)/CtrlrDialogWindow_fd7eda91.o \
-  $(OBJDIR)/CtrlrManagerWindowManager_237c1a29.o \
-  $(OBJDIR)/CtrlrPanelWindowManager_c51c89b2.o \
-  $(OBJDIR)/CtrlrAbout_18fdd38c.o \
-  $(OBJDIR)/CtrlrComponentSelection_b1d830ba.o \
-  $(OBJDIR)/CtrlrLogViewer_61075cf5.o \
-  $(OBJDIR)/CtrlrTextEditor_ee695525.o \
-  $(OBJDIR)/CtrlrValueMap_c807d756.o \
-  $(OBJDIR)/CtrlrValueTreeEditor_71d292fb.o \
-  $(OBJDIR)/BinaryData_6f834a1b.o \
-  $(OBJDIR)/juce_audio_basics_1993f77a.o \
-  $(OBJDIR)/juce_audio_devices_bc77a3d2.o \
-  $(OBJDIR)/juce_audio_formats_6f5ea6d1.o \
-  $(OBJDIR)/juce_audio_plugin_client_utils_b371a9be.o \
-  $(OBJDIR)/juce_audio_plugin_client_VST2_5153538.o \
-  $(OBJDIR)/juce_audio_processors_b2e27d96.o \
-  $(OBJDIR)/juce_audio_utils_f99ada6.o \
-  $(OBJDIR)/juce_core_59dca70b.o \
-  $(OBJDIR)/juce_cryptography_1bfd66d8.o \
-  $(OBJDIR)/juce_data_structures_e51c4b3.o \
-  $(OBJDIR)/juce_events_59a059c5.o \
-  $(OBJDIR)/juce_graphics_f1cc5877.o \
-  $(OBJDIR)/juce_gui_basics_426b02b5.o \
-  $(OBJDIR)/juce_gui_extra_aac88aea.o \
-  $(OBJDIR)/juce_opengl_5452865b.o \
+  $(JUCE_OBJDIR)/CtrlrEvaluationScopes_156ffc41.o \
+  $(JUCE_OBJDIR)/CtrlrPanel_bc84f48.o \
+  $(JUCE_OBJDIR)/CtrlrPanelFileOperations_281288b0.o \
+  $(JUCE_OBJDIR)/CtrlrPanelMIDIInputThread_483dbcd5.o \
+  $(JUCE_OBJDIR)/CtrlrPanelMIDISnapshot_fe24244d.o \
+  $(JUCE_OBJDIR)/CtrlrPanelOSC_d70b84a1.o \
+  $(JUCE_OBJDIR)/CtrlrPanelProcessor_e852def4.o \
+  $(JUCE_OBJDIR)/CtrlrPanelResource_d3aa6d76.o \
+  $(JUCE_OBJDIR)/CtrlrPanelResourceManager_36b815e1.o \
+  $(JUCE_OBJDIR)/CtrlrPanelSchemeMigration_8da0e0cb.o \
+  $(JUCE_OBJDIR)/CtrlrPanelUndoManager_d8053dcb.o \
+  $(JUCE_OBJDIR)/CtrlrManager_ea5c8368.o \
+  $(JUCE_OBJDIR)/CtrlrManagerInstance_3849b69d.o \
+  $(JUCE_OBJDIR)/CtrlrManagerVst_43428ed9.o \
+  $(JUCE_OBJDIR)/CtrlrModulator_46c05ee8.o \
+  $(JUCE_OBJDIR)/CtrlrModulatorProcessor_7fe26354.o \
+  $(JUCE_OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o \
+  $(JUCE_OBJDIR)/CtrlrStandaloneWindow_cb00a214.o \
+  $(JUCE_OBJDIR)/CtrlrFontManager_54d87888.o \
+  $(JUCE_OBJDIR)/CtrlrIDManager_f212d9c.o \
+  $(JUCE_OBJDIR)/CtrlrLog_50d9896e.o \
+  $(JUCE_OBJDIR)/CtrlrMasterClock_792b8bf6.o \
+  $(JUCE_OBJDIR)/CtrlrOSC_bdc93ba9.o \
+  $(JUCE_OBJDIR)/CtrlrProperties_e6224b53.o \
+  $(JUCE_OBJDIR)/CtrlrSysexProcessor_2314a152.o \
+  $(JUCE_OBJDIR)/CtrlrSysexProcessorOwned_b505063d.o \
+  $(JUCE_OBJDIR)/CtrlrSysexToken_edd240b9.o \
+  $(JUCE_OBJDIR)/CtrlrUpdateManager_a061528e.o \
+  $(JUCE_OBJDIR)/CtrlrUtilities_b0fa9e74.o \
+  $(JUCE_OBJDIR)/CtrlrUtilitiesGUI_4d233a31.o \
+  $(JUCE_OBJDIR)/stdafx_b1a20461.o \
+  $(JUCE_OBJDIR)/CtrlrLuaBigInteger_d3efa115.o \
+  $(JUCE_OBJDIR)/CtrlrLuaComponentAnimator_a379a037.o \
+  $(JUCE_OBJDIR)/CtrlrLuaFile_e08e54f3.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMemoryBlock_902143bf.o \
+  $(JUCE_OBJDIR)/CtrlrLuaRectangle_849a1f22.o \
+  $(JUCE_OBJDIR)/LAudio_a50e2b40.o \
+  $(JUCE_OBJDIR)/LComponents_29c3fc36.o \
+  $(JUCE_OBJDIR)/LCore_c804e87f.o \
+  $(JUCE_OBJDIR)/LGraphics_a64ebfeb.o \
+  $(JUCE_OBJDIR)/LJuce_c2f9d4cd.o \
+  $(JUCE_OBJDIR)/LMemory_1958b621.o \
+  $(JUCE_OBJDIR)/luabind_8688111a.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethod_e854dc6f.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodManager_3a1a8cc8.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodManagerCalls_c7bf9bb7.o \
+  $(JUCE_OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o \
+  $(JUCE_OBJDIR)/CtrlrLuaCustomComponent_32c93605.o \
+  $(JUCE_OBJDIR)/CtrlrLuaDebugger_31880a12.o \
+  $(JUCE_OBJDIR)/CtrlrLuaManager_5810d0a6.o \
+  $(JUCE_OBJDIR)/CtrlrLuaModulator_66e250e8.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMultiTimer_5dca06fd.o \
+  $(JUCE_OBJDIR)/CtrlrLuaObject_b5e6b930.o \
+  $(JUCE_OBJDIR)/CtrlrLuaObjectWrapper_7f5b96cd.o \
+  $(JUCE_OBJDIR)/CtrlrLuaPanel_8a5b287d.o \
+  $(JUCE_OBJDIR)/CtrlrLuaPanelCanvas_e2d997f5.o \
+  $(JUCE_OBJDIR)/CtrlrLuaPanelCanvasLayer_aa926a26.o \
+  $(JUCE_OBJDIR)/CtrlrLuaPanelEditor_2edd318a.o \
+  $(JUCE_OBJDIR)/CtrlrLuaUtils_293d10aa.o \
+  $(JUCE_OBJDIR)/CtrlrMIDIDevice_22717b39.o \
+  $(JUCE_OBJDIR)/CtrlrMIDIDeviceManager_99dd96be.o \
+  $(JUCE_OBJDIR)/CtrlrMIDIFilter_974fc75b.o \
+  $(JUCE_OBJDIR)/CtrlrMidiInputComparator_51adcd67.o \
+  $(JUCE_OBJDIR)/CtrlrMidiInputComparatorMulti_aee497dc.o \
+  $(JUCE_OBJDIR)/CtrlrMidiInputComparatorSingle_1c507c4f.o \
+  $(JUCE_OBJDIR)/CtrlrMidiMessage_58a157ae.o \
+  $(JUCE_OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o \
+  $(JUCE_OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o \
+  $(JUCE_OBJDIR)/CtrlrMIDILibrary_c0bb646a.o \
+  $(JUCE_OBJDIR)/address_7a9598ba.o \
+  $(JUCE_OBJDIR)/blob_6e9d9821.o \
+  $(JUCE_OBJDIR)/bundle_1833bc06.o \
+  $(JUCE_OBJDIR)/compat_419eff06.o \
+  $(JUCE_OBJDIR)/core_707e1fa3.o \
+  $(JUCE_OBJDIR)/darwin_usb_594f06f0.o \
+  $(JUCE_OBJDIR)/descriptor_c730b833.o \
+  $(JUCE_OBJDIR)/enums_78c5918.o \
+  $(JUCE_OBJDIR)/hotplug_4a7ef261.o \
+  $(JUCE_OBJDIR)/io_5af75f2a.o \
+  $(JUCE_OBJDIR)/keys_84371cb8.o \
+  $(JUCE_OBJDIR)/lapi_7f139a72.o \
+  $(JUCE_OBJDIR)/lauxlib_2fc7b333.o \
+  $(JUCE_OBJDIR)/lbaselib_2b98be6c.o \
+  $(JUCE_OBJDIR)/lbitlib_160ab68a.o \
+  $(JUCE_OBJDIR)/lcode_66b9d01f.o \
+  $(JUCE_OBJDIR)/lcorolib_4a57dc94.o \
+  $(JUCE_OBJDIR)/lctype_7a3624f5.o \
+  $(JUCE_OBJDIR)/ldblib_8faab99f.o \
+  $(JUCE_OBJDIR)/ldebug_9441dfab.o \
+  $(JUCE_OBJDIR)/ldo_41aba7d.o \
+  $(JUCE_OBJDIR)/ldump_68c77666.o \
+  $(JUCE_OBJDIR)/lfunc_6c316b36.o \
+  $(JUCE_OBJDIR)/lgc_41bea8e.o \
+  $(JUCE_OBJDIR)/libr-bfd_c5515a4.o \
+  $(JUCE_OBJDIR)/libr_7f7e1b11.o \
+  $(JUCE_OBJDIR)/linit_70eb4a82.o \
+  $(JUCE_OBJDIR)/linux_udev_659c49af.o \
+  $(JUCE_OBJDIR)/linux_usbfs_67550e0c.o \
+  $(JUCE_OBJDIR)/liolib_ae58e1f7.o \
+  $(JUCE_OBJDIR)/llex_7fa9d537.o \
+  $(JUCE_OBJDIR)/lmathlib_c48e4895.o \
+  $(JUCE_OBJDIR)/lmem_7fb7c36d.o \
+  $(JUCE_OBJDIR)/loadlib_99fa99e5.o \
+  $(JUCE_OBJDIR)/lobject_d8b8cdb1.o \
+  $(JUCE_OBJDIR)/lopcodes_8b7e76fd.o \
+  $(JUCE_OBJDIR)/loslib_f291a7f9.o \
+  $(JUCE_OBJDIR)/lparser_1a20ae91.o \
+  $(JUCE_OBJDIR)/lstate_c7497669.o \
+  $(JUCE_OBJDIR)/lstring_3e519e03.o \
+  $(JUCE_OBJDIR)/lstrlib_3e798be6.o \
+  $(JUCE_OBJDIR)/ltable_dbce1266.o \
+  $(JUCE_OBJDIR)/ltablib_9df6c902.o \
+  $(JUCE_OBJDIR)/ltm_421f8eb.o \
+  $(JUCE_OBJDIR)/lundump_b97382ff.o \
+  $(JUCE_OBJDIR)/lutf8lib_e5e839cc.o \
+  $(JUCE_OBJDIR)/lvm_422e1a9.o \
+  $(JUCE_OBJDIR)/lzio_8070cdf8.o \
+  $(JUCE_OBJDIR)/message_f0a0440d.o \
+  $(JUCE_OBJDIR)/method_4af3c0a5.o \
+  $(JUCE_OBJDIR)/pattern_match_f4afc7dc.o \
+  $(JUCE_OBJDIR)/poll_posix_37a8f9c7.o \
+  $(JUCE_OBJDIR)/poll_windows_7e84da07.o \
+  $(JUCE_OBJDIR)/send_8b3ce94c.o \
+  $(JUCE_OBJDIR)/server_b7920e87.o \
+  $(JUCE_OBJDIR)/strerror_5e4de4fb.o \
+  $(JUCE_OBJDIR)/structs_4f124184.o \
+  $(JUCE_OBJDIR)/sync_8c56bb9f.o \
+  $(JUCE_OBJDIR)/threads_posix_2509d033.o \
+  $(JUCE_OBJDIR)/threads_windows_9709c573.o \
+  $(JUCE_OBJDIR)/timetag_49c3d033.o \
+  $(JUCE_OBJDIR)/usb_4a02eca.o \
+  $(JUCE_OBJDIR)/version_f296709e.o \
+  $(JUCE_OBJDIR)/windows_usb_69ee250e.o \
+  $(JUCE_OBJDIR)/CtrlrLinux_891d1366.o \
+  $(JUCE_OBJDIR)/CtrlrMac_55cf0d81.o \
+  $(JUCE_OBJDIR)/CtrlrNative_d4f61d2f.o \
+  $(JUCE_OBJDIR)/CtrlrWindows_d7428a35.o \
+  $(JUCE_OBJDIR)/CtrlrProcessor_1100dce8.o \
+  $(JUCE_OBJDIR)/CtrlrProcessorEditorForLive_e59e666a.o \
+  $(JUCE_OBJDIR)/CtrlrDocumentPanel_929b23dc.o \
+  $(JUCE_OBJDIR)/CtrlrEditor_9def7b64.o \
+  $(JUCE_OBJDIR)/CtrlrEditorApplicationCommands_4671257e.o \
+  $(JUCE_OBJDIR)/CtrlrEditorApplicationCommandsHandlers_606bd687.o \
+  $(JUCE_OBJDIR)/CtrlrEditorApplicationCommandsMenus_7bb32260.o \
+  $(JUCE_OBJDIR)/CtrlrLookAndFeel_6692d7b1.o \
+  $(JUCE_OBJDIR)/CtrlrSettings_7ee9629a.o \
+  $(JUCE_OBJDIR)/CtrlrButton_bea1a45d.o \
+  $(JUCE_OBJDIR)/CtrlrCustomButtonInternal_52f32d8b.o \
+  $(JUCE_OBJDIR)/CtrlrHyperlink_3eeb68e5.o \
+  $(JUCE_OBJDIR)/CtrlrImageButton_153336ec.o \
+  $(JUCE_OBJDIR)/CtrlrToggleButton_c9c63251.o \
+  $(JUCE_OBJDIR)/CtrlrGroup_32821e65.o \
+  $(JUCE_OBJDIR)/CtrlrTabsComponent_6616ae05.o \
+  $(JUCE_OBJDIR)/CtrlrImage_366001b6.o \
+  $(JUCE_OBJDIR)/CtrlrLabel_467e62cf.o \
+  $(JUCE_OBJDIR)/CtrlrLCDLabel_2ac15b76.o \
+  $(JUCE_OBJDIR)/CtrlrFixedImageSlider_75038da4.o \
+  $(JUCE_OBJDIR)/CtrlrFixedSlider_699aa063.o \
+  $(JUCE_OBJDIR)/CtrlrImageSlider_35266d8a.o \
+  $(JUCE_OBJDIR)/CtrlrSlider_22b8e8bd.o \
+  $(JUCE_OBJDIR)/CtrlrSliderInternal_b65dd51a.o \
+  $(JUCE_OBJDIR)/CtrlrFileListBox_99e71cd1.o \
+  $(JUCE_OBJDIR)/CtrlrListBox_8b28dd6d.o \
+  $(JUCE_OBJDIR)/CtrlrMidiKeyboard_c15d02d2.o \
+  $(JUCE_OBJDIR)/CtrlrProgressBar_b0e4e9c6.o \
+  $(JUCE_OBJDIR)/CtrlrWaveform_4915e3e7.o \
+  $(JUCE_OBJDIR)/CtrlrXYModulator_327a5f2e.o \
+  $(JUCE_OBJDIR)/CtrlrXYSurface_2ece156c.o \
+  $(JUCE_OBJDIR)/CtrlrArrow_1c791f44.o \
+  $(JUCE_OBJDIR)/CtrlrCombo_5229199f.o \
+  $(JUCE_OBJDIR)/CtrlrComponent_39b6278e.o \
+  $(JUCE_OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o \
+  $(JUCE_OBJDIR)/CtrlrCustomComponent_a77769d.o \
+  $(JUCE_OBJDIR)/CtrlrFilmStripPainter_73f10450.o \
+  $(JUCE_OBJDIR)/CtrlrLuaCodeTokeniser_e22d95d3.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodCodeEditor_94898995.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodCodeEditorSettings_5be9f058.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerControls_7bab86d2.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerInfo_76e344a.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerVars_b2defec8.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodEditArea_d6845c92.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodEditor_7c70c6c8.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodEditorConsole_5d42ecf9.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodEditorTabs_9f9d2de6.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodFind_e941a694.o \
+  $(JUCE_OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o \
+  $(JUCE_OBJDIR)/CtrlrLuaConsole_70f9824e.o \
+  $(JUCE_OBJDIR)/CtrlrMIDIBuffer_8a274ae5.o \
+  $(JUCE_OBJDIR)/CtrlrMIDIBufferEditor_370fe5f2.o \
+  $(JUCE_OBJDIR)/CtrlrMIDICalculator_ebca78a7.o \
+  $(JUCE_OBJDIR)/CtrlrMIDILibraryEditor_837e6cd.o \
+  $(JUCE_OBJDIR)/CtrlrMIDIMon_e8a545d1.o \
+  $(JUCE_OBJDIR)/CtrlrMIDISettingsDevices_4b0f6aff.o \
+  $(JUCE_OBJDIR)/CtrlrMIDISettingsDialog_57e50870.o \
+  $(JUCE_OBJDIR)/CtrlrMIDISettingsRouting_28f00268.o \
+  $(JUCE_OBJDIR)/CtrlrPanelCanvas_248178b.o \
+  $(JUCE_OBJDIR)/CtrlrPanelCanvasHandlers_1eaa6b94.o \
+  $(JUCE_OBJDIR)/CtrlrPanelCanvasLayer_b7523850.o \
+  $(JUCE_OBJDIR)/CtrlrPanelCanvasLayers_36a8df6d.o \
+  $(JUCE_OBJDIR)/CtrlrPanelComponentProperties_8d398a07.o \
+  $(JUCE_OBJDIR)/CtrlrPanelEditor_4e4bb120.o \
+  $(JUCE_OBJDIR)/CtrlrPanelLayerList_64b0b886.o \
+  $(JUCE_OBJDIR)/CtrlrPanelLayerListItem_1a2585b9.o \
+  $(JUCE_OBJDIR)/CtrlrPanelModulatorList_515624.o \
+  $(JUCE_OBJDIR)/CtrlrPanelModulatorListTree_9f51df62.o \
+  $(JUCE_OBJDIR)/CtrlrPanelProperties_92abdae6.o \
+  $(JUCE_OBJDIR)/CtrlrPanelResourceEditor_6fc1b9ce.o \
+  $(JUCE_OBJDIR)/CtrlrPanelUtilities_a6075081.o \
+  $(JUCE_OBJDIR)/CtrlrPanelViewport_7f185c59.o \
+  $(JUCE_OBJDIR)/CtrlrViewport_7e02dc41.o \
+  $(JUCE_OBJDIR)/CtrlrBooleanPropertyComponent_696ccd48.o \
+  $(JUCE_OBJDIR)/CtrlrButtonPropertyComponent_b941f3b8.o \
+  $(JUCE_OBJDIR)/CtrlrChoicePropertyComponent_3c8068a9.o \
+  $(JUCE_OBJDIR)/CtrlrColourPropertyComponent_b131615e.o \
+  $(JUCE_OBJDIR)/CtrlrExpressionProperty_98008635.o \
+  $(JUCE_OBJDIR)/CtrlrFilePropertyComponent_9cf08eee.o \
+  $(JUCE_OBJDIR)/CtrlrFontPropertyComponent_fb3309fb.o \
+  $(JUCE_OBJDIR)/CtrlrLuaMethodProperty_c1c1bd0.o \
+  $(JUCE_OBJDIR)/CtrlrModulatorListProperty_417f3f84.o \
+  $(JUCE_OBJDIR)/CtrlrMultiMidiPropertyComponent_2f5c07f6.o \
+  $(JUCE_OBJDIR)/CtrlrPropertyComponent_808f8d8a.o \
+  $(JUCE_OBJDIR)/CtrlrSliderPropertyComponent_3cfad569.o \
+  $(JUCE_OBJDIR)/CtrlrSysExEditor_8120b80f.o \
+  $(JUCE_OBJDIR)/CtrlrSysExFormulaEditor_4a7f649b.o \
+  $(JUCE_OBJDIR)/CtrlrSysExPropertyComponent_54ec74d0.o \
+  $(JUCE_OBJDIR)/CtrlrTextPropertyComponent_43b7a7dd.o \
+  $(JUCE_OBJDIR)/CtrlrTimestampProperty_5aa7a6d.o \
+  $(JUCE_OBJDIR)/CtrlrUnknownPropertyComponent_48ed5666.o \
+  $(JUCE_OBJDIR)/CtrlrChildWindow_ca5e1fdd.o \
+  $(JUCE_OBJDIR)/CtrlrChildWindowContainer_92d8566e.o \
+  $(JUCE_OBJDIR)/CtrlrChildWindowContent_23e81066.o \
+  $(JUCE_OBJDIR)/CtrlrDialogWindow_fd7eda91.o \
+  $(JUCE_OBJDIR)/CtrlrManagerWindowManager_237c1a29.o \
+  $(JUCE_OBJDIR)/CtrlrPanelWindowManager_c51c89b2.o \
+  $(JUCE_OBJDIR)/CtrlrAbout_18fdd38c.o \
+  $(JUCE_OBJDIR)/CtrlrComponentSelection_b1d830ba.o \
+  $(JUCE_OBJDIR)/CtrlrLogViewer_61075cf5.o \
+  $(JUCE_OBJDIR)/CtrlrTextEditor_ee695525.o \
+  $(JUCE_OBJDIR)/CtrlrValueMap_c807d756.o \
+  $(JUCE_OBJDIR)/CtrlrValueTreeEditor_71d292fb.o \
+  $(JUCE_OBJDIR)/BinaryData_6f834a1b.o \
+  $(JUCE_OBJDIR)/juce_audio_basics_1993f77a.o \
+  $(JUCE_OBJDIR)/juce_audio_devices_bc77a3d2.o \
+  $(JUCE_OBJDIR)/juce_audio_formats_6f5ea6d1.o \
+  $(JUCE_OBJDIR)/juce_audio_plugin_client_utils_b371a9be.o \
+  $(JUCE_OBJDIR)/juce_audio_plugin_client_VST2_5153538.o \
+  $(JUCE_OBJDIR)/juce_audio_processors_b2e27d96.o \
+  $(JUCE_OBJDIR)/juce_audio_utils_f99ada6.o \
+  $(JUCE_OBJDIR)/juce_core_59dca70b.o \
+  $(JUCE_OBJDIR)/juce_cryptography_1bfd66d8.o \
+  $(JUCE_OBJDIR)/juce_data_structures_e51c4b3.o \
+  $(JUCE_OBJDIR)/juce_events_59a059c5.o \
+  $(JUCE_OBJDIR)/juce_graphics_f1cc5877.o \
+  $(JUCE_OBJDIR)/juce_gui_basics_426b02b5.o \
+  $(JUCE_OBJDIR)/juce_gui_extra_aac88aea.o \
+  $(JUCE_OBJDIR)/juce_opengl_5452865b.o \
 
 .PHONY: clean
 
-$(OUTDIR)/$(TARGET): $(OBJECTS) $(RESOURCES)
+$(JUCE_OUTDIR)/$(TARGET): $(OBJECTS) $(RESOURCES)
 	@echo Linking Ctrlr_Plugin_VST
-	-@mkdir -p $(BINDIR)
-	-@mkdir -p $(LIBDIR)
-	-@mkdir -p $(OUTDIR)
+	-@mkdir -p $(JUCE_BINDIR)
+	-@mkdir -p $(JUCE_LIBDIR)
+	-@mkdir -p $(JUCE_OUTDIR)
 	@$(BLDCMD)
 
 clean:
@@ -311,1136 +351,1296 @@ clean:
 
 strip:
 	@echo Stripping Ctrlr_Plugin_VST
-	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
+	-@$(STRIP) --strip-unneeded $(JUCE_OUTDIR)/$(TARGET)
 
-$(OBJDIR)/CtrlrEvaluationScopes_156ffc41.o: ../../../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrEvaluationScopes_156ffc41.o: ../../../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrEvaluationScopes.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanel_bc84f48.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanel.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanel_bc84f48.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanel.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanel.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelFileOperations_281288b0.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelFileOperations.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelFileOperations_281288b0.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelFileOperations.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelFileOperations.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelMIDIInputThread_483dbcd5.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelMIDIInputThread_483dbcd5.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelMIDIInputThread.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelMIDISnapshot_fe24244d.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelMIDISnapshot_fe24244d.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelMIDISnapshot.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelOSC_d70b84a1.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelOSC.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelOSC_d70b84a1.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelOSC.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelOSC.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelProcessor_e852def4.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelProcessor_e852def4.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelProcessor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelResource_d3aa6d76.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelResource.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelResource_d3aa6d76.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelResource.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelResource.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelResourceManager_36b815e1.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelResourceManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelResourceManager_36b815e1.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelResourceManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelResourceManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelSchemeMigration_8da0e0cb.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelSchemeMigration.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelSchemeMigration_8da0e0cb.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelSchemeMigration.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelSchemeMigration.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelUndoManager_d8053dcb.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelUndoManager_d8053dcb.o: ../../../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelUndoManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrManager_ea5c8368.o: ../../../../Source/Core/CtrlrManager/CtrlrManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrManager_ea5c8368.o: ../../../../Source/Core/CtrlrManager/CtrlrManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrManagerInstance_3849b69d.o: ../../../../Source/Core/CtrlrManager/CtrlrManagerInstance.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrManagerInstance_3849b69d.o: ../../../../Source/Core/CtrlrManager/CtrlrManagerInstance.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrManagerInstance.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrManagerVst_43428ed9.o: ../../../../Source/Core/CtrlrManager/CtrlrManagerVst.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrManagerVst_43428ed9.o: ../../../../Source/Core/CtrlrManager/CtrlrManagerVst.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrManagerVst.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrModulator_46c05ee8.o: ../../../../Source/Core/CtrlrModulator/CtrlrModulator.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrModulator_46c05ee8.o: ../../../../Source/Core/CtrlrModulator/CtrlrModulator.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrModulator.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrModulatorProcessor_7fe26354.o: ../../../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrModulatorProcessor_7fe26354.o: ../../../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrModulatorProcessor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o: ../../../../Source/Core/StandaloneWrapper/CtrlrStandaloneApplication.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrStandaloneApplication_a59f41f6.o: ../../../../Source/Core/StandaloneWrapper/CtrlrStandaloneApplication.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrStandaloneApplication.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrStandaloneWindow_cb00a214.o: ../../../../Source/Core/StandaloneWrapper/CtrlrStandaloneWindow.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrStandaloneWindow_cb00a214.o: ../../../../Source/Core/StandaloneWrapper/CtrlrStandaloneWindow.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrStandaloneWindow.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrFontManager_54d87888.o: ../../../../Source/Core/CtrlrFontManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrFontManager_54d87888.o: ../../../../Source/Core/CtrlrFontManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrFontManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrIDManager_f212d9c.o: ../../../../Source/Core/CtrlrIDManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrIDManager_f212d9c.o: ../../../../Source/Core/CtrlrIDManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrIDManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLog_50d9896e.o: ../../../../Source/Core/CtrlrLog.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLog_50d9896e.o: ../../../../Source/Core/CtrlrLog.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLog.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMasterClock_792b8bf6.o: ../../../../Source/Core/CtrlrMasterClock.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMasterClock_792b8bf6.o: ../../../../Source/Core/CtrlrMasterClock.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMasterClock.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrOSC_bdc93ba9.o: ../../../../Source/Core/CtrlrOSC.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrOSC_bdc93ba9.o: ../../../../Source/Core/CtrlrOSC.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrOSC.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrProperties_e6224b53.o: ../../../../Source/Core/CtrlrProperties.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrProperties_e6224b53.o: ../../../../Source/Core/CtrlrProperties.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrProperties.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSysexProcessor_2314a152.o: ../../../../Source/Core/CtrlrSysexProcessor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSysexProcessor_2314a152.o: ../../../../Source/Core/CtrlrSysexProcessor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSysexProcessor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSysexProcessorOwned_b505063d.o: ../../../../Source/Core/CtrlrSysexProcessorOwned.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSysexProcessorOwned_b505063d.o: ../../../../Source/Core/CtrlrSysexProcessorOwned.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSysexProcessorOwned.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSysexToken_edd240b9.o: ../../../../Source/Core/CtrlrSysexToken.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSysexToken_edd240b9.o: ../../../../Source/Core/CtrlrSysexToken.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSysexToken.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrUpdateManager_a061528e.o: ../../../../Source/Core/CtrlrUpdateManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrUpdateManager_a061528e.o: ../../../../Source/Core/CtrlrUpdateManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrUpdateManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrUtilities_b0fa9e74.o: ../../../../Source/Core/CtrlrUtilities.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrUtilities_b0fa9e74.o: ../../../../Source/Core/CtrlrUtilities.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrUtilities.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrUtilitiesGUI_4d233a31.o: ../../../../Source/Core/CtrlrUtilitiesGUI.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrUtilitiesGUI_4d233a31.o: ../../../../Source/Core/CtrlrUtilitiesGUI.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrUtilitiesGUI.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/stdafx_b1a20461.o: ../../../../Source/Core/stdafx.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling stdafx.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaBigInteger_d3efa115.o: ../../../../Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaBigInteger_d3efa115.o: ../../../../Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaBigInteger.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaComponentAnimator_a379a037.o: ../../../../Source/Lua/Deprecated/CtrlrLuaComponentAnimator.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaComponentAnimator_a379a037.o: ../../../../Source/Lua/Deprecated/CtrlrLuaComponentAnimator.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaComponentAnimator.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaFile_e08e54f3.o: ../../../../Source/Lua/Deprecated/CtrlrLuaFile.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaFile_e08e54f3.o: ../../../../Source/Lua/Deprecated/CtrlrLuaFile.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaFile.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMemoryBlock_902143bf.o: ../../../../Source/Lua/Deprecated/CtrlrLuaMemoryBlock.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMemoryBlock_902143bf.o: ../../../../Source/Lua/Deprecated/CtrlrLuaMemoryBlock.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMemoryBlock.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaRectangle_849a1f22.o: ../../../../Source/Lua/Deprecated/CtrlrLuaRectangle.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaRectangle_849a1f22.o: ../../../../Source/Lua/Deprecated/CtrlrLuaRectangle.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaRectangle.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/LAudio_a50e2b40.o: ../../../../Source/Lua/JuceClasses/LAudio.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/LAudio_a50e2b40.o: ../../../../Source/Lua/JuceClasses/LAudio.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling LAudio.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/LComponents_29c3fc36.o: ../../../../Source/Lua/JuceClasses/LComponents.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/LComponents_29c3fc36.o: ../../../../Source/Lua/JuceClasses/LComponents.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling LComponents.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/LCore_c804e87f.o: ../../../../Source/Lua/JuceClasses/LCore.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/LCore_c804e87f.o: ../../../../Source/Lua/JuceClasses/LCore.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling LCore.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/LGraphics_a64ebfeb.o: ../../../../Source/Lua/JuceClasses/LGraphics.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/LGraphics_a64ebfeb.o: ../../../../Source/Lua/JuceClasses/LGraphics.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling LGraphics.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/LJuce_c2f9d4cd.o: ../../../../Source/Lua/JuceClasses/LJuce.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/LJuce_c2f9d4cd.o: ../../../../Source/Lua/JuceClasses/LJuce.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling LJuce.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/LMemory_1958b621.o: ../../../../Source/Lua/JuceClasses/LMemory.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/LMemory_1958b621.o: ../../../../Source/Lua/JuceClasses/LMemory.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling LMemory.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/luabind_8688111a.o: ../../../../Source/Lua/luabind/src/luabind.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/luabind_8688111a.o: ../../../../Source/Lua/luabind/src/luabind.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling luabind.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethod_e854dc6f.o: ../../../../Source/Lua/Methods/CtrlrLuaMethod.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethod_e854dc6f.o: ../../../../Source/Lua/Methods/CtrlrLuaMethod.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethod.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodManager_3a1a8cc8.o: ../../../../Source/Lua/Methods/CtrlrLuaMethodManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodManager_3a1a8cc8.o: ../../../../Source/Lua/Methods/CtrlrLuaMethodManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodManagerCalls_c7bf9bb7.o: ../../../../Source/Lua/Methods/CtrlrLuaMethodManagerCalls.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodManagerCalls_c7bf9bb7.o: ../../../../Source/Lua/Methods/CtrlrLuaMethodManagerCalls.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodManagerCalls.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o: ../../../../Source/Lua/CtrlrLuaAudioConverter.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaAudioConverter_9ced0adb.o: ../../../../Source/Lua/CtrlrLuaAudioConverter.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaAudioConverter.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaCustomComponent_32c93605.o: ../../../../Source/Lua/CtrlrLuaCustomComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaCustomComponent_32c93605.o: ../../../../Source/Lua/CtrlrLuaCustomComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaCustomComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaDebugger_31880a12.o: ../../../../Source/Lua/CtrlrLuaDebugger.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaDebugger.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaManager_5810d0a6.o: ../../../../Source/Lua/CtrlrLuaManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaManager_5810d0a6.o: ../../../../Source/Lua/CtrlrLuaManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaModulator_66e250e8.o: ../../../../Source/Lua/CtrlrLuaModulator.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaModulator_66e250e8.o: ../../../../Source/Lua/CtrlrLuaModulator.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaModulator.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMultiTimer_5dca06fd.o: ../../../../Source/Lua/CtrlrLuaMultiTimer.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMultiTimer_5dca06fd.o: ../../../../Source/Lua/CtrlrLuaMultiTimer.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMultiTimer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaObject_b5e6b930.o: ../../../../Source/Lua/CtrlrLuaObject.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaObject_b5e6b930.o: ../../../../Source/Lua/CtrlrLuaObject.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaObject.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaObjectWrapper_7f5b96cd.o: ../../../../Source/Lua/CtrlrLuaObjectWrapper.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaObjectWrapper_7f5b96cd.o: ../../../../Source/Lua/CtrlrLuaObjectWrapper.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaObjectWrapper.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaPanel_8a5b287d.o: ../../../../Source/Lua/CtrlrLuaPanel.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaPanel_8a5b287d.o: ../../../../Source/Lua/CtrlrLuaPanel.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaPanel.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaPanelCanvas_e2d997f5.o: ../../../../Source/Lua/CtrlrLuaPanelCanvas.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaPanelCanvas_e2d997f5.o: ../../../../Source/Lua/CtrlrLuaPanelCanvas.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaPanelCanvas.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaPanelCanvasLayer_aa926a26.o: ../../../../Source/Lua/CtrlrLuaPanelCanvasLayer.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaPanelCanvasLayer_aa926a26.o: ../../../../Source/Lua/CtrlrLuaPanelCanvasLayer.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaPanelCanvasLayer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaPanelEditor_2edd318a.o: ../../../../Source/Lua/CtrlrLuaPanelEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaPanelEditor_2edd318a.o: ../../../../Source/Lua/CtrlrLuaPanelEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaPanelEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaUtils_293d10aa.o: ../../../../Source/Lua/CtrlrLuaUtils.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaUtils_293d10aa.o: ../../../../Source/Lua/CtrlrLuaUtils.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaUtils.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDIDevice_22717b39.o: ../../../../Source/MIDI/CtrlrMIDIDevice.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDIDevice_22717b39.o: ../../../../Source/MIDI/CtrlrMIDIDevice.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDIDevice.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDIDeviceManager_99dd96be.o: ../../../../Source/MIDI/CtrlrMIDIDeviceManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDIDeviceManager_99dd96be.o: ../../../../Source/MIDI/CtrlrMIDIDeviceManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDIDeviceManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDIFilter_974fc75b.o: ../../../../Source/MIDI/CtrlrMIDIFilter.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDIFilter_974fc75b.o: ../../../../Source/MIDI/CtrlrMIDIFilter.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDIFilter.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMidiInputComparator_51adcd67.o: ../../../../Source/MIDI/CtrlrMidiInputComparator.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMidiInputComparator_51adcd67.o: ../../../../Source/MIDI/CtrlrMidiInputComparator.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMidiInputComparator.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMidiInputComparatorMulti_aee497dc.o: ../../../../Source/MIDI/CtrlrMidiInputComparatorMulti.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMidiInputComparatorMulti_aee497dc.o: ../../../../Source/MIDI/CtrlrMidiInputComparatorMulti.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMidiInputComparatorMulti.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMidiInputComparatorSingle_1c507c4f.o: ../../../../Source/MIDI/CtrlrMidiInputComparatorSingle.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMidiInputComparatorSingle_1c507c4f.o: ../../../../Source/MIDI/CtrlrMidiInputComparatorSingle.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMidiInputComparatorSingle.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMidiMessage_58a157ae.o: ../../../../Source/MIDI/CtrlrMidiMessage.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMidiMessage_58a157ae.o: ../../../../Source/MIDI/CtrlrMidiMessage.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMidiMessage.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o: ../../../../Source/MIDI/CtrlrMidiMessageEx.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMidiMessageEx_ddf364c1.o: ../../../../Source/MIDI/CtrlrMidiMessageEx.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMidiMessageEx.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o: ../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrOwnedMidiMessage_76feb583.o: ../../../../Source/MIDI/CtrlrOwnedMidiMessage.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrOwnedMidiMessage.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDILibrary_c0bb646a.o: ../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDILibrary_c0bb646a.o: ../../../../Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDILibrary.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/address_7a9598ba.o: ../../../../Source/Misc/address.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/address_7a9598ba.o: ../../../../Source/Misc/address.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling address.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/blob_6e9d9821.o: ../../../../Source/Misc/blob.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/blob_6e9d9821.o: ../../../../Source/Misc/blob.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling blob.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/bundle_1833bc06.o: ../../../../Source/Misc/bundle.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/bundle_1833bc06.o: ../../../../Source/Misc/bundle.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling bundle.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/compat_419eff06.o: ../../../../Source/Misc/compat.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/compat_419eff06.o: ../../../../Source/Misc/compat.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling compat.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/core_707e1fa3.o: ../../../../Source/Misc/core.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/core_707e1fa3.o: ../../../../Source/Misc/core.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling core.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/darwin_usb_594f06f0.o: ../../../../Source/Misc/darwin_usb.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/darwin_usb_594f06f0.o: ../../../../Source/Misc/darwin_usb.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling darwin_usb.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/descriptor_c730b833.o: ../../../../Source/Misc/descriptor.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/descriptor_c730b833.o: ../../../../Source/Misc/descriptor.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling descriptor.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/enums_78c5918.o: ../../../../Source/Misc/enums.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/enums_78c5918.o: ../../../../Source/Misc/enums.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling enums.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/hotplug_4a7ef261.o: ../../../../Source/Misc/hotplug.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/hotplug_4a7ef261.o: ../../../../Source/Misc/hotplug.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling hotplug.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/io_5af75f2a.o: ../../../../Source/Misc/io.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/io_5af75f2a.o: ../../../../Source/Misc/io.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling io.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/keys_84371cb8.o: ../../../../Source/Misc/keys.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/keys_84371cb8.o: ../../../../Source/Misc/keys.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling keys.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/libr-bfd_c5515a4.o: ../../../../Source/Misc/libr-bfd.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/lapi_7f139a72.o: ../../../../Source/Misc/lapi.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lapi.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lauxlib_2fc7b333.o: ../../../../Source/Misc/lauxlib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lauxlib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lbaselib_2b98be6c.o: ../../../../Source/Misc/lbaselib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lbaselib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lbitlib_160ab68a.o: ../../../../Source/Misc/lbitlib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lbitlib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lcode_66b9d01f.o: ../../../../Source/Misc/lcode.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lcode.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lcorolib_4a57dc94.o: ../../../../Source/Misc/lcorolib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lcorolib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lctype_7a3624f5.o: ../../../../Source/Misc/lctype.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lctype.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/ldblib_8faab99f.o: ../../../../Source/Misc/ldblib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling ldblib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/ldebug_9441dfab.o: ../../../../Source/Misc/ldebug.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling ldebug.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/ldo_41aba7d.o: ../../../../Source/Misc/ldo.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling ldo.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/ldump_68c77666.o: ../../../../Source/Misc/ldump.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling ldump.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lfunc_6c316b36.o: ../../../../Source/Misc/lfunc.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lfunc.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lgc_41bea8e.o: ../../../../Source/Misc/lgc.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lgc.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/libr-bfd_c5515a4.o: ../../../../Source/Misc/libr-bfd.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling libr-bfd.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/libr_7f7e1b11.o: ../../../../Source/Misc/libr.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/libr_7f7e1b11.o: ../../../../Source/Misc/libr.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling libr.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/linux_udev_659c49af.o: ../../../../Source/Misc/linux_udev.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/linit_70eb4a82.o: ../../../../Source/Misc/linit.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling linit.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/linux_udev_659c49af.o: ../../../../Source/Misc/linux_udev.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling linux_udev.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/linux_usbfs_67550e0c.o: ../../../../Source/Misc/linux_usbfs.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/linux_usbfs_67550e0c.o: ../../../../Source/Misc/linux_usbfs.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling linux_usbfs.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/lua_422403e.o: ../../../../Source/Misc/lua.c
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling lua.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+$(JUCE_OBJDIR)/liolib_ae58e1f7.o: ../../../../Source/Misc/liolib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling liolib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/message_f0a0440d.o: ../../../../Source/Misc/message.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/llex_7fa9d537.o: ../../../../Source/Misc/llex.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling llex.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lmathlib_c48e4895.o: ../../../../Source/Misc/lmathlib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lmathlib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lmem_7fb7c36d.o: ../../../../Source/Misc/lmem.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lmem.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/loadlib_99fa99e5.o: ../../../../Source/Misc/loadlib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling loadlib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lobject_d8b8cdb1.o: ../../../../Source/Misc/lobject.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lobject.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lopcodes_8b7e76fd.o: ../../../../Source/Misc/lopcodes.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lopcodes.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/loslib_f291a7f9.o: ../../../../Source/Misc/loslib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling loslib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lparser_1a20ae91.o: ../../../../Source/Misc/lparser.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lparser.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lstate_c7497669.o: ../../../../Source/Misc/lstate.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lstate.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lstring_3e519e03.o: ../../../../Source/Misc/lstring.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lstring.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lstrlib_3e798be6.o: ../../../../Source/Misc/lstrlib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lstrlib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/ltable_dbce1266.o: ../../../../Source/Misc/ltable.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling ltable.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/ltablib_9df6c902.o: ../../../../Source/Misc/ltablib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling ltablib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/ltm_421f8eb.o: ../../../../Source/Misc/ltm.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling ltm.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lundump_b97382ff.o: ../../../../Source/Misc/lundump.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lundump.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lutf8lib_e5e839cc.o: ../../../../Source/Misc/lutf8lib.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lutf8lib.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lvm_422e1a9.o: ../../../../Source/Misc/lvm.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lvm.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lzio_8070cdf8.o: ../../../../Source/Misc/lzio.c
+	-@mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lzio.c"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/message_f0a0440d.o: ../../../../Source/Misc/message.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling message.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/method_4af3c0a5.o: ../../../../Source/Misc/method.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/method_4af3c0a5.o: ../../../../Source/Misc/method.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling method.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/pattern_match_f4afc7dc.o: ../../../../Source/Misc/pattern_match.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/pattern_match_f4afc7dc.o: ../../../../Source/Misc/pattern_match.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling pattern_match.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/poll_posix_37a8f9c7.o: ../../../../Source/Misc/poll_posix.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/poll_posix_37a8f9c7.o: ../../../../Source/Misc/poll_posix.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling poll_posix.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/poll_windows_7e84da07.o: ../../../../Source/Misc/poll_windows.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/poll_windows_7e84da07.o: ../../../../Source/Misc/poll_windows.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling poll_windows.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/send_8b3ce94c.o: ../../../../Source/Misc/send.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/send_8b3ce94c.o: ../../../../Source/Misc/send.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling send.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/server_b7920e87.o: ../../../../Source/Misc/server.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/server_b7920e87.o: ../../../../Source/Misc/server.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling server.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/strerror_5e4de4fb.o: ../../../../Source/Misc/strerror.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/strerror_5e4de4fb.o: ../../../../Source/Misc/strerror.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling strerror.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/structs_4f124184.o: ../../../../Source/Misc/structs.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/structs_4f124184.o: ../../../../Source/Misc/structs.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling structs.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/sync_8c56bb9f.o: ../../../../Source/Misc/sync.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/sync_8c56bb9f.o: ../../../../Source/Misc/sync.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling sync.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/threads_posix_2509d033.o: ../../../../Source/Misc/threads_posix.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/threads_posix_2509d033.o: ../../../../Source/Misc/threads_posix.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling threads_posix.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/threads_windows_9709c573.o: ../../../../Source/Misc/threads_windows.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/threads_windows_9709c573.o: ../../../../Source/Misc/threads_windows.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling threads_windows.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/timetag_49c3d033.o: ../../../../Source/Misc/timetag.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/timetag_49c3d033.o: ../../../../Source/Misc/timetag.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling timetag.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/usb_4a02eca.o: ../../../../Source/Misc/usb.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/usb_4a02eca.o: ../../../../Source/Misc/usb.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling usb.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/version_f296709e.o: ../../../../Source/Misc/version.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/version_f296709e.o: ../../../../Source/Misc/version.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling version.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/windows_usb_69ee250e.o: ../../../../Source/Misc/windows_usb.c
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/windows_usb_69ee250e.o: ../../../../Source/Misc/windows_usb.c
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling windows_usb.c"
-	@$(CC) $(CFLAGS) -o "$@" -c "$<"
+	@$(CC) $(JUCE_CFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLinux_891d1366.o: ../../../../Source/Native/CtrlrLinux.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLinux_891d1366.o: ../../../../Source/Native/CtrlrLinux.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLinux.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMac_55cf0d81.o: ../../../../Source/Native/CtrlrMac.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMac_55cf0d81.o: ../../../../Source/Native/CtrlrMac.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMac.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrNative_d4f61d2f.o: ../../../../Source/Native/CtrlrNative.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrNative_d4f61d2f.o: ../../../../Source/Native/CtrlrNative.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrNative.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrWindows_d7428a35.o: ../../../../Source/Native/CtrlrWindows.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrWindows_d7428a35.o: ../../../../Source/Native/CtrlrWindows.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrWindows.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrProcessor_1100dce8.o: ../../../../Source/Plugin/CtrlrProcessor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrProcessor_1100dce8.o: ../../../../Source/Plugin/CtrlrProcessor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrProcessor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrProcessorEditorForLive_e59e666a.o: ../../../../Source/Plugin/CtrlrProcessorEditorForLive.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrProcessorEditorForLive_e59e666a.o: ../../../../Source/Plugin/CtrlrProcessorEditorForLive.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrProcessorEditorForLive.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrDocumentPanel_929b23dc.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrDocumentPanel.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrDocumentPanel_929b23dc.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrDocumentPanel.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrDocumentPanel.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrEditor_9def7b64.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrEditor_9def7b64.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrEditorApplicationCommands_4671257e.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommands.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrEditorApplicationCommands_4671257e.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommands.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrEditorApplicationCommands.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrEditorApplicationCommandsHandlers_606bd687.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsHandlers.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrEditorApplicationCommandsHandlers_606bd687.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsHandlers.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrEditorApplicationCommandsHandlers.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrEditorApplicationCommandsMenus_7bb32260.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsMenus.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrEditorApplicationCommandsMenus_7bb32260.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsMenus.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrEditorApplicationCommandsMenus.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLookAndFeel_6692d7b1.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLookAndFeel_6692d7b1.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLookAndFeel.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSettings_7ee9629a.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSettings_7ee9629a.o: ../../../../Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSettings.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrButton_bea1a45d.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrButton_bea1a45d.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrButton.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrButton.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrCustomButtonInternal_52f32d8b.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrCustomButtonInternal.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrCustomButtonInternal_52f32d8b.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrCustomButtonInternal.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrCustomButtonInternal.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrHyperlink_3eeb68e5.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrHyperlink_3eeb68e5.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrHyperlink.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrImageButton_153336ec.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrImageButton.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrImageButton_153336ec.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrImageButton.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrImageButton.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrToggleButton_c9c63251.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrToggleButton.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrToggleButton_c9c63251.o: ../../../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrToggleButton.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrToggleButton.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrGroup_32821e65.o: ../../../../Source/UIComponents/CtrlrComponents/Groups/CtrlrGroup.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrGroup_32821e65.o: ../../../../Source/UIComponents/CtrlrComponents/Groups/CtrlrGroup.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrGroup.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrTabsComponent_6616ae05.o: ../../../../Source/UIComponents/CtrlrComponents/Groups/CtrlrTabsComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrTabsComponent_6616ae05.o: ../../../../Source/UIComponents/CtrlrComponents/Groups/CtrlrTabsComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrTabsComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrImage_366001b6.o: ../../../../Source/UIComponents/CtrlrComponents/Labels/CtrlrImage.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrImage_366001b6.o: ../../../../Source/UIComponents/CtrlrComponents/Labels/CtrlrImage.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrImage.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLabel_467e62cf.o: ../../../../Source/UIComponents/CtrlrComponents/Labels/CtrlrLabel.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLabel_467e62cf.o: ../../../../Source/UIComponents/CtrlrComponents/Labels/CtrlrLabel.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLabel.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLCDLabel_2ac15b76.o: ../../../../Source/UIComponents/CtrlrComponents/Labels/CtrlrLCDLabel.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLCDLabel_2ac15b76.o: ../../../../Source/UIComponents/CtrlrComponents/Labels/CtrlrLCDLabel.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLCDLabel.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrFixedImageSlider_75038da4.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrFixedImageSlider.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrFixedImageSlider_75038da4.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrFixedImageSlider.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrFixedImageSlider.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrFixedSlider_699aa063.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrFixedSlider.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrFixedSlider_699aa063.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrFixedSlider.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrFixedSlider.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrImageSlider_35266d8a.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrImageSlider.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrImageSlider_35266d8a.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrImageSlider.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrImageSlider.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSlider_22b8e8bd.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSlider.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSlider_22b8e8bd.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSlider.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSlider.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSliderInternal_b65dd51a.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSliderInternal_b65dd51a.o: ../../../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSliderInternal.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrFileListBox_99e71cd1.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrFileListBox_99e71cd1.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrFileListBox.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrFileListBox.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrListBox_8b28dd6d.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrListBox.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrListBox_8b28dd6d.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrListBox.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrListBox.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMidiKeyboard_c15d02d2.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrMidiKeyboard.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMidiKeyboard_c15d02d2.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrMidiKeyboard.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMidiKeyboard.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrProgressBar_b0e4e9c6.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrProgressBar_b0e4e9c6.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrProgressBar.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrProgressBar.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrWaveform_4915e3e7.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrWaveform.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrWaveform_4915e3e7.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrWaveform.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrWaveform.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrXYModulator_327a5f2e.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYModulator.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrXYModulator_327a5f2e.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYModulator.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrXYModulator.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrXYSurface_2ece156c.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYSurface.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrXYSurface_2ece156c.o: ../../../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYSurface.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrXYSurface.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrArrow_1c791f44.o: ../../../../Source/UIComponents/CtrlrComponents/Statics/CtrlrArrow.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrArrow_1c791f44.o: ../../../../Source/UIComponents/CtrlrComponents/Statics/CtrlrArrow.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrArrow.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrCombo_5229199f.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrCombo.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrCombo_5229199f.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrCombo.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrCombo.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrComponent_39b6278e.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrComponent_39b6278e.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrComponentTypeManager_ddf3b5af.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrComponentTypeManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrCustomComponent_a77769d.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrCustomComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrCustomComponent_a77769d.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrCustomComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrCustomComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrFilmStripPainter_73f10450.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrFilmStripPainter.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrFilmStripPainter_73f10450.o: ../../../../Source/UIComponents/CtrlrComponents/CtrlrFilmStripPainter.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrFilmStripPainter.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaCodeTokeniser_e22d95d3.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaCodeTokeniser_e22d95d3.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniser.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaCodeTokeniser.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodCodeEditor_94898995.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodCodeEditor_94898995.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodCodeEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodCodeEditorSettings_5be9f058.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodCodeEditorSettings_5be9f058.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditorSettings.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodCodeEditorSettings.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodDebuggerControls_7bab86d2.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerControls_7bab86d2.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodDebuggerControls.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodDebuggerInfo_76e344a.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerInfo_76e344a.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodDebuggerInfo.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerPrompt_92558040.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodDebuggerPrompt.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerStackTrace_7e678a79.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerStackTrace.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodDebuggerStackTrace.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodDebuggerVars_b2defec8.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodDebuggerVars_b2defec8.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodDebuggerVars.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodEditArea_d6845c92.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodEditArea_d6845c92.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodEditArea.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodEditor_7c70c6c8.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodEditor_7c70c6c8.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodEditorConsole_5d42ecf9.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodEditorConsole_5d42ecf9.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorConsole.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodEditorConsole.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodEditorTabs_9f9d2de6.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodEditorTabs_9f9d2de6.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodEditorTabs.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodFind_e941a694.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodFind.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodFind_e941a694.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodFind.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodFind.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrMethodEditorTabCloseButton.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMethodEditorTabCloseButton_15d68b8b.o: ../../../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrMethodEditorTabCloseButton.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMethodEditorTabCloseButton.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaConsole_70f9824e.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaConsole_70f9824e.o: ../../../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaConsole.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDIBuffer_8a274ae5.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDIBuffer_8a274ae5.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDIBuffer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDIBufferEditor_370fe5f2.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDIBufferEditor_370fe5f2.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDIBufferEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDICalculator_ebca78a7.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDICalculator.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDICalculator_ebca78a7.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDICalculator.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDICalculator.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDILibraryEditor_837e6cd.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDILibraryEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDILibraryEditor_837e6cd.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDILibraryEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDILibraryEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDIMon_e8a545d1.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIMon.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDIMon_e8a545d1.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIMon.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDIMon.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDISettingsDevices_4b0f6aff.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDevices.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDISettingsDevices_4b0f6aff.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDevices.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDISettingsDevices.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDISettingsDialog_57e50870.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDialog.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDISettingsDialog_57e50870.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDialog.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDISettingsDialog.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMIDISettingsRouting_28f00268.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsRouting.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMIDISettingsRouting_28f00268.o: ../../../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsRouting.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDISettingsRouting.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelCanvas_248178b.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvas.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelCanvas_248178b.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvas.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelCanvas.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelCanvasHandlers_1eaa6b94.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelCanvasHandlers_1eaa6b94.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelCanvasHandlers.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelCanvasLayer_b7523850.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelCanvasLayer_b7523850.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelCanvasLayer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelCanvasLayers_36a8df6d.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayers.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelCanvasLayers_36a8df6d.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayers.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelCanvasLayers.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelComponentProperties_8d398a07.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelComponentProperties_8d398a07.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelComponentProperties.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelEditor_4e4bb120.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelEditor_4e4bb120.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelLayerList_64b0b886.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelLayerList_64b0b886.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelLayerList.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelLayerListItem_1a2585b9.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelLayerListItem_1a2585b9.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelLayerListItem.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelModulatorList_515624.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelModulatorList_515624.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelModulatorList.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelModulatorListTree_9f51df62.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorListTree.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelModulatorListTree_9f51df62.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorListTree.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelModulatorListTree.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelProperties_92abdae6.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelProperties_92abdae6.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelProperties.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelResourceEditor_6fc1b9ce.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelResourceEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelResourceEditor_6fc1b9ce.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelResourceEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelResourceEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelUtilities_a6075081.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelUtilities.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelUtilities_a6075081.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelUtilities.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelUtilities.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelViewport_7f185c59.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelViewport_7f185c59.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelViewport.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrViewport_7e02dc41.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrViewport_7e02dc41.o: ../../../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrViewport.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrBooleanPropertyComponent_696ccd48.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrBooleanPropertyComponent_696ccd48.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrBooleanPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrButtonPropertyComponent_b941f3b8.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrButtonPropertyComponent_b941f3b8.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrButtonPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrChoicePropertyComponent_3c8068a9.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrChoicePropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrChoicePropertyComponent_3c8068a9.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrChoicePropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrChoicePropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrColourPropertyComponent_b131615e.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrColourPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrColourPropertyComponent_b131615e.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrColourPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrColourPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrExpressionProperty_98008635.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrExpressionProperty.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrExpressionProperty_98008635.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrExpressionProperty.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrExpressionProperty.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrFilePropertyComponent_9cf08eee.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFilePropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrFilePropertyComponent_9cf08eee.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFilePropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrFilePropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrFontPropertyComponent_fb3309fb.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFontPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrFontPropertyComponent_fb3309fb.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFontPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrFontPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLuaMethodProperty_c1c1bd0.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrLuaMethodProperty.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLuaMethodProperty_c1c1bd0.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrLuaMethodProperty.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaMethodProperty.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrModulatorListProperty_417f3f84.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrModulatorListProperty_417f3f84.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrModulatorListProperty.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrMultiMidiPropertyComponent_2f5c07f6.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrMultiMidiPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrMultiMidiPropertyComponent_2f5c07f6.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrMultiMidiPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMultiMidiPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPropertyComponent_808f8d8a.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPropertyComponent_808f8d8a.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSliderPropertyComponent_3cfad569.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSliderPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSliderPropertyComponent_3cfad569.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSliderPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSliderPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSysExEditor_8120b80f.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSysExEditor_8120b80f.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSysExEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSysExFormulaEditor_4a7f649b.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExFormulaEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSysExFormulaEditor_4a7f649b.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExFormulaEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSysExFormulaEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrSysExPropertyComponent_54ec74d0.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrSysExPropertyComponent_54ec74d0.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrSysExPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrTextPropertyComponent_43b7a7dd.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTextPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrTextPropertyComponent_43b7a7dd.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTextPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrTextPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrTimestampProperty_5aa7a6d.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTimestampProperty.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrTimestampProperty_5aa7a6d.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTimestampProperty.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrTimestampProperty.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrUnknownPropertyComponent_48ed5666.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrUnknownPropertyComponent_48ed5666.o: ../../../../Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrUnknownPropertyComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrChildWindow_ca5e1fdd.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrChildWindow_ca5e1fdd.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrChildWindow.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrChildWindowContainer_92d8566e.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContainer.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrChildWindowContainer_92d8566e.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContainer.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrChildWindowContainer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrChildWindowContent_23e81066.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContent.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrChildWindowContent_23e81066.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContent.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrChildWindowContent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrDialogWindow_fd7eda91.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrDialogWindow.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrDialogWindow_fd7eda91.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrDialogWindow.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrDialogWindow.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrManagerWindowManager_237c1a29.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrManagerWindowManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrManagerWindowManager_237c1a29.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrManagerWindowManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrManagerWindowManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrPanelWindowManager_c51c89b2.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrPanelWindowManager_c51c89b2.o: ../../../../Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelWindowManager.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrAbout_18fdd38c.o: ../../../../Source/UIComponents/CtrlrAbout.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrAbout_18fdd38c.o: ../../../../Source/UIComponents/CtrlrAbout.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrAbout.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrComponentSelection_b1d830ba.o: ../../../../Source/UIComponents/CtrlrComponentSelection.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrComponentSelection_b1d830ba.o: ../../../../Source/UIComponents/CtrlrComponentSelection.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrComponentSelection.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrLogViewer_61075cf5.o: ../../../../Source/UIComponents/CtrlrLogViewer.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrLogViewer_61075cf5.o: ../../../../Source/UIComponents/CtrlrLogViewer.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLogViewer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrTextEditor_ee695525.o: ../../../../Source/UIComponents/CtrlrTextEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrTextEditor_ee695525.o: ../../../../Source/UIComponents/CtrlrTextEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrTextEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrValueMap_c807d756.o: ../../../../Source/UIComponents/CtrlrValueMap.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrValueMap_c807d756.o: ../../../../Source/UIComponents/CtrlrValueMap.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrValueMap.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/CtrlrValueTreeEditor_71d292fb.o: ../../../../Source/UIComponents/CtrlrValueTreeEditor.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/CtrlrValueTreeEditor_71d292fb.o: ../../../../Source/UIComponents/CtrlrValueTreeEditor.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrValueTreeEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/BinaryData_6f834a1b.o: ../../../VST/JuceLibraryCode/BinaryData.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/BinaryData_6f834a1b.o: ../../../VST/JuceLibraryCode/BinaryData.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling BinaryData.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_audio_basics_1993f77a.o: ../../../VST/JuceLibraryCode/juce_audio_basics.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_audio_basics_1993f77a.o: ../../../VST/JuceLibraryCode/juce_audio_basics.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_audio_basics.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_audio_devices_bc77a3d2.o: ../../../VST/JuceLibraryCode/juce_audio_devices.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_audio_devices_bc77a3d2.o: ../../../VST/JuceLibraryCode/juce_audio_devices.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_audio_devices.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_audio_formats_6f5ea6d1.o: ../../../VST/JuceLibraryCode/juce_audio_formats.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_audio_formats_6f5ea6d1.o: ../../../VST/JuceLibraryCode/juce_audio_formats.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_audio_formats.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_audio_plugin_client_utils_b371a9be.o: ../../../VST/JuceLibraryCode/juce_audio_plugin_client_utils.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_audio_plugin_client_utils_b371a9be.o: ../../../VST/JuceLibraryCode/juce_audio_plugin_client_utils.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_audio_plugin_client_utils.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_audio_plugin_client_VST2_5153538.o: ../../../VST/JuceLibraryCode/juce_audio_plugin_client_VST2.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_audio_plugin_client_VST2_5153538.o: ../../../VST/JuceLibraryCode/juce_audio_plugin_client_VST2.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_audio_plugin_client_VST2.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_audio_processors_b2e27d96.o: ../../../VST/JuceLibraryCode/juce_audio_processors.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_audio_processors_b2e27d96.o: ../../../VST/JuceLibraryCode/juce_audio_processors.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_audio_processors.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_audio_utils_f99ada6.o: ../../../VST/JuceLibraryCode/juce_audio_utils.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_audio_utils_f99ada6.o: ../../../VST/JuceLibraryCode/juce_audio_utils.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_audio_utils.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_core_59dca70b.o: ../../../VST/JuceLibraryCode/juce_core.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_core_59dca70b.o: ../../../VST/JuceLibraryCode/juce_core.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_core.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_cryptography_1bfd66d8.o: ../../../VST/JuceLibraryCode/juce_cryptography.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_cryptography_1bfd66d8.o: ../../../VST/JuceLibraryCode/juce_cryptography.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_cryptography.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_data_structures_e51c4b3.o: ../../../VST/JuceLibraryCode/juce_data_structures.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_data_structures_e51c4b3.o: ../../../VST/JuceLibraryCode/juce_data_structures.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_data_structures.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_events_59a059c5.o: ../../../VST/JuceLibraryCode/juce_events.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_events_59a059c5.o: ../../../VST/JuceLibraryCode/juce_events.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_events.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_graphics_f1cc5877.o: ../../../VST/JuceLibraryCode/juce_graphics.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_graphics_f1cc5877.o: ../../../VST/JuceLibraryCode/juce_graphics.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_graphics.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_gui_basics_426b02b5.o: ../../../VST/JuceLibraryCode/juce_gui_basics.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_gui_basics_426b02b5.o: ../../../VST/JuceLibraryCode/juce_gui_basics.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_gui_basics.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_gui_extra_aac88aea.o: ../../../VST/JuceLibraryCode/juce_gui_extra.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_gui_extra_aac88aea.o: ../../../VST/JuceLibraryCode/juce_gui_extra.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_gui_extra.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/juce_opengl_5452865b.o: ../../../VST/JuceLibraryCode/juce_opengl.cpp
-	-@mkdir -p $(OBJDIR)
+$(JUCE_OBJDIR)/juce_opengl_5452865b.o: ../../../VST/JuceLibraryCode/juce_opengl.cpp
+	-@mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling juce_opengl.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+	@$(CXX) $(JUCE_CXXFLAGS) -o "$@" -c "$<"
 
 -include $(OBJECTS:%.o=%.d)

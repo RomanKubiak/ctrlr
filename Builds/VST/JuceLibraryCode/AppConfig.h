@@ -240,10 +240,10 @@
  #define JucePlugin_ManufacturerEmail      "ctrlr@ctrlr.org"
 #endif
 #ifndef  JucePlugin_ManufacturerCode
- #define JucePlugin_ManufacturerCode       'INST'
+ #define JucePlugin_ManufacturerCode       0x494e5354 // 'INST'
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             'CTRL'
+ #define JucePlugin_PluginCode             0x4354524c // 'CTRL'
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                1

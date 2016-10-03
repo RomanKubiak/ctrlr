@@ -24,6 +24,8 @@
 #ifndef LUABIND_CONFIG_HPP_INCLUDED
 #define LUABIND_CONFIG_HPP_INCLUDED
 
+#pragma warning(disable:4297)
+
 #include <boost/config.hpp>
 
 #ifdef BOOST_MSVC
