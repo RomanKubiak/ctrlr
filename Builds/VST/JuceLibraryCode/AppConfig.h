@@ -17,7 +17,7 @@
 //==============================================================================
 // [BEGIN_USER_CODE_SECTION]
 
-// (You can add your own code in this section, and the Introjucer will not overwrite it)
+// (You can add your own code in this section, and the Projucer will not overwrite it)
 #define JUCE_ENABLE_REPAINT_DEBUGGING 	0
 #define JUCE_CATCH_UNHANDLED_EXCEPTIONS 1
 #define VST_INDEX_MANUFACTURER			1025
