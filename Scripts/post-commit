@@ -1,6 +1,12 @@
 #!/bin/bash
 OSNAME=""
 DATE=`date`
+UBUNTU_PACKAGES="g++ libxrandr-dev libxinerama-dev libxcursor-dev \
+libasound2-dev binutils-dev \
+libfreetype6-dev xorg-dev \
+libgl1-mesa-dev libglapi-mesa \
+libxrandr-dev"
+
 CTRLR_ROOT=""
 PACKAGE=""
 BUILD_LOG_WIN32=""
@@ -11,8 +17,27 @@ ARGS=$1
 
 echo "CTRLR pre-commit HOOK"
 
+function check_pkgs_ubuntu() {
+	IFS=" "
+	for p in $UBUNTU_PACKAGES; do
+		echo -ne "\t[$p:"
+		dpkg-query -W $p 2> /dev/null 1> /dev/null
+		if [ $? -ne 0 ]; then
+			if [ "$ARGS" == "-f" ]; then
+				echo -ne "failed,forced]\n"
+			else
+				echo -ne "failed]\n"
+				exit 1
+			fi
+		else
+			echo -ne "ok]\n"
+		fi
+	done
+}
+
 function detect_os {
 	UNAME=`uname 2>/dev/null`
+	
 	if [ "$OS" == "Windows_NT" ]; then
 		OSNAME="WINDOWS"
 		if [ -d /cygdrive ]; then
@@ -29,6 +54,7 @@ function detect_os {
 	fi
 		
 	if [ "$UNAME" == "Linux" ]; then
+		DISTRO=`lsb_release -i 2> /dev/null | cut -f2`
 		OSNAME="LINUX"
 		ARCH=`uname -m`
 		CTRLR_ROOT="$(dirname $(readlink -f $0))/../"
@@ -36,6 +62,11 @@ function detect_os {
 		PACKAGE=$CTRLR_ROOT/Packaging/Linux/Ctrlr-$ARCH-$VERSION.sh
 		BUILD_LOG=$CTRLR_ROOT/Builds/Ctrlr-$ARCH-$VERSION.linux.build.log
 		CTRLR_KEY="$CTRLR_ROOT/Packaging/ctrlr.key"
+		
+		if [ "$DISTRO" == "Ubuntu" ]; then
+			echo "CTRLR: distro detected as $DISTRO, check packages"
+			check_pkgs_ubuntu
+		fi
 		return
 	fi
 	
