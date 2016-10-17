@@ -65,12 +65,14 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 			else
 				editorRect.setHeight (editorRect.getHeight());
 		}
+
+		setBounds (editorRect);
 	}
 	else
-		editorRect.setSize(640,480);
-
-	setBounds (editorRect);
-
+	{
+		centreWithSize(800, 600);
+	}
+	
 	lookAndFeelChanged();
 	activeCtrlrChanged();
 }

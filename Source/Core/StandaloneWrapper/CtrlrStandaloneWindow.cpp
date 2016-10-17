@@ -13,14 +13,14 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 		appProperties(nullptr),
 		restoreState(true)
 {
+	filter = createPluginFilter();
+	centreWithSize(800, 600);
 	setTitleBarButtonsRequired (DocumentWindow::allButtons, false);
 	setUsingNativeTitleBar (true);
 	setResizable(true, false);
 
-        filter = createPluginFilter();
-
-        if (filter != 0)
-        {
+    if (filter != 0)
+	{
 			ctrlrProcessor = dynamic_cast<CtrlrProcessor*>(filter);
 
 			if (ctrlrProcessor == nullptr)
@@ -48,7 +48,6 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 				{
 					ctrlrProcessor->setStateInformation (xml);
 				}
-
 
 				AudioProcessorEditor *editor = ctrlrProcessor->createEditorIfNeeded();
 				setName (ctrlrProcessor->getManager().getInstanceName());
