@@ -139,7 +139,7 @@ class CtrlrLuaUtils
         static String getVersionString() { return (_STR(ctrlrRevision)); }
 		static StringArray getMidiInputDevices();
 		static StringArray getMidiOutputDevices();
-
+		void testMethod(const String &haystack, const String &needle);
 		JUCE_LEAK_DETECTOR(CtrlrLuaUtils)
 };
 

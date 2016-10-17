@@ -218,6 +218,15 @@ StringArray CtrlrLuaUtils::getMidiOutputDevices()
 	return ( MidiOutput::getDevices() );
 }
 
+void CtrlrLuaUtils::testMethod(const String &haystack, const String &needle)
+{
+	String haystackCopy(haystack);
+
+	bool ret1 = haystack.startsWith(needle);
+	bool ret2 = haystackCopy.startsWith(needle);
+
+	_DBG("ret1: " + _STR(ret1) + " ret2: " + _STR(ret2) + " haystack: [" + haystack + "]" + " needle: [" + needle + "]" + " haystackCopy: " + haystackCopy);
+}
 void CtrlrLuaUtils::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -242,5 +251,6 @@ void CtrlrLuaUtils::wrapForLua (lua_State *L)
 			.def("getVersionRevision", &CtrlrLuaUtils::getVersionRevision)
 			.def("getVersionString", &CtrlrLuaUtils::getVersionString)
 			.def("getPi", &CtrlrLuaUtils::getPi)
+			.def("testMethod", &CtrlrLuaUtils::testMethod)
 	];
 }
