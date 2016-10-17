@@ -5,7 +5,7 @@ UBUNTU_PACKAGES="g++ libxrandr-dev libxinerama-dev libxcursor-dev \
 libasound2-dev binutils-dev \
 libfreetype6-dev xorg-dev \
 libgl1-mesa-dev libglapi-mesa \
-libxrandr-dev"
+libxrandr-dev libudev-dev libgl1-mesa-dev"
 
 CTRLR_ROOT=""
 PACKAGE=""
@@ -332,6 +332,11 @@ function build_now_linux {
 	echo -n > $BUILD_LOG
 	
 	cd $CTRLR_ROOT/Builds/Generated/Linux/Standalone
+	if [ "$ARGS" == "clean" ]; then
+		echo "CTRLR: clean before build"
+		rm -rf ./build
+	fi
+	
 	./build.sh -f | tee -ia $BUILD_LOG
 	if [ $? -ne 0 ]; then
 		echo "CTRLR: build for Standalone failed"
@@ -339,6 +344,10 @@ function build_now_linux {
 	fi
 	
 	cd $CTRLR_ROOT/Builds/Generated/Linux/VST
+	if [ "$ARGS" == "clean" ]; then
+		echo "CTRLR: clean before build"
+		rm -rf ./build
+	fi
 	./build.sh -f | tee -ia $BUILD_LOG
 	
 	if [ $? -ne 0 ]; then
