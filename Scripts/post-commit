@@ -97,8 +97,8 @@ function windows_msbuild {
 		cd $CTRLR_ROOT/Builds
 		
 		echo "CTRLR: Build Win32"
-		echo "$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x86
-		"$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x86
+		echo "$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=Win32
+		"$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=Win32
 		
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: Win32 build failed"
@@ -141,7 +141,8 @@ function build_now_windows {
 	windows_msbuild
 	
 	echo "CTRLR: Build success, create installer"
-	eval $NSIS $CTRLR_ROOT/Packaging/Windows/ctrlr.nsi
+	cd $CTRLR_ROOT
+	eval $NSIS Packaging/Windows/ctrlr.nsi
 	if [ $? -ne 0 ]; then
 		echo "CTRLR: failed to create installer package"
 		exit 1

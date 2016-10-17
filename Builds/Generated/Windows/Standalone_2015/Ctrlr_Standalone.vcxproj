@@ -44,13 +44,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v140_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v140_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'" Label="Configuration">
@@ -82,8 +80,8 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Ctrlr-$(Platform)$(NATIVE_ARCH)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">Ctrlr_Standalone</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">Ctrlr_Standalone</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">Ctrlr-$(Platform)$(NATIVE_ARCH)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">Ctrlr-$(Platform)$(NATIVE_ARCH)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">true</GenerateManifest>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">true</GenerateManifest>
     <PlatformToolset>v140_xp</PlatformToolset>
@@ -297,11 +295,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Ctrlr_Standalone.exe</OutputFile>
+      <OutputFile>$(OutDir)\Ctrlr-$(Platform)$(NATIVE_ARCH).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Ctrlr_Standalone.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\Ctrlr-$(Platform)$(NATIVE_ARCH).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <OptimizeReferences>true</OptimizeReferences>
@@ -311,7 +309,7 @@
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Ctrlr_Standalone.bsc</OutputFile>
+      <OutputFile>$(IntDir)\Ctrlr-$(Platform)$(NATIVE_ARCH).bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) ..\..\..\..\Bin</Command>
@@ -345,11 +343,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Ctrlr_Standalone.exe</OutputFile>
+      <OutputFile>$(OutDir)\Ctrlr-$(Platform)$(NATIVE_ARCH).exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\Ctrlr_Standalone.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\Ctrlr-$(Platform)$(NATIVE_ARCH).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -358,7 +356,7 @@
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\Ctrlr_Standalone.bsc</OutputFile>
+      <OutputFile>$(IntDir)\Ctrlr-$(Platform)$(NATIVE_ARCH).bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
       <Command>copy /Y $(TargetPath) ..\..\..\..\Bin</Command>
