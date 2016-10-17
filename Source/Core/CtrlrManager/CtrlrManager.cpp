@@ -28,13 +28,14 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 	ctrlrManagerVst			= new CtrlrManagerVst(*this);
 
 	commandManager.addListener (this);
-	LookAndFeel::setDefaultLookAndFeel (ctrlrLookAndFeel = new CtrlrLookAndFeel(*this));
 	audioFormatManager.registerBasicFormats ();
 
 	ctrlrDocumentPanel		= new CtrlrDocumentPanel(*this);
 	nullPanel				= new CtrlrPanel(*this);
 	nullModulator			= new CtrlrModulator (*nullPanel);
     ctrlrFontManager        = new CtrlrFontManager (*this);
+	ctrlrLookAndFeel		= new CtrlrLookAndFeel(*this);
+	LookAndFeel::setDefaultLookAndFeel(getCtrlrLookAndFeel());
 }
 
 CtrlrManager::~CtrlrManager()
@@ -387,26 +388,22 @@ void CtrlrManager::removePanel (CtrlrPanelEditor *editor)
 
 void CtrlrManager::restoreEditorState()
 {
-	Rectangle<int> r;
-
 	if (getProperty(Ids::ctrlrEditorBounds).toString() == String::empty)
 	{
 		if (getInstanceMode() == InstanceSingle || getInstanceMode() == InstanceSingleRestriced)
 		{
+			Rectangle<int> r(32, 32, 800, 600);
+
 			if (getActivePanel() && getActivePanel()->getEditor())
 			{
 				r = VAR2RECT(getActivePanel()->getEditor()->getProperty (Ids::uiPanelCanvasRectangle));
 			}
+
+			ctrlrEditor->setSize (r.getWidth(), r.getHeight());
+			return;
 		}
 	}
-	else
-	{
-		r = VAR2RECT(getProperty(Ids::ctrlrEditorBounds, "0 0 720 480"));
-	}
-
-	_DBG("CtrlrManager::restoreEditorState setting editor size to: " + r.toString());
-
-	ctrlrEditor->setSize (r.getWidth(), r.getHeight());
+	//ctrlrEditor->centreWithSize(800, 600);
 }
 
 void CtrlrManager::setEditor (CtrlrEditor *editorToSet)
