@@ -2,7 +2,7 @@ BUILDDIR=../build/$HOSTTYPE
 CPUS=`cat /proc/cpuinfo  | grep processor | wc -l`
 
 if [ $CPUS -ge 4 ]; then
-	let JOBS='CPUS / 4'
+	let JOBS='CPUS / 2'
 else
 	let JOBS=2
 fi
