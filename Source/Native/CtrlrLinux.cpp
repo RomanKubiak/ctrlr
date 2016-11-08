@@ -1,5 +1,9 @@
 #include "stdafx.h"
+
 #ifdef LINUX
+// https://github.com/RomanKubiak/ctrlr/issues/38
+#define PACKAGE "Ctrlr" 
+
 #include "CtrlrMacros.h"
 #include "CtrlrLinux.h"
 #include "CtrlrPanel/CtrlrPanel.h"

@@ -109,7 +109,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/Yu"stdafx.h" /MP /Fp"stdafx.pch" /Zm2000 /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <MinimalRebuild>true</MinimalRebuild>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -3647,6 +3647,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Source\Core\CtrlrLuaHeaders.h" />
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrOSC.h" />
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h" />
     <ClInclude Include="..\..\..\..\Source\Core\CtrlrUtilitiesGUI.h" />

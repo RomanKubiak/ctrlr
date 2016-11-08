@@ -22,3 +22,7 @@ Need special functionality or want to propose a patch/feature update, know a bit
 Extend
 ======
 With the scripting possibilities inside Ctrlr you can extend you panels in various ways. The LUA scripting language gives you access to all panels elements and hooks to various events.
+
+
+Building
+========
