@@ -1,7 +1,6 @@
 #ifndef CTRLR_LUA_OBJECT_WRAPPER
 #define CTRLR_LUA_OBJECT_WRAPPER
 
-
 #include "stdafx.h"
 
 //==============================================================================
