@@ -1263,8 +1263,11 @@ inline object newtable(lua_State* interpreter)
 // this could be optimized by returning a proxy
 inline object globals(lua_State* interpreter)
 {
-    //lua_pushvalue(interpreter, LUA_GLOBALSINDEX);
-	lua_pushglobaltable(interpreter);
+#if LUA_VERSION_NUM >= 502
+	lua_rawgeti(interpreter, LUA_REGISTRYINDEX, LUA_RIDX_GLOBALS);
+#else
+	lua_pushvalue(interpreter, LUA_GLOBALSINDEX);
+#endif
 	detail::stack_pop pop(interpreter, 1);
     return object(from_stack(interpreter, -1));
 }

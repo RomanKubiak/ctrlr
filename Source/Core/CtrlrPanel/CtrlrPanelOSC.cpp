@@ -18,10 +18,7 @@ CtrlrPanelOSC::CtrlrPanelOSC(CtrlrPanel &_owner)
 
 CtrlrPanelOSC::~CtrlrPanelOSC()
 {
-	if (isThreadRunning())
-	{
-		stopThread(1500);
-	}
+	stopServer();
 }
 
 void CtrlrPanelOSC::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
@@ -144,7 +141,19 @@ void CtrlrPanelOSC::handleAsyncUpdate()
 
         for (int j=0; j<messageQueue[i].getArguments().size(); j++)
 		{
-			luaArguments[j] = messageQueue[i].getArguments()[j];
+			/* some lilbo types might need special treatment
+			   for now string need to be cast to (const char *)
+			   otherwise we only get the first character since
+			   the lo_arg union 's' member is a (char) 
+			*/
+			if (messageQueue[i].getTypes()[j] == 's')
+			{
+				luaArguments[j] = (const char *)messageQueue[i].getArguments()[j].s;
+			}
+			else
+			{
+				luaArguments[j] = messageQueue[i].getArguments()[j];
+			}
 		}
 
 		if (luaPanelOSCReceivedCbk)
@@ -162,8 +171,11 @@ void CtrlrPanelOSC::queueMessage(const char *path, const char *types, lo_arg **a
 	message.setPath(path);
 	message.setTypes(types);
 
-	for (int i=0; i<argc; i++)
+	for (int i = 0; i < argc; i++)
+	{
+		lo_arg *arg = argv[i];
 		message.addArgument(*argv[i]);
+	}
 
 	messageQueue.add (message);
 	triggerAsyncUpdate();
@@ -180,6 +192,5 @@ void CtrlrPanelOSC::messageHandler(const char *path, const char *types, lo_arg *
 									int argc, lo_message msg, void *user_data)
 {
 	CtrlrPanelOSC *panelOSC = (CtrlrPanelOSC *)user_data;
-
 	panelOSC->queueMessage(path,types,argv,argc);
 }
