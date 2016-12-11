@@ -671,11 +671,11 @@ int luabind::detail::class_rep::constructor_dispatcher(lua_State* L)
         && cls->get_class_type() == class_rep::lua_class
         && !cls->bases().empty())
     {
-        lua_pushstring(L, "super");
+
         lua_pushvalue(L, 1);
-        lua_pushvalue(L, -3);
+		lua_pushvalue(L, -2);
         lua_pushcclosure(L, super_callback, 2);
-		lua_pushglobaltable(L);
+		lua_setglobal(L, "super");
     }
 
     lua_pushvalue(L, -1);
@@ -694,9 +694,8 @@ int luabind::detail::class_rep::constructor_dispatcher(lua_State* L)
 
     if (super_deprecation_disabled)
     {
-        lua_pushstring(L, "super");
         lua_pushnil(L);
-		lua_pushglobaltable(L);
+		lua_setglobal(L, "super");
     }
 
     return 1;
@@ -739,17 +738,15 @@ int luabind::detail::class_rep::super_callback(lua_State* L)
 
 	if (base->bases().empty())
 	{
-		lua_pushstring(L, "super");
 		lua_pushnil(L);
-		lua_pushglobaltable(L);
+		lua_setglobal(L, "super");
 	}
 	else
 	{
-		lua_pushstring(L, "super");
 		lua_pushlightuserdata(L, base);
 		lua_pushvalue(L, lua_upvalueindex(2));
 		lua_pushcclosure(L, super_callback, 2);
-		lua_pushglobaltable(L);
+		lua_setglobal(L, "super");
 	}
 
 	base->get_table(L);
@@ -766,10 +763,8 @@ int luabind::detail::class_rep::super_callback(lua_State* L)
 	// TODO: instead of clearing the global variable "super"
 	// store it temporarily in the registry. maybe we should
 	// have some kind of warning if the super global is used?
-	lua_pushstring(L, "super");
 	lua_pushnil(L);
-	lua_pushglobaltable(L);
-
+	lua_setglobal(L, "super");
 	return 0;
 }
 
@@ -1019,9 +1014,8 @@ namespace luabind { namespace detail
 		new(c) class_rep(L, name);
 
 		// make the class globally available
-		lua_pushstring(L, name);
-		lua_pushvalue(L, -2);
-		lua_pushglobaltable(L);
+		lua_pushvalue(L, -1);
+		lua_setglobal(L, name);
 
 		// also add it to the closure as return value
 		lua_pushcclosure(L, &stage2, 1);
@@ -1937,21 +1931,21 @@ namespace
         lua_settable(L, LUA_REGISTRYINDEX);
 
         // add functions (class, cast etc...)
-        lua_pushstring(L, "class");
-        lua_pushcclosure(L, detail::create_class::stage1, 0);
-		lua_pushglobaltable(L);
 
-        lua_pushstring(L, "property");
+        lua_pushcclosure(L, detail::create_class::stage1, 0);
+		lua_setglobal(L, "class");
+
+
         lua_pushcclosure(L, &make_property, 0);
-		lua_pushglobaltable(L);
+		lua_setglobal(L, "property");
 
         lua_pushlightuserdata(L, &main_thread_tag);
         lua_pushlightuserdata(L, L);
         lua_rawset(L, LUA_REGISTRYINDEX);
 
-        lua_pushstring(L, "super");
+
         lua_pushcclosure(L, &deprecated_super, 0);
-		lua_pushglobaltable(L);
+		lua_setglobal(L, "super");
     }
 
 } // namespace luabind
@@ -2070,14 +2064,17 @@ namespace luabind {
                 lua_pop(m_state, 1);
 
                 lua_newtable(m_state);
-                lua_pushstring(m_state, m_name);
-                lua_pushvalue(m_state, -2);
-                lua_pushglobaltable(m_state);
+				lua_pushvalue(m_state, -1);
+				lua_setglobal(m_state, m_name);
             }
         }
         else
         {
-			lua_pushglobaltable(m_state);
+#if LUA_VERSION_NUM >= 502
+	lua_rawgeti(m_state, LUA_REGISTRYINDEX, LUA_RIDX_GLOBALS);
+#else
+	lua_pushvalue(m_state, LUA_GLOBALSINDEX);
+#endif
         }
 
         lua_pop_stack guard(m_state);

@@ -2,7 +2,11 @@
 #define CTRLR_OSC
 
 #include "CtrlrMacros.h"
+extern "C"
+{
 #include "lo/lo.h"
+}
+
 
 struct CtrlrOSCTimetag
 {
@@ -88,7 +92,7 @@ class CtrlrOSC
 
 		static void messageAddInt32(CtrlrOSCMessage &m, const int32_t i) 		{ lo_message_add_int32(m.loMessage, i); }
 		static void messageAddFloat(CtrlrOSCMessage &m, const float f)			{ lo_message_add_float(m.loMessage, f); }
-		static void messageAddString(CtrlrOSCMessage &m, const String &s)		{ lo_message_add_string(m.loMessage, s.getCharPointer()); }
+		static void messageAddString(CtrlrOSCMessage &m, const String &s); 
 		static void messageAddInt64(CtrlrOSCMessage &m, const int64_t i)		{ lo_message_add_int64(m.loMessage, i); }
 		static void messageAddTimetag(CtrlrOSCMessage &m, const lo_timetag t)	{ lo_message_add_timetag(m.loMessage, t); }
 		static void messageAddDouble(CtrlrOSCMessage &m, const double d)		{ lo_message_add_double(m.loMessage, d); }

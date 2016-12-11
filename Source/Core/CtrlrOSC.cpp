@@ -2,6 +2,7 @@
 #include "CtrlrOSC.h"
 #include "JuceClasses/LMemoryBlock.h"
 
+
 bool CtrlrOSC::sendMessage(CtrlrOSCAddress address, const CtrlrOSCMessage &message)
 {
 	if (message.getPath() == String::empty)
@@ -43,6 +44,12 @@ CtrlrOSCMessage CtrlrOSC::createMessage()
 CtrlrOSCMessage CtrlrOSC::createMessage(const String &path, const String &types)
 {
 	return (CtrlrOSCMessage(path, types));
+}
+
+void CtrlrOSC::messageAddString(CtrlrOSCMessage &m, const String &s)
+{ 
+	lo_message_add_string(m.loMessage, s.getCharPointer());
+	struct _lo_message *msg =  (struct _lo_message *)m.loMessage;
 }
 
 void CtrlrOSC::wrapForLua(lua_State *L)

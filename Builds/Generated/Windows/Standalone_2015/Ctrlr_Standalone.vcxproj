@@ -107,9 +107,9 @@
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/Yu"stdafx.h" /MP /Fp"stdafx.pch" /Zm2000 /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalOptions>/Yu"stdafx.h" /Gm /Fp"stdafx.pch" /Zm2000 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -125,6 +125,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalDependencies>iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerbose</ShowProgress>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
