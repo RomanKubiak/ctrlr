@@ -49,7 +49,6 @@ CtrlrOSCMessage CtrlrOSC::createMessage(const String &path, const String &types)
 void CtrlrOSC::messageAddString(CtrlrOSCMessage &m, const String &s)
 { 
 	lo_message_add_string(m.loMessage, s.getCharPointer());
-	struct _lo_message *msg =  (struct _lo_message *)m.loMessage;
 }
 
 void CtrlrOSC::wrapForLua(lua_State *L)

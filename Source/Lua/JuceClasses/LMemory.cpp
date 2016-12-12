@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LJuce.h"
+#include "luabind/operator.hpp"
 
 void LAsyncUpdater::handleAsyncUpdate()
 {

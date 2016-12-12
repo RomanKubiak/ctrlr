@@ -1,7 +1,7 @@
 #ifndef __CTRLR_MODULATOR__
 #define __CTRLR_MODULATOR__
 
-#include "../MIDI/CtrlrOwnedMidiMessage.h"
+#include "MIDI/CtrlrOwnedMidiMessage.h"
 #include "CtrlrMacros.h"
 #include "CtrlrModulatorProcessor.h"
 

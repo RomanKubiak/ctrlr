@@ -100,8 +100,6 @@ void CtrlrPanelOSC::run()
 
 Result CtrlrPanelOSC::startServer()
 {
-	_DBG("CtrlrPanelOSC::startServer port:"+owner.getProperty(Ids::panelOSCPort).toString()+" proto:"+_STR(loProtocol));
-
 	loServerHandle = lo_server_new_with_proto (owner.getProperty(Ids::panelOSCPort).toString().getCharPointer(), loProtocol, errorHandler);
 
 	if (serverFailed)
@@ -138,45 +136,46 @@ void CtrlrPanelOSC::handleAsyncUpdate()
 	for (int i=0; i<messageQueue.size(); i++)
 	{
 		luabind::object luaArguments = luabind::newtable(owner.getCtrlrLuaManager().getLuaState());
-
-        for (int j=0; j<messageQueue[i].getArguments().size(); j++)
-		{
-			/* some lilbo types might need special treatment
-			   for now string need to be cast to (const char *)
-			   otherwise we only get the first character since
-			   the lo_arg union 's' member is a (char) 
-			*/
-			if (messageQueue[i].getTypes()[j] == 's')
-			{
-				luaArguments[j] = (const char *)messageQueue[i].getArguments()[j].s;
-			}
-			else
-			{
-				luaArguments[j] = messageQueue[i].getArguments()[j];
-			}
-		}
-
 		if (luaPanelOSCReceivedCbk)
 		{
-			owner.getCtrlrLuaManager().getMethodManager().call (luaPanelOSCReceivedCbk, messageQueue[i].getPath(), messageQueue[i].getTypes(), luaArguments);
+			for (int i = 0; i < messageQueue.size(); i++)
+			{
+				lo_message msg = messageQueue[i].loMessage;
+			
+				int argc = lo_message_get_argc(msg);
+				lo_arg **argv = lo_message_get_argv(msg);
+
+				for (int j = 0; j < argc; j++)
+				{
+					switch (messageQueue[i].getTypes()[j])
+					{
+						case 's':
+							luaArguments[j] = (const char *)argv[j];
+							break;
+						
+						default:
+							luaArguments[j] = argv[j];
+							break;
+					}
+				}
+			}
+
+			owner.getCtrlrLuaManager().getMethodManager().call (luaPanelOSCReceivedCbk, 
+																messageQueue[i].getPath(), 
+																messageQueue[i].getTypes(), 
+																luaArguments);
 		}
 	}
 
 	messageQueue.clear();
 }
 
-void CtrlrPanelOSC::queueMessage(const char *path, const char *types, lo_arg **argv, int argc)
+void CtrlrPanelOSC::queueMessage(const char *path, const char *types, lo_arg **argv, int argc, lo_message msg)
 {
 	CtrlrOSCMessage message;
 	message.setPath(path);
 	message.setTypes(types);
-
-	for (int i = 0; i < argc; i++)
-	{
-		lo_arg *arg = argv[i];
-		message.addArgument(*argv[i]);
-	}
-
+	message.loMessage = lo_message_clone(msg);
 	messageQueue.add (message);
 	triggerAsyncUpdate();
 }
@@ -192,5 +191,5 @@ void CtrlrPanelOSC::messageHandler(const char *path, const char *types, lo_arg *
 									int argc, lo_message msg, void *user_data)
 {
 	CtrlrPanelOSC *panelOSC = (CtrlrPanelOSC *)user_data;
-	panelOSC->queueMessage(path,types,argv,argc);
+	panelOSC->queueMessage(path,types,argv,argc,msg);
 }
