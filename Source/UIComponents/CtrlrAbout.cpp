@@ -157,8 +157,9 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 	addVersionInfo ("libusb", "1.0.19");
     addVersionInfo ("liblo", "0.28");
 	addVersionInfo ("lua", LUA_RELEASE);
-
-	versionInfoLabel->setFont (owner.getFontManager().getDefaultLargeFont());
+	addVersionInfo ("luabind", _STR(LUABIND_VERSION / 1000) + "." + _STR(LUABIND_VERSION / 100 % 100) + "." + _STR(LUABIND_VERSION % 100));
+	addVersionInfo ("boost", _STR(BOOST_VERSION / 100000) + "." + _STR(BOOST_VERSION / 100 % 1000) + "." + _STR(BOOST_VERSION % 100));
+	versionInfoLabel->setFont (Font (owner.getFontManager().getDefaultMonoFontName(), 12.0f, Font::plain));
 	versionInfoLabel->setColour (TextEditor::backgroundColourId, Colours::white.withAlpha(0.8f));
 
 	if (owner.getInstanceMode() == InstanceSingle || owner.getInstanceMode() == InstanceSingleRestriced)

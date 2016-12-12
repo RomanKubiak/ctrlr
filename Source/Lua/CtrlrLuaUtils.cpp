@@ -2,6 +2,7 @@
 #include "CtrlrLuaUtils.h"
 #include "CtrlrLog.h"
 #include "JuceClasses/LMemoryBlock.h"
+#include "luabind/adopt_policy.hpp"
 
 /*
  * Copyright (c) 2010 The Beige Maze Project

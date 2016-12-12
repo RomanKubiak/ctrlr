@@ -3,8 +3,6 @@
 
 #ifdef __cplusplus
 #ifndef __OBJC__
-#define LUABIND_BUILDING
-#undef LUABIND_CPP0x
 
 #include <map>
 #include <string>
@@ -27,22 +25,10 @@ extern "C"
 #include <lauxlib.h>
 }
 
-#ifdef check
-#undef check
-#endif
-
-#ifdef nil
-#undef nil
-#endif
-
 #include <luabind/config.hpp>
 #include <luabind/class.hpp>
 #include <luabind/function.hpp>
 #include <luabind/open.hpp>
-
-#define check
-#define nil
-
 #include <luabind/lua_include.hpp>
 #include <luabind/nil.hpp>
 #include <luabind/lua_include.hpp>
@@ -52,7 +38,6 @@ extern "C"
 #include <luabind/detail/class_rep.hpp>
 #include <luabind/detail/operator_id.hpp>
 #include <luabind/detail/stack_utils.hpp>
-#include <luabind/detail/conversion_storage.hpp>
 #include <luabind/exception_handler.hpp>
 #include <luabind/get_main_thread.hpp>
 #include <luabind/error.hpp>

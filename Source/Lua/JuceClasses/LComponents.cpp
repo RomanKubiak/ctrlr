@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LJuce.h"
+#include "luabind/adopt_policy.hpp"
 
 LAlertWindow::LAlertWindow(const String &title, const String &message, AlertIconType iconType)
 	: AlertWindow(title,message,iconType,nullptr)
@@ -914,7 +915,7 @@ AttributedString LookAndFeelBase::createFileChooserHeaderText(const String &titl
 
 void LookAndFeelBase::drawFileBrowserRow(Graphics &g, int width, int height, const String &filename, Image* icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &directoryContentsDisplayComponent)
 {
-    TRY_CALL(drawFileBrowserRow, boost::ref(g), width, height, filename, icon, fileSizeDescription, fileTimeDescription, isDirectory, isItemSelected, itemIndex, boost::ref(directoryContentsDisplayComponent));
+//    TRY_CALL(drawFileBrowserRow, boost::ref(g), width, height, filename, icon, fileSizeDescription, fileTimeDescription, isDirectory, isItemSelected, itemIndex, boost::ref(directoryContentsDisplayComponent));
 }
 
 Button* LookAndFeelBase::createFileBrowserGoUpButton()
@@ -970,7 +971,7 @@ void LookAndFeelBase::drawPopupMenuBackground(Graphics &g, int width, int height
 
 void LookAndFeelBase::drawPopupMenuItem(Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* icon, const Colour *textColour)
 {
-	TRY_CALL(drawPopupMenuItem, boost::ref(g),boost::ref(area),isSeparator,isActive,isHighlighted,isTicked,hasSubMenu,text,shortcutKeyText,icon,textColour);
+	//TRY_CALL(drawPopupMenuItem, boost::ref(g),boost::ref(area),isSeparator,isActive,isHighlighted,isTicked,hasSubMenu,text,shortcutKeyText,icon,textColour);
 }
 
 Font LookAndFeelBase::getPopupMenuFont()

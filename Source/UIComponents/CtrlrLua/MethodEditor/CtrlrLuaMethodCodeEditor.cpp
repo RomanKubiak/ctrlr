@@ -3,7 +3,7 @@
 #include "CtrlrLuaMethodCodeEditor.h"
 #include "CtrlrLuaMethodEditor.h"
 #include "CtrlrPanel/CtrlrPanel.h"
-#include "../Methods/CtrlrLuaMethodManager.h"
+#include "Methods/CtrlrLuaMethodManager.h"
 #include "CtrlrLuaDebugger.h"
 #include "CtrlrLuaManager.h"
 

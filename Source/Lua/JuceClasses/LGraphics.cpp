@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "LJuce.h"
+#include "luabind/adopt_policy.hpp"
 
 void LAffineTransform::wrapForLua (lua_State *L)
 {

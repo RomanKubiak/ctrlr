@@ -7,7 +7,6 @@ extern "C"
 #include "lo/lo.h"
 }
 
-
 struct CtrlrOSCTimetag
 {
 	uint32 sec;
@@ -68,15 +67,21 @@ struct CtrlrOSCMessage
 		const String &getPath() const 				{ return (path); }
 		const String &getTypes() const 				{ return (types); }
 
-		Array<lo_arg> &getArguments() 				{ return (arguments); }
-		void addArgument(const lo_arg argument) 	{ arguments.add(argument); }
-
 		lo_message loMessage;
 
 	private:
 		String path;
 		String types;
-		Array<lo_arg> arguments;
+};
+
+class CtrlrLoArg
+{
+	public:
+		std::string asString()
+		{
+			_DBG("CtrlrLoArg::asString");
+			return std::string();
+		}
 };
 
 class CtrlrOSC

@@ -46,6 +46,8 @@
 #include "Deprecated/CtrlrLuaRectangle.h"
 #include "Deprecated/CtrlrLuaComponentAnimator.h"
 
+#include "luabind/class_info.hpp"
+
 CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 	:	owner(_owner),
 		luaManagerTree(Ids::luaManager),
