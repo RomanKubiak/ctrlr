@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "CtrlrLuaManager.h"
-
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrLuaMultiTimer.h"
