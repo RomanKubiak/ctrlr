@@ -49,7 +49,7 @@ function detect_os {
 		PACKAGE=$CTRLR_ROOT/Packaging/Windows/Ctrlr-$VERSION.exe
 		BUILD_LOG_WIN32=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win32.build.log
 		BUILD_LOG_WIN64=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win64.build.log
-		CTRLR_KEY=""
+		CTRLR_KEY="$CTRLR_ROOT/Packaging/ctrlr.key"
 		return
 	fi
 		

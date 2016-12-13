@@ -18,13 +18,6 @@
 #include <algorithm>
 #include <cmath>
 
-extern "C"
-{
-#include <lua.h>
-#include <lualib.h>
-#include <lauxlib.h>
-}
-
 #include <luabind/config.hpp>
 #include <luabind/class.hpp>
 #include <luabind/function.hpp>
@@ -59,7 +52,6 @@ extern "C"
 #include <luabind/discard_result_policy.hpp>
 #include <luabind/version.hpp>
 #include <luabind/shared_ptr_converter.hpp>
-#include <lua.hpp>
 
 #include "JuceHeader.h"
 #include "CtrlrMacros.h"
