@@ -97,7 +97,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;LUABIND_CPP0x=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -107,9 +107,9 @@
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
       <AdditionalOptions>/Yu"stdafx.h" /Fp"stdafx.pch" /Zm2000 /bigobj /MP</AdditionalOptions>
-      <MinimalRebuild>false</MinimalRebuild>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -147,7 +147,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -194,7 +194,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -239,7 +239,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -284,7 +284,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -332,7 +332,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -1503,647 +1503,7 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
       </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lapi.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lauxlib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lbaselib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lbitlib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lcode.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lcorolib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lctype.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ldblib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ldebug.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ldo.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ldump.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lfunc.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lgc.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\linit.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\liolib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\llex.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lmathlib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lmem.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\loadlib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lobject.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lopcodes.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\loslib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lparser.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lstate.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lstring.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lstrlib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ltable.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ltablib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ltm.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lundump.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lutf8lib.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lvm.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lzio.c">
+    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lua.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
@@ -4218,7 +3578,6 @@
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h" />
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMidiMessage.h" />
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\include\compat.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\include\inttypes.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\include\juce_PluginHostType.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\include\keys.h" />
@@ -4238,6 +3597,7 @@
     <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_throw.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_types.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_types_internal.h" />
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\compat.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\darwin_usb.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\enums.h" />
     <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\hotplug.h" />
@@ -4266,6 +3626,41 @@
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\container_policy.hpp" />
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\copy_policy.hpp" />
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\dependency_policy.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call_function.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call_member.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call_operator_iterate.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\class_registry.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\class_rep.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\constructor.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\convert_to_lua.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\debug.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\decorate_type.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\deduce_signature.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\enum_maker.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\format_signature.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\garbage_collector.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\has_get_pointer.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\inheritance.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\instance_holder.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\link_compatibility.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\make_instance.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\most_derived.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\object.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\object_call.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\object_rep.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\open.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\operator_id.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\other.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\pcall.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\pointee_sizeof.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\policy.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\primitives.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\property.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\signature_match.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\stack_utils.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\typetraits.hpp" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\yes_no.hpp" />
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\discard_result_policy.hpp" />
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\error.hpp" />
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\error_callback_fun.hpp" />
@@ -4305,32 +3700,10 @@
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\weak_ref.hpp" />
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\wrapper_base.hpp" />
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\yield_policy.hpp" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lapi.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lauxlib.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lcode.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lctype.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\ldebug.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\ldo.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lfunc.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lgc.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\llex.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\llimits.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lmem.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lobject.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lopcodes.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lparser.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lprefix.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lstate.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lstring.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\ltable.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\ltm.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lua.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lua.hpp" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\luaconf.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lualib.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lundump.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lvm.h" />
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lzio.h" />
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\lauxlib.h" />
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\lua.h" />
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\luaconf.h" />
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\lualib.h" />
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrGeneric.h" />
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrLinux.h" />
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrMac.h" />
