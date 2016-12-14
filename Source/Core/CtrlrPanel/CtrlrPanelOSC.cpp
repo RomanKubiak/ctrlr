@@ -147,12 +147,13 @@ void CtrlrPanelOSC::handleAsyncUpdate()
 
 				for (int j = 0; j < argc; j++)
 				{
+					
 					switch (messageQueue[i].getTypes()[j])
 					{
 						case 's':
-							luaArguments[j] = (const char *)argv[j];
+							luaArguments[j] = std::string((const char *)argv[j]);
 							break;
-						
+
 						default:
 							luaArguments[j] = argv[j];
 							break;
