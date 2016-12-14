@@ -502,6 +502,9 @@
     <Filter Include="Ctrlr_Standalone\Misc\liblo\include">
       <UniqueIdentifier>{b92afb72-cd65-4694-a785-38f46c042a30}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ctrlr_Standalone\Misc\luabind\luabind\detail">
+      <UniqueIdentifier>{90e2e0a1-a43e-4c5b-a097-f0e8dec86665}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Source\Core\CtrlrOSC.cpp">
@@ -2607,105 +2610,6 @@
     <ClCompile Include="..\..\..\Standalone\JuceLibraryCode\juce_opengl.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lapi.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lauxlib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lbaselib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lbitlib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lcode.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lcorolib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lctype.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ldblib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ldebug.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ldo.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ldump.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lfunc.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lgc.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\linit.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\liolib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\llex.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lmathlib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lmem.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\loadlib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lobject.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lopcodes.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\loslib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lparser.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lstate.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lstring.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lstrlib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ltable.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ltablib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\ltm.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lundump.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lutf8lib.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lvm.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lzio.c">
-      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\core.c">
       <Filter>Ctrlr_Standalone\Misc\libusb\src</Filter>
     </ClCompile>
@@ -2864,6 +2768,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\compat.c">
       <Filter>Ctrlr_Standalone\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lua.c">
+      <Filter>Ctrlr_Standalone\Misc\lua\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -5507,84 +5414,6 @@
     <ClInclude Include="..\..\..\..\Source\Misc\include\libr.h">
       <Filter>Ctrlr_Standalone\Misc\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lapi.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lauxlib.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lcode.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lctype.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\ldebug.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\ldo.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lfunc.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lgc.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\llex.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\llimits.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lmem.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lobject.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lopcodes.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lparser.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lprefix.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lstate.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lstring.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\ltable.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\ltm.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lua.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lua.hpp">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\luaconf.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lualib.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lundump.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lvm.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\lua\src\lzio.h">
-      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\darwin_usb.h">
       <Filter>Ctrlr_Standalone\Misc\libusb\include</Filter>
     </ClInclude>
@@ -5831,8 +5660,138 @@
     <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_types_internal.h">
       <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\compat.h">
-      <Filter>Ctrlr_Standalone\Misc\include</Filter>
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\juce_audio_basics.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_devices\juce_audio_devices.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_formats\juce_audio_formats.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_processors\juce_audio_processors.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\juce_core.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_cryptography\juce_cryptography.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_data_structures\juce_data_structures.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_events\juce_events.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_graphics\juce_graphics.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\juce_gui_basics.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call_function.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call_member.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call_operator_iterate.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\class_registry.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\class_rep.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\constructor.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\convert_to_lua.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\debug.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\decorate_type.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\deduce_signature.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\enum_maker.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\format_signature.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\garbage_collector.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\has_get_pointer.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\inheritance.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\instance_holder.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\link_compatibility.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\make_instance.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\most_derived.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\object.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\object_call.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\object_rep.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\open.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\operator_id.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\other.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\pcall.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\pointee_sizeof.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\policy.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\primitives.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\property.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\signature_match.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\stack_utils.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\typetraits.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\yes_no.hpp">
+      <Filter>Ctrlr_Standalone\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\lauxlib.h">
+      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\lua.h">
+      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\luaconf.h">
+      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\lualib.h">
+      <Filter>Ctrlr_Standalone\Misc\lua\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\compat.h">
+      <Filter>Ctrlr_Standalone\Misc\libusb\include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
