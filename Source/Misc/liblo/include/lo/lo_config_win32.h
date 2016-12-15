@@ -1,6 +1,6 @@
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
-
+#pragma warning(disable:4996)
 /* Define this to enable ipv6. */
 /* #undef ENABLE_IPV6 */
 

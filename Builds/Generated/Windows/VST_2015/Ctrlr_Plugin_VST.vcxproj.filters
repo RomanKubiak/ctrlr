@@ -40,12 +40,6 @@
     <Filter Include="Ctrlr_Plugin_VST\Misc">
       <UniqueIdentifier>{E7E45961-DB1E-7919-45CB-3F30EDD4DBC4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Misc\include">
-      <UniqueIdentifier>{7A0FB082-C527-98A0-7F74-8C39E6A8DEC5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Plugin_VST\Misc\include\lo">
-      <UniqueIdentifier>{FF538628-7428-C348-F012-2616DD748227}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Native">
       <UniqueIdentifier>{90D113A8-C8B6-9FE4-4EB4-94F9737839D9}</UniqueIdentifier>
     </Filter>
@@ -502,14 +496,47 @@
     <Filter Include="Juce Library Code">
       <UniqueIdentifier>{8B4D1BAA-6DB4-CAEC-A0FA-271F354D5C61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\include">
+      <UniqueIdentifier>{fe905be6-dea6-4d27-b0f1-c6a59b52b5cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\lua">
+      <UniqueIdentifier>{2bc6d703-dbf1-4aa1-a987-98df3f2e9190}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Misc\luabind">
-      <UniqueIdentifier>{36a74c8a-13e4-4aac-a393-de8cfe4b585a}</UniqueIdentifier>
+      <UniqueIdentifier>{08d6dd8a-feed-44f4-a5f4-d0d840ee3cd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\liblo">
+      <UniqueIdentifier>{563eaf21-2773-4803-b7f1-e42df122c410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\lua\src">
+      <UniqueIdentifier>{71ec3ee0-37e3-42eb-8457-ac85c91a488c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\lua\include">
+      <UniqueIdentifier>{1bbe6e9b-214f-41ef-9f5e-4de4324ab3c9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Misc\luabind\luabind">
-      <UniqueIdentifier>{a7e696e3-4246-4ccd-abd1-bb656c6776dd}</UniqueIdentifier>
+      <UniqueIdentifier>{23873df3-b11e-4926-b829-a3412a575056}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr_Plugin_VST\Misc\luabind\src">
-      <UniqueIdentifier>{ce40e360-2c07-45f7-88f1-ce604ceb6358}</UniqueIdentifier>
+      <UniqueIdentifier>{e7d64cdf-2181-49f7-8626-95ec55120e4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\luabind\luabind\detail">
+      <UniqueIdentifier>{13f27900-24ae-4f59-83fa-9ee12a9e279d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\liblo\src">
+      <UniqueIdentifier>{e944ad9c-1d28-4c92-92e1-865ec151b728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\liblo\include">
+      <UniqueIdentifier>{3b4ea082-fe22-463e-ba24-bfaec618e30e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb">
+      <UniqueIdentifier>{ce26e9f5-3432-4e1f-8db5-7e3ec5ed10dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb\include">
+      <UniqueIdentifier>{4c851cee-ba0a-4450-8250-ebeb987c4665}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr_Plugin_VST\Misc\libusb\src">
+      <UniqueIdentifier>{9384b96e-cbbe-42ac-9da3-38d1243b76c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -716,198 +743,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp">
       <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\address.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\blob.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\bundle.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\compat.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\core.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\darwin_usb.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\descriptor.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\enums.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\hotplug.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\io.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\keys.cpp">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lapi.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lauxlib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lbaselib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lbitlib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lcode.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lcorolib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lctype.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\ldblib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\ldebug.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\ldo.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\ldump.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lfunc.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lgc.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libr-bfd.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\libr.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\linit.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\linux_udev.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\linux_usbfs.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\liolib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\llex.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lmathlib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lmem.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\loadlib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lobject.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lopcodes.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\loslib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lparser.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lstate.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lstring.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lstrlib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\ltable.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\ltablib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\ltm.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lundump.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lutf8lib.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lvm.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\lzio.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\message.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\method.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\pattern_match.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\poll_posix.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\poll_windows.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\send.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\server.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\strerror.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\structs.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\sync.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\threads_posix.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\threads_windows.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\timetag.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\usb.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\version.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Source\Misc\windows_usb.c">
-      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Native\CtrlrLinux.cpp">
       <Filter>Ctrlr_Plugin_VST\Native</Filter>
@@ -2949,6 +2784,18 @@
     <ClCompile Include="..\..\..\VST\JuceLibraryCode\juce_opengl.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\keys.cpp">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libr.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libr-bfd.c">
+      <Filter>Ctrlr_Plugin_VST\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\lua\src\lua.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\lua\src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\luabind\src\class.cpp">
       <Filter>Ctrlr_Plugin_VST\Misc\luabind\src</Filter>
     </ClCompile>
@@ -3014,6 +2861,90 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Source\Misc\luabind\src\wrapper_base.cpp">
       <Filter>Ctrlr_Plugin_VST\Misc\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\address.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\blob.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\bundle.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\message.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\method.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\pattern_match.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\send.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\server.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\timetag.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\liblo\src\version.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\compat.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\core.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\darwin_usb.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\descriptor.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\enums.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\hotplug.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\io.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\linux_udev.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\linux_usbfs.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\poll_posix.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\poll_windows.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\strerror.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\structs.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\sync.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\threads_posix.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\threads_windows.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\usb.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Source\Misc\libusb\src\windows_usb.c">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -3400,198 +3331,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h">
       <Filter>Ctrlr_Plugin_VST\MIDI\CtrlrMIDILibrary</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_linux.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_osx.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_config_win32.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_cpp.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_endian.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_errors.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_internal.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_lowlevel.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_macros.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_osc_types.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_serverthread.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_throw.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_types.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lo\lo_types_internal.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\compat.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\darwin_usb.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\enums.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\hotplug.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\inttypes.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\juce_PluginHostType.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\keys.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lapi.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lauxlib.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lcode.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lctype.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\ldebug.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\ldo.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lfunc.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lgc.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\libr.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb_linux.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb_osx.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\libusb_windows.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\libusbi.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\linux_usbfs.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\llex.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\llimits.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lmem.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lobject.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lopcodes.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lparser.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lprefix.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lstate.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lstring.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\ltable.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\ltm.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lua.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lua.hpp">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\luaconf.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lualib.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lundump.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lvm.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\lzio.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\poll_posix.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\poll_windows.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\structs.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\threads_posix.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\threads_windows.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\version.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\version_nano.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\windows_common.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\include\windows_usb.h">
-      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Native\CtrlrGeneric.h">
       <Filter>Ctrlr_Plugin_VST\Native</Filter>
@@ -5910,6 +5649,58 @@
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\juce_gui_basics.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.h" />
     <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\juce_audio_basics.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_devices\juce_audio_devices.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_formats\juce_audio_formats.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\juce_audio_plugin_client.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_processors\juce_audio_processors.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\juce_core.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_cryptography\juce_cryptography.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_data_structures\juce_data_structures.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_events\juce_events.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_graphics\juce_graphics.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\juce_gui_basics.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\juce_audio_basics.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_devices\juce_audio_devices.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_formats\juce_audio_formats.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\juce_audio_plugin_client.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_processors\juce_audio_processors.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\juce_core.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_cryptography\juce_cryptography.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_data_structures\juce_data_structures.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_events\juce_events.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_graphics\juce_graphics.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\juce_gui_basics.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.h" />
+    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
+    <ClInclude Include="..\..\..\..\Source\Misc\include\inttypes.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\juce_PluginHostType.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\keys.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\include\libr.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\lauxlib.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\lua\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\lua.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\lua\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\luaconf.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\lua\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\lua\include\lualib.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\lua\include</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\adopt_policy.hpp">
       <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind</Filter>
     </ClInclude>
@@ -5917,9 +5708,6 @@
       <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\back_reference_fwd.hpp">
-      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\build_information.hpp">
       <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\class.hpp">
@@ -6057,36 +5845,217 @@
     <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\yield_policy.hpp">
       <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_basics\juce_audio_basics.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_devices\juce_audio_devices.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_formats\juce_audio_formats.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_plugin_client\juce_audio_plugin_client.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_processors\juce_audio_processors.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_audio_utils\juce_audio_utils.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_core\juce_core.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_cryptography\juce_cryptography.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_data_structures\juce_data_structures.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_events\juce_events.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_graphics\juce_graphics.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_basics\juce_gui_basics.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_gui_extra\juce_gui_extra.h" />
-    <ClInclude Include="..\..\..\..\Juce\modules\juce_opengl\juce_opengl.h" />
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call_function.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call_member.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\call_operator_iterate.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\class_registry.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\class_rep.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\constructor.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\convert_to_lua.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\debug.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\decorate_type.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\deduce_signature.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\enum_maker.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\format_signature.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\garbage_collector.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\has_get_pointer.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\inheritance.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\instance_holder.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\link_compatibility.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\make_instance.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\most_derived.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\object.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\object_call.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\object_rep.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\open.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\operator_id.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\other.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\pcall.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\pointee_sizeof.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\policy.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\primitives.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\property.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\signature_match.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\stack_utils.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\typetraits.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\luabind\luabind\detail\yes_no.hpp">
+      <Filter>Ctrlr_Plugin_VST\Misc\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_config_linux.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_config_osx.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_config_win32.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_cpp.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_endian.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_errors.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_internal.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_lowlevel.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_macros.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_osc_types.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_serverthread.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_throw.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_types.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_types_internal.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\compat.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\darwin_usb.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\enums.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\hotplug.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\libusb.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\libusb_linux.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\libusb_osx.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\libusb_windows.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\libusbi.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\linux_usbfs.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\poll_posix.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\poll_windows.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\structs.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\threads_posix.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\threads_windows.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\version.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\version_nano.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\windows_common.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Source\Misc\libusb\include\windows_usb.h">
+      <Filter>Ctrlr_Plugin_VST\Misc\libusb\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Source\Core\CtrlrRevision.template">
       <Filter>Ctrlr_Plugin_VST\Core</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Misc\include\lo\lo_endian.h.in">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Misc\include\lo\Makefile">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Misc\include\lo\Makefile.am">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
-    </None>
-    <None Include="..\..\..\..\Source\Misc\include\lo\Makefile.in">
-      <Filter>Ctrlr_Plugin_VST\Misc\include\lo</Filter>
     </None>
     <None Include="..\..\..\..\Source\Resources\Fonts\FONT_60sekuntia.ttf">
       <Filter>Ctrlr_Plugin_VST\Resources\Fonts</Filter>
@@ -6360,6 +6329,18 @@
     </None>
     <None Include="..\..\..\..\Juce\modules\juce_graphics\image_formats\pnglib\libpng_readme.txt">
       <Filter>Juce Modules\juce_graphics\image_formats\pnglib</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Misc\liblo\include\lo\lo_endian.h.in">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Misc\liblo\include\lo\Makefile">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Misc\liblo\include\lo\Makefile.am">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
+    </None>
+    <None Include="..\..\..\..\Source\Misc\liblo\include\lo\Makefile.in">
+      <Filter>Ctrlr_Plugin_VST\Misc\liblo\include</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
