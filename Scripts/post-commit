@@ -50,6 +50,13 @@ function detect_os {
 		BUILD_LOG_WIN32=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win32.build.log
 		BUILD_LOG_WIN64=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win64.build.log
 		CTRLR_KEY="$CTRLR_ROOT/Packaging/ctrlr.key"
+		if [ -d /cygdrive ]; then
+			MSBUILD="/cygdrive/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
+			NSIS="/cygdrive/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
+		else
+			MSBUILD="/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
+			NSIS="/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
+		fi
 		return
 	fi
 		
@@ -90,6 +97,32 @@ function build_now {
 	fi
 }
 
+function windows_create_installer {
+	echo "CTRLR: create installer"
+	echo $CTRLR_ROOT, $NSIS
+	cd $CTRLR_ROOT
+	eval $NSIS Packaging/Windows/ctrlr.nsi
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: failed to create installer package"
+		exit 1
+	fi
+	
+	echo "CTRLR: rename $CTRLR_ROOT/Packaging/Windows/Ctrlr.exe -> $PACKAGE"
+	mv $CTRLR_ROOT/Packaging/Windows/Ctrlr.exe $PACKAGE
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: failed to rename installer package"
+		exit 1
+	fi
+}
+
+function windows_copy_to_website {
+	scp -v $PACKAGE $BUILD_LOG_WIN32 $BUILD_LOG_WIN64 $OUTPUT
+	if [ $? -ne 0 ]; then
+		echo "CTRLR: failed to transfer package files to remote site"
+		exit 1
+	fi
+}
+
 function windows_msbuild {	
 	if [ -e "$MSBUILD" ]; then
 		echo "CTRLR: $MSBUILD found"
@@ -119,13 +152,7 @@ function windows_msbuild {
 }
 
 function build_now_windows {
-	if [ -d /cygdrive ]; then
-		MSBUILD="/cygdrive/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
-		NSIS="/cygdrive/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
-	else
-		MSBUILD="/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
-		NSIS="/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
-	fi
+	
 	REVISION_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.h"
 	TEMPLATE_H="c:/devel/ctrlr/Source/Core/CtrlrRevision.template"
 
@@ -139,26 +166,8 @@ function build_now_windows {
 	sed -e "s/%REVISION%/$VERSION/g" -e "s/%REVISION_DATE%/$DATE/g" $TEMPLATE_H > $REVISION_H
 	
 	windows_msbuild
-	
-	echo "CTRLR: Build success, create installer"
-	cd $CTRLR_ROOT
-	eval $NSIS Packaging/Windows/ctrlr.nsi
-	if [ $? -ne 0 ]; then
-		echo "CTRLR: failed to create installer package"
-		exit 1
-	fi
-	
-	echo "CTRLR: rename $CTRLR_ROOT/Packaging/Windows/Ctrlr.exe -> $PACKAGE"
-	mv $CTRLR_ROOT/Packaging/Windows/Ctrlr.exe $PACKAGE
-	if [ $? -ne 0 ]; then
-		echo "CTRLR: failed to rename installer package"
-		exit 1
-	fi
-	scp -v $PACKAGE $BUILD_LOG_WIN32 $BUILD_LOG_WIN64 $OUTPUT
-	if [ $? -ne 0 ]; then
-		echo "CTRLR: failed to transfer package files to remote site"
-		exit 1
-	fi
+	windows_create_installer	
+	windows_copy_to_website
 }
 
 function build_now_osx {
@@ -399,4 +408,6 @@ function build_now_linux {
 }
 
 detect_os
-build_now
+#build_now
+#windows_create_installer
+windows_copy_to_website
