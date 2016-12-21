@@ -100,7 +100,7 @@ private:
 	StringArray panelPropertyList;
 	StringArray componentGroupList;
 	StringArray luaMethodList;
-	ValueTree msTree;
+	ValueTree selectionTree;
 	XmlElement panelPropertyOpennessState;
 	XmlElement modulatorPropertyOpennessState;
 	StringArray emptyValueSet;

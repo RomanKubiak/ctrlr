@@ -108,7 +108,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <AdditionalOptions>/Yu"stdafx.h" /Fp"stdafx.pch" /Zm2000 /bigobj /MP</AdditionalOptions>
+      <AdditionalOptions>/Yu"stdafx.h" /Fp"stdafx.pch" /Zm2000 /bigobj</AdditionalOptions>
       <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <ResourceCompile>
