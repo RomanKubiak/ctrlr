@@ -114,7 +114,7 @@ void CtrlrLuaManager::createLuaState()
 {
 	luaState 		= luaL_newstate();
 	luaL_openlibs(luaState);
-	/*
+	
     lua_pushcfunction(luaState, luaopen_base);
     lua_pushliteral(luaState, "base");
     lua_call(luaState, 1, 0);
@@ -147,12 +147,10 @@ void CtrlrLuaManager::createLuaState()
     lua_pushliteral(luaState, "os");
     lua_call(luaState, 1, 0);
 
-	// can't use in 5.3
-
     lua_pushcfunction(luaState, luaopen_bit);
     lua_pushliteral(luaState, "bit");
     lua_call(luaState, 1, 0);
-	*/
+	
     lua_pushcfunction(luaState, luaopen_usb);
     lua_pushliteral(luaState, "usb");
     lua_call(luaState, 1, 0);
@@ -193,12 +191,9 @@ void CtrlrLuaManager::createLuaStateAudio()
     lua_pushliteral(luaStateAudio, "package");
     lua_call(luaStateAudio, 1, 0);
 
-	// can't use in 5.3
-	/*
 	lua_pushcfunction(luaState, luaopen_bit);
 	lua_pushliteral(luaState, "bit");
 	lua_call(luaState, 1, 0);
-	*/
 
     using namespace luabind;
     open(luaStateAudio);

@@ -41,7 +41,7 @@ CtrlrPanelComponentProperties::CtrlrPanelComponentProperties (CtrlrPanelEditor &
     //[UserPreSize]
 	selectedItems=-1;
 	owner.getOwner().getCtrlrManagerOwner().addListener (this);
-	msTree.addListener (this);
+	selectionTree.addListener (this);
 	refreshDynamicData();
     if (owner.getSelection())
 	{
@@ -504,29 +504,29 @@ void CtrlrPanelComponentProperties::changeListenerCallback (ChangeBroadcaster* s
 	if (selectedItems != owner.getSelection()->getNumSelected() && owner.getSelection()->getNumSelected() > 1)
 	{
 		selectedItems = owner.getSelection()->getNumSelected();
-		msTree = ValueTree(Ids::modulator);
-		msTree.removeListener (this);
+		selectionTree = ValueTree(Ids::modulator);
+		selectionTree.removeListener (this);
 
 		for (int i=0; i<owner.getSelection()->getNumSelected(); i++)
 		{
 			ValueTree modTree = owner.getSelection()->getSelectedItem(i)->getOwner().getModulatorTree();
 
-			copyProperties (modTree, msTree);
+			copyProperties (modTree, selectionTree);
 
-			for (i=0; i<modTree.getNumChildren(); i++)
+			for (int j=0; j<modTree.getNumChildren(); j++)
 			{
-				if (!msTree.getChildWithName(modTree.getChild(i).getType()).isValid())
-					msTree.addChild (modTree.getChild(i).createCopy(), i, 0);
+				if (!selectionTree.getChildWithName(modTree.getChild(j).getType()).isValid())
+					selectionTree.addChild (modTree.getChild(i).createCopy(), j, 0);
 			}
 		}
 
-		if (msTree.getChildWithName(Ids::component).isValid())
+		if (selectionTree.getChildWithName(Ids::component).isValid())
 		{
-			msTree.getChildWithName(Ids::component).setProperty (Ids::uiType, "uiMultipleSelection", 0);
+			selectionTree.getChildWithName(Ids::component).setProperty (Ids::uiType, "uiMultipleSelection", 0);
 		}
 
-		msTree.addListener (this);
-		setTree (msTree);
+		selectionTree.addListener (this);
+		setTree (selectionTree);
 	}
 
 	if (owner.getSelection()->getNumSelected() == 0)
