@@ -7,6 +7,10 @@ extern "C"
 #include "lo/lo.h"
 }
 
+namespace luabind {
+	class object;
+}
+
 struct CtrlrOSCTimetag
 {
 	uint32 sec;

@@ -97,7 +97,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Source/misc/boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -147,7 +147,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Source/misc/boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -194,7 +194,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Source/misc/boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -239,7 +239,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Source/misc/boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -284,7 +284,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Source/misc/boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -332,7 +332,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Standalone\JuceLibraryCode;..\..\..\..\Juce\modules;../../../../Source/misc/boost;../../../../Source/Lua;../../../../Source/Misc/include;../../../../Source/MIDI;../../../../Source;../../../../Source/UIComponents;../../../../Source/Core;../../../../Source/Plugin;../../../../Source/Application;../../../../Source/Misc/libusb/include;../../../../Source/Misc/liblo/include;../../../../Source/Misc/lua/include;../../../../Source/Misc/lua/src;../../../../Source/Misc/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_FORCE_DEBUG=0;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
