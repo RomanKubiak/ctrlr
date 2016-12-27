@@ -23,7 +23,11 @@
 */
 
 #if ! JUCE_MODULE_AVAILABLE_juce_audio_utils
- #error To compile AudioUnitv3 and/or Standalone plug-ins, you need to add the juce_audio_utils module!
+ #error To compile AudioUnitv3 and/or Standalone plug-ins, you need to add the juce_audio_utils and juce_audio_devices modules!
 #endif
 
 #include "Standalone/juce_StandaloneFilterApp.cpp"
+
+#if ! JUCE_USE_CUSTOM_AU3_STANDALONE_APP
+ START_JUCE_APPLICATION (StandaloneFilterApp);
+#endif
