@@ -30,8 +30,8 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 			}
 
 			/* set some default audio stuff so the filter works without the audio card */
-            ctrlrProcessor->setPlayConfigDetails (2, 2, SAMPLERATE, 512);
-
+            //ctrlrProcessor->setPlayConfigDetails (0, 0, SAMPLERATE, 512);
+			ctrlrProcessor->setRateAndBufferSizeDetails(SAMPLERATE, 512);
 			addKeyListener (ctrlrProcessor->getManager().getCommandManager().getKeyMappings());
 
             /* we want to listen too manager actions */

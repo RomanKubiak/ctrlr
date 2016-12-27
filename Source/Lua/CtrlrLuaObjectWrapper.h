@@ -2,7 +2,11 @@
 #define CTRLR_LUA_OBJECT_WRAPPER
 
 #include "stdafx.h"
-#include <luabind/luabind.hpp>
+
+namespace luabind {
+	class object;
+}
+
 //==============================================================================
 /** \brief A wrapper class for luabind::object class
 
@@ -10,18 +14,22 @@
 class CtrlrLuaObjectWrapper
 {
 	public:
-		CtrlrLuaObjectWrapper() {}
+		CtrlrLuaObjectWrapper()
+		{
+			new luabind::object();
+		}
+
 		CtrlrLuaObjectWrapper(luabind::object const& other)
 		{
-			o = other;
+			o = new luabind::object(other);
 		}
 		operator luabind::object &()
 		{
-			return o;
+			return *o;
 		}
 		operator luabind::object ()
 		{
-			return o;
+			return *o;
 		}
 
 		/** @brief Get the original object
@@ -30,7 +38,7 @@ class CtrlrLuaObjectWrapper
 		*/
 		const luabind::object &getLuabindObject() const
 		{
-			return o;
+			return *o;
 		}
 
 		/** @brief Get the original object
@@ -39,13 +47,13 @@ class CtrlrLuaObjectWrapper
 		*/
 		const luabind::object &getObject() const
 		{
-			return o;
+			return *o;
 		}
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaObjectWrapper)
 
 	private:
-		luabind::object o;
+		luabind::object *o;
 };
 
 #endif
