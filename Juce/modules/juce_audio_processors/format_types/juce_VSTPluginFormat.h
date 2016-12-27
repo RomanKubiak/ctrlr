@@ -22,7 +22,7 @@
   ==============================================================================
 */
 
-#if JUCE_PLUGINHOST_VST || DOXYGEN
+#if (JUCE_PLUGINHOST_VST && (JUCE_MAC || JUCE_WINDOWS || JUCE_LINUX || JUCE_IOS)) || DOXYGEN
 
 //==============================================================================
 /**
@@ -53,6 +53,13 @@ public:
     /** Attempts to set a VST's state from a chunk of memory. */
     static bool setChunkData (AudioPluginInstance* plugin, const void* data, int size, bool isPreset);
 
+    /** Given a suitable function pointer to a VSTPluginMain function, this will attempt to
+        instantiate and return a plugin for it.
+    */
+    static AudioPluginInstance* createCustomVSTFromMainCall (void* entryPointFunction,
+                                                             double initialSampleRate,
+                                                             int initialBufferSize);
+
     //==============================================================================
     /** Base class for some extra functions that can be attached to a VST plugin instance. */
     class ExtraFunctions
@@ -75,14 +82,13 @@ public:
     static void setExtraFunctions (AudioPluginInstance* plugin, ExtraFunctions* functions);
 
     //==============================================================================
-   #if JUCE_64BIT
-    typedef int64 VstIntPtr;
-   #else
-    typedef int32 VstIntPtr;
-   #endif
-
     /** This simply calls directly to the VST's AEffect::dispatcher() function. */
-    static VstIntPtr JUCE_CALLTYPE dispatcher (AudioPluginInstance*, int32, int32, VstIntPtr, void*, float);
+    static pointer_sized_int JUCE_CALLTYPE dispatcher (AudioPluginInstance*, int32, int32, pointer_sized_int, void*, float);
+
+    /** Given a VstEffectInterface* (aka vst::AEffect*), this will return the juce AudioPluginInstance
+        that is being used to wrap it
+    */
+    static AudioPluginInstance* getPluginInstanceFromVstEffectInterface (void* aEffect);
 
     //==============================================================================
     String getName() const override                { return "VST"; }

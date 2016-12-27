@@ -23,6 +23,9 @@
 */
 
 #include "../../juce_core/system/juce_TargetPlatform.h"
+
+#if JUCE_MAC
+
 #include "../utility/juce_CheckSettingMacros.h"
 
 #if JucePlugin_Build_VST || JucePlugin_Build_VST3
@@ -66,7 +69,7 @@ static pascal OSStatus viewBoundsChangedEvent (EventHandlerCallRef, EventRef, vo
 
 static bool shouldManuallyCloseHostWindow()
 {
-    return getHostType().isCubase7orLater() || getHostType().isRenoise();
+    return getHostType().isCubase7orLater() || getHostType().isRenoise() || ((SystemStats::getOperatingSystemType() & 0xff) >= 12);
 }
 #endif
 
@@ -310,4 +313,5 @@ bool forwardCurrentKeyEventToHostVST (Component* comp, bool isNSView)
 
 } // (juce namespace)
 
+#endif
 #endif
