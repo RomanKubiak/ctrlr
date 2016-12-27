@@ -367,36 +367,37 @@ void LGraphics::wrapForLua (lua_State *L)
 			.def("drawSingleLineText", &Graphics::drawSingleLineText)
 			.def("drawMultiLineText", &Graphics::drawMultiLineText)
 
-			.def("drawText", (void (Graphics::*)(const String &, int, int, int, int, const Justification , bool) const)&Graphics::drawText)
-			.def("drawText", (void (Graphics::*)(const String &, const Rectangle<int> &, const Justification , bool) const)&Graphics::drawText)
+			.def("drawText", (void (Graphics::*)(const String &, int, int, int, int, Justification , bool) const)&Graphics::drawText)
+			.def("drawText", (void (Graphics::*)(const String &, const Rectangle<int>, Justification , bool) const)&Graphics::drawText)
+			.def("drawText", (void (Graphics::*)(const String &, const Rectangle<float>, Justification, bool) const)&Graphics::drawText)
 
-			.def("drawFittedText", (void (Graphics::*)(const String &, int, int, int, int, const Justification , int, float) const)&Graphics::drawFittedText)
-			.def("drawFittedText", (void (Graphics::*)(const String &, const Rectangle<int> &, const Justification , int, float) const)&Graphics::drawFittedText)
+			.def("drawFittedText", (void (Graphics::*)(const String &, int, int, int, int, Justification , int, float) const)&Graphics::drawFittedText)
+			.def("drawFittedText", (void (Graphics::*)(const String &, Rectangle<int>, Justification , int, float) const)&Graphics::drawFittedText)
 
 			.def("fillAll", (void (Graphics::*)() const)&Graphics::fillAll)
 			.def("fillAll", (void (Graphics::*)(const Colour) const)&Graphics::fillAll)
 
 			.def("fillRect", (void (Graphics::*)(int,int,int,int) const)&Graphics::fillRect)
-			.def("fillRect", (void (Graphics::*)(const Rectangle<int> &) const)&Graphics::fillRect)
+			.def("fillRect", (void (Graphics::*)(const Rectangle<int>) const)&Graphics::fillRect)
 
 			.def("fillRoundedRectangle", (void (Graphics::*)(float, float, float, float, float) const)&Graphics::fillRoundedRectangle)
-			.def("fillRoundedRectangle", (void (Graphics::*)(const Rectangle<float> &, float) const)&Graphics::fillRoundedRectangle)
+			.def("fillRoundedRectangle", (void (Graphics::*)(const Rectangle<float>, float) const)&Graphics::fillRoundedRectangle)
 
 			.def("fillCheckerBoard", &Graphics::fillCheckerBoard)
 
 			.def("drawRect", (void (Graphics::*)(int, int, int, int, int) const)&Graphics::drawRect)
-			.def("drawRect", (void (Graphics::*)(const Rectangle<int> &, int) const)&Graphics::drawRect)
+			.def("drawRect", (void (Graphics::*)(const Rectangle<int>, int) const)&Graphics::drawRect)
 
 			.def("drawRoundedRectangle", (void (Graphics::*)(float, float, float, float, float, float) const)&Graphics::drawRoundedRectangle)
-			.def("drawRoundedRectangle", (void (Graphics::*)(const Rectangle<float>&, float, float) const)&Graphics::drawRoundedRectangle)
+			.def("drawRoundedRectangle", (void (Graphics::*)(const Rectangle<float>, float, float) const)&Graphics::drawRoundedRectangle)
 
 			.def("setPixel", &Graphics::setPixel)
 
 			.def("fillEllipse", (void (Graphics::*)(float, float, float, float) const)&Graphics::fillEllipse)
-			.def("fillEllipse", (void (Graphics::*)(const Rectangle<float> &) const)&Graphics::fillEllipse)
+			.def("fillEllipse", (void (Graphics::*)(const Rectangle<float>) const)&Graphics::fillEllipse)
 
 			.def("drawEllipse", (void (Graphics::*)(float, float, float, float, float) const)&Graphics::drawEllipse)
-			.def("drawEllipse", (void (Graphics::*)(const Rectangle<float> &, float) const)&Graphics::drawEllipse)
+			.def("drawEllipse", (void (Graphics::*)(const Rectangle<float>, float) const)&Graphics::drawEllipse)
 
 			.def("drawLine", (void (Graphics::*)(float, float, float, float) const)&Graphics::drawLine)
 			.def("drawLine", (void (Graphics::*)(float, float, float, float, float) const)&Graphics::drawLine)
@@ -414,18 +415,19 @@ void LGraphics::wrapForLua (lua_State *L)
 
 			.def("setImageResamplingQuality", &Graphics::setImageResamplingQuality)
 			.def("drawImageAt", &Graphics::drawImageAt)
-			.def("drawImage", &Graphics::drawImage)
+			.def("drawImage", (void (Graphics::*)(const Image &, int, int, int, int, int, int, int, int, bool) const)&Graphics::drawImage)
+			.def("drawImage", (void (Graphics::*)(const Image &, Rectangle<float>, RectanglePlacement, bool) const)&Graphics::drawImage)
 			.def("drawImageTransformed", &Graphics::drawImageTransformed)
 			.def("drawImageWithin", &Graphics::drawImageWithin)
 
 			.def("getClipBounds", &Graphics::getClipBounds)
 			.def("clipRegionIntersects", &Graphics::clipRegionIntersects)
 			.def("reduceClipRegion", (bool (Graphics::*)(int,int,int,int))&Graphics::reduceClipRegion)
-			.def("reduceClipRegion", (bool (Graphics::*)(const Rectangle<int> &))&Graphics::reduceClipRegion)
+			.def("reduceClipRegion", (bool (Graphics::*)(const Rectangle<int>))&Graphics::reduceClipRegion)
 			.def("reduceClipRegion", (bool (Graphics::*)(const RectangleList<int> &))&Graphics::reduceClipRegion)
 			.def("reduceClipRegion", (bool (Graphics::*)(const Path &path, const AffineTransform &))&Graphics::reduceClipRegion)
 			.def("reduceClipRegion", (bool (Graphics::*)(const Image &, const AffineTransform &))&Graphics::reduceClipRegion)
-			.def("excludeClipRegion", (bool (Graphics::*)(const Rectangle<int> &))&Graphics::excludeClipRegion)
+			.def("excludeClipRegion", (bool (Graphics::*)(const Rectangle<int>))&Graphics::excludeClipRegion)
 			.def("isClipEmpty", &Graphics::isClipEmpty)
 			.def("saveState", &Graphics::saveState)
 			.def("restoreState", &Graphics::restoreState)

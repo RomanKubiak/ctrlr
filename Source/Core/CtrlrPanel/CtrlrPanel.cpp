@@ -44,7 +44,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 		midiInputThread(*this, inputDevice),
 		midiControllerInputThread(*this, controllerDevice),
 		restoreStateStatus(true),
-		ctrlrMIDILibrary(0),
+		ctrlrMIDILibrary(nullptr),
 		ctrlrLuaManager(0),
 		ctrlrPanelEditor(nullptr),
 		initialProgram(Ids::panelState),

@@ -60,7 +60,7 @@ std::string CtrlrLuaDebugger::dbgRead(std::string prompt)
     {
         for (int i=0; i<pendingBreakpoints.size(); i++)
         {
-            PendingBreakpoint pb = pendingBreakpoints.remove (i);
+            PendingBreakpoint pb = pendingBreakpoints.removeAndReturn (i);
 
             if (pendingBreakpoints.size() == 0)
             {
@@ -80,7 +80,7 @@ std::string CtrlrLuaDebugger::dbgRead(std::string prompt)
 
 	if (commandQueue.size() > 0)
 	{
-	    return (commandQueue.remove (commandQueue.size() - 1).toStdString());
+	    return (commandQueue.removeAndReturn (commandQueue.size() - 1).toStdString());
 	}
 
 	owner.getOwner().getWindowManager().show (CtrlrPanelWindowManager::LuaMethodEditor);
@@ -93,7 +93,7 @@ std::string CtrlrLuaDebugger::dbgRead(std::string prompt)
             commandQueue.add ("trace");
             commandQueue.add ("vars");
             commandQueue.add (ui->getCurrentDebuggerCommand (true).toStdString());
-            return (commandQueue.remove (commandQueue.size() - 1).toStdString());
+            return (commandQueue.removeAndReturn (commandQueue.size() - 1).toStdString());
         }
         else
         {
