@@ -8,7 +8,7 @@ CtrlrChoicePropertyComponent::CtrlrChoicePropertyComponent (const Value &_valueT
                                                             const Array<var> *_values,
                                                             const bool _numeric)
     : valueToControl(_valueToControl),
-      combo (0),
+      combo (nullptr),
 	  numeric(_numeric)
 {
     addAndMakeVisible (combo = new ComboBox (String::empty));
