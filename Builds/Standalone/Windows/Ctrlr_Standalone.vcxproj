@@ -3486,6 +3486,7 @@
     <ClInclude Include="..\..\..\Source\Core\dxtrans.h" />
     <ClInclude Include="..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h" />
     <ClInclude Include="..\..\..\Source\Core\stdafx.h" />
+    <ClInclude Include="..\..\..\Source\Lua\CtrlrLuabind.h" />
     <ClInclude Include="..\..\..\Source\Lua\JuceClasses\LAffineTransform.h" />
     <ClInclude Include="..\..\..\Source\Lua\JuceClasses\LAlertWindow.h" />
     <ClInclude Include="..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.h" />

@@ -11,6 +11,7 @@
 #include "CtrlrMIDI/CtrlrMIDILibraryEditor.h"
 #include "CtrlrMIDI/CtrlrMIDIBufferEditor.h"
 #include "CtrlrMIDI/CtrlrMIDISettingsDialog.h"
+#include "CtrlrUtilities.h"
 
 CtrlrPanelWindowManager::CtrlrPanelWindowManager(CtrlrPanel &_owner)
 	: owner(_owner), managerTree(Ids::uiWindowManager)

@@ -4,6 +4,11 @@
 #ifdef __cplusplus
 #ifndef __OBJC__
 
+extern "C"
+{
+	#include "lua.h"
+};
+
 #include <map>
 #include <string>
 #include <stdexcept>
@@ -18,6 +23,7 @@
 #include <algorithm>
 #include <cmath>
 
+#if USING_LUABIND == 1
 #include <luabind/config.hpp>
 #include <luabind/class.hpp>
 #include <luabind/function.hpp>
@@ -52,6 +58,7 @@
 #include <luabind/discard_result_policy.hpp>
 #include <luabind/version.hpp>
 #include <luabind/shared_ptr_converter.hpp>
+#endif
 
 #include "JuceHeader.h"
 #include "CtrlrMacros.h"
@@ -59,7 +66,6 @@
 #include "CtrlrUtilitiesGUI.h"
 #include "CtrlrLog.h"
 #include "CtrlrIDs.h"
-#include "CtrlrLuaConverters.h"
 
 #endif // !__OBJC__
 #endif // __cplusplus
