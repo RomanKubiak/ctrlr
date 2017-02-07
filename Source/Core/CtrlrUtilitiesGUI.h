@@ -1,7 +1,7 @@
 #ifndef CTRLR_UTILITIES_GUI
 #define CTRLR_UTILITIES_GUI
 
-#include "CtrlrInlineUtilities.h"
+#include "stdafx.h"
 
 /** Get a Drawable from an Image **/
 DrawableImage *drawableFromImage (const Image &i);

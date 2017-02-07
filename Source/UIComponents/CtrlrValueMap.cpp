@@ -1,4 +1,6 @@
+#define USING_LUABIND 1
 #include "stdafx.h"
+
 #include "CtrlrValueMap.h"
 #include "CtrlrLog.h"
 

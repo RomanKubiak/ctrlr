@@ -1,7 +1,7 @@
 #ifndef __CTRLR_LUA_OBJECT__
 #define __CTRLR_LUA_OBJECT__
 
-#include "JuceHeader.h"
+#include "stdafx.h"
 #include "CtrlrLuaObjectWrapper.h"
 
 //==============================================================================
