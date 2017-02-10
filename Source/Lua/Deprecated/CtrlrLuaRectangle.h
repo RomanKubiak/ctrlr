@@ -21,7 +21,7 @@ class CtrlrLuaRectangle
 {
 	public:
 		CtrlrLuaRectangle();
-		CtrlrLuaRectangle(const Rectangle<int> &_r);
+		CtrlrLuaRectangle(const juce::Rectangle<int> &_r);
 		CtrlrLuaRectangle(int x, int y, int width, int height);
 		~CtrlrLuaRectangle();
 		operator Rectangle<int> () { return r; }
@@ -70,13 +70,13 @@ class CtrlrLuaRectangle
 		const CtrlrLuaRectangle getSmallestIntegerContainer();
 		const String toString();
 
-		Rectangle<int> getRect() const { return (r); }
+		juce::Rectangle<int> getRect() const { return (r); }
 		static void wrapForLua (lua_State *L);
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaRectangle)
 
 	private:
-		Rectangle<int> r;
+		juce::Rectangle<int> r;
 };
 
 #endif

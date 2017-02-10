@@ -1,20 +1,16 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #ifdef _WIN32
 #pragma warning(disable:4244)
 #endif
-#include "CtrlrLuaManager.h"
 #include "CtrlrPanelCanvas.h"
-#include "CtrlrMacros.h"
-#include "CtrlrPanelEditor.h"
-#include "CtrlrProcessor.h"
+#include "CtrlrPanel/CtrlrPanelEditor.h"
+#include "CtrlrLuaManager.h"
 #include "CtrlrUtilitiesGUI.h"
-#include "CtrlrManager/CtrlrManager.h"
+#include "CtrlrComponents/CtrlrCustomComponent.h"
 #include "CtrlrComponents/CtrlrComponentTypeManager.h"
 #include "CtrlrComponents/Groups/CtrlrTabsComponent.h"
 #include "CtrlrComponents/Groups/CtrlrGroup.h"
-#include "CtrlrComponents/CtrlrCustomComponent.h"
-#include "CtrlrLog.h"
-#include "Lua/JuceClasses/LLookAndFeel.h"
+#include "CtrlrPanelCanvasLayer.h"
 
 CtrlrPanelCanvas::CtrlrPanelCanvas (CtrlrPanelEditor &_owner)
 	: owner(_owner),
@@ -329,7 +325,7 @@ void CtrlrPanelCanvas::changeListenerCallback (ChangeBroadcaster* source)
 {
 }
 
-CtrlrModulator *CtrlrPanelCanvas::addModulator(const Identifier &componentType)
+CtrlrModulator *CtrlrPanelCanvas::addModulator(const Identifier &componentType = Ids::uiNone)
 {
 	CtrlrModulator *ctrlrModualtor = getPanel().createNewModulator(componentType);
 	return (ctrlrModualtor);
@@ -1448,4 +1444,26 @@ void CtrlrPanelCanvas::setCustomLookAndFeel (const luabind::object &_customLookA
     {
         _WRN("Unable to cast passed LookAndFeel object to anything usable: "+_STR(e.what()));
     }
+}
+
+CtrlrQuickXmlPreview::CtrlrQuickXmlPreview(ValueTree &_treeToPreview) : h("Show XML", URL()), treeToPreview(_treeToPreview)
+{
+	addAndMakeVisible (&h);
+	h.addListener (this);
+	setSize (64, 16);
+}
+
+void CtrlrQuickXmlPreview::resized()
+{
+	h.setSize (getWidth(), getHeight());
+}
+
+void CtrlrQuickXmlPreview::buttonClicked(Button *)
+{
+	CodeDocument doc;
+	CodeEditorComponent ed(doc, 0);
+	ScopedPointer <XmlElement> xml(treeToPreview.createXml());
+	doc.replaceAllContent(xml->createDocument(""));
+	ed.setSize (600, 600);
+	DialogWindow::showModalDialog ("XML Preview", &ed, this, Colours::white, true, true, true);
 }

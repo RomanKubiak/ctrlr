@@ -2,10 +2,14 @@
 #define CTRLR_OSC
 
 #include "CtrlrMacros.h"
+#include "CtrlrLog.h"
+
 extern "C"
 {
 #include "lo/lo.h"
 }
+
+class LMemoryBlock;
 
 namespace luabind {
 	class object;

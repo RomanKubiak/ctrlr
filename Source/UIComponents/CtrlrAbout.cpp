@@ -1,37 +1,8 @@
-/*
-  ==============================================================================
-
-  This is an automatically generated GUI class created by the Introjucer!
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Created with Introjucer version: 3.2.0
-
-  ------------------------------------------------------------------------------
-
-  The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright (c) 2015 - ROLI Ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-#include "stdafx.h"
-#include "CtrlrInlineUtilitiesGUI.h"
-#include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrPanel/CtrlrPanel.h"
-//[/Headers]
-
+#include "stdafx_luabind.h"
 #include "CtrlrAbout.h"
-
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
 #include "CtrlrRevision.h"
-//[/MiscUserDefs]
+#include "CtrlrPanel/CtrlrPanel.h"
 
-//==============================================================================
 CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     : owner(_owner)
 {

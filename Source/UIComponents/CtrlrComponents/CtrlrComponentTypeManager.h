@@ -1,10 +1,10 @@
 #ifndef __CTRLR_COMPONENT_TYPE_MANAGER__
 #define __CTRLR_COMPONENT_TYPE_MANAGER__
 
-#include "CtrlrIDs.h"
-#include "CtrlrModulator/CtrlrModulator.h"
+#include "CtrlrMacros.h"
 
 class CtrlrComponent;
+class CtrlrModulator;
 
 class CtrlrComponentTypeManager
 {

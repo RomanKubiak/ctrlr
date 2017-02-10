@@ -1,42 +1,15 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  8 Apr 2011 11:10:07pm
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-#include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrModulator/CtrlrModulatorProcessor.h"
-#include "CtrlrLog.h"
-//[/Headers]
-
 #include "CtrlrToggleButton.h"
+#include "CtrlrValueMap.h"
+#include "CtrlrModulator/CtrlrModulator.h"
+#include "CtrlrIDs.h"
+#include "CtrlrPanel/CtrlrPanel.h"
 
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
-//[/MiscUserDefs]
-
-//==============================================================================
 CtrlrToggleButton::CtrlrToggleButton (CtrlrModulator &owner)
     : CtrlrComponent(owner),
       ctrlrButton (0)
 {
+	valueMap = new CtrlrValueMap();
     addAndMakeVisible (ctrlrButton = new ToggleButton ("ctrlrButton"));
     ctrlrButton->setButtonText ("Button");
     ctrlrButton->addListener (this);
@@ -146,7 +119,7 @@ void CtrlrToggleButton::setComponentMidiValue (const int newValue, const bool se
 
 	if (ctrlrButton->getClickingTogglesState())
 	{
-		ctrlrButton->setToggleState (valueMap.getIndexForValue(newValue) ? true : false, dontSendNotification);
+		ctrlrButton->setToggleState (valueMap->getIndexForValue(newValue) ? true : false, dontSendNotification);
 	}
 
 	if (sendChangeMessage)
@@ -179,7 +152,7 @@ double CtrlrToggleButton::getComponentValue()
 
 int CtrlrToggleButton::getComponentMidiValue()
 {
-	return (valueMap.getMappedValue(ctrlrButton->getToggleState()));
+	return (valueMap->getMappedValue(ctrlrButton->getToggleState()));
 }
 
 void CtrlrToggleButton::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
@@ -201,9 +174,9 @@ void CtrlrToggleButton::valueTreePropertyChanged (ValueTree &treeWhosePropertyHa
 	}
 	else if (property == Ids::uiButtonTrueValue || property == Ids::uiButtonFalseValue)
 	{
-		valueMap.setPair (0, getProperty(Ids::uiButtonFalseValue), String::empty);
-		valueMap.setPair (1, getProperty(Ids::uiButtonTrueValue), String::empty);
-		owner.getProcessor().setValueMap (valueMap);
+		valueMap->setPair (0, getProperty(Ids::uiButtonFalseValue), String::empty);
+		valueMap->setPair (1, getProperty(Ids::uiButtonTrueValue), String::empty);
+		owner.getProcessor().setValueMap (*valueMap);
 	}
 	else if (property == Ids::uiToggleButtonFocusOutline)
     {
@@ -233,19 +206,6 @@ bool CtrlrToggleButton::isToggleButton()
 void CtrlrToggleButton::setToggleState(const bool toggleState, const bool sendChangeMessage)
 {
 	ctrlrButton->setToggleState (toggleState, sendChangeMessage ? sendNotification : dontSendNotification);
-}
-
-void CtrlrToggleButton::wrapForLua(lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<CtrlrToggleButton, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrToggleButton")
-			.def("getToggleState", &CtrlrToggleButton::getToggleState)
-			.def("setToggleState", &CtrlrToggleButton::setToggleState)
-			.def("getValueMap", &CtrlrToggleButton::getValueMap)
-	];
 }
 //[/MiscUserCode]
 

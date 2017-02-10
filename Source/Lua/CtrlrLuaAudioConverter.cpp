@@ -1,8 +1,65 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "CtrlrLuaAudioConverter.h"
 #include "CtrlrLog.h"
 #include "CtrlrUtilities.h"
 #include "JuceClasses/LMemoryBlock.h"
+
+class CtrlrUInt16
+{
+public:
+	inline CtrlrUInt16(void* d) noexcept : data(static_cast <uint16*> (d)) {}
+
+	inline void advance() noexcept {
+		++data;
+	}
+	inline void skip(int numSamples) noexcept {
+		data += numSamples;
+	}
+	inline float getAsFloatLE() const noexcept {
+		return (float)((1.0 / (1.0 + maxValue)) * (uint16)ByteOrder::swapIfBigEndian(*data));
+	}
+	inline float getAsFloatBE() const noexcept {
+		return (float)((1.0 / (1.0 + maxValue)) * (uint16)ByteOrder::swapIfLittleEndian(*data));
+	}
+	inline void setAsFloatLE(float newValue) noexcept {
+		*data = ByteOrder::swapIfBigEndian((uint16)jlimit<uint16>((uint16)-maxValue, (uint16)maxValue, roundToInt(newValue * (1.0 + maxValue))));
+	}
+	inline void setAsFloatBE(float newValue) noexcept {
+		*data = ByteOrder::swapIfLittleEndian((uint16)jlimit<uint16>((uint16)-maxValue, (uint16)maxValue, roundToInt(newValue * (1.0 + maxValue))));
+	}
+	inline int32 getAsInt32LE() const noexcept {
+		return (int32)(ByteOrder::swapIfBigEndian((uint16)*data) << 16);
+	}
+	inline int32 getAsInt32BE() const noexcept {
+		return (int32)(ByteOrder::swapIfLittleEndian((uint16)*data) << 16);
+	}
+	inline void setAsInt32LE(int32 newValue) noexcept {
+		*data = ByteOrder::swapIfBigEndian((uint16)(newValue >> 16));
+	}
+	inline void setAsInt32BE(int32 newValue) noexcept {
+		*data = ByteOrder::swapIfLittleEndian((uint16)(newValue >> 16));
+	}
+	inline void clear() noexcept {
+		*data = 0;
+	}
+	inline void clearMultiple(int num) noexcept {
+		zeromem(data, (size_t)(num * bytesPerSample));
+	}
+	template <class SourceType> inline void copyFromLE(SourceType& source) noexcept {
+		setAsInt32LE(source.getAsInt32());
+	}
+	template <class SourceType> inline void copyFromBE(SourceType& source) noexcept {
+		setAsInt32BE(source.getAsInt32());
+	}
+	inline void copyFromSameType(CtrlrUInt16& source) noexcept {
+		*data = *source.data;
+	}
+
+	uint16* data;
+	enum {
+		bytesPerSample = 2, maxValue = 0xffff, resolution = (1 << 16), isFloat = 0
+	};
+};
 
 CtrlrLuaAudioConverter::CtrlrLuaAudioConverter()
 {

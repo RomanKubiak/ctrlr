@@ -1,43 +1,14 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  16 Apr 2011 5:58:35pm
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-#include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrLog.h"
-#include "CtrlrPanel/CtrlrPanelResource.h"
-//[/Headers]
-
 #include "CtrlrImageButton.h"
-
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
 #include "CtrlrPanel/CtrlrPanel.h"
-//[/MiscUserDefs]
+#include "CtrlrCustomButtonInternal.h"
+#include "CtrlrPanel/CtrlrPanelResource.h"
 
-//==============================================================================
 CtrlrImageButton::CtrlrImageButton (CtrlrModulator &owner)
     : CtrlrComponent(owner),
       ctrlrButton (0)
 {
+	valueMap = new CtrlrValueMap();
     addAndMakeVisible (ctrlrButton = new CtrlrCustomButtonInternal (*this));
 
     //[UserPreSize]
@@ -126,12 +97,12 @@ void CtrlrImageButton::mouseDown (const MouseEvent& e)
 
 double CtrlrImageButton::getComponentMaxValue()
 {
-	return (valueMap.getNonMappedMax());
+	return (valueMap->getNonMappedMax());
 }
 
 double CtrlrImageButton::getComponentValue()
 {
-	return (valueMap.getCurrentNonMappedValue());
+	return (valueMap->getCurrentNonMappedValue());
 }
 
 const String CtrlrImageButton::getComponentText()
@@ -144,14 +115,14 @@ void CtrlrImageButton::setComponentValue (const double newValue, const bool send
 	if (!owner.getOwnerPanel().checkRadioGroup(this, ctrlrButton->getToggleState()))
 		return;
 
-	valueMap.setCurrentNonMappedValue (newValue);
+	valueMap->setCurrentNonMappedValue (newValue);
 
-	ctrlrButton->setButtonText (valueMap.getCurrentText());
+	ctrlrButton->setButtonText (valueMap->getCurrentText());
 
 	if (ctrlrButton->getClickingTogglesState())
 	{
 		ctrlrButton->setToggleState (newValue ? true : false, dontSendNotification);
-		ctrlrButton->setButtonText (valueMap.getTextForIndex(newValue));
+		ctrlrButton->setButtonText (valueMap->getTextForIndex(newValue));
 	}
 
 	if (sendChangeMessage)
@@ -165,14 +136,14 @@ void CtrlrImageButton::setComponentMidiValue (const int newValue, const bool sen
 	if (!owner.getOwnerPanel().checkRadioGroup(this, ctrlrButton->getToggleState()))
 		return;
 
-	valueMap.setCurrentMappedValue (newValue);
+	valueMap->setCurrentMappedValue (newValue);
 
-	ctrlrButton->setButtonText (valueMap.getCurrentText());
+	ctrlrButton->setButtonText (valueMap->getCurrentText());
 
 	if (ctrlrButton->getClickingTogglesState())
 	{
 		ctrlrButton->setToggleState (newValue ? true : false, dontSendNotification);
-		ctrlrButton->setButtonText (valueMap.getTextForIndex(newValue));
+		ctrlrButton->setButtonText (valueMap->getTextForIndex(newValue));
 	}
 
 	if (sendChangeMessage)
@@ -183,12 +154,12 @@ void CtrlrImageButton::setComponentMidiValue (const int newValue, const bool sen
 
 int CtrlrImageButton::getComponentMidiValue()
 {
-	return (valueMap.getCurrentMappedValue());
+	return (valueMap->getCurrentMappedValue());
 }
 
 void CtrlrImageButton::buttonContentChanged()
 {
-	valueMap.copyFrom (owner.getProcessor().setValueMap (getProperty(Ids::uiImageButtonContent)));
+	valueMap->copyFrom (owner.getProcessor().setValueMap (getProperty(Ids::uiImageButtonContent)));
 }
 
 void CtrlrImageButton::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
@@ -274,7 +245,7 @@ void CtrlrImageButton::buttonModeChanged(const ImageButtonMode newMode)
 	switch (newMode)
 	{
 		case Normal:
-			if (valueMap.getNumValues() == 2)
+			if (valueMap->getNumValues() == 2)
 			{
 				ctrlrButton->setClickingTogglesState(true);
 			}
@@ -331,24 +302,10 @@ void CtrlrImageButton::buttonClicked (Button* button)
 
 	if (button == ctrlrButton)
 	{
-		valueMap.increment();
-		ctrlrButton->setButtonText (valueMap.getCurrentText());
-		setComponentValue (valueMap.getCurrentNonMappedValue(), true);
+		valueMap->increment();
+		ctrlrButton->setButtonText (valueMap->getCurrentText());
+		setComponentValue (valueMap->getCurrentNonMappedValue(), true);
 	}
-}
-
-void CtrlrImageButton::wrapForLua(lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<CtrlrImageButton, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrToggleButton")
-			.def("isToggleButton", &CtrlrImageButton::isToggleButton)
-			.def("getToggleState", &CtrlrImageButton::getToggleState)
-			.def("setToggleState", &CtrlrImageButton::setToggleState)
-			.def("getValueMap", &CtrlrImageButton::getValueMap)
-	];
 }
 
 void CtrlrImageButton::setResource()

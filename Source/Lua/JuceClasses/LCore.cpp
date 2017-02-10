@@ -1,8 +1,9 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "LJuce.h"
 #include "Native/CtrlrNative.h"
-#include "luabind/operator.hpp"
-#include "luabind/adopt_policy.hpp"
+#include "CtrlrMacros.h"
+#include "CtrlrLog.h"
+#include "CtrlrUtilities.h"
 
 void LExpression::wrapForLua (lua_State *L)
 {

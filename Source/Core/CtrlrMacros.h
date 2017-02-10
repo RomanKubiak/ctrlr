@@ -1,7 +1,7 @@
-#ifndef __CTRLR_MACROS__
-#define __CTRLR_MACROS__
+#ifndef __CTRLR_MACROS_H__
+#define __CTRLR_MACROS_H__
 
-#include "JuceHeader.h"
+#include "stdafx.h"
 
 #ifdef JUCE_WINDOWS
 #pragma warning(disable:4355)
@@ -279,6 +279,16 @@ enum CtrlrMIDIDeviceType
     oscInputDevice,
     oscOutputDevice,
     serialDevice
+};
+
+enum CtrlrPanelResourceType
+{
+	ImageRes,
+	AudioRes,
+	TextRes,
+	XmlRes,
+	FontRes,
+	DataRes
 };
 
 #endif

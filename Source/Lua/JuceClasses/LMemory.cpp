@@ -1,6 +1,12 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "LJuce.h"
-#include "luabind/operator.hpp"
+#include "CtrlrMacros.h"
+#include "CtrlrLog.h"
+#include "CtrlrUtilities.h"
+
+namespace luabind {
+	class object;
+}
 
 void LAsyncUpdater::handleAsyncUpdate()
 {

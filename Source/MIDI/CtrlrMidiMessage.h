@@ -1,9 +1,9 @@
 #ifndef __CTRLR_MIDI_MESSAGE__
 #define __CTRLR_MIDI_MESSAGE__
 
-#include "CtrlrLuaObject.h"
 #include "CtrlrMacros.h"
 #include "CtrlrMidiMessageEx.h"
+#include "CtrlrLuaObject.h"
 
 class CtrlrLuaObjectWrapper;
 

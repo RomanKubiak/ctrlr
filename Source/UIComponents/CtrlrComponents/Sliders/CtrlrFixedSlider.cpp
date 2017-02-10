@@ -1,51 +1,20 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  8 Jun 2011 12:42:47am
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-//[/Headers]
-
 #include "CtrlrFixedSlider.h"
-
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
-#include "CtrlrProcessor.h"
-#include "../CtrlrComponentTypeManager.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrModulator/CtrlrModulator.h"
-#include "Lua/JuceClasses/LLookAndFeel.h"
-//[/MiscUserDefs]
 
-//==============================================================================
 CtrlrFixedSlider::CtrlrFixedSlider (CtrlrModulator &owner)
-    : CtrlrComponent(owner), lf(*this, componentTree),
+    : CtrlrComponent(owner),
       ctrlrSlider (0)
 {
+	valueMap = new CtrlrValueMap();
+	lf = new CtrlrSliderLookAndFeel (*this, componentTree);
     addAndMakeVisible (ctrlrSlider = new CtrlrSliderInternal (*this));
     ctrlrSlider->setName ("ctrlrSlider");
 
 
     //[UserPreSize]
 	ctrlrSlider->addListener (this);
-	ctrlrSlider->setLookAndFeel(&lf);
+	ctrlrSlider->setLookAndFeel(lf);
 	componentTree.addListener (this);
 	setProperty (Ids::uiSliderStyle, "RotaryVerticalDrag");
 	setProperty (Ids::uiSliderMin, 0);
@@ -130,7 +99,7 @@ void CtrlrFixedSlider::mouseUp (const MouseEvent& e)
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 double CtrlrFixedSlider::getComponentMaxValue()
 {
-	return (valueMap.getNonMappedMax());
+	return (valueMap->getNonMappedMax());
 }
 
 double CtrlrFixedSlider::getComponentValue()
@@ -140,12 +109,12 @@ double CtrlrFixedSlider::getComponentValue()
 
 int CtrlrFixedSlider::getComponentMidiValue()
 {
-	return (valueMap.getMappedValue(ctrlrSlider->getValue()));
+	return (valueMap->getMappedValue(ctrlrSlider->getValue()));
 }
 
 const String CtrlrFixedSlider::getComponentText()
 {
-	return (valueMap.getTextForIndex (ctrlrSlider->getValue()));
+	return (valueMap->getTextForIndex (ctrlrSlider->getValue()));
 }
 
 void CtrlrFixedSlider::setComponentValue (const double newValue, const bool sendChangeMessage)
@@ -159,8 +128,8 @@ void CtrlrFixedSlider::setComponentValue (const double newValue, const bool send
 
 void CtrlrFixedSlider::sliderContentChanged()
 {
-	valueMap.copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiFixedSliderContent)));
-	ctrlrSlider->setRange (valueMap.getNonMappedMin(), valueMap.getNonMappedMax(), 1);
+	valueMap->copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiFixedSliderContent)));
+	ctrlrSlider->setRange (valueMap->getNonMappedMin(), valueMap->getNonMappedMax(), 1);
 }
 
 
@@ -214,7 +183,7 @@ void CtrlrFixedSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 	else if (property == Ids::uiSliderIncDecButtonColour || property == Ids::uiSliderIncDecTextColour || property == Ids::uiSliderValueFont || property == Ids::uiSliderValueTextJustification)
 	{
 		ctrlrSlider->setLookAndFeel (nullptr);
-		ctrlrSlider->setLookAndFeel (&lf);
+		ctrlrSlider->setLookAndFeel (lf);
 	}
 
 	else if (property == Ids::uiSliderVelocityMode
@@ -265,24 +234,12 @@ void CtrlrFixedSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 
 const String CtrlrFixedSlider::getTextForValue(const double value)
 {
-	return (valueMap.getTextForIndex(value));
+	return (valueMap->getTextForIndex(value));
 }
 
 void CtrlrFixedSlider::sliderValueChanged (Slider* sliderThatWasMoved)
 {
 	setComponentValue(ctrlrSlider->getValue(), true);
-}
-
-void CtrlrFixedSlider::wrapForLua(lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<CtrlrFixedSlider, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrSlider")
-			.def("getOwnedSlider", &CtrlrFixedSlider::getOwnedSlider)
-			.def("getValueMap", &CtrlrFixedSlider::getValueMap)
-	];
 }
 //[/MiscUserCode]
 

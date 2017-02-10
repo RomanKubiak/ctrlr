@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CtrlrFilmStripPainter.h"
-#include "CtrlrComponentTypeManager.h"
-#include "CtrlrUtilities.h"
-#include "CtrlrUtilitiesGUI.h"
-#include "CtrlrFontManager.h"
-#include "CtrlrManager/CtrlrManager.h"
+#include "CtrlrComponents/CtrlrComponent.h"
+#include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrUtilitiesGUI.h"
 
 CtrlrImageSliderLF::CtrlrImageSliderLF(CtrlrComponent &_owner)
 	: owner(_owner)

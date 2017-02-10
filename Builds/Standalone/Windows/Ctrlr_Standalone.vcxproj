@@ -98,7 +98,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>../../../JUCE/modules;../../../Source/misc/boost;../../../Source/Lua;../../../Source/Misc/include;../../../Source/MIDI;../../../Source;../../../Source/UIComponents;../../../Source/Core;../../../Source/Plugin;../../../Source/Application;../../../Source/Misc/libusb/include;../../../Source/Misc/liblo/include;../../../Source/Misc/lua/include;../../../Source/Misc/lua/src;../../../Source/Misc/luabind;../../../Source/Misc/juce;../../../Source/Misc/vst;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;JUCER_VS2015_19DE27A1=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_Standalone;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader />
@@ -107,9 +107,9 @@
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <AdditionalOptions>/Yu"stdafx.h" /Fp"stdafx.pch" /Zm2000 /bigobj</AdditionalOptions>
-      <MinimalRebuild>true</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/Zm2000 /bigobj</AdditionalOptions>
+      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -406,6 +406,32 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">stdafx.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">stdafx.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\Core\stdafx_luabind.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx_luabind.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx_luabind.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx_luabind.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx_luabind.h.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">stdafx_luabind.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">stdafx_luabind.h.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx_luabind.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx_luabind.h.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx_luabind.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx_luabind.h.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">stdafx_luabind.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">stdafx_luabind.h.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\Lua\JuceClasses\LAudio.cpp" />
     <ClCompile Include="..\..\..\Source\Lua\JuceClasses\LComponents.cpp" />
@@ -1824,6 +1850,7 @@
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrComponents\Buttons\CtrlrToggleButton.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCombo.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponent.cpp" />
+    <ClCompile Include="..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentLuaRegistration.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrComponents\CtrlrComponentTypeManager.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrComponents\CtrlrCustomComponent.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrComponents\CtrlrFilmStripPainter.cpp" />
@@ -3486,6 +3513,7 @@
     <ClInclude Include="..\..\..\Source\Core\dxtrans.h" />
     <ClInclude Include="..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h" />
     <ClInclude Include="..\..\..\Source\Core\stdafx.h" />
+    <ClInclude Include="..\..\..\Source\Core\stdafx_luabind.h" />
     <ClInclude Include="..\..\..\Source\Lua\CtrlrLuabind.h" />
     <ClInclude Include="..\..\..\Source\Lua\JuceClasses\LAffineTransform.h" />
     <ClInclude Include="..\..\..\Source\Lua\JuceClasses\LAlertWindow.h" />

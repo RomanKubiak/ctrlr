@@ -1,9 +1,12 @@
-#include "stdafx.h"
-#include "CtrlrPanelCanvas.h"
+#include "stdafx_luabind.h"
+
 #include "CtrlrPanelCanvasLayer.h"
+#include "CtrlrPanelCanvas.h"
+#include "CtrlrIds.h"
+#include "JuceClasses/LLookAndFeel.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrLog.h"
-#include "Lua/JuceClasses/LLookAndFeel.h"
+#include "CtrlrComponents/CtrlrComponent.h"
 
 CtrlrPanelCanvasLayer::CtrlrPanelCanvasLayer(CtrlrPanelCanvas &_owner)
 	: layerTree(Ids::uiPanelCanvasLayer), owner(_owner), mousePass(false)

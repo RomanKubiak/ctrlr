@@ -1,13 +1,6 @@
 #ifndef L_JUCE_H
 #define L_JUCE_H
 
-#include "CtrlrLuaManager.h"
-#include "CtrlrMacros.h"
-#include "CtrlrLog.h"
-#include "Native/CtrlrNative.h"
-#include "CtrlrUtilities.h"
-#include "CtrlrManager/CtrlrManager.h"
-
 #include "LFileListComponent.h"
 #include "LFileTreeComponent.h"
 #include "LMidiKeyboardComponent.h"

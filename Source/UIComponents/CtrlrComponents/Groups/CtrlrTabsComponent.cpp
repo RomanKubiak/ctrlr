@@ -1,43 +1,12 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
 
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  1 Jul 2011 6:04:12pm
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
 #ifdef _WIN32
 #pragma warning(disable:4244)
 #endif
-#include "CtrlrLuaObjectWrapper.h"
-#include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrPanel/CtrlrPanel.h"
-#include "Lua/CtrlrLuaManager.h"
-#include "CtrlrApplicationWindow/CtrlrLookAndFeel.h"
-#include "Lua/JuceClasses/LLookAndFeel.h"
-//[/Headers]
 
 #include "CtrlrTabsComponent.h"
-
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
 #include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrUtilities.h"
+#include "CtrlrLuaManager.h"
 
 CtrlrTabsLF::CtrlrTabsLF(CtrlrTabsComponent &_owner) : owner(_owner)
 {
@@ -601,16 +570,6 @@ void CtrlrTabsComponent::modulatorNameChanged (const String &newName)
 			c->parentNameChanged(newName);
 		}
 	}
-}
-
-void CtrlrTabsComponent::wrapForLua (lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<CtrlrTabsComponent>("CtrlrTabsComponent")
-	];
 }
 
 bool CtrlrTabsComponent::isInterestedInDragSource (const SourceDetails &dragSourceDetails)

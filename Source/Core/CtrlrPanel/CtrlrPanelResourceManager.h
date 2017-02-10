@@ -14,16 +14,6 @@ class CtrlrPanelResource;
 class CtrlrPanelResourceManager
 {
 	public:
-		enum CtrlrPanelResourceType
-		{
-			ImageRes,
-			AudioRes,
-			TextRes,
-			XmlRes,
-			FontRes,
-			DataRes
-		};
-
 		CtrlrPanelResourceManager(CtrlrPanel &_owner);
 		~CtrlrPanelResourceManager();
 		int getNumResources();

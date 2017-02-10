@@ -1,46 +1,14 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  8 Jun 2011 12:42:46am
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-#include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrPanel/CtrlrPanel.h"
-#include "CtrlrModulator/CtrlrModulator.h"
-#include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrLog.h"
-#include "CtrlrPanel/CtrlrPanelResource.h"
-#include "Lua/JuceClasses/LLookAndFeel.h"
-//[/Headers]
-
 #include "CtrlrImageSlider.h"
+#include "CtrlrComponents/CtrlrFilmStripPainter.h"
+#include "CtrlrPanel/CtrlrPanelResource.h"
+#include "CtrlrPanel/CtrlrPanelEditor.h"
 
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
-//[/MiscUserDefs]
-
-//==============================================================================
 CtrlrImageSlider::CtrlrImageSlider (CtrlrModulator &owner)
-    : CtrlrComponent(owner), lf(*this),
+    : CtrlrComponent(owner),
       ctrlrSlider (0)
 {
+	lf = new CtrlrImageSliderLF(*this);
     addAndMakeVisible (ctrlrSlider = new CtrlrSliderInternal (*this));
     ctrlrSlider->setRange (0, 10, 0);
     ctrlrSlider->setSliderStyle (Slider::LinearHorizontal);
@@ -50,7 +18,7 @@ CtrlrImageSlider::CtrlrImageSlider (CtrlrModulator &owner)
 
     //[UserPreSize]
 	ctrlrSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-	ctrlrSlider->setLookAndFeel (&lf);
+	ctrlrSlider->setLookAndFeel (lf);
 	setProperty (Ids::uiSliderStyle, "RotaryVerticalDrag");
 	setProperty (Ids::uiImageSliderResource, COMBO_ITEM_NONE);
 	setProperty (Ids::resourceImageWidth, 32);
@@ -178,19 +146,19 @@ void CtrlrImageSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 	}
 	else if (property == Ids::resourceImageWidth)
 	{
-		lf.setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
+		lf->setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
 	}
 	else if (property == Ids::resourceImageHeight)
 	{
-		lf.setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
+		lf->setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
 	}
 	else if (property == Ids::resourceImagePaintMode)
 	{
-		lf.setPaintMode ((RectanglePlacement)(int)getProperty(Ids::resourceImagePaintMode));
+		lf->setPaintMode ((RectanglePlacement)(int)getProperty(Ids::resourceImagePaintMode));
 	}
 	else if (property == Ids::resourceImageOrientation)
 	{
-		lf.setOrientation((bool)getProperty(Ids::resourceImageOrientation));
+		lf->setOrientation((bool)getProperty(Ids::resourceImageOrientation));
 	}
 	else if (property == Ids::uiSliderInterval || property == Ids::uiSliderMax || property == Ids::uiSliderMin)
 	{
@@ -229,8 +197,8 @@ void CtrlrImageSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		|| property == Ids::uiSliderValueTextJustification
 		)
 	{
-		lf.setOrientation((bool)getProperty(Ids::resourceImageOrientation));
-		lf.setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
+		lf->setOrientation((bool)getProperty(Ids::resourceImageOrientation));
+		lf->setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
 		lookAndFeelChanged();
 	}
 
@@ -287,21 +255,10 @@ const String CtrlrImageSlider::getComponentText()
 	return (String(getComponentValue()));
 }
 
-void CtrlrImageSlider::wrapForLua(lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<CtrlrImageSlider, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrSlider")
-			.def("getOwnedSlider", &CtrlrImageSlider::getOwnedSlider)
-	];
-}
-
 void CtrlrImageSlider::setResource()
 {
 	filmStripImage = owner.getOwnerPanel().getResourceManager().getResourceAsImage (getProperty(Ids::uiImageSliderResource));
-	lf.setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
+	lf->setImage (filmStripImage, (int)getProperty(Ids::resourceImageWidth), (int)getProperty(Ids::resourceImageHeight));
 	lookAndFeelChanged();
 	repaint();
 	resized();

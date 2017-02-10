@@ -2,10 +2,11 @@
 #define L_LOOK_AND_FEEL
 
 #include "JuceHeader.h"
-extern  "C"
-{
-	#include "lua.h"
+
+namespace luabind {
+	class object;
 }
+
 
 class LookAndFeelBase : public LookAndFeel_V3
 {

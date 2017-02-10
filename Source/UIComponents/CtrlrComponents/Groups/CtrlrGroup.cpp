@@ -1,42 +1,11 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  2 Jun 2011 1:01:21am
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-#ifdef _WIN32
-#pragma warning(disable:4244)
-#endif
-#include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrPanel/CtrlrPanelResource.h"
-#include "CtrlrUtilitiesGUI.h"
-//[/Headers]
-
 #include "CtrlrGroup.h"
-
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
-#include "CtrlrProcessor.h"
-#include "../CtrlrComponentTypeManager.h"
+#include "CtrlrModulator/CtrlrModulator.h"
+#include "CtrlrIDs.h"
 #include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrUtilitiesGUI.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
+#include "CtrlrPanel/CtrlrPanelResource.h"
 
 CtrlrGroupContentComponent::CtrlrGroupContentComponent(CtrlrGroup &_owner) : owner(_owner)
 {
@@ -430,18 +399,7 @@ void CtrlrGroup::reloadResources(Array <CtrlrPanelResource*> resourcesThatChange
 	}
 }
 
-void CtrlrGroup::wrapForLua (lua_State *L)
-{
-    using namespace luabind;
 
-	module(L)
-    [
-        class_<GroupComponent>("GroupComponent")
-            .def(constructor<const String &, const String &>())
-            .def("setText", &GroupComponent::setText)
-            .def("getText", &GroupComponent::getText)
-    ];
-}
 
 void CtrlrGroup::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
 {

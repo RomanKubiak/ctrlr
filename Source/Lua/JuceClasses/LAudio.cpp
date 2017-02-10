@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "LJuce.h"
 
 void LAudioFile::wrapForLua(lua_State *L)

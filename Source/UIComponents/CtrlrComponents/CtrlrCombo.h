@@ -1,42 +1,9 @@
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  13 Oct 2011 10:49:23pm
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
 #ifndef __JUCER_HEADER_CTRLRCOMBO_CTRLRCOMBO_380F4A09__
 #define __JUCER_HEADER_CTRLRCOMBO_CTRLRCOMBO_380F4A09__
 
-//[Headers]     -- You can add your own extra header files here --
-#include "CtrlrComponent.h"
-#include "CtrlrValueMap.h"
-//[/Headers]
+#include "CtrlrComponents/CtrlrComponent.h"
+class CtrlrValueMap;
 
-
-
-//==============================================================================
-/**
-                                                                    //[Comments]
-    An auto-generated component, created by the Jucer.
-
-    Describe your class and how it works here!
-                                                                    //[/Comments]
-*/
 class CtrlrCombo  : public CtrlrComponent,
                     public KeyListener,
 					public ComboBox::Listener
@@ -93,7 +60,7 @@ public:
 	void setText(const String &text, const bool dontNotify);
 	ComboBox *getOwnedComboBox() { return (ctrlrCombo); }
 	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr);
-	CtrlrValueMap &getValueMap() { return (valueMap); }
+	CtrlrValueMap &getValueMap() { return (*valueMap); }
 
 	static void wrapForLua(lua_State *L);
     //[/UserMethods]
@@ -111,7 +78,7 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 	Array <var> values;
 	CtrlrComboLF lf;
-	CtrlrValueMap valueMap;
+	ScopedPointer<CtrlrValueMap> valueMap;
     //[/UserVariables]
 
     //==============================================================================

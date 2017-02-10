@@ -1,45 +1,20 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  13 Oct 2011 10:49:23pm
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-//[/Headers]
-
 #include "CtrlrCombo.h"
-
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
-#include "CtrlrProcessor.h"
+#include "CtrlrValueMap.h"
+#include "CtrlrIDs.h"
+#include "CtrlrFontManager.h"
+#include "CtrlrModulator/CtrlrModulator.h"
+#include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrComponentTypeManager.h"
 #include "CtrlrUtilitiesGUI.h"
-#include "CtrlrLog.h"
-#include "Lua/JuceClasses/LLookAndFeel.h"
-//[/MiscUserDefs]
+#include "JuceClasses/LLookAndFeel.h"
 
 //==============================================================================
 CtrlrCombo::CtrlrCombo (CtrlrModulator &owner)
     : CtrlrComponent(owner), lf(*this),
       ctrlrCombo (0)
 {
+	valueMap = new CtrlrValueMap();
     addAndMakeVisible (ctrlrCombo = new ComboBox (L"ctrlrCombo"));
     ctrlrCombo->setEditableText (false);
     ctrlrCombo->setJustificationType (Justification::centred);
@@ -142,7 +117,7 @@ bool CtrlrCombo::keyPressed (const KeyPress& key)
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 double CtrlrCombo::getComponentMaxValue()
 {
-	return (valueMap.getNonMappedMax());
+	return (valueMap->getNonMappedMax());
 }
 
 double CtrlrCombo::getComponentValue()
@@ -152,7 +127,7 @@ double CtrlrCombo::getComponentValue()
 
 int CtrlrCombo::getComponentMidiValue()
 {
-	return (valueMap.getMappedValue(ctrlrCombo->getSelectedId() - 1));
+	return (valueMap->getMappedValue(ctrlrCombo->getSelectedId() - 1));
 }
 
 const String CtrlrCombo::getComponentText()
@@ -175,8 +150,8 @@ void CtrlrCombo::comboContentChanged()
 	if ((int)getProperty(Ids::uiComboDynamicContent) > 0)
 		return;
 
-	valueMap.copyFrom (owner.getProcessor().setValueMap (getProperty(Ids::uiComboContent)));
-	valueMap.fillCombo (*ctrlrCombo, true);
+	valueMap->copyFrom (owner.getProcessor().setValueMap (getProperty(Ids::uiComboContent)));
+	valueMap->fillCombo (*ctrlrCombo, true);
 }
 
 void CtrlrCombo::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
@@ -278,10 +253,10 @@ void CtrlrCombo::fillContent(const int contentType)
 		case 1:
 			for (int i=0; i<owner.getOwnerPanel().getModulators().size(); i++)
 			{
-				valueMap.setPair (i, i, owner.getOwnerPanel().getModulatorByIndex(i)->getName());
+				valueMap->setPair (i, i, owner.getOwnerPanel().getModulatorByIndex(i)->getName());
 			}
-			owner.getProcessor().setValueMap (valueMap);
-			valueMap.fillCombo (*ctrlrCombo, true);
+			owner.getProcessor().setValueMap (*valueMap);
+			valueMap->fillCombo (*ctrlrCombo, true);
 			ctrlrCombo->setText (prewviousContent, dontSendNotification);
 			break;
 
@@ -289,10 +264,10 @@ void CtrlrCombo::fillContent(const int contentType)
 			File::findFileSystemRoots(files);
 			for (int i=0; i<files.size(); i++)
 			{
-				valueMap.setPair (i, i, files[i].getFullPathName());
+				valueMap->setPair (i, i, files[i].getFullPathName());
 			}
-			owner.getProcessor().setValueMap (valueMap);
-			valueMap.fillCombo (*ctrlrCombo, true);
+			owner.getProcessor().setValueMap (*valueMap);
+			valueMap->fillCombo (*ctrlrCombo, true);
 			ctrlrCombo->setText (prewviousContent, dontSendNotification);
 			break;
 		default:
@@ -599,23 +574,7 @@ void CtrlrCombo::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
         ctrlrCombo->setLookAndFeel (customLookAndFeel);
 }
 
-void CtrlrCombo::wrapForLua(lua_State *L)
-{
-	using namespace luabind;
 
-	module(L)
-    [
-		class_<CtrlrCombo, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrCombo")
-			.def("getOwnedComboBox", &CtrlrCombo::getOwnedComboBox)
-			.def("getSelectedId", &CtrlrCombo::getSelectedId)
-			.def("getSelectedItemIndex", &CtrlrCombo::getSelectedItemIndex)
-			.def("setSelectedId", &CtrlrCombo::setSelectedId)
-			.def("setSelectedItemIndex", &CtrlrCombo::setSelectedItemIndex)
-			.def("getText", &CtrlrCombo::getText)
-			.def("setText", &CtrlrCombo::setText)
-			.def("getValueMap", &CtrlrCombo::getValueMap)
-	];
-}
 //[/MiscUserCode]
 
 

@@ -1,7 +1,6 @@
 #ifndef __CTRLR_LUA_OBJECT__
 #define __CTRLR_LUA_OBJECT__
 
-#include "stdafx.h"
 #include "CtrlrLuaObjectWrapper.h"
 
 //==============================================================================

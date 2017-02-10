@@ -1,8 +1,10 @@
 #ifndef __CTRLR_COMPONENT_SELECTION__
 #define __CTRLR_COMPONENT_SELECTION__
 
-#include "CtrlrComponents/CtrlrComponent.h"
+#include "JuceHeader.h"
 
+class CtrlrPanelEditor;
+class CtrlrComponent;
 class CtrlrPanelEditor;
 
 class CtrlrComponentSelection : public SelectedItemSet<CtrlrComponent*>

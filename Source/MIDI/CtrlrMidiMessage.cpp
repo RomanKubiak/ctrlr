@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "CtrlrMidiMessage.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrIDs.h"

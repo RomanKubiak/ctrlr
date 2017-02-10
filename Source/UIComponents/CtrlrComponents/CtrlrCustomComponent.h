@@ -1,10 +1,7 @@
 #ifndef __CTRLR_CUSTOM_COMPONENT__
 #define __CTRLR_CUSTOM_COMPONENT__
 
-#include "Methods/CtrlrLuaMethod.h"
 #include "CtrlrComponent.h"
-#include "CtrlrMacros.h"
-#include "CtrlrIDs.h"
 
 class CtrlrCustomComponent :    public CtrlrComponent,
                                 public KeyListener,
