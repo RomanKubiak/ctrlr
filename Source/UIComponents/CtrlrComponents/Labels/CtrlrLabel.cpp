@@ -1,38 +1,8 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  25 Jul 2011 7:59:52pm
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-//[/Headers]
-
 #include "CtrlrLabel.h"
-
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
-#include "CtrlrProcessor.h"
-#include "../CtrlrComponentTypeManager.h"
-#include "CtrlrModulator/CtrlrModulator.h"
-#include "CtrlrLuaManager.h"
 #include "CtrlrUtilitiesGUI.h"
-#include "Lua/JuceClasses/LLookAndFeel.h"
+#include "CtrlrLuaManager.h"
+#include "JuceClasses/LLookAndFeel.h"
 
 CtrlrLabelInternal::CtrlrLabelInternal(CtrlrLabel &_owner, const String &componentName, const String &labelText)
 	: Label (componentName, labelText), owner(_owner)
@@ -318,20 +288,6 @@ CtrlrLabel &CtrlrLabel::appendText(const String &text)
 const String CtrlrLabel::getText()
 {
 	return (ctrlrLabel->getText());
-}
-
-void CtrlrLabel::wrapForLua (lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<CtrlrLabel,bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrLabel")
-			.def("setText", &CtrlrLabel::setLabelText)
-			.def("appendText", &CtrlrLabel::appendText)
-			.def("append", &CtrlrLabel::appendText)
-			.def("getText", &CtrlrLabel::getText)
-	];
 }
 
 void CtrlrLabel::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)

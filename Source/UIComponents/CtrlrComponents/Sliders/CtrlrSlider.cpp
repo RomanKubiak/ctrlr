@@ -251,14 +251,3 @@ void CtrlrSlider::customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel)
     else
         ctrlrSlider.setLookAndFeel (customLookAndFeel);
 }
-
-void CtrlrSlider::wrapForLua(lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<CtrlrSlider, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrSlider")
-			.def("getOwnedSlider", &CtrlrSlider::getOwnedSlider)
-	];
-}

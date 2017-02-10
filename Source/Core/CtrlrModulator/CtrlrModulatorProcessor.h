@@ -3,7 +3,7 @@
 
 #include "CtrlrMacros.h"
 #include "CtrlrMidiMessage.h"
-#include "../MIDI/CtrlrOwnedMidiMessage.h"
+#include "CtrlrOwnedMidiMessage.h"
 #include "Methods/CtrlrLuaMethod.h"
 #include "CtrlrValueMap.h"
 

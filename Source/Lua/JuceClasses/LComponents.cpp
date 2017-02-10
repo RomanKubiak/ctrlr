@@ -1,6 +1,6 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "LJuce.h"
-#include "luabind/adopt_policy.hpp"
+#include "CtrlrLog.h"
 
 LAlertWindow::LAlertWindow(const String &title, const String &message, AlertIconType iconType)
 	: AlertWindow(title,message,iconType,nullptr)

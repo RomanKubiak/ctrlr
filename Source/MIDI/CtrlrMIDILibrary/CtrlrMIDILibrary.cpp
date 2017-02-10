@@ -719,6 +719,7 @@ bool CtrlrMIDILibrary::isItem(const ValueTree item)
 
 void CtrlrMIDILibrary::wrapForLua (lua_State *L)
 {
+	/*
 	using namespace luabind;
 
 	module(L)
@@ -749,6 +750,7 @@ void CtrlrMIDILibrary::wrapForLua (lua_State *L)
 				def("isEditBuffer", &CtrlrMIDILibrary::isEditBuffer)
 			]
 	];
+	*/
 }
 
 String CtrlrMIDILibrary::getItemName(const int itemId)

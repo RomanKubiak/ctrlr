@@ -1,5 +1,6 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "LJuce.h"
+#include "CtrlrLuaManager.h"
 
 void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 {

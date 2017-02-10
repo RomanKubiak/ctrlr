@@ -1,41 +1,16 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  8 Apr 2011 11:10:12pm
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-//[/Headers]
-
 #include "CtrlrButton.h"
-
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
-#include "CtrlrProcessor.h"
-#include "CtrlrPanel/CtrlrPanelEditor.h"
-//[/MiscUserDefs]
+#include "CtrlrValueMap.h"
+#include "CtrlrIDs.h"
+#include "CtrlrModulator/CtrlrModulator.h"
+#include "CtrlrPanel/CtrlrPanel.h"
 
 //==============================================================================
 CtrlrButton::CtrlrButton (CtrlrModulator &owner)
     : CtrlrComponent(owner),
       ctrlrButton (0)
 {
+	valueMap = new CtrlrValueMap();
     addAndMakeVisible (ctrlrButton = new TextButton ("ctrlrButton"));
     ctrlrButton->addListener (this);
 
@@ -108,9 +83,9 @@ void CtrlrButton::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == ctrlrButton)
     {
         //[UserButtonCode_ctrlrButton] -- add your button handler code here..
-		valueMap.increment();
-		ctrlrButton->setButtonText (valueMap.getCurrentText());
-		setComponentValue (valueMap.getCurrentNonMappedValue(), true);
+		valueMap->increment();
+		ctrlrButton->setButtonText (valueMap->getCurrentText());
+		setComponentValue (valueMap->getCurrentNonMappedValue(), true);
         //[/UserButtonCode_ctrlrButton]
     }
 
@@ -157,20 +132,20 @@ void CtrlrButton::timerCallback()
 
 void CtrlrButton::setComponentValue (const double newValue, const bool sendChangeMessage)
 {
-	valueMap.setCurrentNonMappedValue (newValue);
-	ctrlrButton->setButtonText (valueMap.getTextForIndex (newValue));
+	valueMap->setCurrentNonMappedValue (newValue);
+	ctrlrButton->setButtonText (valueMap->getTextForIndex (newValue));
 
 	if (ctrlrButton->getClickingTogglesState())
 	{
 		if ((double)getProperty(Ids::uiButtonTrueValue) == newValue)
 		{
 			ctrlrButton->setToggleState (true, dontSendNotification);
-			valueMap.setCurrentNonMappedValue (1);
+			valueMap->setCurrentNonMappedValue (1);
 		}
 		else
 		{
 			ctrlrButton->setToggleState (false, dontSendNotification);
-			valueMap.setCurrentNonMappedValue (0);
+			valueMap->setCurrentNonMappedValue (0);
 		}
 	}
 
@@ -182,7 +157,7 @@ void CtrlrButton::setComponentValue (const double newValue, const bool sendChang
 
 double CtrlrButton::getComponentMaxValue()
 {
-	return (valueMap.getNonMappedMax());
+	return (valueMap->getNonMappedMax());
 }
 
 bool CtrlrButton::getToggleState()
@@ -197,22 +172,22 @@ const String CtrlrButton::getComponentText()
 
 void CtrlrButton::setComponentText (const String &componentText)
 {
-	setComponentValue (valueMap.getNonMappedValue(componentText));
+	setComponentValue (valueMap->getNonMappedValue(componentText));
 }
 
 double CtrlrButton::getComponentValue()
 {
-	return (valueMap.getCurrentNonMappedValue());
+	return (valueMap->getCurrentNonMappedValue());
 }
 
 int CtrlrButton::getComponentMidiValue()
 {
-	return (valueMap.getCurrentMappedValue());
+	return (valueMap->getCurrentMappedValue());
 }
 
 void CtrlrButton::buttonContentChanged()
 {
-	valueMap.copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiButtonContent)));
+	valueMap->copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiButtonContent)));
 	setComponentValue (0, false);
 }
 
@@ -291,20 +266,6 @@ bool CtrlrButton::isToggleButton()
 void CtrlrButton::setToggleState(const bool toggleState, const bool sendChangeMessage)
 {
 	ctrlrButton->setToggleState (toggleState, sendChangeMessage ? sendNotification : dontSendNotification);
-}
-
-void CtrlrButton::wrapForLua(lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<CtrlrButton, bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrToggleButton")
-			.def("isToggleButton", &CtrlrButton::isToggleButton)
-			.def("getToggleState", &CtrlrButton::getToggleState)
-			.def("setToggleState", &CtrlrButton::setToggleState)
-			.def("getValueMap", &CtrlrButton::getValueMap)
-	];
 }
 //[/MiscUserCode]
 

@@ -1,11 +1,10 @@
 #ifndef __CTRLR_PANEL_CANVAS_LAYER__
 #define __CTRLR_PANEL_CANVAS_LAYER__
 
-#include "JuceHeader.h"
-#include "CtrlrIDs.h"
 #include "CtrlrLuaObject.h"
 
 class CtrlrPanelCanvas;
+class LookAndFeelBase;
 
 //==============================================================================
 /** @brief Class that represents a canvas layer

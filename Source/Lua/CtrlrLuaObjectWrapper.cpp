@@ -1,6 +1,5 @@
+#include "stdafx_luabind.h"
 #include "CtrlrLuaObjectWrapper.h"
-#include "CtrlrLuabind.h"
-
 
 CtrlrLuaObjectWrapper::CtrlrLuaObjectWrapper()
 {

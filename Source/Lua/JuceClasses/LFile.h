@@ -1,11 +1,6 @@
 #ifndef __L_FILE__
 #define __L_FILE__
 
-#include "JuceHeader.h"
-extern  "C"
-{
-	#include "lua.h"
-}
 #include "LMemoryBlock.h"
 
 class LFile : public File

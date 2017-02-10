@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "CtrlrLuaObjectWrapper.h"
 #include "CtrlrLuaMethod.h"
 #include "CtrlrIDs.h"

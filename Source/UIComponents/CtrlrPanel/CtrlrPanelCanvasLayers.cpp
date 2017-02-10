@@ -1,6 +1,8 @@
 #include "stdafx.h"
+#include "CtrlrPanelCanvasLayer.h"
 #include "CtrlrPanelCanvas.h"
-#include "CtrlrLog.h"
+#include "CtrlrComponents/CtrlrComponent.h"
+#include "CtrlrIDs.h"
 
 void CtrlrPanelCanvas::initLayers()
 {
@@ -44,13 +46,7 @@ void CtrlrPanelCanvas::addAndMakeVisibleNg(CtrlrComponent *componentToAdd, Compo
 			/* there is a destination component and a source component.
 				If the add is forced do that, otherwise leave it */
 			if (force)
-			{
 				assignToLayer (componentToAdd, layer);
-			}
-			else
-			{
-				_WRN("CtrlrPanelCanvas::addAndMakeVisibleNg won't add component="+componentToAdd->getName()+" to layer="+layer->getProperty(Ids::uiPanelCanvasLayerName).toString()+" the add is not forced");
-			}
 		}
 	}
 	else

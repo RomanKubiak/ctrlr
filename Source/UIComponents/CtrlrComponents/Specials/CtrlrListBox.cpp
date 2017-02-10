@@ -1,45 +1,18 @@
 #include "stdafx.h"
-/*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  16 Jan 2012 11:31:34pm
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
-
-//[Headers] You can add your own extra header files here...
-#include "CtrlrUtilities.h"
-#include "CtrlrIDs.h"
 #include "CtrlrListBox.h"
+#include "CtrlrValueMap.h"
+#include "CtrlrIDs.h"
+#include "CtrlrFontManager.h"
 #include "CtrlrUtilitiesGUI.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrLuaManager.h"
-//[/Headers]
 
-
-
-//[MiscUserDefs] You can add your own user definitions and misc code here...
-//[/MiscUserDefs]
-
-//==============================================================================
 CtrlrListBox::CtrlrListBox (CtrlrModulator &owner)
     : CtrlrComponent(owner),
       listBox (0)
 {
+	valueMap = new CtrlrValueMap();
 	addAndMakeVisible (listBox = new ListBox ("List Box", this));
 	listBox->setModel( this );
 
@@ -110,7 +83,7 @@ void CtrlrListBox::resized()
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 int CtrlrListBox::getNumRows()
 {
-	return (valueMap.getNumValues());
+	return (valueMap->getNumValues());
 }
 
 void CtrlrListBox::paintListBoxItem (int rowNumber, Graphics &g, int width, int height, bool rowIsSelected)
@@ -120,13 +93,13 @@ void CtrlrListBox::paintListBoxItem (int rowNumber, Graphics &g, int width, int 
 		g.setFont (STR2FONT(getProperty(Ids::uiListBoxHighlightFont)));
 		g.fillAll (VAR2COLOUR(getProperty(Ids::uiListBoxHighlightBgColour)));
 		g.setColour (VAR2COLOUR(getProperty(Ids::uiListBoxHighlightFgColour)));
-		g.drawText (valueMap.getTextForIndex(rowNumber), 0, 0,  width, height, justificationFromProperty(getProperty(Ids::uiListBoxJustification)), true);
+		g.drawText (valueMap->getTextForIndex(rowNumber), 0, 0,  width, height, justificationFromProperty(getProperty(Ids::uiListBoxJustification)), true);
 	}
 	else
 	{
 		g.setFont (STR2FONT(getProperty(Ids::uiListBoxFont)));
 		g.setColour (VAR2COLOUR(getProperty(Ids::uiListBoxTextColour)));
-		g.drawText (valueMap.getTextForIndex(rowNumber), 0, 0,  width, height, justificationFromProperty(getProperty(Ids::uiListBoxJustification)), true);
+		g.drawText (valueMap->getTextForIndex(rowNumber), 0, 0,  width, height, justificationFromProperty(getProperty(Ids::uiListBoxJustification)), true);
 	}
 }
 
@@ -147,22 +120,22 @@ double CtrlrListBox::getComponentValue()
 
 int CtrlrListBox::getComponentMidiValue()
 {
-	return (valueMap.getMappedValue(listBox->getSelectedRow()));
+	return (valueMap->getMappedValue(listBox->getSelectedRow()));
 }
 
 double CtrlrListBox::getComponentMaxValue()
 {
-	return (valueMap.getNonMappedMax());
+	return (valueMap->getNonMappedMax());
 }
 
 const String CtrlrListBox::getComponentText()
 {
-	return (valueMap.getTextForIndex(listBox->getSelectedRow()));
+	return (valueMap->getTextForIndex(listBox->getSelectedRow()));
 }
 
 const String CtrlrListBox::getTextForValue(const double value)
 {
-	return (valueMap.getTextForIndex(value));
+	return (valueMap->getTextForIndex(value));
 }
 
 void CtrlrListBox::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
@@ -303,7 +276,7 @@ void CtrlrListBox::returnKeyPressed (int value)
 
 void CtrlrListBox::listboxContentChanged()
 {
-	valueMap.copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiListBoxContent)));
+	valueMap->copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiListBoxContent)));
 }
 
 void CtrlrListBox::selectedRowsChanged (int lastRowSelected)
@@ -379,29 +352,6 @@ SparseSet <int> CtrlrListBox::getSelectedRows() const
 void CtrlrListBox::setMultipleSelectionEnabled (bool shouldBeEnabled)
 {
 	listBox->setMultipleSelectionEnabled(shouldBeEnabled);
-}
-
-void CtrlrListBox::wrapForLua (lua_State *L)
-{
-	using namespace luabind;
-
-	module(L)
-    [
-		class_<CtrlrListBox,bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrListBox")
-			.def("getNumRows", &CtrlrListBox::getNumRows)
-			.def("updateContent", &CtrlrListBox::updateContent)
-			.def("selectRow", &CtrlrListBox::selectRow)
-			.def("selectRangeOfRows", &CtrlrListBox::selectRangeOfRows)
-			.def("deselectRow", &CtrlrListBox::deselectRow)
-			.def("deselectAllRows", &CtrlrListBox::deselectAllRows)
-			.def("flipRowSelection", &CtrlrListBox::flipRowSelection)
-			.def("getNumSelectedRows", &CtrlrListBox::getNumSelectedRows)
-			.def("getSelectedRow", &CtrlrListBox::getSelectedRow)
-			.def("getLastRowSelected", &CtrlrListBox::getLastRowSelected)
-			.def("isRowSelected", &CtrlrListBox::isRowSelected)
-			.def("getSelectedRows", &CtrlrListBox::getSelectedRows)
-			.def("setMultipleSelectionEnabled", &CtrlrListBox::setMultipleSelectionEnabled)
-	];
 }
 //[/MiscUserCode]
 

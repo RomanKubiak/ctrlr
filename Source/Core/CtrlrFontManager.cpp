@@ -77,7 +77,7 @@ void CtrlrFontManager::reloadImportedFonts(CtrlrPanel *panelToLoadFrom)
 
         for (int i=0; i<manager.getNumResources(); i++)
         {
-            if (manager.getResource(i)->getType() == CtrlrPanelResourceManager::FontRes)
+            if (manager.getResource(i)->getType() == FontRes)
             {
                 importedFonts.add (manager.getResource(i)->asFont());
             }

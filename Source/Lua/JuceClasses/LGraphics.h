@@ -1,10 +1,7 @@
 #ifndef L_GRAPHICS
 #define L_GRAPHICS
 
-extern  "C"
-{
-	#include "lua.h"
-}
+#include "LMemoryBlock.h"
 
 class LGraphics
 {

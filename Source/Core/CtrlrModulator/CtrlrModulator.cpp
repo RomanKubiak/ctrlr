@@ -1,14 +1,9 @@
 #include "stdafx.h"
-#include "CtrlrLuaManager.h"
+
 #include "CtrlrModulator.h"
-#include "CtrlrProcessor.h"
-#include "CtrlrComponents/CtrlrComponent.h"
-#include "CtrlrUtilities.h"
-#include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrComponents/CtrlrComponentTypeManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
-#include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrLog.h"
+#include "CtrlrComponents/CtrlrComponent.h"
+#include "CtrlrComponents/CtrlrComponentTypeManager.h"
 
 CtrlrModulator::CtrlrModulator(CtrlrPanel &_owner)
 	:	ctrlrComponent(0),

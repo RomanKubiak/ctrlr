@@ -1,6 +1,18 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "CtrlrComponent.h"
-#include "CtrlrMacros.h"
+#include "CtrlrIDs.h"
+#include "CtrlrModulator/CtrlrModulator.h"
+#include "CtrlrFontManager.h"
+#include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrLuaManager.h"
+#include "CtrlrComponentSelection.h"
+#include "CtrlrUtilitiesGUI.h"
+#include "CtrlrPanel/CtrlrPanelEditor.h"
+#include "CtrlrComponents/Groups/CtrlrGroup.h"
+#include "CtrlrComponents/Groups/CtrlrTabsComponent.h"
+#include "JuceClasses/LLookAndFeel.h"
+
+/*#include "CtrlrMacros.h"
 #include "CtrlrProcessor.h"
 #include "CtrlrLuaManager.h"
 #include "CtrlrUtilitiesGUI.h"
@@ -11,6 +23,7 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrLog.h"
 #include "Lua/JuceClasses/LLookAndFeel.h"
+*/
 
 /** Border implementation */
 CtrlrComponentResizableBorder::CtrlrComponentResizableBorder(CtrlrComponent *_owner, ComponentBoundsConstrainer *constrainer)
@@ -713,10 +726,9 @@ void CtrlrComponent::wrapForLua (lua_State *L)
 			.def("isMouseOverOrDragging", &Component::isMouseOverOrDragging)
 			.def("keyPressed", &Component::keyPressed)
 			.def("getBounds", &Component::getBounds)
-			.def("setBounds", (void (Component::*)(const Rectangle<int> &) )&Component::setBounds)
-			.def("getLuaBounds", &CtrlrComponent::getLuaBounds)
-			.def("getRect", &CtrlrComponent::getLuaBounds)
-			.def("setLuaBounds", &CtrlrComponent::setLuaBounds)
+			.def("getRect", &CtrlrComponent::getBounds)
+			.def("setBounds", (void (Component::*)(const Rectangle<int> &) )&CtrlrComponent::setBounds)
+			.def("setBounds", (void (Component::*)(int, int, int, int))&CtrlrComponent::setBounds)
 			.def("getComponentText", &CtrlrComponent::getComponentText)
 			.def("setComponentText", &CtrlrComponent::setComponentText)
 			.def("setTransform", &Component::setTransform)

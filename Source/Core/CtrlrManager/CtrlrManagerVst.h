@@ -1,6 +1,7 @@
 #ifndef __CTRLR_MANAGER_VST__
 #define __CTRLR_MANAGER_VST__
 
+#include <map>
 #include "CtrlrModulator/CtrlrModulator.h"
 class CtrlrManager;
 

@@ -1,9 +1,10 @@
 #ifndef __CTRLR_PANEL_RESOURCE__
 #define __CTRLR_PANEL_RESOURCE__
 
-#include "CtrlrPanelResourceManager.h"
+#include "CtrlrMacros.h"
 
 class CtrlrPanel;
+class CtrlrPanelResourceManager;
 
 //==============================================================================
 /** One Ctrlr resource, can be any block of data. Resources are stored in the resources
@@ -37,7 +38,7 @@ class CtrlrPanelResource : public ValueTree::Listener
 		void load();
 		void loadIfNeeded();
 		ValueTree createTree();
-		CtrlrPanelResourceManager::CtrlrPanelResourceType getType();
+		CtrlrPanelResourceType getType();
 		const String getTypeDescription();
 		bool reloadFromSourceFile();
 		ValueTree &getResourceTree();
@@ -58,7 +59,7 @@ class CtrlrPanelResource : public ValueTree::Listener
 		File resourceDataFile;
 		bool resourceLoaded;
 		AudioFormatReader *audioFormatReader;
-		CtrlrPanelResourceManager::CtrlrPanelResourceType resourceType;
+		CtrlrPanelResourceType resourceType;
 		CtrlrPanelResourceManager &owner;
 };
 #endif

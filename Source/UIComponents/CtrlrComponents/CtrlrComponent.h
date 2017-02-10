@@ -1,14 +1,15 @@
 #ifndef __CTRLR_COMPONENT__
 #define __CTRLR_COMPONENT__
 
-#include "../Core/CtrlrModulator/CtrlrModulator.h"
-#include "Deprecated/CtrlrLuaRectangle.h"
-#include "CtrlrLog.h"
-#include "CtrlrFontManager.h"
+#include "CtrlrMacros.h"
+#include "CtrlrLuaObject.h"
 
 class LookAndFeelBase;
 class CtrlrPanelResource;
 class CtrlrComponent;
+class CtrlrModulator;
+class CtrlrFontManager;
+class CtrlrLuaMethod;
 
 enum CtrlrComponentInternalFunctions
 {
@@ -82,7 +83,7 @@ class CtrlrComponent :	public Component,
 		const var getProperty (const Identifier& name, const var &defaultReturnValue) const					{ return componentTree.getProperty (name, defaultReturnValue); }
 		UndoManager* getUndoManager() const;
 		ValueTree &getComponentTree()																		{ return (componentTree); }
-		Rectangle<int> getUsableRect();
+		juce::Rectangle<int> getUsableRect();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		const String getVisibleName();
 		const WeakReference<CtrlrComponent>::SharedRef& getWeakReference();
@@ -108,9 +109,6 @@ class CtrlrComponent :	public Component,
 		void setCustomLookAndFeel (const luabind::object &customLookAndFeel);
 		void setCustomLookAndFeel (LookAndFeelBase *customLookAndFeel);
 		virtual void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) = 0;
-		// Deprecated
-		CtrlrLuaRectangle getLuaBounds();
-		void setLuaBounds(CtrlrLuaRectangle newBounds);
 		bool isInternal();
 		JUCE_LEAK_DETECTOR(CtrlrComponent)
 

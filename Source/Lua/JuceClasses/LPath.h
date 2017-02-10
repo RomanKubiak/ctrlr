@@ -7,6 +7,11 @@ extern  "C"
 	#include "lua.h"
 }
 
+namespace luabind {
+	class object;
+}
+
+
 class LPath
 {
 	public:

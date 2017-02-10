@@ -1,9 +1,10 @@
 #ifndef __CTRLR_FILM_STRIP_PAINTER__
 #define __CTRLR_FILM_STRIP_PAINTER__
 
-#include "CtrlrComponent.h"
+#include "CtrlrMacros.h"
 
 class CtrlrFilmStripPainter;
+class CtrlrComponent;
 
 class CtrlrFilmStripPainter
 {

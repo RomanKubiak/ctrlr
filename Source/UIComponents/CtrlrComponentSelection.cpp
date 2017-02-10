@@ -2,6 +2,8 @@
 #include "CtrlrComponentSelection.h"
 #include "CtrlrMacros.h"
 #include "CtrlrProcessor.h"
+#include "CtrlrComponents/CtrlrComponent.h"
+#include "CtrlrMidiMessage.h"
 
 CtrlrComponentSelection::CtrlrComponentSelection(CtrlrPanelEditor &_owner) : owner(_owner)
 {

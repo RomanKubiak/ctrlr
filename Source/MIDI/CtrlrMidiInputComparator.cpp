@@ -3,8 +3,6 @@
 #include <limits>
 #include "CtrlrMidiInputComparator.h"
 #include "CtrlrPanel/CtrlrPanel.h"
-#include "CtrlrProcessor.h"
-#include "CtrlrLog.h"
 
 CtrlrMidiInputComparator::CtrlrMidiInputComparator(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source )
 	: owner(_owner), comparatorSingle(_owner), comparatorMulti(_owner), lastPanelMode(false),
@@ -104,6 +102,7 @@ const String CtrlrMidiInputComparator::dumpTables()
 	return (comparatorSingle.dumpTableContents() + comparatorMulti.dumpTableContents());
 }
 
+/*
 void CtrlrMidiInputComparator::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -119,3 +118,4 @@ void CtrlrMidiInputComparator::wrapForLua (lua_State *L)
             .def("match", (void(CtrlrMidiInputComparator::*)(const MidiBuffer &)) &CtrlrMidiInputComparator::match )
     ];
 }
+*/

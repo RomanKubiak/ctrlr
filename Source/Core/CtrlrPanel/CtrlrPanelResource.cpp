@@ -149,18 +149,18 @@ void CtrlrPanelResource::load()
 {
 	calculateHash();
 
-	if (resourceLoaded || resourceType == CtrlrPanelResourceManager::ImageRes)
+	if (resourceLoaded || resourceType == ImageRes)
 	{
 		// ImageCache deals with that
 	}
-	else if (resourceType == CtrlrPanelResourceManager::AudioRes
-			|| resourceType == CtrlrPanelResourceManager::XmlRes
-			|| resourceType == CtrlrPanelResourceManager::TextRes
-			|| resourceType ==CtrlrPanelResourceManager::FontRes)
+	else if (resourceType == AudioRes
+			|| resourceType == XmlRes
+			|| resourceType == TextRes
+			|| resourceType ==FontRes)
 	{
 		// We don't load theese types, they will be rad when accessed
 	}
-	else if (resourceType == CtrlrPanelResourceManager::DataRes)
+	else if (resourceType == DataRes)
 	{
 		// Theese types go into memory
 
@@ -195,7 +195,7 @@ ValueTree CtrlrPanelResource::createTree()
 	return (resourceTreeCopy);
 }
 
-CtrlrPanelResourceManager::CtrlrPanelResourceType CtrlrPanelResource::getType()
+CtrlrPanelResourceType CtrlrPanelResource::getType()
 {
 	return (resourceType);
 }

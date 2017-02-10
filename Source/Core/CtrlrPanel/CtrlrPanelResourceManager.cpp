@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "CtrlrPanelResourceManager.h"
 #include "CtrlrPanelResource.h"
 #include "CtrlrMacros.h"
@@ -6,6 +6,7 @@
 #include "CtrlrPanel.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrLog.h"
+#include "CtrlrPanel/CtrlrPanelResourceManager.h"
 
 /** Resource Manager class implementation
 
@@ -384,7 +385,7 @@ const String CtrlrPanelResourceManager::getTypeDescription(const CtrlrPanelResou
 	}
 }
 
-CtrlrPanelResourceManager::CtrlrPanelResourceType CtrlrPanelResourceManager::guessType(const File &resourceFile)
+CtrlrPanelResourceType CtrlrPanelResourceManager::guessType(const File &resourceFile)
 {
 	// Image ?
 	Image image = ImageCache::getFromFile (resourceFile);

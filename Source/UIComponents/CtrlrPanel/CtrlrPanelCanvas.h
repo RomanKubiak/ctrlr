@@ -1,39 +1,28 @@
 #ifndef __JUCER_HEADER_CTRLRPANELCANVAS_CTRLRPANELCANVAS_13CAE15F__
 #define __JUCER_HEADER_CTRLRPANELCANVAS_CTRLRPANELCANVAS_13CAE15F__
 
-#include "CtrlrComponentSelection.h"
-#include "CtrlrIDs.h"
-#include "CtrlrPanelCanvasLayer.h"
+#include "CtrlrMacros.h"
 #include "CtrlrWindowManagers/CtrlrChildWindowContent.h"
 
+namespace luabind {
+	class object;
+}
+
 class LookAndFeelBase;
+class CtrlrComponent;
+class CtrlrComponentSelection;
+class CtrlrModulator;
+class CtrlrPanel;
+class CtrlrPanelCanvasLayer;
+class CtrlrLuaMethod;
 
 class CtrlrQuickXmlPreview : public Button::Listener, public Component
 {
 	public:
-		CtrlrQuickXmlPreview(ValueTree &_treeToPreview) : h("Show XML", URL()), treeToPreview(_treeToPreview)
-		{
-			addAndMakeVisible (&h);
-			h.addListener (this);
-			setSize (64,16);
-		}
-
-		void resized()
-		{
-			h.setSize (getWidth(), getHeight());
-		}
-
-		void buttonClicked(Button *)
-		{
-			CodeDocument doc;
-			CodeEditorComponent ed(doc, 0);
-			ScopedPointer <XmlElement> xml(treeToPreview.createXml());
-			doc.replaceAllContent(xml->createDocument(""));
-			ed.setSize (600,600);
-			DialogWindow::showModalDialog ("XML Preview", &ed, this, Colours::white, true, true, true);
-		}
-
-		JUCE_LEAK_DETECTOR(CtrlrQuickXmlPreview)
+		CtrlrQuickXmlPreview(ValueTree &_treeToPreview);
+		void resized();
+		void buttonClicked(Button *);
+		JUCE_LEAK_DETECTOR(CtrlrQuickXmlPreview);
 
 	private:
 		HyperlinkButton h;
@@ -109,7 +98,7 @@ public:
 	CtrlrComponent *addNewComponent (const Identifier &componentType, const Point<int> insertAt, Component *componentToAddTo=0);
 	CtrlrComponent *addNewComponent (const Identifier &componentType, const Rectangle<int> componentBounds);
 	CtrlrComponent *addNewComponent (const ValueTree &savedState, Component *componentToAddTo=0, const bool force=false);
-	CtrlrModulator *addModulator(const Identifier &componentType=Ids::uiNone);
+	CtrlrModulator *addModulator(const Identifier &componentType);
 	void removeModulator(CtrlrModulator *m, const bool sendNotificationForEachElement=true);
 	void removeComponent(CtrlrComponent *c, const bool sendNotificationForEachElement=true);
 	void removeComponentsInGroup(CtrlrComponent *c, const bool sendNotificationForEachElement=true);

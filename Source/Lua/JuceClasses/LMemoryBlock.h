@@ -7,6 +7,10 @@ extern  "C"
 	#include "lua.h"
 }
 
+namespace luabind {
+	class object;
+}
+
 class LMemoryBlock : public MemoryBlock
 {
 	public:

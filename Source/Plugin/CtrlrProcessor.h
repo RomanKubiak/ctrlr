@@ -9,6 +9,7 @@
 
 class CtrlrLog;
 class CtrlrManager;
+class CtrlrMidiMessage;
 
 typedef WeakReference<CtrlrPanelProcessor>	PanelProcessorReference;
 typedef WeakReference<CtrlrModulator> ModulatorReference;
