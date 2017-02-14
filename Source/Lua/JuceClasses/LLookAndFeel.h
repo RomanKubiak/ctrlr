@@ -2,11 +2,7 @@
 #define L_LOOK_AND_FEEL
 
 #include "JuceHeader.h"
-
-namespace luabind {
-	class object;
-}
-
+#include "luabind/object_fwd.hpp"
 
 class LookAndFeelBase : public LookAndFeel_V3
 {

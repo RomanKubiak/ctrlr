@@ -2,10 +2,7 @@
 #define L_ALERT_WINDOW
 
 #include "JuceHeader.h"
-extern  "C"
-{
-	#include "lua.h"
-}
+#include "luabind/object_fwd.hpp"
 
 class LAlertWindow : public AlertWindow
 {

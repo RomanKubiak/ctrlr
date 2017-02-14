@@ -3,10 +3,7 @@
 #include "CtrlrMacros.h"
 #include "CtrlrLog.h"
 #include "CtrlrUtilities.h"
-
-namespace luabind {
-	class object;
-}
+#include "luabind/object_fwd.hpp"
 
 void LAsyncUpdater::handleAsyncUpdate()
 {

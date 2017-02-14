@@ -4,6 +4,7 @@
 #ifdef __cplusplus
 #ifndef __OBJC__
 
+#undef nil
 
 extern "C"
 {

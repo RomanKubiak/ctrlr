@@ -3,10 +3,7 @@
 
 #include "CtrlrMacros.h"
 #include "CtrlrWindowManagers/CtrlrChildWindowContent.h"
-
-namespace luabind {
-	class object;
-}
+#include "luabind/object_fwd.hpp"
 
 class LookAndFeelBase;
 class CtrlrComponent;

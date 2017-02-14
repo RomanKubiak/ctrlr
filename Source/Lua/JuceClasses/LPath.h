@@ -2,15 +2,7 @@
 #define L_PATH
 
 #include "JuceHeader.h"
-extern  "C"
-{
-	#include "lua.h"
-}
-
-namespace luabind {
-	class object;
-}
-
+#include "luabind/object_fwd.hpp"
 
 class LPath
 {

@@ -4,21 +4,13 @@
 #ifdef _WIN32
 #pragma warning(disable:4100)
 #endif // _WIN32
-
-extern "C"
-{
-	#include <lua.h>
-	#include <lualib.h>
-	#include <lauxlib.h>
-}
-
-#include <luabind/config.hpp>
-#include <luabind/class.hpp>
-#include <luabind/function.hpp>
-#include <luabind/open.hpp>
-
 #include "CtrlrMacros.h"
 #include "CtrlrRevision.h"
+#include "luabind/object_fwd.hpp"
+extern "C"
+{
+	#include "lua.h"
+}
 
 class LMemoryBlock;
 /*! \class CtrlrModulator
