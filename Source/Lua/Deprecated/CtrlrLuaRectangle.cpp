@@ -1,5 +1,4 @@
-#include "stdafx.h"
-#include <luabind/luabind.hpp>
+#include "stdafx_luabind.h"
 #include "CtrlrLuaRectangle.h"
 
 CtrlrLuaRectangle::CtrlrLuaRectangle(const Rectangle<int> &_r) : r(_r)

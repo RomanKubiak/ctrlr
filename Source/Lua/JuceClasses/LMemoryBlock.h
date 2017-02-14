@@ -1,15 +1,7 @@
 #ifndef __L_MEMORY_BLOCK__
 #define __L_MEMORY_BLOCK__
 
-#include "JuceHeader.h"
-extern  "C"
-{
-	#include "lua.h"
-}
-
-namespace luabind {
-	class object;
-}
+#include "luabind/object_fwd.hpp"
 
 class LMemoryBlock : public MemoryBlock
 {
@@ -22,10 +14,10 @@ class LMemoryBlock : public MemoryBlock
 		{}
 		LMemoryBlock (const void *dataToInitialiseFrom, size_t sizeInBytes);
 		LMemoryBlock(const String &hexData);
-		LMemoryBlock(luabind::object const& table);
+    LMemoryBlock(::luabind::object const& table);
 		char operator[] (const int offset) const noexcept;
-		void insertIntoTable(luabind::object const& table);
-		void createFromTable(luabind::object const &table);
+    void insertIntoTable(::luabind::object const& table);
+    void createFromTable(::luabind::object const &table);
 		uint8 getByte(const int position) const;
 		//void *getData() { MemoryBlock::getData(); }
 		LMemoryBlock getRange(const int startingPosition, const int numBytes) const;

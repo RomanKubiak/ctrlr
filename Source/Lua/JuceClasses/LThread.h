@@ -2,6 +2,7 @@
 #define L_THREAD_H
 
 #include "JuceHeader.h"
+#include "luabind/object_fwd.hpp"
 extern  "C"
 {
 	#include "lua.h"

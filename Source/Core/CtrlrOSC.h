@@ -3,17 +3,13 @@
 
 #include "CtrlrMacros.h"
 #include "CtrlrLog.h"
-
+#include "luabind/object_fwd.hpp"
 extern "C"
 {
 #include "lo/lo.h"
 }
 
 class LMemoryBlock;
-
-namespace luabind {
-	class object;
-}
 
 struct CtrlrOSCTimetag
 {

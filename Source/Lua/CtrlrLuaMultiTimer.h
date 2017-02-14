@@ -4,12 +4,11 @@
 #ifdef _WIN32
 #pragma warning(disable:4100)
 #endif // _WIN32
-
-#include <luabind/config.hpp>
-#include <luabind/class.hpp>
-#include <luabind/function.hpp>
-#include <luabind/open.hpp>
-#include "Methods/CtrlrLuaMethod.h"
+#include "luabind/object_fwd.hpp"
+extern "C"
+{
+#include "lua.h"
+}
 
 struct LuaTimerCallback
 {

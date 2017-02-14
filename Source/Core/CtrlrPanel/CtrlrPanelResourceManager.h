@@ -41,7 +41,7 @@ class CtrlrPanelResourceManager
 		bool resourceExists(const File &resourceFile);
 		CtrlrPanel &getOwner();
 		static const String getTypeDescription(const CtrlrPanelResourceType type);
-		CtrlrPanelResourceManager::CtrlrPanelResourceType guessType(const File &resourceFile);
+		CtrlrPanelResourceType guessType(const File &resourceFile);
 		static void wrapForLua(lua_State *L);
 		Result restoreState (const ValueTree &savedState);
 		int compareElements(CtrlrPanelResource *first, CtrlrPanelResource *second);

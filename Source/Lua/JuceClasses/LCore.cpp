@@ -4,6 +4,7 @@
 #include "CtrlrMacros.h"
 #include "CtrlrLog.h"
 #include "CtrlrUtilities.h"
+#include "CtrlrManager/CtrlrManager.h"
 
 void LExpression::wrapForLua (lua_State *L)
 {

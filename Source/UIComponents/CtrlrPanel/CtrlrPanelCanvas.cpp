@@ -11,6 +11,7 @@
 #include "CtrlrComponents/Groups/CtrlrTabsComponent.h"
 #include "CtrlrComponents/Groups/CtrlrGroup.h"
 #include "CtrlrPanelCanvasLayer.h"
+#include "JuceClasses/LLookAndFeel.h"
 
 CtrlrPanelCanvas::CtrlrPanelCanvas (CtrlrPanelEditor &_owner)
 	: owner(_owner),

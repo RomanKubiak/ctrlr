@@ -1,8 +1,6 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 static const int zero=0;
 #ifdef __APPLE__
-#include <luabind/luabind.hpp>
-#include "lua.hpp"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrMac.h"
 #include "CtrlrMacros.h"

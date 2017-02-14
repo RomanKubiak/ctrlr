@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "stdafx_luabind.h"
 #include "CtrlrLuaMultiTimer.h"
 #include "CtrlrWindowManagers/CtrlrManagerWindowManager.h"
 
