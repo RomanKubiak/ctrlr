@@ -670,7 +670,7 @@ const String labelFromProperty (CtrlrModulator *modulator, const String &formatT
 	return (ret);
 }
 
-const inline void mergeMidiData(const CtrlrMidiMessage &source, CtrlrMidiMessage &destination)
+const void mergeMidiData(const CtrlrMidiMessage &source, CtrlrMidiMessage &destination)
 {
 	if (source.getNumMessages() != destination.getNumMessages())
 	{
@@ -691,17 +691,17 @@ const inline void mergeMidiData(const CtrlrMidiMessage &source, CtrlrMidiMessage
 	}
 }
 
-inline int getIntValue(const float newValue, const int maxValue)
+int getIntValue(const float newValue, const int maxValue)
 {
 	return (roundFloatToInt(newValue*(float)maxValue));
 }
 
-inline float getFloatValue(const int intValueToUse, const int maxValue)
+float getFloatValue(const int intValueToUse, const int maxValue)
 {
 	return ((float)intValueToUse / (float)maxValue);
 }
 
-inline int	indirectOperation(const int inValue, const CtrlrSysExFormulaToken op)
+int	indirectOperation(const int inValue, const CtrlrSysExFormulaToken op)
 {
 	if (op == LSB7bitValue)
 	{
@@ -725,7 +725,7 @@ inline int	indirectOperation(const int inValue, const CtrlrSysExFormulaToken op)
 	}
 }
 
-inline int indirectReverseOperation(const int inValue, const CtrlrSysExFormulaToken op)
+int indirectReverseOperation(const int inValue, const CtrlrSysExFormulaToken op)
 {
 	BigInteger i(0);
 	if (op == LSB7bitValue)
@@ -754,7 +754,7 @@ inline int indirectReverseOperation(const int inValue, const CtrlrSysExFormulaTo
 	}
 }
 
-const inline BigInteger getValueAsBigInteger(const int inValue, const CtrlrSysExFormulaToken op)
+const BigInteger getValueAsBigInteger(const int inValue, const CtrlrSysExFormulaToken op)
 {
 	BigInteger i(0);
 	if (op == LSB7bitValue)
@@ -783,7 +783,7 @@ const inline BigInteger getValueAsBigInteger(const int inValue, const CtrlrSysEx
 	}
 }
 
-const inline MemoryBlock midiMessagePattern(const CtrlrMidiMessageEx &mEx, const Array<CtrlrSysexToken> tokens, const Array <int, CriticalSection> &globalVariables)
+const MemoryBlock midiMessagePattern(const CtrlrMidiMessageEx &mEx, const Array<CtrlrSysexToken> tokens, const Array <int, CriticalSection> &globalVariables)
 {
 	if (mEx.m.isNoteOff() || mEx.m.isNoteOn())
 	{
@@ -840,7 +840,7 @@ const inline MemoryBlock midiMessagePattern(const CtrlrMidiMessageEx &mEx, const
 	return (MemoryBlock());
 }
 
-inline bool compareMemory(const MemoryBlock &haystack, const MemoryBlock &needle)
+bool compareMemory(const MemoryBlock &haystack, const MemoryBlock &needle)
 {
 	if (haystack.getSize() != needle.getSize())
 		return (false);
@@ -859,14 +859,14 @@ inline bool compareMemory(const MemoryBlock &haystack, const MemoryBlock &needle
 	return (true);
 }
 
-inline const BigInteger memoryToBits(const MemoryBlock &mb)
+const BigInteger memoryToBits(const MemoryBlock &mb)
 {
 	BigInteger bi;
 	bi.loadFromMemoryBlock(mb);
 	return (bi);
 }
 
-inline void channelizeBuffer(MidiBuffer &inputBuffer, MidiBuffer &outputBuffer, const int channel, const bool channelizeAllowed)
+void channelizeBuffer(MidiBuffer &inputBuffer, MidiBuffer &outputBuffer, const int channel, const bool channelizeAllowed)
 {
 	if (channelizeAllowed == false)
 	{
@@ -885,14 +885,14 @@ inline void channelizeBuffer(MidiBuffer &inputBuffer, MidiBuffer &outputBuffer, 
 	}
 }
 
-inline float normalizeValue(const double& value, const double& minValue, const double& maxValue)
+float normalizeValue(const double& value, const double& minValue, const double& maxValue)
 {
 	// jassert(maxValue > minValue);
 	// jassert(normalized >= 0.0f && normalized <= 1.0f);
 	return ((float)((value - minValue) / (maxValue - minValue)));
 }
 
-inline double denormalizeValue(const float& normalized, const double& minValue, const double& maxValue)
+double denormalizeValue(const float& normalized, const double& minValue, const double& maxValue)
 {
 	// jassert(normalized >= 0.0f && normalized <= 1.0f);
 	// jassert(maxValue > minValue);
@@ -920,7 +920,7 @@ void restoreProperties(const ValueTree &sourceTree, ValueTree &destinationTree, 
 	}
 }
 
-inline int add_file_and_line(lua_State* L)
+int add_file_and_line(lua_State* L)
 {
 	lua_Debug d;
 	if (lua_getstack(L, 1, &d) == 1)
@@ -955,7 +955,7 @@ inline int add_file_and_line(lua_State* L)
 	}
 }
 
-inline bool isInvalidMethodName(const String &name)
+bool isInvalidMethodName(const String &name)
 {
 	if (name.isEmpty() || name == COMBO_NONE_ITEM)
 		return (true);
@@ -963,7 +963,7 @@ inline bool isInvalidMethodName(const String &name)
 	return (false);
 }
 
-const inline MemoryBlock luaArrayTomemoryBlock(const luabind::object &luaArray)
+const MemoryBlock luaArrayTomemoryBlock(const luabind::object &luaArray)
 {
 	MemoryBlock bl;
 	if (luaArray.is_valid() && luabind::type(luaArray) == LUA_TTABLE)
@@ -978,7 +978,7 @@ const inline MemoryBlock luaArrayTomemoryBlock(const luabind::object &luaArray)
 	return (bl);
 }
 
-inline Array<float> luaArrayToFloat(const luabind::object &luaArray)
+Array<float> luaArrayToFloat(const luabind::object &luaArray)
 {
 	Array<float> data;
 
@@ -993,34 +993,34 @@ inline Array<float> luaArrayToFloat(const luabind::object &luaArray)
 	return (data);
 }
 
-const inline MemoryBlock stringToMemoryBlock(const String &stringToConvert)
+const MemoryBlock stringToMemoryBlock(const String &stringToConvert)
 {
 	return (MemoryBlock(stringToConvert.toUTF8().getAddress(), strlen(stringToConvert.toUTF8())));
 }
 
-const inline MemoryBlock hexStringToMemoryBlock(const String &hexData)
+const MemoryBlock hexStringToMemoryBlock(const String &hexData)
 {
 	MemoryBlock bl(hexData.length() / 2, true);
 	bl.loadFromHexString(hexData);
 	return (bl);
 }
 
-const inline String memoryBlockToString(const MemoryBlock &data)
+const String memoryBlockToString(const MemoryBlock &data)
 {
 	return (String::toHexString(data.getData(), data.getSize(), 1));
 }
 
-const inline String dumpMemoryBlock(const MemoryBlock &data)
+const String dumpMemoryBlock(const MemoryBlock &data)
 {
 	return (memoryBlockToString(data));
 }
 
-inline bool stringIsHexadecimal(const String &hexData)
+bool stringIsHexadecimal(const String &hexData)
 {
 	return hexData.isNotEmpty() && hexData.containsOnly("abcdefABCDEF0123456789 ");
 }
 
-const inline String versionNumberToString(const int versionNumber)
+const String versionNumberToString(const int versionNumber)
 {
 	int patch = versionNumber % 100;
 	int minor = versionNumber / 100 % 1000;
@@ -1029,7 +1029,7 @@ const inline String versionNumberToString(const int versionNumber)
 	return (STR(major) + "." + STR(minor) + "." + STR(patch));
 }
 
-const inline String versionNumberToString2(const int versionNumber)
+const String versionNumberToString2(const int versionNumber)
 {
 	int minor = versionNumber % 100 / 10;
 	int major = versionNumber / 100;
@@ -1037,7 +1037,7 @@ const inline String versionNumberToString2(const int versionNumber)
 	return (STR(major) + "." + STR(minor));
 }
 
-const inline MemoryBlock signData(const MemoryBlock &dataToSign, const RSAKey keyToSign)
+const MemoryBlock signData(const MemoryBlock &dataToSign, const RSAKey keyToSign)
 {
 	BigInteger md5DataAsBigInteger;
 	md5DataAsBigInteger.loadFromMemoryBlock(MD5(dataToSign).getRawChecksumData());
@@ -1046,7 +1046,7 @@ const inline MemoryBlock signData(const MemoryBlock &dataToSign, const RSAKey ke
 	return (md5DataAsBigInteger.toMemoryBlock());
 }
 
-inline int getVersionAsHexInteger(const String version)
+int getVersionAsHexInteger(const String version)
 {
 	const StringArray segments = StringArray::fromTokens(version, ".", "\"'");
 
