@@ -1,6 +1,10 @@
 #ifndef CTRLR_MIDI_FILTER_H
 #define CTRLR_MIDI_FILTER_H
 
+#include "CtrlrMacros.h"
+#include "CtrlrMidiMessage.h"
+#include "CtrlrIDs.h"
+
 class CtrlrMIDIFilter
 {
 	public:

@@ -51,16 +51,16 @@ double evaluateFormulaFunction (CtrlrPanel &panel, const String& functionName, c
 
 class CtrlrUInt16;
 int getVersionAsHexInteger(const String version);
-const inline MemoryBlock signData(const MemoryBlock &dataToSign, const RSAKey keyToSign);
-static const inline String versionNumberToString2(const int versionNumber);
-static const inline String versionNumberToString(const int versionNumber);
+const MemoryBlock signData(const MemoryBlock &dataToSign, const RSAKey keyToSign);
+static const String versionNumberToString2(const int versionNumber);
+static const String versionNumberToString(const int versionNumber);
 bool stringIsHexadecimal(const String &hexData);
-static const inline String dumpMemoryBlock(const MemoryBlock &data);
-const inline String memoryBlockToString(const MemoryBlock &data);
-static const inline MemoryBlock hexStringToMemoryBlock(const String &hexData);
-static const inline MemoryBlock stringToMemoryBlock(const String &stringToConvert);
+static const String dumpMemoryBlock(const MemoryBlock &data);
+const String memoryBlockToString(const MemoryBlock &data);
+static const MemoryBlock hexStringToMemoryBlock(const String &hexData);
+static const MemoryBlock stringToMemoryBlock(const String &stringToConvert);
 Array<float> luaArrayToFloat(const luabind::object &luaArray);
-const inline MemoryBlock luaArrayTomemoryBlock(const luabind::object &luaArray);
+const MemoryBlock luaArrayTomemoryBlock(const luabind::object &luaArray);
 bool isInvalidMethodName(const String &name);
 int add_file_and_line(lua_State* L);
 double denormalizeValue(const float& normalized, const double& minValue, const double& maxValue);
@@ -68,13 +68,13 @@ float normalizeValue(const double& value, const double& minValue, const double& 
 void channelizeBuffer(MidiBuffer &inputBuffer, MidiBuffer &outputBuffer, const int channel, const bool channelizeAllowed);
 const BigInteger memoryToBits(const MemoryBlock &mb);
 bool compareMemory(const MemoryBlock &haystack, const MemoryBlock &needle);
-const inline MemoryBlock midiMessagePattern(const CtrlrMidiMessageEx &mEx, const Array<CtrlrSysexToken> tokens, const Array <int, CriticalSection> &globalVariables);
-const inline BigInteger getValueAsBigInteger(const int inValue, const CtrlrSysExFormulaToken op);
+const MemoryBlock midiMessagePattern(const CtrlrMidiMessageEx &mEx, const Array<CtrlrSysexToken> tokens, const Array <int, CriticalSection> &globalVariables);
+const BigInteger getValueAsBigInteger(const int inValue, const CtrlrSysExFormulaToken op);
 int indirectReverseOperation(const int inValue, const CtrlrSysExFormulaToken op);
 int	indirectOperation(const int inValue, const CtrlrSysExFormulaToken op);
-static inline float getFloatValue(const int intValueToUse, const int maxValue);
-static inline int getIntValue(const float newValue, const int maxValue);
-const inline void mergeMidiData(const CtrlrMidiMessage &source, CtrlrMidiMessage &destination);
+static float getFloatValue(const int intValueToUse, const int maxValue);
+static int getIntValue(const float newValue, const int maxValue);
+const void mergeMidiData(const CtrlrMidiMessage &source, CtrlrMidiMessage &destination);
 void restoreProperties(const ValueTree &sourceTree, ValueTree &destinationTree, UndoManager *undoManager = 0, const String &propertyPrefix = String::empty);
 
 #endif

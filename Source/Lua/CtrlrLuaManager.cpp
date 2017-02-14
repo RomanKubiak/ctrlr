@@ -235,7 +235,6 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrValueMap::wrapForLua (L);
 	CtrlrModulator::wrapForLua (L);
 	CtrlrPanel::wrapForLua (L);
-	CtrlrMidiInputComparator::wrapForLua (L);
 	CtrlrMidiMessage::wrapForLua (L);
 	CtrlrLuaUtils::wrapForLua (L);
 	CtrlrPanelEditor::wrapForLua (L);
