@@ -145,16 +145,6 @@ CtrlrLuaMethodFind::~CtrlrLuaMethodFind()
     //[/Destructor]
 }
 
-//==============================================================================
-void CtrlrLuaMethodFind::paint (Graphics& g)
-{
-    //[UserPrePaint] Add your own custom painting code here..
-	drawDefaultWindowBackground(g,getWidth(),getHeight());
-    //[/UserPrePaint]
-
-    //[UserPaint] Add your own custom painting code here..
-    //[/UserPaint]
-}
 
 void CtrlrLuaMethodFind::resized()
 {

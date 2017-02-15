@@ -28,11 +28,6 @@ public:
         setVisible (false);
     }
 
-	void paint(Graphics &g)
-	{
-		drawDefaultWindowBackground(g,getWidth(),getHeight());
-	}
-
 private:
     TooltipWindow tooltip;
     JUCE_DECLARE_NON_COPYABLE (CtrlrTempDialogWindow);

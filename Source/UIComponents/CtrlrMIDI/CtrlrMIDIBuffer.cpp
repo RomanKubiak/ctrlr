@@ -573,8 +573,8 @@ void CtrlrMIDIBuffer::loadTextFile(const File fileToOpen)
 		lastFile = fileToOpen;
 	}
 
-    MemoryBlock data;
-	data.loadFromHexString (lastFile.loadFileAsString());
+    MemoryBlock tmp;
+	tmp.loadFromHexString (lastFile.loadFileAsString());
 	reloadEditor (lastFile.loadFileAsString(), true);
 }
 

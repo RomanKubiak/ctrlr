@@ -48,8 +48,6 @@ public:
     static void showDialog(CtrlrPanel &_owner);
     uint8 getType() { return (CtrlrPanelWindowManager::MIDISettings); }
     //[/UserMethods]
-
-    void paint (Graphics& g);
     void resized();
 
 

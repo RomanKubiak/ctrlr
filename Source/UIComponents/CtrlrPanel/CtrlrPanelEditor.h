@@ -75,7 +75,6 @@ class CtrlrPanelEditor  :	public Component,
 		static void wrapForLua (lua_State *L);
 		ValueTree &getObjectTree()																		{ return (panelEditorTree); }
 		void initSingleInstance();
-		void paint (Graphics& g);
 		void resized();
 		void visibilityChanged();
 		void notify(const String &notification, CtrlrNotificationCallback *callback, const CtrlrNotificationType ctrlrNotificationType = NotifyInformation);

@@ -29,6 +29,8 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{AD9FFFDE-F7EE-C624-5C11-B9A140EE7547}</ProjectGuid>
     <PlatformToolset>v140_xp</PlatformToolset>
+    <WindowsTargetPlatformVersion>
+    </WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -73,7 +75,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\..\..\..\..\Bin\VST\$(Platform)$(NATIVE_ARCH)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\</OutDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Ctrlr-VST-Debug-$(Platform)$(NATIVE_ARCH)</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Ctrlr-VST-Debug-$(Platform)$(NATIVE_ARCH)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
@@ -374,7 +376,6 @@
     <ClCompile Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelFileOperations.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDIInputThread.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDISnapshot.cpp" />
-    <ClCompile Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelOSC.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelProcessor.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResource.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResourceManager.cpp" />
@@ -391,12 +392,10 @@
     <ClCompile Include="..\..\..\Source\Core\CtrlrIDManager.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrLog.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrMasterClock.cpp" />
-    <ClCompile Include="..\..\..\Source\Core\CtrlrOSC.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrProperties.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrSysexProcessor.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrSysexProcessorOwned.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrSysexToken.cpp" />
-    <ClCompile Include="..\..\..\Source\Core\CtrlrUpdateManager.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrUtilities.cpp" />
     <ClCompile Include="..\..\..\Source\Core\CtrlrUtilitiesGUI.cpp" />
     <ClCompile Include="..\..\..\Source\Core\stdafx.cpp">
@@ -469,208 +468,7 @@
     <ClCompile Include="..\..\..\Source\MIDI\CtrlrMidiMessage.cpp" />
     <ClCompile Include="..\..\..\Source\MIDI\CtrlrMidiMessageEx.cpp" />
     <ClCompile Include="..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp" />
-    <ClCompile Include="..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp" />
     <ClCompile Include="..\..\..\Source\Misc\keys.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\address.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\blob.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\bundle.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\message.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\method.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\pattern_match.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\send.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\server.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\timetag.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">NotUsing</PrecompiledHeader>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">
-      </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\version.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">NotUsing</PrecompiledHeader>
@@ -1610,7 +1408,6 @@
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.cpp" />
-    <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDevices.cpp" />
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDialog.cpp" />
@@ -3656,7 +3453,6 @@
     <ClInclude Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanel.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDIInputThread.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDISnapshot.h" />
-    <ClInclude Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelOSC.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelProcessor.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResource.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelResourceManager.h" />
@@ -3676,13 +3472,11 @@
     <ClInclude Include="..\..\..\Source\Core\CtrlrMacros.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrMainPage.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrMasterClock.h" />
-    <ClInclude Include="..\..\..\Source\Core\CtrlrOSC.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrProperties.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrRevision.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrSysexProcessor.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrSysexProcessorOwned.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrSysexToken.h" />
-    <ClInclude Include="..\..\..\Source\Core\CtrlrUpdateManager.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrUtilities.h" />
     <ClInclude Include="..\..\..\Source\Core\CtrlrUtilitiesGUI.h" />
     <ClInclude Include="..\..\..\Source\Core\dxtrans.h" />
@@ -3780,26 +3574,10 @@
     <ClInclude Include="..\..\..\Source\MIDI\CtrlrMidiMessage.h" />
     <ClInclude Include="..\..\..\Source\MIDI\CtrlrMidiMessageEx.h" />
     <ClInclude Include="..\..\..\Source\MIDI\CtrlrOwnedMidiMessage.h" />
-    <ClInclude Include="..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h" />
     <ClInclude Include="..\..\..\Source\Misc\include\inttypes.h" />
     <ClInclude Include="..\..\..\Source\Misc\include\juce_PluginHostType.h" />
     <ClInclude Include="..\..\..\Source\Misc\include\keys.h" />
     <ClInclude Include="..\..\..\Source\Misc\include\libr.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_config_linux.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_config_osx.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_config_win32.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_cpp.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_endian.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_errors.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_internal.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_lowlevel.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_macros.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_osc_types.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_serverthread.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_throw.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_types.h" />
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_types_internal.h" />
     <ClInclude Include="..\..\..\Source\Misc\libusb\include\compat.h" />
     <ClInclude Include="..\..\..\Source\Misc\libusb\include\darwin_usb.h" />
     <ClInclude Include="..\..\..\Source\Misc\libusb\include\enums.h" />
@@ -3964,7 +3742,6 @@
     <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.h" />
     <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.h" />
     <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.h" />
-    <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.h" />
     <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIMon.h" />
     <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDevices.h" />
     <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDISettingsDialog.h" />
@@ -4672,10 +4449,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Source\Core\CtrlrRevision.template" />
-    <None Include="..\..\..\Source\Misc\liblo\include\lo\lo_endian.h.in" />
-    <None Include="..\..\..\Source\Misc\liblo\include\lo\Makefile" />
-    <None Include="..\..\..\Source\Misc\liblo\include\lo\Makefile.am" />
-    <None Include="..\..\..\Source\Misc\liblo\include\lo\Makefile.in" />
     <None Include="..\..\..\Source\Resources\Fonts\FONT_60sekuntia.ttf" />
     <None Include="..\..\..\Source\Resources\Fonts\FONT_Computerfont.ttf" />
     <None Include="..\..\..\Source\Resources\Fonts\FONT_Digit.ttf" />

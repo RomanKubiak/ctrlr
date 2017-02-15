@@ -29,11 +29,6 @@ CtrlrChildWindow::~CtrlrChildWindow()
 	}
 }
 
-void CtrlrChildWindow::paint (Graphics& g)
-{
-	drawDefaultWindowBackground (g,getWidth(),getHeight());
-}
-
 void CtrlrChildWindow::resized()
 {
 	DocumentWindow::resized();

@@ -157,11 +157,6 @@ void CtrlrPanelEditor::visibilityChanged()
 {
 }
 
-void CtrlrPanelEditor::paint (Graphics& g)
-{
-	drawDefaultWindowBackground (g,getWidth(),getHeight());
-}
-
 void CtrlrPanelEditor::resized()
 {
     ctrlrPanelViewport->setBounds 	(0, 				0, 	getWidth() - 308, 	getHeight());

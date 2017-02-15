@@ -431,9 +431,9 @@ const Array<Range<int> > CtrlrLuaMethodCodeEditor::searchForMatchesInDocument(Co
 	return (results);
 }
 
-void CtrlrLuaMethodCodeEditor::reportFoundMatch (CodeDocument &document, const String &methodName, const Range<int> range)
+void CtrlrLuaMethodCodeEditor::reportFoundMatch (CodeDocument &doc, const String &methodName, const Range<int> range)
 {
-	CodeDocument::Position pos (document, range.getStart());
+	CodeDocument::Position pos (doc, range.getStart());
 	AttributedString as;
 	as.append ("Method: ", Colours::black);
 	as.append (methodName, Colours::blue);
