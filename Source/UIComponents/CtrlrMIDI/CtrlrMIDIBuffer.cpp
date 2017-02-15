@@ -744,11 +744,6 @@ LMemoryBlock CtrlrMIDIBuffer::processFormula(const String &formula)
 	m.setProperty (Ids::midiMessageSysExFormula, formula);
 	return (m.getData());
 }
-
-CtrlrMIDILibrary &CtrlrMIDIBuffer::getLibrary()
-{
-	return (owner.getCtrlrMIDILibrary());
-}
 //[/MiscUserCode]
 
 

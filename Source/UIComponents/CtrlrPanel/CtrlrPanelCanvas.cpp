@@ -1056,8 +1056,8 @@ void CtrlrPanelCanvas::filesDropped (const StringArray &files, int x, int y)
             }
             else
             {
-                Image i = ImageFileFormat::loadFrom(f);
-                if (i != Image::null)
+                Image img = ImageFileFormat::loadFrom(f);
+                if (img != Image::null)
                 {
                     importImage (f, x, y);
                 }
@@ -1124,10 +1124,10 @@ void CtrlrPanelCanvas::importComponent (const File &componentFile, int x, int y)
 	ScopedPointer <FileInputStream> fileInputStream(componentFile.createInputStream());
 	if (fileInputStream)
 	{
-		ValueTree componentTree = ValueTree::readFromStream(*fileInputStream);
-		if (componentTree.isValid())
+		ValueTree cTree = ValueTree::readFromStream(*fileInputStream);
+		if (cTree.isValid())
 		{
-			CtrlrComponent *c = addNewComponent (componentTree);
+			CtrlrComponent *c = addNewComponent (cTree);
 			if (c)
 			{
 				c->setTopLeftPosition (x,y);

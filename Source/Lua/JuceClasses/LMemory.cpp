@@ -359,9 +359,9 @@ bool LThread::setPriority(int priority)
 	return (Thread::setPriority(priority));
 }
 
-void LThread::setAffinityMask(int affinityMask)
+void LThread::setAffinityMask(int affMask)
 {
-	Thread::setAffinityMask(affinityMask);
+	Thread::setAffinityMask(affMask);
 }
 
 bool LThread::wait(int timeOutMilliseconds) const

@@ -40,16 +40,16 @@ void CtrlrComponentResizableBorder::paint (Graphics &g)
 	ResizableBorderComponent::paint (g);
 }
 
-void CtrlrComponentResizableBorder::drawResizableFrame (Graphics& g, int w, int h, const BorderSize<int> &borderSize)
+void CtrlrComponentResizableBorder::drawResizableFrame (Graphics& g, int w, int h, const BorderSize<int> &bSize)
 {
 	g.setColour (Colours::orange.withAlpha (0.4f));
-	g.fillRect (0, 0, w, borderSize.getTop());
-	g.fillRect (0, 0, borderSize.getLeft(), h);
-	g.fillRect (0, h - borderSize.getBottom(), w, borderSize.getBottom());
-	g.fillRect (w - borderSize.getRight(), 0, borderSize.getRight(), h);
-	g.drawRect (borderSize.getLeft() - 1, borderSize.getTop() - 1,
-				w - borderSize.getRight() - borderSize.getLeft() + 2,
-				h - borderSize.getTop() - borderSize.getBottom() + 2);
+	g.fillRect (0, 0, w, bSize.getTop());
+	g.fillRect (0, 0, bSize.getLeft(), h);
+	g.fillRect (0, h - bSize.getBottom(), w, bSize.getBottom());
+	g.fillRect (w - bSize.getRight(), 0, bSize.getRight(), h);
+	g.drawRect (bSize.getLeft() - 1, bSize.getTop() - 1,
+				w - bSize.getRight() - bSize.getLeft() + 2,
+				h - bSize.getTop() - bSize.getBottom() + 2);
 }
 
 /** */

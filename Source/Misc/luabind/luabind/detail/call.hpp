@@ -125,16 +125,16 @@ int maybe_yield(lua_State* L, int results, Policies*)
 
 inline int sum_scores(int const* first, int const* last)
 {
-    int result = 0;
+    int result_local = 0;
 
     for (; first != last; ++first)
     {
         if (*first < 0)
             return *first;
-        result += *first;
+		result_local += *first;
     }
 
-    return result;
+    return result_local;
 }
 
 #  define LUABIND_INVOKE_NEXT_ITER(n) \

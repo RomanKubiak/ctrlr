@@ -21,17 +21,17 @@ class LFile : public File
 
 		bool replaceWithData (const LMemoryBlock &dataToWrite)
 		{
-			return (File::replaceWithData (dataToWrite.getData(), dataToWrite.getSize()));
+			return (File::replaceWithData (dataToWrite.getData(), (size_t)dataToWrite.getSize()));
 		}
 
         bool appendData (const LMemoryBlock &dataToAppend)
         {
-            return (File::appendData (dataToAppend.getData(), dataToAppend.getSize()));
+            return (File::appendData (dataToAppend.getData(), (size_t)dataToAppend.getSize()));
         }
 
 		static const String descriptionOfSizeInBytes(const double fileSize)
 		{
-			return (File::descriptionOfSizeInBytes (fileSize));
+			return (File::descriptionOfSizeInBytes ((juce::int64)fileSize));
 		}
 
 		bool isValid();

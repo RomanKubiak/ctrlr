@@ -6,7 +6,6 @@
 #include "CtrlrPanel/CtrlrPanelResourceManager.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"
 #include "CtrlrProcessor.h"
-#include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "CtrlrMacros.h"
 #include "CtrlrManager/CtrlrManager.h"
 

@@ -3,7 +3,6 @@
 #include "CtrlrAbout.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 
 class CtrlrMenuSlider : public PopupMenu::CustomComponent, public LookAndFeel_V3
 {
@@ -53,17 +52,17 @@ class CtrlrMenuSlider : public PopupMenu::CustomComponent, public LookAndFeel_V3
 			overlay.setBounds (getBounds());
 		}
 
-		Label* createSliderTextBox (Slider& slider)
+		Label* createSliderTextBox (Slider& s)
 		{
 			Label* const l = new Label();
 			l->setFont(LookAndFeel::getDefaultLookAndFeel().getPopupMenuFont().getHeight());
 			l->setJustificationType (Justification::centred);
-			l->setColour (Label::textColourId, slider.findColour (Slider::textBoxTextColourId));
-			l->setColour (Label::backgroundColourId, (slider.getSliderStyle() == Slider::LinearBar) ? Colours::transparentBlack : slider.findColour (Slider::textBoxBackgroundColourId));
-			l->setColour (Label::outlineColourId, slider.findColour (Slider::textBoxOutlineColourId));
-			l->setColour (TextEditor::textColourId, slider.findColour (Slider::textBoxTextColourId));
-			l->setColour (TextEditor::backgroundColourId, slider.findColour (Slider::textBoxBackgroundColourId).withAlpha (slider.getSliderStyle() == Slider::LinearBar ? 0.7f : 1.0f));
-			l->setColour (TextEditor::outlineColourId, slider.findColour (Slider::textBoxOutlineColourId));
+			l->setColour (Label::textColourId, s.findColour (Slider::textBoxTextColourId));
+			l->setColour (Label::backgroundColourId, (s.getSliderStyle() == Slider::LinearBar) ? Colours::transparentBlack : s.findColour (Slider::textBoxBackgroundColourId));
+			l->setColour (Label::outlineColourId, s.findColour (Slider::textBoxOutlineColourId));
+			l->setColour (TextEditor::textColourId, s.findColour (Slider::textBoxTextColourId));
+			l->setColour (TextEditor::backgroundColourId, s.findColour (Slider::textBoxBackgroundColourId).withAlpha (s.getSliderStyle() == Slider::LinearBar ? 0.7f : 1.0f));
+			l->setColour (TextEditor::outlineColourId, s.findColour (Slider::textBoxOutlineColourId));
 			return l;
 		}
 

@@ -2,7 +2,6 @@
 #include "CtrlrLuaManager.h"
 #include "CtrlrLog.h"
 #include "CtrlrPanel/CtrlrPanel.h"
-#include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
@@ -570,7 +569,6 @@ void CtrlrPanel::wrapForLua (lua_State *L)
 			.def("getModulatorValuesAsData", (LMemoryBlock (CtrlrPanel::*)(const ValueTree &, const String &, const CtrlrByteEncoding, const int, const bool))&CtrlrPanel::getModulatorValuesAsData)
 			.def("getModulatorValuesAsData", (LMemoryBlock (CtrlrPanel::*)(const String &, const CtrlrByteEncoding, const int, const int, const int, const bool))&CtrlrPanel::getModulatorValuesAsData)
 			.def("setModulatorValuesFromData", &CtrlrPanel::setModulatorValuesFromData)
-			.def("getCtrlrMIDILibrary", &CtrlrPanel::getCtrlrMIDILibrary)
 			.def("dumpDebugData", &CtrlrPanel::dumpDebugData)
 			.enum_("CtrlrPanelFileType")
 			[

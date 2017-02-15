@@ -30,7 +30,6 @@ class CtrlrLuaManager;
 class CtrlrPanelEditor;
 class CtrlrMidiProgramEditor;
 class CtrlrPanelCanvas;
-class CtrlrMIDILibrary;
 class CtrlrToggleButton;
 class CtrlrImageButton;
 class CtrlrButton;
@@ -42,7 +41,6 @@ class CtrlrSlider;
 class CtrlrFixedImageSlider;
 class CtrlrImageSlider;
 class CtrlrFixedSlider;
-class CtrlrPanelOSC;
 
 //==============================================================================
 /** @brief Class that represents a Ctrlr Panel
@@ -115,7 +113,6 @@ class CtrlrPanel:	public ValueTree::Listener,
 
 		void changeListenerCallback (ChangeBroadcaster* source);
 		void editorDeleted();
-		CtrlrMIDILibrary &getCtrlrMIDILibrary();
 
 		void sendMidi (const MidiBuffer &buffer, double millisecondCounterToStartAt=0);
 		void sendMidi (const MidiMessage &message, double millisecondCounterToStartAt=0);
@@ -322,7 +319,6 @@ class CtrlrPanel:	public ValueTree::Listener,
 		CtrlrManager &owner;
 		OwnedArray <CtrlrModulator,CriticalSection> ctrlrModulators;
 		Array <ComponentReference> radioGrouppedComponent;
-		ScopedPointer <CtrlrMIDILibrary> ctrlrMIDILibrary;
 		Array <int,CriticalSection> globalVariables;
 		WeakReference <CtrlrLuaMethod>
 			luaPanelMidiReceivedCbk,
@@ -352,7 +348,6 @@ class CtrlrPanel:	public ValueTree::Listener,
 		Array <int,CriticalSection> panelResources;
 		CtrlrPanelResourceManager resourceManager;
 		HashMap<String,CtrlrModulator*> modulatorsByName;
-		ScopedPointer <CtrlrPanelOSC> ctrlrPanelOSC;
 		Array<CtrlrMidiMessage,CriticalSection,4> multiMidiQueue;
 		Array<MemoryBlock,CriticalSection> partialMidiQueue;
 };

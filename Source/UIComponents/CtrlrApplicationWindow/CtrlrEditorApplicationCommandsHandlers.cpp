@@ -3,7 +3,6 @@
 #include "CtrlrAbout.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "CtrlrWindowManagers/CtrlrDialogWindow.h"
 #include "CtrlrMIDI/CtrlrMIDISettingsDialog.h"
 class CtrlrKeyGenerator : public ThreadWithProgressWindow
@@ -224,7 +223,7 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			break;
 
 		case doSnapshotStore:
-			if (getActivePanel()) getActivePanel()->getCtrlrMIDILibrary().snapshot();
+			// if (getActivePanel()) getActivePanel()->getCtrlrMIDILibrary().snapshot();
 			break;
 
 		case showBufferEditor:
@@ -400,7 +399,7 @@ void CtrlrEditor::performProgramChange(const int menuItemID)
 {
 	if (isPanelActive())
 	{
-		getActivePanel()->getCtrlrMIDILibrary().setProgram (menuItemID);
+		// getActivePanel()->getCtrlrMIDILibrary().setProgram (menuItemID);
 	}
 }
 

@@ -11,6 +11,10 @@ extern "C"
 #include "lua.h"
 };
 
+#pragma warning(disable:4913)
+#pragma warning(disable:4459)
+#pragma warning(disable:4297)
+
 #include <luabind/config.hpp>
 #include <luabind/class.hpp>
 #include <luabind/function.hpp>

@@ -20,7 +20,6 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 		audioThumbnailCache(256),
 		ctrlrPlayerInstanceMode(InstanceMulti),
 		ctrlrManagerRestoring(false),
-		updateManager(*this),
 		invalidModulator(nullptr),
 		nullPanel(nullptr),
 		ctrlrFontManager(nullptr)
@@ -70,8 +69,6 @@ void CtrlrManager::setDefaults()
 
 	setProperty (Ids::ctrlrLogToFile, false);
 	setProperty (Ids::ctrlrLuaDebug, false);
-	setProperty (Ids::ctrlrCheckForUpdates, false);
-	setProperty (Ids::ctrlrUpdateUrl, "http://ctrlr.org/update/");
 	setProperty (Ids::ctrlrVersionSeparator, "_");
 	setProperty (Ids::ctrlrVersionCompressed, false);
 	setProperty (Ids::ctrlrMidiMonInputBufferSize, 8192);

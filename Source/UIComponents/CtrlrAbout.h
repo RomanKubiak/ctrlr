@@ -22,8 +22,6 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrUpdateManager.h"
-
 //[/Headers]
 
 

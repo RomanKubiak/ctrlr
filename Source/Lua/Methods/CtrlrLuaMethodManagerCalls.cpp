@@ -57,7 +57,7 @@ catch (luabind::error &e)\
 catch (luabind::error &e)\
 {\
 	o->setValid(false);\
-	String lastExecutionError = String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))));\
+	lastExecutionError = String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))));\
 	_LERR("Callback error: [" + o->getName() + "]\n" + lastExecutionError.fromLastOccurrenceOf("Error message:\n",false,false) + ".\nMethod disabled");\
 	if (currentMethodEditor)\
 		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \

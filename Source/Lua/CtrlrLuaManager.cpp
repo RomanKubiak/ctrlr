@@ -12,7 +12,6 @@
 #include "CtrlrMidiInputComparator.h"
 #include "CtrlrPanel/CtrlrPanelResourceManager.h"
 #include "MIDI/CtrlrMidiInputComparator.h"
-#include "MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "CtrlrComponents/Specials/CtrlrWaveform.h"
 #include "CtrlrComponents/Specials/CtrlrListBox.h"
@@ -36,7 +35,6 @@
 #include "CtrlrLuaMultiTimer.h"
 #include "CtrlrLuaAudioConverter.h"
 #include "CtrlrLuaDebugger.h"
-#include "CtrlrOSC.h"
 
 // Deprecated classes
 #include "Deprecated/CtrlrLuaBigInteger.h"
@@ -248,7 +246,6 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrLuaRectangle::wrapForLua (L);
 	CtrlrLuaComponentAnimator::wrapForLua (L);
 	CtrlrComponent::wrapForLua (L);
-	CtrlrMIDILibrary::wrapForLua (L);
 	CtrlrMIDIDevice::wrapForLua (L);
 	CtrlrMIDIDeviceManager::wrapForLua (L);
 
@@ -267,7 +264,6 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrFixedSlider::wrapForLua (L);
 	CtrlrSlider::wrapForLua (L);
 	CtrlrGroup::wrapForLua (L);
-	CtrlrOSC::wrapForLua (L);
 }
 
 void CtrlrLuaManager::assignDefaultObjects(lua_State* L)
@@ -279,7 +275,6 @@ void CtrlrLuaManager::assignDefaultObjects(lua_State* L)
 	luabind::globals(L)["atc"]						= &owner.getCtrlrManagerOwner().getAudioThumbnailCache();
 	luabind::globals(L)["converter"]				= audioConverter;
 	luabind::globals(L)["resources"]				= &owner.getResourceManager();
-	luabind::globals(L)["library"]					= &owner.getCtrlrMIDILibrary();
 	luabind::globals(L)["native"]                   = CtrlrNative::getNativeObject(owner.getCtrlrManagerOwner());
 	luabind::globals(L)["devices"]                  = &owner.getCtrlrManagerOwner().getCtrlrMIDIDeviceManager();
 }

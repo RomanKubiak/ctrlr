@@ -5,7 +5,6 @@
 #include "Native/CtrlrNative.h"
 #include "CtrlrApplicationWindow/CtrlrDocumentPanel.h"
 #include "CtrlrMIDIDeviceManager.h"
-#include "CtrlrUpdateManager.h"
 #include "CtrlrSysexProcessorOwned.h"
 #include "CtrlrWindowManagers/CtrlrManagerWindowManager.h"
 #include "CtrlrManagerVst.h"
@@ -269,7 +268,6 @@ class CtrlrManager :    public ValueTree::Listener,
 		void handleAsyncUpdate();
 		void doUpdatePositionInfo(const AudioPlayHead::CurrentPositionInfo newTime);
 		void updatePositionInfo(const AudioPlayHead::CurrentPositionInfo newTime);
-		CtrlrUpdateManager &getUpdateManager();
 		CtrlrNative &getNativeObject()																			{ return (*ctrlrNativeObject); }
 		void openPanelFromFile(Component *componentToAttachMenu);
 		CtrlrPanel *getPanelByUid(const String &uid);
@@ -335,7 +333,6 @@ class CtrlrManager :    public ValueTree::Listener,
 		ValueTree ctrlrPlayerInstanceTree;
 		ValueTree ctrlrPlayerInstanceResources;
 		CtrlrLookAndFeel *ctrlrLookAndFeel;
-		CtrlrUpdateManager updateManager;
 		CtrlrModulator *invalidModulator;
 		RSAKey ctrlrMasterPrivateKey, ctrlrMasterPublicKey;
 		WeakReference <CtrlrLuaMethod> luaCtrlrSaveState, luaCtrlrRestoreState;

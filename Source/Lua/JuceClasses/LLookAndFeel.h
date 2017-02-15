@@ -44,13 +44,13 @@ class LookAndFeelBase : public LookAndFeel_V3
 		const Drawable* getDefaultFolderImage ();
 		const Drawable* getDefaultDocumentFileImage ();
 		AttributedString createFileChooserHeaderText (const String &title, const String &instructions);
-		void drawFileBrowserRow (Graphics &g, int width, int height, const String &filename, Image* icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &directoryContentsDisplayComponent);
+		//void drawFileBrowserRow (Graphics &g, int width, int height, const String &filename, Image* icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &directoryContentsDisplayComponent);
 		Button* createFileBrowserGoUpButton ();
 		void layoutFileBrowserComponent (FileBrowserComponent &fileBrowserComponent, DirectoryContentsDisplayComponent *directoryContentsDisplayComponent, FilePreviewComponent *filePreviewComponent, ComboBox *comboBox, TextEditor *textEditor, Button *goUpButton);
 		void drawBubble (Graphics &g, BubbleComponent &bubbleComponent, const Point<float> &tip, const Rectangle<float> &body);
 		void drawLasso (Graphics &g, Component &component);
 		void drawPopupMenuBackground (Graphics &g, int width, int height);
-		void drawPopupMenuItem (Graphics &g, const Rectangle<int> &areaInt, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* drawableIcon, const Colour *textColourPtr);
+		//void drawPopupMenuItem (Graphics &g, const Rectangle<int> &areaInt, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* drawableIcon, const Colour *textColourPtr);
 		Font getPopupMenuFont ();
 		void drawPopupMenuUpDownArrow (Graphics &g, int width, int height, bool isScrollUpArrow);
 		void getIdealPopupMenuItemSize (const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight);
