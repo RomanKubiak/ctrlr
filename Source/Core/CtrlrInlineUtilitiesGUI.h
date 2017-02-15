@@ -39,20 +39,4 @@ static const inline void drawSelectionRectangle (Graphics &g, int x, int y, int 
 	g.strokePath (outline, PathStrokeType (1.0f));
 }
 
-static const inline void drawCtrlrMenuBarBackground (Graphics &g, int width, int height, const bool isMouseOver, const Colour c1, const Colour c2)
-{
-	ColourGradient cg(c1, 0.0f, 0.0f, c2, 0.0f, (float)height, false);
-	g.setGradientFill (cg);
-	g.fillRect (0.0f, 0.0f, (float)width, (float)height);
-	g.setColour (c2.darker (0.7f));
-	g.drawRect (0.0f, (float)height - 1.0f, (float)width, 1.0f, 1.0f);
-}
-
-static const inline void drawDefaultWindowBackground(Graphics &g, int w, int h)
-{
-	Image bg	= ImageCache::getFromMemory (BinaryData::tile_gif, BinaryData::tile_gifSize);
-	g.setTiledImageFill (bg, 0,0,1.0);
-	g.fillAll ();
-}
-
 #endif

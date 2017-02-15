@@ -58,8 +58,6 @@ public:
 	const Array<Range<int> > searchForMatchesInDocument(CodeDocument &doc);
 	void reportFoundMatch (CodeDocument &document, const String &methodName, const Range<int> range);
     //[/UserMethods]
-
-    void paint (Graphics& g);
     void resized();
     void buttonClicked (Button* buttonThatWasClicked);
     void comboBoxChanged (ComboBox* comboBoxThatHasChanged);

@@ -324,7 +324,7 @@ int CtrlrMenuBarLookAndFeel::getMenuWindowFlags()
 
 void CtrlrMenuBarLookAndFeel::drawMenuBarBackground (Graphics &g, int width, int height, bool isMouseOverBar, MenuBarComponent &menuBar)
 {
-	drawCtrlrMenuBarBackground (g, width, height, isMouseOverBar, getColour(Ids::ctrlrMenuBarBackgroundColour1), getColour(Ids::ctrlrMenuBarBackgroundColour2));
+	// drawCtrlrMenuBarBackground (g, width, height, isMouseOverBar, getColour(Ids::ctrlrMenuBarBackgroundColour1), getColour(Ids::ctrlrMenuBarBackgroundColour2));
 }
 
 int CtrlrMenuBarLookAndFeel::getMenuBarItemWidth (MenuBarComponent &menuBar, int itemIndex, const String &itemText)

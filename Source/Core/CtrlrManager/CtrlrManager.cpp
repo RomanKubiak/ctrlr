@@ -17,6 +17,7 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 		ctrlrMidiDeviceManager(*this),
 		ctrlrDocumentPanel(nullptr),
 		ctrlrManagerVst(nullptr),
+		ctrlrLookAndFeel(nullptr),
 		audioThumbnailCache(256),
 		ctrlrPlayerInstanceMode(InstanceMulti),
 		ctrlrManagerRestoring(false),
@@ -33,8 +34,8 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 	nullPanel				= new CtrlrPanel(*this);
 	nullModulator			= new CtrlrModulator (*nullPanel);
     ctrlrFontManager        = new CtrlrFontManager (*this);
-	ctrlrLookAndFeel		= new CtrlrLookAndFeel(*this);
-	LookAndFeel::setDefaultLookAndFeel(getCtrlrLookAndFeel());
+	//ctrlrLookAndFeel		= new CtrlrLookAndFeel(*this);
+	//LookAndFeel::setDefaultLookAndFeel(getCtrlrLookAndFeel());
 }
 
 CtrlrManager::~CtrlrManager()

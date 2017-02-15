@@ -29,7 +29,6 @@ class CtrlrChildWindow  : public DocumentWindow, public KeyListener
 		void closeButtonPressed();
 		void moved();
 		bool keyPressed (const KeyPress &key, Component *originatingComponent);
-		void paint (Graphics& g);
 		void resized();
 		void enablementChanged();
 

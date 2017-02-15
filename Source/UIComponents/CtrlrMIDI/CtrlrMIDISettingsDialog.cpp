@@ -68,17 +68,6 @@ CtrlrMIDISettingsDialog::~CtrlrMIDISettingsDialog()
     //[/Destructor]
 }
 
-//==============================================================================
-void CtrlrMIDISettingsDialog::paint (Graphics& g)
-{
-    //[UserPrePaint] Add your own custom painting code here..
-    drawDefaultWindowBackground (g,getWidth(),getHeight());
-    //[/UserPrePaint]
-
-    //[UserPaint] Add your own custom painting code here..
-    //[/UserPaint]
-}
-
 void CtrlrMIDISettingsDialog::resized()
 {
     //[UserPreResize] Add your own custom resize code here..
