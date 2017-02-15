@@ -691,16 +691,6 @@ const void mergeMidiData(const CtrlrMidiMessage &source, CtrlrMidiMessage &desti
 	}
 }
 
-int getIntValue(const float newValue, const int maxValue)
-{
-	return (roundFloatToInt(newValue*(float)maxValue));
-}
-
-float getFloatValue(const int intValueToUse, const int maxValue)
-{
-	return ((float)intValueToUse / (float)maxValue);
-}
-
 int	indirectOperation(const int inValue, const CtrlrSysExFormulaToken op)
 {
 	if (op == LSB7bitValue)
@@ -993,48 +983,14 @@ Array<float> luaArrayToFloat(const luabind::object &luaArray)
 	return (data);
 }
 
-const MemoryBlock stringToMemoryBlock(const String &stringToConvert)
-{
-	return (MemoryBlock(stringToConvert.toUTF8().getAddress(), strlen(stringToConvert.toUTF8())));
-}
-
-const MemoryBlock hexStringToMemoryBlock(const String &hexData)
-{
-	MemoryBlock bl(hexData.length() / 2, true);
-	bl.loadFromHexString(hexData);
-	return (bl);
-}
-
 const String memoryBlockToString(const MemoryBlock &data)
 {
 	return (String::toHexString(data.getData(), data.getSize(), 1));
 }
 
-const String dumpMemoryBlock(const MemoryBlock &data)
-{
-	return (memoryBlockToString(data));
-}
-
 bool stringIsHexadecimal(const String &hexData)
 {
 	return hexData.isNotEmpty() && hexData.containsOnly("abcdefABCDEF0123456789 ");
-}
-
-const String versionNumberToString(const int versionNumber)
-{
-	int patch = versionNumber % 100;
-	int minor = versionNumber / 100 % 1000;
-	int major = versionNumber / 100000;
-
-	return (STR(major) + "." + STR(minor) + "." + STR(patch));
-}
-
-const String versionNumberToString2(const int versionNumber)
-{
-	int minor = versionNumber % 100 / 10;
-	int major = versionNumber / 100;
-
-	return (STR(major) + "." + STR(minor));
 }
 
 const MemoryBlock signData(const MemoryBlock &dataToSign, const RSAKey keyToSign)

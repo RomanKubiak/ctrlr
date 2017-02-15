@@ -44,7 +44,6 @@ class CtrlrPanelResourceManager
 		CtrlrPanelResourceType guessType(const File &resourceFile);
 		static void wrapForLua(lua_State *L);
 		Result restoreState (const ValueTree &savedState);
-		int compareElements(CtrlrPanelResource *first, CtrlrPanelResource *second);
 		Array <CtrlrPanelResource*> getResourcesCopy();
 		ValueTree &getManagerTree() { return (managerTree); }
 		void restoreSavedState (const ValueTree &savedState);

@@ -1,10 +1,8 @@
 #include "stdafx.h"
-#include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "CtrlrLuaManager.h"
 #include "CtrlrPanel.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrProcessor.h"
-#include "CtrlrMIDI/CtrlrMIDILibraryEditor.h"
 #include "CtrlrMacros.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrLog.h"
@@ -12,7 +10,6 @@
 #include "CtrlrComponents/CtrlrComponentTypeManager.h"
 #include "JuceClasses/LMemoryBlock.h"
 #include "CtrlrMIDI/CtrlrMIDISettingsDialog.h"
-#include "CtrlrPanelOSC.h"
 #include "CtrlrComponents/CtrlrComponent.h"
 
 CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
@@ -27,8 +24,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		resourceManager(*this),
 		midiInputThread(*this, inputDevice),
 		midiControllerInputThread(*this, controllerDevice),
-		ctrlrLuaManager(nullptr),
-		ctrlrPanelOSC(nullptr)
+		ctrlrLuaManager(nullptr)
 {
 }
 
@@ -45,20 +41,16 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 		midiInputThread(*this, inputDevice),
 		midiControllerInputThread(*this, controllerDevice),
 		restoreStateStatus(true),
-		ctrlrMIDILibrary(nullptr),
 		ctrlrLuaManager(0),
 		ctrlrPanelEditor(nullptr),
 		initialProgram(Ids::panelState),
 		boostrapStateStatus(false),
 		outputDevicePtr(nullptr),
-		ctrlrPanelUndoManager(nullptr),
-		ctrlrPanelOSC(nullptr)
+		ctrlrPanelUndoManager(nullptr)
 
 {
 	ctrlrPanelUndoManager	= new CtrlrPanelUndoManager(*this);
 	ctrlrLuaManager 		= new CtrlrLuaManager(*this);
-	ctrlrMIDILibrary 		= new CtrlrMIDILibrary(*this);
-	ctrlrPanelOSC			= new CtrlrPanelOSC(*this);
 
 	if ((bool)getCtrlrManagerOwner().getProperty (Ids::ctrlrLuaDisabled) == false)
 	{
@@ -69,13 +61,11 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 
 	getUndoManager()->beginNewTransaction ("Panel::ctor");
 	setProperty (Ids::name, panelName);
-	panelTree.addChild (ctrlrMIDILibrary->getObjectTree(), -1, 0);
 	panelTree.addChild (ctrlrLuaManager->getLuaManagerTree(), -1, 0);
 	panelTree.addChild (panelWindowManager.getManagerTree(), -1, 0);
 	panelTree.addChild (resourceManager.getManagerTree(), -1, 0);
 
 	panelTree.addListener (this);
-	panelTree.addListener (ctrlrPanelOSC);
 
 	setProperty (Ids::panelScheme, CTRLR_PANEL_SCHEME);
 	setProperty (Ids::panelShowDialogs, true);
@@ -204,11 +194,6 @@ CtrlrPanel::~CtrlrPanel()
 	owner.getManagerTree().removeChild (panelTree, 0);
 }
 
-CtrlrMIDILibrary &CtrlrPanel::getCtrlrMIDILibrary()
-{
-	return (*ctrlrMIDILibrary);
-}
-
 void CtrlrPanel::setRestoreState(const bool _restoreStateStatus)
 {
 	const ScopedWriteLock lock (panelLock);
@@ -284,10 +269,6 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 	if (savedState.getChildWithName(Ids::uiPanelEditor).isValid())
 	{
 		getEditor(true)->restoreState(savedState);
-	}
-	if (savedState.getChildWithName(Ids::midiLibrary).isValid())
-	{
-		getCtrlrMIDILibrary().restoreState(savedState.getChildWithName(Ids::midiLibrary));
 	}
 	if (savedState.getChildWithName(Ids::uiWindowManager).isValid())
 	{

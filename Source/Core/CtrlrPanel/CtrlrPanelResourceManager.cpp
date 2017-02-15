@@ -28,9 +28,6 @@ void CtrlrPanelResourceManager::panelUIDChanged()
 
 void CtrlrPanelResourceManager::restoreSavedState (const ValueTree &savedState)
 {
-	// _DBG("CtrlrPanelResourceManager::restoreSavedState");
-	// _DBG(dumpTree(savedState));
-
 	for (int i=0; i<savedState.getNumChildren(); i++)
 	{
 		if (savedState.getChild(i).hasType(Ids::resource))
@@ -234,9 +231,6 @@ Result CtrlrPanelResourceManager::importResource (const ValueTree &resourceTree)
 					return (Result::fail("ImportResource can't replace file contents with new data, resource: "+resourceDest.getFullPathName()));
 				}
 
-				// resources.add (new CtrlrPanelResource (*this, resourceDest, File (resourceTree.getProperty(Ids::resourceSourceFile)), resourceTree.getProperty(Ids::resourceName)));
-				// resourceHashCodes.add (resources.getLast()->getHashCode());
-
 				addResource (resourceDest, resourceTree.getProperty(Ids::resourceName));
 				return (Result::ok());
 			}
@@ -255,8 +249,6 @@ Result CtrlrPanelResourceManager::importResource (const ValueTree &resourceTree)
 
 Result CtrlrPanelResourceManager::addResource (const File &source, const String &name)
 {
-	// _DBG("CtrlrPanelResourceManager::addResource");
-
 	if ((bool)owner.getCtrlrManagerOwner().getProperty(Ids::ctrlrOverwriteResources) == false)
 	{
 		if (getResource (source.getFileNameWithoutExtension()))
@@ -340,28 +332,28 @@ void CtrlrPanelResourceManager::wrapForLua(lua_State *L)
 	module(L)
     [
 		class_<CtrlrPanelResource>("CtrlrPanelResource")
-			.def("asImage", &CtrlrPanelResource::asImage)
-			.def("asText", &CtrlrPanelResource::asText)
-			.def("asFont", &CtrlrPanelResource::asFont)
-			.def("asXml", &CtrlrPanelResource::asXml)
-			.def("asAudioFormat", &CtrlrPanelResource::asAudioFormat)
-			.def("asData", &CtrlrPanelResource::asData)
-			.def("getName", &CtrlrPanelResource::getName)
-			.def("getSize", (double (CtrlrPanelResource::*)() )&CtrlrPanelResource::getSize)
-			.def("getHashCode", &CtrlrPanelResource::getHashCode)
-			.def("load", &CtrlrPanelResource::load)
-			.def("loadIfNeeded", &CtrlrPanelResource::loadIfNeeded)
-			.def("getType", &CtrlrPanelResource::getType)
-			.def("getTypeDescription", &CtrlrPanelResource::getTypeDescription)
-			.def("getFile", &CtrlrPanelResource::getFile)
+			//.def("asImage", &CtrlrPanelResource::asImage)
+			//.def("asText", &CtrlrPanelResource::asText)
+			//.def("asFont", &CtrlrPanelResource::asFont)
+			//.def("asXml", &CtrlrPanelResource::asXml)
+			//.def("asAudioFormat", &CtrlrPanelResource::asAudioFormat)
+			//.def("asData", &CtrlrPanelResource::asData)
+			//.def("getName", &CtrlrPanelResource::getName)
+			//.def("getSize", (double (CtrlrPanelResource::*)() )&CtrlrPanelResource::getSize)
+			//.def("getHashCode", &CtrlrPanelResource::getHashCode)
+			//.def("load", &CtrlrPanelResource::load)
+			//.def("loadIfNeeded", &CtrlrPanelResource::loadIfNeeded)
+			//.def("getType", &CtrlrPanelResource::getType)
+			//.def("getTypeDescription", &CtrlrPanelResource::getTypeDescription)
+			//.def("getFile", &CtrlrPanelResource::getFile)
 		,
 		class_<CtrlrPanelResourceManager>("CtrlrPanelResourceManager")
-			.def("getResource", (CtrlrPanelResource *(CtrlrPanelResourceManager::*)(const int))&CtrlrPanelResourceManager::getResource)
-			.def("getResource", (CtrlrPanelResource *(CtrlrPanelResourceManager::*)(const String &))&CtrlrPanelResourceManager::getResource)
-			.def("getNumResources", &CtrlrPanelResourceManager::getNumResources)
-			.def("getResourceIndex", &CtrlrPanelResourceManager::getResourceIndex)
-			.def("getResourceAsImage", &CtrlrPanelResourceManager::getResourceAsImage)
-			.def("getResourceAsFont", &CtrlrPanelResourceManager::getResourceAsFont)
+			//.def("getResource", (CtrlrPanelResource *(CtrlrPanelResourceManager::*)(const int))&CtrlrPanelResourceManager::getResource)
+			//.def("getResource", (CtrlrPanelResource *(CtrlrPanelResourceManager::*)(const String &))&CtrlrPanelResourceManager::getResource)
+			//.def("getNumResources", &CtrlrPanelResourceManager::getNumResources)
+			//.def("getResourceIndex", &CtrlrPanelResourceManager::getResourceIndex)
+			//.def("getResourceAsImage", &CtrlrPanelResourceManager::getResourceAsImage)
+			//.def("getResourceAsFont", &CtrlrPanelResourceManager::getResourceAsFont)
 	];
 }
 

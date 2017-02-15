@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
-#include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "CtrlrLog.h"
 #include "CtrlrEditor.h"
 #include "CtrlrProcessor.h"

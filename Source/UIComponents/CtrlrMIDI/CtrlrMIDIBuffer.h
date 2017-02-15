@@ -21,7 +21,6 @@
 #define __JUCE_HEADER_16DA51FEAFD7A9F8__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 #include "JuceClasses/LMemoryBlock.h"
 class CtrlrMIDIBuffer;
 
@@ -140,7 +139,6 @@ public:
 	const File browseForFile(const String &mask);
 	void restoreState(const ValueTree &savedState);
 	void loadFromProgram(const String &direction, const String &type);
-	CtrlrMIDILibrary &getLibrary();
 	LMemoryBlock processFormula(const String &formula);
     //[/UserMethods]
 

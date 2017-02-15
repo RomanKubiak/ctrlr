@@ -677,8 +677,6 @@
   <id name="ctrlrUseEditorWrapper"            text="Use the Editor Wrapper for VST plugins" type="Bool"/>
   <id name="ctrlrVersionSeparator"            text="Version field separator" type="Text"/>
   <id name="ctrlrVersionCompressed"           text="Save versioned panels compressed" type="Bool"/>
-  <id name="ctrlrUpdateUrl"                   text="URL used to check for new Ctrlr versions" type="Text"/>
-  <id name="ctrlrCheckForUpdates"             text="Automatic updates check" type="Bool"/>
   <id name="ctrlrVstFile"                     text="VST File" type="FileProperty" />
   <id name="ctrlrAuFile"                      text="AU File"  type="FileProperty" />
   <id name="ctrlrAppFile"                     text="APP File" type="FileProperty" />

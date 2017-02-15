@@ -61,9 +61,6 @@
     <Filter Include="Ctrlr_Standalone\MIDI">
       <UniqueIdentifier>{ED612DD3-8C08-39A9-9744-B903BC8C5CE2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ctrlr_Standalone\MIDI\CtrlrMIDILibrary">
-      <UniqueIdentifier>{36FFF611-B927-90E5-366D-48B1C0B621CE}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Ctrlr_Standalone\Misc">
       <UniqueIdentifier>{6225657A-EC77-DB30-7594-A9927C4BE0B8}</UniqueIdentifier>
     </Filter>
@@ -463,9 +460,6 @@
     <Filter Include="Juce Library Code">
       <UniqueIdentifier>{8B4D1BAA-6DB4-CAEC-A0FA-271F354D5C61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ctrlr_Standalone\Misc\liblo">
-      <UniqueIdentifier>{c9225dee-dd93-438f-8331-3e18c921a6ef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Ctrlr_Standalone\Misc\luabind">
       <UniqueIdentifier>{748f84cf-c6a4-411a-a989-80081de3eba0}</UniqueIdentifier>
     </Filter>
@@ -496,20 +490,11 @@
     <Filter Include="Ctrlr_Standalone\Misc\luabind\src">
       <UniqueIdentifier>{28eb9361-3862-45a4-82d8-f810f69b271b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ctrlr_Standalone\Misc\liblo\src">
-      <UniqueIdentifier>{87bc50e5-2d0f-41cf-9906-73abfd7739a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr_Standalone\Misc\liblo\include">
-      <UniqueIdentifier>{b92afb72-cd65-4694-a785-38f46c042a30}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Ctrlr_Standalone\Misc\luabind\luabind\detail">
       <UniqueIdentifier>{90e2e0a1-a43e-4c5b-a097-f0e8dec86665}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Source\Core\CtrlrOSC.cpp">
-      <Filter>Ctrlr_Standalone\Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Source\Core\CtrlrUtilitiesGUI.cpp">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClCompile>
@@ -539,9 +524,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Source\Core\CtrlrModulator\CtrlrModulatorProcessor.cpp">
       <Filter>Ctrlr_Standalone\Core\CtrlrModulator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelOSC.cpp">
-      <Filter>Ctrlr_Standalone\Core\CtrlrPanel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelUndoManager.cpp">
       <Filter>Ctrlr_Standalone\Core\CtrlrPanel</Filter>
@@ -577,9 +559,6 @@
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\Core\CtrlrSysexToken.cpp">
-      <Filter>Ctrlr_Standalone\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Core\CtrlrUpdateManager.cpp">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\Core\CtrlrUtilities.cpp">
@@ -692,9 +671,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Source\MIDI\CtrlrMidiInputComparatorSingle.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.cpp">
-      <Filter>Ctrlr_Standalone\MIDI\CtrlrMIDILibrary</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\MIDI\CtrlrMidiMessage.cpp">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
@@ -892,9 +868,6 @@
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.cpp">
-      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.cpp">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.cpp">
@@ -2682,36 +2655,6 @@
     <ClCompile Include="..\..\..\Source\Misc\luabind\src\wrapper_base.cpp">
       <Filter>Ctrlr_Standalone\Misc\luabind\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\address.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\blob.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\bundle.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\message.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\method.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\pattern_match.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\send.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\server.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\timetag.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Source\Misc\liblo\src\version.c">
-      <Filter>Ctrlr_Standalone\Misc\liblo\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Source\Misc\keys.cpp">
       <Filter>Ctrlr_Standalone\Misc</Filter>
     </ClCompile>
@@ -2780,9 +2723,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Source\Core\CtrlrOSC.h">
-      <Filter>Ctrlr_Standalone\Core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Source\Core\CtrlrInlineUtilitiesGUI.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
@@ -2825,9 +2765,6 @@
     <ClInclude Include="..\..\..\Source\Core\CtrlrModulator\CtrlrModulatorProcessor.h">
       <Filter>Ctrlr_Standalone\Core\CtrlrModulator</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelOSC.h">
-      <Filter>Ctrlr_Standalone\Core\CtrlrPanel</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Source\Core\CtrlrPanel\CtrlrPanelUndoManager.h">
       <Filter>Ctrlr_Standalone\Core\CtrlrPanel</Filter>
     </ClInclude>
@@ -2862,9 +2799,6 @@
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Source\Core\CtrlrSysexToken.h">
-      <Filter>Ctrlr_Standalone\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Core\CtrlrUpdateManager.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Source\Core\CtrlrUtilities.h">
@@ -3146,9 +3080,6 @@
     <ClInclude Include="..\..\..\Source\MIDI\CtrlrMidiInputComparatorTypes.h">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Source\MIDI\CtrlrMIDILibrary\CtrlrMIDILibrary.h">
-      <Filter>Ctrlr_Standalone\MIDI\CtrlrMIDILibrary</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Source\MIDI\CtrlrMidiMessage.h">
       <Filter>Ctrlr_Standalone\MIDI</Filter>
     </ClInclude>
@@ -3342,9 +3273,6 @@
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.h">
-      <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDILibraryEditor.h">
       <Filter>Ctrlr_Standalone\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.h">
@@ -5612,51 +5540,6 @@
     <ClInclude Include="..\..\..\Source\Misc\luabind\luabind\yield_policy.hpp">
       <Filter>Ctrlr_Standalone\Misc\luabind\luabind</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_config_linux.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_config_osx.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_config_win32.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_cpp.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_endian.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_errors.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_internal.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_lowlevel.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_macros.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_osc_types.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_serverthread.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_throw.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_types.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\Misc\liblo\include\lo\lo_types_internal.h">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\juce_audio_basics.h" />
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_devices\juce_audio_devices.h" />
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.h" />
@@ -5893,6 +5776,19 @@
     <ClInclude Include="..\..\..\Source\Core\stdafx_luabind.h">
       <Filter>Ctrlr_Standalone\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\juce_audio_basics.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_devices\juce_audio_devices.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_processors\juce_audio_processors.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_utils\juce_audio_utils.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_core\juce_core.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_cryptography\juce_cryptography.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_data_structures\juce_data_structures.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_events\juce_events.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_graphics\juce_graphics.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.h" />
+    <ClInclude Include="..\..\..\JUCE\modules\juce_opengl\juce_opengl.h" />
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\juce_audio_basics.h" />
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_devices\juce_audio_devices.h" />
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.h" />
@@ -6150,18 +6046,6 @@
     </None>
     <None Include="..\..\..\JUCE\modules\juce_graphics\image_formats\pnglib\libpng_readme.txt">
       <Filter>Juce Modules\juce_graphics\image_formats\pnglib</Filter>
-    </None>
-    <None Include="..\..\..\Source\Misc\liblo\include\lo\lo_endian.h.in">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </None>
-    <None Include="..\..\..\Source\Misc\liblo\include\lo\Makefile">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </None>
-    <None Include="..\..\..\Source\Misc\liblo\include\lo\Makefile.am">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
-    </None>
-    <None Include="..\..\..\Source\Misc\liblo\include\lo\Makefile.in">
-      <Filter>Ctrlr_Standalone\Misc\liblo\include</Filter>
     </None>
   </ItemGroup>
 </Project>

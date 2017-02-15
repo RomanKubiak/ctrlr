@@ -487,12 +487,12 @@ void LComponentPeer::wrapForLua (lua_State *L)
 	];
 }
 
-void LFileListComponent::wrapForLua (lua_State *L)
+void LFileListComponent::wrapForLua (lua_State *)
 {
 	using namespace luabind;
 }
 
-void LFileTreeComponent::wrapForLua (lua_State *L)
+void LFileTreeComponent::wrapForLua (lua_State *)
 {
 	using namespace luabind;
 }
@@ -913,10 +913,12 @@ AttributedString LookAndFeelBase::createFileChooserHeaderText(const String &titl
 	TRY_CALL_RET(createFileChooserHeaderText, AttributedString, AttributedString(title+instructions), title, instructions);
 }
 
+/*
 void LookAndFeelBase::drawFileBrowserRow(Graphics &g, int width, int height, const String &filename, Image* icon, const String &fileSizeDescription, const String &fileTimeDescription, bool isDirectory, bool isItemSelected, int itemIndex, DirectoryContentsDisplayComponent &directoryContentsDisplayComponent)
 {
-//    TRY_CALL(drawFileBrowserRow, boost::ref(g), width, height, filename, icon, fileSizeDescription, fileTimeDescription, isDirectory, isItemSelected, itemIndex, boost::ref(directoryContentsDisplayComponent));
+	TRY_CALL(drawFileBrowserRow, boost::ref(g), width, height, filename, icon, fileSizeDescription, fileTimeDescription, isDirectory, isItemSelected, itemIndex, boost::ref(directoryContentsDisplayComponent));
 }
+*/
 
 Button* LookAndFeelBase::createFileBrowserGoUpButton()
 {
@@ -969,10 +971,12 @@ void LookAndFeelBase::drawPopupMenuBackground(Graphics &g, int width, int height
     TRY_CALL(drawPopupMenuBackground, boost::ref(g), width, height);
 }
 
+/*
 void LookAndFeelBase::drawPopupMenuItem(Graphics &g, const Rectangle<int> &area, bool isSeparator, bool isActive, bool isHighlighted, bool isTicked, bool hasSubMenu, const String &text, const String &shortcutKeyText, const Drawable* icon, const Colour *textColour)
 {
-	//TRY_CALL(drawPopupMenuItem, boost::ref(g),boost::ref(area),isSeparator,isActive,isHighlighted,isTicked,hasSubMenu,text,shortcutKeyText,icon,textColour);
+	TRY_CALL(drawPopupMenuItem, boost::ref(g),boost::ref(area),isSeparator,isActive,isHighlighted,isTicked,hasSubMenu,text,shortcutKeyText,icon,textColour);
 }
+*/
 
 Font LookAndFeelBase::getPopupMenuFont()
 {
@@ -1383,7 +1387,7 @@ void LookAndFeelBase::createTabButtonShape(TabBarButton &tabBarButton, Path &pat
     TRY_CALL(createTabButtonShape, boost::ref(tabBarButton), boost::ref(path), isMouseOver, isMouseDown);
 }
 
-void LookAndFeelBase::fillTabButtonShape(TabBarButton &tabBarButton, Graphics &g, const Path &path, bool isMouseOver, bool isMouseDown)
+void LookAndFeelBase::fillTabButtonShape(TabBarButton &tabBarButton, Graphics &g, const Path &/*path*/, bool isMouseOver, bool isMouseDown)
 {
     TRY_CALL(drawTabButton, boost::ref(tabBarButton), boost::ref(g), isMouseOver, isMouseDown);
 }

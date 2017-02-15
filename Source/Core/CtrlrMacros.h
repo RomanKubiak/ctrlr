@@ -245,14 +245,6 @@ enum CtrlrNotificationType
 	NotifyWarning
 };
 
-enum CtrlrUpdateStatus
-{
-	CheckRunning,
-	CheckFailed,
-	NoUpdate,
-	UpdateAvailable
-};
-
 enum CtrlrByteSplit
 {
 	SplitNone,

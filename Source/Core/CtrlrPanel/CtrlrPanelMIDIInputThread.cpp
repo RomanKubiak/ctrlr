@@ -4,7 +4,6 @@
 #include "CtrlrLog.h"
 #include "CtrlrProcessor.h"
 #include "CtrlrPanelMIDIInputThread.h"
-#include "MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"
 
 CtrlrPanelMIDIInputThread::CtrlrPanelMIDIInputThread(CtrlrPanel &_owner, const CtrlrMIDIDeviceType _source)
 	:	owner(_owner),

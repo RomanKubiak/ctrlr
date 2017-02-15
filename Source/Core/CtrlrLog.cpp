@@ -153,7 +153,7 @@ Colour CtrlrLog::getColourForLevel(const CtrlrLog::LogLevel logLevel)
 			return (Colours::darkmagenta);
 		case kLogLevels:
 		default:
-			return Colours::black;
+			break;
 	}
 
 	return Colours::black;

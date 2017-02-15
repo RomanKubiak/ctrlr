@@ -717,8 +717,6 @@ namespace Ids
 	DECLARE_ID (ctrlrUseEditorWrapper);
 	DECLARE_ID (ctrlrVersionSeparator);
 	DECLARE_ID (ctrlrVersionCompressed);
-	DECLARE_ID (ctrlrUpdateUrl);
-	DECLARE_ID (ctrlrCheckForUpdates);
 	DECLARE_ID (ctrlrMidiMonInputBufferSize);
 	DECLARE_ID (ctrlrMidiMonOutputBufferSize);
 	DECLARE_ID (ctrlrLogMidiInput);

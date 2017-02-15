@@ -233,9 +233,9 @@ void CtrlrAbout::buttonClicked (Button* buttonThatWasClicked)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-void CtrlrAbout::addVersionInfo (const String &componentName, const String &componentVersion)
+void CtrlrAbout::addVersionInfo (const String &name, const String &version)
 {
-	versionInformationArray.set (componentName, componentVersion);
+	versionInformationArray.set (name, version);
 }
 
 void CtrlrAbout::updateVersionLabel()

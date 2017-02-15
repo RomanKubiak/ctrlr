@@ -56,9 +56,9 @@ void CtrlrImageToggleButton::drawToggleButton (Graphics &g, ToggleButton &button
 	CtrlrFilmStripPainter::paint (g, button, isMouseOverButton, isButtonDown);
 }
 
-void CtrlrImageToggleButton::setImage (const Image image, const int frameWidth, const int frameHeight)
+void CtrlrImageToggleButton::setImage (const Image image, const int fWidth, const int fHeight)
 {
-	CtrlrFilmStripPainter::setImage (image, frameWidth, frameHeight);
+	CtrlrFilmStripPainter::setImage (image, fWidth, fHeight);
 }
 
 /**
