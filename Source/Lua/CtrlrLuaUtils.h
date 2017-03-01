@@ -4,9 +4,13 @@
 #ifdef _WIN32
 #pragma warning(disable:4100)
 #endif // _WIN32
+
 #include "CtrlrMacros.h"
 #include "CtrlrRevision.h"
 #include "luabind/object_fwd.hpp"
+
+#include <eh.h> 
+
 extern "C"
 {
 	#include "lua.h"

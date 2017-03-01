@@ -110,6 +110,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/Zm2000 /bigobj</AdditionalOptions>
       <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Sync</ExceptionHandling>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -295,8 +296,9 @@
       <WarningLevel>Level2</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/Yu"stdafx.h" /MP /Fp"stdafx.pch" /Zm2000 /bigobj </AdditionalOptions>
+      <AdditionalOptions>/Zm2000 /bigobj </AdditionalOptions>
       <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>SyncCThrow</ExceptionHandling>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -344,8 +346,9 @@
       <WarningLevel>Level2</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalOptions>/Yu"stdafx.h" /MP /Fp"stdafx.pch" /Zm2000 /bigobj </AdditionalOptions>
+      <AdditionalOptions>/Zm2000 /bigobj </AdditionalOptions>
       <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>SyncCThrow</ExceptionHandling>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -3306,7 +3309,6 @@
     <ClInclude Include="..\..\..\Source\Core\StandaloneWrapper\CtrlrStandaloneWindow.h" />
     <ClInclude Include="..\..\..\Source\Core\stdafx.h" />
     <ClInclude Include="..\..\..\Source\Core\stdafx_luabind.h" />
-    <ClInclude Include="..\..\..\Source\Lua\CtrlrLuabind.h" />
     <ClInclude Include="..\..\..\Source\Lua\JuceClasses\LAffineTransform.h" />
     <ClInclude Include="..\..\..\Source\Lua\JuceClasses\LAlertWindow.h" />
     <ClInclude Include="..\..\..\Source\Lua\JuceClasses\LAsyncUpdater.h" />
@@ -3423,6 +3425,7 @@
     <ClInclude Include="..\..\..\Source\Misc\libusb\include\version_nano.h" />
     <ClInclude Include="..\..\..\Source\Misc\libusb\include\windows_common.h" />
     <ClInclude Include="..\..\..\Source\Misc\libusb\include\windows_usb.h" />
+    <ClInclude Include="..\..\..\Source\Misc\luabind\build_information.hpp" />
     <ClInclude Include="..\..\..\Source\Misc\luabind\luabind\adopt_policy.hpp" />
     <ClInclude Include="..\..\..\Source\Misc\luabind\luabind\back_reference.hpp" />
     <ClInclude Include="..\..\..\Source\Misc\luabind\luabind\back_reference_fwd.hpp" />

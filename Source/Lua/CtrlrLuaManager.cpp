@@ -311,10 +311,10 @@ bool CtrlrLuaManager::runCode (const String &code, const String name)
 		if (luaL_loadbuffer(luaState, code.toUTF8(), std::strlen(code.toUTF8()), name.isEmpty() ? "_runtime" : name.toUTF8())
 			|| lua_pcall(luaState, 0, 0, 0))
 		{
-			//const char* a = lua_tostring(luaState, -1);
-			//_LERR("ERROR: " + String(a));
-			//lastError = "ERROR: " + String(a);
-			//lua_pop(luaState, 1);
+			const char* a = lua_tostring(luaState, -1);
+			_LERR("ERROR: " + String(a));
+			lastError = "ERROR: " + String(a);
+			lua_pop(luaState, 1);
 			return (false);
 		}
 

@@ -79,7 +79,7 @@ namespace luabind
                     rhs.m_called = true;
                 }
 
-                ~proxy_function_caller()
+                ~proxy_function_caller() LUABIND_MAY_THROW
                 {
                     if (m_called) return;
 
@@ -242,7 +242,7 @@ namespace luabind
                     rhs.m_called = true;
                 }
 
-                ~proxy_function_void_caller()
+                ~proxy_function_void_caller() LUABIND_MAY_THROW
                 {
                     if (m_called) return;
 
