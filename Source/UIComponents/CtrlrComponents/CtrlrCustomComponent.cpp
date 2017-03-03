@@ -55,7 +55,7 @@ void CtrlrCustomComponent::paint (Graphics &g)
 
 bool CtrlrCustomComponent::keyPressed (const KeyPress &key, Component *originatingComponent)
 {
-    if (keyPressedCbk && !keyPressedCbk.wasObjectDeleted())
+    if (keyPressedCbk.get())
 	{
 		if (keyPressedCbk->isValid())
 		{

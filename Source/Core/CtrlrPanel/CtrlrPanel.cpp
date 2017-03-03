@@ -314,7 +314,7 @@ void CtrlrPanel::bootstrapPanel(const bool setInitialProgram)
 	if (setInitialProgram)
 		setProgram (initialProgram);
 
-	if (luaPanelLoadedCbk && !luaPanelLoadedCbk.wasObjectDeleted())
+	if (luaPanelLoadedCbk.get())
 	{
 		if (luaPanelLoadedCbk->isValid())
 		{

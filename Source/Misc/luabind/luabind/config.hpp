@@ -28,7 +28,7 @@
 #include <boost/version.hpp>
 #include <boost/detail/workaround.hpp>
 
-// #include <luabind/build_information.hpp>
+#include <build_information.hpp>
 
 #ifdef BOOST_MSVC
     #define LUABIND_ANONYMOUS_FIX static
@@ -133,6 +133,7 @@
 #    define LUABIND_USE_NOEXCEPT
 #endif
 
+/*
 #ifndef LUABIND_MAY_THROW
 #    ifdef BOOST_NOEXCEPT_IF
 #        define LUABIND_MAY_THROW BOOST_NOEXCEPT_IF(false)
@@ -142,6 +143,9 @@
 #       define LUABIND_MAY_THROW
 #    endif
 #endif
+*/
+#define LUABIND_MAY_THROW noexcept(false)
+
 
 #ifndef LUABIND_NOEXCEPT
 #    ifdef BOOST_NOEXCEPT_OR_NOTHROW

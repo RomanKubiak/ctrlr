@@ -232,8 +232,6 @@ void LGlobalFunctions::sleep(const int milliseconds)
     Thread::sleep(milliseconds);
 }
 
-
-
 void LGlobalFunctions::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -242,7 +240,7 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
     [
         def("getNativeKeyMapping", &getNativeKeyMapping)
         ,
-        //def("console", (void (*) (const std::string &)) &LGlobalFunctions::console),
+        def("console", (void (*) (const std::string &)) &LGlobalFunctions::console),
         def("console", (void (*) (const String &)) &LGlobalFunctions::console)
         ,
 		def("J", (const String (*) (const std::string &)) &LGlobalFunctions::toJuceString),

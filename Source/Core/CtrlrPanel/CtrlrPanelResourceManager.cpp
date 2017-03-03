@@ -6,7 +6,6 @@
 #include "CtrlrPanel.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrLog.h"
-#include "CtrlrPanel/CtrlrPanelResourceManager.h"
 
 /** Resource Manager class implementation
 
@@ -332,28 +331,28 @@ void CtrlrPanelResourceManager::wrapForLua(lua_State *L)
 	module(L)
     [
 		class_<CtrlrPanelResource>("CtrlrPanelResource")
-			//.def("asImage", &CtrlrPanelResource::asImage)
-			//.def("asText", &CtrlrPanelResource::asText)
-			//.def("asFont", &CtrlrPanelResource::asFont)
-			//.def("asXml", &CtrlrPanelResource::asXml)
-			//.def("asAudioFormat", &CtrlrPanelResource::asAudioFormat)
-			//.def("asData", &CtrlrPanelResource::asData)
-			//.def("getName", &CtrlrPanelResource::getName)
-			//.def("getSize", (double (CtrlrPanelResource::*)() )&CtrlrPanelResource::getSize)
-			//.def("getHashCode", &CtrlrPanelResource::getHashCode)
-			//.def("load", &CtrlrPanelResource::load)
-			//.def("loadIfNeeded", &CtrlrPanelResource::loadIfNeeded)
-			//.def("getType", &CtrlrPanelResource::getType)
-			//.def("getTypeDescription", &CtrlrPanelResource::getTypeDescription)
-			//.def("getFile", &CtrlrPanelResource::getFile)
+			.def("asImage", &CtrlrPanelResource::asImage)
+			.def("asText", &CtrlrPanelResource::asText)
+			.def("asFont", &CtrlrPanelResource::asFont)
+			.def("asXml", &CtrlrPanelResource::asXml)
+			.def("asAudioFormat", &CtrlrPanelResource::asAudioFormat)
+			.def("asData", &CtrlrPanelResource::asData)
+			.def("getName", &CtrlrPanelResource::getName)
+			.def("getSize", (double (CtrlrPanelResource::*)() )&CtrlrPanelResource::getSize)
+			.def("getHashCode", &CtrlrPanelResource::getHashCode)
+			.def("load", &CtrlrPanelResource::load)
+			.def("loadIfNeeded", &CtrlrPanelResource::loadIfNeeded)
+			.def("getType", &CtrlrPanelResource::getType)
+			.def("getTypeDescription", &CtrlrPanelResource::getTypeDescription)
+			.def("getFile", &CtrlrPanelResource::getFile)
 		,
 		class_<CtrlrPanelResourceManager>("CtrlrPanelResourceManager")
-			//.def("getResource", (CtrlrPanelResource *(CtrlrPanelResourceManager::*)(const int))&CtrlrPanelResourceManager::getResource)
-			//.def("getResource", (CtrlrPanelResource *(CtrlrPanelResourceManager::*)(const String &))&CtrlrPanelResourceManager::getResource)
-			//.def("getNumResources", &CtrlrPanelResourceManager::getNumResources)
-			//.def("getResourceIndex", &CtrlrPanelResourceManager::getResourceIndex)
-			//.def("getResourceAsImage", &CtrlrPanelResourceManager::getResourceAsImage)
-			//.def("getResourceAsFont", &CtrlrPanelResourceManager::getResourceAsFont)
+			.def("getResource", (CtrlrPanelResource *(CtrlrPanelResourceManager::*)(const int))&CtrlrPanelResourceManager::getResource)
+			.def("getResource", (CtrlrPanelResource *(CtrlrPanelResourceManager::*)(const String &))&CtrlrPanelResourceManager::getResource)
+			.def("getNumResources", &CtrlrPanelResourceManager::getNumResources)
+			.def("getResourceIndex", &CtrlrPanelResourceManager::getResourceIndex)
+			.def("getResourceAsImage", &CtrlrPanelResourceManager::getResourceAsImage)
+			.def("getResourceAsFont", &CtrlrPanelResourceManager::getResourceAsFont)
 	];
 }
 
