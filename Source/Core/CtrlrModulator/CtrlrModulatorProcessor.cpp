@@ -46,7 +46,7 @@ void CtrlrModulatorProcessor::handleAsyncUpdate()
 		owner.setProperty (Ids::modulatorValue, currentValue.value);
 	}
 
-	if (valueChangedCbk && !valueChangedCbk.wasObjectDeleted() && !owner.getOwnerPanel().getRestoreState())
+	if (valueChangedCbk.get() && !owner.getOwnerPanel().getRestoreState())
 	{
 		if (valueChangedCbk->isValid())
 		{
