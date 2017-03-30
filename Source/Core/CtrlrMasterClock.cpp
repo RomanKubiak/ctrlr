@@ -68,7 +68,7 @@ bool CtrlrMasterClock::isRunning()
 	return (running);
 }
 
-int CtrlrMasterClock::getElapsedMilliseconds (const int64 ticksStart, const int64 ticksEnd)
+int CtrlrMasterClock::getElapsedMilliseconds (const int64 _ticksStart, const int64 ticksEnd)
 {
-	return ( (( (ticksEnd ? ticksEnd : Time::getHighResolutionTicks()) - ticksStart) * ticksPerSecond) / 1000);
+	return ( (( (ticksEnd ? ticksEnd : Time::getHighResolutionTicks()) - _ticksStart) * ticksPerSecond) / 1000);
 }

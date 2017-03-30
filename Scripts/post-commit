@@ -126,21 +126,21 @@ function windows_copy_to_website {
 function windows_msbuild {	
 	if [ -e "$MSBUILD" ]; then
 		echo "CTRLR: $MSBUILD found"
-		echo cd $CTRLR_ROOT/Builds
-		cd $CTRLR_ROOT/Builds
+		echo cd $CTRLR_ROOT/Builds/Win
+		cd $CTRLR_ROOT/Builds/Win
 		
 		echo "CTRLR: Build Win32"
-		echo "$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=Win32
-		"$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=Win32
+		echo "$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release /property:VisualStudioVersion=14.0 /property:Platform=Win32
+		"$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release /property:VisualStudioVersion=14.0 /property:Platform=Win32
 		
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: Win32 build failed"
 			exit 1
 		fi
 		echo "CTRLR: Build x64"
-		echo "$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x64
+		echo "$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release /property:VisualStudioVersion=14.0 /property:Platform=x64
 		
-		"$MSBUILD" Ctrlr_Release.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release_Nightly /property:VisualStudioVersion=14.0 /property:Platform=x64
+		"$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release /property:VisualStudioVersion=14.0 /property:Platform=x64
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: x64 build failed"
 			exit 1
@@ -409,5 +409,5 @@ function build_now_linux {
 
 detect_os
 #build_now
-#windows_create_installer
-windows_copy_to_website
+windows_create_installer
+#windows_copy_to_website
