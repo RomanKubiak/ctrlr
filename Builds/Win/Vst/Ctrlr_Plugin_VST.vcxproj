@@ -31,6 +31,7 @@
     <PlatformToolset>v140_xp</PlatformToolset>
     <WindowsTargetPlatformVersion>
     </WindowsTargetPlatformVersion>
+    <ProjectName>VST</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -80,8 +81,8 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Ctrlr-VST-Debug-$(Platform)$(NATIVE_ARCH)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Ctrlr-VST-$(Platform)$(NATIVE_ARCH)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Ctrlr-VST-$(Platform)$(NATIVE_ARCH)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Ctrlr-VST-$(Platform)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Ctrlr-VST-$(Platform)</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">Ctrlr-VST-$(Platform)$(NATIVE_ARCH)</TargetName>
@@ -89,6 +90,13 @@
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|Win32'">true</GenerateManifest>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release_Nightly|x64'">true</GenerateManifest>
     <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)-$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(Configuration)-$(Platform)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -102,7 +110,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>../../../JUCE/modules;../../../Source/misc/boost;../../../Source/Lua;../../../Source/Misc/include;../../../Source/MIDI;../../../Source;../../../Source/UIComponents;../../../Source/Core;../../../Source/Plugin;../../../Source/Application;../../../Source/Misc/libusb/include;../../../Source/Misc/liblo/include;../../../Source/Misc/lua/include;../../../Source/Misc/lua/src;../../../Source/Misc/luabind;../../../Source/Misc/juce;../../../Source/Misc/vst;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2015_AE7D5B65=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;JucePlugin_Build_VST;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader />
@@ -151,7 +159,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalIncludeDirectories>../../../JUCE/modules;../../../Source/misc/boost;../../../Source/Lua;../../../Source/Misc/include;../../../Source/MIDI;../../../Source;../../../Source/UIComponents;../../../Source/Core;../../../Source/Plugin;../../../Source/Application;../../../Source/Misc/libusb/include;../../../Source/Misc/liblo/include;../../../Source/Misc/lua/include;../../../Source/Misc/lua/src;../../../Source/Misc/luabind;../../../Source/Misc/juce;../../../Source/Misc/vst;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2015_AE7D5B65=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;JucePlugin_Build_VST;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
@@ -199,7 +207,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <AdditionalIncludeDirectories>../../../JUCE/modules;../../../Source/misc/boost;../../../Source/Lua;../../../Source/Misc/include;../../../Source/MIDI;../../../Source;../../../Source/UIComponents;../../../Source/Core;../../../Source/Plugin;../../../Source/Application;../../../Source/Misc/libusb/include;../../../Source/Misc/liblo/include;../../../Source/Misc/lua/include;../../../Source/Misc/lua/src;../../../Source/Misc/luabind;../../../Source/Misc/juce;../../../Source/Misc/vst;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_AE7D5B65=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;JucePlugin_Build_VST;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader />
@@ -210,12 +218,13 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/MP  /Zm2000 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Ctrlr-VST-$(Platform)$(NATIVE_ARCH).dll</OutputFile>
+      <OutputFile>$(OutDir)\Ctrlr-VST-$(Platform).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -226,6 +235,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalDependencies>iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration />
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -243,7 +253,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <AdditionalIncludeDirectories>../../../JUCE/modules;../../../Source/misc/boost;../../../Source/Lua;../../../Source/Misc/include;../../../Source/MIDI;../../../Source;../../../Source/UIComponents;../../../Source/Core;../../../Source/Plugin;../../../Source/Application;../../../Source/Misc/libusb/include;../../../Source/Misc/liblo/include;../../../Source/Misc/lua/include;../../../Source/Misc/lua/src;../../../Source/Misc/luabind;../../../Source/Misc/juce;../../../Source/Misc/vst;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_AE7D5B65=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;JucePlugin_Build_VST;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
@@ -255,12 +265,13 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/MP  /Zm2000 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\Ctrlr-VST-$(Platform)$(NATIVE_ARCH).dll</OutputFile>
+      <OutputFile>$(OutDir)\Ctrlr-VST-$(Platform).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -270,6 +281,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalDependencies>iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration />
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -287,7 +299,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <AdditionalIncludeDirectories>../../../JUCE/modules;../../../Source/misc/boost;../../../Source/Lua;../../../Source/Misc/include;../../../Source/MIDI;../../../Source;../../../Source/UIComponents;../../../Source/Core;../../../Source/Plugin;../../../Source/Application;../../../Source/Misc/libusb/include;../../../Source/Misc/liblo/include;../../../Source/Misc/lua/include;../../../Source/Misc/lua/src;../../../Source/Misc/luabind;../../../Source/Misc/juce;../../../Source/Misc/vst;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2015_AE7D5B65=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;JucePlugin_Build_VST;NDEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2015_AE7D5B65=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader />
@@ -334,7 +346,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <AdditionalIncludeDirectories>../../../JUCE/modules;../../../Source/misc/boost;../../../Source/Lua;../../../Source/Misc/include;../../../Source/MIDI;../../../Source;../../../Source/UIComponents;../../../Source/Core;../../../Source/Plugin;../../../Source/Application;../../../Source/Misc/libusb/include;../../../Source/Misc/liblo/include;../../../Source/Misc/lua/include;../../../Source/Misc/lua/src;../../../Source/Misc/luabind;../../../Source/Misc/juce;../../../Source/Misc/vst;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2015_AE7D5B65=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;JucePlugin_Build_VST;NDEBUG;CTRLR_NIGHTLY=1;JucePlugin_Build_VST;JUCER_VS2015_AE7D5B65=1;JUCE_APP_VERSION=5.4.0;JUCE_APP_VERSION_HEX=0x50400;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>

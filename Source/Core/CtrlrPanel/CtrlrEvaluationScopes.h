@@ -1,7 +1,7 @@
-#ifndef __CTRLR_EVALUATION_SCOPES__
-#define __CTRLR_EVALUATION_SCOPES__
+#ifndef CTRLR_EVALUATION_SCOPES
+#define CTRLR_EVALUATION_SCOPES
 
-#include "JuceHeader.h"
+#include "CtrlrMacros.h"
 
 class CtrlrPanel;
 
