@@ -104,14 +104,14 @@ SectionGroup /e "Standalone" PROG1
 
 	Section "32bit binary" SEC1
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\Win\Release\Ctrlr-Win32.exe"
+		File			"..\..\Builds\Win\Standalone\Release-Win32\Ctrlr-Win32.exe"
 		WriteUninstaller	"$INSTDIR\Uninstall.exe"
 		Call RegisterApplication
 	SectionEnd
 	
 	Section "64bit binary" SEC2
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\Win\Release\Ctrlr-x64.exe"
+		File			"..\..\Builds\Win\Standalone\Release-x64\Ctrlr-x64.exe"
 		WriteUninstaller	"$INSTDIR\Uninstall.exe"
 		Call RegisterApplication
 	SectionEnd
@@ -137,12 +137,12 @@ SectionGroup /e "VST" PROG2
 
 	Section "Executables Win32" SEC5
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\Win\Release\Ctrlr-VST-Win32.dll"		
+		File			"..\..\Builds\Win\Vst\Release-Win32\Ctrlr-Win32.dll"	
 	SectionEnd
 	
 	Section "Executables x64" SEC6
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\Win\Release\Ctrlr-VST-x64.dll"
+		File			"..\..\Builds\Win\Vst\Release-x64\Ctrlr-x64.dll"
 	SectionEnd
 	
 SectionGroupEnd
