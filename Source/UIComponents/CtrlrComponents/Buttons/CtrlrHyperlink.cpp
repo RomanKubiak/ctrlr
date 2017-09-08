@@ -154,8 +154,18 @@ void CtrlrHyperlink::setComponentText (const String &componentText)
 
 void CtrlrHyperlink::buttonContentChanged()
 {
-	valueMap.copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiButtonContent)));
+	const String buttonContent = getProperty(Ids::uiButtonContent);
+	valueMap.copyFrom (owner.getProcessor().setValueMap (buttonContent));
 	setComponentValue (0, false);
+	if (hyperlinkOpensUrl())
+	{
+		hyperlinkButton->setURL(URL(buttonContent));
+	}
+}
+
+bool CtrlrHyperlink::hyperlinkOpensUrl()
+{
+	return getProperty(Ids::uiHyperlinkOpensUrl);
 }
 
 void CtrlrHyperlink::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
@@ -170,7 +180,7 @@ void CtrlrHyperlink::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	}
 	else if (property == Ids::uiHyperlinkOpensUrl)
     {
-        hyperlinkButton->setURL (getProperty(property) ? URL(getProperty(property)) : URL(String::empty));
+        hyperlinkButton->setURL (hyperlinkOpensUrl() ? URL(getProperty(Ids::uiButtonContent)) : URL(String::empty));
     }
 	else if (property == Ids::uiHyperlinkFont
 		|| property == Ids::uiHyperlinkFitTextToSize
