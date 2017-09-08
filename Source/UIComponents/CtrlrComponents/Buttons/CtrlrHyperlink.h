@@ -28,7 +28,8 @@ public:
 	void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int){}
 	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
 	void buttonContentChanged();
-    //[/UserMethods]
+	bool hyperlinkOpensUrl();
+	//[/UserMethods]
 
     void paint (Graphics& g);
     void resized();
