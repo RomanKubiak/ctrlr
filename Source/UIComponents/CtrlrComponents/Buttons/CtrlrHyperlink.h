@@ -29,6 +29,7 @@ public:
 	void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) {}
 	void buttonContentChanged();
 	bool hyperlinkOpensUrl();
+	void setHyperlinkUrl(const String &newURL);
 	//[/UserMethods]
 
     void paint (Graphics& g);
