@@ -491,7 +491,8 @@
   <id name="uiHyperlinkFitTextToSize"     text="Fit text to size" type="Bool"/>
   <id name="uiHyperlinkTextJustification" text="Text justification" type="VarText" defaults="@justification"/>
   <id name="uiHyperlinkOpensUrl"          text="Should the button actually open the web browser" type="Bool" />
-
+  <id name="uiHyperlinkUrl"               text="Hyperlink URL" type="Text"/>
+  
   <!-- XY Surface -->
   <id name="uiXYSurfaceBgGradientType"                text="Background gradient type"           type="VarNumeric" defaults="@gradient"/>
   <id name="uiXYSurfaceBackgroundColour1"             text="Background colour1"                 type="Colour"/>
