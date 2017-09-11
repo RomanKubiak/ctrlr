@@ -382,6 +382,11 @@ void LModifierKeys::wrapForLua (lua_State *L)
 			.def("getRawFlags", &ModifierKeys::getRawFlags)
 			.def("testFlags", &ModifierKeys::testFlags)
 			.def("getNumMouseButtonsDown", &ModifierKeys::getNumMouseButtonsDown)
+			.scope
+			[
+				def("getCurrentModifiers", &ModifierKeys::getCurrentModifiers),
+				def("getCurrentModifiersRealtime", &ModifierKeys::getCurrentModifiersRealtime)
+			]
 			.enum_("Flags")
 			[
 				value ("shiftModifier", 1),
