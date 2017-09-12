@@ -154,8 +154,20 @@ void CtrlrHyperlink::setComponentText (const String &componentText)
 
 void CtrlrHyperlink::buttonContentChanged()
 {
-	valueMap.copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiButtonContent)));
+	const String buttonContent = getProperty(Ids::uiButtonContent);
+	valueMap.copyFrom (owner.getProcessor().setValueMap (buttonContent));
 	setComponentValue (0, false);
+}
+
+bool CtrlrHyperlink::hyperlinkOpensUrl()
+{
+	return getProperty(Ids::uiHyperlinkOpensUrl);
+}
+
+void CtrlrHyperlink::setHyperlinkUrl(const String& newURL)
+{
+	hyperlinkButton->setURL(URL(newURL));
+	hyperlinkButton->setTooltip(newURL);
 }
 
 void CtrlrHyperlink::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
@@ -170,8 +182,14 @@ void CtrlrHyperlink::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	}
 	else if (property == Ids::uiHyperlinkOpensUrl)
     {
-        hyperlinkButton->setURL (getProperty(property) ? URL(getProperty(property)) : URL(String::empty));
+		setHyperlinkUrl(hyperlinkOpensUrl() ? getProperty(Ids::uiHyperlinkUrl) : String::empty);
     }
+	else if (property == Ids::uiHyperlinkUrl)
+	{
+		if (hyperlinkOpensUrl()) {
+			setHyperlinkUrl(getProperty(Ids::uiHyperlinkUrl));
+		}
+	}
 	else if (property == Ids::uiHyperlinkFont
 		|| property == Ids::uiHyperlinkFitTextToSize
 		|| property == Ids::uiHyperlinkTextJustification)
