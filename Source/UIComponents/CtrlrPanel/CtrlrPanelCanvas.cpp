@@ -299,25 +299,28 @@ void CtrlrPanelCanvas::paste()
 bool CtrlrPanelCanvas::keyPressed (const KeyPress& key, Component* originatingComponent)
 {
 	moveSelectionBy (1, keyPressToDirection(key));
-	if (key == KeyPress::deleteKey)
-	{
-		editMenuDelete();
-		return (true);
-	}
-	if (key.getTextDescription() == "ctrl + C")
-	{
-		copy();
-		return (true);
-	}
-	if (key.getTextDescription() == "ctrl + V")
-	{
-		paste();
-		return (true);
-	}
-	if (key.getTextDescription() == "ctrl + X")
-	{
-		cut();
-		return (true);
+	if (getPanel().getEditMode())
+	{	// Only consume copy/paste shortcuts if edit mode is activated
+		if (key == KeyPress::deleteKey)
+		{
+			editMenuDelete();
+			return (true);
+		}
+		if (key.getTextDescription() == "ctrl + C")
+		{
+			copy();
+			return (true);
+		}
+		if (key.getTextDescription() == "ctrl + V")
+		{
+			paste();
+			return (true);
+		}
+		if (key.getTextDescription() == "ctrl + X")
+		{
+			cut();
+			return (true);
+		}
 	}
     return false;
 }
