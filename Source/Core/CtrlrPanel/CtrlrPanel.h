@@ -162,6 +162,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		static void writePanelXml(OutputStream &outputStream, CtrlrPanel *panel, const bool compressPanel);
 		const String getVersionString(const bool includeVersionName=true, const bool includeTime=true, const String versionSeparator=String::empty);
 		void editModeChanged(const bool isInEditMode);
+		bool getEditMode();
 		const File getPanelDirectory();
 		CtrlrPanelResourceManager &getResourceManager();
 		CtrlrPanelWindowManager &getWindowManager();
@@ -313,7 +314,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		ReadWriteLock panelLock;
 		CtrlrLuaManager *ctrlrLuaManager;
 		double globalMidiDelay;
-		bool restoreStateStatus, boostrapStateStatus, programState;
+		bool restoreStateStatus, boostrapStateStatus, programState, editMode;
 		ListenerList <CtrlrPanel::Listener> listeners;
 		WeakReference<CtrlrPanelEditor> ctrlrPanelEditor;
 		CtrlrManager &owner;
