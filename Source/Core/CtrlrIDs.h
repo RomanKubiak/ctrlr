@@ -526,6 +526,7 @@ namespace Ids
 	DECLARE_ID (uiHyperlinkFitTextToSize);
 	DECLARE_ID (uiHyperlinkTextJustification);
 	DECLARE_ID (uiHyperlinkOpensUrl);
+	DECLARE_ID (uiHyperlinkUrl);
 
 	DECLARE_ID (uiXYSurfaceBgGradientType);
 	DECLARE_ID (uiXYSurfaceBackgroundColour1);
