@@ -910,11 +910,16 @@ int CtrlrPanel::getPanelIndex()
 	return (getProperty(Ids::panelIndex));
 }
 
+bool CtrlrPanel::getEditMode()
+{
+	return editMode;
+}
+
 void CtrlrPanel::editModeChanged(const bool isInEditMode)
 {
 	midiInputThread.panelEditModeChanged (isInEditMode);
     midiControllerInputThread.panelEditModeChanged (isInEditMode);
-
+	editMode = isInEditMode;
 	for (int i=0; i<ctrlrModulators.size(); i++)
 	{
 		if (ctrlrModulators[i]->getComponent())
