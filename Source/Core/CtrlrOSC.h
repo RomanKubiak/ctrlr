@@ -6,7 +6,7 @@
 #include "luabind/object_fwd.hpp"
 extern "C"
 {
-#include "lo/lo.h"
+#include "Misc/liblo/include/lo/lo.h"
 }
 
 class LMemoryBlock;

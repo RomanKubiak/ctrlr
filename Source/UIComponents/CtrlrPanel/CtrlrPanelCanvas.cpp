@@ -99,7 +99,7 @@ void CtrlrPanelCanvas::paint (Graphics& g)
 			}
 
 			g1.setColour (col2.withAlpha (0.35f));
-			g1.setPixel (0, 0);
+			//g1.setPixel (0, 0);
 
 			if (backgroundFill.isValid())
 			{
