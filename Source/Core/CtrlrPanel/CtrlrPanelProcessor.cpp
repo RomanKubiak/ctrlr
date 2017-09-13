@@ -3,7 +3,7 @@
 #include "CtrlrPanelProcessor.h"
 #include "CtrlrLuaManager.h"
 #include "CtrlrPanel.h"
-#include "CtrlrProcessor.h"
+#include "Plugin/CtrlrProcessor.h"
 
 CtrlrPanelProcessor::CtrlrPanelProcessor(CtrlrPanel &_owner) : owner(_owner)
 {

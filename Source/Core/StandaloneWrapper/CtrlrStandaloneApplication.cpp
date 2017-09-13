@@ -70,7 +70,7 @@ class CtrlrApplication : public JUCEApplication
                 {
 					Logger::writeToLog("CTRLR:initialise params \""+commandLineParameters+"\"");
 
-					SystemStats::setApplicationCrashHandler (&CtrlrApplication::crashHandler);
+					SystemStats::setApplicationCrashHandler ((juce::SystemStats::CrashHandlerFunction) &CtrlrApplication::crashHandler);
 
 					if (!commandLineParameters.isEmpty())
 					{

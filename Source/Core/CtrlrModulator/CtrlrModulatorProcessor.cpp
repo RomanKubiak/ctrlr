@@ -6,7 +6,7 @@
 #include "CtrlrUtilities.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrProcessor.h"
+#include "Plugin/CtrlrProcessor.h"
 #include "CtrlrLog.h"
 #include "CtrlrComponents/CtrlrComponent.h"
 

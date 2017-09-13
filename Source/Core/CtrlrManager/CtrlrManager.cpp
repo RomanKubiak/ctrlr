@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CtrlrManager/CtrlrManager.h"
-#include "CtrlrProcessor.h"
+#include "Plugin/CtrlrProcessor.h"
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "CtrlrPanel/CtrlrPanelCanvas.h"
 #include "CtrlrPanel/CtrlrPanel.h"
