@@ -87,7 +87,7 @@ void CtrlrLuaMemoryBlock::append(const uint8 byte)
 
 const int CtrlrLuaMemoryBlock::getSize() const
 {
-	return (mb.getSize());
+	return ((int)mb.getSize());
 }
 
 const String CtrlrLuaMemoryBlock::toString ()
@@ -102,7 +102,7 @@ const String CtrlrLuaMemoryBlock::toSafeString ()
 
 const String CtrlrLuaMemoryBlock::toHexString(const int groupSize) const 
 {
-	return (String::toHexString (mb.getData(), mb.getSize(), groupSize));
+	return (String::toHexString (mb.getData(), (int)mb.getSize(), groupSize));
 }
 
 void CtrlrLuaMemoryBlock::loadFromHexString(const String &string)

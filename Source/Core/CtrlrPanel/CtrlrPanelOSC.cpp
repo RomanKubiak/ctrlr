@@ -133,41 +133,35 @@ void CtrlrPanelOSC::stopServer()
 
 void CtrlrPanelOSC::handleAsyncUpdate()
 {
-	for (int i=0; i<messageQueue.size(); i++)
+	luabind::object luaArguments = luabind::newtable(owner.getCtrlrLuaManager().getLuaState());
+	if (luaPanelOSCReceivedCbk)		
 	{
-		luabind::object luaArguments = luabind::newtable(owner.getCtrlrLuaManager().getLuaState());
-		if (luaPanelOSCReceivedCbk)
+		for (int i = 0; i < messageQueue.size(); i++)
 		{
-			for (int i = 0; i < messageQueue.size(); i++)
-			{
-				lo_message msg = messageQueue[i].loMessage;
+			lo_message msg = messageQueue[i].loMessage;
 			
-				int argc = lo_message_get_argc(msg);
-				lo_arg **argv = lo_message_get_argv(msg);
+			int argc = lo_message_get_argc(msg);
+			lo_arg **argv = lo_message_get_argv(msg);
 
-				for (int j = 0; j < argc; j++)
+			for (int j = 0; j < argc; j++)
+			{
+				switch (messageQueue[i].getTypes()[j])
 				{
-					
-					switch (messageQueue[i].getTypes()[j])
-					{
-						case 's':
-							luaArguments[j] = std::string((const char *)argv[j]);
-							break;
+					case 's':
+						luaArguments[j] = std::string((const char *)argv[j]);
+						break;
 
-						default:
-							luaArguments[j] = argv[j];
-							break;
-					}
+					default:
+						luaArguments[j] = argv[j];
+						break;
 				}
 			}
-
-			owner.getCtrlrLuaManager().getMethodManager().call (luaPanelOSCReceivedCbk, 
-																messageQueue[i].getPath(), 
-																messageQueue[i].getTypes(), 
-																luaArguments);
+			owner.getCtrlrLuaManager().getMethodManager().call(luaPanelOSCReceivedCbk,
+				messageQueue[i].getPath(),
+				messageQueue[i].getTypes(),
+				luaArguments);
 		}
 	}
-
 	messageQueue.clear();
 }
 

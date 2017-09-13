@@ -226,7 +226,7 @@ void CtrlrSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChang
 	}
 	else if (property == Ids::uiSliderPopupBubble)
 	{
-		ctrlrSlider.setPopupDisplayEnabled ((bool)getProperty(property), owner.getOwnerPanel().getEditor());
+		ctrlrSlider.setPopupDisplayEnabled ((bool)getProperty(property), (bool)getProperty(property), owner.getOwnerPanel().getEditor());
 	}
 	else
 	{

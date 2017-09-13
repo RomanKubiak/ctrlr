@@ -17,8 +17,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "lo/lo_types_internal.h"
-#include "lo/lo.h"
+#include "Misc/liblo/include/lo/lo_types_internal.h"
+#include "Misc/liblo/include/lo/lo.h"
 
 lo_blob lo_blob_new(int32_t size, const void *data)
 {

@@ -176,7 +176,7 @@ const String CtrlrMidiInputComparatorMulti::dumpTableContents()
 
 	for (it=map.begin(); it != map.end(); it++)
 	{
-		ret << "\n*\t" << String::toHexString((*it).first.toMemoryBlock().getData(), (*it).first.toMemoryBlock().getSize(), 1);
+		ret << "\n*\t" << String::toHexString((*it).first.toMemoryBlock().getData(), (int)(*it).first.toMemoryBlock().getSize(), 1);
 		for (int i=0; i < (*it).second.targets.size(); i++)
 		{
 			ret << "\n*\t\t" << (*it).second.targets[i]->getName();

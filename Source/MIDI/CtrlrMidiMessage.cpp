@@ -84,7 +84,7 @@ CtrlrMidiMessage::CtrlrMidiMessage (MemoryBlock& other)
 	/* Copy the passed in midi message
 		initialize properties based on that message*/
 
-	MidiMessage m = MidiMessage(other.getData(), other.getSize());
+	MidiMessage m = MidiMessage(other.getData(), (int)other.getSize());
 
 	initializationResult = fillMessagePropertiesFromJuceMidi (m);
 
@@ -128,7 +128,7 @@ CtrlrMidiMessage::CtrlrMidiMessage (const luabind::object &luaArray)
 			// Sysex is not added automagicly (since we need a valid formula), do it now
 			if (messageType == SysEx)
 			{
-				messageArray.add (MidiMessage (possibleMidiData.getData(), possibleMidiData.getSize()));
+				messageArray.add (MidiMessage (possibleMidiData.getData(), (int)possibleMidiData.getSize()));
 			}
 		}
 	}
@@ -287,7 +287,7 @@ Result CtrlrMidiMessage::fillMessagePropertiesFromJuceMidi(const MidiMessage &m)
 
 Result CtrlrMidiMessage::fillMessagePropertiesFromData(const MemoryBlock &data)
 {
-	CtrlrMidiMessageEx mex(MidiMessage(data.getData(), data.getSize()));
+	CtrlrMidiMessageEx mex(MidiMessage(data.getData(), (int)data.getSize()));
 
 	if (mex.m.isController())
 	{

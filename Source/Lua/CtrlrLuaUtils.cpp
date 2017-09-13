@@ -105,7 +105,7 @@ LMemoryBlock *CtrlrLuaUtils::unpackDsiData (MemoryBlock &dataToUnpack)
 {
 	PackedVoice packed;
 	packed.data = (uint8 *)dataToUnpack.getData();
-	packed.size = dataToUnpack.getSize();
+	packed.size = (int)dataToUnpack.getSize();
 
 	UnpackedVoice unpacked = unpackDsiMidiData(packed);
 
@@ -116,7 +116,7 @@ LMemoryBlock *CtrlrLuaUtils::packDsiData (MemoryBlock &dataToPack)
 {
 	UnpackedVoice unpacked,packed;
 	unpacked.data = (uint8*)dataToPack.getData();
-	unpacked.size = dataToPack.getSize();
+	unpacked.size = (int)dataToPack.getSize();
 
 	packed = packDsiMidiData(unpacked);
 

@@ -89,7 +89,7 @@
  * Initial revision
  */
 
-#include "lo/lo.h"
+#include "Misc/liblo/include/lo/lo.h"
 
 #ifndef NEGATE
 #define NEGATE  '!'

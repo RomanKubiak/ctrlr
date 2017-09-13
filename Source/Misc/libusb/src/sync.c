@@ -25,7 +25,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "libusbi.h"
+#include "Misc/libusb/include/libusbi.h"
 
 /**
  * @defgroup syncio Synchronous device I/O

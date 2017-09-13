@@ -1,5 +1,5 @@
 #include "lua.h"
-#include "compat.h"
+#include "Misc/libusb/include/compat.h"
 
 /****************************************************************************/
 

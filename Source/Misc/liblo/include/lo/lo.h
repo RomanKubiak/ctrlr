@@ -25,13 +25,13 @@ extern "C" {
  * \file lo.h The liblo main headerfile and high-level API functions.
  */
 
-#include "lo/lo_endian.h"
-#include "lo/lo_types.h"
-#include "lo/lo_osc_types.h"
-#include "lo/lo_errors.h"
-#include "lo/lo_lowlevel.h"
+#include "Misc/liblo/include/lo/lo_endian.h"
+#include "Misc/liblo/include/lo/lo_types.h"
+#include "Misc/liblo/include/lo/lo_osc_types.h"
+#include "Misc/liblo/include/lo/lo_errors.h"
+#include "Misc/liblo/include/lo/lo_lowlevel.h"
 #if 1
-#include "lo/lo_serverthread.h"
+#include "Misc/liblo/include/lo/lo_serverthread.h"
 #endif
 
 /**
@@ -249,7 +249,7 @@ void lo_version(char *verstr, int verstr_size,
 
 /** @} */
 
-#include "lo/lo_macros.h"
+#include "Misc/liblo/include/lo/lo_macros.h"
 
 #ifdef __cplusplus
 }

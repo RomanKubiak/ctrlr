@@ -32,8 +32,8 @@
 #endif
 #include <assert.h>
 
-#include "libusbi.h"
-#include "hotplug.h"
+#include "Misc/libusb/include/libusbi.h"
+#include "Misc/libusb/include/hotplug.h"
 
 /**
  * @defgroup hotplug  Device hotplug event notification

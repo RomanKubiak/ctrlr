@@ -24,8 +24,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "libusb.h"
-#include "libusbi.h"
+#include "Misc/libusb/include/libusb.h"
+#include "Misc/libusb/include/libusbi.h"
 
 #if defined(_MSC_VER)
 #define strncasecmp _strnicmp

@@ -648,7 +648,7 @@ const String dataPrefix (const CtrlrMidiMessage &data, const int prefixLength)
 
 const String dataPrefix (const MemoryBlock &data, const int prefixLength)
 {
-    return ("("+STR((int)data.getSize())+")"+String::toHexString (data.getData(), ( (prefixLength < (int)data.getSize()) ? prefixLength : data.getSize() ) ));
+    return ("("+STR((int)data.getSize())+")"+String::toHexString (data.getData(), ( (prefixLength < (int)data.getSize()) ? prefixLength : (int)data.getSize() ) ));
 }
 
 const String labelFromProperty (CtrlrModulator *modulator, const String &formatText)
@@ -985,7 +985,7 @@ Array<float> luaArrayToFloat(const luabind::object &luaArray)
 
 const String memoryBlockToString(const MemoryBlock &data)
 {
-	return (String::toHexString(data.getData(), data.getSize(), 1));
+	return (String::toHexString(data.getData(), (int)data.getSize(), 1));
 }
 
 bool stringIsHexadecimal(const String &hexData)

@@ -32,7 +32,7 @@ extern "C" {
 #include <netdb.h>
 #endif
 
-#include "lo/lo_osc_types.h"
+#include "Misc/liblo/include/lo/lo_osc_types.h"
 
 #define LO_DISABLE 0  //!< Disable a boolean option.
 #define LO_ENABLE 1   //!< Enable a boolean option.

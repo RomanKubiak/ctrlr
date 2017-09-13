@@ -284,9 +284,9 @@ const String CtrlrFontManager::getStringFromFont (const Font &_font)
 	StringArray fontProps;
 	fontProps.add (font.getTypefaceName());
 	fontProps.add (String(font.getHeight()));
-	fontProps.add (String(font.isBold()));
-	fontProps.add (String(font.isItalic()));
-	fontProps.add (String(font.isUnderlined()));
+	fontProps.add (String((int)font.isBold()));
+	fontProps.add (String((int)font.isItalic()));
+	fontProps.add (String((int)font.isUnderlined()));
 	fontProps.add (String(font.getExtraKerningFactor()));
 	fontProps.add (String(font.getHorizontalScale()));
 	fontProps.add (String((uint8)getFontSetEnum (font)));
