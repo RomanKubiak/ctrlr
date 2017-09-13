@@ -46,8 +46,8 @@
 #include <android/log.h>
 #endif
 
-#include "libusbi.h"
-#include "hotplug.h"
+#include "Misc/libusb/include/libusbi.h"
+#include "Misc/libusb/include/hotplug.h"
 
 #if defined(OS_LINUX)
 const struct usbi_os_backend * const usbi_backend = &linux_usbfs_backend;

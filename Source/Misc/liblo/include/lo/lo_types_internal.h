@@ -43,7 +43,7 @@ typedef __int32 int32_t;
 #include <pthread.h>
 #endif
 
-#include "lo/lo_osc_types.h"
+#include "Misc/liblo/include/lo/lo_osc_types.h"
 
 #define LO_HOST_SIZE 1024
 

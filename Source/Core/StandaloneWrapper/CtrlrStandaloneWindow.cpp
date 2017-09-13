@@ -106,7 +106,7 @@ void CtrlrStandaloneWindow::saveStateNow()
 
 		if (data.getSize() > 0)
 		{
-			ScopedPointer <XmlElement> xml(CtrlrProcessor::getXmlFromBinary(data.getData(), data.getSize()));
+			ScopedPointer <XmlElement> xml(CtrlrProcessor::getXmlFromBinary(data.getData(), (int)data.getSize()));
 
 			if (xml)
 			{

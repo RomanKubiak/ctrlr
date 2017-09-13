@@ -147,7 +147,7 @@ CtrlrMidiMessageEx CtrlrSysexProcessor::sysexMessageFromString (const String &fo
 	Array <CtrlrSysexToken> tokenArray = sysExToTokenArray(formula);
 
 	CtrlrMidiMessageEx mex;
-	mex.m  = MidiMessage (bl.getData(), bl.getSize());
+	mex.m  = MidiMessage (bl.getData(), (int)bl.getSize());
 	mex.setTokenArray(tokenArray);
 	return (mex);
 }

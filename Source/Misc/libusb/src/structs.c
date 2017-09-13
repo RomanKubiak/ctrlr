@@ -1,9 +1,9 @@
 /* this is a generated file, see gen.lua */
-#include "structs.h"
+#include "Misc/libusb/include/structs.h"
 
 #include "lauxlib.h"
 #include <string.h>
-#include "compat.h"
+#include "Misc/libusb/include/compat.h"
 
 static int luausb_generic_index(lua_State* L)
 {

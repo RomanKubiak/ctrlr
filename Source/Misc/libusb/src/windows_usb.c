@@ -22,7 +22,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 #if defined(_MSC_VER)
-#include "libusb_windows.h"
+#include "Misc/libusb/include/libusb_windows.h"
 #include <windows.h>
 #include <setupapi.h>
 #include <ctype.h>
@@ -34,9 +34,9 @@
 #include <objbase.h>
 #include <winioctl.h>
 
-#include "libusbi.h"
-#include "poll_windows.h"
-#include "windows_usb.h"
+#include "Misc/libusb/include/libusbi.h"
+#include "Misc/libusb/include/poll_windows.h"
+#include "Misc/libusb/include/windows_usb.h"
 
 // The 2 macros below are used in conjunction with safe loops.
 #define LOOP_CHECK(fcall) { r=fcall; if (r != LIBUSB_SUCCESS) continue; }

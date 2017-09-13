@@ -19,7 +19,7 @@
 #endif
 
 #ifdef _WIN32
-#include "lo/lo_config_win32.h"
+#include "Misc/liblo/include/lo/lo_config_win32.h"
 #endif
 
 #include <stdarg.h>
@@ -44,9 +44,9 @@
 #include <netinet/tcp.h>
 #endif
 
-#include "lo/lo_types_internal.h"
-#include "lo/lo_internal.h"
-#include "lo/lo.h"
+#include "Misc/liblo/include/lo/lo_types_internal.h"
+#include "Misc/liblo/include/lo/lo_internal.h"
+#include "Misc/liblo/include/lo/lo.h"
 
 #ifndef MSG_NOSIGNAL
 #define MSG_NOSIGNAL 0

@@ -19,7 +19,7 @@
 #endif
 
 #ifdef _WIN32
-#include "lo/lo_config_win32.h"
+#include "Misc/liblo/include/lo/lo_config_win32.h"
 #endif
 
 #ifdef __APPLE__
@@ -49,10 +49,10 @@
 #endif
 #endif
 
-#include "lo/lo_types_internal.h"
-#include "lo/lo_internal.h"
-#include "lo/lo.h"
-#include "lo/lo_throw.h"
+#include "Misc/liblo/include/lo/lo_types_internal.h"
+#include "Misc/liblo/include/lo/lo_internal.h"
+#include "Misc/liblo/include/lo/lo.h"
+#include "Misc/liblo/include/lo/lo_throw.h"
 
 static void lo_address_set_flags(lo_address t, int flags);
 

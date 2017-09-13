@@ -19,7 +19,7 @@
 #endif
 
 #ifdef _WIN32
-#include "lo/lo_config_win32.h"
+#include "Misc/liblo/include/lo/lo_config_win32.h"
 #endif
 
 #include <assert.h>
@@ -68,10 +68,10 @@
 #define SOCKET_ERROR -1
 #endif
 
-#include "lo/lo_types_internal.h"
-#include "lo/lo_internal.h"
-#include "lo/lo.h"
-#include "lo/lo_throw.h"
+#include "Misc/liblo/include/lo/lo_types_internal.h"
+#include "Misc/liblo/include/lo/lo_internal.h"
+#include "Misc/liblo/include/lo/lo.h"
+#include "Misc/liblo/include/lo/lo_throw.h"
 
 typedef struct {
     lo_timetag ts;

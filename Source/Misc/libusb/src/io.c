@@ -38,8 +38,8 @@
 #include <sys/timerfd.h>
 #endif
 
-#include "libusbi.h"
-#include "hotplug.h"
+#include "Misc/libusb/include/libusbi.h"
+#include "Misc/libusb/include/hotplug.h"
 
 /**
  * \page io Synchronous and asynchronous device I/O

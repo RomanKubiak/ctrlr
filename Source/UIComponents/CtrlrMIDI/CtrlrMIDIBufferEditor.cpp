@@ -156,8 +156,8 @@ void CtrlrMIDIBufferEditor::compareBuffers()
 	{
 		if (*(ref+i) != *(cmp+i))
 		{
-            bufferLeft->addUnequalPosition (i*3);
-            bufferRight->addUnequalPosition (i*3);
+            bufferLeft->addUnequalPosition ((int)i*3);
+            bufferRight->addUnequalPosition ((int)i*3);
 		}
 	}
 }

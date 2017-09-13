@@ -140,6 +140,7 @@ const String CtrlrProcessor::getParameterText (int index)
 
 const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
 {
+#if JucePlugin_Build_VST
     if (channelIndex >= 1024)
     {
         /* used internally */
@@ -199,6 +200,7 @@ const String CtrlrProcessor::getInputChannelName (const int channelIndex) const
                 break;
         }
     }
+#endif
     return ("Audio Input: "+_STR(channelIndex));
 }
 
@@ -452,7 +454,7 @@ void CtrlrProcessor::removePanelProcessor (CtrlrPanelProcessor *processorToRemov
 void CtrlrProcessor::copyXmlToBinary (const XmlElement& xml, juce::MemoryBlock& destData)
 {
     const String xmlString (xml.createDocument (String::empty, true, false));
-    const int stringLength = xmlString.getNumBytesAsUTF8();
+    const int stringLength = (int)xmlString.getNumBytesAsUTF8();
 
     destData.setSize ((size_t) stringLength + 10);
 

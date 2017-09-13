@@ -45,7 +45,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "libusbi.h"
+#include "Misc/libusb/include/libusbi.h"
 
 // Uncomment to debug the polling layer
 //#define DEBUG_POLL_WINDOWS

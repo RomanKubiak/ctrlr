@@ -19,7 +19,7 @@
 #endif
 
 #ifdef _WIN32
-#include "lo/lo_config_win32.h"
+#include "Misc/liblo/include/lo/lo_config_win32.h"
 #endif
 
 #ifdef __APPLE__

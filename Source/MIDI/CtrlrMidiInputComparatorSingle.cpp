@@ -306,7 +306,7 @@ const String CtrlrMidiInputComparatorSingle::dumpTableContents()
 	for(CtrlrMultiMidiMapIterator itr = mapSysEx.begin(); itr != mapSysEx.end(); ++itr)
 	{
 		MemoryBlock bl = itr->first.toMemoryBlock();
-		ret << "\n\tindex=" << String::toHexString (bl.getData(), bl.getSize(), 1) << " targets=" << String(itr->second.targets.size());
+		ret << "\n\tindex=" << String::toHexString (bl.getData(), (int)bl.getSize(), 1) << " targets=" << String(itr->second.targets.size());
 		for (int j=0; j<itr->second.targets.size(); j++)
 		{
 			ret << "\n\t\ttarget=" << itr->second.targets[j]->getName();

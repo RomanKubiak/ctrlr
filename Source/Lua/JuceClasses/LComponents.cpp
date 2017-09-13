@@ -318,13 +318,13 @@ void LComponent::wrapForLua (lua_State *L)
 			.def("setTopRightPosition", &Component::setTopRightPosition)
 			.def("setSize", &Component::setSize)
 			.def("setBounds", (void (Component::*)(int,int,int,int))&Component::setBounds)
-			.def("setBounds", (void (Component::*)(const Rectangle<int> &))&Component::setBounds)
+			//.def("setBounds", (void (Component::*)(const Rectangle<int> &))&Component::setBounds)
 			.def("setBounds", (void (Component::*)(const RelativeRectangle &))&Component::setBounds)
 			.def("setBounds", (void (Component::*)(const String &))&Component::setBounds)
 			.def("setBoundsRelative", &Component::setBoundsRelative)
 			.def("setBoundsInset", &Component::setBoundsInset)
 			.def("setBoundsToFit", &Component::setBoundsToFit)
-			.def("setCentrePosition", &Component::setCentrePosition)
+			//.def("setCentrePosition", &Component::setCentrePosition)
 			.def("setCentreRelative", &Component::setCentreRelative)
 			.def("centreWithSize", &Component::centreWithSize)
 			.def("setTransform", &Component::setTransform)
@@ -362,7 +362,7 @@ void LComponent::wrapForLua (lua_State *L)
 			.def("getComponentAt", (Component *(Component::*)(const Point<int>))&Component::getComponentAt)
 			.def("repaint", (void (Component::*)(void))&Component::repaint)
 			.def("repaint", (void (Component::*)(int,int,int,int))&Component::repaint)
-			.def("repaint", (void (Component::*)(const Rectangle<int> &))&Component::repaint)
+			//.def("repaint", (void (Component::*)(const Rectangle<int> &))&Component::repaint)
 			.def("setBufferedToImage", &Component::setBufferedToImage)
 			.def("createComponentSnapshot", &Component::createComponentSnapshot)
 			.def("paintEntireComponent", &Component::paintEntireComponent)
@@ -1435,7 +1435,7 @@ void LookAndFeelBase::drawTableHeaderBackground(Graphics &g, TableHeaderComponen
 
 void LookAndFeelBase::drawTableHeaderColumn(Graphics &g, const String &columnName, int columnId, int width, int height, bool isMouseOver, bool isMouseDown, int columnFlags)
 {
-    TRY_CALL(drawTableHeaderColumn, boost::ref(g), columnName, columnId, width, height, isMouseOver, isMouseDown, columnFlags);
+    //TRY_CALL(drawTableHeaderColumn, boost::ref(g), columnName, columnId, width, height, isMouseOver, isMouseDown, columnFlags);
 }
 
 void LookAndFeelBase::paintToolbarBackground(Graphics &g, int width, int height, Toolbar &toolbar)

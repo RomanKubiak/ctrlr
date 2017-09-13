@@ -27,9 +27,9 @@
 #include <netinet/in.h>
 #endif
 
-#include "lo/lo_types_internal.h"
-#include "lo/lo_internal.h"
-#include "lo/lo.h"
+#include "Misc/liblo/include/lo/lo_types_internal.h"
+#include "Misc/liblo/include/lo/lo_internal.h"
+#include "Misc/liblo/include/lo/lo.h"
 
 #define LO_DEF_TYPE_SIZE 8
 #define LO_DEF_DATA_SIZE 8

@@ -17,7 +17,7 @@
 #ifndef LO_LOWLEVEL_H
 #define LO_LOWLEVEL_H
 
-#include "lo/lo_osc_types.h"
+#include "Misc/liblo/include/lo/lo_osc_types.h"
 
 /**
  * \file lo_lowlevel.h The liblo headerfile defining the low-level API
@@ -37,8 +37,8 @@ extern "C" {
 #include <stdint.h>
 #endif
 
-#include "lo/lo_types.h"
-#include "lo/lo_errors.h"
+#include "Misc/liblo/include/lo/lo_types.h"
+#include "Misc/liblo/include/lo/lo_errors.h"
 
 /**
  * \defgroup liblolowlevel Low-level OSC API

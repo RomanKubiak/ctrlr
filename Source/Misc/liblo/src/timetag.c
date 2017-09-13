@@ -14,8 +14,8 @@
  *  $Id$
  */
 
-#include "lo/lo_types_internal.h"
-#include "lo/lo.h"
+#include "Misc/liblo/include/lo/lo_types_internal.h"
+#include "Misc/liblo/include/lo/lo.h"
 
 #if defined(USE_ANSI_C) || defined(DLL_EXPORT)
 lo_timetag lo_get_tt_immediate()

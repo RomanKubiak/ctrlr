@@ -1,15 +1,15 @@
 #include "lua.h"
 #include "lauxlib.h"
-#include "libusb.h"
+#include "Misc/libusb/include/libusb.h"
 #include <string.h>
 #ifndef _WIN32
 #include <poll.h>
 #endif
 #include <stdlib.h>
 #include <math.h>
-#include "compat.h"
-#include "enums.h"
-#include "structs.h"
+#include "Misc/libusb/include/compat.h"
+#include "Misc/libusb/include/enums.h"
+#include "Misc/libusb/include/structs.h"
 
 /****************************************************************************/
 

@@ -13,7 +13,7 @@
 #include "lo_config_osx.h"
 #endif
 
-#include <lo/lo_osc_types.h>
+#include "Misc/liblo/include/lo/lo_osc_types.h"
 
 /**
  * \brief Validate raw OSC string data. Where applicable, data should be

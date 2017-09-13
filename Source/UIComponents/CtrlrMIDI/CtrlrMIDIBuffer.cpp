@@ -559,7 +559,7 @@ void CtrlrMIDIBuffer::loadBinFile(const File fileToOpen)
 	}
 
 	lastFile.loadFileAsData (data);
-	reloadEditor (String::toHexString (data.getData(), data.getSize()), true);
+	reloadEditor (String::toHexString (data.getData(), (int)data.getSize()), true);
 }
 
 void CtrlrMIDIBuffer::loadTextFile(const File fileToOpen)

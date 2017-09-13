@@ -272,7 +272,7 @@ void CtrlrPanelResourceEditor::showResourceInfo(const int resourceIndex)
 		message << "Type: Image\n";
 		message << "Width: " + STR(i.getWidth()) + "\n";
 		message << "Height: " + STR(i.getHeight()) + "\n";
-		message << "Has alpha: " + STR(i.hasAlphaChannel()) + "\n";
+		message << "Has alpha: " + STR((int)i.hasAlphaChannel()) + "\n";
 	}
 
 	DialogWindow::LaunchOptions lo;

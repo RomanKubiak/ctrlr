@@ -233,7 +233,7 @@ static inline void usbi_dbg(const char *format, ...)
 #if defined(THREADS_POSIX)
 #include "threads_posix.h"
 #elif defined(OS_WINDOWS) || defined(OS_WINCE)
-#include <threads_windows.h>
+#include "Misc/libusb/include/threads_windows.h"
 #endif
 
 extern struct libusb_context *usbi_default_context;
