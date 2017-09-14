@@ -45,9 +45,6 @@
                 file="Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp"/>
           <FILE id="VbB7oI" name="CtrlrPanelMIDISnapshot.h" compile="0" resource="0"
                 file="Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.h"/>
-          <FILE id="fCHc2S" name="CtrlrPanelOSC.cpp" compile="1" resource="0"
-                file="Source/Core/CtrlrPanel/CtrlrPanelOSC.cpp"/>
-          <FILE id="vOxOur" name="CtrlrPanelOSC.h" compile="0" resource="0" file="Source/Core/CtrlrPanel/CtrlrPanelOSC.h"/>
           <FILE id="zkWH3d" name="CtrlrPanelProcessor.cpp" compile="1" resource="0"
                 file="Source/Core/CtrlrPanel/CtrlrPanelProcessor.cpp"/>
           <FILE id="DF4TPs" name="CtrlrPanelProcessor.h" compile="0" resource="0"
@@ -96,8 +93,6 @@
               file="Source/Core/CtrlrMasterClock.cpp"/>
         <FILE id="POhLse" name="CtrlrMasterClock.h" compile="0" resource="0"
               file="Source/Core/CtrlrMasterClock.h"/>
-        <FILE id="KSaONw" name="CtrlrOSC.cpp" compile="1" resource="0" file="Source/Core/CtrlrOSC.cpp"/>
-        <FILE id="bgv5AE" name="CtrlrOSC.h" compile="0" resource="0" file="Source/Core/CtrlrOSC.h"/>
         <FILE id="OcGfbY" name="CtrlrProperties.cpp" compile="1" resource="0"
               file="Source/Core/CtrlrProperties.cpp"/>
         <FILE id="gOEtTY" name="CtrlrProperties.h" compile="0" resource="0"
@@ -355,47 +350,6 @@
                 file="Source/Misc/include/juce_PluginHostType.h"/>
           <FILE id="GHZ3lQ" name="keys.h" compile="0" resource="0" file="Source/Misc/include/keys.h"/>
           <FILE id="QIP8g8" name="libr.h" compile="0" resource="0" file="Source/Misc/include/libr.h"/>
-        </GROUP>
-        <GROUP id="{93F142AA-1703-DE12-2AC0-6F80E9373624}" name="liblo">
-          <GROUP id="{926601FE-9761-B604-43E7-01E26FA16D33}" name="include">
-            <GROUP id="{C8644930-FD4D-26AB-0D27-CA9C32FB6796}" name="lo">
-              <FILE id="sg3MY7" name="lo.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo.h"/>
-              <FILE id="VVt1fB" name="lo_config_linux.h" compile="0" resource="0"
-                    file="Source/Misc/liblo/include/lo/lo_config_linux.h"/>
-              <FILE id="fL5WfC" name="lo_config_osx.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_config_osx.h"/>
-              <FILE id="OEU60D" name="lo_config_win32.h" compile="0" resource="0"
-                    file="Source/Misc/liblo/include/lo/lo_config_win32.h"/>
-              <FILE id="X40qQW" name="lo_cpp.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_cpp.h"/>
-              <FILE id="Nrps0v" name="lo_endian.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_endian.h"/>
-              <FILE id="j7Pcln" name="lo_endian.h.in" compile="0" resource="1" file="Source/Misc/liblo/include/lo/lo_endian.h.in"/>
-              <FILE id="vR1zb9" name="lo_errors.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_errors.h"/>
-              <FILE id="woA2zs" name="lo_internal.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_internal.h"/>
-              <FILE id="FbSZCJ" name="lo_lowlevel.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_lowlevel.h"/>
-              <FILE id="q7chfG" name="lo_macros.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_macros.h"/>
-              <FILE id="sXR6xN" name="lo_osc_types.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_osc_types.h"/>
-              <FILE id="FRnlWR" name="lo_serverthread.h" compile="0" resource="0"
-                    file="Source/Misc/liblo/include/lo/lo_serverthread.h"/>
-              <FILE id="hEe3Cn" name="lo_throw.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_throw.h"/>
-              <FILE id="DSLBv9" name="lo_types.h" compile="0" resource="0" file="Source/Misc/liblo/include/lo/lo_types.h"/>
-              <FILE id="d2FAbg" name="lo_types_internal.h" compile="0" resource="0"
-                    file="Source/Misc/liblo/include/lo/lo_types_internal.h"/>
-              <FILE id="cNjbHC" name="Makefile" compile="0" resource="1" file="Source/Misc/liblo/include/lo/Makefile"/>
-              <FILE id="kuFYkv" name="Makefile.am" compile="0" resource="1" file="Source/Misc/liblo/include/lo/Makefile.am"/>
-              <FILE id="L0aEW3" name="Makefile.in" compile="0" resource="1" file="Source/Misc/liblo/include/lo/Makefile.in"/>
-            </GROUP>
-          </GROUP>
-          <GROUP id="{264FA02C-6579-9C3A-60F6-A9E56D8FEFCA}" name="src">
-            <FILE id="Zsnbm7" name="address.c" compile="1" resource="0" file="Source/Misc/liblo/src/address.c"/>
-            <FILE id="wCLQlE" name="blob.c" compile="1" resource="0" file="Source/Misc/liblo/src/blob.c"/>
-            <FILE id="zYHHuZ" name="bundle.c" compile="1" resource="0" file="Source/Misc/liblo/src/bundle.c"/>
-            <FILE id="PWyOHy" name="message.c" compile="1" resource="0" file="Source/Misc/liblo/src/message.c"/>
-            <FILE id="GG6TE7" name="method.c" compile="1" resource="0" file="Source/Misc/liblo/src/method.c"/>
-            <FILE id="t1k3PL" name="pattern_match.c" compile="1" resource="0" file="Source/Misc/liblo/src/pattern_match.c"/>
-            <FILE id="BldZuS" name="send.c" compile="1" resource="0" file="Source/Misc/liblo/src/send.c"/>
-            <FILE id="LkwKnm" name="server.c" compile="1" resource="0" file="Source/Misc/liblo/src/server.c"/>
-            <FILE id="SbeCh9" name="timetag.c" compile="1" resource="0" file="Source/Misc/liblo/src/timetag.c"/>
-            <FILE id="XIdmM6" name="version.c" compile="1" resource="0" file="Source/Misc/liblo/src/version.c"/>
-          </GROUP>
         </GROUP>
         <GROUP id="{4DDCE0B0-9DFF-A988-3DD3-F8C04F594B24}" name="libusb">
           <GROUP id="{671CA70D-1A4B-F587-16D7-A883DFE6BA52}" name="include">
@@ -1242,7 +1196,7 @@
     </XCODE_MAC>
     <VS2017 targetFolder="Builds/VisualStudio2017" windowsTargetPlatformVersion="8.1"
             smallIcon="TNkovj" bigIcon="hc55zP" toolset="v140" extraCompilerFlags="/Fpstdafx.h /bigobj"
-            extraDefs="JucePlugin_Build_Standalone=1" IPPLibrary="true" externalLibraries="IPHLPAPI.lib">
+            extraDefs="JucePlugin_Build_Standalone=1" IPPLibrary="true" externalLibraries="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        isDebug="1" optimisation="1" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../Source/Plugin&#10;../../Source"/>
@@ -1268,7 +1222,7 @@
     <VS2015 targetFolder="Builds/VisualStudio2015" windowsTargetPlatformVersion=""
             toolset="v140" extraCompilerFlags="/Fpstdafx.h /bigobj" smallIcon="TNkovj"
             bigIcon="hc55zP" extraDefs="JucePlugin_Build_Standalone=1" IPPLibrary="true"
-            externalLibraries="IPHLPAPI.lib">
+            externalLibraries="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        isDebug="1" optimisation="1" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../Source/Plugin&#10;../../Source"/>

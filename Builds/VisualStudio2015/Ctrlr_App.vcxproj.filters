@@ -38,18 +38,6 @@
     <Filter Include="Ctrlr\Source\Misc\include">
       <UniqueIdentifier>{699F1F2C-B001-F34C-DC9E-C3D987ADC3B7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ctrlr\Source\Misc\liblo\include\lo">
-      <UniqueIdentifier>{263B5658-9A04-D86C-EABE-4E001C11F2D9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr\Source\Misc\liblo\include">
-      <UniqueIdentifier>{E923B670-94BB-46F2-1421-DF359CC779FF}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr\Source\Misc\liblo\src">
-      <UniqueIdentifier>{BA21826E-62FB-8631-98F6-4E91FAD184E1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr\Source\Misc\liblo">
-      <UniqueIdentifier>{3D6FC245-83D7-3085-B679-333617F3B482}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Ctrlr\Source\Misc\libusb\include">
       <UniqueIdentifier>{8288C076-1360-8891-DE0D-124284ADD798}</UniqueIdentifier>
     </Filter>
@@ -559,9 +547,6 @@
     <ClCompile Include="..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDISnapshot.cpp">
       <Filter>Ctrlr\Source\Core\CtrlrPanel</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Core\CtrlrPanel\CtrlrPanelOSC.cpp">
-      <Filter>Ctrlr\Source\Core\CtrlrPanel</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Core\CtrlrPanel\CtrlrPanelProcessor.cpp">
       <Filter>Ctrlr\Source\Core\CtrlrPanel</Filter>
     </ClCompile>
@@ -593,9 +578,6 @@
       <Filter>Ctrlr\Source\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Core\CtrlrMasterClock.cpp">
-      <Filter>Ctrlr\Source\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Core\CtrlrOSC.cpp">
       <Filter>Ctrlr\Source\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Core\CtrlrProperties.cpp">
@@ -732,36 +714,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\MIDI\CtrlrOwnedMidiMessage.cpp">
       <Filter>Ctrlr\Source\MIDI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\address.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\blob.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\bundle.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\message.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\method.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\pattern_match.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\send.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\server.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\timetag.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\liblo\src\version.c">
-      <Filter>Ctrlr\Source\Misc\liblo\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Misc\libusb\src\compat.c">
       <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
@@ -2991,9 +2943,6 @@
     <ClInclude Include="..\..\Source\Core\CtrlrPanel\CtrlrPanelMIDISnapshot.h">
       <Filter>Ctrlr\Source\Core\CtrlrPanel</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Core\CtrlrPanel\CtrlrPanelOSC.h">
-      <Filter>Ctrlr\Source\Core\CtrlrPanel</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Core\CtrlrPanel\CtrlrPanelProcessor.h">
       <Filter>Ctrlr\Source\Core\CtrlrPanel</Filter>
     </ClInclude>
@@ -3034,9 +2983,6 @@
       <Filter>Ctrlr\Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Core\CtrlrMasterClock.h">
-      <Filter>Ctrlr\Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Core\CtrlrOSC.h">
       <Filter>Ctrlr\Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Core\CtrlrProperties.h">
@@ -3359,51 +3305,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Misc\include\libr.h">
       <Filter>Ctrlr\Source\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_config_linux.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_config_osx.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_config_win32.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_cpp.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_endian.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_errors.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_internal.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_lowlevel.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_macros.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_osc_types.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_serverthread.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_throw.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_types.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\liblo\include\lo\lo_types_internal.h">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Misc\libusb\include\compat.h">
       <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
@@ -5866,18 +5767,6 @@
   <ItemGroup>
     <None Include="..\..\Source\Core\CtrlrRevision.template">
       <Filter>Ctrlr\Source\Core</Filter>
-    </None>
-    <None Include="..\..\Source\Misc\liblo\include\lo\lo_endian.h.in">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </None>
-    <None Include="..\..\Source\Misc\liblo\include\lo\Makefile">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </None>
-    <None Include="..\..\Source\Misc\liblo\include\lo\Makefile.am">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
-    </None>
-    <None Include="..\..\Source\Misc\liblo\include\lo\Makefile.in">
-      <Filter>Ctrlr\Source\Misc\liblo\include\lo</Filter>
     </None>
     <None Include="..\..\Source\Misc\luabind\src\CMakeLists.txt">
       <Filter>Ctrlr\Source\Misc\luabind\src</Filter>

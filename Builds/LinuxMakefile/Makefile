@@ -76,7 +76,6 @@ OBJECTS_APP := \
   $(JUCE_OBJDIR)/CtrlrPanelFileOperations_9097aa50.o \
   $(JUCE_OBJDIR)/CtrlrPanelMIDIInputThread_f05ccf35.o \
   $(JUCE_OBJDIR)/CtrlrPanelMIDISnapshot_ac52ded.o \
-  $(JUCE_OBJDIR)/CtrlrPanelOSC_3a6b2701.o \
   $(JUCE_OBJDIR)/CtrlrPanelProcessor_90473954.o \
   $(JUCE_OBJDIR)/CtrlrPanelResource_c8914716.o \
   $(JUCE_OBJDIR)/CtrlrPanelResourceManager_ded72841.o \
@@ -88,7 +87,6 @@ OBJECTS_APP := \
   $(JUCE_OBJDIR)/CtrlrIDManager_40d647fc.o \
   $(JUCE_OBJDIR)/CtrlrLog_cd89ebce.o \
   $(JUCE_OBJDIR)/CtrlrMasterClock_12038e56.o \
-  $(JUCE_OBJDIR)/CtrlrOSC_3a799e09.o \
   $(JUCE_OBJDIR)/CtrlrProperties_eb107cf3.o \
   $(JUCE_OBJDIR)/CtrlrSysexProcessor_bc5102f2.o \
   $(JUCE_OBJDIR)/CtrlrSysexProcessorOwned_1864a89d.o \
@@ -134,16 +132,6 @@ OBJECTS_APP := \
   $(JUCE_OBJDIR)/CtrlrMidiMessage_f1795a0e.o \
   $(JUCE_OBJDIR)/CtrlrMidiMessageEx_a0d44f21.o \
   $(JUCE_OBJDIR)/CtrlrOwnedMidiMessage_b2a92f23.o \
-  $(JUCE_OBJDIR)/address_607117a8.o \
-  $(JUCE_OBJDIR)/blob_3cc62ff3.o \
-  $(JUCE_OBJDIR)/bundle_fe95a758.o \
-  $(JUCE_OBJDIR)/message_d67bc2fb.o \
-  $(JUCE_OBJDIR)/method_3155abf7.o \
-  $(JUCE_OBJDIR)/pattern_match_497fdc4a.o \
-  $(JUCE_OBJDIR)/send_5965811e.o \
-  $(JUCE_OBJDIR)/server_9df3f9d9.o \
-  $(JUCE_OBJDIR)/timetag_2f9f4f21.o \
-  $(JUCE_OBJDIR)/version_d871ef8c.o \
   $(JUCE_OBJDIR)/compat_9b146423.o \
   $(JUCE_OBJDIR)/core_27542800.o \
   $(JUCE_OBJDIR)/darwin_usb_8122958d.o \
@@ -373,11 +361,6 @@ $(JUCE_OBJDIR)/CtrlrPanelMIDISnapshot_ac52ded.o: ../../Source/Core/CtrlrPanel/Ct
 	@echo "Compiling CtrlrPanelMIDISnapshot.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
-$(JUCE_OBJDIR)/CtrlrPanelOSC_3a6b2701.o: ../../Source/Core/CtrlrPanel/CtrlrPanelOSC.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrPanelOSC.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
 $(JUCE_OBJDIR)/CtrlrPanelProcessor_90473954.o: ../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPanelProcessor.cpp"
@@ -431,11 +414,6 @@ $(JUCE_OBJDIR)/CtrlrLog_cd89ebce.o: ../../Source/Core/CtrlrLog.cpp
 $(JUCE_OBJDIR)/CtrlrMasterClock_12038e56.o: ../../Source/Core/CtrlrMasterClock.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMasterClock.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrOSC_3a799e09.o: ../../Source/Core/CtrlrOSC.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrOSC.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/CtrlrProperties_eb107cf3.o: ../../Source/Core/CtrlrProperties.cpp
@@ -662,56 +640,6 @@ $(JUCE_OBJDIR)/CtrlrOwnedMidiMessage_b2a92f23.o: ../../Source/MIDI/CtrlrOwnedMid
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrOwnedMidiMessage.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/address_607117a8.o: ../../Source/Misc/liblo/src/address.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling address.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/blob_3cc62ff3.o: ../../Source/Misc/liblo/src/blob.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling blob.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/bundle_fe95a758.o: ../../Source/Misc/liblo/src/bundle.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling bundle.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/message_d67bc2fb.o: ../../Source/Misc/liblo/src/message.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling message.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/method_3155abf7.o: ../../Source/Misc/liblo/src/method.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling method.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/pattern_match_497fdc4a.o: ../../Source/Misc/liblo/src/pattern_match.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling pattern_match.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/send_5965811e.o: ../../Source/Misc/liblo/src/send.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling send.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/server_9df3f9d9.o: ../../Source/Misc/liblo/src/server.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling server.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/timetag_2f9f4f21.o: ../../Source/Misc/liblo/src/timetag.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling timetag.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/version_d871ef8c.o: ../../Source/Misc/liblo/src/version.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling version.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/compat_9b146423.o: ../../Source/Misc/libusb/src/compat.c
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
