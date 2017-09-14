@@ -20,7 +20,7 @@ const Result CtrlrWindows::writeResource (void *handle, const LPSTR resourceId, 
 
 	if (hResource)
 	{
-		return (UpdateResource (hResource, resourceType, resourceId, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPVOID) resourceData.getData(), resourceData.getSize()) ? Result::ok() : Result::fail("WIN32 UpdateResource failed"));
+		return (UpdateResource (hResource, resourceType, resourceId, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPVOID) resourceData.getData(), (DWORD)resourceData.getSize()) ? Result::ok() : Result::fail("WIN32 UpdateResource failed"));
 	}
 	else
 	{
