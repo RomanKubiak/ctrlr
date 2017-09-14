@@ -160,22 +160,25 @@ void CtrlrSliderLookAndFeel::drawLinearSliderThumb (Graphics& g, int x, int y, i
 
 int CtrlrSliderLookAndFeel::getSliderPopupPlacement(Slider &slider)
 {
+	/* TO FIX
 	CtrlrLookAndFeel *lf = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getCtrlrLookAndFeel();
 	if (lf)
 	{
         return (lf->getSliderPopupPlacement(slider));
 	}
-
+	*/
 	return (0);
 }
 
 Font CtrlrSliderLookAndFeel::getSliderPopupFont(Slider &slider)
 {
+	/* TO FIX
 	CtrlrLookAndFeel *lf = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getCtrlrLookAndFeel();
 	if (lf)
 	{
         return (lf->getSliderPopupFont(slider));
 	}
+	*/
 	return (Font());
 }
 

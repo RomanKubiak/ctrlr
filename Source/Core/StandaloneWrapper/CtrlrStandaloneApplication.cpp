@@ -137,6 +137,6 @@ class CtrlrApplication : public JUCEApplication
         private:
                 CtrlrStandaloneWindow *filterWindow;
 };
-START_JUCE_APPLICATION (CtrlrApplication)
+//START_JUCE_APPLICATION (CtrlrApplication)
 
 #endif

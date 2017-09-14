@@ -4,7 +4,6 @@
 #include "CtrlrPanelEditor.h"
 #include "CtrlrProcessor.h"
 #include "CtrlrComponents/CtrlrComponentTypeManager.h"
-#include "CtrlrApplicationWindow/CtrlrLookAndFeel.h"
 #include "CtrlrInlineUtilitiesGUI.h"
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "CtrlrPanel/CtrlrPanel.h"

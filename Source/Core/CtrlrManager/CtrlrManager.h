@@ -20,7 +20,6 @@ class CtrlrLog;
 class CtrlrProcessor;
 class CtrlrProperties;
 class CtrlrDocument;
-class CtrlrLookAndFeel;
 
 #define	TIMER_AUTO_SAVE	10
 
@@ -283,7 +282,6 @@ class CtrlrManager :    public ValueTree::Listener,
 		CtrlrFontManager &getFontManager()																		{ return (*ctrlrFontManager); }
 		ApplicationCommandManager &getCommandManager()															{ return (commandManager); }
 		void panelFileOpened(const File &panelFile);
-		CtrlrLookAndFeel *getCtrlrLookAndFeel()																	{ return (ctrlrLookAndFeel); }
 		CtrlrModulator *getInvalidModulator()																	{ return (nullModulator); }
         RSAKey &getCtrlrPrivateKey()                                                                            { return (ctrlrMasterPrivateKey); }
         RSAKey &getCtrlrPublicKey()                                                                             { return (ctrlrMasterPublicKey); }
@@ -332,7 +330,6 @@ class CtrlrManager :    public ValueTree::Listener,
 		ScopedPointer <CtrlrFontManager> ctrlrFontManager;
 		ValueTree ctrlrPlayerInstanceTree;
 		ValueTree ctrlrPlayerInstanceResources;
-		CtrlrLookAndFeel *ctrlrLookAndFeel;
 		CtrlrModulator *invalidModulator;
 		RSAKey ctrlrMasterPrivateKey, ctrlrMasterPublicKey;
 		WeakReference <CtrlrLuaMethod> luaCtrlrSaveState, luaCtrlrRestoreState;

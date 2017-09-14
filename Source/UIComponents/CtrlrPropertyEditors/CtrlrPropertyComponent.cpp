@@ -51,9 +51,6 @@ CtrlrPropertyComponent::~CtrlrPropertyComponent()
 void CtrlrPropertyComponent::paint (Graphics &g)
 {
 	getLookAndFeel().drawPropertyComponentBackground (g, getLookAndFeel().getPropertyComponentContentPosition (*this).getX(), getHeight(), *this);
-
-	g.setColour (Colours::black);
-
 	if (isMouseOver(false) && !currentFont.isUnderlined())
 	{
 		currentFont.setUnderline(true);
