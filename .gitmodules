@@ -1,3 +1,7 @@
 [submodule "Panels"]
 	path = Panels
 	url = https://github.com/RomanKubiak/Panels.git
+[submodule "JUCE"]
+	path = JUCE
+	url = https://github.com/WeAreROLI/JUCE.git
+	branch = develop
