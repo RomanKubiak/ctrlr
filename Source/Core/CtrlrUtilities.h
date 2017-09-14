@@ -5,7 +5,6 @@
 #include "CtrlrMidiMessage.h"
 class CtrlrToolbarButton;
 class CtrlrPanel;
-class CtrlrLookAndFeel;
 class CtrlrModulator;
 
 /** MidiMessage and CtrlrMidiMessage operations **/

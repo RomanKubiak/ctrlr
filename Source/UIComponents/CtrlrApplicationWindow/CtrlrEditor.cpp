@@ -5,18 +5,17 @@
 #include "CtrlrEditor.h"
 #include "CtrlrProcessor.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrLookAndFeel.h"
 
 CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 	:	AudioProcessorEditor (_ownerFilter), ownerFilter(_ownerFilter),
 		owner(_owner), resizer(this, 0),
 		tempResult(Result::ok()),
 		menuHandlerCalled(false),
-		lastCommandInvocationMillis(0),
-		menuBarLookAndFeel(nullptr)
+		lastCommandInvocationMillis(0)
 {
 	Rectangle<int> editorRect;
-    // http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
+	LookAndFeel::setDefaultLookAndFeel(&lf);
+	// http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
     owner.getCommandManager().setFirstCommandTarget (this);
 
 	addAndMakeVisible (menuBar = new MenuBarComponent (this));
@@ -105,11 +104,6 @@ void CtrlrEditor::resized()
 
 void CtrlrEditor::activeCtrlrChanged()
 {
-	// menuBarLookAndFeel->setPanel (owner.getActivePanel());
-	if (owner.getActivePanel() && owner.getCtrlrLookAndFeel())
-	{
-		owner.getCtrlrLookAndFeel()->setActivePanelEditor (owner.getActivePanel()->getEditor());
-	}
 }
 
 MenuBarComponent *CtrlrEditor::getMenuBar()

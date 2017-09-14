@@ -47,13 +47,10 @@ CtrlrPropertyComponent::~CtrlrPropertyComponent()
 {
 	deleteAllChildren();
 }
-
+/*
 void CtrlrPropertyComponent::paint (Graphics &g)
 {
 	getLookAndFeel().drawPropertyComponentBackground (g, getLookAndFeel().getPropertyComponentContentPosition (*this).getX(), getHeight(), *this);
-
-	g.setColour (Colours::black);
-
 	if (isMouseOver(false) && !currentFont.isUnderlined())
 	{
 		currentFont.setUnderline(true);
@@ -64,9 +61,9 @@ void CtrlrPropertyComponent::paint (Graphics &g)
 	}
 
 	g.setFont (currentFont);
-    g.drawFittedText (visibleText, 3, 0, getLookAndFeel().getPropertyComponentContentPosition (*this).getX()-5, getHeight(), Justification::centredLeft, 2);
+	g.drawFittedText (visibleText, 3, 0, getLookAndFeel().getPropertyComponentContentPosition (*this).getX()-5, getHeight(), Justification::centredLeft, 2);
 }
-
+*/
 void CtrlrPropertyComponent::resized()
 {
 	currentFont.setHeight (jmin (getHeight(), 24) * 0.55f);

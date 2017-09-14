@@ -71,6 +71,13 @@
 
 #define MAXZOOM                                                 3.0
 #define MINZOOM                                                 0.5
+
+#define VST_INDEX_MANUFACTURER			1025
+#define VST_INDEX_VERSION_CODE			1026
+#define VST_INDEX_VERSION_STRING		1027
+#define VST_INDEX_UNIQUEID				1028
+#define VST_INDEX_NAME					1029
+
 //==============================================================================
 /** Used in SysEx formula editor
 */

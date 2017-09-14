@@ -26,7 +26,7 @@ class CtrlrPropertyComponent  : public PropertyComponent
 		void setPreferredHeight (int newHeight) noexcept        { preferredHeight = newHeight; }
 		Component *getPropertyComponent();
 		void resized();
-		void paint (Graphics &g);
+		//void paint (Graphics &g);
 		void refresh();
 		void mouseEnter (const MouseEvent &e);
 		void mouseExit (const MouseEvent &e);

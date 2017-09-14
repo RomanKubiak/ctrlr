@@ -1433,7 +1433,7 @@ void LookAndFeelBase::drawTableHeaderBackground(Graphics &g, TableHeaderComponen
     TRY_CALL(drawTableHeaderBackground, boost::ref(g), boost::ref(tableHeaderComponent));
 }
 
-void LookAndFeelBase::drawTableHeaderColumn(Graphics &g, const String &columnName, int columnId, int width, int height, bool isMouseOver, bool isMouseDown, int columnFlags)
+void LookAndFeelBase::drawTableHeaderColumn(Graphics &, const String &, int , int , int , bool , bool , int )
 {
     //TRY_CALL(drawTableHeaderColumn, boost::ref(g), columnName, columnId, width, height, isMouseOver, isMouseDown, columnFlags);
 }

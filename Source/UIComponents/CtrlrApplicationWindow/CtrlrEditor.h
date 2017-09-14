@@ -4,7 +4,6 @@
 #include "CtrlrMacros.h"
 #include "CtrlrWindowManagers/CtrlrChildWindowContainer.h"
 #include "CtrlrSettings.h"
-#include "CtrlrLookAndFeel.h"
 
 class CtrlrManager;
 class CtrlrProcessor;
@@ -148,7 +147,6 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		void setRenderingEngine (int index);
 		void setOpenGLRenderingEngine();
 		void setUsingOpenGL(const bool isUsingOpenGL);
-		CtrlrMenuBarLookAndFeel *getMenuBarLookAndFeel () { return (menuBarLookAndFeel); }
 		void setMenuBarVisible(const bool shouldBeVisible=true);
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrEditor)
 
@@ -157,7 +155,6 @@ class CtrlrEditor  : public AudioProcessorEditor,
 			OpenGLContext openGLContext;
 		#endif
 		bool menuHandlerCalled;
-		ScopedPointer <CtrlrMenuBarLookAndFeel> menuBarLookAndFeel;
 		MenuBarComponent *menuBar;
 		TooltipWindow tooltipWindow;
 		CtrlrManager &owner;
@@ -167,6 +164,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		Label l;
 		CtrlrPanel *invalidCtrlrPtr;
 		Result tempResult;
+		LookAndFeel_V4 lf;
 		int64 lastCommandInvocationMillis;
 };
 
