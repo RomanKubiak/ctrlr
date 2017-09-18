@@ -10,7 +10,8 @@
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
               pluginIsMidiEffectPlugin="1" pluginEditorRequiresKeys="1" pluginAUExportPrefix="CtrlrVSTAU"
               pluginRTASCategory="" aaxIdentifier="com.yourcompany.CtrlrVST"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.1">
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.1"
+              defines="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1">
   <MAINGROUP id="gSPEw1" name="Ctrlr">
     <GROUP id="{508B796B-61D7-CF04-9492-C452B394E1B3}" name="Source">
       <GROUP id="{837CAAA3-C599-CBD5-4D33-91D2F6948E77}" name="Core">
@@ -793,10 +794,6 @@
                 compile="1" resource="0" file="Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsHandlers.cpp"/>
           <FILE id="HTYDSK" name="CtrlrEditorApplicationCommandsMenus.cpp" compile="1"
                 resource="0" file="Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsMenus.cpp"/>
-          <FILE id="ndQBho" name="CtrlrLookAndFeel.cpp" compile="1" resource="0"
-                file="Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.cpp"/>
-          <FILE id="SsstcT" name="CtrlrLookAndFeel.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.h"/>
           <FILE id="VqA9fh" name="CtrlrSettings.cpp" compile="1" resource="0"
                 file="Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.cpp"/>
           <FILE id="tSqCvF" name="CtrlrSettings.h" compile="0" resource="0" file="Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.h"/>
