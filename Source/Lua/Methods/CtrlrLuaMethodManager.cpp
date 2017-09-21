@@ -503,7 +503,7 @@ ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const String &methodName, 
 ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const File &methodFileSource, const Uuid methodUuid)
 {
 	ValueTree methodTree (Ids::luaMethod);
-	methodTree.setProperty (Ids::luaMethodName, methodFileSource.getFileName(), nullptr);
+	methodTree.setProperty (Ids::luaMethodName, methodFileSource.getFileNameWithoutExtension(), nullptr);
 	methodTree.setProperty (Ids::luaMethodSourcePath, methodFileSource.getFullPathName(), nullptr);
 	methodTree.setProperty (Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInFile, nullptr);
 	methodTree.setProperty (Ids::uuid, methodUuid.isNull() ? Uuid().toString() : methodUuid.toString(), nullptr);
