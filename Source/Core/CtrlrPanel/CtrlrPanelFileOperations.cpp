@@ -30,17 +30,99 @@ ValueTree CtrlrPanel::getCleanPanelTree()
 	return (exportTree);
 }
 
+String CtrlrPanel::getPanelContentDirPath()
+{
+	const String filePath = getProperty(Ids::panelFilePath);
+	return filePath.upToLastOccurrenceOf(".", false, false);
+}
+
+File CtrlrPanel::getPanelContentDir()
+{
+	return File(getPanelContentDirPath());
+}
+
+File CtrlrPanel::getPanelLuaDir()
+{
+	return getPanelContentDir().getChildFile("lua");
+}
+
+String CtrlrPanel::getPanelLuaDirPath()
+{
+	return getPanelLuaDir().getFullPathName();
+}
+
+File CtrlrPanel::getPanelResourcesDir()
+{
+	return getPanelContentDir().getChildFile("resources");
+}
+
+String CtrlrPanel::getPanelResourcesDirPath()
+{
+	return getPanelResourcesDir().getFullPathName();
+}
+
+File CtrlrPanel::getLuaMethodGroupDir(const ValueTree &methodGroup)
+{
+	ValueTree currentItem = methodGroup;
+	StringArray temp;
+	while (currentItem.isValid() && currentItem.hasType(Ids::luaMethodGroup))
+	{
+		String currentPath = currentItem.getProperty(Ids::name);
+		if (!currentPath.isEmpty())
+		{
+			temp.add(currentPath);
+		}
+		currentItem = currentItem.getParent();
+	}
+	File result(getPanelLuaDirPath());
+	for (int i = temp.size(); i >= 0; i--)
+	{
+		result = result.getChildFile(temp[i]);
+	}
+	return result;
+}
+
+Result CtrlrPanel::convertLuaMethodsToFiles(const String dirPath)
+{
+	Result res = Result::ok();
+	// Try and get access to panel directory
+	File panelDirectory(dirPath);
+	if (panelDirectory.existsAsFile())
+	{	// A directory with that name already exists
+		res = Result::fail("Convert to files can't create directory (a file with that name already exists): " + dirPath);
+	}
+	else if (!panelDirectory.exists())
+	{
+		res = panelDirectory.createDirectory();
+	}
+	if (res.ok())
+	{
+		if (panelDirectory.hasWriteAccess())
+		{	// Save lua code
+			res = saveLuaCode(panelDirectory, this);
+		}
+		else
+		{
+			res = Result::fail("Convert to XML can't write in panel directory: " + dirPath);
+		}
+	}
+	return res;
+}
+
 Result CtrlrPanel::savePanel()
 {
 	_DBG("CtrlrPanel::savePanel");
 
 	Result res = Result::ok();
-	File panelFile(getProperty (Ids::panelFilePath));
+	const String filePath = getProperty(Ids::panelFilePath);
+	File panelFile(filePath);
 
 	if (panelFile.existsAsFile() && panelFile.hasWriteAccess())
 	{
 		if (panelFile.hasFileExtension("panel"))
-			res = savePanelXml (panelFile, this, false);
+		{	
+			res = savePanelXml(panelFile, this, false);
+		}
 		if (panelFile.hasFileExtension("panelz"))
 			res = savePanelXml (panelFile, this, true);
 		if (panelFile.hasFileExtension("bpanel"))
@@ -506,6 +588,102 @@ void CtrlrPanel::writePanelXml(OutputStream &outputStream, CtrlrPanel *panel, co
 	{
 		panelXml->writeToStream (outputStream,"");
 	}
+}
+
+Result CtrlrPanel::writeLuaMethod(const File &parentDir, ValueTree *method)
+{
+	if (method == nullptr)
+		return Result::fail("Method name is missing");
+
+	const String methodName = method->getProperty(Ids::luaMethodName);
+	const String methodCode = method->getProperty(Ids::luaMethodCode);
+	if (methodName.isEmpty())
+		return Result::fail("Method name is empty");
+
+	// Create file
+	const File methodFile = parentDir.getNonexistentChildFile(methodName,".lua",false);
+	if (methodFile.replaceWithText(methodCode))
+	{
+		method->setProperty(Ids::luaMethodName, methodFile.getFileNameWithoutExtension(), nullptr);
+		method->setProperty(Ids::luaMethodSourcePath, methodFile.getFullPathName(), nullptr);
+		method->setProperty(Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInFile, nullptr);
+		return Result::ok();
+	}
+	else
+	{
+		AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Could not save lua method", "Could not save lua method", "OK");
+		return (Result::fail("saveLuaMethod: could not save lua method."));
+	}
+}
+
+Result CtrlrPanel::writeLuaMethodGroup(const File &parentDir, ValueTree *methodGroup)
+{
+	if (methodGroup == nullptr)
+		return Result::fail("Method group is missing");
+
+	const String methodGroupName = methodGroup->getProperty(Ids::name);
+	if (methodGroupName.isEmpty())
+		return Result::fail("Method group is empty");
+
+	// Create file
+	const File methodGroupFile = parentDir.getChildFile(methodGroupName);
+	Result res = methodGroupFile.createDirectory();
+	if (res.wasOk())
+	{	// Save contained methods and groups
+		return CtrlrPanel::writeLuaChildren(methodGroupFile, methodGroup);
+	}
+	else
+	{
+		AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Could not save lua method group", "Could not save lua method group", "OK");
+	}
+	return res;
+}
+
+Result CtrlrPanel::writeLuaChildren(const File &parentDir, ValueTree *parentElement)
+{
+	if (parentElement == nullptr)
+		return Result::fail("Parent element is missing");
+
+	Result res = Result::ok();
+	for (int i = 0; i<parentElement->getNumChildren(); i++)
+	{
+		ValueTree child = parentElement->getChild(i);
+		if (child.hasType(Ids::luaMethod))
+		{
+			if ((int)child.getProperty(Ids::luaMethodSource) != CtrlrLuaMethod::codeInFile)
+			{	// Only process methods that are not already saved in files
+				res = CtrlrPanel::writeLuaMethod(parentDir, &child);
+				if (res.failed())
+				{	// Break on first error
+					return res;
+				}
+			}
+		}
+		else if (child.hasType(Ids::luaMethodGroup))
+		{
+			res = CtrlrPanel::writeLuaMethodGroup(parentDir, &child);
+			if (res.failed())
+			{	// Break on first error
+				return res;
+			}
+		}
+	}
+	return res;
+}
+
+Result CtrlrPanel::saveLuaCode(const File &panelDir, CtrlrPanel *panel)
+{
+	ValueTree luaManager = panel->getPanelTree().getChildWithName(Ids::luaManager);
+	if (luaManager.isValid())
+	{
+		ValueTree luaMethods = luaManager.getChildWithName(Ids::luaManagerMethods);
+		return CtrlrPanel::writeLuaChildren(panelDir,&luaMethods);
+	}
+	else
+	{
+		return (Result::fail("saveLuaCode failed due to missing luaManager"));
+	}
+	return Result::ok();
 }
 
 Result CtrlrPanel::savePanelXml(const File &fileToSave, CtrlrPanel *panel, const bool compressPanel)

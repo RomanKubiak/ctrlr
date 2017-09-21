@@ -287,6 +287,13 @@ void CtrlrLuaMethodEditor::addNewMethod(ValueTree parentGroup)
 
 void CtrlrLuaMethodEditor::addMethodFromFile(ValueTree parentGroup)
 {
+	// See if group folder exists
+	File groupFolder = owner.getLuaMethodGroupDir(parentGroup);
+	if (groupFolder.exists() && groupFolder.isDirectory())
+	{
+		lastBrowsedSourceDir = groupFolder;
+	}
+
 	FileChooser fc ("Select LUA files",
 					lastBrowsedSourceDir,
 					"*.lua;*.txt",
@@ -692,10 +699,15 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			m.addItem (2, "Add files");
 			m.addItem (3, "Add group");
 			m.addSeparator();
-			if (item.hasType (Ids::luaMethodGroup))
+			bool isMethodGroup = item.hasType(Ids::luaMethodGroup);
+			if (isMethodGroup)
 			{
 				m.addItem (4, "Remove group");
 				m.addItem (5, "Rename group");
+			}
+			else
+			{	// Root element => add a menu to convert method to filesto files
+				m.addItem(4, "Convert to files...");
 			}
 
 			m.addSeparator();
@@ -718,7 +730,14 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			}
 			else if (ret == 4)
 			{
-				removeGroup (item);
+				if (isMethodGroup)
+				{	// Case of a method group => remove group
+					removeGroup(item);
+				}
+				else
+				{	// Case of to root element => export to files
+					convertToFiles();
+				}
 			}
 			else if (ret == 5)
 			{
@@ -923,6 +942,8 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 		menu.addItem (3, "Save and compile");
 		menu.addItem (4, "Save and compile all");
 		menu.addSeparator ();
+		menu.addItem(5, "Convert to files...");
+		menu.addSeparator();
 		menu.addItem (1, "Close");
 	}
 	else if (topLevelMenuIndex == 1)
@@ -965,6 +986,10 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 	{
 		saveAndCompilAllMethods();
 	}
+	else if (menuItemID == 5 && topLevelMenuIndex == 0)
+	{
+		convertToFiles();
+	}
 	else if (menuItemID == 4 && topLevelMenuIndex == 1)
 	{
 		methodEditArea->showFindDialog();
@@ -1000,6 +1025,25 @@ void CtrlrLuaMethodEditor::saveAndCompilAllMethods()
 		if (ed)
 		{
 			ed->saveAndCompileDocument();
+		}
+	}
+}
+
+void CtrlrLuaMethodEditor::convertToFiles()
+{
+	// Show confirmation dialog
+	const String location = owner.getPanelLuaDirPath();
+	const int confirm = AlertWindow::showOkCancelBox(AlertWindow::QuestionIcon, "Convert to files", "Do you want to convert all Lua methods to files (location=" + location + ")?", "Yes", "No");
+	if (confirm == 1)
+	{
+		Result res = owner.convertLuaMethodsToFiles(location);
+		if (res.wasOk())
+		{
+			triggerAsyncUpdate();
+		}
+		else
+		{
+			AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Convert to files", "Failed to convert Lua methods to files.\n" + res.getErrorMessage());
 		}
 	}
 }

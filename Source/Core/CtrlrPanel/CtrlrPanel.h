@@ -139,6 +139,16 @@ class CtrlrPanel:	public ValueTree::Listener,
 		int getCurrentProgramNumber();
 		int getCurrentBankNumber();
 		Result savePanel();
+		Result saveLuaCode(const File &panelDir, CtrlrPanel *panel);
+		String getPanelContentDirPath();
+		String getPanelLuaDirPath();
+		String getPanelResourcesDirPath();
+		File getPanelContentDir();
+		File getPanelLuaDir();
+		File getPanelResourcesDir();
+		Result convertLuaMethodsToFiles(const String dirPath);
+		File getLuaMethodGroupDir(const ValueTree &methodGroup);
+
 		const File savePanelAs(const CommandID saveOption);
 		void savePanelVersioned();
 		Result savePanelXml(const File &fileToSave, CtrlrPanel *panel, const bool compressPanel=false);
@@ -160,6 +170,11 @@ class CtrlrPanel:	public ValueTree::Listener,
 		ValueTree getCleanPanelTree();
 
 		static void writePanelXml(OutputStream &outputStream, CtrlrPanel *panel, const bool compressPanel);
+		static Result writeLuaMethod(const File &parentDir, ValueTree *method);
+		static Result writeLuaMethodGroup(const File &parentDir, ValueTree *methodGroup);
+		static Result writeLuaChildren(const File &parentDir, ValueTree *parentElement);
+
+
 		const String getVersionString(const bool includeVersionName=true, const bool includeTime=true, const String versionSeparator=String::empty);
 		void editModeChanged(const bool isInEditMode);
 		bool getEditMode();
