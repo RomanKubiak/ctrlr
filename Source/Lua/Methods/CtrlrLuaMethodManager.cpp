@@ -211,7 +211,7 @@ void CtrlrLuaMethodManager::restoreMethod (const ValueTree &savedState, const Uu
 	if ((int)savedState.getProperty(Ids::luaMethodSource) == (int)CtrlrLuaMethod::codeInFile)
 	{
 		addMethodFromFile	(getGroupByUuid(parentUuid),
-								File(savedState.getProperty(Ids::luaMethodSourcePath).toString()),
+								owner.getOwner().getLuaMethodSourceFile(&savedState),
 								Uuid(savedState.getProperty(Ids::uuid).toString()));
 	}
 	else
@@ -504,6 +504,7 @@ ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const File &methodFileSour
 {
 	ValueTree methodTree (Ids::luaMethod);
 	methodTree.setProperty (Ids::luaMethodName, methodFileSource.getFileNameWithoutExtension(), nullptr);
+	// TODO try and get realtive path
 	methodTree.setProperty (Ids::luaMethodSourcePath, methodFileSource.getFullPathName(), nullptr);
 	methodTree.setProperty (Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInFile, nullptr);
 	methodTree.setProperty (Ids::uuid, methodUuid.isNull() ? Uuid().toString() : methodUuid.toString(), nullptr);

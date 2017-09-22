@@ -617,7 +617,7 @@ const AttributedString CtrlrLuaMethodEditor::getDisplayString(const ValueTree &i
 
 		if ((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
 		{
-			str.append (File::descriptionOfSizeInBytes (File(item.getProperty(Ids::luaMethodSourcePath).toString()).getSize()), Font(10.0f, Font::italic), text.brighter(0.2f));
+			str.append (File::descriptionOfSizeInBytes (owner.getLuaMethodSourceFile(&item).getSize()), Font(10.0f, Font::italic), text.brighter(0.2f));
 		}
 		else
 		{
@@ -666,7 +666,7 @@ Image CtrlrLuaMethodEditor::getIconForItem (const ValueTree &item) const
 
 		if ((int)item.getProperty (Ids::luaMethodSource) == (int)CtrlrLuaMethod::codeInFile)
 		{
-			if (File(item.getProperty(Ids::luaMethodSourcePath)).existsAsFile())
+			if (owner.getLuaMethodSourceFile(&item).existsAsFile())
 			{
 				return (IMAGE(ico_file_png));
 			}
@@ -745,14 +745,14 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			}
 			else if (ret == 6)
 			{
-				ChildSorter sorter(true);
+				ChildSorter sorter(true,*this);
 				getMethodManager().getManagerTree().sort (sorter, nullptr, false);
 
 				triggerAsyncUpdate();
 			}
 			else if (ret == 7)
 			{
-				ChildSorter sorter(false);
+				ChildSorter sorter(false,*this);
 				getMethodManager().getManagerTree().sort (sorter, nullptr, false);
 
 				triggerAsyncUpdate();
@@ -764,7 +764,7 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			m.addSectionHeader ("Method " + item.getProperty(Ids::luaMethodName).toString());
 			if ((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
 			{
-				if (!File(item.getProperty(Ids::luaMethodSourcePath)).existsAsFile())
+				if (!owner.getLuaMethodSourceFile(&item).existsAsFile())
 				{
 					m.addItem (12, "Locate file on disk");
 				}
@@ -884,7 +884,9 @@ void CtrlrLuaMethodEditor::handleAsyncUpdate()
 	updateRootItem();
 }
 
-ChildSorter::ChildSorter (const bool _sortByName) : sortByName(_sortByName)
+
+
+ChildSorter::ChildSorter(const bool _sortByName, CtrlrLuaMethodEditor &_parent) :sortByName(_sortByName),parent(_parent)
 {
 }
 
@@ -900,7 +902,7 @@ int ChildSorter::compareElements (ValueTree first, ValueTree second)
 
 		if ((int)first.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
 		{
-			firstSize = File (first.getProperty (Ids::luaMethodSourcePath).toString()).getSize();
+			firstSize = parent.getOwner().getLuaMethodSourceFile(&first).getSize();
 		}
 		else
 		{
@@ -909,7 +911,7 @@ int ChildSorter::compareElements (ValueTree first, ValueTree second)
 
 		if ((int)second.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
 		{
-			secondSize = File (second.getProperty (Ids::luaMethodSourcePath).toString()).getSize();
+			secondSize = parent.getOwner().getLuaMethodSourceFile(&second).getSize();
 		}
 		else
 		{

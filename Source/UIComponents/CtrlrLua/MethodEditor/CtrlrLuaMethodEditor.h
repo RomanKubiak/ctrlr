@@ -23,11 +23,12 @@ class CtrlrLuaMethodCodeEditor;
 class ChildSorter
 {
 	public:
-		ChildSorter (const bool _sortByName);
+		ChildSorter (const bool _sortByName, CtrlrLuaMethodEditor &_parent);
 		int compareElements (ValueTree first, ValueTree second);
 
 	private:
 		bool sortByName;
+		CtrlrLuaMethodEditor &parent;
 };
 
 class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,

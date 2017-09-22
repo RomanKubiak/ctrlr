@@ -590,6 +590,20 @@ void CtrlrPanel::writePanelXml(OutputStream &outputStream, CtrlrPanel *panel, co
 	}
 }
 
+File CtrlrPanel::getLuaMethodSourceFile(const ValueTree *method)
+{
+	String path = method->getProperty(Ids::luaMethodSourcePath);
+	if (File::isAbsolutePath(path))
+	{
+		return File(path);
+	}
+	else
+	{
+		return getPanelContentDir().getChildFile(path);
+	}
+}
+
+
 Result CtrlrPanel::writeLuaMethod(const File &parentDir, ValueTree *method)
 {
 	if (method == nullptr)
@@ -605,7 +619,7 @@ Result CtrlrPanel::writeLuaMethod(const File &parentDir, ValueTree *method)
 	if (methodFile.replaceWithText(methodCode))
 	{
 		method->setProperty(Ids::luaMethodName, methodFile.getFileNameWithoutExtension(), nullptr);
-		method->setProperty(Ids::luaMethodSourcePath, methodFile.getFullPathName(), nullptr);
+		method->setProperty(Ids::luaMethodSourcePath, methodFile.getRelativePathFrom(getPanelContentDir()), nullptr);
 		method->setProperty(Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInFile, nullptr);
 		return Result::ok();
 	}

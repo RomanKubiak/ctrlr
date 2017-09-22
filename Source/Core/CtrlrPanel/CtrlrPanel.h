@@ -170,9 +170,10 @@ class CtrlrPanel:	public ValueTree::Listener,
 		ValueTree getCleanPanelTree();
 
 		static void writePanelXml(OutputStream &outputStream, CtrlrPanel *panel, const bool compressPanel);
-		static Result writeLuaMethod(const File &parentDir, ValueTree *method);
-		static Result writeLuaMethodGroup(const File &parentDir, ValueTree *methodGroup);
-		static Result writeLuaChildren(const File &parentDir, ValueTree *parentElement);
+		Result writeLuaMethod(const File &parentDir, ValueTree *method);
+		Result writeLuaMethodGroup(const File &parentDir, ValueTree *methodGroup);
+		Result writeLuaChildren(const File &parentDir, ValueTree *parentElement);
+		File getLuaMethodSourceFile(const ValueTree *method);
 
 
 		const String getVersionString(const bool includeVersionName=true, const bool includeTime=true, const String versionSeparator=String::empty);
