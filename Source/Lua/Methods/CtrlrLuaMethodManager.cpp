@@ -504,8 +504,16 @@ ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const File &methodFileSour
 {
 	ValueTree methodTree (Ids::luaMethod);
 	methodTree.setProperty (Ids::luaMethodName, methodFileSource.getFileNameWithoutExtension(), nullptr);
-	// TODO try and get realtive path
-	methodTree.setProperty (Ids::luaMethodSourcePath, methodFileSource.getFullPathName(), nullptr);
+	
+	File panelContentDir = getOwner().getOwner().getPanelContentDir();
+	if (panelContentDir.exists() && panelContentDir.isDirectory() && methodFileSource.isAChildOf(panelContentDir))
+	{	// Try and get realtive path
+		methodTree.setProperty(Ids::luaMethodSourcePath, methodFileSource.getRelativePathFrom(panelContentDir), nullptr);
+	}
+	else
+	{
+		methodTree.setProperty(Ids::luaMethodSourcePath, methodFileSource.getFullPathName(), nullptr);
+	}
 	methodTree.setProperty (Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInFile, nullptr);
 	methodTree.setProperty (Ids::uuid, methodUuid.isNull() ? Uuid().toString() : methodUuid.toString(), nullptr);
 	return (methodTree);
