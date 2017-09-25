@@ -217,6 +217,9 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 
 	panelTree.removeProperty (Ids::panelScheme, nullptr);
 
+	// We need panel file property to be able to restore relative paths on lua methods
+	panelTree.setProperty(Ids::panelFilePath, savedState.getProperty(Ids::panelFilePath),nullptr);
+
 	ctrlrLuaManager->restoreState(savedState.getChildWithName(Ids::luaManager));
 
 	if ((int)savedState.getProperty(Ids::panelScheme) < CTRLR_PANEL_SCHEME)

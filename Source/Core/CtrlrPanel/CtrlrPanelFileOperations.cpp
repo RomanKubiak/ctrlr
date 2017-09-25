@@ -621,6 +621,7 @@ Result CtrlrPanel::writeLuaMethod(const File &parentDir, ValueTree *method)
 		method->setProperty(Ids::luaMethodName, methodFile.getFileNameWithoutExtension(), nullptr);
 		method->setProperty(Ids::luaMethodSourcePath, methodFile.getRelativePathFrom(getPanelContentDir()), nullptr);
 		method->setProperty(Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInFile, nullptr);
+		method->removeProperty(Ids::luaMethodCode,nullptr);
 		return Result::ok();
 	}
 	else
