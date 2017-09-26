@@ -174,6 +174,9 @@ class CtrlrPanel:	public ValueTree::Listener,
 		Result writeLuaMethodGroup(const File &parentDir, ValueTree *methodGroup);
 		Result writeLuaChildren(const File &parentDir, ValueTree *parentElement);
 		File getLuaMethodSourceFile(const ValueTree *method);
+		static void convertLuaMethodsToPropeties(const File &panelLuaDir, ValueTree &panelTree);
+		static void convertLuaMethodToProperty(const File &panelLuaDir, ValueTree *method);
+		static void convertLuaChildrenToProperties(const File &panelLuaDir, ValueTree *parentElement);
 
 
 		const String getVersionString(const bool includeVersionName=true, const bool includeTime=true, const String versionSeparator=String::empty);
