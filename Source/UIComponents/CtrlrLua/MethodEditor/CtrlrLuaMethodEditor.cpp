@@ -416,8 +416,26 @@ void CtrlrLuaMethodEditor::itemChanged (ValueTree &itemTreeThatChanged)
 {
 }
 
-void CtrlrLuaMethodEditor::closeTab(const int tabIndex)
+void CtrlrLuaMethodEditor::closeCurrentTab()
 {
+	closeTab(methodEditArea->getTabs()->getCurrentTabIndex());
+}
+
+void CtrlrLuaMethodEditor::closeAllTabs()
+{
+	CtrlrLuaMethodEditorTabs *tabs = methodEditArea->getTabs();
+	while (tabs->getNumTabs() > 0)
+	{
+		if (!closeTab(0))
+		{
+			break;
+		}
+	}
+}
+
+bool CtrlrLuaMethodEditor::closeTab(const int tabIndex)
+{
+	bool closed = true;
 	CtrlrLuaMethodCodeEditor *ed = dynamic_cast<CtrlrLuaMethodCodeEditor*>(methodEditArea->getTabs()->getTabContentComponent(tabIndex));
 	if (ed)
 	{
@@ -427,16 +445,23 @@ void CtrlrLuaMethodEditor::closeTab(const int tabIndex)
 			{
 				methodEditArea->getTabs()->removeTab (tabIndex);
 			}
+			else
+			{
+				closed = false;
+			}
 		}
 		else
 		{
 			methodEditArea->getTabs()->removeTab (tabIndex);
 		}
 
-		methodEditArea->getTabs()->setCurrentTabIndex (tabIndex == 0 ? tabIndex+1 : tabIndex-1 , false);
-
-		saveSettings();
+		if (closed)
+		{
+			methodEditArea->getTabs()->setCurrentTabIndex(tabIndex == 0 ? tabIndex + 1 : tabIndex - 1, false);
+			saveSettings();
+		}
 	}
+	return closed;
 }
 
 void CtrlrLuaMethodEditor::updateTabs()
@@ -964,8 +989,11 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 		menu.addItem (2, "Save");
 		menu.addItem (3, "Save and compile");
 		menu.addItem (4, "Save and compile all");
+		menu.addSeparator();
+		menu.addItem(5, "Close current tab");
+		menu.addItem(6, "Close all tabs");
 		menu.addSeparator ();
-		menu.addItem(5, "Convert to files...");
+		menu.addItem(7, "Convert to files...");
 		menu.addSeparator();
 		menu.addItem (1, "Close");
 	}
@@ -1010,6 +1038,14 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 		saveAndCompilAllMethods();
 	}
 	else if (menuItemID == 5 && topLevelMenuIndex == 0)
+	{
+		closeCurrentTab();
+	}
+	else if (menuItemID == 6 && topLevelMenuIndex == 0)
+	{
+		closeAllTabs();
+	}
+	else if (menuItemID == 7 && topLevelMenuIndex == 0)
 	{
 		convertToFiles();
 	}
