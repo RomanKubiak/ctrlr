@@ -27,6 +27,10 @@ ValueTree CtrlrPanel::getCleanPanelTree()
 		Rectangle<int> rectToShrink = VAR2RECT(ed.getProperty(Ids::uiPanelCanvasRectangle));
 		ed.setProperty(Ids::uiPanelCanvasRectangle, rectToShrink.withTrimmedBottom(CTRLR_MENUBAR_HEIGHT).toString(), nullptr);
 	}
+
+	// Embed external lua code in properties
+	convertLuaMethodsToPropeties(getPanelLuaDir(),exportTree);
+
 	return (exportTree);
 }
 
@@ -107,6 +111,16 @@ Result CtrlrPanel::convertLuaMethodsToFiles(const String dirPath)
 		}
 	}
 	return res;
+}
+
+void CtrlrPanel::convertLuaMethodsToPropeties(const File &panelLuaDir, ValueTree &panelTree)
+{
+	ValueTree luaManager = panelTree.getChildWithName(Ids::luaManager);
+	if (luaManager.isValid())
+	{
+		ValueTree luaMethods = luaManager.getChildWithName(Ids::luaManagerMethods);
+		CtrlrPanel::convertLuaChildrenToProperties(panelLuaDir, &luaMethods);
+	}
 }
 
 Result CtrlrPanel::savePanel()
@@ -699,6 +713,54 @@ Result CtrlrPanel::saveLuaCode(const File &panelDir, CtrlrPanel *panel)
 		return (Result::fail("saveLuaCode failed due to missing luaManager"));
 	}
 	return Result::ok();
+}
+
+void CtrlrPanel::convertLuaMethodToProperty(const File &panelLuaDir, ValueTree *method)
+{
+	if (method == nullptr)
+		return;
+
+	const String methodName = method->getProperty(Ids::luaMethodName);
+	const String methodFilePath = method->getProperty(Ids::luaMethodCode);
+	if (methodName.isEmpty() || methodFilePath.isEmpty())
+		return;
+	// Get file path
+	File methodFile;
+	if (File::isAbsolutePath(methodFilePath))
+	{
+		methodFile = File(methodFilePath);
+	}
+	else
+	{
+		methodFile = panelLuaDir.getChildFile(methodFilePath);
+	}
+
+	// Read file
+	method->removeProperty(Ids::luaMethodSourcePath,nullptr);
+	method->setProperty(Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInProperty, nullptr);
+	method->setProperty(Ids::luaMethodCode,methodFile.loadFileAsString(), nullptr);
+}
+
+void CtrlrPanel::convertLuaChildrenToProperties(const File &panelLuaDir, ValueTree *parentElement)
+{
+	if (parentElement == nullptr)
+		return;
+
+	for (int i = 0; i<parentElement->getNumChildren(); i++)
+	{
+		ValueTree child = parentElement->getChild(i);
+		if (child.hasType(Ids::luaMethod))
+		{	// This is a method, check if it's on file
+			if ((int)child.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
+			{	// Only process methods that are saved in files
+				CtrlrPanel::convertLuaMethodToProperty(panelLuaDir, &child);
+			}
+		}
+		else if (child.hasType(Ids::luaMethodGroup))
+		{	// This is a group => recursive call
+			CtrlrPanel::convertLuaChildrenToProperties(panelLuaDir, &child);
+		}
+	}
 }
 
 Result CtrlrPanel::savePanelXml(const File &fileToSave, CtrlrPanel *panel, const bool compressPanel)
