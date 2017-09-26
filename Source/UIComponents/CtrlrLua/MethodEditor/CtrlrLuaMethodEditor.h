@@ -84,7 +84,9 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		void paint (Graphics& g);
 		void resized();
 		bool keyPressed (const KeyPress& key, Component* originatingComponent);
-		void closeTab(const int tabIndex);
+		void closeCurrentTab();
+		void closeAllTabs();
+		bool closeTab(const int tabIndex);
 		void tabChanged(CtrlrLuaMethodCodeEditor *codeEditor, const bool save=false, const bool recompile=false);
 		void updateTabs();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
