@@ -28,6 +28,7 @@ class CtrlrPanelResourceEditor  : public Component,
 		void buttonClicked (Button* buttonThatWasClicked);
 		void updateTable();
 		void reloadAllResourcesFromSourceFiles();
+		void moveResources();
 		void backgroundClicked (const MouseEvent &e);
 		void showResourceInfo(const int resourceIndex);
 	private:
@@ -38,7 +39,8 @@ class CtrlrPanelResourceEditor  : public Component,
 		Font tableFont;
 	    TableListBox* resourceList;
 	    TextButton* add;
-	    TextButton* remove, *reload;
+		TextButton* move;
+		TextButton* remove, *reload;
 	    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrPanelResourceEditor);
 };
 
