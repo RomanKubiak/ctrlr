@@ -35,6 +35,7 @@ class CtrlrPanelResource : public ValueTree::Listener
 		bool isLoaded();
 		File &getFile();
 		File getSourceFile();
+		void setSourceFile(const File &sourceFile);
 		void load();
 		void loadIfNeeded();
 		ValueTree createTree();

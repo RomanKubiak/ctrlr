@@ -73,7 +73,7 @@ void CtrlrPanelResourceEditor::resized()
     resourceList->setBounds (0, 0, getWidth() - 0, getHeight() - 32);
     add->setBounds (0, getHeight() - 28, 64, 24);
 	remove->setBounds (72, getHeight() - 28, 64, 24);
-	move->setBounds(150, getHeight() - 28, 64, 24);
+	move->setBounds(144, getHeight() - 28, 64, 24);
 	reload->setBounds (getWidth() - 64, getHeight() - 28, 64, 24);
 }
 
@@ -382,7 +382,7 @@ void CtrlrPanelResourceEditor::moveResources()
 						}
 						else
 						{
-							resources[i]->setProperty(Ids::resourceSourceFile, targetFile.getFullPathName(), false);
+							resources[i]->setSourceFile(targetFile);
 							resourcesReloaded.add(resources[i]);
 							resources[i]->reloadFromSourceFile();
 						}
