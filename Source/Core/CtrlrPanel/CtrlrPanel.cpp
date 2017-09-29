@@ -254,6 +254,15 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 			return (resourceImport);
 		}
 	}
+	else
+	{	// Try and load missing resources from source files
+		ValueTree panelResourcesTree = savedState.getChildWithName(Ids::panelResources);
+		if(panelResourcesTree.isValid())
+		{
+			getResourceManager().checkMissingResources(panelResourcesTree);
+		}
+
+	}
 
 	if (luaPanelBeforeLoadCbk && !luaPanelBeforeLoadCbk.wasObjectDeleted())
 	{
