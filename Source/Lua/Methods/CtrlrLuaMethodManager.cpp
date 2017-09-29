@@ -505,10 +505,10 @@ ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const File &methodFileSour
 	ValueTree methodTree (Ids::luaMethod);
 	methodTree.setProperty (Ids::luaMethodName, methodFileSource.getFileNameWithoutExtension(), nullptr);
 	
-	File panelContentDir = getOwner().getOwner().getPanelContentDir();
-	if (panelContentDir.exists() && panelContentDir.isDirectory() && methodFileSource.isAChildOf(panelContentDir))
+	File panelLuaDir = getOwner().getOwner().getPanelLuaDir();
+	if (panelLuaDir.exists() && panelLuaDir.isDirectory() && methodFileSource.isAChildOf(panelLuaDir))
 	{	// Try and get realtive path
-		methodTree.setProperty(Ids::luaMethodSourcePath, methodFileSource.getRelativePathFrom(panelContentDir), nullptr);
+		methodTree.setProperty(Ids::luaMethodSourcePath, methodFileSource.getRelativePathFrom(panelLuaDir), nullptr);
 	}
 	else
 	{
