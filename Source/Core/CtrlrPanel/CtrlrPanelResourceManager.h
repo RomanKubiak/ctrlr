@@ -38,6 +38,7 @@ class CtrlrPanelResourceManager
 		int getResourceHashCode(const int resourceIndex);
 		const File getResourcesDirectory()	{ return (resourcesDirectory); }
 		void initManager();
+		void checkMissingResources(ValueTree& panelResourcesTree);
 		bool resourceExists(const File &resourceFile);
 		CtrlrPanel &getOwner();
 		static const String getTypeDescription(const CtrlrPanelResourceType type);
