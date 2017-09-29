@@ -613,7 +613,7 @@ File CtrlrPanel::getLuaMethodSourceFile(const ValueTree *method)
 	}
 	else
 	{
-		return getPanelContentDir().getChildFile(path);
+		return getPanelLuaDir().getChildFile(path);
 	}
 }
 
