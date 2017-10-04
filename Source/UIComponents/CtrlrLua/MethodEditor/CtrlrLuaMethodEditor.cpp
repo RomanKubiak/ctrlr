@@ -476,6 +476,46 @@ bool CtrlrLuaMethodEditor::closeTab(const int tabIndex)
 	return closed;
 }
 
+bool CtrlrLuaMethodEditor::canCloseWindow()
+{
+	bool hasUnsavedChanges = false;
+	CtrlrLuaMethodEditorTabs *tabs = methodEditArea->getTabs();
+	CtrlrLuaMethodCodeEditor *ed;
+	for (int i = 0; i < tabs->getNumTabs(); i++)
+	{
+		ed = dynamic_cast<CtrlrLuaMethodCodeEditor*>(methodEditArea->getTabs()->getTabContentComponent(i));
+		if (ed)
+		{
+			if (ed->getCodeDocument().hasChangedSinceSavePoint())
+			{
+				hasUnsavedChanges = true;
+				break;
+			}
+		}
+	}
+	if (hasUnsavedChanges)
+	{
+		int ret = AlertWindow::showYesNoCancelBox(AlertWindow::QuestionIcon, "Save changes", "There are unsaved changes. Do you want to save them berfore closing ?", "Save", "Discard", "Cancel", this);
+		if (ret == 0)
+		{	// Cancel
+			return false;
+		}
+		else if (ret == 1)
+		{	// Save all
+			saveAndCompilAllMethods();
+			return true;
+		}
+		else
+		{	// Discard
+			return true;
+		}
+	}
+	else
+	{
+		return true;
+	}
+}
+
 void CtrlrLuaMethodEditor::updateTabs()
 {
 	for (int i=0; i<methodEditArea->getTabs()->getNumTabs(); i++)

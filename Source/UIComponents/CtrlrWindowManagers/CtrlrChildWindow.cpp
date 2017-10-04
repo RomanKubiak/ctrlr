@@ -73,7 +73,10 @@ void CtrlrChildWindow::setContent(CtrlrChildWindowContent *_contentComponent)
 
 void CtrlrChildWindow::closeButtonPressed()
 {
-	owner.windowClosedButtonPressed (this);
+	if (!contentComponent || contentComponent->canCloseWindow())
+	{
+		owner.windowClosedButtonPressed(this);
+	}
 }
 
 bool CtrlrChildWindow::keyPressed (const KeyPress &key, Component *originatingComponent)
