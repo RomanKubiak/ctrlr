@@ -435,6 +435,7 @@ void CtrlrLuaMethodEditor::closeAllTabs()
 
 bool CtrlrLuaMethodEditor::closeTab(const int tabIndex)
 {
+	int currentlySelectedTab = methodEditArea->getTabs()->getCurrentTabIndex();
 	bool closed = true;
 	CtrlrLuaMethodCodeEditor *ed = dynamic_cast<CtrlrLuaMethodCodeEditor*>(methodEditArea->getTabs()->getTabContentComponent(tabIndex));
 	if (ed)
@@ -457,7 +458,18 @@ bool CtrlrLuaMethodEditor::closeTab(const int tabIndex)
 
 		if (closed)
 		{
-			methodEditArea->getTabs()->setCurrentTabIndex(tabIndex == 0 ? tabIndex + 1 : tabIndex - 1, false);
+			if (tabIndex == currentlySelectedTab)
+			{	// We closed the selected tab => move to previous tab
+				if (currentlySelectedTab > 0)
+				{
+					currentlySelectedTab = currentlySelectedTab - 1;
+				}
+			}
+			else if (tabIndex < currentlySelectedTab)
+			{
+				currentlySelectedTab = currentlySelectedTab - 1;
+			}
+			methodEditArea->getTabs()->setCurrentTabIndex(currentlySelectedTab, false);
 			saveSettings();
 		}
 	}
