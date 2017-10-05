@@ -1069,7 +1069,10 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 		if (isCurrentlyModal())
 			exitModalState(-1);
 
-		owner.getWindowManager().toggle (CtrlrPanelWindowManager::LuaMethodEditor, false);
+		if (canCloseWindow())
+		{
+			owner.getWindowManager().toggle(CtrlrPanelWindowManager::LuaMethodEditor, false);
+		}
 	}
 	if (menuItemID == 2 && topLevelMenuIndex == 0)
 	{
