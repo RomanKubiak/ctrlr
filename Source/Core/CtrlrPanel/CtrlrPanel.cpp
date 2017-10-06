@@ -24,7 +24,9 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		resourceManager(*this),
 		midiInputThread(*this, inputDevice),
 		midiControllerInputThread(*this, controllerDevice),
-		ctrlrLuaManager(nullptr)
+		ctrlrLuaManager(nullptr),
+		currentActionIndex(0),
+		indexOfSavedState(-1)
 {
 }
 
@@ -46,8 +48,9 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 		initialProgram(Ids::panelState),
 		boostrapStateStatus(false),
 		outputDevicePtr(nullptr),
-		ctrlrPanelUndoManager(nullptr)
-
+		ctrlrPanelUndoManager(nullptr),
+		currentActionIndex(0),
+		indexOfSavedState(-1)
 {
 	ctrlrPanelUndoManager	= new CtrlrPanelUndoManager(*this);
 	ctrlrLuaManager 		= new CtrlrLuaManager(*this);
@@ -297,7 +300,8 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 	{
 		bootstrapPanel();
 	}
-
+	// No modifications at this point
+	setSavePoint();
 	return Result::ok();
 }
 

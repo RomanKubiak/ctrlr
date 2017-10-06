@@ -149,9 +149,9 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			break;
 
 		case doClose:
-			if (AlertWindow::showYesNoCancelBox (AlertWindow::QuestionIcon, "Close panel", "Are you sure you want to close this panel", "Yes", "No", "Cancel", this) == 1)
+			if (getActivePanel()->canClose(true))
 			{
-				owner.removePanel (getActivePanelEditor());
+				owner.removePanel(getActivePanelEditor());
 			}
 			break;
 
