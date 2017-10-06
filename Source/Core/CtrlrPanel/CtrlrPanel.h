@@ -156,6 +156,8 @@ class CtrlrPanel:	public ValueTree::Listener,
 
 		void setSavePoint();
 		bool hasChangedSinceSavePoint();
+		bool isPanelDirty();
+		void setPanelDirty(const bool dirty);
 		void actionPerformed();
 		void actionUndone();
 		bool canClose(const bool closePanel);

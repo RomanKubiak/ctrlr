@@ -198,6 +198,10 @@ XmlElement *CtrlrManager::saveState()
 			if (panel != nullptr)
 			{
 				panel->generateCustomData();
+				if (panel->hasChangedSinceSavePoint())
+				{
+					panel->setPanelDirty(true);
+				}
 			}
 		}
 		return (managerTree.createXml());

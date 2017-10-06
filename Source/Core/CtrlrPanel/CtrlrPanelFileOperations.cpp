@@ -127,6 +127,8 @@ Result CtrlrPanel::savePanel()
 {
 	_DBG("CtrlrPanel::savePanel");
 
+	bool panelWasDirty = isPanelDirty();
+	setPanelDirty(false);
 	Result res = Result::ok();
 	const String filePath = getProperty(Ids::panelFilePath);
 	File panelFile(filePath);
@@ -184,6 +186,10 @@ Result CtrlrPanel::savePanel()
 	if (res.ok())
 	{
 		setSavePoint();
+	}
+	else if (panelWasDirty)
+	{
+		setPanelDirty(panelWasDirty);
 	}
 	return res;
 }
@@ -926,6 +932,16 @@ bool CtrlrPanel::hasChangedSinceSavePoint()
 	return currentActionIndex != indexOfSavedState;
 }
 
+bool CtrlrPanel::isPanelDirty()
+{
+	return getProperty(Ids::panelIsDirty,false);
+}
+
+void CtrlrPanel::setPanelDirty(const bool dirty)
+{
+	return setProperty(Ids::panelIsDirty, dirty);
+}
+
 void CtrlrPanel::actionPerformed()
 {
 	currentActionIndex++;
@@ -951,7 +967,7 @@ bool CtrlrPanel::canClose(const bool closePanel)
 		}
 	}
 	// Check for panel modifications
-	if(closePanel && hasChangedSinceSavePoint())
+	if(closePanel && (hasChangedSinceSavePoint() || isPanelDirty()))
 	{
 		int ret = AlertWindow::showYesNoCancelBox(AlertWindow::QuestionIcon, "Save panel (" + getName() + ")", "There are unsaved changes in this panel. Do you want to save them berfore closing ?", "Save", "Discard", "Cancel");
 		if (ret == 0)

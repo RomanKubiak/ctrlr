@@ -178,6 +178,7 @@ namespace Ids
 	DECLARE_ID (panelUID);
 	DECLARE_ID (panelInstanceUID);
     DECLARE_ID (panelInstanceManufacturerID);
+	DECLARE_ID (panelIsDirty);
 	DECLARE_ID (panelComponentGroupList);
 	DECLARE_ID (panelGlobalVariables);
 	DECLARE_ID (panelAuthorName);
