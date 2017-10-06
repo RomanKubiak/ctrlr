@@ -282,6 +282,28 @@ CtrlrPanel *CtrlrManager::getPanel(const String &panelName)
 	return (0);
 }
 
+bool CtrlrManager::canCloseWindow()
+{
+	for (int i = 0; i<getNumPanels(); i++)
+	{
+		CtrlrPanel *panel = getPanel(i);
+		if (panel != nullptr)
+		{
+			CtrlrPanelWindowManager &manager = panel->getWindowManager();
+			CtrlrChildWindowContent *content= manager.getContent(CtrlrPanelWindowManager::LuaMethodEditor);
+			if (content != nullptr)
+			{	// Move the editor to front
+				content->toFront(true);
+				if (!content->canCloseWindow())
+				{
+					return false;
+				}
+			}
+		}
+	}
+	return true;
+}
+
 void CtrlrManager::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
 {
 	if (property == Ids::ctrlrAutoSave)

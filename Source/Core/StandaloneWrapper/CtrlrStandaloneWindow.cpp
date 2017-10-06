@@ -134,7 +134,10 @@ PropertySet* CtrlrStandaloneWindow::getGlobalSettings()
 
 void CtrlrStandaloneWindow::closeButtonPressed()
 {
-	JUCEApplication::quit();
+	if(ctrlrProcessor->getManager().canCloseWindow())
+	{
+		JUCEApplication::quit();
+	}
 }
 
 void CtrlrStandaloneWindow::resized()
