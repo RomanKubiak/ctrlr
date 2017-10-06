@@ -273,7 +273,11 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			break;
 
 		case doQuit:
-			JUCEApplication::quit();
+			if (owner.canCloseWindow())
+			{
+				JUCEApplication::quit();
+			}
+			break;
 
 		case doRegisterExtension:
 			tempResult = owner.getNativeObject().registerFileHandler();
