@@ -70,7 +70,7 @@ void CtrlrPanelWindowManager::toggle(const CtrlrPanelWindowManager::WindowType w
 	}
 }
 
-Component *CtrlrPanelWindowManager::getContent(const CtrlrPanelWindowManager::WindowType window)
+CtrlrChildWindowContent *CtrlrPanelWindowManager::getContent(const CtrlrPanelWindowManager::WindowType window)
 {
 	CtrlrChildWindow *w = getWindow(window);
 	if (w)
