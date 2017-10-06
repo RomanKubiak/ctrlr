@@ -155,8 +155,6 @@ Result CtrlrPanel::savePanel()
 				notify ("Panel saved: ["+panelFile.getFullPathName()+"]", nullptr, NotifySuccess);
 			}
 		}
-
-		return (res);
 	}
 	else
 	{
@@ -182,9 +180,12 @@ Result CtrlrPanel::savePanel()
 				notify ("Panel saved: ["+panelFile.getFullPathName()+"]", nullptr, NotifySuccess);
 			}
 		}
-
-		return (res);
 	}
+	if (res.ok())
+	{
+		setSavePoint();
+	}
+	return res;
 }
 
 const File CtrlrPanel::savePanelAs(const CommandID saveOption)
@@ -913,4 +914,59 @@ bool CtrlrPanel::isPanelFile(const File &fileToCheck, const bool beThorough)
 			return (false);
 		}
 	}
+}
+
+void CtrlrPanel::setSavePoint()
+{
+	indexOfSavedState = currentActionIndex;
+}
+
+bool CtrlrPanel::hasChangedSinceSavePoint()
+{
+	return currentActionIndex != indexOfSavedState;
+}
+
+void CtrlrPanel::actionPerformed()
+{
+	currentActionIndex++;
+}
+
+void CtrlrPanel::actionUndone()
+{
+	currentActionIndex--;
+}
+
+bool CtrlrPanel::canClose(const bool closePanel)
+{
+	bool result = true;
+	// Check for modified Lua Code
+	CtrlrPanelWindowManager &manager = getWindowManager();
+	CtrlrChildWindowContent *content = manager.getContent(CtrlrPanelWindowManager::LuaMethodEditor);
+	if (content != nullptr)
+	{	// Move the editor to front
+		content->toFront(true);
+		if (!content->canCloseWindow())
+		{
+			result = false;
+		}
+	}
+	// Check for panel modifications
+	if(closePanel && hasChangedSinceSavePoint())
+	{
+		int ret = AlertWindow::showYesNoCancelBox(AlertWindow::QuestionIcon, "Save panel (" + getName() + ")", "There are unsaved changes in this panel. Do you want to save them berfore closing ?", "Save", "Discard", "Cancel");
+		if (ret == 0)
+		{	// Cancel
+			result = false;
+		}
+		else if (ret == 1)
+		{	// Save
+			savePanel();
+			result = true;
+		}
+		else
+		{	// Discard
+			result = true;
+		}
+	}
+	return result;
 }

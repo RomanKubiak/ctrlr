@@ -289,15 +289,9 @@ bool CtrlrManager::canCloseWindow()
 		CtrlrPanel *panel = getPanel(i);
 		if (panel != nullptr)
 		{
-			CtrlrPanelWindowManager &manager = panel->getWindowManager();
-			CtrlrChildWindowContent *content= manager.getContent(CtrlrPanelWindowManager::LuaMethodEditor);
-			if (content != nullptr)
-			{	// Move the editor to front
-				content->toFront(true);
-				if (!content->canCloseWindow())
-				{
-					return false;
-				}
+			if (!panel->canClose(false))
+			{
+				return false;
 			}
 		}
 	}

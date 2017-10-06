@@ -154,6 +154,12 @@ class CtrlrPanel:	public ValueTree::Listener,
 		Result savePanelXml(const File &fileToSave, CtrlrPanel *panel, const bool compressPanel=false);
 		Result savePanelBin(const File &fileToSave, CtrlrPanel *panel, const bool compressPanel=false);
 
+		void setSavePoint();
+		bool hasChangedSinceSavePoint();
+		void actionPerformed();
+		void actionUndone();
+		bool canClose(const bool closePanel);
+
 		static const String exportPanel(CtrlrPanel *panel, const File &lastBrowsedDir, const File &destinationFile=File::nonexistent, MemoryBlock *outputPanelData=nullptr, MemoryBlock *outputResourcesData=nullptr, const bool isRestricted=false);
 		static bool isPanelFile(const File &fileToCheck, const bool beThorough=false);
 		static const ValueTree openPanel(const File &panelFile);
@@ -370,6 +376,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		HashMap<String,CtrlrModulator*> modulatorsByName;
 		Array<CtrlrMidiMessage,CriticalSection,4> multiMidiQueue;
 		Array<MemoryBlock,CriticalSection> partialMidiQueue;
+		int currentActionIndex, indexOfSavedState;
 };
 
 #endif
