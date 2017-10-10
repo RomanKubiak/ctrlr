@@ -161,6 +161,8 @@ class CtrlrPanel:	public ValueTree::Listener,
 		void actionPerformed();
 		void actionUndone();
 		bool canClose(const bool closePanel);
+		const String getPanelWindowTitle();
+		void updatePanelWindowTitle();
 
 		static const String exportPanel(CtrlrPanel *panel, const File &lastBrowsedDir, const File &destinationFile=File::nonexistent, MemoryBlock *outputPanelData=nullptr, MemoryBlock *outputResourcesData=nullptr, const bool isRestricted=false);
 		static bool isPanelFile(const File &fileToCheck, const bool beThorough=false);
