@@ -120,7 +120,7 @@ void CtrlrFontPropertyComponent::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == fontBold || buttonThatWasClicked == fontItalic || buttonThatWasClicked == fontUnderline)
     {
 		valueToControl = owner->getCtrlrManagerOwner().getFontManager().getStringFromFont(getFont());
-    }
+	}
 }
 
 void CtrlrFontPropertyComponent::sliderValueChanged (Slider* sliderThatWasMoved)
@@ -133,11 +133,11 @@ void CtrlrFontPropertyComponent::refresh()
 	Font font = owner->getCtrlrManagerOwner().getFontManager().getFontFromString(valueToControl.toString());
 	typeface->setText (font.getTypefaceName(), sendNotification);
 	fontSize->setValue (font.getHeight(), dontSendNotification);
+	kerning->setValue(font.getExtraKerningFactor(), dontSendNotification);
+	horizontalScale->setValue(font.getHorizontalScale(), dontSendNotification);
 	fontBold->setToggleState (font.isBold(), sendNotification);
 	fontItalic->setToggleState (font.isItalic(), sendNotification);
 	fontUnderline->setToggleState (font.isUnderlined(), sendNotification);
-	kerning->setValue (font.getExtraKerningFactor(), dontSendNotification);
-	horizontalScale->setValue (font.getHorizontalScale(), dontSendNotification);
 }
 
 Font CtrlrFontPropertyComponent::getFont()
