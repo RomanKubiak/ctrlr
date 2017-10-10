@@ -183,9 +183,10 @@ Result CtrlrPanel::savePanel()
 			}
 		}
 	}
-	if (res.ok())
+	if (res.wasOk())
 	{
-		setSavePoint();
+		getUndoManager()->clearUndoHistory();
+		updatePanelWindowTitle();
 	}
 	else if (panelWasDirty)
 	{
@@ -939,17 +940,42 @@ bool CtrlrPanel::isPanelDirty()
 
 void CtrlrPanel::setPanelDirty(const bool dirty)
 {
-	return setProperty(Ids::panelIsDirty, dirty);
+	setProperty(Ids::panelIsDirty, dirty);
 }
 
 void CtrlrPanel::actionPerformed()
 {
 	currentActionIndex++;
+	updatePanelWindowTitle();
 }
 
 void CtrlrPanel::actionUndone()
 {
 	currentActionIndex--;
+	updatePanelWindowTitle();
+}
+
+const String CtrlrPanel::getPanelWindowTitle()
+{
+	String name = getProperty(Ids::name);
+	if (isPanelDirty() || hasChangedSinceSavePoint())
+	{
+		name = name + "*";
+	}
+	return name;
+}
+
+void CtrlrPanel::updatePanelWindowTitle()
+{
+	CtrlrPanelEditor *editor = getEditor(false);
+	if (editor) 
+	{
+		String newName = getPanelWindowTitle();
+		if (newName != editor->getName())
+		{
+			editor->setName(newName);
+		}
+	}
 }
 
 bool CtrlrPanel::canClose(const bool closePanel)

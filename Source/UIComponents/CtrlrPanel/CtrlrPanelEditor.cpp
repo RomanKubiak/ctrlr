@@ -330,7 +330,8 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		}
 		else if (property == Ids::name)
 		{
-			Component::setName (getProperty(Ids::name));
+			// Use getPanelWindowTitle() to get the "*" when the panel is dirty
+			Component::setName(owner.getPanelWindowTitle());
 		}
 		else if (property == Ids::uiPanelPropertiesOnRight)
 		{

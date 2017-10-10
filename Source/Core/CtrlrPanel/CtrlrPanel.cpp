@@ -281,6 +281,9 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 
 	resourceImportFinished();
 
+	// No modifications at this point
+	setSavePoint();
+
 	if (savedState.getChildWithName(Ids::uiPanelEditor).isValid())
 	{
 		getEditor(true)->restoreState(savedState);
@@ -300,8 +303,6 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 	{
 		bootstrapPanel();
 	}
-	// No modifications at this point
-	setSavePoint();
 	return Result::ok();
 }
 
@@ -356,7 +357,7 @@ CtrlrPanelEditor *CtrlrPanel::getEditor(const bool createNewEditorIfNeeded)
 	{
 		if (createNewEditorIfNeeded)
 		{
-			ctrlrPanelEditor = new CtrlrPanelEditor(*this, owner, getProperty(Ids::name));
+			ctrlrPanelEditor = new CtrlrPanelEditor(*this, owner, getPanelWindowTitle());
 			getPanelTree().addChild (ctrlrPanelEditor->getPanelEditorTree(), -1, nullptr);
 		}
 	}
