@@ -204,6 +204,8 @@ void CtrlrLuaMethodManager::addGroup (const String &groupName, const Uuid parent
 			getGroupByUuid (parentUuid).addChild (getDefaultGroupTree(groupName, groupUuid), -1, nullptr);
 		}
 	}
+	// Notify the panel about the modification
+	owner.getOwner().luaManagerChanged();
 }
 
 void CtrlrLuaMethodManager::restoreMethod (const ValueTree &savedState, const Uuid parentUuid)
@@ -255,6 +257,9 @@ void CtrlrLuaMethodManager::addMethod (ValueTree groupToAddTo, const String &met
 	}
 
 	group.addChild (getDefaultMethodTree (methodName, initialCode, linkedToProperty, methodUid), -1, nullptr);
+
+	// Notify the panel about the modification
+	owner.getOwner().luaManagerChanged();
 }
 
 void CtrlrLuaMethodManager::addMethodFromFile (ValueTree groupToAddTo, const File &fileToUse, const Uuid methodUid)
@@ -267,6 +272,9 @@ void CtrlrLuaMethodManager::addMethodFromFile (ValueTree groupToAddTo, const Fil
 	{
 		managerTree.addChild (getDefaultMethodTree (fileToUse, methodUid), -1, nullptr);
 	}
+
+	// Notify the panel about the modification
+	owner.getOwner().luaManagerChanged();
 }
 
 void CtrlrLuaMethodManager::valueTreeChildAdded (ValueTree& parentTree, ValueTree& child)
