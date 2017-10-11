@@ -978,6 +978,25 @@ void CtrlrPanel::updatePanelWindowTitle()
 	}
 }
 
+void CtrlrPanel::luaManagerChanged()
+{
+	if (!getRestoreState())
+	{
+		setPanelDirty(true);
+		updatePanelWindowTitle();
+	}
+}
+
+void CtrlrPanel::panelResourcesChanged()
+{
+	if (!getRestoreState())
+	{
+		setPanelDirty(true);
+		updatePanelWindowTitle();
+	}
+}
+
+
 bool CtrlrPanel::canClose(const bool closePanel)
 {
 	bool result = true;

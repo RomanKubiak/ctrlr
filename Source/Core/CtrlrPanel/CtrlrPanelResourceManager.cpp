@@ -307,6 +307,9 @@ Result CtrlrPanelResourceManager::addResource (const File &source, const String 
 		managerTree.addChild (newResource->getResourceTree(), -1, nullptr);
 	}
 
+	// Notify the panel about the modification
+	owner.panelResourcesChanged();
+
 	return (Result::ok());
 }
 
@@ -329,7 +332,8 @@ Result CtrlrPanelResourceManager::removeResource (const int resourceIndex)
 
 		managerTree.removeChild (resources[resourceIndex]->getResourceTree(),nullptr);
 		resources.remove (resourceIndex, true);
-
+		// Notify the panel about the modification
+		owner.panelResourcesChanged();
 		return (Result::ok());
 	}
 	else
