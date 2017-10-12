@@ -103,6 +103,7 @@ void CtrlrEditor::resized()
 
 void CtrlrEditor::activeCtrlrChanged()
 {
+	ownerFilter->activePanelChanged();
 }
 
 MenuBarComponent *CtrlrEditor::getMenuBar()
