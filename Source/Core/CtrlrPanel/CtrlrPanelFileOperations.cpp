@@ -974,6 +974,8 @@ void CtrlrPanel::updatePanelWindowTitle()
 		if (newName != editor->getName())
 		{
 			editor->setName(newName);
+			// Trigger editor window title update
+			owner.getEditor()->activeCtrlrChanged();
 		}
 	}
 }

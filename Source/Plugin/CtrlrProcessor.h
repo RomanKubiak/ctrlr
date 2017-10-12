@@ -39,7 +39,7 @@ struct CtrlrParameterFromHost
 	float value;
 };
 
-class CtrlrProcessor  : public AudioProcessor
+class CtrlrProcessor  : public AudioProcessor, public ChangeBroadcaster
 {
 	public:
 	    CtrlrProcessor();
@@ -92,6 +92,7 @@ class CtrlrProcessor  : public AudioProcessor
 		AudioPlayHead::CurrentPositionInfo lastPosInfo;
 		const var &getProperty (const Identifier& name) const;
 		bool hasProperty(const Identifier &name) const;
+		void activePanelChanged();
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrProcessor);
 
 	private:

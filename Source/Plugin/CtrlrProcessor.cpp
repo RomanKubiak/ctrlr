@@ -363,6 +363,12 @@ bool CtrlrProcessor::hasProperty(const Identifier &name) const
 		return (false);
 }
 
+void CtrlrProcessor::activePanelChanged()
+{
+	sendChangeMessage();
+}
+
+
 bool CtrlrProcessor::useWrapper()
 {
 	if (JUCEApplication::isStandaloneApp())
