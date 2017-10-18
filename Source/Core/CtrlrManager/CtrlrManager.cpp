@@ -530,6 +530,8 @@ void CtrlrManager::openPanelInternal(const File &fileToOpen)
 	}
 	if (panelTree.isValid())
 	{
+		// Patch panelFilePath property to match the actual file
+		panelTree.setProperty(Ids::panelFilePath, fileToOpen.getFullPathName(), nullptr);
 		addPanel(panelTree, true);
 	}
 }
