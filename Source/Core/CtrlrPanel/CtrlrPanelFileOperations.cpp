@@ -534,17 +534,22 @@ const ValueTree CtrlrPanel::openXmlPanel(const File &panelFile)
 
 const ValueTree CtrlrPanel::openPanel(const File &panelFile)
 {
+	ValueTree result;
 	if (panelFile.hasFileExtension("panelz;panel"))
 	{
-		return (openXmlPanel(panelFile));
+		result = openXmlPanel(panelFile);
 	}
-
-	if (panelFile.hasFileExtension("bpanelz;bpanel"))
+	else if (panelFile.hasFileExtension("bpanelz;bpanel"))
 	{
-		return (openBinPanel(panelFile));
+		result = openBinPanel(panelFile);
 	}
-
-	return  (ValueTree());
+	else 
+	{
+		result = ValueTree();
+	}
+	// Patch panelFilePath property to match the actual file
+	result.setProperty(Ids::panelFilePath,panelFile.getFullPathName(),nullptr);
+	return result;
 }
 
 Result CtrlrPanel::savePanelBin(const File &fileToSave, CtrlrPanel *panel, const bool compressPanel)
