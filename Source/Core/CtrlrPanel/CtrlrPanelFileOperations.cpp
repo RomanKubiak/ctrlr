@@ -144,7 +144,7 @@ Result CtrlrPanel::savePanel()
 		if (panelFile.hasFileExtension("bpanel"))
 			res = savePanelBin (panelFile, this, false);
 		if (panelFile.hasFileExtension("bpanelz"))
-			res = savePanelXml (panelFile, this, true);
+			res = savePanelBin(panelFile, this, true);
 
 		if (getEditor())
 		{
