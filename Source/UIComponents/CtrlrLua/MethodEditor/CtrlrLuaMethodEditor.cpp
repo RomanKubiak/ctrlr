@@ -1153,6 +1153,7 @@ void CtrlrLuaMethodEditor::convertToFiles()
 		Result res = owner.convertLuaMethodsToFiles(location);
 		if (res.wasOk())
 		{
+			owner.luaManagerChanged();
 			triggerAsyncUpdate();
 		}
 		else
