@@ -90,20 +90,20 @@ Result CtrlrPanel::convertLuaMethodsToFiles(const String dirPath)
 {
 	Result res = Result::ok();
 	// Try and get access to panel directory
-	File panelDirectory(dirPath);
-	if (panelDirectory.existsAsFile())
+	File panelLuaDirectory(dirPath);
+	if (panelLuaDirectory.existsAsFile())
 	{	// A directory with that name already exists
 		res = Result::fail("Convert to files can't create directory (a file with that name already exists): " + dirPath);
 	}
-	else if (!panelDirectory.exists())
+	else if (!panelLuaDirectory.exists())
 	{
-		res = panelDirectory.createDirectory();
+		res = panelLuaDirectory.createDirectory();
 	}
 	if (res.ok())
 	{
-		if (panelDirectory.hasWriteAccess())
+		if (panelLuaDirectory.hasWriteAccess())
 		{	// Save lua code
-			res = saveLuaCode(panelDirectory, this);
+			res = saveLuaCode(panelLuaDirectory, this);
 		}
 		else
 		{
@@ -646,7 +646,7 @@ Result CtrlrPanel::writeLuaMethod(const File &parentDir, ValueTree *method)
 	if (methodFile.replaceWithText(methodCode))
 	{
 		method->setProperty(Ids::luaMethodName, methodFile.getFileNameWithoutExtension(), nullptr);
-		method->setProperty(Ids::luaMethodSourcePath, methodFile.getRelativePathFrom(getPanelContentDir()), nullptr);
+		method->setProperty(Ids::luaMethodSourcePath, methodFile.getRelativePathFrom(getPanelLuaDir()), nullptr);
 		method->setProperty(Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInFile, nullptr);
 		method->removeProperty(Ids::luaMethodCode,nullptr);
 		return Result::ok();
@@ -713,13 +713,13 @@ Result CtrlrPanel::writeLuaChildren(const File &parentDir, ValueTree *parentElem
 	return res;
 }
 
-Result CtrlrPanel::saveLuaCode(const File &panelDir, CtrlrPanel *panel)
+Result CtrlrPanel::saveLuaCode(const File &panelLuaDir, CtrlrPanel *panel)
 {
 	ValueTree luaManager = panel->getPanelTree().getChildWithName(Ids::luaManager);
 	if (luaManager.isValid())
 	{
 		ValueTree luaMethods = luaManager.getChildWithName(Ids::luaManagerMethods);
-		return CtrlrPanel::writeLuaChildren(panelDir,&luaMethods);
+		return CtrlrPanel::writeLuaChildren(panelLuaDir,&luaMethods);
 	}
 	else
 	{
