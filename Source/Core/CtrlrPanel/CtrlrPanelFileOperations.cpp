@@ -1009,13 +1009,16 @@ bool CtrlrPanel::canClose(const bool closePanel)
 	bool result = true;
 	// Check for modified Lua Code
 	CtrlrPanelWindowManager &manager = getWindowManager();
-	CtrlrChildWindowContent *content = manager.getContent(CtrlrPanelWindowManager::LuaMethodEditor);
-	if (content != nullptr)
-	{	// Move the editor to front
-		content->toFront(true);
-		if (!content->canCloseWindow())
-		{
-			result = false;
+	if (manager.isCreated(CtrlrPanelWindowManager::LuaMethodEditor))
+	{
+		CtrlrChildWindowContent *content = manager.getContent(CtrlrPanelWindowManager::LuaMethodEditor);
+		if (content != nullptr)
+		{	// Move the editor to front
+			content->toFront(true);
+			if (!content->canCloseWindow())
+			{
+				result = false;
+			}
 		}
 	}
 	// Check for panel modifications
