@@ -46,9 +46,10 @@ void CtrlrModulatorProcessor::handleAsyncUpdate()
 		owner.setProperty (Ids::modulatorValue, currentValue.value);
 	}
 
-	if (valueChangedCbk.get() && !owner.getOwnerPanel().getRestoreState())
+	if (valueChangedCbk.get() && !owner.getRestoreState())
 	{
-		if (valueChangedCbk->isValid())
+		CtrlrPanel &ownerPanel = owner.getOwnerPanel();
+		if (!ownerPanel.getRestoreState() && !ownerPanel.getBootstrapState() && valueChangedCbk->isValid())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (valueChangedCbk,
 																				&owner,

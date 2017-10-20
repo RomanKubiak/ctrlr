@@ -348,6 +348,12 @@ void CtrlrPanel::bootstrapPanel(const bool setInitialProgram)
 
 	sendSnapshotOnLoad();
 
+	// Synchronously dispatch any pending change message in each modulator to prevent Lua Callback functions beeing called on startup
+	for (int i = 0; i<ctrlrModulators.size(); i++)
+	{
+		ctrlrModulators[i]->getProcessor().handleUpdateNowIfNeeded();
+	}
+
 	boostrapStateStatus = false;
 }
 
