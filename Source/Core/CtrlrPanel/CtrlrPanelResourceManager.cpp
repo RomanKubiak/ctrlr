@@ -86,6 +86,38 @@ void CtrlrPanelResourceManager::initManager()
 	}
 }
 
+void CtrlrPanelResourceManager::checkMissingResources(ValueTree& panelResourcesTree)
+{	// Check missing resources from ValueTree
+	ValueTree currentResource;
+	String resourceName;
+	for (int i = 0; i<panelResourcesTree.getNumChildren(); i++)
+	{
+		currentResource = panelResourcesTree.getChild(i);
+		if (currentResource.hasType(Ids::resource))
+		{
+			resourceName = currentResource.getProperty(Ids::resourceName).toString();
+			CtrlrPanelResource *res = getResource(resourceName);
+			if (!res)
+			{	// Resource not find in resources directory => try and load it from the source file
+				String resourceSourcePath = currentResource.getProperty(Ids::resourceSourceFile);
+				File resourceFile;
+				if (File::isAbsolutePath(resourceSourcePath))
+				{
+					resourceFile = File(resourceSourcePath);
+				}
+				else
+				{
+					resourceFile = owner.getPanelResourcesDir().getChildFile(resourceSourcePath);
+				}
+				if (resourceFile.existsAsFile())
+				{
+					addResource(resourceFile, resourceName);
+				}
+			}
+		}
+	}
+}
+
 int CtrlrPanelResourceManager::getNumResources()
 {
 	return (resources.size());
@@ -275,6 +307,9 @@ Result CtrlrPanelResourceManager::addResource (const File &source, const String 
 		managerTree.addChild (newResource->getResourceTree(), -1, nullptr);
 	}
 
+	// Notify the panel about the modification
+	owner.panelResourcesChanged();
+
 	return (Result::ok());
 }
 
@@ -297,7 +332,8 @@ Result CtrlrPanelResourceManager::removeResource (const int resourceIndex)
 
 		managerTree.removeChild (resources[resourceIndex]->getResourceTree(),nullptr);
 		resources.remove (resourceIndex, true);
-
+		// Notify the panel about the modification
+		owner.panelResourcesChanged();
 		return (Result::ok());
 	}
 	else

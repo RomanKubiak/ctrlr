@@ -23,7 +23,6 @@
           <Add option="-DLINUX=1"/>
           <Add option="-DDEBUG=1"/>
           <Add option="-D_DEBUG=1"/>
-          <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=1"/>
           <Add option="-DJUCE_APP_VERSION=6.0.0"/>
           <Add option="-DJUCE_APP_VERSION_HEX=0x60000"/>
@@ -81,7 +80,6 @@
           <Add option="-DLINUX=1"/>
           <Add option="-DDEBUG=1"/>
           <Add option="-D_DEBUG=1"/>
-          <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=1"/>
           <Add option="-DJUCE_APP_VERSION=6.0.0"/>
           <Add option="-DJUCE_APP_VERSION_HEX=0x60000"/>
@@ -141,7 +139,6 @@
           <Add option="-DLINUX=1"/>
           <Add option="-DDEBUG=1"/>
           <Add option="-D_DEBUG=1"/>
-          <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=1"/>
           <Add option="-DJUCE_APP_VERSION=6.0.0"/>
           <Add option="-DJUCE_APP_VERSION_HEX=0x60000"/>
@@ -197,7 +194,6 @@
           <Add option="-mstackrealign"/>
           <Add option="-DLINUX=1"/>
           <Add option="-DNDEBUG=1"/>
-          <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=1"/>
           <Add option="-DJUCE_APP_VERSION=6.0.0"/>
           <Add option="-DJUCE_APP_VERSION_HEX=0x60000"/>
@@ -254,7 +250,6 @@
           <Add option="-mstackrealign"/>
           <Add option="-DLINUX=1"/>
           <Add option="-DNDEBUG=1"/>
-          <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=1"/>
           <Add option="-DJUCE_APP_VERSION=6.0.0"/>
           <Add option="-DJUCE_APP_VERSION_HEX=0x60000"/>
@@ -313,7 +308,6 @@
           <Add option="-mstackrealign"/>
           <Add option="-DLINUX=1"/>
           <Add option="-DNDEBUG=1"/>
-          <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=1"/>
           <Add option="-DJUCE_APP_VERSION=6.0.0"/>
           <Add option="-DJUCE_APP_VERSION_HEX=0x60000"/>
@@ -2880,6 +2874,16 @@
     <Unit filename="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsMenus.cpp">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.h">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.cpp">
       <Option target="Shared Code | Debug"/>

@@ -24,7 +24,9 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner)
 		resourceManager(*this),
 		midiInputThread(*this, inputDevice),
 		midiControllerInputThread(*this, controllerDevice),
-		ctrlrLuaManager(nullptr)
+		ctrlrLuaManager(nullptr),
+		currentActionIndex(0),
+		indexOfSavedState(-1)
 {
 }
 
@@ -46,8 +48,9 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 		initialProgram(Ids::panelState),
 		boostrapStateStatus(false),
 		outputDevicePtr(nullptr),
-		ctrlrPanelUndoManager(nullptr)
-
+		ctrlrPanelUndoManager(nullptr),
+		currentActionIndex(0),
+		indexOfSavedState(-1)
 {
 	ctrlrPanelUndoManager	= new CtrlrPanelUndoManager(*this);
 	ctrlrLuaManager 		= new CtrlrLuaManager(*this);
@@ -153,7 +156,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::ctrlrMenuItemBackgroundColour, 		Colours::white.toString());
 	setProperty (Ids::ctrlrMenuItemTextColour, 				Colours::black.toString());
 	setProperty (Ids::ctrlrMenuItemHighlightedTextColour, 	Colours::white.toString());
-	//setProperty (Ids::ctrlrMenuItemHighlightColour, 		Colour(HIGHLIGHT_COLOUR).toString());
+	setProperty (Ids::ctrlrMenuItemHighlightColour, 		Colour(HIGHLIGHT_COLOUR).toString());
 	setProperty (Ids::ctrlrMenuItemFont, 					owner.getFontManager().getStringFromFont (Font (18.0f)));
 	setProperty (Ids::ctrlrMenuItemSeparatorColour,			Colour (0x44000000).toString());
 	setProperty (Ids::ctrlrMenuItemHeaderColour,			Colours::black.toString());
@@ -162,7 +165,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::ctrlrMenuBarBackgroundColour2, 		Colour(0xffcccccc).toString());
 	setProperty (Ids::ctrlrMenuBarTextColour, 				Colours::black.toString());
 	setProperty (Ids::ctrlrMenuBarHighlightedTextColour, 	Colours::white.toString());
-	//setProperty (Ids::ctrlrMenuBarHighlightColour, 			Colour(HIGHLIGHT_COLOUR).toString());
+	setProperty (Ids::ctrlrMenuBarHighlightColour, 			Colour(HIGHLIGHT_COLOUR).toString());
 	setProperty (Ids::ctrlrMenuBarFont, 					owner.getFontManager().getStringFromFont (Font (18.0f)));
 	setProperty (Ids::ctrlrUseEditorWrapper, false);
 
@@ -217,6 +220,9 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 
 	panelTree.removeProperty (Ids::panelScheme, nullptr);
 
+	// We need panel file property to be able to restore relative paths on lua methods
+	panelTree.setProperty(Ids::panelFilePath, savedState.getProperty(Ids::panelFilePath),nullptr);
+
 	ctrlrLuaManager->restoreState(savedState.getChildWithName(Ids::luaManager));
 
 	if ((int)savedState.getProperty(Ids::panelScheme) < CTRLR_PANEL_SCHEME)
@@ -251,6 +257,15 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 			return (resourceImport);
 		}
 	}
+	else
+	{	// Try and load missing resources from source files
+		ValueTree panelResourcesTree = savedState.getChildWithName(Ids::panelResources);
+		if(panelResourcesTree.isValid())
+		{
+			getResourceManager().checkMissingResources(panelResourcesTree);
+		}
+
+	}
 
 	if (luaPanelBeforeLoadCbk && !luaPanelBeforeLoadCbk.wasObjectDeleted())
 	{
@@ -265,6 +280,9 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 	}
 
 	resourceImportFinished();
+
+	// No modifications at this point
+	setSavePoint();
 
 	if (savedState.getChildWithName(Ids::uiPanelEditor).isValid())
 	{
@@ -285,7 +303,6 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 	{
 		bootstrapPanel();
 	}
-
 	return Result::ok();
 }
 
@@ -331,6 +348,12 @@ void CtrlrPanel::bootstrapPanel(const bool setInitialProgram)
 
 	sendSnapshotOnLoad();
 
+	// Synchronously dispatch any pending change message in each modulator to prevent Lua Callback functions beeing called on startup
+	for (int i = 0; i<ctrlrModulators.size(); i++)
+	{
+		ctrlrModulators[i]->getProcessor().handleUpdateNowIfNeeded();
+	}
+
 	boostrapStateStatus = false;
 }
 
@@ -340,7 +363,7 @@ CtrlrPanelEditor *CtrlrPanel::getEditor(const bool createNewEditorIfNeeded)
 	{
 		if (createNewEditorIfNeeded)
 		{
-			ctrlrPanelEditor = new CtrlrPanelEditor(*this, owner, getProperty(Ids::name));
+			ctrlrPanelEditor = new CtrlrPanelEditor(*this, owner, getPanelWindowTitle());
 			getPanelTree().addChild (ctrlrPanelEditor->getPanelEditorTree(), -1, nullptr);
 		}
 	}

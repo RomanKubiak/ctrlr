@@ -151,6 +151,7 @@
 		62752A6D973FC1DB615E90F9 = {isa = PBXBuildFile; fileRef = D1871AF7DF48337DCD4063E4; };
 		BACBC661EACF32D0DF94FF25 = {isa = PBXBuildFile; fileRef = F320013B2EEA9C1DB9567243; };
 		AA83A17FC8AE638D06361AE6 = {isa = PBXBuildFile; fileRef = DB38D392C4AEFBB1E645209E; };
+		9B8CE138655CC7DDD759E9DB = {isa = PBXBuildFile; fileRef = 40364413B8F305D4C80DE700; };
 		D101BF275AEC542927A17697 = {isa = PBXBuildFile; fileRef = 83EE2FB09C4FFC6F1A94C443; };
 		5D5FF376359BB7EFBEC28553 = {isa = PBXBuildFile; fileRef = 942E100EFC755A659D8A476C; };
 		2BCB94297D6EBD76A2BE2C84 = {isa = PBXBuildFile; fileRef = 9ED02BC1ADF4F80616DE73D4; };
@@ -436,6 +437,7 @@
 		3F30373B23BE8CC848A8F6D7 = {isa = PBXFileReference; lastKnownFileType = image.png; name = appbar.debug.step.out.png; path = ../../Source/Resources/Icons/appbar.debug.step.out.png; sourceTree = "SOURCE_ROOT"; };
 		4006209AAD85D69CB7A0BB59 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "tag_function.hpp"; path = "../../Source/Misc/luabind/luabind/tag_function.hpp"; sourceTree = "SOURCE_ROOT"; };
 		401A2D3C7B65D3438B924E0D = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrModulator.cpp; path = ../../Source/Core/CtrlrModulator/CtrlrModulator.cpp; sourceTree = "SOURCE_ROOT"; };
+		40364413B8F305D4C80DE700 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLookAndFeel.cpp; path = ../../Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.cpp; sourceTree = "SOURCE_ROOT"; };
 		409E4770AA0D9341D5FA08BE = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "build_information.hpp"; path = "../../Source/Misc/luabind/build_information.hpp"; sourceTree = "SOURCE_ROOT"; };
 		41242CE8A99B83AD09928CD5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = "linux_udev.c"; path = "../../Source/Misc/libusb/src/linux_udev.c"; sourceTree = "SOURCE_ROOT"; };
 		413045AA6571258AB9144D9C = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = ../../Source/Core/stdafx.cpp; sourceTree = "SOURCE_ROOT"; };
@@ -776,6 +778,7 @@
 		B44C8DF356C45A404A04BA12 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrChildWindow.h; path = ../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.h; sourceTree = "SOURCE_ROOT"; };
 		B452BF57FCAD1BE4375C7AB1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iterator_policy.hpp"; path = "../../Source/Misc/luabind/luabind/iterator_policy.hpp"; sourceTree = "SOURCE_ROOT"; };
 		B482E37FBDB0D20C9DF87A8B = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrPanelEditor.cpp; path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp; sourceTree = "SOURCE_ROOT"; };
+		B4B277C91DB9CA9547B2EAA1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrLookAndFeel.h; path = ../../Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.h; sourceTree = "SOURCE_ROOT"; };
 		B4FA5056E69DEB2669D3AD8A = {isa = PBXFileReference; lastKnownFileType = image.png; name = appbar.debug.step.over.png; path = ../../Source/Resources/Icons/appbar.debug.step.over.png; sourceTree = "SOURCE_ROOT"; };
 		B5572075599F1F964D4B7755 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrIDs.h; path = ../../Source/Core/CtrlrIDs.h; sourceTree = "SOURCE_ROOT"; };
 		B5E28B0AF504B19F17681E99 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrUtilities.cpp; path = ../../Source/Core/CtrlrUtilities.cpp; sourceTree = "SOURCE_ROOT"; };
@@ -1521,6 +1524,8 @@
 					D1871AF7DF48337DCD4063E4,
 					F320013B2EEA9C1DB9567243,
 					DB38D392C4AEFBB1E645209E,
+					40364413B8F305D4C80DE700,
+					B4B277C91DB9CA9547B2EAA1,
 					83EE2FB09C4FFC6F1A94C443,
 					95BD3E1FCDF9F6AF4D669264, ); name = CtrlrApplicationWindow; sourceTree = "<group>"; };
 		9393E5FDFF5031D7BC64367C = {isa = PBXGroup; children = (
@@ -1846,7 +1851,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_DEBUG=1",
 					"DEBUG=1",
-					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
@@ -1884,7 +1888,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_NDEBUG=1",
 					"NDEBUG=1",
-					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
@@ -1923,7 +1926,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_DEBUG=1",
 					"DEBUG=1",
-					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
@@ -1962,7 +1964,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_NDEBUG=1",
 					"NDEBUG=1",
-					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
@@ -2000,7 +2001,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_DEBUG=1",
 					"DEBUG=1",
-					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
@@ -2032,7 +2032,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_NDEBUG=1",
 					"NDEBUG=1",
-					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
@@ -2065,7 +2064,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_DEBUG=1",
 					"DEBUG=1",
-					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
@@ -2096,7 +2094,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_NDEBUG=1",
 					"NDEBUG=1",
-					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
@@ -2421,6 +2418,7 @@
 					62752A6D973FC1DB615E90F9,
 					BACBC661EACF32D0DF94FF25,
 					AA83A17FC8AE638D06361AE6,
+					9B8CE138655CC7DDD759E9DB,
 					D101BF275AEC542927A17697,
 					5D5FF376359BB7EFBEC28553,
 					2BCB94297D6EBD76A2BE2C84,

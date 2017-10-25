@@ -27,7 +27,7 @@ class CtrlrPanelWindowManager : public CtrlrWindowManager
 		void show (const CtrlrPanelWindowManager::WindowType window);
 		void toggle(const CtrlrPanelWindowManager::WindowType window, const bool makeVisible=true);
 		bool isCreated(const CtrlrPanelWindowManager::WindowType window);
-		Component *getContent(const CtrlrPanelWindowManager::WindowType window);
+		CtrlrChildWindowContent *getContent(const CtrlrPanelWindowManager::WindowType window);
 		void windowChanged(CtrlrChildWindow *windowThatChanged);
 		void windowClosedButtonPressed(CtrlrChildWindow *windowThatChanged);
 		void restoreState (const ValueTree &savedState);

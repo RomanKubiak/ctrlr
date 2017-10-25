@@ -139,10 +139,32 @@ class CtrlrPanel:	public ValueTree::Listener,
 		int getCurrentProgramNumber();
 		int getCurrentBankNumber();
 		Result savePanel();
+		Result saveLuaCode(const File &panelDir, CtrlrPanel *panel);
+		String getPanelContentDirPath();
+		String getPanelLuaDirPath();
+		String getPanelResourcesDirPath();
+		File getPanelContentDir();
+		File getPanelLuaDir();
+		File getPanelResourcesDir();
+		Result convertLuaMethodsToFiles(const String dirPath);
+		File getLuaMethodGroupDir(const ValueTree &methodGroup);
+
 		const File savePanelAs(const CommandID saveOption);
 		void savePanelVersioned();
 		Result savePanelXml(const File &fileToSave, CtrlrPanel *panel, const bool compressPanel=false);
 		Result savePanelBin(const File &fileToSave, CtrlrPanel *panel, const bool compressPanel=false);
+
+		void setSavePoint();
+		bool hasChangedSinceSavePoint();
+		bool isPanelDirty();
+		void setPanelDirty(const bool dirty);
+		void actionPerformed();
+		void actionUndone();
+		bool canClose(const bool closePanel);
+		const String getPanelWindowTitle();
+		void updatePanelWindowTitle();
+		void luaManagerChanged();
+		void panelResourcesChanged();
 
 		static const String exportPanel(CtrlrPanel *panel, const File &lastBrowsedDir, const File &destinationFile=File::nonexistent, MemoryBlock *outputPanelData=nullptr, MemoryBlock *outputResourcesData=nullptr, const bool isRestricted=false);
 		static bool isPanelFile(const File &fileToCheck, const bool beThorough=false);
@@ -160,6 +182,15 @@ class CtrlrPanel:	public ValueTree::Listener,
 		ValueTree getCleanPanelTree();
 
 		static void writePanelXml(OutputStream &outputStream, CtrlrPanel *panel, const bool compressPanel);
+		Result writeLuaMethod(const File &parentDir, ValueTree *method);
+		Result writeLuaMethodGroup(const File &parentDir, ValueTree *methodGroup);
+		Result writeLuaChildren(const File &parentDir, ValueTree *parentElement);
+		File getLuaMethodSourceFile(const ValueTree *method);
+		static void convertLuaMethodsToPropeties(const File &panelLuaDir, ValueTree &panelTree);
+		static void convertLuaMethodToProperty(const File &panelLuaDir, ValueTree *method);
+		static void convertLuaChildrenToProperties(const File &panelLuaDir, ValueTree *parentElement);
+
+
 		const String getVersionString(const bool includeVersionName=true, const bool includeTime=true, const String versionSeparator=String::empty);
 		void editModeChanged(const bool isInEditMode);
 		bool getEditMode();
@@ -351,6 +382,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		HashMap<String,CtrlrModulator*> modulatorsByName;
 		Array<CtrlrMidiMessage,CriticalSection,4> multiMidiQueue;
 		Array<MemoryBlock,CriticalSection> partialMidiQueue;
+		int currentActionIndex, indexOfSavedState;
 };
 
 #endif

@@ -14,8 +14,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 		lastCommandInvocationMillis(0)
 {
 	Rectangle<int> editorRect;
-	LookAndFeel::setDefaultLookAndFeel(&lf);
-	// http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
+    // http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
     owner.getCommandManager().setFirstCommandTarget (this);
 
 	addAndMakeVisible (menuBar = new MenuBarComponent (this));
@@ -104,6 +103,7 @@ void CtrlrEditor::resized()
 
 void CtrlrEditor::activeCtrlrChanged()
 {
+	ownerFilter->activePanelChanged();
 }
 
 MenuBarComponent *CtrlrEditor::getMenuBar()

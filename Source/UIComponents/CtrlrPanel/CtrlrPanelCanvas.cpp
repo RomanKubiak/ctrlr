@@ -146,6 +146,7 @@ void CtrlrPanelCanvas::mouseDown (const MouseEvent& e)
 		{
 			lastLMBMouseEventTime = e.eventTime.toMilliseconds();
 		}
+		getPanel().getUndoManager()->beginTransaction();
 	}
 
 	if (e.mods.isRightButtonDown())
@@ -256,6 +257,7 @@ void CtrlrPanelCanvas::mouseDrag (const MouseEvent& e)
 void CtrlrPanelCanvas::mouseUp (const MouseEvent& e)
 {
 	lassoComponent.endLasso();
+	getPanel().getUndoManager()->endTransaction();
 }
 
 void CtrlrPanelCanvas::editMenuCopy(const MouseEvent *e)

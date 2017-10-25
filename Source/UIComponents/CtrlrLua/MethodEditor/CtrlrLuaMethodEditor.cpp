@@ -287,6 +287,13 @@ void CtrlrLuaMethodEditor::addNewMethod(ValueTree parentGroup)
 
 void CtrlrLuaMethodEditor::addMethodFromFile(ValueTree parentGroup)
 {
+	// See if group folder exists
+	File groupFolder = owner.getLuaMethodGroupDir(parentGroup);
+	if (groupFolder.exists() && groupFolder.isDirectory())
+	{
+		lastBrowsedSourceDir = groupFolder;
+	}
+
 	FileChooser fc ("Select LUA files",
 					lastBrowsedSourceDir,
 					"*.lua;*.txt",
@@ -297,8 +304,29 @@ void CtrlrLuaMethodEditor::addMethodFromFile(ValueTree parentGroup)
 		Array <File> results = fc.getResults();
 
 		for (int i=0; i<results.size(); i++)
-		{
-			getMethodManager().addMethodFromFile (parentGroup, results[i]);
+		{	// Check that a method with that name does not already exist
+			String methodName = results[i].getFileNameWithoutExtension();
+			bool nameOK = true;
+			for (int j = 0; j < parentGroup.getNumChildren(); j++)
+			{
+				ValueTree child = parentGroup.getChild(j);
+				if (child.hasType(Ids::luaMethod))
+				{
+					if (methodName == child.getProperty(Ids::luaMethodName).toString())
+					{
+						nameOK = false;
+						break;
+					}
+				}
+			}
+			if (nameOK)
+			{
+				getMethodManager().addMethodFromFile(parentGroup, results[i]);
+			}
+			else
+			{
+				AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Add Files", "A method named '"+ methodName +"' already exists in this group, file will be ignored.");
+			}
 		}
 	}
 
@@ -388,8 +416,27 @@ void CtrlrLuaMethodEditor::itemChanged (ValueTree &itemTreeThatChanged)
 {
 }
 
-void CtrlrLuaMethodEditor::closeTab(const int tabIndex)
+void CtrlrLuaMethodEditor::closeCurrentTab()
 {
+	closeTab(methodEditArea->getTabs()->getCurrentTabIndex());
+}
+
+void CtrlrLuaMethodEditor::closeAllTabs()
+{
+	CtrlrLuaMethodEditorTabs *tabs = methodEditArea->getTabs();
+	while (tabs->getNumTabs() > 0)
+	{
+		if (!closeTab(0))
+		{
+			break;
+		}
+	}
+}
+
+bool CtrlrLuaMethodEditor::closeTab(const int tabIndex)
+{
+	int currentlySelectedTab = methodEditArea->getTabs()->getCurrentTabIndex();
+	bool closed = true;
 	CtrlrLuaMethodCodeEditor *ed = dynamic_cast<CtrlrLuaMethodCodeEditor*>(methodEditArea->getTabs()->getTabContentComponent(tabIndex));
 	if (ed)
 	{
@@ -399,15 +446,73 @@ void CtrlrLuaMethodEditor::closeTab(const int tabIndex)
 			{
 				methodEditArea->getTabs()->removeTab (tabIndex);
 			}
+			else
+			{
+				closed = false;
+			}
 		}
 		else
 		{
 			methodEditArea->getTabs()->removeTab (tabIndex);
 		}
 
-		methodEditArea->getTabs()->setCurrentTabIndex (tabIndex == 0 ? tabIndex+1 : tabIndex-1 , false);
+		if (closed)
+		{
+			if (tabIndex == currentlySelectedTab)
+			{	// We closed the selected tab => move to previous tab
+				if (currentlySelectedTab > 0)
+				{
+					currentlySelectedTab = currentlySelectedTab - 1;
+				}
+			}
+			else if (tabIndex < currentlySelectedTab)
+			{
+				currentlySelectedTab = currentlySelectedTab - 1;
+			}
+			methodEditArea->getTabs()->setCurrentTabIndex(currentlySelectedTab, false);
+			saveSettings();
+		}
+	}
+	return closed;
+}
 
-		saveSettings();
+bool CtrlrLuaMethodEditor::canCloseWindow()
+{
+	bool hasUnsavedChanges = false;
+	CtrlrLuaMethodEditorTabs *tabs = methodEditArea->getTabs();
+	CtrlrLuaMethodCodeEditor *ed;
+	for (int i = 0; i < tabs->getNumTabs(); i++)
+	{
+		ed = dynamic_cast<CtrlrLuaMethodCodeEditor*>(methodEditArea->getTabs()->getTabContentComponent(i));
+		if (ed)
+		{
+			if (ed->getCodeDocument().hasChangedSinceSavePoint())
+			{
+				hasUnsavedChanges = true;
+				break;
+			}
+		}
+	}
+	if (hasUnsavedChanges)
+	{
+		int ret = AlertWindow::showYesNoCancelBox(AlertWindow::QuestionIcon, "Save changes ("+getOwner().getName()+")", "There are unsaved changes in Lua code. Do you want to save them berfore closing ?", "Save", "Discard", "Cancel", this);
+		if (ret == 0)
+		{	// Cancel
+			return false;
+		}
+		else if (ret == 1)
+		{	// Save all
+			saveAndCompilAllMethods();
+			return true;
+		}
+		else
+		{	// Discard
+			return true;
+		}
+	}
+	else
+	{
+		return true;
 	}
 }
 
@@ -610,7 +715,7 @@ const AttributedString CtrlrLuaMethodEditor::getDisplayString(const ValueTree &i
 
 		if ((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
 		{
-			str.append (File::descriptionOfSizeInBytes (File(item.getProperty(Ids::luaMethodSourcePath).toString()).getSize()), Font(10.0f, Font::italic), text.brighter(0.2f));
+			str.append (File::descriptionOfSizeInBytes (owner.getLuaMethodSourceFile(&item).getSize()), Font(10.0f, Font::italic), text.brighter(0.2f));
 		}
 		else
 		{
@@ -659,7 +764,7 @@ Image CtrlrLuaMethodEditor::getIconForItem (const ValueTree &item) const
 
 		if ((int)item.getProperty (Ids::luaMethodSource) == (int)CtrlrLuaMethod::codeInFile)
 		{
-			if (File(item.getProperty(Ids::luaMethodSourcePath)).existsAsFile())
+			if (owner.getLuaMethodSourceFile(&item).existsAsFile())
 			{
 				return (IMAGE(ico_file_png));
 			}
@@ -692,10 +797,15 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			m.addItem (2, "Add files");
 			m.addItem (3, "Add group");
 			m.addSeparator();
-			if (item.hasType (Ids::luaMethodGroup))
+			bool isMethodGroup = item.hasType(Ids::luaMethodGroup);
+			if (isMethodGroup)
 			{
 				m.addItem (4, "Remove group");
 				m.addItem (5, "Rename group");
+			}
+			else
+			{	// Root element => add a menu to convert method to filesto files
+				m.addItem(4, "Convert to files...");
 			}
 
 			m.addSeparator();
@@ -718,7 +828,14 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			}
 			else if (ret == 4)
 			{
-				removeGroup (item);
+				if (isMethodGroup)
+				{	// Case of a method group => remove group
+					removeGroup(item);
+				}
+				else
+				{	// Case of to root element => export to files
+					convertToFiles();
+				}
 			}
 			else if (ret == 5)
 			{
@@ -726,14 +843,14 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			}
 			else if (ret == 6)
 			{
-				ChildSorter sorter(true);
+				ChildSorter sorter(true,*this);
 				getMethodManager().getManagerTree().sort (sorter, nullptr, false);
 
 				triggerAsyncUpdate();
 			}
 			else if (ret == 7)
 			{
-				ChildSorter sorter(false);
+				ChildSorter sorter(false,*this);
 				getMethodManager().getManagerTree().sort (sorter, nullptr, false);
 
 				triggerAsyncUpdate();
@@ -745,7 +862,7 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			m.addSectionHeader ("Method " + item.getProperty(Ids::luaMethodName).toString());
 			if ((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
 			{
-				if (!File(item.getProperty(Ids::luaMethodSourcePath)).existsAsFile())
+				if (!owner.getLuaMethodSourceFile(&item).existsAsFile())
 				{
 					m.addItem (12, "Locate file on disk");
 				}
@@ -865,7 +982,9 @@ void CtrlrLuaMethodEditor::handleAsyncUpdate()
 	updateRootItem();
 }
 
-ChildSorter::ChildSorter (const bool _sortByName) : sortByName(_sortByName)
+
+
+ChildSorter::ChildSorter(const bool _sortByName, CtrlrLuaMethodEditor &_parent) :sortByName(_sortByName),parent(_parent)
 {
 }
 
@@ -881,7 +1000,7 @@ int ChildSorter::compareElements (ValueTree first, ValueTree second)
 
 		if ((int)first.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
 		{
-			firstSize = File (first.getProperty (Ids::luaMethodSourcePath).toString()).getSize();
+			firstSize = parent.getOwner().getLuaMethodSourceFile(&first).getSize();
 		}
 		else
 		{
@@ -890,7 +1009,7 @@ int ChildSorter::compareElements (ValueTree first, ValueTree second)
 
 		if ((int)second.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
 		{
-			secondSize = File (second.getProperty (Ids::luaMethodSourcePath).toString()).getSize();
+			secondSize = parent.getOwner().getLuaMethodSourceFile(&second).getSize();
 		}
 		else
 		{
@@ -922,7 +1041,12 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 		menu.addItem (2, "Save");
 		menu.addItem (3, "Save and compile");
 		menu.addItem (4, "Save and compile all");
+		menu.addSeparator();
+		menu.addItem(5, "Close current tab");
+		menu.addItem(6, "Close all tabs");
 		menu.addSeparator ();
+		menu.addItem(7, "Convert to files...");
+		menu.addSeparator();
 		menu.addItem (1, "Close");
 	}
 	else if (topLevelMenuIndex == 1)
@@ -945,7 +1069,10 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 		if (isCurrentlyModal())
 			exitModalState(-1);
 
-		owner.getWindowManager().toggle (CtrlrPanelWindowManager::LuaMethodEditor, false);
+		if (canCloseWindow())
+		{
+			owner.getWindowManager().toggle(CtrlrPanelWindowManager::LuaMethodEditor, false);
+		}
 	}
 	if (menuItemID == 2 && topLevelMenuIndex == 0)
 	{
@@ -964,6 +1091,18 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 	else if (menuItemID == 4 && topLevelMenuIndex == 0)
 	{
 		saveAndCompilAllMethods();
+	}
+	else if (menuItemID == 5 && topLevelMenuIndex == 0)
+	{
+		closeCurrentTab();
+	}
+	else if (menuItemID == 6 && topLevelMenuIndex == 0)
+	{
+		closeAllTabs();
+	}
+	else if (menuItemID == 7 && topLevelMenuIndex == 0)
+	{
+		convertToFiles();
 	}
 	else if (menuItemID == 4 && topLevelMenuIndex == 1)
 	{
@@ -1000,6 +1139,26 @@ void CtrlrLuaMethodEditor::saveAndCompilAllMethods()
 		if (ed)
 		{
 			ed->saveAndCompileDocument();
+		}
+	}
+}
+
+void CtrlrLuaMethodEditor::convertToFiles()
+{
+	// Show confirmation dialog
+	const String location = owner.getPanelLuaDirPath();
+	const int confirm = AlertWindow::showOkCancelBox(AlertWindow::QuestionIcon, "Convert to files", "Do you want to convert all Lua methods to files (location=" + location + ")?", "Yes", "No");
+	if (confirm == 1)
+	{
+		Result res = owner.convertLuaMethodsToFiles(location);
+		if (res.wasOk())
+		{
+			owner.luaManagerChanged();
+			triggerAsyncUpdate();
+		}
+		else
+		{
+			AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Convert to files", "Failed to convert Lua methods to files.\n" + res.getErrorMessage());
 		}
 	}
 }

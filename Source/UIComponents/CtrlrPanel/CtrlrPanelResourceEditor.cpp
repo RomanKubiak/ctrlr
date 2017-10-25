@@ -10,7 +10,8 @@ CtrlrPanelResourceEditor::CtrlrPanelResourceEditor (CtrlrPanelEditor &_owner)
     : owner(_owner),
       resourceList(nullptr),
       add(nullptr),
-      remove(nullptr),
+	  remove(nullptr),
+	  move(nullptr),
 	  reload(nullptr),
 	  sortByColumnId(1),
 	  sortForward(1)
@@ -24,11 +25,17 @@ CtrlrPanelResourceEditor::CtrlrPanelResourceEditor (CtrlrPanelEditor &_owner)
     add->addListener (this);
     add->setColour (TextButton::buttonColourId, Colour (0xffb2b2b2));
 
-    addAndMakeVisible (remove = new TextButton (String::empty));
+	addAndMakeVisible (remove = new TextButton (String::empty));
     remove->setTooltip (L"Remove selected resources");
     remove->setButtonText (L"Remove");
     remove->addListener (this);
     remove->setColour (TextButton::buttonColourId, Colour (0xffb2b2b2));
+
+	addAndMakeVisible(move = new TextButton(String::empty));
+	move->setTooltip(L"Move resources to panel folder");
+	move->setButtonText(L"Move...");
+	move->addListener(this);
+	move->setColour(TextButton::buttonColourId, Colour(0xffb2b2b2));
 
 	addAndMakeVisible (reload = new TextButton (String::empty));
     reload->setTooltip (L"Reload all resources");
@@ -52,7 +59,8 @@ CtrlrPanelResourceEditor::~CtrlrPanelResourceEditor()
 {
     deleteAndZero (resourceList);
     deleteAndZero (add);
-    deleteAndZero (remove);
+	deleteAndZero (remove);
+	deleteAndZero (move);
 	deleteAndZero (reload);
 }
 
@@ -64,7 +72,8 @@ void CtrlrPanelResourceEditor::resized()
 {
     resourceList->setBounds (0, 0, getWidth() - 0, getHeight() - 32);
     add->setBounds (0, getHeight() - 28, 64, 24);
-    remove->setBounds (72, getHeight() - 28, 64, 24);
+	remove->setBounds (72, getHeight() - 28, 64, 24);
+	move->setBounds(144, getHeight() - 28, 64, 24);
 	reload->setBounds (getWidth() - 64, getHeight() - 28, 64, 24);
 }
 
@@ -78,6 +87,10 @@ void CtrlrPanelResourceEditor::buttonClicked (Button* buttonThatWasClicked)
     {
 		deleteSelectedResources();
     }
+	else if (buttonThatWasClicked == move)
+	{
+		moveResources();
+	}
 	else if (buttonThatWasClicked == reload)
 	{
 		reloadAllResourcesFromSourceFiles();
@@ -282,7 +295,7 @@ void CtrlrPanelResourceEditor::showResourceInfo(const int resourceIndex)
 	l->setFont (Font(12.0f));
 	lo.content.set(l, true);
 	lo.componentToCentreAround		= this;
-	lo.dialogBackgroundColour		= Colours::whitesmoke;
+	//lo.dialogBackgroundColour		= Colours::whitesmoke;
 	lo.dialogTitle					= "Resource information";
 	lo.resizable					= true;
 	lo.useBottomRightCornerResizer	= false;
@@ -321,6 +334,64 @@ int CtrlrPanelResourceEditor::compareElements(CtrlrPanelResource *first, CtrlrPa
 	}
 
 	return (ret * sortForward);
+}
+
+void CtrlrPanelResourceEditor::moveResources()
+{
+	Array <CtrlrPanelResource*> resourcesReloaded;
+	const String location = owner.getOwner().getPanelResourcesDirPath();
+	const int confirm = AlertWindow::showOkCancelBox(AlertWindow::QuestionIcon, "Move resources to panel folder", "Do you want to move all resources to the panel folder (location=" + location + ")?", "Yes", "No");
+	if (confirm == 1)
+	{
+		File targetFolder = owner.getOwner().getPanelResourcesDir();
+		if (!targetFolder.exists())
+		{
+			const Result res = targetFolder.createDirectory();
+			if (res.failed())
+			{
+				AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Move resources to panel folder", "Failed to create resources folder '"+ location +"'.\n" + res.getErrorMessage());
+				return;
+			}
+		}
+		else if (!targetFolder.isDirectory())
+		{
+			AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Move resources to panel folder", "Failed to access resources folder '"+ location +"'.");
+			return;
+		}
+		for (int i = 0; i<resources.size(); i++)
+		{
+			if (resources[i])
+			{
+				File originalFile = resources[i]->getSourceFile();
+				if (!originalFile.exists())
+				{	// If the source file is not available, use the data file
+					resources[i]->getFile();
+				}
+				if (!originalFile.isAChildOf(targetFolder))
+				{	// Skip resources that are already located in the panel folder
+					File targetFile = targetFolder.getChildFile(originalFile.getFileName());
+					if (targetFile.exists())
+					{
+						AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Move resources to panel folder", "Target file '" + targetFile.getFullPathName() + "' already exists, resource will be skiped.");
+					}
+					else
+					{
+						if (!originalFile.copyFileTo(targetFile))
+						{
+							AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Move resources to panel folder", "Could not copy resource to file '" + targetFile.getFullPathName() + "', resource will be skiped.");
+						}
+						else
+						{
+							resources[i]->setSourceFile(targetFile);
+							resourcesReloaded.add(resources[i]);
+							resources[i]->reloadFromSourceFile();
+						}
+					}
+				}
+			}
+		}
+	}
+	owner.reloadResources(resourcesReloaded);
 }
 
 void CtrlrPanelResourceEditor::reloadAllResourcesFromSourceFiles()

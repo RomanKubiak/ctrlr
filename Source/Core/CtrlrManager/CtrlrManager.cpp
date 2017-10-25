@@ -282,6 +282,22 @@ CtrlrPanel *CtrlrManager::getPanel(const String &panelName)
 	return (0);
 }
 
+bool CtrlrManager::canCloseWindow()
+{
+	for (int i = 0; i<getNumPanels(); i++)
+	{
+		CtrlrPanel *panel = getPanel(i);
+		if (panel != nullptr)
+		{
+			if (!panel->canClose(false))
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 void CtrlrManager::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
 {
 	if (property == Ids::ctrlrAutoSave)
@@ -514,6 +530,8 @@ void CtrlrManager::openPanelInternal(const File &fileToOpen)
 	}
 	if (panelTree.isValid())
 	{
+		// Patch panelFilePath property to match the actual file
+		panelTree.setProperty(Ids::panelFilePath, fileToOpen.getFullPathName(), nullptr);
 		addPanel(panelTree, true);
 	}
 }

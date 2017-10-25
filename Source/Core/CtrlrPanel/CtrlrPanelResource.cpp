@@ -31,7 +31,7 @@ CtrlrPanelResource::CtrlrPanelResource (CtrlrPanelResourceManager &_owner, const
 	load();
 
 	setProperty (Ids::resourceFile, resourceDataFile.getFileName(), nullptr);
-	setProperty (Ids::resourceSourceFile, _resourceSourceFile.getFullPathName(), nullptr);
+	setSourceFile(_resourceSourceFile);
 	setProperty (Ids::resourceName, getName(), nullptr);
 	setProperty (Ids::resourceSize, getSize(), nullptr);
 	setProperty (Ids::resourceType, CtrlrPanelResourceManager::getTypeDescription(getType()), nullptr);
@@ -202,7 +202,29 @@ CtrlrPanelResourceType CtrlrPanelResource::getType()
 
 File CtrlrPanelResource::getSourceFile()
 {
-	return (File(getProperty(Ids::resourceSourceFile)));
+	String resourceSourcePath = getProperty(Ids::resourceSourceFile);
+	if (File::isAbsolutePath(resourceSourcePath))
+	{
+		return (File(resourceSourcePath));
+	}
+	else
+	{
+		return (owner.getOwner().getPanelResourcesDir().getChildFile(resourceSourcePath));
+	}
+}
+
+void CtrlrPanelResource::setSourceFile(const File &sourceFile)
+{
+	File panelResourceDir = owner.getOwner().getPanelResourcesDir();
+	if (sourceFile.isAChildOf(panelResourceDir))
+	{
+		setProperty(Ids::resourceSourceFile, sourceFile.getRelativePathFrom(panelResourceDir), false);
+	}
+	else
+	{
+		setProperty(Ids::resourceSourceFile, sourceFile.getFullPathName(), false);
+	}
+
 }
 
 const String CtrlrPanelResource::getTypeDescription()

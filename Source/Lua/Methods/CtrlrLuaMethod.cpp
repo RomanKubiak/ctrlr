@@ -92,7 +92,7 @@ Uuid CtrlrLuaMethod::getUuid()
 
 const File CtrlrLuaMethod::getSourceFile()
 {
-	return (File (methodTree.getProperty (Ids::luaMethodSourcePath)));
+	return (owner.getOwner().getOwner().getLuaMethodSourceFile(&methodTree));
 }
 
 void CtrlrLuaMethod::setObject (CtrlrLuaObjectWrapper _luaObject)

@@ -23,11 +23,12 @@ class CtrlrLuaMethodCodeEditor;
 class ChildSorter
 {
 	public:
-		ChildSorter (const bool _sortByName);
+		ChildSorter (const bool _sortByName, CtrlrLuaMethodEditor &_parent);
 		int compareElements (ValueTree first, ValueTree second);
 
 	private:
 		bool sortByName;
+		CtrlrLuaMethodEditor &parent;
 };
 
 class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
@@ -83,7 +84,11 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		void paint (Graphics& g);
 		void resized();
 		bool keyPressed (const KeyPress& key, Component* originatingComponent);
-		void closeTab(const int tabIndex);
+		void closeCurrentTab();
+		void closeAllTabs();
+		bool closeTab(const int tabIndex);
+		bool canCloseWindow();
+		
 		void tabChanged(CtrlrLuaMethodCodeEditor *codeEditor, const bool save=false, const bool recompile=false);
 		void updateTabs();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
@@ -104,6 +109,7 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		void menuItemSelected(int menuItemID, int topLevelMenuIndex);
 		void searchResultClicked (const String &methodName, const int lineNumber, const int resultPositionStart, const int resultPositionEnd);
 		void saveAndCompilAllMethods();
+		void convertToFiles();
 		/* Debugger stuff
 		*/
 		void insertRawDebuggerOutput(const String &debuggerOutput);

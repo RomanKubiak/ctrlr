@@ -33,7 +33,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/Misc/VST -I../../Source/MIDI -I../../Source/Core -I../../Source/UIComponents -I../../Source/Lua -I../../Source/Plugin -I../../Source $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/Misc/VST -I../../Source/MIDI -I../../Source/Core -I../../Source/UIComponents -I../../Source/Lua -I../../Source/Plugin -I../../Source $(CPPFLAGS)
 
   JUCE_CPPFLAGS_VST := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
@@ -63,7 +63,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/Misc/VST -I../../Source/MIDI -I../../Source/Core -I../../Source/UIComponents -I../../Source/Lua -I../../Source/Plugin -I../../Source $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/Misc/VST -I../../Source/MIDI -I../../Source/Core -I../../Source/UIComponents -I../../Source/Lua -I../../Source/Plugin -I../../Source $(CPPFLAGS)
 
   JUCE_CPPFLAGS_VST := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
@@ -216,6 +216,7 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/CtrlrEditorApplicationCommands_a8897f1e.o \
   $(JUCE_OBJDIR)/CtrlrEditorApplicationCommandsHandlers_9fe09027.o \
   $(JUCE_OBJDIR)/CtrlrEditorApplicationCommandsMenus_98f1ccc0.o \
+  $(JUCE_OBJDIR)/CtrlrLookAndFeel_25528951.o \
   $(JUCE_OBJDIR)/CtrlrSettings_18014fa.o \
   $(JUCE_OBJDIR)/CtrlrButton_4f3b25fd.o \
   $(JUCE_OBJDIR)/CtrlrCustomButtonInternal_1d79572b.o \
@@ -987,6 +988,11 @@ $(JUCE_OBJDIR)/CtrlrEditorApplicationCommandsHandlers_9fe09027.o: ../../Source/U
 $(JUCE_OBJDIR)/CtrlrEditorApplicationCommandsMenus_98f1ccc0.o: ../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsMenus.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrEditorApplicationCommandsMenus.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/CtrlrLookAndFeel_25528951.o: ../../Source/UIComponents/CtrlrApplicationWindow/CtrlrLookAndFeel.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling CtrlrLookAndFeel.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/CtrlrSettings_18014fa.o: ../../Source/UIComponents/CtrlrApplicationWindow/CtrlrSettings.cpp

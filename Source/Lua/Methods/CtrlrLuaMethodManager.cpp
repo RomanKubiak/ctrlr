@@ -204,6 +204,8 @@ void CtrlrLuaMethodManager::addGroup (const String &groupName, const Uuid parent
 			getGroupByUuid (parentUuid).addChild (getDefaultGroupTree(groupName, groupUuid), -1, nullptr);
 		}
 	}
+	// Notify the panel about the modification
+	owner.getOwner().luaManagerChanged();
 }
 
 void CtrlrLuaMethodManager::restoreMethod (const ValueTree &savedState, const Uuid parentUuid)
@@ -211,7 +213,7 @@ void CtrlrLuaMethodManager::restoreMethod (const ValueTree &savedState, const Uu
 	if ((int)savedState.getProperty(Ids::luaMethodSource) == (int)CtrlrLuaMethod::codeInFile)
 	{
 		addMethodFromFile	(getGroupByUuid(parentUuid),
-								File(savedState.getProperty(Ids::luaMethodSourcePath).toString()),
+								owner.getOwner().getLuaMethodSourceFile(&savedState),
 								Uuid(savedState.getProperty(Ids::uuid).toString()));
 	}
 	else
@@ -255,6 +257,9 @@ void CtrlrLuaMethodManager::addMethod (ValueTree groupToAddTo, const String &met
 	}
 
 	group.addChild (getDefaultMethodTree (methodName, initialCode, linkedToProperty, methodUid), -1, nullptr);
+
+	// Notify the panel about the modification
+	owner.getOwner().luaManagerChanged();
 }
 
 void CtrlrLuaMethodManager::addMethodFromFile (ValueTree groupToAddTo, const File &fileToUse, const Uuid methodUid)
@@ -267,6 +272,9 @@ void CtrlrLuaMethodManager::addMethodFromFile (ValueTree groupToAddTo, const Fil
 	{
 		managerTree.addChild (getDefaultMethodTree (fileToUse, methodUid), -1, nullptr);
 	}
+
+	// Notify the panel about the modification
+	owner.getOwner().luaManagerChanged();
 }
 
 void CtrlrLuaMethodManager::valueTreeChildAdded (ValueTree& parentTree, ValueTree& child)
@@ -503,8 +511,17 @@ ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const String &methodName, 
 ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const File &methodFileSource, const Uuid methodUuid)
 {
 	ValueTree methodTree (Ids::luaMethod);
-	methodTree.setProperty (Ids::luaMethodName, methodFileSource.getFileName(), nullptr);
-	methodTree.setProperty (Ids::luaMethodSourcePath, methodFileSource.getFullPathName(), nullptr);
+	methodTree.setProperty (Ids::luaMethodName, methodFileSource.getFileNameWithoutExtension(), nullptr);
+	
+	File panelLuaDir = getOwner().getOwner().getPanelLuaDir();
+	if (panelLuaDir.exists() && panelLuaDir.isDirectory() && methodFileSource.isAChildOf(panelLuaDir))
+	{	// Try and get realtive path
+		methodTree.setProperty(Ids::luaMethodSourcePath, methodFileSource.getRelativePathFrom(panelLuaDir), nullptr);
+	}
+	else
+	{
+		methodTree.setProperty(Ids::luaMethodSourcePath, methodFileSource.getFullPathName(), nullptr);
+	}
 	methodTree.setProperty (Ids::luaMethodSource, (int)CtrlrLuaMethod::codeInFile, nullptr);
 	methodTree.setProperty (Ids::uuid, methodUuid.isNull() ? Uuid().toString() : methodUuid.toString(), nullptr);
 	return (methodTree);

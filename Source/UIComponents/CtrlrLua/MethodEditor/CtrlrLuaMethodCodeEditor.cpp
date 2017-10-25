@@ -181,6 +181,7 @@ void CtrlrLuaMethodCodeEditor::documentChanged(const bool save, const bool recom
 
 void CtrlrLuaMethodCodeEditor::saveDocument()
 {
+	bool hasChanged = document.hasChangedSinceSavePoint();
 	document.setSavePoint();
 
 	if (method)
@@ -190,6 +191,10 @@ void CtrlrLuaMethodCodeEditor::saveDocument()
 		{
 			owner.getMethodEditArea()->setActiveOutputTab();
 		}
+		if (hasChanged && !method->isSourceInFile())
+		{	// This method is stored within the panel => set the panel dirty
+			owner.getOwner().luaManagerChanged();
+		}
 	}
 
 	documentChanged(true, false);
@@ -197,6 +202,7 @@ void CtrlrLuaMethodCodeEditor::saveDocument()
 
 void CtrlrLuaMethodCodeEditor::saveAndCompileDocument()
 {
+	bool hasChanged = document.hasChangedSinceSavePoint();
 	document.setSavePoint();
 
 	if (method)
@@ -205,6 +211,10 @@ void CtrlrLuaMethodCodeEditor::saveAndCompileDocument()
 		if (owner.getMethodEditArea())
 		{
 			owner.getMethodEditArea()->setActiveOutputTab();
+		}
+		if (hasChanged && !method->isSourceInFile())
+		{	// This method is stored within the panel => set the panel dirty
+			owner.getOwner().luaManagerChanged();
 		}
 	}
 

@@ -37,6 +37,9 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
             /* we want to listen too manager actions */
             ctrlrProcessor->getManager().addActionListener (this);
 
+			// We want to be notified by CtrlrProcessor when the active panel changes to update the title bar
+			ctrlrProcessor->addChangeListener(this);
+
 			/* get the properties pointer from the manager */
 			appProperties = ctrlrProcessor->getManager().getApplicationProperties();
 
@@ -80,6 +83,7 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 
 CtrlrStandaloneWindow::~CtrlrStandaloneWindow()
 {
+	ctrlrProcessor->removeChangeListener(this);
     ctrlrProcessor->getManager().removeActionListener (this);
     saveStateNow();
     deleteFilter();
@@ -91,6 +95,17 @@ void CtrlrStandaloneWindow::actionListenerCallback(const String &message)
     {
         saveStateNow();
     }
+}
+
+void CtrlrStandaloneWindow::changeListenerCallback(ChangeBroadcaster* source)
+{	// Check for window title modification
+	CtrlrPanel *panel = ctrlrProcessor->getManager().getActivePanel();
+	String windowTitle = ctrlrProcessor->getManager().getInstanceName();
+	if (panel)
+	{
+		windowTitle += " - " + panel->getPanelWindowTitle();
+	}
+	setName(windowTitle);
 }
 
 void CtrlrStandaloneWindow::saveStateNow()
@@ -134,7 +149,10 @@ PropertySet* CtrlrStandaloneWindow::getGlobalSettings()
 
 void CtrlrStandaloneWindow::closeButtonPressed()
 {
-	JUCEApplication::quit();
+	if(ctrlrProcessor->getManager().canCloseWindow())
+	{
+		JUCEApplication::quit();
+	}
 }
 
 void CtrlrStandaloneWindow::resized()
