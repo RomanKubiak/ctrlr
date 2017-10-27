@@ -23,9 +23,13 @@ ValueTree CtrlrPanel::getCleanPanelTree()
 
 	if (ed.isValid())
 	{
-		ed.setProperty(Ids::uiPanelMenuBarVisible, !(bool)ed.getProperty(Ids::uiPanelMenuBarHideOnExport), nullptr);
+		bool hideMenuBar = (bool)ed.getProperty(Ids::uiPanelMenuBarHideOnExport);
+		ed.setProperty(Ids::uiPanelMenuBarVisible, !hideMenuBar, nullptr);
 		Rectangle<int> rectToShrink = VAR2RECT(ed.getProperty(Ids::uiPanelCanvasRectangle));
-		ed.setProperty(Ids::uiPanelCanvasRectangle, rectToShrink.withTrimmedBottom(CTRLR_MENUBAR_HEIGHT).toString(), nullptr);
+		if (hideMenuBar)
+		{
+			ed.setProperty(Ids::uiPanelCanvasRectangle, rectToShrink.withTrimmedBottom(CTRLR_MENUBAR_HEIGHT).toString(), nullptr);
+		}
 	}
 
 	// Embed external lua code in properties
