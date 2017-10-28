@@ -7,7 +7,7 @@ CtrlrFileProperty::CtrlrFileProperty (const Value &_valeToControl) : valueToCont
     addAndMakeVisible (path = new Label (String::empty));
 	path->setText (valueToControl.toString(), dontSendNotification);
 	path->addListener (this);
-	path->setColour (Label::backgroundColourId, Colours::white);
+	path->setColour (Label::backgroundColourId, findColour(ComboBox::backgroundColourId));
 	path->setColour (Label::outlineColourId, findColour (ComboBox::outlineColourId));
 
     addAndMakeVisible (browse = new TextButton ("Browse", "Browse"));

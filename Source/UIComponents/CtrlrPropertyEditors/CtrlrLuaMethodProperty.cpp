@@ -53,20 +53,11 @@ CtrlrLuaMethodProperty::CtrlrLuaMethodProperty (const Value &_valeToControl, con
 	deleteMethodButton->setMouseCursor(MouseCursor::PointingHandCursor);
 
 	
-	editMethodButton->setImages (false, true, true,
-									IMAGE(ico_edit_document_png), 0.6500f, Colour (0x0),
-									IMAGE(ico_edit_document_png), 0.8500f, Colour (0x0),
-									IMAGE(ico_edit_document_png), 1.0000f, Colour (0x0));
+	editMethodButton->setImages (IMAGES(ico_edit_document_png));
 
-	newMethodButton->setImages (false, true, true,
-									IMAGE(ico_new_document_png), 0.6500f, Colour (0x0),
-									IMAGE(ico_new_document_png), 0.8500f, Colour (0x0),
-									IMAGE(ico_new_document_png), 1.0000f, Colour (0x0));
+	newMethodButton->setImages (IMAGES(ico_new_document_png));
 
-	deleteMethodButton->setImages (false, true, true,
-									IMAGE(ico_delete_png), 0.6500f, Colour (0x0),
-									IMAGE(ico_delete_png), 0.8500f, Colour (0x0),
-									IMAGE(ico_delete_png), 1.0000f, Colour (0x0));
+	deleteMethodButton->setImages (IMAGES(ico_delete_png));
 									
     setSize (200, 25);
 }

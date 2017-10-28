@@ -9,8 +9,9 @@ class CtrlrTextPropLabel  : public Label
 				owner (owner_), maxChars (maxChars_), isMultiline (isMultiline_)
 		{
 	        setEditable (true, true, false);
-			setColour (backgroundColourId, Colours::white);
+			setColour (backgroundColourId, findColour(ComboBox::backgroundColourId));
 			setColour (outlineColourId, findColour (ComboBox::outlineColourId));
+			setColour (TextEditor::highlightColourId, findColour(TextEditor::focusedOutlineColourId));
 		}
 
 		TextEditor* createEditorComponent()

@@ -68,6 +68,7 @@
 #define FONT2STRM(m,x)											m.getStringFromFont(x)
 #define INTERNAL_FONT(x)										getFontManager().getFont (BinaryData::x, BinaryData::x ## Size)
 #define HIGHLIGHT_COLOUR										0xff4364ff
+#define IMAGES(x)												false, true, true, IMAGE(x), 0.6500f, Colour(0xFFFFFFFF), IMAGE(x), 0.8000f, Colour(0xFFCECECE), IMAGE(x), 1.0000f, Colour(0xFFB0B0B0)
 
 #define MAXZOOM                                                 3.0
 #define MINZOOM                                                 0.5

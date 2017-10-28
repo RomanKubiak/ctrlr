@@ -27,32 +27,24 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
     fontBold->setButtonText (L"new button");
     fontBold->addListener (this);
 
-    fontBold->setImages (false, true, true,
-                         IMAGE (ico_font_bold_png), 0.5000f, Colour (0x0),
-                         IMAGE (ico_font_bold_png), 0.7500f, Colour (0xa0ffffff),
-                         IMAGE (ico_font_bold_png), 1.0000f, Colour (0x0));
+    fontBold->setImages (IMAGES (ico_font_bold_png));
     addAndMakeVisible (fontItalic = new ImageButton (String::empty));
     fontItalic->setTooltip (L"Italic");
     fontItalic->setButtonText (L"new button");
     fontItalic->addListener (this);
 
-    fontItalic->setImages (false, true, true,
-                           IMAGE (ico_font_italic_png), 0.5000f, Colour (0x0),
-                           IMAGE (ico_font_italic_png), 0.7500f, Colour (0xa0ffffff),
-                           IMAGE (ico_font_italic_png), 1.0000f, Colour (0x0));
+    fontItalic->setImages (IMAGES (ico_font_italic_png));
     addAndMakeVisible (fontUnderline = new ImageButton (String::empty));
     fontUnderline->setTooltip (L"Underline");
     fontUnderline->setButtonText (L"new button");
     fontUnderline->addListener (this);
 
-    fontUnderline->setImages (false, true, true,
-                              IMAGE (ico_font_underline_png), 0.5000f, Colour (0x0),
-                              IMAGE (ico_font_underline_png), 0.7500f, Colour (0xa0ffffff),
-                              IMAGE (ico_font_underline_png), 1.0000f, Colour (0x0));
+    fontUnderline->setImages (IMAGES (ico_font_underline_png));
 
     addAndMakeVisible (fontSize = new Slider (String::empty));
 	fontSize->setLookAndFeel (this);
-    fontSize->setTooltip (L"Size");
+	fontSize->setColour(Slider::rotarySliderFillColourId, Component::findColour(TextEditor::textColourId));
+	fontSize->setTooltip (L"Size");
     fontSize->setRange (1, 999, 1);
     fontSize->setSliderStyle (Slider::RotaryVerticalDrag);
     fontSize->setTextBoxStyle (Slider::TextBoxRight, false, 34, 16);
@@ -60,7 +52,8 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
 
 	addAndMakeVisible (horizontalScale = new Slider (String::empty));
 	horizontalScale->setLookAndFeel (this);
-    horizontalScale->setTooltip (L"Horizontal Scale");
+	horizontalScale->setColour(Slider::rotarySliderFillColourId, Component::findColour(TextEditor::textColourId));
+	horizontalScale->setTooltip (L"Horizontal Scale");
     horizontalScale->setRange (0.0, 10.0, 0.01);
     horizontalScale->setSliderStyle (Slider::RotaryVerticalDrag);
     horizontalScale->setTextBoxStyle (Slider::TextBoxRight, false, 34, 16);
@@ -68,6 +61,7 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
 
 	addAndMakeVisible (kerning = new Slider (String::empty));
     kerning->setLookAndFeel (this);
+	kerning->setColour(Slider::rotarySliderFillColourId, Component::findColour(TextEditor::textColourId));
 	kerning->setTooltip (L"Extra Kerning");
     kerning->setRange (0.0, 10.0, 0.01);
     kerning->setSliderStyle (Slider::RotaryVerticalDrag);

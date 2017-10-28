@@ -28,7 +28,7 @@ CtrlrBooleanPropertyComponent::~CtrlrBooleanPropertyComponent()
 
 void CtrlrBooleanPropertyComponent::paint (Graphics& g)
 {
-    g.setColour (Colours::white);
+    g.setColour (findColour(ComboBox::backgroundColourId));
     g.fillRect (button.getBounds());
 
     g.setColour (findColour (ComboBox::outlineColourId));
