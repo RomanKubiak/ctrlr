@@ -104,6 +104,11 @@ void CtrlrEditor::resized()
 void CtrlrEditor::activeCtrlrChanged()
 {
 	ownerFilter->activePanelChanged();
+	bool menuBarVisible = (bool)owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMenuBarVisible);
+	if (menuBarVisible != menuBar->isVisible())
+	{
+		setMenuBarVisible(menuBarVisible);
+	}
 }
 
 MenuBarComponent *CtrlrEditor::getMenuBar()
