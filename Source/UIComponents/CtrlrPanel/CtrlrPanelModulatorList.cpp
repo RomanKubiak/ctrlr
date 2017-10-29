@@ -229,10 +229,10 @@ Component* CtrlrPanelModulatorList::refreshComponentForCell (int rowNumber, int 
 		label->setEditable (false, true, false);
 		label->setJustificationType (Justification::centred);
 		label->addMouseListener (this, false);
-		label->setColour (TextEditor::highlightColourId, Colour (0xa211ee6b));
+		label->setColour (TextEditor::highlightColourId, findColour(TextEditor::highlightColourId));
 	}
 
-	label->setColour (Label::textColourId, isRowSelected ? Colours::white : Colours::black);
+	label->setColour (Label::textColourId, isRowSelected ? Colours::white : Colours::lightgrey);
 	label->getTextValue().referTo(Value());
 	label->setText (getValueStringForColumn (m, getColumnCtrlrId (columnId-1)), dontSendNotification);
 	label->getProperties().set ("rowNumber", rowNumber);

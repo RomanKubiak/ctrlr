@@ -75,11 +75,13 @@ void CtrlrSysExEditor::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colours::white);
+	Colour backGroundColor = findColour(TextEditor::backgroundColourId);
+	Colour lightBackGroundColor = findColour(TextEditor::outlineColourId);
+    g.fillAll (backGroundColor);
 
-    g.setGradientFill (ColourGradient (Colours::white,
+    g.setGradientFill (ColourGradient (backGroundColor,
                                        (float) ((getWidth() / 2)), 0.0f,
-                                       Colour (0xffe2e2e2),
+									   lightBackGroundColor,
                                        (float) ((getWidth() / 2)), 32.0f,
                                        false));
     g.fillRect (0, 0, getWidth() - 0, 32);
@@ -352,9 +354,10 @@ Label *CtrlrSysExEditor::addByte(const String &byteAsString)
     byteLabel->setFont (Font (Font::getDefaultMonospacedFontName(), 15.0000f, Font::plain));
     byteLabel->setJustificationType (Justification::centredLeft);
     byteLabel->setEditable (true, true, false);
-    byteLabel->setColour (Label::outlineColourId, Colour (0x9e000000));
-    byteLabel->setColour (TextEditor::textColourId, Colours::black);
-    byteLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    byteLabel->setColour (Label::outlineColourId, Colours::white);
+    byteLabel->setColour (TextEditor::textColourId, findColour(TextEditor::textColourId));
+    byteLabel->setColour (TextEditor::backgroundColourId, findColour(TextEditor::backgroundColourId));
+	byteLabel->setColour (TextEditor::highlightColourId, findColour(TextEditor::focusedOutlineColourId));
     byteLabel->addListener (this);
 	byteLabel->addMouseListener (this, false);
 
@@ -379,7 +382,7 @@ SysExRow::SysExRow(const int _n, const int _w, const int _gap) : n(_n), w(_w), g
 void SysExRow::paint (Graphics &g)
 {
 	g.setFont (Font (Font::getDefaultMonospacedFontName(), 8.0f, Font::plain));
-	g.setColour (Colours::black);
+	g.setColour (findColour(TextEditor::textColourId));
 	for (int i=0; i<16; i++)
 	{
 		g.drawFittedText (String ((16*n)+(i+1)), i*(w+gap), 0, w, 8, Justification::centred, 1);

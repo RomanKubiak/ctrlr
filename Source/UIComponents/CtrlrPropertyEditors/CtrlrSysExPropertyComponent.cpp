@@ -19,8 +19,9 @@ CtrlrSysExPropertyComponent::CtrlrSysExPropertyComponent (const Value &_valueToC
     sysexPreview->setJustificationType (Justification::centredLeft);
     sysexPreview->setEditable (true, false, false);
     sysexPreview->addListener (this);
-	sysexPreview->setColour (Label::backgroundColourId, Colours::white);
+	sysexPreview->setColour (Label::backgroundColourId, findColour(ComboBox::backgroundColourId));
 	sysexPreview->setColour (Label::outlineColourId, findColour (ComboBox::outlineColourId));
+	sysexPreview->setColour (TextEditor::highlightColourId, findColour(TextEditor::focusedOutlineColourId));
 
     addAndMakeVisible (editButton = new TextButton (L"editButton"));
     editButton->setButtonText (L"Edit");
@@ -31,20 +32,14 @@ CtrlrSysExPropertyComponent::CtrlrSysExPropertyComponent (const Value &_valueToC
     copy->setButtonText (L"new button");
     copy->addListener (this);
 
-    copy->setImages (false, true, true,
-                     IMAGE(ico_copy_png), 0.6500f, Colour (0x0),
-                     IMAGE(ico_copy_png), 0.8500f, Colour (0x0),
-                     IMAGE(ico_copy_png), 1.0000f, Colour (0x0));
+    copy->setImages (IMAGES(ico_copy_png));
 
     addAndMakeVisible (paste = new ImageButton (String::empty));
     paste->setTooltip (L"Paste from clipboard");
     paste->setButtonText (L"new button");
     paste->addListener (this);
 
-    paste->setImages (false, true, true,
-                      IMAGE(ico_paste_png), 0.6500f, Colour (0x0),
-                      IMAGE(ico_paste_png), 0.8500f, Colour (0x0),
-                      IMAGE(ico_paste_png), 1.0000f, Colour (0x0));
+    paste->setImages (IMAGES(ico_paste_png));
 
 	copy->setMouseCursor(MouseCursor::PointingHandCursor);
 	paste->setMouseCursor(MouseCursor::PointingHandCursor);
@@ -93,7 +88,7 @@ void CtrlrSysExPropertyComponent::buttonClicked (Button* buttonThatWasClicked)
 		o.content.set (editor, true);
 		o.resizable						= true;
 		o.useNativeTitleBar				= true;
-		o.dialogBackgroundColour 		= Colours::whitesmoke;
+		o.dialogBackgroundColour 		= findColour(TextEditor::backgroundColourId);
 		o.escapeKeyTriggersCloseButton	= true;
 		o.componentToCentreAround		= this;
 		o.launchAsync();

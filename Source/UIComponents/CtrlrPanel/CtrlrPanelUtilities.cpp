@@ -12,7 +12,9 @@ CtrlrPanelUtilities::CtrlrPanelUtilities (CtrlrPanelEditor &_owner)
 
 
     //[UserPreSize]
-	xmlPreview->setColour (CodeEditorComponent::defaultTextColourId, Colours::black);
+	xmlPreview->setColour (CodeEditorComponent::backgroundColourId, Colours::white);
+	xmlPreview->setColour (CodeEditorComponent::highlightColourId, Colours::lightgrey);
+	xmlPreview->setColour(CodeEditorComponent::lineNumberBackgroundId, Colours::lightgrey);
 
     if (owner.getSelection())
         owner.getSelection()->addChangeListener(this);

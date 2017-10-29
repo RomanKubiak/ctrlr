@@ -46,24 +46,24 @@ CtrlrSysExFormulaEditor::CtrlrSysExFormulaEditor ()
     forwardLabel->setFont (Font (16.0000f, Font::plain));
     forwardLabel->setJustificationType (Justification::centredLeft);
     forwardLabel->setEditable (false, false, false);
-    forwardLabel->setColour (TextEditor::textColourId, Colours::black);
-    forwardLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    forwardLabel->setColour (TextEditor::textColourId, findColour(TextEditor::textColourId));
+    forwardLabel->setColour (TextEditor::backgroundColourId, findColour(TextEditor::backgroundColourId));
 
     addAndMakeVisible (reverseLabel = new Label (L"reverseLabel",
                                                  L"Reverse"));
     reverseLabel->setFont (Font (16.0000f, Font::plain));
     reverseLabel->setJustificationType (Justification::centredLeft);
     reverseLabel->setEditable (false, false, false);
-    reverseLabel->setColour (TextEditor::textColourId, Colours::black);
-    reverseLabel->setColour (TextEditor::backgroundColourId, Colour (0x0));
+    reverseLabel->setColour (TextEditor::textColourId, findColour(TextEditor::textColourId));
+    reverseLabel->setColour (TextEditor::backgroundColourId, findColour(TextEditor::backgroundColourId));
 
     addAndMakeVisible (label = new Label (L"new label",
                                           L"SysEx Formula ()"));
     label->setFont (Font (24.0000f, Font::plain));
     label->setJustificationType (Justification::centred);
     label->setEditable (false, false, false);
-    label->setColour (TextEditor::textColourId, Colours::black);
-    label->setColour (TextEditor::backgroundColourId, Colour (0x0));
+	label->setColour(TextEditor::textColourId, findColour(TextEditor::textColourId));
+	label->setColour(TextEditor::backgroundColourId, findColour(TextEditor::backgroundColourId));
 
 
     //[UserPreSize]
