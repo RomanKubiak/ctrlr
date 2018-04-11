@@ -129,7 +129,6 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     addVersionInfo ("liblo", "0.28");
 	addVersionInfo ("lua", LUA_RELEASE);
 	addVersionInfo ("luabind", _STR(LUABIND_VERSION / 1000) + "." + _STR(LUABIND_VERSION / 100 % 100) + "." + _STR(LUABIND_VERSION % 100));
-	addVersionInfo ("boost", _STR(BOOST_VERSION / 100000) + "." + _STR(BOOST_VERSION / 100 % 1000) + "." + _STR(BOOST_VERSION % 100));
 	versionInfoLabel->setFont (Font (owner.getFontManager().getDefaultMonoFontName(), 14.0f, Font::plain));
 
 	if (owner.getInstanceMode() == InstanceSingle || owner.getInstanceMode() == InstanceSingleRestriced)

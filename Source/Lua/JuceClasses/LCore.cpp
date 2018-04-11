@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "LJuce.h"
 #include "Native/CtrlrNative.h"
 #include "CtrlrMacros.h"
@@ -547,7 +547,7 @@ void LString::wrapForLua (lua_State *L)
     [
 		class_<String>("String")
 			.def(constructor<const char *>())
-			.def(constructor<const char *, const int>())
+			//.def(constructor<const char *, const int>())
 			.def(constructor<double>())
 			.def(constructor<double,int>())
 			.def(self + other<const String &>())
@@ -649,7 +649,7 @@ void LString::wrapForLua (lua_State *L)
 		class_<StringArray, bases<LStringArray> >("StringArray")
 			.def(constructor<>())
 			.def(constructor<const String &>())
-			.def(constructor<const char *const *, const int>())
+//			.def(constructor<const char *const *, const int>())
 			.def(constructor<const char *const *>())
 			.def(constructor<const StringArray &>())
 			.def("size", &StringArray::size)
@@ -981,8 +981,8 @@ void LZipFile::wrapForLua (lua_State *L)
 			.def("getIndexOfFileName", &ZipFile::getIndexOfFileName)
 			//.def("getEntry", (const ZipFile::ZipEntry *(ZipFile::*)(const String &) const noexcept) &ZipFile::getEntry)
 			.def("sortEntriesByFilename", &ZipFile::sortEntriesByFilename)
-			.def("createStreamForEntry", (InputStream *(ZipFile::*)(int)) &ZipFile::createStreamForEntry, adopt(result))
-			.def("createStreamForEntry", (InputStream *(ZipFile::*)(const ZipFile::ZipEntry &)) &ZipFile::createStreamForEntry, adopt(result))
+			//.def("createStreamForEntry", (InputStream *(ZipFile::*)(int)) &ZipFile::createStreamForEntry, adopt(result))
+			//.def("createStreamForEntry", (InputStream *(ZipFile::*)(const ZipFile::ZipEntry &)) &ZipFile::createStreamForEntry, adopt(result))
 			.def("uncompressTo", &ZipFile::uncompressTo)
 			.def("uncompressEntry", &ZipFile::uncompressEntry)
 	];

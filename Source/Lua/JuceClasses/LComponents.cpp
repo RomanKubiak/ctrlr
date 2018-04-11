@@ -1,7 +1,7 @@
 #include "stdafx_luabind.h"
 #include "LJuce.h"
 #include "CtrlrLog.h"
-
+/*
 LAlertWindow::LAlertWindow(const String &title, const String &message, AlertIconType iconType)
 	: AlertWindow(title,message,iconType,nullptr)
 {
@@ -167,7 +167,7 @@ void LBubbleMessageComponent::wrapForLua (lua_State *L)
 			.def("getContentSize", &LBubbleMessageComponent::getContentSize)
 	];
 }
-
+*/
 void LButton::wrapForLua (lua_State *L)
 {
     using namespace luabind;
@@ -276,7 +276,7 @@ void LComponent::wrapForLua (lua_State *L)
 		,
 		class_<Component, LComponent>("Component")
 			.def(constructor<>())
-			.def(constructor<const String &>())
+			/*.def(constructor<const String &>())
 			.def("setName", &Component::setName)
 			.def("getComponentID", &Component::getComponentID)
 			.def("setComponentID", &Component::setComponentID)
@@ -317,15 +317,15 @@ void LComponent::wrapForLua (lua_State *L)
 			.def("setTopLeftPosition", (void (Component::*)(const Point<int>))&Component::setTopLeftPosition)
 			.def("setTopRightPosition", &Component::setTopRightPosition)
 			.def("setSize", &Component::setSize)
-			.def("setBounds", (void (Component::*)(int,int,int,int))&Component::setBounds)
+			.def("setBounds", (void (Component::*)(int,int,int,int))&Component::setBounds)*/
 			//.def("setBounds", (void (Component::*)(const Rectangle<int> &))&Component::setBounds)
-			.def("setBounds", (void (Component::*)(const RelativeRectangle &))&Component::setBounds)
+			/*.def("setBounds", (void (Component::*)(const RelativeRectangle &))&Component::setBounds)
 			.def("setBounds", (void (Component::*)(const String &))&Component::setBounds)
 			.def("setBoundsRelative", &Component::setBoundsRelative)
 			.def("setBoundsInset", &Component::setBoundsInset)
-			.def("setBoundsToFit", &Component::setBoundsToFit)
+			.def("setBoundsToFit", &Component::setBoundsToFit)*/
 			//.def("setCentrePosition", &Component::setCentrePosition)
-			.def("setCentreRelative", &Component::setCentreRelative)
+			/*.def("setCentreRelative", &Component::setCentreRelative)
 			.def("centreWithSize", &Component::centreWithSize)
 			.def("setTransform", &Component::setTransform)
 			.def("getTransform", &Component::getTransform)
@@ -361,9 +361,9 @@ void LComponent::wrapForLua (lua_State *L)
 			.def("getComponentAt", (Component *(Component::*)(int,int))&Component::getComponentAt)
 			.def("getComponentAt", (Component *(Component::*)(const Point<int>))&Component::getComponentAt)
 			.def("repaint", (void (Component::*)(void))&Component::repaint)
-			.def("repaint", (void (Component::*)(int,int,int,int))&Component::repaint)
+			.def("repaint", (void (Component::*)(int,int,int,int))&Component::repaint)*/
 			//.def("repaint", (void (Component::*)(const Rectangle<int> &))&Component::repaint)
-			.def("setBufferedToImage", &Component::setBufferedToImage)
+			/*.def("setBufferedToImage", &Component::setBufferedToImage)
 			.def("createComponentSnapshot", &Component::createComponentSnapshot)
 			.def("paintEntireComponent", &Component::paintEntireComponent)
 			.def("setPaintingIsUnclipped", &Component::setPaintingIsUnclipped)
@@ -450,7 +450,7 @@ void LComponent::wrapForLua (lua_State *L)
 			.def("getPositioner", &Component::getPositioner)
 			.def("setPositioner", &Component::setPositioner)
 			.def("setCachedComponentImage", &Component::setCachedComponentImage)
-			.def("getCachedComponentImage", &Component::getCachedComponentImage)
+			.def("getCachedComponentImage", &Component::getCachedComponentImage)*/
 			.scope
 			[
 				def("getCurrentlyFocusedComponent", &LComponent::getCurrentlyFocusedComponent),
@@ -545,7 +545,7 @@ if (methods.contains(#method))\
     }\
     catch (luabind::error &e)\
     {\
-        _WRN(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))));\
+        _WRN(e.what());\
     }\
 }\
 else\
@@ -562,7 +562,7 @@ if (methods.contains(#method))\
     }\
     catch (luabind::error &e)\
     {\
-        _WRN(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))));\
+        _WRN(e.what());\
 		return (ReturnWhenError);\
     }\
 }\
@@ -580,7 +580,7 @@ if (methods.contains(#method))\
     }\
     catch (luabind::error &e)\
     {\
-        _WRN(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))));\
+        _WRN(e.what());\
 		return (ReturnWhenError);\
     }\
 }\
@@ -671,32 +671,32 @@ Typeface::Ptr LookAndFeelBase::getTypefaceForFont(const Font &font)
 
 MouseCursor LookAndFeelBase::getMouseCursorFor(Component &component)
 {
-	TRY_CALL_RET (getMouseCursorFor, MouseCursor, MouseCursor(), boost::ref(component));
+	TRY_CALL_RET (getMouseCursorFor, MouseCursor, MouseCursor(), component);
 }
 
 void LookAndFeelBase::drawButtonBackground(Graphics &g, Button &button, const Colour &backgroundColourRef, bool isMouseOverButton, bool isButtonDown)
 {
-    TRY_CALL(drawButtonBackground, boost::ref(g), boost::ref(button), backgroundColourRef, isMouseOverButton, isButtonDown);
+    TRY_CALL(drawButtonBackground, g, button, backgroundColourRef, isMouseOverButton, isButtonDown);
 }
 
 void LookAndFeelBase::drawButtonText(Graphics &g, TextButton &textButton, bool isMouseOverButton, bool isButtonDown)
 {
-    TRY_CALL(drawButtonText, boost::ref(g), boost::ref(textButton), isMouseOverButton, isButtonDown);
+    TRY_CALL(drawButtonText, g, textButton, isMouseOverButton, isButtonDown);
 }
 
 void LookAndFeelBase::drawToggleButton(Graphics &g, ToggleButton &toggleButton, bool isMouseOverButton, bool isButtonDown)
 {
-    TRY_CALL(drawToggleButton, boost::ref(g), boost::ref(toggleButton), isMouseOverButton, isButtonDown);
+    TRY_CALL(drawToggleButton, g, toggleButton, isMouseOverButton, isButtonDown);
 }
 
 void LookAndFeelBase::changeToggleButtonWidthToFitText(ToggleButton &toggleButton)
 {
-    TRY_CALL(changeToggleButtonWidthToFitText, boost::ref(toggleButton));
+    TRY_CALL(changeToggleButtonWidthToFitText, toggleButton);
 }
 
 void LookAndFeelBase::drawTickBox(Graphics &g, Component &component, float x, float y, float w, float h, bool ticked, bool isEnabled, bool isMouseOverButton, bool isButtonDown)
 {
-    TRY_CALL(drawTickBox, boost::ref(g), boost::ref(component), x, y, w, h, ticked, isEnabled, isMouseOverButton, isButtonDown);
+    TRY_CALL(drawTickBox, g, component, x, y, w, h, ticked, isEnabled, isMouseOverButton, isButtonDown);
 }
 
 AlertWindow* LookAndFeelBase::createAlertWindow(const String &title, const String &message, const String &button1, const String &button2, const String &button3, AlertWindow::AlertIconType iconType, int numButtons, Component* component)
@@ -720,7 +720,7 @@ AlertWindow* LookAndFeelBase::createAlertWindow(const String &title, const Strin
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
         }
     }
@@ -732,7 +732,7 @@ AlertWindow* LookAndFeelBase::createAlertWindow(const String &title, const Strin
 
 void LookAndFeelBase::drawAlertBox(Graphics &g, AlertWindow &window, const Rectangle<int> &textArea, TextLayout &layout)
 {
-    TRY_CALL(drawAlertBox,boost::ref(g), boost::ref(window), textArea, boost::ref(layout));
+    TRY_CALL(drawAlertBox,g, window, textArea, layout);
 }
 
 int LookAndFeelBase::getAlertBoxWindowFlags()
@@ -757,12 +757,12 @@ Font LookAndFeelBase::getAlertWindowFont()
 
 void LookAndFeelBase::drawProgressBar(Graphics &g, ProgressBar &progressBar, int width, int height, double progress, const String &textToShow)
 {
-    TRY_CALL(drawProgressBar, boost::ref(g), boost::ref(progressBar), width, height, progress, textToShow);
+    TRY_CALL(drawProgressBar, g, progressBar, width, height, progress, textToShow);
 }
 
 void LookAndFeelBase::drawSpinningWaitAnimation(Graphics &g, const Colour &colourRef, int x, int y, int w, int h)
 {
-    TRY_CALL(drawSpinningWaitAnimation, boost::ref(g), colourRef, x, y, w, h);
+    TRY_CALL(drawSpinningWaitAnimation, g, colourRef, x, y, w, h);
 }
 
 bool LookAndFeelBase::areScrollbarButtonsVisible()
@@ -791,7 +791,7 @@ ImageEffectFilter* LookAndFeelBase::getScrollbarEffect()
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::getScrollbarEffect());
         }
     }
@@ -803,7 +803,7 @@ ImageEffectFilter* LookAndFeelBase::getScrollbarEffect()
 
 int LookAndFeelBase::getMinimumScrollbarThumbSize(ScrollBar &scrollBar)
 {
-	TRY_CALL_RET(getMinimumScrollbarThumbSize, int, 0, boost::ref(scrollBar));
+	TRY_CALL_RET(getMinimumScrollbarThumbSize, int, 0, scrollBar);
 }
 
 int LookAndFeelBase::getDefaultScrollbarWidth()
@@ -813,7 +813,7 @@ int LookAndFeelBase::getDefaultScrollbarWidth()
 
 int LookAndFeelBase::getScrollbarButtonSize(ScrollBar &scrollBar)
 {
-	TRY_CALL_RET(getScrollbarButtonSize, int, 0, boost::ref(scrollBar));
+	TRY_CALL_RET(getScrollbarButtonSize, int, 0, scrollBar);
 }
 
 Path LookAndFeelBase::getTickShape(float height)
@@ -828,17 +828,17 @@ Path LookAndFeelBase::getCrossShape(float height)
 
 void LookAndFeelBase::drawTreeviewPlusMinusBox(Graphics &g, const Rectangle<float> &area, Colour backgroundColour, bool isOpen, bool isMouseOver)
 {
-    TRY_CALL(drawTreeviewPlusMinusBox, boost::ref(g), area, backgroundColour, isOpen, isMouseOver);
+    TRY_CALL(drawTreeviewPlusMinusBox, g, area, backgroundColour, isOpen, isMouseOver);
 }
 
 void LookAndFeelBase::fillTextEditorBackground(Graphics &g, int width, int height, TextEditor &editor)
 {
-    TRY_CALL(fillTextEditorBackground, boost::ref(g), width, height, boost::ref(editor));
+    TRY_CALL(fillTextEditorBackground, g, width, height, editor);
 }
 
 void LookAndFeelBase::drawTextEditorOutline(Graphics &g, int width, int height, TextEditor &editor)
 {
-    TRY_CALL(drawTextEditorOutline, boost::ref(g), width, height, boost::ref(editor));
+    TRY_CALL(drawTextEditorOutline, g, width, height, editor);
 }
 
 CaretComponent* LookAndFeelBase::createCaretComponent(Component* component)
@@ -867,7 +867,7 @@ const Drawable* LookAndFeelBase::getDefaultFolderImage()
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::getDefaultFolderImage());
         }
     }
@@ -898,7 +898,7 @@ const Drawable* LookAndFeelBase::getDefaultDocumentFileImage()
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::getDefaultDocumentFileImage());
         }
     }
@@ -941,7 +941,7 @@ Button* LookAndFeelBase::createFileBrowserGoUpButton()
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createFileBrowserGoUpButton());
         }
     }
@@ -953,22 +953,22 @@ Button* LookAndFeelBase::createFileBrowserGoUpButton()
 
 void LookAndFeelBase::layoutFileBrowserComponent(FileBrowserComponent &fileBrowserComponent, DirectoryContentsDisplayComponent *directoryContentsDisplayComponent, FilePreviewComponent *filePreviewComponent, ComboBox *comboBox, TextEditor *textEditor, Button *goUpButton)
 {
-    TRY_CALL(layoutFileBrowserComponent, boost::ref(fileBrowserComponent), directoryContentsDisplayComponent, filePreviewComponent, comboBox, textEditor, goUpButton);
+    TRY_CALL(layoutFileBrowserComponent, fileBrowserComponent, directoryContentsDisplayComponent, filePreviewComponent, comboBox, textEditor, goUpButton);
 }
 
 void LookAndFeelBase::drawBubble(Graphics &g, BubbleComponent &bubbleComponent, const Point<float> &tip, const Rectangle<float> &body)
 {
-    TRY_CALL(drawBubble, boost::ref(g), boost::ref(bubbleComponent), tip, body);
+    TRY_CALL(drawBubble, g, bubbleComponent, tip, body);
 }
 
 void LookAndFeelBase::drawLasso(Graphics &g, Component &component)
 {
-    TRY_CALL(drawLasso, boost::ref(g), boost::ref(component));
+    TRY_CALL(drawLasso, g, component);
 }
 
 void LookAndFeelBase::drawPopupMenuBackground(Graphics &g, int width, int height)
 {
-    TRY_CALL(drawPopupMenuBackground, boost::ref(g), width, height);
+    TRY_CALL(drawPopupMenuBackground, g, width, height);
 }
 
 /*
@@ -985,12 +985,12 @@ Font LookAndFeelBase::getPopupMenuFont()
 
 void LookAndFeelBase::drawPopupMenuUpDownArrow(Graphics &g, int width, int height, bool isScrollUpArrow)
 {
-    TRY_CALL(drawPopupMenuUpDownArrow, boost::ref(g), width, height, isScrollUpArrow);
+    TRY_CALL(drawPopupMenuUpDownArrow, g, width, height, isScrollUpArrow);
 }
 
 void LookAndFeelBase::getIdealPopupMenuItemSize(const String &text, bool isSeparator, int standardMenuItemHeight, int &idealWidth, int &idealHeight)
 {
-    TRY_CALL(getIdealPopupMenuItemSize, text, isSeparator, standardMenuItemHeight, boost::ref(idealWidth), boost::ref(idealHeight));
+    TRY_CALL(getIdealPopupMenuItemSize, text, isSeparator, standardMenuItemHeight, idealWidth, idealHeight);
 }
 
 int LookAndFeelBase::getMenuWindowFlags()
@@ -1000,32 +1000,32 @@ int LookAndFeelBase::getMenuWindowFlags()
 
 void LookAndFeelBase::drawMenuBarBackground(Graphics &g, int width, int height, bool isMouseOverBar, MenuBarComponent &menuBarComponent)
 {
-    TRY_CALL(drawMenuBarBackground, boost::ref(g), width, height, isMouseOverBar, boost::ref(menuBarComponent));
+    TRY_CALL(drawMenuBarBackground, g, width, height, isMouseOverBar, menuBarComponent);
 }
 
 int LookAndFeelBase::getMenuBarItemWidth(MenuBarComponent &menuBarComponent, int itemIndex, const String &itemText)
 {
-	TRY_CALL_RET(getMenuBarItemWidth, int, 0, boost::ref(menuBarComponent), itemIndex, itemText);
+	TRY_CALL_RET(getMenuBarItemWidth, int, 0, menuBarComponent, itemIndex, itemText);
 }
 
 Font LookAndFeelBase::getMenuBarFont(MenuBarComponent &menuBarComponent, int itemIndex, const String &itemText)
 {
-	TRY_CALL_RET(getMenuBarFont, Font, Font(), boost::ref(menuBarComponent), itemIndex, itemText);
+	TRY_CALL_RET(getMenuBarFont, Font, Font(), menuBarComponent, itemIndex, itemText);
 }
 
 void LookAndFeelBase::drawMenuBarItem(Graphics &g, int width, int height, int itemIndex, const String &itemText, bool isMouseOverItem, bool isMenuOpen, bool isMouseOverBar, MenuBarComponent &menuBarComponent)
 {
-    TRY_CALL(drawMenuBarItem, boost::ref(g), width, height, itemIndex, itemText, isMouseOverItem, isMenuOpen, isMouseOverBar, boost::ref(menuBarComponent));
+    TRY_CALL(drawMenuBarItem, g, width, height, itemIndex, itemText, isMouseOverItem, isMenuOpen, isMouseOverBar, menuBarComponent);
 }
 
 void LookAndFeelBase::drawComboBox(Graphics &g, int width, int height, bool isButtonDown, int buttonX, int buttonY, int buttonW, int buttonH, ComboBox &comboBox)
 {
-    TRY_CALL(drawComboBox, boost::ref(g), width, height, isButtonDown, buttonX, buttonY, buttonW, buttonH, boost::ref(comboBox));
+    TRY_CALL(drawComboBox, g, width, height, isButtonDown, buttonX, buttonY, buttonW, buttonH, comboBox);
 }
 
 Font LookAndFeelBase::getComboBoxFont(ComboBox &comboBox)
 {
-	TRY_CALL_RET(getComboBoxFont, Font, Font(), boost::ref(comboBox));
+	TRY_CALL_RET(getComboBoxFont, Font, Font(), comboBox);
 }
 
 Label* LookAndFeelBase::createComboBoxTextBox(ComboBox &comboBox)
@@ -1038,7 +1038,7 @@ Label* LookAndFeelBase::createComboBoxTextBox(ComboBox &comboBox)
         {
             Label *l = call_function<Label*>(
                 methods["createComboBoxTextBox"],
-                boost::ref(comboBox)
+                comboBox
             );
 
             if (l != nullptr)
@@ -1050,7 +1050,7 @@ Label* LookAndFeelBase::createComboBoxTextBox(ComboBox &comboBox)
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createComboBoxTextBox(comboBox));
         }
     }
@@ -1062,37 +1062,37 @@ Label* LookAndFeelBase::createComboBoxTextBox(ComboBox &comboBox)
 
 void LookAndFeelBase::positionComboBoxText(ComboBox &comboBox, Label &label)
 {
-    TRY_CALL(positionComboBoxText, boost::ref(comboBox), boost::ref(label));
+    TRY_CALL(positionComboBoxText, comboBox, label);
 }
 
 void LookAndFeelBase::drawLabel(Graphics &g, Label &label)
 {
-	TRY_CALL(drawLabel, boost::ref(g),boost::ref(label));
+	TRY_CALL(drawLabel, g,label);
 }
 
 void LookAndFeelBase::drawLinearSlider(Graphics &g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle sliderStyle, Slider &slider)
 {
-    TRY_CALL(drawLinearSlider, boost::ref(g), x, y, width, height, sliderPos, minSliderPos, maxSliderPos, sliderStyle, boost::ref(slider));
+    TRY_CALL(drawLinearSlider, g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, sliderStyle, slider);
 }
 
 void LookAndFeelBase::drawLinearSliderBackground(Graphics &g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle sliderStyle, Slider &slider)
 {
-    TRY_CALL(drawLinearSliderBackground, boost::ref(g), x, y, width, height, sliderPos, minSliderPos, maxSliderPos, sliderStyle, boost::ref(slider));
+    TRY_CALL(drawLinearSliderBackground, g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, sliderStyle, slider);
 }
 
 void LookAndFeelBase::drawLinearSliderThumb(Graphics &g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle sliderStyle, Slider &slider)
 {
-    TRY_CALL(drawLinearSliderThumb, boost::ref(g), x, y, width, height, sliderPos, minSliderPos, maxSliderPos, sliderStyle, boost::ref(slider));
+    TRY_CALL(drawLinearSliderThumb, g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, sliderStyle, slider);
 }
 
 int LookAndFeelBase::getSliderThumbRadius(Slider &slider)
 {
-	TRY_CALL_RET(getSliderThumbRadius, int, 0, boost::ref(slider));
+	TRY_CALL_RET(getSliderThumbRadius, int, 0, slider);
 }
 
 void LookAndFeelBase::drawRotarySlider(Graphics &g, int x, int y, int width, int height, float sliderPosProportional, float rotaryStartAngle, float rotaryEndAngle, Slider &slider)
 {
-	TRY_CALL(drawRotarySlider,boost::ref(g),x,y,width,height,sliderPosProportional,rotaryStartAngle,rotaryEndAngle,boost::ref(slider));
+	TRY_CALL(drawRotarySlider,g,x,y,width,height,sliderPosProportional,rotaryStartAngle,rotaryEndAngle,slider);
 }
 
 Button* LookAndFeelBase::createSliderButton(Slider &slider, bool isIncrement)
@@ -1105,7 +1105,7 @@ Button* LookAndFeelBase::createSliderButton(Slider &slider, bool isIncrement)
         {
             Button *b = call_function<Button*>(
                 methods["createSliderButton"],
-                boost::ref(slider), isIncrement
+                slider, isIncrement
             );
 
             if (b != nullptr)
@@ -1117,7 +1117,7 @@ Button* LookAndFeelBase::createSliderButton(Slider &slider, bool isIncrement)
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createSliderButton(slider, isIncrement));
         }
     }
@@ -1137,7 +1137,7 @@ Label* LookAndFeelBase::createSliderTextBox(Slider &slider)
         {
             Label *l = call_function<Label*>(
                 methods["createSliderTextBox"],
-                boost::ref(slider)
+                slider
             );
 
             if (l != nullptr)
@@ -1149,7 +1149,7 @@ Label* LookAndFeelBase::createSliderTextBox(Slider &slider)
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createSliderTextBox(slider));
         }
     }
@@ -1169,7 +1169,7 @@ ImageEffectFilter* LookAndFeelBase::getSliderEffect(Slider &slider)
         {
             ImageEffectFilter *b = call_function<ImageEffectFilter*>(
                 methods["getSliderEffect"],
-                boost::ref(slider)
+                slider
             );
 
             if (b != nullptr)
@@ -1181,7 +1181,7 @@ ImageEffectFilter* LookAndFeelBase::getSliderEffect(Slider &slider)
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::getSliderEffect(slider));
         }
     }
@@ -1198,7 +1198,7 @@ Rectangle<int> LookAndFeelBase::getTooltipBounds(const String &tipText, Point<in
 
 void LookAndFeelBase::drawTooltip(Graphics &g, const String &text, int width, int height)
 {
-    TRY_CALL(drawTooltip, boost::ref(g), text, width, height);
+    TRY_CALL(drawTooltip, g, text, width, height);
 }
 
 Button* LookAndFeelBase::createFilenameComponentBrowseButton(const String &text)
@@ -1223,7 +1223,7 @@ Button* LookAndFeelBase::createFilenameComponentBrowseButton(const String &text)
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createFilenameComponentBrowseButton(text));
         }
     }
@@ -1235,37 +1235,37 @@ Button* LookAndFeelBase::createFilenameComponentBrowseButton(const String &text)
 
 void LookAndFeelBase::layoutFilenameComponent(FilenameComponent &filenameComponent, ComboBox* comboBox, Button* button)
 {
-    TRY_CALL(layoutFilenameComponent, boost::ref(filenameComponent), comboBox, button);
+    TRY_CALL(layoutFilenameComponent, filenameComponent, comboBox, button);
 }
 
 void LookAndFeelBase::drawConcertinaPanelHeader(Graphics &g, const Rectangle<int> &areaInt, bool isMouseOver, bool isMouseDown, ConcertinaPanel &concertinaPanel, Component &component)
 {
-    TRY_CALL(drawConcertinaPanelHeader, boost::ref(g), areaInt, isMouseOver, isMouseDown, boost::ref(concertinaPanel), boost::ref(component));
+    TRY_CALL(drawConcertinaPanelHeader, g, areaInt, isMouseOver, isMouseDown, concertinaPanel, component);
 }
 
 void LookAndFeelBase::drawCornerResizer(Graphics &g, int w, int h, bool isMouseOver, bool isMouseDragging)
 {
-    TRY_CALL(drawCornerResizer, boost::ref(g), w, h, isMouseOver, isMouseDragging);
+    TRY_CALL(drawCornerResizer, g, w, h, isMouseOver, isMouseDragging);
 }
 
 void LookAndFeelBase::drawResizableFrame(Graphics &g, int w, int h, const BorderSize<int> &borderSize)
 {
-    TRY_CALL(drawResizableFrame, boost::ref(g), w, h, borderSize);
+    TRY_CALL(drawResizableFrame, g, w, h, borderSize);
 }
 
 void LookAndFeelBase::fillResizableWindowBackground(Graphics &g, int w, int h, const BorderSize<int> &borderSize, ResizableWindow &resizableWindow)
 {
-    TRY_CALL(fillResizableWindowBackground, boost::ref(g), w, h, borderSize, boost::ref(resizableWindow));
+    TRY_CALL(fillResizableWindowBackground, g, w, h, borderSize, resizableWindow);
 }
 
 void LookAndFeelBase::drawResizableWindowBorder(Graphics &g, int w, int h, const BorderSize<int> &borderSize, ResizableWindow &resizableWindow)
 {
-    TRY_CALL(drawResizableWindowBorder, boost::ref(g), w, h, borderSize, boost::ref(resizableWindow));
+    TRY_CALL(drawResizableWindowBorder, g, w, h, borderSize, resizableWindow);
 }
 
 void LookAndFeelBase::drawDocumentWindowTitleBar(DocumentWindow &documentWindow, Graphics &g, int w, int h, int titleSpaceX, int titleSpaceW, const Image* icon, bool drawTitleTextOnLeft)
 {
-    TRY_CALL(drawDocumentWindowTitleBar, boost::ref(documentWindow), boost::ref(g), w, h, titleSpaceX, titleSpaceW, icon, drawTitleTextOnLeft);
+    TRY_CALL(drawDocumentWindowTitleBar, documentWindow, g, w, h, titleSpaceX, titleSpaceW, icon, drawTitleTextOnLeft);
 }
 
 Button* LookAndFeelBase::createDocumentWindowButton(int buttonType)
@@ -1290,7 +1290,7 @@ Button* LookAndFeelBase::createDocumentWindowButton(int buttonType)
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createDocumentWindowButton(buttonType));
         }
     }
@@ -1302,7 +1302,7 @@ Button* LookAndFeelBase::createDocumentWindowButton(int buttonType)
 
 void LookAndFeelBase::positionDocumentWindowButtons(DocumentWindow &documentWindow, int titleBarX, int titleBarY, int titleBarW, int titleBarH, Button* minimiseButton, Button* maximiseButton, Button* closeButton, bool positionTitleBarButtonsOnLeft)
 {
-    TRY_CALL(positionDocumentWindowButtons, boost::ref(documentWindow), titleBarX, titleBarY, titleBarW, titleBarH, minimiseButton, maximiseButton, closeButton, positionTitleBarButtonsOnLeft);
+    TRY_CALL(positionDocumentWindowButtons,documentWindow, titleBarX, titleBarY, titleBarW, titleBarH, minimiseButton, maximiseButton, closeButton, positionTitleBarButtonsOnLeft);
 }
 
 int LookAndFeelBase::getDefaultMenuBarHeight()
@@ -1332,7 +1332,7 @@ DropShadower* LookAndFeelBase::createDropShadowerForComponent(Component* compone
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createDropShadowerForComponent(component));
         }
     }
@@ -1344,7 +1344,7 @@ DropShadower* LookAndFeelBase::createDropShadowerForComponent(Component* compone
 
 void LookAndFeelBase::drawGroupComponentOutline(Graphics &g, int w, int h, const String &text, const Justification &justification, GroupComponent &groupComponent)
 {
-    TRY_CALL(drawGroupComponentOutline, boost::ref(g), w, h, text, justification, boost::ref(groupComponent));
+    TRY_CALL(drawGroupComponentOutline, g, w, h, text, justification, groupComponent);
 }
 
 int LookAndFeelBase::getTabButtonSpaceAroundImage()
@@ -1359,37 +1359,37 @@ int LookAndFeelBase::getTabButtonOverlap(int tabDepth)
 
 int LookAndFeelBase::getTabButtonBestWidth(TabBarButton &tabBarButton, int tabDepth)
 {
-	TRY_CALL_RET(getTabButtonBestWidth, int, 0, boost::ref(tabBarButton), tabDepth);
+	TRY_CALL_RET(getTabButtonBestWidth, int, 0, tabBarButton, tabDepth);
 }
 
 Rectangle<int> LookAndFeelBase::getTabButtonExtraComponentBounds(const TabBarButton &tabBarButton, Rectangle<int> &areaInt, Component &component)
 {
-	TRY_CALL_RET(getTabButtonExtraComponentBounds, Rectangle<int>, Rectangle<int>(), boost::ref(tabBarButton), areaInt, boost::ref(component));
+	TRY_CALL_RET(getTabButtonExtraComponentBounds, Rectangle<int>, Rectangle<int>(), tabBarButton, areaInt, component);
 }
 
 void LookAndFeelBase::drawTabButton(TabBarButton &tabBarButton, Graphics &g, bool isMouseOver, bool isMouseDown)
 {
-    TRY_CALL(drawTabButton, boost::ref(tabBarButton), boost::ref(g), isMouseOver, isMouseDown);
+    TRY_CALL(drawTabButton, tabBarButton, g, isMouseOver, isMouseDown);
 }
 
 void LookAndFeelBase::drawTabButtonText(TabBarButton &tabBarButton, Graphics &g, bool isMouseOver, bool isMouseDown)
 {
-    TRY_CALL(drawTabButtonText, boost::ref(tabBarButton), boost::ref(g), isMouseOver, isMouseDown);
+    TRY_CALL(drawTabButtonText, tabBarButton, g, isMouseOver, isMouseDown);
 }
 
 void LookAndFeelBase::drawTabAreaBehindFrontButton(TabbedButtonBar &tabbedButtonBar, Graphics &g, int w, int h)
 {
-    TRY_CALL(drawTabAreaBehindFrontButton, boost::ref(tabbedButtonBar), boost::ref(g), w, h);
+    TRY_CALL(drawTabAreaBehindFrontButton, tabbedButtonBar, g, w, h);
 }
 
 void LookAndFeelBase::createTabButtonShape(TabBarButton &tabBarButton, Path &path, bool isMouseOver, bool isMouseDown)
 {
-    TRY_CALL(createTabButtonShape, boost::ref(tabBarButton), boost::ref(path), isMouseOver, isMouseDown);
+    TRY_CALL(createTabButtonShape, tabBarButton, path, isMouseOver, isMouseDown);
 }
 
 void LookAndFeelBase::fillTabButtonShape(TabBarButton &tabBarButton, Graphics &g, const Path &/*path*/, bool isMouseOver, bool isMouseDown)
 {
-    TRY_CALL(drawTabButton, boost::ref(tabBarButton), boost::ref(g), isMouseOver, isMouseDown);
+    TRY_CALL(drawTabButton, tabBarButton, g, isMouseOver, isMouseDown);
 }
 
 Button* LookAndFeelBase::createTabBarExtrasButton()
@@ -1413,7 +1413,7 @@ Button* LookAndFeelBase::createTabBarExtrasButton()
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createTabBarExtrasButton());
         }
     }
@@ -1425,12 +1425,12 @@ Button* LookAndFeelBase::createTabBarExtrasButton()
 
 void LookAndFeelBase::drawImageButton(Graphics &g, Image* image, int imageX, int imageY, int imageW, int imageH, const Colour &overlayColourRef, float imageOpacity, ImageButton &imageButton)
 {
-    TRY_CALL(drawImageButton, boost::ref(g), image, imageX, imageY, imageW, imageH, overlayColourRef, imageOpacity, boost::ref(imageButton));
+    TRY_CALL(drawImageButton, g, image, imageX, imageY, imageW, imageH, overlayColourRef, imageOpacity, imageButton);
 }
 
 void LookAndFeelBase::drawTableHeaderBackground(Graphics &g, TableHeaderComponent &tableHeaderComponent)
 {
-    TRY_CALL(drawTableHeaderBackground, boost::ref(g), boost::ref(tableHeaderComponent));
+    TRY_CALL(drawTableHeaderBackground, g, tableHeaderComponent);
 }
 
 void LookAndFeelBase::drawTableHeaderColumn(Graphics &, const String &, int , int , int , bool , bool , int )
@@ -1440,7 +1440,7 @@ void LookAndFeelBase::drawTableHeaderColumn(Graphics &, const String &, int , in
 
 void LookAndFeelBase::paintToolbarBackground(Graphics &g, int width, int height, Toolbar &toolbar)
 {
-    TRY_CALL(paintToolbarBackground, boost::ref(g), width, height, boost::ref(toolbar));
+    TRY_CALL(paintToolbarBackground, g, width, height, toolbar);
 }
 
 Button* LookAndFeelBase::createToolbarMissingItemsButton(Toolbar &toolbar)
@@ -1453,7 +1453,7 @@ Button* LookAndFeelBase::createToolbarMissingItemsButton(Toolbar &toolbar)
         {
             Button *b = call_function<Button*>(
                 methods["createToolbarMissingItemsButton"],
-                boost::ref(toolbar)
+                toolbar
             );
 
             if (b != nullptr)
@@ -1465,7 +1465,7 @@ Button* LookAndFeelBase::createToolbarMissingItemsButton(Toolbar &toolbar)
         }
         catch (luabind::error &e)
         {
-            _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
+            _WRN(e.what());
             return (LookAndFeel_V3::createToolbarMissingItemsButton(toolbar));
         }
     }
@@ -1477,52 +1477,52 @@ Button* LookAndFeelBase::createToolbarMissingItemsButton(Toolbar &toolbar)
 
 void LookAndFeelBase::paintToolbarButtonBackground(Graphics &g, int width, int height, bool isMouseOver, bool isMouseDown, ToolbarItemComponent &toolbarItemComponent)
 {
-    TRY_CALL(paintToolbarButtonBackground, boost::ref(g), width, height, isMouseOver, isMouseDown, boost::ref(toolbarItemComponent));
+    TRY_CALL(paintToolbarButtonBackground, g, width, height, isMouseOver, isMouseDown, toolbarItemComponent);
 }
 
 void LookAndFeelBase::paintToolbarButtonLabel(Graphics &g, int x, int y, int width, int height, const String &text, ToolbarItemComponent &toolbarItemComponent)
 {
-    TRY_CALL(paintToolbarButtonLabel, boost::ref(g), x, y, width, height, text, boost::ref(toolbarItemComponent));
+    TRY_CALL(paintToolbarButtonLabel, g, x, y, width, height, text, toolbarItemComponent);
 }
 
 void LookAndFeelBase::drawStretchableLayoutResizerBar(Graphics &g, int w, int h, bool isVerticalBar, bool isMouseOver, bool isMouseDragging)
 {
-    TRY_CALL(drawStretchableLayoutResizerBar, boost::ref(g), w, h, isVerticalBar, isMouseOver, isMouseDragging);
+    TRY_CALL(drawStretchableLayoutResizerBar, g, w, h, isVerticalBar, isMouseOver, isMouseDragging);
 }
 
 void LookAndFeelBase::drawPropertyPanelSectionHeader(Graphics &g, const String &name, bool isOpen, int width, int height)
 {
-    TRY_CALL(drawPropertyPanelSectionHeader, boost::ref(g), name, isOpen, width, height);
+    TRY_CALL(drawPropertyPanelSectionHeader, g, name, isOpen, width, height);
 }
 
 void LookAndFeelBase::drawPropertyComponentBackground(Graphics &g, int width, int height, PropertyComponent &propertyComponent)
 {
-    TRY_CALL(drawPropertyComponentBackground, boost::ref(g), width, height, boost::ref(propertyComponent));
+    TRY_CALL(drawPropertyComponentBackground, g, width, height, propertyComponent);
 }
 
 void LookAndFeelBase::drawPropertyComponentLabel(Graphics &g, int width, int height, PropertyComponent &propertyComponent)
 {
-    TRY_CALL(drawPropertyComponentLabel, boost::ref(g), width, height, boost::ref(propertyComponent));
+    TRY_CALL(drawPropertyComponentLabel, g, width, height, propertyComponent);
 }
 
 Rectangle<int> LookAndFeelBase::getPropertyComponentContentPosition(PropertyComponent &propertyComponent)
 {
-	TRY_CALL_RET(getPropertyComponentContentPosition, Rectangle<int>, Rectangle<int>(), boost::ref(propertyComponent));
+	TRY_CALL_RET(getPropertyComponentContentPosition, Rectangle<int>, Rectangle<int>(), propertyComponent);
 }
 
 void LookAndFeelBase::drawCallOutBoxBackground(CallOutBox &callOutBox, Graphics &g, const Path &path, Image &image)
 {
-    TRY_CALL(drawCallOutBoxBackground, boost::ref(callOutBox), boost::ref(g), path, boost::ref(image));
+    TRY_CALL(drawCallOutBoxBackground, callOutBox, g, path, image);
 }
 
 void LookAndFeelBase::drawLevelMeter(Graphics &g, int width, int height, float level)
 {
-    TRY_CALL(drawLevelMeter, boost::ref(g), width, height, level);
+    TRY_CALL(drawLevelMeter, g, width, height, level);
 }
 
 void LookAndFeelBase::drawKeymapChangeButton(Graphics &g, int width, int height, Button &button, const String &keyDescription)
 {
-    TRY_CALL(drawKeymapChangeButton, boost::ref(g), width, height, boost::ref(button), keyDescription);
+    TRY_CALL(drawKeymapChangeButton, g, width, height, button, keyDescription);
 }
 
 LPopupMenu::LPopupMenu()

@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "CtrlrLuaManager.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
@@ -149,8 +149,8 @@ void CtrlrLuaManager::createLuaState()
     lua_pushliteral(luaState, "bit");
     lua_call(luaState, 1, 0);
 	
-    lua_pushcfunction(luaState, luaopen_usb);
-    lua_pushliteral(luaState, "usb");
+    // lua_pushcfunction(luaState, luaopen_usb);
+    // lua_pushliteral(luaState, "usb");
     lua_call(luaState, 1, 0);
 
 	using namespace luabind;
@@ -158,7 +158,7 @@ void CtrlrLuaManager::createLuaState()
 
 	luabind::bind_class_info(luaState);
 
-	set_pcall_callback (add_file_and_line);
+	// set_pcall_callback (add_file_and_line);
 }
 
 void CtrlrLuaManager::createLuaStateAudio()
@@ -197,7 +197,7 @@ void CtrlrLuaManager::createLuaStateAudio()
     open(luaStateAudio);
 	luabind::bind_class_info(luaStateAudio);
 
-	set_pcall_callback (add_file_and_line);
+	//set_pcall_callback (add_file_and_line);
 }
 
 CtrlrLuaMethodManager &CtrlrLuaManager::getMethodManager()

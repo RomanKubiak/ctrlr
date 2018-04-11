@@ -1,7 +1,16 @@
 #ifndef __L_MEMORY_BLOCK__
 #define __L_MEMORY_BLOCK__
 
-#include "luabind/object_fwd.hpp"
+namespace luabind {
+	namespace adl {
+		class object;
+		class argument;
+		template <class Base> struct table;
+	} // namespace adl
+	using adl::object;
+	using adl::argument;
+	using adl::table;
+} // namespace luabind
 
 class LMemoryBlock : public MemoryBlock
 {

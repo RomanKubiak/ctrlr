@@ -4,8 +4,6 @@
 #include "CtrlrProperties.h"
 #include "CtrlrPanel/CtrlrPanelProcessor.h"
 #include "juce_PluginHostType.h"
-#include "boost/bind.hpp"
-#include "boost/function.hpp"
 
 class CtrlrLog;
 class CtrlrManager;

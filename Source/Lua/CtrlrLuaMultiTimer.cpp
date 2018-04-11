@@ -55,7 +55,7 @@ void CtrlrLuaMultiTimer::timerCallback(int timerId)
 				cb.isValid = false;
 
 				callbacks.set (timerId, cb);
-				const char* a = lua_tostring(e.state(), -1);
+				const char* a = e.what();
 				AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Timer callback error, timer id that failed was: "+String(timerId),  String(e.what())+"\n"+String(a)+"\n\nCallback disabled");
 			}
 		}

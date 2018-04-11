@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "LJuce.h"
 #include "CtrlrUtilities.h"
 
@@ -214,11 +214,11 @@ void LDrawable::wrapForLua (lua_State *L)
 			.def("getDrawableBounds", &Drawable::getDrawableBounds)
 			.scope
 			[
-				def("createFromImageData", &Drawable::createFromImageData, adopt(result)),
-				def("createFromImageDataStream", &Drawable::createFromImageDataStream, adopt(result)),
-				def("createFromImageFile", &Drawable::createFromImageFile, adopt(result)),
-				def("createFromSVG", &Drawable::createFromSVG, adopt(result)),
-				def("createFromValueTree", &Drawable::createFromValueTree, adopt(result)),
+				//def("createFromImageData", &Drawable::createFromImageData, adopt(result)),
+				//def("createFromImageDataStream", &Drawable::createFromImageDataStream, adopt(result)),
+				//def("createFromImageFile", &Drawable::createFromImageFile, adopt(result)),
+				//def("createFromSVG", &Drawable::createFromSVG, adopt(result)),
+				//def("createFromValueTree", &Drawable::createFromValueTree, adopt(result)),
 				def("toDrawableComposite", &LDrawable::toDrawableComposite)
 			]
 		,
@@ -786,7 +786,7 @@ void LRectangle::wrapForLua (lua_State *L)
 			.def("toString", &Rectangle<int>::toString)
 			.def("leftTopRightBottom", &Rectangle<int>::leftTopRightBottom)
 			.def("findAreaContainingPoints", &Rectangle<int>::findAreaContainingPoints)
-			.def("intersectRectangles", &Rectangle<int>::intersectRectangles)
+			//.def("intersectRectangles", &Rectangle<int>::intersectRectangles)
 			.def("fromString", &Rectangle<int>::fromString)
 		,
 		class_<RectanglePlacement>("RectanglePlacement")

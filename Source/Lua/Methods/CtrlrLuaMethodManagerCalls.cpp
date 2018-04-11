@@ -16,13 +16,13 @@
 catch (luabind::error &e)\
 {\
 	o->setValid(false);\
-	const char* a = lua_tostring(e.state(), -1);\
+	const char* a = e.what();\
 	lastExecutionError = String(a);\
 	AlertWindow::showMessageBox (AlertWindow::WarningIcon,\
         "Callback error: " + o->getName(), \
-        String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))))\
+        lastExecutionError \
          + "\n\nMethod disabled");\
-	_LERR("Callback error: [" + o->getName() + "] " + String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))))+" "+lastExecutionError+".\nMethod disabled");\
+	_LERR("Callback error: [" + o->getName() + "] " +lastExecutionError+".\nMethod disabled");\
 	if (currentMethodEditor)\
 		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \
 	return (false);\
@@ -32,10 +32,10 @@ catch (luabind::error &e)\
 catch (luabind::error &e)\
 {\
 	o->setValid(false);\
-	const char* a = lua_tostring(e.state(), -1);\
+	const char* a = e.what();\
 	lastExecutionError = String(a);\
-	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1)))) + "\n\nMethod disabled");\
-	_LERR("Callback error: [" + o->getName() + "] " + String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))))+" "+lastExecutionError+".\nMethod disabled");\
+	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), lastExecutionError + "\n\nMethod disabled");\
+	_LERR("Callback error: [" + o->getName() + "] "+lastExecutionError+".\nMethod disabled");\
 	if (currentMethodEditor)\
 		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \
 	return (String::empty);\
@@ -45,10 +45,10 @@ catch (luabind::error &e)\
 catch (luabind::error &e)\
 {\
 	o->setValid(false);\
-	const char* a = lua_tostring(e.state(), -1);\
+	const char* a = e.what();\
 	lastExecutionError = String(a);\
-	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1)))) + "\n\nMethod disabled");\
-	_LERR("Callback error: [" + o->getName() + "] " + String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))))+" "+lastExecutionError+".\nMethod disabled");\
+	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), lastExecutionError + "\n\nMethod disabled");\
+	_LERR("Callback error: [" + o->getName() + "] " +lastExecutionError+".\nMethod disabled");\
 	if (currentMethodEditor)\
 		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \
 }
@@ -57,7 +57,7 @@ catch (luabind::error &e)\
 catch (luabind::error &e)\
 {\
 	o->setValid(false);\
-	lastExecutionError = String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))));\
+	lastExecutionError = String(e.what());\
 	_LERR("Callback error: [" + o->getName() + "]\n" + lastExecutionError.fromLastOccurrenceOf("Error message:\n",false,false) + ".\nMethod disabled");\
 	if (currentMethodEditor)\
 		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \
@@ -275,7 +275,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 	try
 	{
 		if (o->isValid())
-			luabind::call_function<void>(o->getObject().getObject(), param1, boost::ref(param2));
+			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 	}
 	CATCH_METHOD_EXCEPTION_NO_DIALOG
 
@@ -295,7 +295,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrPanelCanvas *para
 	{
 		if (o->isValid())
 		{
-			luabind::call_function<void>(o->getObject().getObject(), param1, boost::reference_wrapper<Graphics>(param2));
+			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 		}
 	}
 	CATCH_METHOD_EXCEPTION_NO_DIALOG
@@ -334,7 +334,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 	try
 	{
 		if (o->isValid())
-			luabind::call_function<void>(o->getObject().getObject(), param1, boost::ref(param2));
+			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 	}
 	CATCH_METHOD_EXCEPTION
 
@@ -353,7 +353,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 	try
 	{
 		if (o->isValid())
-			luabind::call_function<void>(o->getObject().getObject(), param1, boost::ref(param2), param3, param4);
+			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3, param4);
 	}
 	CATCH_METHOD_EXCEPTION
 
