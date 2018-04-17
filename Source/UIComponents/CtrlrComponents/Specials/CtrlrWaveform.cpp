@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "CtrlrLuaObjectWrapper.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "../../CtrlrPanel/CtrlrPanelEditor.h"
@@ -453,7 +453,7 @@ void CtrlrWaveform::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
 
-	module(L)
+/*	module(L)
     [
 		class_<CtrlrWaveform,bases<CtrlrComponent,CtrlrLuaObject> >("CtrlrWaveform")
 			.def("setReader", &CtrlrWaveform::setReader)
@@ -475,5 +475,5 @@ void CtrlrWaveform::wrapForLua (lua_State *L)
 			.def("getNumSamplesFinished", &CtrlrWaveform::getNumSamplesFinished)
 			.def("isFullyLoaded", &CtrlrWaveform::isFullyLoaded)
 			.def("getTotalLength", &CtrlrWaveform::getTotalLength)
-	];
+	];*/
 }

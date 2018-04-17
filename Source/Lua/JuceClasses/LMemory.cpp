@@ -1,10 +1,10 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "LJuce.h"
 #include "CtrlrMacros.h"
 #include "CtrlrLog.h"
 #include "CtrlrUtilities.h"
 #include "luabind/object_fwd.hpp"
-
+/*
 void LAsyncUpdater::handleAsyncUpdate()
 {
 }
@@ -78,6 +78,7 @@ void LBigInteger::wrapForLua (lua_State *L)
 				.def("loadFromMemoryBlock", &BigInteger::loadFromMemoryBlock)
 	];
 }
+*/
 
 LMemoryBlock::LMemoryBlock(const String &hexData)
 {
@@ -228,7 +229,7 @@ void LMemoryBlock::wrapForLua (lua_State *L)
 		,
 		class_<LMemoryBlock,bases<MemoryBlock> >("MemoryBlock")
 				.def(constructor<>())
-				.def(constructor<const size_t,bool>())
+				//.def(constructor<const size_t,bool>())
 				.def(constructor<const MemoryBlock &>())
 				.def(constructor<luabind::object const&>())
 				.def(constructor<const String &>())
@@ -238,7 +239,7 @@ void LMemoryBlock::wrapForLua (lua_State *L)
 				.def("setByte", &LMemoryBlock::setByte)
 				.def("getRange", &LMemoryBlock::getRange)
 				.def("toHexString", &LMemoryBlock::toHexString)
-				.def("getData", &MemoryBlock::getData)
+				//.def("getData", (void *(MemoryBlock::*) (void) const noexcept) &MemoryBlock::getData)
 				.def("getSize", &LMemoryBlock::getSize)
 				.def("setSize", &MemoryBlock::setSize)
 				.def("ensureSize", &MemoryBlock::ensureSize)
@@ -251,7 +252,7 @@ void LMemoryBlock::wrapForLua (lua_State *L)
 				.def("copyFrom", &LMemoryBlock::copyFrom)
 				.def("copyTo", &LMemoryBlock::copyTo)
 				.def("swapWith", &MemoryBlock::swapWith)
-				.def("toString", &MemoryBlock::toString)
+		.def("toString", &MemoryBlock::toString)
 				.def("loadFromHexString", &MemoryBlock::loadFromHexString)
 				.def("setBitRange", &LMemoryBlock::setBitRange)
 				.def("getBitRange", &LMemoryBlock::getBitRange)
@@ -264,7 +265,7 @@ void LMemoryBlock::wrapForLua (lua_State *L)
 				]
 	];
 }
-
+/*
 void LMemoryInputStream::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -485,3 +486,4 @@ void LThreadWithProgressWindow::wrapForLua (lua_State *L)
 	];
 }
 
+*/

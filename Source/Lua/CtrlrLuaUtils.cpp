@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "CtrlrLuaUtils.h"
 #include "CtrlrLog.h"
 #include "JuceClasses/LMemoryBlock.h"

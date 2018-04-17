@@ -133,27 +133,6 @@
         <FILE id="dwXMlb" name="stdafx.h" compile="0" resource="0" file="Source/Core/stdafx.h"/>
       </GROUP>
       <GROUP id="{73C8F10D-6C95-896D-19AA-25A3CAF1C1E1}" name="Lua">
-        <GROUP id="{ACD54E37-1AF5-1E9B-FCF1-673E4DB62F36}" name="Deprecated">
-          <FILE id="wTP4WZ" name="CtrlrLuaBigInteger.cpp" compile="1" resource="0"
-                file="Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp"/>
-          <FILE id="zdFLLF" name="CtrlrLuaBigInteger.h" compile="0" resource="0"
-                file="Source/Lua/Deprecated/CtrlrLuaBigInteger.h"/>
-          <FILE id="T8XWUi" name="CtrlrLuaComponentAnimator.cpp" compile="1"
-                resource="0" file="Source/Lua/Deprecated/CtrlrLuaComponentAnimator.cpp"/>
-          <FILE id="Si4wOY" name="CtrlrLuaComponentAnimator.h" compile="0" resource="0"
-                file="Source/Lua/Deprecated/CtrlrLuaComponentAnimator.h"/>
-          <FILE id="HsrU0D" name="CtrlrLuaFile.cpp" compile="1" resource="0"
-                file="Source/Lua/Deprecated/CtrlrLuaFile.cpp"/>
-          <FILE id="wSZnjK" name="CtrlrLuaFile.h" compile="0" resource="0" file="Source/Lua/Deprecated/CtrlrLuaFile.h"/>
-          <FILE id="tdzenf" name="CtrlrLuaMemoryBlock.cpp" compile="1" resource="0"
-                file="Source/Lua/Deprecated/CtrlrLuaMemoryBlock.cpp"/>
-          <FILE id="e2GYzV" name="CtrlrLuaMemoryBlock.h" compile="0" resource="0"
-                file="Source/Lua/Deprecated/CtrlrLuaMemoryBlock.h"/>
-          <FILE id="PO9r74" name="CtrlrLuaRectangle.cpp" compile="1" resource="0"
-                file="Source/Lua/Deprecated/CtrlrLuaRectangle.cpp"/>
-          <FILE id="HVgsBp" name="CtrlrLuaRectangle.h" compile="0" resource="0"
-                file="Source/Lua/Deprecated/CtrlrLuaRectangle.h"/>
-        </GROUP>
         <GROUP id="{B7F95B3D-8E66-2F4B-FE54-72DD79EE9B2F}" name="JuceClasses">
           <FILE id="S3oA6V" name="LAffineTransform.h" compile="0" resource="0"
                 file="Source/Lua/JuceClasses/LAffineTransform.h"/>
@@ -1321,7 +1300,6 @@
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
         <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
@@ -1331,11 +1309,11 @@
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2017 targetFolder="Builds/VisualStudio2017" extraCompilerFlags="/Fpstdafx.h /bigobj"
-            toolset="" windowsTargetPlatformVersion="">
+            toolset="" windowsTargetPlatformVersion="" externalLibraries="lua51.lib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="3" generateManifest="1" winArchitecture="x64"
                        isDebug="1" optimisation="1" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Lua/luajit-2.0/src&#10;../../Source/Lua&#10;../../Source/Lua/luabind-deboostified&#10;../../Source/Lua/luabind-deboostified/luabind&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Plugin&#10;../../Source"
-                       wholeProgramOptimisation="1"/>
+                       wholeProgramOptimisation="1" libraryPath="../../Source/Lua/luajit-2.0/src"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        isDebug="0" optimisation="3" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../Source/Plugin&#10;../../Source"/>
       </CONFIGURATIONS>
@@ -1347,7 +1325,6 @@
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
         <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
@@ -1371,7 +1348,6 @@
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
         <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
@@ -1395,7 +1371,6 @@
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
         <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
@@ -1419,7 +1394,6 @@
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
         <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
@@ -1444,7 +1418,6 @@
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
 </JUCERPROJECT>

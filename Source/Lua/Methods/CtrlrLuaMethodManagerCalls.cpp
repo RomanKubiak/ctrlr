@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include <luabind/luabind.hpp>
 #include "CtrlrLuaMethodManager.h"
 #include "CtrlrLuaManager.h"

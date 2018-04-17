@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "CtrlrComponents/Buttons/CtrlrButton.h"
 #include "CtrlrComponents/Buttons/CtrlrImageButton.h"
 #include "CtrlrComponents/Buttons/CtrlrToggleButton.h"

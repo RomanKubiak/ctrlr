@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "LJuce.h"
 #include "CtrlrLog.h"
 /*

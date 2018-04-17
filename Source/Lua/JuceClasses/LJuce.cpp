@@ -1,10 +1,10 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "LJuce.h"
 #include "CtrlrLuaManager.h"
 
 void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 {
-	LBigInteger::wrapForLua(L);
+	/*LBigInteger::wrapForLua(L);
 	LXmlElement::wrapForLua(L);
 	LFile::wrapForLua(L);
 	LMemoryBlock::wrapForLua(L);
@@ -26,14 +26,14 @@ void CtrlrLuaManager::wrapJuceCoreClasses(lua_State *L)
 	LAudioFile::wrapForLua(L);
 	LAudioFormat::wrapForLua(L);
 	LAudioSampleBuffer::wrapForLua(L);
-	LBorderSize::wrapForLua(L);
+	LBorderSize::wrapForLua(L);*/
 }
 
 void CtrlrLuaManager::wrapJuceClasses(lua_State *L)
 {
 	wrapJuceCoreClasses(L);
 
-	LAffineTransform::wrapForLua(L);
+	/*LAffineTransform::wrapForLua(L);
 	LColourGradient::wrapForLua(L);
 	LColour::wrapForLua(L);
 	LComponent::wrapForLua(L);
@@ -67,5 +67,5 @@ void CtrlrLuaManager::wrapJuceClasses(lua_State *L)
 	LTextEditor::wrapForLua(L);
 	LKeyPress::wrapForLua(L);
 	LThread::wrapForLua(L);
-	LThreadWithProgressWindow::wrapForLua(L);
+	LThreadWithProgressWindow::wrapForLua(L);*/
 }

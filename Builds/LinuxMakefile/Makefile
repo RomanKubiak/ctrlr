@@ -120,11 +120,6 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/CtrlrUtilities_e2afb8d4.o \
   $(JUCE_OBJDIR)/CtrlrUtilitiesGUI_cf4b83d1.o \
   $(JUCE_OBJDIR)/stdafx_a1c77ec1.o \
-  $(JUCE_OBJDIR)/CtrlrLuaBigInteger_5ff71375.o \
-  $(JUCE_OBJDIR)/CtrlrLuaComponentAnimator_bfec1d7.o \
-  $(JUCE_OBJDIR)/CtrlrLuaFile_1a330f53.o \
-  $(JUCE_OBJDIR)/CtrlrLuaMemoryBlock_85081d5f.o \
-  $(JUCE_OBJDIR)/CtrlrLuaRectangle_baaae0c2.o \
   $(JUCE_OBJDIR)/LAudio_273674e0.o \
   $(JUCE_OBJDIR)/LComponents_6368b696.o \
   $(JUCE_OBJDIR)/LCore_60dceadf.o \
@@ -306,7 +301,6 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/include_juce_graphics_f817e147.o \
   $(JUCE_OBJDIR)/include_juce_gui_basics_e3f79785.o \
   $(JUCE_OBJDIR)/include_juce_gui_extra_6dee1c1a.o \
-  $(JUCE_OBJDIR)/include_juce_video_be78589.o \
 
 .PHONY: clean all VST Standalone
 
@@ -485,31 +479,6 @@ $(JUCE_OBJDIR)/CtrlrUtilitiesGUI_cf4b83d1.o: ../../Source/Core/CtrlrUtilitiesGUI
 $(JUCE_OBJDIR)/stdafx_a1c77ec1.o: ../../Source/Core/stdafx.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling stdafx.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaBigInteger_5ff71375.o: ../../Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaBigInteger.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaComponentAnimator_bfec1d7.o: ../../Source/Lua/Deprecated/CtrlrLuaComponentAnimator.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaComponentAnimator.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaFile_1a330f53.o: ../../Source/Lua/Deprecated/CtrlrLuaFile.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaFile.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaMemoryBlock_85081d5f.o: ../../Source/Lua/Deprecated/CtrlrLuaMemoryBlock.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaMemoryBlock.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaRectangle_baaae0c2.o: ../../Source/Lua/Deprecated/CtrlrLuaRectangle.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaRectangle.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/LAudio_273674e0.o: ../../Source/Lua/JuceClasses/LAudio.cpp
@@ -1415,11 +1384,6 @@ $(JUCE_OBJDIR)/include_juce_gui_basics_e3f79785.o: ../../JuceLibraryCode/include
 $(JUCE_OBJDIR)/include_juce_gui_extra_6dee1c1a.o: ../../JuceLibraryCode/include_juce_gui_extra.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling include_juce_gui_extra.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/include_juce_video_be78589.o: ../../JuceLibraryCode/include_juce_video.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling include_juce_video.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 check-pkg-config:

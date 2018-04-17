@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrMIDIDeviceManager.h"
 #include "CtrlrMIDIDevice.h"
@@ -235,7 +235,7 @@ void CtrlrMIDIDevice::wrapForLua(lua_State *L)
 {
 		using namespace luabind;
 
-	module(L)
+/*	module(L)
     [
 		class_<CtrlrMIDIDevice, CtrlrLuaObject>("CtrlrMIDIDevice")
 			.def("openDevice", &CtrlrMIDIDevice::openDevice)
@@ -245,5 +245,5 @@ void CtrlrMIDIDevice::wrapForLua(lua_State *L)
 			.def("getName", &CtrlrMIDIDevice::getName)
 			.def("getState", &CtrlrMIDIDevice::getState)
 			.def("getType", &CtrlrMIDIDevice::getType)
-	];
+	];*/
 }

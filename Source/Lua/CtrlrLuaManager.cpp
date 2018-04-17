@@ -35,15 +35,8 @@
 #include "CtrlrLuaMultiTimer.h"
 #include "CtrlrLuaAudioConverter.h"
 #include "CtrlrLuaDebugger.h"
-
-// Deprecated classes
-#include "Deprecated/CtrlrLuaBigInteger.h"
-#include "Deprecated/CtrlrLuaFile.h"
-#include "Deprecated/CtrlrLuaMemoryBlock.h"
-#include "Deprecated/CtrlrLuaRectangle.h"
-#include "Deprecated/CtrlrLuaComponentAnimator.h"
-
 #include "luabind/class_info.hpp"
+#include "lua.hpp"
 
 CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 	:	owner(_owner),
@@ -108,11 +101,31 @@ CtrlrLuaManager::~CtrlrLuaManager()
 	}
 }
 
+static int wrap_exceptions(lua_State *L, lua_CFunction f)
+{
+	try {
+		return f(L);  // Call wrapped function and return result.
+	}
+	catch (const char *s) {  // Catch and convert exceptions.
+		lua_pushstring(L, s);
+	}
+	catch (std::exception& e) {
+		lua_pushstring(L, e.what());
+	}
+	catch (...) {
+		lua_pushliteral(L, "caught (...)");
+	}
+	return lua_error(L);  // Rethrow as a Lua error.
+}
+
 void CtrlrLuaManager::createLuaState()
 {
 	luaState 		= luaL_newstate();
 	luaL_openlibs(luaState);
-	
+	lua_pushlightuserdata(luaState, (void *)wrap_exceptions);
+	luaJIT_setmode(luaState, -1, LUAJIT_MODE_WRAPCFUNC | LUAJIT_MODE_ON);
+	lua_pop(luaState, 1);
+
     lua_pushcfunction(luaState, luaopen_base);
     lua_pushliteral(luaState, "base");
     lua_call(luaState, 1, 0);
@@ -151,7 +164,7 @@ void CtrlrLuaManager::createLuaState()
 	
     // lua_pushcfunction(luaState, luaopen_usb);
     // lua_pushliteral(luaState, "usb");
-    lua_call(luaState, 1, 0);
+    //lua_call(luaState, 1, 0);
 
 	using namespace luabind;
     open(luaState);
@@ -241,10 +254,6 @@ void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 	CtrlrPanelResourceManager::wrapForLua (L);
 	CtrlrPanelCanvasLayer::wrapForLua (L);
 	CtrlrLuaAudioConverter::wrapForLua (L);
-	CtrlrLuaBigInteger::wrapForLua (L);
-	CtrlrLuaMemoryBlock::wrapForLua (L);
-	CtrlrLuaRectangle::wrapForLua (L);
-	CtrlrLuaComponentAnimator::wrapForLua (L);
 	CtrlrComponent::wrapForLua (L);
 	CtrlrMIDIDevice::wrapForLua (L);
 	CtrlrMIDIDeviceManager::wrapForLua (L);

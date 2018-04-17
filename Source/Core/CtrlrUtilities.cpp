@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrLog.h"
 #include "CtrlrManager/CtrlrManager.h"

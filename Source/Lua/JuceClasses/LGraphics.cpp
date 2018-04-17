@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "LJuce.h"
 #include "CtrlrUtilities.h"
-
+/*
 void LAffineTransform::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -970,3 +970,4 @@ void LTypeface::wrapForLua (lua_State *L)
             ]
     ];
 }
+*/

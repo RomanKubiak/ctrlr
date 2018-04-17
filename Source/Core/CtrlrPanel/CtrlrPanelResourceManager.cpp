@@ -1,4 +1,4 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "CtrlrPanelResourceManager.h"
 #include "CtrlrPanelResource.h"
 #include "CtrlrMacros.h"

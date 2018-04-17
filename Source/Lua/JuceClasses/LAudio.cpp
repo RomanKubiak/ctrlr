@@ -1,6 +1,6 @@
-#include "stdafx_luabind.h"
+#include "stdafx.h"
 #include "LJuce.h"
-
+/*
 void LAudioFile::wrapForLua(lua_State *L)
 {
 	using namespace luabind;
@@ -400,3 +400,4 @@ void LMidiMessage::wrapForLua (lua_State *L)
 				]
 			];
 }
+*/
