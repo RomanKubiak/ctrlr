@@ -1,7 +1,7 @@
 Ctrlr
 =====
 
-Control any MIDI enabled hardware: synthesizers, drum machines, samplers, effects. Create custom User Interfaces. Host them as VST or AU plugins in your favorite DAWs.
+Ctrlr Controls any MIDI enabled hardware: synthesizers, drum machines, samplers, effects. Create custom User Interfaces. Host them as VST or AU plugins in your favorite DAWs.
 
 
 Cross Platform
@@ -13,7 +13,7 @@ Each platform has a VST build of Ctrlr so you can host your panels as normal VST
 
 Customize
 =========
-Each Panel can be customized by the user, the panels are XML files, every panel can be Edited in Ctrlr to suite your specific needs.
+Panel is designer canvas with Lua scripting capability on which user can design and customize required UI, the panels are XML files, every panel can be Edited in Ctrlr to suite your specific needs.
 
 Open Source
 ===========
@@ -21,11 +21,11 @@ Need special functionality or want to propose a patch/feature update, know a bit
 
 Extend
 ======
-With the scripting possibilities inside Ctrlr you can extend you panels in various ways. The LUA scripting language gives you access to all panels elements and hooks to various events.
+With the scripting possibilities inside Ctrlr you can extend your panels in various ways. The LUA scripting language gives you access to all panels elements and hooks to various events.
 
-
-Building
-========
+Building on various OS
+======================
+Curious and want to build Ctrlr on your favorite OS ? all you need to do is follow the followings :)
 
 Windows
 =======
