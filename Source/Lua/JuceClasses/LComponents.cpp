@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "stdafx_luabind.h"
 #include "LJuce.h"
 #include "CtrlrLog.h"
@@ -318,9 +319,9 @@ void LComponent::wrapForLua (lua_State *L)
 			.def("setTopRightPosition", &Component::setTopRightPosition)
 			.def("setSize", &Component::setSize)
 			.def("setBounds", (void (Component::*)(int,int,int,int))&Component::setBounds)
-			//.def("setBounds", (void (Component::*)(const Rectangle<int> &))&Component::setBounds)
-			.def("setBounds", (void (Component::*)(const RelativeRectangle &))&Component::setBounds)
-			.def("setBounds", (void (Component::*)(const String &))&Component::setBounds)
+			.def("setBounds", (void (Component::*)(const Rectangle<int>))&Component::setBounds)
+			//.def("setBounds", (void (Component::*)(const RelativeRectangle &))&Component::setBounds)
+			//.def("setBounds", (void (Component::*)(const String &))&Component::setBounds)
 			.def("setBoundsRelative", &Component::setBoundsRelative)
 			.def("setBoundsInset", &Component::setBoundsInset)
 			.def("setBoundsToFit", &Component::setBoundsToFit)
@@ -550,7 +551,7 @@ if (methods.contains(#method))\
 }\
 else\
 {\
-   LookAndFeel_V3::method(__VA_ARGS__);\
+   LookAndFeel_V2::method(__VA_ARGS__);\
 }
 
 #define TRY_CALL_RET(method,ReturnType,ReturnWhenError,...)\
@@ -568,7 +569,7 @@ if (methods.contains(#method))\
 }\
 else\
 {\
-   return (LookAndFeel_V3::method(__VA_ARGS__));\
+   return (LookAndFeel_V2::method(__VA_ARGS__));\
 }
 
 #define TRY_CALL_RET_NOP(method,ReturnType,ReturnWhenError,...)\
@@ -586,7 +587,7 @@ if (methods.contains(#method))\
 }\
 else\
 {\
-   return (LookAndFeel_V3::method());\
+   return (LookAndFeel_V2::method());\
 }
 
 LookAndFeelBase::LookAndFeelBase()
@@ -716,17 +717,17 @@ AlertWindow* LookAndFeelBase::createAlertWindow(const String &title, const Strin
                 return (wnd);
             }
 
-            return (LookAndFeel_V3::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
+            return (LookAndFeel_V2::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
+            return (LookAndFeel_V2::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
         }
     }
     else
     {
-        return (LookAndFeel_V3::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
+        return (LookAndFeel_V2::createAlertWindow(title, message, button1, button2, button3, iconType, numButtons, component));
     }
 }
 
@@ -787,17 +788,17 @@ ImageEffectFilter* LookAndFeelBase::getScrollbarEffect()
                 return (eff);
             }
 
-            return (LookAndFeel_V3::getScrollbarEffect());
+            return (LookAndFeel_V2::getScrollbarEffect());
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::getScrollbarEffect());
+            return (LookAndFeel_V2::getScrollbarEffect());
         }
     }
     else
     {
-        return (LookAndFeel_V3::getScrollbarEffect());
+        return (LookAndFeel_V2::getScrollbarEffect());
     }
 }
 
@@ -863,17 +864,17 @@ const Drawable* LookAndFeelBase::getDefaultFolderImage()
                 return (drw);
             }
 
-            return (LookAndFeel_V3::getDefaultFolderImage());
+            return (LookAndFeel_V2::getDefaultFolderImage());
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::getDefaultFolderImage());
+            return (LookAndFeel_V2::getDefaultFolderImage());
         }
     }
     else
     {
-        return (LookAndFeel_V3::getDefaultFolderImage());
+        return (LookAndFeel_V2::getDefaultFolderImage());
     }
 }
 
@@ -894,17 +895,17 @@ const Drawable* LookAndFeelBase::getDefaultDocumentFileImage()
                 return (drw);
             }
 
-            return (LookAndFeel_V3::getDefaultDocumentFileImage());
+            return (LookAndFeel_V2::getDefaultDocumentFileImage());
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::getDefaultDocumentFileImage());
+            return (LookAndFeel_V2::getDefaultDocumentFileImage());
         }
     }
     else
     {
-        return (LookAndFeel_V3::getDefaultDocumentFileImage());
+        return (LookAndFeel_V2::getDefaultDocumentFileImage());
     }
 }
 
@@ -937,17 +938,17 @@ Button* LookAndFeelBase::createFileBrowserGoUpButton()
                 return (b);
             }
 
-            return (LookAndFeel_V3::createFileBrowserGoUpButton());
+            return (LookAndFeel_V2::createFileBrowserGoUpButton());
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createFileBrowserGoUpButton());
+            return (LookAndFeel_V2::createFileBrowserGoUpButton());
         }
     }
     else
     {
-        return (LookAndFeel_V3::createFileBrowserGoUpButton());
+        return (LookAndFeel_V2::createFileBrowserGoUpButton());
     }
 }
 
@@ -1046,17 +1047,17 @@ Label* LookAndFeelBase::createComboBoxTextBox(ComboBox &comboBox)
                 return (l);
             }
 
-            return (LookAndFeel_V3::createComboBoxTextBox(comboBox));
+            return (LookAndFeel_V2::createComboBoxTextBox(comboBox));
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createComboBoxTextBox(comboBox));
+            return (LookAndFeel_V2::createComboBoxTextBox(comboBox));
         }
     }
     else
     {
-        return (LookAndFeel_V3::createComboBoxTextBox(comboBox));
+        return (LookAndFeel_V2::createComboBoxTextBox(comboBox));
     }
 }
 
@@ -1113,17 +1114,17 @@ Button* LookAndFeelBase::createSliderButton(Slider &slider, bool isIncrement)
                 return (b);
             }
 
-            return (LookAndFeel_V3::createSliderButton(slider, isIncrement));
+            return (LookAndFeel_V2::createSliderButton(slider, isIncrement));
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createSliderButton(slider, isIncrement));
+            return (LookAndFeel_V2::createSliderButton(slider, isIncrement));
         }
     }
     else
     {
-        return (LookAndFeel_V3::createSliderButton(slider, isIncrement));
+        return (LookAndFeel_V2::createSliderButton(slider, isIncrement));
     }
 }
 
@@ -1145,17 +1146,17 @@ Label* LookAndFeelBase::createSliderTextBox(Slider &slider)
                 return (l);
             }
 
-            return (LookAndFeel_V3::createSliderTextBox(slider));
+            return (LookAndFeel_V2::createSliderTextBox(slider));
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createSliderTextBox(slider));
+            return (LookAndFeel_V2::createSliderTextBox(slider));
         }
     }
     else
     {
-        return (LookAndFeel_V3::createSliderTextBox(slider));
+        return (LookAndFeel_V2::createSliderTextBox(slider));
     }
 }
 
@@ -1177,17 +1178,17 @@ ImageEffectFilter* LookAndFeelBase::getSliderEffect(Slider &slider)
                 return (b);
             }
 
-            return (LookAndFeel_V3::getSliderEffect(slider));
+            return (LookAndFeel_V2::getSliderEffect(slider));
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::getSliderEffect(slider));
+            return (LookAndFeel_V2::getSliderEffect(slider));
         }
     }
     else
     {
-        return (LookAndFeel_V3::getSliderEffect(slider));
+        return (LookAndFeel_V2::getSliderEffect(slider));
     }
 }
 
@@ -1219,17 +1220,17 @@ Button* LookAndFeelBase::createFilenameComponentBrowseButton(const String &text)
                 return (b);
             }
 
-            return (LookAndFeel_V3::createFilenameComponentBrowseButton(text));
+            return (LookAndFeel_V2::createFilenameComponentBrowseButton(text));
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createFilenameComponentBrowseButton(text));
+            return (LookAndFeel_V2::createFilenameComponentBrowseButton(text));
         }
     }
     else
     {
-        return (LookAndFeel_V3::createFilenameComponentBrowseButton(text));
+        return (LookAndFeel_V2::createFilenameComponentBrowseButton(text));
     }
 }
 
@@ -1286,17 +1287,17 @@ Button* LookAndFeelBase::createDocumentWindowButton(int buttonType)
                 return (b);
             }
 
-            return (LookAndFeel_V3::createDocumentWindowButton(buttonType));
+            return (LookAndFeel_V2::createDocumentWindowButton(buttonType));
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createDocumentWindowButton(buttonType));
+            return (LookAndFeel_V2::createDocumentWindowButton(buttonType));
         }
     }
     else
     {
-        return (LookAndFeel_V3::createDocumentWindowButton(buttonType));
+        return (LookAndFeel_V2::createDocumentWindowButton(buttonType));
     }
 }
 
@@ -1328,17 +1329,17 @@ DropShadower* LookAndFeelBase::createDropShadowerForComponent(Component* compone
                 return (s);
             }
 
-            return (LookAndFeel_V3::createDropShadowerForComponent(component));
+            return (LookAndFeel_V2::createDropShadowerForComponent(component));
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createDropShadowerForComponent(component));
+            return (LookAndFeel_V2::createDropShadowerForComponent(component));
         }
     }
     else
     {
-        return (LookAndFeel_V3::createDropShadowerForComponent(component));
+        return (LookAndFeel_V2::createDropShadowerForComponent(component));
     }
 }
 
@@ -1409,17 +1410,17 @@ Button* LookAndFeelBase::createTabBarExtrasButton()
                 return (b);
             }
 
-            return (LookAndFeel_V3::createTabBarExtrasButton());
+            return (LookAndFeel_V2::createTabBarExtrasButton());
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createTabBarExtrasButton());
+            return (LookAndFeel_V2::createTabBarExtrasButton());
         }
     }
     else
     {
-        return (LookAndFeel_V3::createTabBarExtrasButton());
+        return (LookAndFeel_V2::createTabBarExtrasButton());
     }
 }
 
@@ -1461,17 +1462,17 @@ Button* LookAndFeelBase::createToolbarMissingItemsButton(Toolbar &toolbar)
                 return (b);
             }
 
-            return (LookAndFeel_V3::createToolbarMissingItemsButton(toolbar));
+            return (LookAndFeel_V2::createToolbarMissingItemsButton(toolbar));
         }
         catch (luabind::error &e)
         {
             _WRN(object_cast <std::string> (object(luabind::from_stack(e.state(), -1))));
-            return (LookAndFeel_V3::createToolbarMissingItemsButton(toolbar));
+            return (LookAndFeel_V2::createToolbarMissingItemsButton(toolbar));
         }
     }
     else
     {
-        return (LookAndFeel_V3::createToolbarMissingItemsButton(toolbar));
+        return (LookAndFeel_V2::createToolbarMissingItemsButton(toolbar));
     }
 }
 

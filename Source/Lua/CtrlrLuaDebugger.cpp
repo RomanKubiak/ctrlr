@@ -7,6 +7,7 @@
 
   ==============================================================================
 */
+#include "stdafx.h"
 #include "stdafx_luabind.h"
 #include "CtrlrLuaDebugger.h"
 #include "CtrlrLuaManager.h"

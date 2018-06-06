@@ -20,7 +20,7 @@ class CtrlrSliderInternal : public Slider
 		CtrlrComponent &owner;
 };
 
-class CtrlrSliderLookAndFeel : public LookAndFeel_V3
+class CtrlrSliderLookAndFeel : public LookAndFeel_V2
 {
 	public:
 		CtrlrSliderLookAndFeel(CtrlrComponent &_owner, ValueTree &_ownerTree) : ownerTree(_ownerTree), owner(_owner)

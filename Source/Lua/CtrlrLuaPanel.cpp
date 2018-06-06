@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "stdafx_luabind.h"
 #include "CtrlrLuaManager.h"
 #include "CtrlrLog.h"

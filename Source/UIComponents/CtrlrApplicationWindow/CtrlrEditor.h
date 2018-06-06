@@ -11,7 +11,8 @@ class CtrlrProcessor;
 class CtrlrEditor  : public AudioProcessorEditor,
 					 public ApplicationCommandTarget,
 					 public MenuBarModel,
-					 public Slider::Listener
+					 public Slider::Listener,
+					 public LookAndFeel_V2
 {
 	public:
 		CtrlrEditor (CtrlrProcessor *ownerFilter, CtrlrManager &_owner);

@@ -5,7 +5,7 @@
 
 class CtrlrLuaMethodEditor;
 
-class CtrlrLuaMethodEditorTabsLF : public LookAndFeel_V3
+class CtrlrLuaMethodEditorTabsLF : public LookAndFeel_V2
 {
 	public:
 		CtrlrLuaMethodEditorTabsLF();

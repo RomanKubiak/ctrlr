@@ -4,7 +4,7 @@
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 
-class CtrlrMenuSlider : public PopupMenu::CustomComponent, public LookAndFeel_V3
+class CtrlrMenuSlider : public PopupMenu::CustomComponent, public LookAndFeel_V2
 {
 	public:
 		class CtrlrMenuSliderInternal : public Slider

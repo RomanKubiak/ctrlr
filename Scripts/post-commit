@@ -51,10 +51,10 @@ function detect_os {
 		BUILD_LOG_WIN64=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win64.build.log
 		CTRLR_KEY="$CTRLR_ROOT/Packaging/ctrlr.key"
 		if [ -d /cygdrive ]; then
-			MSBUILD="/cygdrive/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
+			MSBUILD="/cygdrive/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe"
 			NSIS="/cygdrive/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
 		else
-			MSBUILD="/c/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
+			MSBUILD="/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe"
 			NSIS="/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
 		fi
 		return
@@ -126,21 +126,19 @@ function windows_copy_to_website {
 function windows_msbuild {	
 	if [ -e "$MSBUILD" ]; then
 		echo "CTRLR: $MSBUILD found"
-		echo cd $CTRLR_ROOT/Builds/Win
-		cd $CTRLR_ROOT/Builds/Win
+
+		cd $CTRLR_ROOT/Builds/VisualStudio2017
 		
 		echo "CTRLR: Build Win32"
-		echo "$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release /property:VisualStudioVersion=14.0 /property:Platform=Win32
-		"$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release /property:VisualStudioVersion=14.0 /property:Platform=Win32
+		"$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release /property:VisualStudioVersion=15.0 
 		
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: Win32 build failed"
 			exit 1
 		fi
 		echo "CTRLR: Build x64"
-		echo "$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release /property:VisualStudioVersion=14.0 /property:Platform=x64
 		
-		"$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release /property:VisualStudioVersion=14.0 /property:Platform=x64
+		"$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win64.build.log /property:Configuration=Release /property:VisualStudioVersion=15.0 /property:Platform=x64
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: x64 build failed"
 			exit 1
@@ -408,6 +406,6 @@ function build_now_linux {
 }
 
 detect_os
-#build_now
+build_now
 windows_create_installer
-#windows_copy_to_website
+windows_copy_to_website

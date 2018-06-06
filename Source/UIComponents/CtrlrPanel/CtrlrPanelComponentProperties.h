@@ -7,8 +7,7 @@
 class CtrlrPanelComponentProperties  : public Component,
                                        public ChangeListener,
                                        public ValueTree::Listener,
-                                       public CtrlrManager::Listener,
-                                       public LookAndFeel_V3
+                                       public CtrlrManager::Listener
 {
 public:
     //==============================================================================

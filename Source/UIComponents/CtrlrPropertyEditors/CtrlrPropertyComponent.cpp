@@ -47,7 +47,7 @@ CtrlrPropertyComponent::~CtrlrPropertyComponent()
 {
 	deleteAllChildren();
 }
-/*
+
 void CtrlrPropertyComponent::paint (Graphics &g)
 {
 	getLookAndFeel().drawPropertyComponentBackground (g, getLookAndFeel().getPropertyComponentContentPosition (*this).getX(), getHeight(), *this);
@@ -61,9 +61,10 @@ void CtrlrPropertyComponent::paint (Graphics &g)
 	}
 
 	g.setFont (currentFont);
+	g.setColour(findColour(PropertyComponent::labelTextColourId));
 	g.drawFittedText (visibleText, 3, 0, getLookAndFeel().getPropertyComponentContentPosition (*this).getX()-5, getHeight(), Justification::centredLeft, 2);
 }
-*/
+
 void CtrlrPropertyComponent::resized()
 {
 	currentFont.setHeight (jmin (getHeight(), 24) * 0.55f);
@@ -105,7 +106,7 @@ void CtrlrPropertyComponent::mouseDown (const MouseEvent &e)
 {
 	if (e.x < getLookAndFeel().getPropertyComponentContentPosition (*this).getX())
 	{
-		/*if (panel)
+		if (panel)
 		{
 			if ((bool)panel->getOwner().getProperty (Ids::ctrlrPropertiesAreURLs) == true)
 			{
@@ -114,7 +115,7 @@ void CtrlrPropertyComponent::mouseDown (const MouseEvent &e)
 								.replace ("%ELEMENT_PROPERTY%", propertyName.toString()));
 				url.launchInDefaultBrowser();
 			}
-		}*/
+		}
 	}
 }
 

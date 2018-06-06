@@ -4,7 +4,7 @@
 #include "JuceHeader.h"
 #include "luabind/object_fwd.hpp"
 
-class LookAndFeelBase : public LookAndFeel_V3
+class LookAndFeelBase : public LookAndFeel_V2
 {
 	public:
 		LookAndFeelBase();

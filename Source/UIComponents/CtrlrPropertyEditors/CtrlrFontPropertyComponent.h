@@ -9,7 +9,7 @@ class CtrlrFontPropertyComponent  : public Component,
                                     public ButtonListener,
                                     public SliderListener,
 									public CtrlrPropertyChild,
-									public LookAndFeel_V3
+									public LookAndFeel_V2
 {
 	public:
 		CtrlrFontPropertyComponent (const Value &_valueToControl, CtrlrPanel *_owner);
