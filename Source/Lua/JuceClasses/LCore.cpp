@@ -687,13 +687,12 @@ void LTime::wrapForLua (lua_State *L)
 
 	module(L)
     [
-		class_<Time>("JTime")
+		class_<LTime>("Ltime")
 		,
-		class_<LTime, bases<Time> >("Time")
+		class_<Time, bases<LTime> >("Time")
 				.def(constructor<>())
 				.def(constructor<int,int,int,int,int,int,int,bool>())
 				.def(constructor<double>())
-				.def(constructor<const LTime &>())
 				.def(constructor<const Time &>())
 				.def("toMilliseconds", &LTime::toMilliseconds)
 				.def("getYear", &Time::getYear)
