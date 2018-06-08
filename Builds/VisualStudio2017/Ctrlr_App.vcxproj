@@ -315,17 +315,10 @@
     <ClCompile Include="..\..\Source\Lua\Methods\CtrlrLuaMethodManager.cpp" />
     <ClCompile Include="..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp" />
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaAudioConverter.cpp" />
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaCustomComponent.cpp" />
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaDebugger.cpp" />
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaManager.cpp" />
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaModulator.cpp" />
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaMultiTimer.cpp" />
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaObject.cpp" />
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaObjectWrapper.cpp" />
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanel.cpp" />
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanelCanvas.cpp" />
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanelCanvasLayer.cpp" />
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanelEditor.cpp" />
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaUtils.cpp" />
     <ClCompile Include="..\..\Source\MIDI\CtrlrMIDIDevice.cpp" />
     <ClCompile Include="..\..\Source\MIDI\CtrlrMIDIDeviceManager.cpp" />

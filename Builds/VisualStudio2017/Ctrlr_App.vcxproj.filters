@@ -645,37 +645,16 @@
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaAudioConverter.cpp">
       <Filter>Ctrlr\Source\Lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaCustomComponent.cpp">
-      <Filter>Ctrlr\Source\Lua</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaDebugger.cpp">
       <Filter>Ctrlr\Source\Lua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaManager.cpp">
       <Filter>Ctrlr\Source\Lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaModulator.cpp">
-      <Filter>Ctrlr\Source\Lua</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaMultiTimer.cpp">
-      <Filter>Ctrlr\Source\Lua</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaObject.cpp">
       <Filter>Ctrlr\Source\Lua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaObjectWrapper.cpp">
-      <Filter>Ctrlr\Source\Lua</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanel.cpp">
-      <Filter>Ctrlr\Source\Lua</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanelCanvas.cpp">
-      <Filter>Ctrlr\Source\Lua</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanelCanvasLayer.cpp">
-      <Filter>Ctrlr\Source\Lua</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanelEditor.cpp">
       <Filter>Ctrlr\Source\Lua</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaUtils.cpp">
