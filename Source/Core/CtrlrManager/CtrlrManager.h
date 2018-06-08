@@ -287,10 +287,8 @@ class CtrlrManager :    public ValueTree::Listener,
 		CtrlrFontManager &getFontManager()																		{ return (*ctrlrFontManager); }
 		ApplicationCommandManager &getCommandManager()															{ return (commandManager); }
 		void panelFileOpened(const File &panelFile);
-		CtrlrModulator *getInvalidModulator()																	{ return (nullModulator); }
-        RSAKey &getCtrlrPrivateKey()                                                                            { return (ctrlrMasterPrivateKey); }
-        RSAKey &getCtrlrPublicKey()                                                                             { return (ctrlrMasterPublicKey); }
-
+		CtrlrModulator *getInvalidModulator()																	{ return (nullModulator); }  
+		
 		/** Instance handlers **/
 		const String getInstanceName() const;
         const String getInstanceNameForHost() const;
@@ -336,7 +334,6 @@ class CtrlrManager :    public ValueTree::Listener,
 		ValueTree ctrlrPlayerInstanceTree;
 		ValueTree ctrlrPlayerInstanceResources;
 		CtrlrModulator *invalidModulator;
-		RSAKey ctrlrMasterPrivateKey, ctrlrMasterPublicKey;
 		WeakReference <CtrlrLuaMethod> luaCtrlrSaveState, luaCtrlrRestoreState;
 };
 

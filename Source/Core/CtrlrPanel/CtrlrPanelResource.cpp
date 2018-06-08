@@ -30,11 +30,11 @@ CtrlrPanelResource::CtrlrPanelResource (CtrlrPanelResourceManager &_owner, const
 
 	load();
 
-	setProperty (Ids::resourceFile, resourceDataFile.getFileName(), nullptr);
+	setProperty (Ids::resourceFile, resourceDataFile.getFileName(), false);
 	setSourceFile(_resourceSourceFile);
-	setProperty (Ids::resourceName, getName(), nullptr);
-	setProperty (Ids::resourceSize, getSize(), nullptr);
-	setProperty (Ids::resourceType, CtrlrPanelResourceManager::getTypeDescription(getType()), nullptr);
+	setProperty (Ids::resourceName, getName(), false);
+	setProperty (Ids::resourceSize, getSize(), false);
+	setProperty (Ids::resourceType, CtrlrPanelResourceManager::getTypeDescription(getType()), false);
 
 	resourceTree.addListener(this);
 }

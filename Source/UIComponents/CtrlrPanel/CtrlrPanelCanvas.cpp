@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "stdafx_luabind.h"
 #ifdef _WIN32
 #pragma warning(disable:4244)
@@ -864,7 +865,7 @@ void CtrlrPanelCanvas::setProperty (const Identifier& name, const var &newValue,
 	}
 	else
 	{
-		owner.setProperty (name, newValue, nullptr);
+		owner.setProperty (name, newValue, false);
 	}
 }
 

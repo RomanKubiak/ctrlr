@@ -50,7 +50,6 @@ double evaluateFormulaFunction (CtrlrPanel &panel, const String& functionName, c
 
 class CtrlrUInt16;
 int getVersionAsHexInteger(const String version);
-const MemoryBlock signData(const MemoryBlock &dataToSign, const RSAKey keyToSign);
 static const String versionNumberToString2(const int versionNumber);
 static const String versionNumberToString(const int versionNumber);
 bool stringIsHexadecimal(const String &hexData);

@@ -994,15 +994,6 @@ bool stringIsHexadecimal(const String &hexData)
 	return hexData.isNotEmpty() && hexData.containsOnly("abcdefABCDEF0123456789 ");
 }
 
-const MemoryBlock signData(const MemoryBlock &dataToSign, const RSAKey keyToSign)
-{
-	BigInteger md5DataAsBigInteger;
-	md5DataAsBigInteger.loadFromMemoryBlock(MD5(dataToSign).getRawChecksumData());
-	keyToSign.applyToValue(md5DataAsBigInteger);
-
-	return (md5DataAsBigInteger.toMemoryBlock());
-}
-
 int getVersionAsHexInteger(const String version)
 {
 	const StringArray segments = StringArray::fromTokens(version, ".", "\"'");

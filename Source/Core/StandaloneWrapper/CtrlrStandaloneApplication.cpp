@@ -2,9 +2,7 @@
 #include "CtrlrMacros.h"
 #include "CtrlrLog.h"
 #include "CtrlrStandaloneWindow.h"
-
-#ifdef JucePlugin_Build_Standalone
-
+#include <juce_audio_plugin_client/juce_audio_plugin_client_Standalone.cpp>
 class CtrlrApplication : public JUCEApplication
 {
         public:
@@ -138,5 +136,3 @@ class CtrlrApplication : public JUCEApplication
                 CtrlrStandaloneWindow *filterWindow;
 };
 START_JUCE_APPLICATION (CtrlrApplication)
-
-#endif

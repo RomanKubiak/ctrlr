@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "stdafx_luabind.h"
 static const int zero=0;
 #ifdef __APPLE__

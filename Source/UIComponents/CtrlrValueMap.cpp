@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "stdafx_luabind.h"
-
 #include "CtrlrValueMap.h"
 #include "CtrlrLog.h"
 

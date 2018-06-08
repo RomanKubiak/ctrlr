@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "stdafx_luabind.h"
 #include "CtrlrComponent.h"
 #include "CtrlrIDs.h"

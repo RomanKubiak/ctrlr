@@ -182,7 +182,7 @@ void CtrlrHyperlink::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 	}
 	else if (property == Ids::uiHyperlinkOpensUrl)
     {
-		setHyperlinkUrl(hyperlinkOpensUrl() ? getProperty(Ids::uiHyperlinkUrl) : String::empty);
+		setHyperlinkUrl(hyperlinkOpensUrl() ? getProperty(Ids::uiHyperlinkUrl).toString() : String::empty);
     }
 	else if (property == Ids::uiHyperlinkUrl)
 	{

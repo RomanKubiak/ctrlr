@@ -7,16 +7,17 @@
 #include <windows.h>
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION  6,0,0,0
+FILEVERSION  5,3,0,0
 BEGIN
   BLOCK "StringFileInfo"
   BEGIN
     BLOCK "040904E4"
     BEGIN
+      VALUE "CompanyName",  "Instigator\0"
       VALUE "FileDescription",  "Ctrlr\0"
-      VALUE "FileVersion",  "6.0.0\0"
+      VALUE "FileVersion",  "5.3\0"
       VALUE "ProductName",  "Ctrlr\0"
-      VALUE "ProductVersion",  "6.0.0\0"
+      VALUE "ProductVersion",  "5.3\0"
     END
   END
 

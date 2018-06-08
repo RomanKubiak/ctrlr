@@ -1,8 +1,8 @@
 /* config.h.  Manual config for MSVC.  */
 
 #ifndef _MSC_VER
-#warn "msvc/config.h shouldn't be included for your development environment."
-#error "Please make sure the msvc/ directory is removed from your build path."
+#warning "msvc/config.h shouldn't be included for your development environment."
+//#error "Please make sure the msvc/ directory is removed from your build path."
 #endif
 
 /* Disable: warning C4200: nonstandard extension used : zero-sized array in struct/union */

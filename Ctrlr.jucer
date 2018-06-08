@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="n0ruoi" name="Ctrlr" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Light" projectType="audioplug" version="6.0.0"
+              splashScreenColour="Light" projectType="guiapp" version="5.3"
               bundleIdentifier="com.Instigator.Ctrlr" includeBinaryInAppConfig="1"
               cppLanguageStandard="11" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="0" buildRTAS="0" buildAAX="0" buildStandalone="1"
@@ -11,7 +11,8 @@
               pluginIsMidiEffectPlugin="1" pluginEditorRequiresKeys="1" pluginAUExportPrefix="CtrlrVSTAU"
               pluginRTASCategory="" aaxIdentifier="com.yourcompany.CtrlrVST"
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.1"
-              defines="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1">
+              defines="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1&#10;JucePlugin_Build_Standalone=1"
+              companyName="Instigator" companyWebsite="http://ctrlr.orgf" companyEmail="kubiak.roman@gmail.com">
   <MAINGROUP id="gSPEw1" name="Ctrlr">
     <GROUP id="{508B796B-61D7-CF04-9492-C452B394E1B3}" name="Source">
       <GROUP id="{837CAAA3-C599-CBD5-4D33-91D2F6948E77}" name="Core">
@@ -305,12 +306,6 @@
         <FILE id="ouMuWb" name="CtrlrLuaUtils.h" compile="0" resource="0" file="Source/Lua/CtrlrLuaUtils.h"/>
       </GROUP>
       <GROUP id="{AE12D829-3471-044F-38BB-125FF375D315}" name="MIDI">
-        <GROUP id="{01087F55-6514-9EE7-B677-87FD2077D7DC}" name="CtrlrMIDILibrary">
-          <FILE id="lvPbL8" name="CtrlrMIDILibrary.cpp" compile="1" resource="0"
-                file="Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.cpp"/>
-          <FILE id="KSXfQ4" name="CtrlrMIDILibrary.h" compile="0" resource="0"
-                file="Source/MIDI/CtrlrMIDILibrary/CtrlrMIDILibrary.h"/>
-        </GROUP>
         <FILE id="jIV8oK" name="CtrlrMIDIDevice.cpp" compile="1" resource="0"
               file="Source/MIDI/CtrlrMIDIDevice.cpp"/>
         <FILE id="X4yxD0" name="CtrlrMIDIDevice.h" compile="0" resource="0"
@@ -1201,8 +1196,6 @@
         <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
@@ -1235,8 +1228,6 @@
         <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
@@ -1262,8 +1253,6 @@
         <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
@@ -1287,8 +1276,6 @@
         <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
@@ -1312,8 +1299,6 @@
         <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
@@ -1337,8 +1322,6 @@
         <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
@@ -1358,14 +1341,13 @@
     <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
-  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_PLUGINHOST_VST="disabled" JUCE_PLUGINHOST_VST3="disabled"
+               JUCE_PLUGINHOST_AU="disabled" JUCE_USE_CDREADER="disabled" JUCE_USE_CDBURNER="disabled"/>
 </JUCERPROJECT>

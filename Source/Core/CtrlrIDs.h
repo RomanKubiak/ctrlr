@@ -822,28 +822,6 @@ namespace Ids
 
     DECLARE_ID (luaAudioProcessBlock);
 
-	DECLARE_ID (midiLibrary);
-	DECLARE_ID (midiLibraryData);
-	DECLARE_ID (midiLibraryEditBuffer);
-	DECLARE_ID (midiLibraryProgram);
-	DECLARE_ID (midiLibraryBank);
-	DECLARE_ID (midiLibraryFirmware);
-	DECLARE_ID (midiLibraryCanSendItem);
-	DECLARE_ID (midiLibraryCanGetItem);
-	DECLARE_ID (midiLibrarySnapshots);
-	DECLARE_ID (midiLibrarySnapshot);
-	DECLARE_ID (midiLibraryTreeState);
-	DECLARE_ID (midiLibraryCustomRequests);
-	DECLARE_ID (midiLibraryAllProgramsSupport);
-	DECLARE_ID (midiLibrarySendSnapAfterPChg);
-	DECLARE_ID (midiLibraryParameterIndexProperty);
-	DECLARE_ID (midiLibraryMidiProgramChangeControl);
-	DECLARE_ID (midiLibraryDefaultProgramName);
-	DECLARE_ID (midiLibraryDefaultBankName);
-	DECLARE_ID (midiLibraryDefaultSnapshotName);
-	DECLARE_ID (midiLibraryTransactions);
-	DECLARE_ID (midiLibraryTransactionsFile);
-
 	DECLARE_ID (midiBufferEditor);
 	DECLARE_ID (midiBufferEditorLeft);
 	DECLARE_ID (midiBufferEditorRight);

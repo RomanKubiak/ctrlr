@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "stdafx_luabind.h"
-
 #include "CtrlrPanelCanvasLayer.h"
 #include "CtrlrPanelCanvas.h"
 #include "CtrlrIds.h"

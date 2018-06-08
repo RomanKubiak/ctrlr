@@ -247,7 +247,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 	}
 	if (saveOption == CtrlrEditor::doExportFileInstance)
 	{
-		Result res = owner.getNativeObject().exportWithDefaultPanel(this, false, false, RSAKey());
+		Result res = owner.getNativeObject().exportWithDefaultPanel(this, false, false);
 		if (res.failed())
 		{
 			AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Panel export", "Failed to export panel as standalone instance.\n"+res.getErrorMessage());
@@ -259,14 +259,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 	}
 	if (saveOption == CtrlrEditor::doExportFileInstanceRestricted)
 	{
-	    RSAKey privateKey;
-	    File privateKeyFile (owner.getProperty(Ids::ctrlrPrivateKey));
-	    if (privateKeyFile.existsAsFile())
-        {
-            privateKey = RSAKey (privateKeyFile.loadFileAsString());
-        }
-
-		Result res = owner.getNativeObject().exportWithDefaultPanel(this, true, true, privateKey);
+		Result res = owner.getNativeObject().exportWithDefaultPanel(this, true, true);
 
 		if (res.failed())
 		{

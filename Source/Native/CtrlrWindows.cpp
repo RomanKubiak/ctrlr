@@ -79,7 +79,7 @@ const Result CtrlrWindows::readResource (void *handle, const LPSTR resourceId, c
 	}
 }
 
-const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted, const bool signPanel, RSAKey privateKey)
+const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted, const bool signPanel)
 {
 	if (panelToWrite == nullptr)
 	{
@@ -133,12 +133,6 @@ const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, con
 			else
 			{
 				return (Result::fail("Windows Native: exportMeWithNewResource writeResource[panel] failed"));
-			}
-
-			if (isRestricted && privateKey != RSAKey())
-			{
-				/* Sign the panel */
-				MemoryBlock signature = signData (panelResourcesData, privateKey);
 			}
 		}
 		else

@@ -391,7 +391,7 @@ void CtrlrPanel::setProperty (const Identifier& name, const var &newValue, const
 
 void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
 {
-	if (treeWhosePropertyHasChanged.hasType(Ids::modulator) || treeWhosePropertyHasChanged.hasType(Ids::midiLibrary))
+	if (treeWhosePropertyHasChanged.hasType(Ids::modulator))
 	{
 		return;
 	}
