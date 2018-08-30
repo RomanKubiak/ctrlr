@@ -3,16 +3,10 @@
 <JUCERPROJECT id="n0ruoi" name="Ctrlr" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Light" projectType="guiapp" version="5.3"
               bundleIdentifier="com.Instigator.Ctrlr" includeBinaryInAppConfig="1"
-              cppLanguageStandard="11" buildVST="1" buildVST3="0" buildAU="1"
+              cppLanguageStandard="11" buildVST="0" buildVST3="0" buildAU="1"
               buildAUv3="0" buildRTAS="0" buildAAX="0" buildStandalone="1"
-              enableIAA="0" pluginName="Ctrlr-VST" pluginDesc="Ctrlr-VST" pluginManufacturer="Instigator"
-              pluginManufacturerCode="INST" pluginCode="CTRL" pluginChannelConfigs=""
-              pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
-              pluginIsMidiEffectPlugin="1" pluginEditorRequiresKeys="1" pluginAUExportPrefix="CtrlrVSTAU"
-              pluginRTASCategory="" aaxIdentifier="com.yourcompany.CtrlrVST"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.1"
-              defines="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1&#10;JucePlugin_Build_Standalone=1"
-              companyName="Instigator" companyWebsite="http://ctrlr.orgf" companyEmail="kubiak.roman@gmail.com">
+              enableIAA="0" jucerVersion="5.1.1" defines="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1&#10;"
+              companyName="Instigator" companyWebsite="http://ctrlr.org" companyEmail="kubiak.roman@gmail.com">
   <MAINGROUP id="gSPEw1" name="Ctrlr">
     <GROUP id="{508B796B-61D7-CF04-9492-C452B394E1B3}" name="Source">
       <GROUP id="{837CAAA3-C599-CBD5-4D33-91D2F6948E77}" name="Core">
@@ -269,8 +263,6 @@
               file="Source/Lua/CtrlrLuaAudioConverter.h"/>
         <FILE id="WfUIBl" name="CtrlrLuaConverters.h" compile="0" resource="0"
               file="Source/Lua/CtrlrLuaConverters.h"/>
-        <FILE id="cjLGIu" name="CtrlrLuaCustomComponent.cpp" compile="1" resource="0"
-              file="Source/Lua/CtrlrLuaCustomComponent.cpp"/>
         <FILE id="CQec5W" name="CtrlrLuaDebugger.cpp" compile="1" resource="0"
               file="Source/Lua/CtrlrLuaDebugger.cpp"/>
         <FILE id="mCBEfo" name="CtrlrLuaDebugger.h" compile="0" resource="0"
@@ -279,10 +271,6 @@
               file="Source/Lua/CtrlrLuaManager.cpp"/>
         <FILE id="QhWPYE" name="CtrlrLuaManager.h" compile="0" resource="0"
               file="Source/Lua/CtrlrLuaManager.h"/>
-        <FILE id="iQoAAo" name="CtrlrLuaModulator.cpp" compile="1" resource="0"
-              file="Source/Lua/CtrlrLuaModulator.cpp"/>
-        <FILE id="aC5TJo" name="CtrlrLuaMultiTimer.cpp" compile="1" resource="0"
-              file="Source/Lua/CtrlrLuaMultiTimer.cpp"/>
         <FILE id="oskr5E" name="CtrlrLuaMultiTimer.h" compile="0" resource="0"
               file="Source/Lua/CtrlrLuaMultiTimer.h"/>
         <FILE id="ZawM2s" name="CtrlrLuaObject.cpp" compile="1" resource="0"
@@ -293,14 +281,8 @@
               file="Source/Lua/CtrlrLuaObjectWrapper.cpp"/>
         <FILE id="Ivgd47" name="CtrlrLuaObjectWrapper.h" compile="0" resource="0"
               file="Source/Lua/CtrlrLuaObjectWrapper.h"/>
-        <FILE id="VdZ5iP" name="CtrlrLuaPanel.cpp" compile="1" resource="0"
-              file="Source/Lua/CtrlrLuaPanel.cpp"/>
-        <FILE id="bG0ZxH" name="CtrlrLuaPanelCanvas.cpp" compile="1" resource="0"
-              file="Source/Lua/CtrlrLuaPanelCanvas.cpp"/>
         <FILE id="tHXEYy" name="CtrlrLuaPanelCanvasLayer.cpp" compile="1" resource="0"
               file="Source/Lua/CtrlrLuaPanelCanvasLayer.cpp"/>
-        <FILE id="uNjv61" name="CtrlrLuaPanelEditor.cpp" compile="1" resource="0"
-              file="Source/Lua/CtrlrLuaPanelEditor.cpp"/>
         <FILE id="ERoOxh" name="CtrlrLuaUtils.cpp" compile="1" resource="0"
               file="Source/Lua/CtrlrLuaUtils.cpp"/>
         <FILE id="ouMuWb" name="CtrlrLuaUtils.h" compile="0" resource="0" file="Source/Lua/CtrlrLuaUtils.h"/>
@@ -575,28 +557,6 @@
           </GROUP>
           <FILE id="Oe9GQ7" name="build_information.hpp" compile="0" resource="0"
                 file="Source/Misc/luabind/build_information.hpp"/>
-        </GROUP>
-        <GROUP id="{3026BC49-3D8C-596B-ECCD-D9F4EA3ABC38}" name="vst">
-          <GROUP id="{90651116-FF11-4CD3-0939-835D32E4EAD4}" name="pluginterfaces">
-            <GROUP id="{C12E1A91-2031-C6AB-9B40-41F4877E9554}" name="vst2.x">
-              <FILE id="a51Qey" name="aeffect.h" compile="0" resource="0" file="Source/Misc/vst/pluginterfaces/vst2.x/aeffect.h"/>
-              <FILE id="UVt86K" name="aeffectx.h" compile="0" resource="0" file="Source/Misc/vst/pluginterfaces/vst2.x/aeffectx.h"/>
-              <FILE id="iBQyob" name="vstfxstore.h" compile="0" resource="0" file="Source/Misc/vst/pluginterfaces/vst2.x/vstfxstore.h"/>
-            </GROUP>
-          </GROUP>
-          <GROUP id="{F74D8B81-A61C-0704-C917-5E6B76D14A2A}" name="public.sdk">
-            <GROUP id="{5B47427D-42B9-D187-DC0B-1714C5087AAC}" name="source">
-              <GROUP id="{3AB600F7-183B-47ED-FA02-5CF7E4489D33}" name="vst2.x">
-                <FILE id="u0jQ9O" name="aeffeditor.h" compile="0" resource="0" file="Source/Misc/vst/public.sdk/source/vst2.x/aeffeditor.h"/>
-                <FILE id="Y1CCpB" name="audioeffect.cpp" compile="1" resource="0" file="Source/Misc/vst/public.sdk/source/vst2.x/audioeffect.cpp"/>
-                <FILE id="AY38PZ" name="audioeffect.h" compile="0" resource="0" file="Source/Misc/vst/public.sdk/source/vst2.x/audioeffect.h"/>
-                <FILE id="lK6mnW" name="audioeffectx.cpp" compile="1" resource="0"
-                      file="Source/Misc/vst/public.sdk/source/vst2.x/audioeffectx.cpp"/>
-                <FILE id="aC9bOs" name="audioeffectx.h" compile="0" resource="0" file="Source/Misc/vst/public.sdk/source/vst2.x/audioeffectx.h"/>
-                <FILE id="vJGK6t" name="vstplugmain.cpp" compile="1" resource="0" file="Source/Misc/vst/public.sdk/source/vst2.x/vstplugmain.cpp"/>
-              </GROUP>
-            </GROUP>
-          </GROUP>
         </GROUP>
         <FILE id="Z8GARB" name="keys.cpp" compile="1" resource="0" file="Source/Misc/keys.cpp"/>
         <FILE id="YyUpGC" name="libr-bfd.c" compile="1" resource="0" file="Source/Misc/libr-bfd.c"/>
@@ -1201,25 +1161,24 @@
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2017 targetFolder="Builds/VisualStudio2017" extraCompilerFlags="/Fpstdafx.h /bigobj"
-            toolset="" smallIcon="KE4ru2" bigIcon="NrDDkj">
+            toolset="" smallIcon="KE4ru2" bigIcon="NrDDkj" extraDefs="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        isDebug="1" optimisation="1" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../Source/Plugin&#10;../../Source"
-                       wholeProgramOptimisation="1"/>
+                       wholeProgramOptimisation="1" defines=""/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        isDebug="0" optimisation="3" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../Source/Plugin&#10;../../Source"
-                       wholeProgramOptimisation="1" enableIncrementalLinking="1"/>
+                       wholeProgramOptimisation="1" enableIncrementalLinking="1" defines=""/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="Win32"
                        isDebug="0" optimisation="3" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../Source/Plugin&#10;../../Source"
-                       wholeProgramOptimisation="1" enableIncrementalLinking="1"/>
+                       wholeProgramOptimisation="1" enableIncrementalLinking="1" defines=""/>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="Win32"
                        isDebug="1" optimisation="1" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../Source/Plugin&#10;../../Source"
-                       wholeProgramOptimisation="1"/>
+                       wholeProgramOptimisation="1" defines=""/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="JUCE/modules"/>
@@ -1233,35 +1192,9 @@
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="JUCE/modules"/>
       </MODULEPATHS>
     </VS2017>
-    <VS2015 targetFolder="Builds/VisualStudio2015" extraCompilerFlags="/Fpstdafx.h /bigobj"
-            toolset="v140">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="1" optimisation="1" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../Source/Plugin&#10;../../Source"
-                       wholeProgramOptimisation="1"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="0" optimisation="3" targetName="Ctrlr" headerPath="../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/Misc/VST&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../Source/Plugin&#10;../../Source"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="JUCE/modules"/>
-      </MODULEPATHS>
-    </VS2015>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr"
@@ -1281,7 +1214,6 @@
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
@@ -1304,7 +1236,6 @@
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="JUCE/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS_WINDOWS>
@@ -1327,7 +1258,6 @@
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="JUCE/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
@@ -1336,8 +1266,6 @@
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
-            useGlobalPath="0"/>
     <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>

@@ -104,7 +104,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\JUCE\modules;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/Misc/VST;../../Source/MIDI;../../Source/Core;../../Source/UIComponents;../../Source/Lua;../../Source/Plugin;../../Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JucePlugin_Build_Standalone=0;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=5.3;JUCE_APP_VERSION_HEX=0x50300;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=5.3;JUCE_APP_VERSION_HEX=0x50300;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -145,7 +145,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\JUCE\modules;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/Misc/VST;../../Source/MIDI;../../Source/Core;../../Source/UIComponents;../../Source/Lua;../../Source/Plugin;../../Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JucePlugin_Build_Standalone=0;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=5.3;JUCE_APP_VERSION_HEX=0x50300;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=5.3;JUCE_APP_VERSION_HEX=0x50300;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -188,7 +188,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\JUCE\modules;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/Misc/VST;../../Source/MIDI;../../Source/Core;../../Source/UIComponents;../../Source/Lua;../../Source/Plugin;../../Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JucePlugin_Build_Standalone=0;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=5.3;JUCE_APP_VERSION_HEX=0x50300;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=5.3;JUCE_APP_VERSION_HEX=0x50300;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -233,7 +233,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\JUCE\modules;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/Misc/VST;../../Source/MIDI;../../Source/Core;../../Source/UIComponents;../../Source/Lua;../../Source/Plugin;../../Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JucePlugin_Build_Standalone=0;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=5.3;JUCE_APP_VERSION_HEX=0x50300;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=5.3;JUCE_APP_VERSION_HEX=0x50300;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -310,17 +310,11 @@
     <ClCompile Include="..\..\Source\Lua\Methods\CtrlrLuaMethodManager.cpp"/>
     <ClCompile Include="..\..\Source\Lua\Methods\CtrlrLuaMethodManagerCalls.cpp"/>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaAudioConverter.cpp"/>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaCustomComponent.cpp"/>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaDebugger.cpp"/>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaManager.cpp"/>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaModulator.cpp"/>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaMultiTimer.cpp"/>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaObject.cpp"/>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaObjectWrapper.cpp"/>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanel.cpp"/>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanelCanvas.cpp"/>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanelCanvasLayer.cpp"/>
-    <ClCompile Include="..\..\Source\Lua\CtrlrLuaPanelEditor.cpp"/>
     <ClCompile Include="..\..\Source\Lua\CtrlrLuaUtils.cpp"/>
     <ClCompile Include="..\..\Source\MIDI\CtrlrMIDIDevice.cpp"/>
     <ClCompile Include="..\..\Source\MIDI\CtrlrMIDIDeviceManager.cpp"/>
@@ -372,9 +366,6 @@
     <ClCompile Include="..\..\Source\Misc\luabind\src\stack_content_by_name.cpp"/>
     <ClCompile Include="..\..\Source\Misc\luabind\src\weak_ref.cpp"/>
     <ClCompile Include="..\..\Source\Misc\luabind\src\wrapper_base.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\vst\public.sdk\source\vst2.x\audioeffect.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\vst\public.sdk\source\vst2.x\audioeffectx.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\vst\public.sdk\source\vst2.x\vstplugmain.cpp"/>
     <ClCompile Include="..\..\Source\Misc\keys.cpp"/>
     <ClCompile Include="..\..\Source\Misc\libr-bfd.c"/>
     <ClCompile Include="..\..\Source\Misc\libr.c"/>
@@ -808,78 +799,6 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBuffer.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewControl.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewDispatch.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUDispatch.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUInputElement.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUMIDIBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputElement.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUPlugInDispatch.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUScopeElement.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAudioChannelLayout.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAUParameter.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAMutex.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CarbonEventHandler.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAStreamBasicDescription.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAVectorUnit.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\ComponentBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\MusicDeviceBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\Standalone\juce_StandaloneFilterApp.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\utility\juce_PluginUtilities.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\JUCE\modules\juce_audio_plugin_client\juce_audio_plugin_client_utils.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JUCE\modules\juce_audio_processors\format\juce_AudioPluginFormat.cpp">
@@ -2128,7 +2047,6 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp"/>
-    <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_plugin_client_utils.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_processors.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_utils.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_core.cpp"/>
@@ -2375,12 +2293,6 @@
     <ClInclude Include="..\..\Source\Misc\luabind\luabind\wrapper_base.hpp"/>
     <ClInclude Include="..\..\Source\Misc\luabind\luabind\yield_policy.hpp"/>
     <ClInclude Include="..\..\Source\Misc\luabind\build_information.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\vst\pluginterfaces\vst2.x\aeffect.h"/>
-    <ClInclude Include="..\..\Source\Misc\vst\pluginterfaces\vst2.x\aeffectx.h"/>
-    <ClInclude Include="..\..\Source\Misc\vst\pluginterfaces\vst2.x\vstfxstore.h"/>
-    <ClInclude Include="..\..\Source\Misc\vst\public.sdk\source\vst2.x\aeffeditor.h"/>
-    <ClInclude Include="..\..\Source\Misc\vst\public.sdk\source\vst2.x\audioeffect.h"/>
-    <ClInclude Include="..\..\Source\Misc\vst\public.sdk\source\vst2.x\audioeffectx.h"/>
     <ClInclude Include="..\..\Source\Native\CtrlrGeneric.h"/>
     <ClInclude Include="..\..\Source\Native\CtrlrLinux.h"/>
     <ClInclude Include="..\..\Source\Native\CtrlrMac.h"/>
@@ -2634,52 +2546,6 @@
     <ClInclude Include="..\..\JUCE\modules\juce_audio_formats\format\juce_MemoryMappedAudioFormatReader.h"/>
     <ClInclude Include="..\..\JUCE\modules\juce_audio_formats\sampler\juce_Sampler.h"/>
     <ClInclude Include="..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBase.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBaseHelper.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBuffer.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewBase.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewControl.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUDispatch.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUInputElement.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUInputFormatConverter.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUMIDIBase.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputBase.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputElement.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUPlugInDispatch.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUScopeElement.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUSilentTimeout.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUTimestampGenerator.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUViewLocalizedStringKeys.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAtomic.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAtomicStack.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAudioChannelLayout.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAUParameter.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAutoDisposer.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CADebugMacros.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CADebugPrintf.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAException.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAHostTimeBase.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAMath.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAMutex.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CarbonEventHandler.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAReferenceCounted.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAStreamBasicDescription.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAThreadSafeList.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAVectorUnit.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAVectorUnitTypes.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAXException.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\ComponentBase.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\MusicDeviceBase.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\Standalone\juce_StandaloneFilterWindow.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\utility\juce_CarbonVisibility.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\utility\juce_CheckSettingMacros.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\utility\juce_FakeMouseMoveGenerator.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\utility\juce_IncludeModuleHeaders.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\utility\juce_IncludeSystemHeaders.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\utility\juce_PluginHostType.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\utility\juce_WindowsHooks.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\VST\juce_VSTCallbackHandler.h"/>
-    <ClInclude Include="..\..\JUCE\modules\juce_audio_plugin_client\juce_audio_plugin_client.h"/>
     <ClInclude Include="..\..\JUCE\modules\juce_audio_processors\format\juce_AudioPluginFormat.h"/>
     <ClInclude Include="..\..\JUCE\modules\juce_audio_processors\format\juce_AudioPluginFormatManager.h"/>
     <ClInclude Include="..\..\JUCE\modules\juce_audio_processors\format_types\juce_AudioUnitPluginFormat.h"/>

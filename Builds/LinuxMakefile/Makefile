@@ -33,8 +33,8 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1 -DJucePlugin_Build_Standalone=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=5.3 -DJUCE_APP_VERSION_HEX=0x50300 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/Misc/VST -I../../Source/MIDI -I../../Source/Core -I../../Source/UIComponents -I../../Source/Lua -I../../Source/Plugin -I../../Source $(CPPFLAGS)
-  JUCE_CPPFLAGS_APP := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=5.3 -DJUCE_APP_VERSION_HEX=0x50300 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/Misc/VST -I../../Source/MIDI -I../../Source/Core -I../../Source/UIComponents -I../../Source/Lua -I../../Source/Plugin -I../../Source $(CPPFLAGS)
+  JUCE_CPPFLAGS_APP := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0
   JUCE_TARGET_APP := Ctrlr
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0 $(CFLAGS)
@@ -54,8 +54,8 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1 -DJucePlugin_Build_Standalone=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=5.3 -DJUCE_APP_VERSION_HEX=0x50300 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/Misc/VST -I../../Source/MIDI -I../../Source/Core -I../../Source/UIComponents -I../../Source/Lua -I../../Source/Plugin -I../../Source $(CPPFLAGS)
-  JUCE_CPPFLAGS_APP := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=5.3 -DJUCE_APP_VERSION_HEX=0x50300 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/Misc/VST -I../../Source/MIDI -I../../Source/Core -I../../Source/UIComponents -I../../Source/Lua -I../../Source/Plugin -I../../Source $(CPPFLAGS)
+  JUCE_CPPFLAGS_APP := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0
   JUCE_TARGET_APP := Ctrlr
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -O3 $(CFLAGS)
@@ -110,17 +110,11 @@ OBJECTS_APP := \
   $(JUCE_OBJDIR)/CtrlrLuaMethodManager_c621ff28.o \
   $(JUCE_OBJDIR)/CtrlrLuaMethodManagerCalls_d460a557.o \
   $(JUCE_OBJDIR)/CtrlrLuaAudioConverter_d897847b.o \
-  $(JUCE_OBJDIR)/CtrlrLuaCustomComponent_6c6df065.o \
   $(JUCE_OBJDIR)/CtrlrLuaDebugger_36763bb2.o \
   $(JUCE_OBJDIR)/CtrlrLuaManager_89c5eb06.o \
-  $(JUCE_OBJDIR)/CtrlrLuaModulator_ffba5348.o \
-  $(JUCE_OBJDIR)/CtrlrLuaMultiTimer_dff2509d.o \
   $(JUCE_OBJDIR)/CtrlrLuaObject_85f4d2d0.o \
   $(JUCE_OBJDIR)/CtrlrLuaObjectWrapper_dab692d.o \
-  $(JUCE_OBJDIR)/CtrlrLuaPanel_99535add.o \
-  $(JUCE_OBJDIR)/CtrlrLuaPanelCanvas_a5ba8255.o \
   $(JUCE_OBJDIR)/CtrlrLuaPanelCanvasLayer_a584fbc6.o \
-  $(JUCE_OBJDIR)/CtrlrLuaPanelEditor_f1be1bea.o \
   $(JUCE_OBJDIR)/CtrlrLuaUtils_3835430a.o \
   $(JUCE_OBJDIR)/CtrlrMIDIDevice_275facd9.o \
   $(JUCE_OBJDIR)/CtrlrMIDIDeviceManager_d382511e.o \
@@ -172,9 +166,6 @@ OBJECTS_APP := \
   $(JUCE_OBJDIR)/stack_content_by_name_d5b108d7.o \
   $(JUCE_OBJDIR)/weak_ref_28658f55.o \
   $(JUCE_OBJDIR)/wrapper_base_8bfc9886.o \
-  $(JUCE_OBJDIR)/audioeffect_6a59e0d3.o \
-  $(JUCE_OBJDIR)/audioeffectx_e4dcbccf.o \
-  $(JUCE_OBJDIR)/vstplugmain_4b4f2f0a.o \
   $(JUCE_OBJDIR)/keys_f237af18.o \
   $(JUCE_OBJDIR)/libr-bfd_fc7a9004.o \
   $(JUCE_OBJDIR)/libr_d73fc571.o \
@@ -290,7 +281,6 @@ OBJECTS_APP := \
   $(JUCE_OBJDIR)/include_juce_audio_basics_8a4e984a.o \
   $(JUCE_OBJDIR)/include_juce_audio_devices_63111d02.o \
   $(JUCE_OBJDIR)/include_juce_audio_formats_15f82001.o \
-  $(JUCE_OBJDIR)/include_juce_audio_plugin_client_utils_e32edaee.o \
   $(JUCE_OBJDIR)/include_juce_audio_processors_10c03666.o \
   $(JUCE_OBJDIR)/include_juce_audio_utils_9f9fb2d6.o \
   $(JUCE_OBJDIR)/include_juce_core_f26d17db.o \
@@ -532,11 +522,6 @@ $(JUCE_OBJDIR)/CtrlrLuaAudioConverter_d897847b.o: ../../Source/Lua/CtrlrLuaAudio
 	@echo "Compiling CtrlrLuaAudioConverter.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
-$(JUCE_OBJDIR)/CtrlrLuaCustomComponent_6c6df065.o: ../../Source/Lua/CtrlrLuaCustomComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaCustomComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
 $(JUCE_OBJDIR)/CtrlrLuaDebugger_36763bb2.o: ../../Source/Lua/CtrlrLuaDebugger.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaDebugger.cpp"
@@ -545,16 +530,6 @@ $(JUCE_OBJDIR)/CtrlrLuaDebugger_36763bb2.o: ../../Source/Lua/CtrlrLuaDebugger.cp
 $(JUCE_OBJDIR)/CtrlrLuaManager_89c5eb06.o: ../../Source/Lua/CtrlrLuaManager.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaManager.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaModulator_ffba5348.o: ../../Source/Lua/CtrlrLuaModulator.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaModulator.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaMultiTimer_dff2509d.o: ../../Source/Lua/CtrlrLuaMultiTimer.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaMultiTimer.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/CtrlrLuaObject_85f4d2d0.o: ../../Source/Lua/CtrlrLuaObject.cpp
@@ -567,24 +542,9 @@ $(JUCE_OBJDIR)/CtrlrLuaObjectWrapper_dab692d.o: ../../Source/Lua/CtrlrLuaObjectW
 	@echo "Compiling CtrlrLuaObjectWrapper.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
-$(JUCE_OBJDIR)/CtrlrLuaPanel_99535add.o: ../../Source/Lua/CtrlrLuaPanel.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaPanel.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaPanelCanvas_a5ba8255.o: ../../Source/Lua/CtrlrLuaPanelCanvas.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaPanelCanvas.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
 $(JUCE_OBJDIR)/CtrlrLuaPanelCanvasLayer_a584fbc6.o: ../../Source/Lua/CtrlrLuaPanelCanvasLayer.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLuaPanelCanvasLayer.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaPanelEditor_f1be1bea.o: ../../Source/Lua/CtrlrLuaPanelEditor.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaPanelEditor.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/CtrlrLuaUtils_3835430a.o: ../../Source/Lua/CtrlrLuaUtils.cpp
@@ -840,21 +800,6 @@ $(JUCE_OBJDIR)/weak_ref_28658f55.o: ../../Source/Misc/luabind/src/weak_ref.cpp
 $(JUCE_OBJDIR)/wrapper_base_8bfc9886.o: ../../Source/Misc/luabind/src/wrapper_base.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling wrapper_base.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/audioeffect_6a59e0d3.o: ../../Source/Misc/vst/public.sdk/source/vst2.x/audioeffect.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling audioeffect.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/audioeffectx_e4dcbccf.o: ../../Source/Misc/vst/public.sdk/source/vst2.x/audioeffectx.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling audioeffectx.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/vstplugmain_4b4f2f0a.o: ../../Source/Misc/vst/public.sdk/source/vst2.x/vstplugmain.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling vstplugmain.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/keys_f237af18.o: ../../Source/Misc/keys.cpp
@@ -1430,11 +1375,6 @@ $(JUCE_OBJDIR)/include_juce_audio_devices_63111d02.o: ../../JuceLibraryCode/incl
 $(JUCE_OBJDIR)/include_juce_audio_formats_15f82001.o: ../../JuceLibraryCode/include_juce_audio_formats.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling include_juce_audio_formats.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/include_juce_audio_plugin_client_utils_e32edaee.o: ../../JuceLibraryCode/include_juce_audio_plugin_client_utils.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling include_juce_audio_plugin_client_utils.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_APP) $(JUCE_CFLAGS_APP) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/include_juce_audio_processors_10c03666.o: ../../JuceLibraryCode/include_juce_audio_processors.cpp

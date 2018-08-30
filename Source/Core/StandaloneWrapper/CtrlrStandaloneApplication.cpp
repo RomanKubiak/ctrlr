@@ -2,7 +2,7 @@
 #include "CtrlrMacros.h"
 #include "CtrlrLog.h"
 #include "CtrlrStandaloneWindow.h"
-#include <juce_audio_plugin_client/juce_audio_plugin_client_Standalone.cpp>
+
 class CtrlrApplication : public JUCEApplication
 {
         public:
