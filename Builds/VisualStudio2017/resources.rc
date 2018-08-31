@@ -7,7 +7,7 @@
 #include <windows.h>
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION  5,3,0,0
+FILEVERSION  6,0,0,0
 BEGIN
   BLOCK "StringFileInfo"
   BEGIN
@@ -15,9 +15,9 @@ BEGIN
     BEGIN
       VALUE "CompanyName",  "Instigator\0"
       VALUE "FileDescription",  "Ctrlr\0"
-      VALUE "FileVersion",  "5.3\0"
+      VALUE "FileVersion",  "6.0.0\0"
       VALUE "ProductName",  "Ctrlr\0"
-      VALUE "ProductVersion",  "5.3\0"
+      VALUE "ProductVersion",  "6.0.0\0"
     END
   END
 
@@ -28,6 +28,3 @@ BEGIN
 END
 
 #endif
-
-IDI_ICON1 ICON DISCARDABLE "icon.ico"
-IDI_ICON2 ICON DISCARDABLE "icon.ico"
