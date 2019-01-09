@@ -1,7 +1,7 @@
 #ifndef __CTRLR_REVISION__
 #define __CTRLR_REVISION__
 
-static const char *ctrlrRevision              	= "5.5.57";
-static const char *ctrlrRevisionDate        	= "Wed, Jun 06, 2018  2:42:48 PM";
+static const char *ctrlrRevision              	= "6.0.1";
+static const char *ctrlrRevisionDate        	= "Wed, Jan 09, 2019  8:34:54 PM";
 
 #endif

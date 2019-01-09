@@ -9,8 +9,10 @@
               pluginManufacturerCode="inSt" pluginCode="cTrl" pluginChannelConfigs=""
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
               pluginIsMidiEffectPlugin="1" pluginEditorRequiresKeys="1" pluginAUExportPrefix="CtrlrAU"
-              pluginRTASCategory="" aaxIdentifier="com.instigator.Ctrlr" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
-              jucerVersion="5.1.1" companyName="Instigator" pluginAUMainType="CtrlrAU">
+              pluginRTASCategory="" aaxIdentifier="com.instigator.Ctrlr" pluginAAXCategory="2"
+              jucerVersion="5.3.2" companyName="Instigator" pluginAUMainType="CtrlrAU"
+              pluginFormats="buildVST,buildVST3,buildAU,buildAUv3,buildStandalone"
+              pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginProducesMidiOut,pluginIsMidiEffectPlugin,pluginEditorRequiresKeys">
   <MAINGROUP id="SRLsFb" name="Ctrlr">
     <GROUP id="{BE407432-92DD-AEAB-3C70-AAE03FCD0B1D}" name="Source">
       <GROUP id="{F4D7C0F1-7F03-CB3F-30C6-F728F0E39FE2}" name="Misc">
@@ -1217,13 +1219,19 @@
   </MAINGROUP>
   <EXPORTFORMATS>
     <VS2017 targetFolder="Builds/VisualStudio2017" vst3Folder="Source/Misc/vst3sdk"
-            extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1" extraCompilerFlags="/bigobj /Fpstadfx.h">
+            extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1" extraCompilerFlags="/bigobj /Fpstadfx.h"
+            smallIcon="DzYszo" bigIcon="zQnOx7">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="2" generateManifest="1" winArchitecture="x64"
-                       isDebug="1" optimisation="1" targetName="Ctrlr" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
+                       isDebug="1" optimisation="1" targetName="Ctrlr-x64" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
                        enableIncrementalLinking="1"/>
         <CONFIGURATION name="Release" winWarningLevel="2" generateManifest="1" winArchitecture="x64"
-                       isDebug="0" optimisation="3" targetName="Ctrlr" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
+                       isDebug="0" optimisation="3" targetName="Ctrlr-x64" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
+                       enableIncrementalLinking="1" alwaysGenerateDebugSymbols="0" linkTimeOptimisation="0"/>
+        <CONFIGURATION name="Release_Win32" winWarningLevel="2" generateManifest="1"
+                       winArchitecture="Win32" isDebug="0" optimisation="3" targetName="Ctrlr-Win32"
+                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
+                       enableIncrementalLinking="1" alwaysGenerateDebugSymbols="0" linkTimeOptimisation="0"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>
@@ -1301,4 +1309,7 @@
     <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+  </LIVE_SETTINGS>
 </JUCERPROJECT>
