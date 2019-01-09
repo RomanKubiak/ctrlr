@@ -11,7 +11,7 @@ CTRLR_ROOT=""
 PACKAGE=""
 BUILD_LOG_WIN32=""
 BUILD_LOG_WIN64=""
-OUTPUT="ctrlrorg@ctrlr.org:/home/ctrlrorg/public_html/nightly/"
+OUTPUT="ctrlr@ctrlr.org://var/www/ctrlr/nightly/"
 VERSION=""
 ARGS=$1
 
@@ -130,7 +130,7 @@ function windows_msbuild {
 		cd $CTRLR_ROOT/Builds/VisualStudio2017
 		
 		echo "CTRLR: Build Win32"
-		"$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release /property:VisualStudioVersion=15.0 
+		"$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Win32 /property:VisualStudioVersion=15.0 
 		
 		if [ $? -ne 0 ]; then
 			echo "CTRLR: Win32 build failed"
@@ -406,6 +406,6 @@ function build_now_linux {
 }
 
 detect_os
-build_now
+#build_now
 windows_create_installer
 windows_copy_to_website
