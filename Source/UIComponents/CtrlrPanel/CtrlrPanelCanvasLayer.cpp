@@ -2,7 +2,7 @@
 #include "stdafx_luabind.h"
 #include "CtrlrPanelCanvasLayer.h"
 #include "CtrlrPanelCanvas.h"
-#include "CtrlrIds.h"
+#include "CtrlrIDs.h"
 #include "JuceClasses/LLookAndFeel.h"
 #include "CtrlrUtilities.h"
 #include "CtrlrLog.h"

@@ -25,7 +25,7 @@ CtrlrLinux::~CtrlrLinux()
 {
 }
 
-const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const bool isRestricted, const bool signPanel, RSAKey privateKey)
+const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const bool isRestricted, const bool signPanel)
 {
 	_DBG("CtrlrLinux::exportWithDefaultPanel");
 
@@ -96,22 +96,6 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const 
             }
 		}
 
-		/* If it's a restricted instance and the signing key is valid, sign the instance */
-		if (isRestricted && privateKey != RSAKey())
-        {
-            /* Sign the panel */
-            MemoryBlock signature = signData (panelResourcesData, privateKey);
-
-            if (!libr_write (outputHandle, (char *)CTRLR_INTERNAL_SIGNATURE_SECTION, (char *)signature.getData(), signature.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
-			{
-			    libr_close (outputHandle);
-				return (Result::fail ("Linux native, failed to write panel signature data to binary ["+newMe.getFullPathName()+"], size ["+STR((int32)signature.getSize())+"]"));
-			}
-			else
-            {
-                _DBG("CtrlrLinux::exportWithDefaultPanel wrote signature, size: "+_STR((int)signature.getSize()));
-            }
-        }
 	}
 
     /* We need to move the temporary file to the new destination, libr won't do that for us */

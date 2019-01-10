@@ -9,7 +9,7 @@
 #include "CtrlrRevision.h"
 #include "luabind/object_fwd.hpp"
 
-#include <eh.h> 
+//#include <eh.h> 
 
 extern "C"
 {
