@@ -35,7 +35,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I$(HOME)/SDKs/VST_SDK/VST3_SDK -I../../JuceLibraryCode -I$(HOME)/JUCE/modules $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I$(HOME)/SDKs/VST_SDK/VST3_SDK -I../../JuceLibraryCode -I$(HOME)/JUCE/modules -I../../Source -I../../Source/Misc -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua $(CPPFLAGS)
 
   JUCE_CPPFLAGS_VST := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0 -DJucePlugin_Build_Unity=0
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
@@ -65,7 +65,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := -march=native
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I$(HOME)/SDKs/VST_SDK/VST3_SDK -I../../JuceLibraryCode -I$(HOME)/JUCE/modules $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa freetype2 libcurl x11 xext xinerama webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I$(HOME)/SDKs/VST_SDK/VST3_SDK -I../../JuceLibraryCode -I$(HOME)/JUCE/modules -I../../Source -I../../Source/Misc -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/boost -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua $(CPPFLAGS)
 
   JUCE_CPPFLAGS_VST := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0 -DJucePlugin_Build_Unity=0
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
