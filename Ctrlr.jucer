@@ -3,14 +3,14 @@
 <JUCERPROJECT id="hrcYoO" name="Ctrlr" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Dark" projectType="audioplug" version="6.0.0"
               bundleIdentifier="com.instigator.Ctrlr" includeBinaryInAppConfig="1"
-              cppLanguageStandard="14" buildVST="1" buildVST3="1" buildAU="1"
+              cppLanguageStandard="11" buildVST="1" buildVST3="1" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
               enableIAA="0" pluginName="Ctrlr" pluginDesc="Ctrlr" pluginManufacturer="Instigator"
               pluginManufacturerCode="inSt" pluginCode="cTrl" pluginChannelConfigs=""
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
               pluginIsMidiEffectPlugin="1" pluginEditorRequiresKeys="1" pluginAUExportPrefix="CtrlrAU"
               pluginRTASCategory="" aaxIdentifier="com.instigator.Ctrlr" pluginAAXCategory="2"
-              jucerVersion="5.3.2" companyName="Instigator" pluginAUMainType="CtrlrAU"
+              jucerVersion="5.4.1" companyName="Instigator" pluginAUMainType="CtrlrAU"
               pluginFormats="buildVST,buildVST3,buildAU,buildAUv3,buildStandalone"
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginProducesMidiOut,pluginIsMidiEffectPlugin,pluginEditorRequiresKeys">
   <MAINGROUP id="SRLsFb" name="Ctrlr">
@@ -1249,12 +1249,13 @@
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
       </MODULEPATHS>
     </VS2017>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
+               enableGNUExtensions="1">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr"
-                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
+                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr"
-                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
+                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
@@ -1263,7 +1264,7 @@
         <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
         <MODULEPATH id="juce_events" path="../JUCE/modules"/>
         <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE/modules"/>
@@ -1298,23 +1299,24 @@
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
-            useGlobalPath="1"/>
-    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+            useGlobalPath="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
   <LIVE_SETTINGS>
     <WINDOWS/>
+    <OSX/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>
