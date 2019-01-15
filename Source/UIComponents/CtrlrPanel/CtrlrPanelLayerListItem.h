@@ -9,8 +9,8 @@ class CtrlrColourEditorComponent;
 
 class CtrlrPanelLayerListItem  : public Component,
                                  public ChangeListener,
-                                 public LabelListener,
-                                 public ButtonListener
+								 public Label::Listener,
+								 public Button::Listener
 {
 public:
     //==============================================================================

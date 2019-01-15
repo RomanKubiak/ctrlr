@@ -105,9 +105,9 @@ class CtrlrMIDIBufferTokeniser : public CodeTokeniser
 */
 class CtrlrMIDIBuffer  : public Component,
                          public CodeDocument::Listener,
-                         public ComboBoxListener,
-                         public LabelListener,
-                         public ButtonListener
+						 public ComboBox::Listener,
+						 public Label::Listener,
+						 public Button::Listener
 {
 public:
     //==============================================================================

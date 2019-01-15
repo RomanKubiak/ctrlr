@@ -60,7 +60,7 @@ class MultiMidiAlert : public AlertWindow
 class CtrlrMultiMidiPropertyComponent  : public Component,
                                          public ListBoxModel,
                                          public Label::Listener,
-                                         public ButtonListener,
+										 public Button::Listener,
 										 public CtrlrPropertyChild 
 {
 	public:

@@ -16,8 +16,8 @@ class SysExRow : public Component
 };
 
 class CtrlrSysExEditor  : public Component,
-                          public SliderListener,
-                          public LabelListener,
+						  public Slider::Listener,
+						  public Label::Listener,
                           public ChangeBroadcaster
 {
 	public:

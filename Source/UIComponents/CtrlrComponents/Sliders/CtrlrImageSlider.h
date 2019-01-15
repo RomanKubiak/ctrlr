@@ -8,7 +8,7 @@ class CtrlrImageSliderLF;
 
 class CtrlrImageSlider  : public CtrlrComponent,
                           public SettableTooltipClient,
-                          public SliderListener
+						  public Slider::Listener
 {
 public:
     //==============================================================================

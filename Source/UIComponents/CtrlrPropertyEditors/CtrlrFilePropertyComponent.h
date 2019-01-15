@@ -3,7 +3,7 @@
 
 #include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 
-class CtrlrFileProperty  : public Component, public Label::Listener, public ButtonListener, public CtrlrPropertyChild
+class CtrlrFileProperty  : public Component, public Label::Listener, public Button::Listener, public CtrlrPropertyChild
 {
 	public:
 		CtrlrFileProperty (const Value &_valeToControl);

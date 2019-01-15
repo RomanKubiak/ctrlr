@@ -42,7 +42,7 @@ class CtrlrColourEditorComponent : 	public Component,
 		Colour colour;
 		bool canResetToDefault;
 
-		class CtrlrColourSelectorComp   : public Component, public ButtonListener
+		class CtrlrColourSelectorComp   : public Component, public Button::Listener
 		{
 			public:
 				CtrlrColourSelectorComp (CtrlrColourEditorComponent* owner_, const bool canResetToDefault) : owner (owner_), defaultButton (0)

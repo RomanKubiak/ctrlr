@@ -39,7 +39,7 @@ class CtrlrLuaMethodEditor;
 */
 class CtrlrLuaMethodDebuggerPrompt  : public Component,
                                       public TextEditor::Listener,
-                                      public ButtonListener
+									  public Button::Listener
 {
 public:
     //==============================================================================

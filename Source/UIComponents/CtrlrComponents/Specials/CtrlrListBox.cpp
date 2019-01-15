@@ -173,19 +173,12 @@ void CtrlrListBox::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChan
 		|| property == Ids::uiListBoxVScrollTrackColour
 		)
 	{
-		if (listBox->getVerticalScrollBar())
-		{
-			listBox->getVerticalScrollBar()->setColour (ScrollBar::backgroundColourId, VAR2COLOUR(getProperty (Ids::uiListBoxVScrollBgColour)));
-			listBox->getVerticalScrollBar()->setColour (ScrollBar::thumbColourId, VAR2COLOUR(getProperty (Ids::uiListBoxVScrollThumbColour)));
-			listBox->getVerticalScrollBar()->setColour (ScrollBar::trackColourId, VAR2COLOUR(getProperty (Ids::uiListBoxVScrollTrackColour)));
-		}
-
-		if (listBox->getHorizontalScrollBar())
-		{
-			listBox->getHorizontalScrollBar()->setColour (ScrollBar::backgroundColourId, VAR2COLOUR(getProperty (Ids::uiListBoxHScrollBgColour)));
-			listBox->getHorizontalScrollBar()->setColour (ScrollBar::thumbColourId, VAR2COLOUR(getProperty (Ids::uiListBoxHScrollThumbColour)));
-			listBox->getHorizontalScrollBar()->setColour (ScrollBar::trackColourId, VAR2COLOUR(getProperty (Ids::uiListBoxHScrollTrackColour)));
-		}
+		listBox->getVerticalScrollBar().setColour (ScrollBar::backgroundColourId, VAR2COLOUR(getProperty (Ids::uiListBoxVScrollBgColour)));
+		listBox->getVerticalScrollBar().setColour (ScrollBar::thumbColourId, VAR2COLOUR(getProperty (Ids::uiListBoxVScrollThumbColour)));
+		listBox->getVerticalScrollBar().setColour (ScrollBar::trackColourId, VAR2COLOUR(getProperty (Ids::uiListBoxVScrollTrackColour)));
+		listBox->getHorizontalScrollBar().setColour (ScrollBar::backgroundColourId, VAR2COLOUR(getProperty (Ids::uiListBoxHScrollBgColour)));
+		listBox->getHorizontalScrollBar().setColour (ScrollBar::thumbColourId, VAR2COLOUR(getProperty (Ids::uiListBoxHScrollThumbColour)));
+		listBox->getHorizontalScrollBar().setColour (ScrollBar::trackColourId, VAR2COLOUR(getProperty (Ids::uiListBoxHScrollTrackColour)));
 	}
 	else if (property == Ids::uiListBoxItemClicked)
 	{

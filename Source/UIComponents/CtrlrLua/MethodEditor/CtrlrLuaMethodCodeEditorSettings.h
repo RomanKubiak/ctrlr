@@ -44,9 +44,9 @@ class CtrlrLuaMethodEditor;
 */
 class CtrlrLuaMethodCodeEditorSettings  : public Component,
                                           public ChangeListener,
-                                          public ComboBoxListener,
-                                          public ButtonListener,
-                                          public SliderListener
+										  public ComboBox::Listener,
+										  public Button::Listener,
+										  public Slider::Listener
 {
 public:
     //==============================================================================

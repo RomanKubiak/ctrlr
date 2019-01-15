@@ -481,7 +481,7 @@ CtrlrLuaMethodEditor &CtrlrLuaMethodCodeEditor::getOwner()
 //==============================================================================
 class GenericCodeEditorComponent::GoToPanel  : public Component,
 	private TextEditor::Listener,
-	private ButtonListener
+	private Button::Listener
 {
 public:
 	GoToPanel() : goToButton("", 0.0, Colours::white)
@@ -562,8 +562,8 @@ public:
 //==============================================================================
 class GenericCodeEditorComponent::FindPanel  : public Component,
 	private TextEditor::Listener,
-	private ButtonListener,
-	private ComboBoxListener
+	private Button::Listener,
+	private ComboBox::Listener
 {
 public:
 	FindPanel()

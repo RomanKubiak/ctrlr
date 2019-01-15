@@ -7,7 +7,7 @@ class CtrlrPanelResourceManager;
 
 class CtrlrPanelResourceEditor  : public Component,
                                   public TableListBoxModel,
-                                  public ButtonListener
+								  public Button::Listener
 {
 	public:
 		CtrlrPanelResourceEditor (CtrlrPanelEditor &_owner);

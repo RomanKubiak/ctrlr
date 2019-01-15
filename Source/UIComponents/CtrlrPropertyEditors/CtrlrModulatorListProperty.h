@@ -7,7 +7,7 @@
 
 class CtrlrModulatorListProperty :	public CtrlrPropertyChild, 
 									public Component, 
-									public ComboBoxListener,
+									public ComboBox::Listener,
 									public CtrlrPanel::Listener
 {
 	public:

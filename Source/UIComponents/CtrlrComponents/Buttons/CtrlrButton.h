@@ -5,7 +5,7 @@
 class CtrlrValueMap;
 
 class CtrlrButton  : public CtrlrComponent,
-                     public ButtonListener,
+					 public Button::Listener,
 					 public Timer
 {
 public:

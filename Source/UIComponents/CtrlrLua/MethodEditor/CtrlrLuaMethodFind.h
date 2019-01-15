@@ -37,8 +37,8 @@ class CtrlrLuaMethodEditor;
 */
 class CtrlrLuaMethodFind  : public Component,
                             public TextEditor::Listener,
-                            public ButtonListener,
-                            public ComboBoxListener
+							public Button::Listener,
+							public ComboBox::Listener
 {
 public:
     //==============================================================================

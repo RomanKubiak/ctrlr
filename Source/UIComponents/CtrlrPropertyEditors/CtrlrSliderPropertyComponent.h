@@ -4,7 +4,7 @@
 #include "CtrlrPropertyComponent.h"
 #include "CtrlrIDManager.h"
 
-class CtrlrSliderPropertyComponent   : public Component, private SliderListener, public CtrlrPropertyChild
+class CtrlrSliderPropertyComponent   : public Component, private Slider::Listener, public CtrlrPropertyChild
 {
 	public:
 		CtrlrSliderPropertyComponent (const Value &_valueToControl, double rangeMin, double rangeMax, double interval);

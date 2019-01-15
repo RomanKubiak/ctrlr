@@ -6,8 +6,8 @@
 #include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 
 class CtrlrSysExPropertyComponent  : public Component,
-                                     public LabelListener,
-                                     public ButtonListener,
+									 public Label::Listener,
+									 public Button::Listener,
 									 public CtrlrPropertyChild,
 									 public ChangeListener
 {

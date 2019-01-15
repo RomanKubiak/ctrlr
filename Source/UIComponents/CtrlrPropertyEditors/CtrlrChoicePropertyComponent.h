@@ -5,7 +5,7 @@
 #include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 
 class CtrlrChoicePropertyComponent  : public Component,
-                                      public ComboBoxListener,
+									  public ComboBox::Listener,
 									  public CtrlrPropertyChild
 {
 	public:

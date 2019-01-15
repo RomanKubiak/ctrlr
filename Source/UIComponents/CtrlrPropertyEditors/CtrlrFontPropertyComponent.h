@@ -5,9 +5,9 @@
 class CtrlrPanel;
 
 class CtrlrFontPropertyComponent  : public Component,
-                                    public ComboBoxListener,
-                                    public ButtonListener,
-                                    public SliderListener,
+									public ComboBox::Listener,
+									public Button::Listener,
+									public Slider::Listener,
 									public CtrlrPropertyChild,
 									public LookAndFeel_V2
 {

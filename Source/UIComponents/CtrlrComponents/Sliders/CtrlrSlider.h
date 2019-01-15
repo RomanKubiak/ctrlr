@@ -6,7 +6,7 @@
 
 class CtrlrSlider  : public CtrlrComponent,
                      public SettableTooltipClient,
-                     public SliderListener
+					 public Slider::Listener
 {
 	public:
 		CtrlrSlider (CtrlrModulator &owner);

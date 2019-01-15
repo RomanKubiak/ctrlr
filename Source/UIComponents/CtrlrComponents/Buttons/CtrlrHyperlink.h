@@ -5,7 +5,7 @@
 #include "CtrlrComponents/CtrlrComponent.h"
 
 class CtrlrHyperlink  : public CtrlrComponent,
-                        public ButtonListener
+						public Button::Listener
 {
 public:
     //==============================================================================

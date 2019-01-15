@@ -36,9 +36,9 @@ class CtrlrPanel;
                                                                     //[/Comments]
 */
 class CtrlrMIDISettingsDevices  : public Component,
-                                  public ComboBoxListener,
-                                  public LabelListener,
-                                  public ButtonListener
+									public ComboBox::Listener,
+									public Label::Listener,
+									public Button::Listener
 {
 public:
     //==============================================================================

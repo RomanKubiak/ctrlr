@@ -36,7 +36,7 @@ class CtrlrPanel;
                                                                     //[/Comments]
 */
 class CtrlrMIDISettingsRouting  : public Component,
-                                  public ButtonListener
+									public Button::Listener
 {
 public:
     //==============================================================================

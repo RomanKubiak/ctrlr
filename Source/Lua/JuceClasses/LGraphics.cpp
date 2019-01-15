@@ -211,7 +211,7 @@ void LDrawable::wrapForLua (lua_State *L)
 			.def("setOriginWithOriginalSize", &Drawable::setOriginWithOriginalSize)
 			.def("setTransformToFit", &Drawable::setTransformToFit)
 			.def("getParent", &Drawable::getParent)
-			.def("createFromImageFile", &Drawable::createFromValueTree)
+			// .def("createFromImageFile", &Drawable::createFromValueTree) removed from JUCE
 			.def("getDrawableBounds", &Drawable::getDrawableBounds)
 			.scope
 			[
@@ -219,24 +219,21 @@ void LDrawable::wrapForLua (lua_State *L)
 				def("createFromImageDataStream", &Drawable::createFromImageDataStream, adopt(result)),
 				def("createFromImageFile", &Drawable::createFromImageFile, adopt(result)),
 				def("createFromSVG", &Drawable::createFromSVG, adopt(result)),
-				def("createFromValueTree", &Drawable::createFromValueTree, adopt(result)),
+				// def("createFromValueTree", &Drawable::createFromValueTree, adopt(result)), removed from JUCE
 				def("toDrawableComposite", &LDrawable::toDrawableComposite)
 			]
 		,
 		class_<DrawableComposite, bases<Drawable> >("DrawableComposite")
 			.def(constructor<>())
 			.def(constructor<const DrawableComposite &>())
-			.def("setBoundingBox", &DrawableComposite::setBoundingBox)
+			.def("setBoundingBox", (void (DrawableComposite::*)(Rectangle<float>))&DrawableComposite::setBoundingBox)
 			.def("getBoundingBox", &DrawableComposite::getBoundingBox)
 			.def("resetBoundingBoxToContentArea", &DrawableComposite::resetBoundingBoxToContentArea)
 			.def("getContentArea", &DrawableComposite::getContentArea)
 			.def("setContentArea", &DrawableComposite::setContentArea)
 			.def("resetContentAreaAndBoundingBoxToFitChildren", &DrawableComposite::resetContentAreaAndBoundingBoxToFitChildren)
 			.def("createCopy", &DrawableComposite::createCopy)
-			.def("refreshFromValueTree", &DrawableComposite::refreshFromValueTree)
-			.def("createValueTree", &DrawableComposite::createValueTree)
 			.def("getDrawableBounds", &DrawableComposite::getDrawableBounds)
-			.def("getMarkers", &DrawableComposite::getMarkers)
 	];
 }
 
@@ -335,7 +332,7 @@ void LGlyphArrangement::wrapForLua(lua_State *L)
 			.def("addGlyphArrangement", &GlyphArrangement::addGlyphArrangement)
 			.def("addGlyph", &GlyphArrangement::addGlyph)
 			.def("draw", (void (GlyphArrangement::*) (const Graphics &) const) &GlyphArrangement::draw)
-			.def("draw", (void (GlyphArrangement::*) (const Graphics &, const AffineTransform &) const) &GlyphArrangement::draw)
+			.def("draw", (void (GlyphArrangement::*) (const Graphics &, AffineTransform) const) &GlyphArrangement::draw)
 			.def("createPath", &GlyphArrangement::createPath)
 			.def("findGlyphIndexAt", &GlyphArrangement::findGlyphIndexAt)
 			.def("getBoundingBox", &GlyphArrangement::getBoundingBox)
@@ -357,7 +354,7 @@ void LGraphics::wrapForLua (lua_State *L)
 			.def("setColour", &Graphics::setColour)
 			.def("setOpacity", &Graphics::setOpacity)
 
-			.def("setGradientFill", &Graphics::setGradientFill)
+			.def("setGradientFill", (void (Graphics::*)(const ColourGradient &))&Graphics::setGradientFill)
 			.def("setTiledImageFill", &Graphics::setTiledImageFill)
 			.def("setFillType", &Graphics::setFillType)
 

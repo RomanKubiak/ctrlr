@@ -40,8 +40,8 @@ class CtrlrManager;
 */
 class CtrlrMIDICalculator  : public CtrlrChildWindowContent,
                              public TextEditor::Listener,
-                             public ComboBoxListener,
-                             public ButtonListener
+							 public ComboBox::Listener,
+							 public Button::Listener
 {
 public:
     //==============================================================================

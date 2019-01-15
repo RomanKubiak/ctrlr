@@ -238,17 +238,17 @@ void CtrlrFileListBox::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		)
 	{
 		Viewport* view = treeComponent->getViewport();
-		if ( ScrollBar* h = view->getHorizontalScrollBar() )
+		ScrollBar &h = view->getHorizontalScrollBar();
 		{
-			h->setColour (ScrollBar::backgroundColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxHScrollBgColour)));
-			h->setColour (ScrollBar::thumbColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxHScrollThumbColour)));
-			h->setColour (ScrollBar::trackColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxHScrollTrackColour)));
+			h.setColour (ScrollBar::backgroundColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxHScrollBgColour)));
+			h.setColour (ScrollBar::thumbColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxHScrollThumbColour)));
+			h.setColour (ScrollBar::trackColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxHScrollTrackColour)));
 		}
-		if ( ScrollBar* v = view->getVerticalScrollBar() )
+		ScrollBar &v = view->getVerticalScrollBar();
 		{
-			v->setColour (ScrollBar::backgroundColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxVScrollBgColour)));
-			v->setColour (ScrollBar::thumbColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxVScrollThumbColour)));
-			v->setColour (ScrollBar::trackColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxVScrollTrackColour)));
+			v.setColour (ScrollBar::backgroundColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxVScrollBgColour)));
+			v.setColour (ScrollBar::thumbColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxVScrollThumbColour)));
+			v.setColour (ScrollBar::trackColourId, VAR2COLOUR(getProperty (Ids::uiFileListBoxVScrollTrackColour)));
 		}
 	}
 	else if (property == Ids::uiFileListFont)

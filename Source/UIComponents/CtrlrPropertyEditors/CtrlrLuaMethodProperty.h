@@ -5,8 +5,8 @@
 #include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 
 class CtrlrLuaMethodProperty  : public Component,
-                                public ComboBoxListener,
-                                public ButtonListener,
+								public ComboBox::Listener,
+								public Button::Listener,
 								public CtrlrPropertyChild
 {
 	public:
