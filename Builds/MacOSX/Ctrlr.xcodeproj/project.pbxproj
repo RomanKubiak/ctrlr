@@ -1126,13 +1126,6 @@
 			path = ../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYSurface.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		05D355B4615FBA79C507B9E7 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_opengl";
-			path = "../../../JUCE/modules/juce_opengl";
-			sourceTree = "SOURCE_ROOT";
-		};
 		060619582C62DD53E8654A47 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2148,13 +2141,6 @@
 			path = ../../Source/Misc/luabind/doc/intro.rst;
 			sourceTree = "SOURCE_ROOT";
 		};
-		2E2F945350C12B4BF67DF893 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_data_structures";
-			path = "../../../JUCE/modules/juce_data_structures";
-			sourceTree = "SOURCE_ROOT";
-		};
 		2E568D614F2636E3DD468D11 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2288,13 +2274,6 @@
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		3511443BD7D542875D12B291 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_gui_extra";
-			path = "../../../JUCE/modules/juce_gui_extra";
-			sourceTree = "SOURCE_ROOT";
-		};
 		351FE1F63B8690568154F5D8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -2405,13 +2384,6 @@
 			lastKnownFileType = sourcecode.cpp.objcpp;
 			name = "include_juce_audio_plugin_client_AU_1.mm";
 			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_AU_1.mm";
-			sourceTree = "SOURCE_ROOT";
-		};
-		3A51AF971B884EB31FCCC7FA = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_gui_basics";
-			path = "../../../JUCE/modules/juce_gui_basics";
 			sourceTree = "SOURCE_ROOT";
 		};
 		3A75AD6523F41DB57BCA4621 = {
@@ -2687,13 +2659,6 @@
 			path = ../../Source/Lua/JuceClasses/LJuce.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		4B0D1BC40148A970180365C9 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_devices";
-			path = "../../../JUCE/modules/juce_audio_devices";
-			sourceTree = "SOURCE_ROOT";
-		};
 		4B8ECFC4500D1F940475D33D = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -2813,13 +2778,6 @@
 			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		51CB5FE277A70870A7C5A399 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_graphics";
-			path = "../../../JUCE/modules/juce_graphics";
-			sourceTree = "SOURCE_ROOT";
-		};
 		521D39094B26F87E60B37329 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2860,13 +2818,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LButton.h;
 			path = ../../Source/Lua/JuceClasses/LButton.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		54869A0E6C6450E61BBCC47B = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_utils";
-			path = "../../../JUCE/modules/juce_audio_utils";
 			sourceTree = "SOURCE_ROOT";
 		};
 		549B34061CE4D5FD54C717E6 = {
@@ -2974,13 +2925,6 @@
 			path = "../../Source/Misc/luabind/luabind/shared_ptr_converter.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		59E19E3F3C7390721C2A9D55 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_formats";
-			path = "../../../JUCE/modules/juce_audio_formats";
-			sourceTree = "SOURCE_ROOT";
-		};
 		5AD4AAFD2DA0CD41D6FB169B = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3035,6 +2979,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrMIDIDeviceManager.h;
 			path = ../../Source/MIDI/CtrlrMIDIDeviceManager.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		5D8786C8D0847A4CDB1951DB = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_opengl";
+			path = "../../JUCE/modules/juce_opengl";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5DD042154373640AB11D7C1B = {
@@ -3140,6 +3091,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LFileListComponent.h;
 			path = ../../Source/Lua/JuceClasses/LFileListComponent.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		62AC8FC9FB6D4B4AED056DDF = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_data_structures";
+			path = "../../JUCE/modules/juce_data_structures";
 			sourceTree = "SOURCE_ROOT";
 		};
 		62B1F10067A092D10B7D5FAD = {
@@ -3399,6 +3357,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrValueMap.cpp;
 			path = ../../Source/UIComponents/CtrlrValueMap.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		72576EEC7384B75DF2639197 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_gui_extra";
+			path = "../../JUCE/modules/juce_gui_extra";
 			sourceTree = "SOURCE_ROOT";
 		};
 		72C10694B0567CA32B18E554 = {
@@ -3723,6 +3688,13 @@
 			path = "../../Source/Resources/Lua/gen_LookAndFeel.lua.sh";
 			sourceTree = "SOURCE_ROOT";
 		};
+		81ED1CA2751505D8CB3488AB = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_gui_basics";
+			path = "../../JUCE/modules/juce_gui_basics";
+			sourceTree = "SOURCE_ROOT";
+		};
 		8216F6B1C0BAEF4C4E39DE50 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -4045,13 +4017,6 @@
 			path = ../../Source/Lua/JuceClasses/LComponents.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		9412CC231624F0CCB8AB0700 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_basics";
-			path = "../../../JUCE/modules/juce_audio_basics";
-			sourceTree = "SOURCE_ROOT";
-		};
 		9439EC762A4BA5022A58659F = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -4064,13 +4029,6 @@
 			lastKnownFileType = file.css;
 			name = style.css;
 			path = ../../Source/Misc/luabind/doc/style.css;
-			sourceTree = "SOURCE_ROOT";
-		};
-		946C6EF85A7BBAEE1CC41B4E = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_plugin_client";
-			path = "../../../JUCE/modules/juce_audio_plugin_client";
 			sourceTree = "SOURCE_ROOT";
 		};
 		9503089C289097F8B3937ABF = {
@@ -4360,6 +4318,13 @@
 			path = ../../Source/Misc/luabind/luabind/detail/debug.hpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		A338C661B0509EAE2A7D210F = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_events";
+			path = "../../JUCE/modules/juce_events";
+			sourceTree = "SOURCE_ROOT";
+		};
 		A393071EEDCB75E8B7D86AB1 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -4435,6 +4400,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrCustomComponent.h;
 			path = ../../Source/UIComponents/CtrlrComponents/CtrlrCustomComponent.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		A97F734E6D9114D0DD4BA42A = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_graphics";
+			path = "../../JUCE/modules/juce_graphics";
 			sourceTree = "SOURCE_ROOT";
 		};
 		A9C1A29AC60CD69A7202EED9 = {
@@ -4696,13 +4668,6 @@
 			path = "../../Source/Misc/luabind/doc/policies/pure_out_value.rst";
 			sourceTree = "SOURCE_ROOT";
 		};
-		B47D2E55F2CC88DDE8FD9979 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_events";
-			path = "../../../JUCE/modules/juce_events";
-			sourceTree = "SOURCE_ROOT";
-		};
 		B4FBC58B684954F13EF955E6 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
@@ -4871,6 +4836,13 @@
 			path = ../../Source/Resources/XML/CtrlrIDs.xml;
 			sourceTree = "SOURCE_ROOT";
 		};
+		BDC4699AF9B1AF628CEF54C5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_utils";
+			path = "../../JUCE/modules/juce_audio_utils";
+			sourceTree = "SOURCE_ROOT";
+		};
 		BDF164CDB69C585C864C546E = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -5016,6 +4988,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = "stdafx_luabind.cpp";
 			path = "../../Source/Core/stdafx_luabind.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		C59C84D7CDF8D4097EC43977 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_plugin_client";
+			path = "../../JUCE/modules/juce_audio_plugin_client";
 			sourceTree = "SOURCE_ROOT";
 		};
 		C60D34CA69315C57E7623612 = {
@@ -5263,6 +5242,13 @@
 			path = ../../Source/Lua/JuceClasses/LMidiBuffer.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		CB27C56B7C7DACC12EE7C320 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_devices";
+			path = "../../JUCE/modules/juce_audio_devices";
+			sourceTree = "SOURCE_ROOT";
+		};
 		CB55BF9A571A8704ECB751EA = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -5352,13 +5338,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrLuaMethodManagerCalls.cpp;
 			path = ../../Source/Lua/Methods/CtrlrLuaMethodManagerCalls.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		D24DCCA57ABC4E5111B53E31 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_processors";
-			path = "../../../JUCE/modules/juce_audio_processors";
 			sourceTree = "SOURCE_ROOT";
 		};
 		D28CD13BA91539F021B708FA = {
@@ -6068,6 +6047,13 @@
 			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		F48FCDE54E596B2D8DD8BE6D = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_processors";
+			path = "../../JUCE/modules/juce_audio_processors";
+			sourceTree = "SOURCE_ROOT";
+		};
 		F544C6BDAE2BAB92C34C0AE9 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -6124,6 +6110,13 @@
 			path = "../../Source/Misc/luabind/luabind/object_fwd.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		F79A43D7AA937EE1DC321DC2 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_formats";
+			path = "../../JUCE/modules/juce_audio_formats";
+			sourceTree = "SOURCE_ROOT";
+		};
 		F85CFDF9218B29C4EB599A61 = {
 			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
@@ -6150,6 +6143,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrSysexToken.h;
 			path = ../../Source/Core/CtrlrSysexToken.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		FAC7ABAABE2EC82CE5F22785 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_basics";
+			path = "../../JUCE/modules/juce_audio_basics";
 			sourceTree = "SOURCE_ROOT";
 		};
 		FB1020E59256FCA5678E10C0 = {
@@ -7382,19 +7382,19 @@
 		1DA59199BBA6B45537B5EDF0 = {
 			isa = PBXGroup;
 			children = (
-				9412CC231624F0CCB8AB0700,
-				4B0D1BC40148A970180365C9,
-				59E19E3F3C7390721C2A9D55,
-				946C6EF85A7BBAEE1CC41B4E,
-				D24DCCA57ABC4E5111B53E31,
-				54869A0E6C6450E61BBCC47B,
+				FAC7ABAABE2EC82CE5F22785,
+				CB27C56B7C7DACC12EE7C320,
+				F79A43D7AA937EE1DC321DC2,
+				C59C84D7CDF8D4097EC43977,
+				F48FCDE54E596B2D8DD8BE6D,
+				BDC4699AF9B1AF628CEF54C5,
 				7D69B538DDEEC71EA93E3EC0,
-				2E2F945350C12B4BF67DF893,
-				B47D2E55F2CC88DDE8FD9979,
-				51CB5FE277A70870A7C5A399,
-				3A51AF971B884EB31FCCC7FA,
-				3511443BD7D542875D12B291,
-				05D355B4615FBA79C507B9E7,
+				62AC8FC9FB6D4B4AED056DDF,
+				A338C661B0509EAE2A7D210F,
+				A97F734E6D9114D0DD4BA42A,
+				81ED1CA2751505D8CB3488AB,
+				72576EEC7384B75DF2639197,
+				5D8786C8D0847A4CDB1951DB,
 			);
 			name = "JUCE Modules";
 			sourceTree = "<group>";
@@ -7538,7 +7538,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -7553,7 +7552,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST.plist;
@@ -7603,7 +7602,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -7618,7 +7616,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST.plist;
@@ -7667,7 +7665,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -7682,7 +7679,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST3.plist;
@@ -7732,7 +7729,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -7747,7 +7743,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST3.plist;
@@ -7796,7 +7792,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -7811,7 +7806,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-AU.plist;
@@ -7862,7 +7857,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -7877,7 +7871,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-AU.plist;
@@ -7928,7 +7922,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -7943,7 +7936,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-AUv3_AppExtension.plist;
@@ -7990,7 +7983,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -8005,7 +7997,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-AUv3_AppExtension.plist;
@@ -8050,7 +8042,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -8065,7 +8056,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
@@ -8110,7 +8101,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -8125,7 +8115,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
@@ -8171,7 +8161,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -8186,7 +8175,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
@@ -8231,7 +8220,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/SDKs/VST_SDK/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../JUCE/modules",
 					"../../JUCE/modules",
 					"../../Source",
 					"../../Source/Misc",
@@ -8246,7 +8234,7 @@
 					"../../Source/Plugin",
 					"../../Source/UIComponents",
 					"../../Source/Lua",
-					"../../../JUCE/modules/juce_audio_plugin_client",
+					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
