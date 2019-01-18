@@ -406,6 +406,4 @@ function build_now_linux {
 }
 
 detect_os
-#build_now
-windows_create_installer
-windows_copy_to_website
+build_now
