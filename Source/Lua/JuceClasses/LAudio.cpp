@@ -261,6 +261,8 @@ void LMidiMessage::wrapForLua (lua_State *L)
 
 	module(L)
     [
+        class_<MidiMessage::SmpteTimecodeType>("SmpteTimecodeType")
+        ,
 		class_<MidiMessage>("MidiMessage")
 				.def(constructor<>())
 				.def(constructor<const MidiMessage &>())
@@ -342,14 +344,13 @@ void LMidiMessage::wrapForLua (lua_State *L)
 				.def("isMidiMachineControlMessage", &MidiMessage::isMidiMachineControlMessage)
 				.def("getMidiMachineControlCommand", &MidiMessage::getMidiMachineControlCommand)
 				.def("isMidiMachineControlGoto", &MidiMessage::isMidiMachineControlGoto)
-				.enum_("SmtpeTimecodeType")
+				.enum_("SmpteTimecodeType")
 				[
 					value("fps24", 0),
 					value("fps25", 1),
 					value("fps30drop", 2),
 					value("fps30", 3)
 				]
-				// CAUSES COMPILATION ERROR .def("getFullFrameParameters", (void (MidiMessage::*)(int &, int &, int &, int &, MidiMessage::SmpteTimecodeType &) const noexcept)&MidiMessage::getFullFrameParameters)
 				.enum_("MidiMachineControlCommand")
 				[
 					value("mmc_stop", 1),

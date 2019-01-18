@@ -19,8 +19,6 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{45D63B7A-48C9-9315-F736-43CDE2A172DC}</ProjectGuid>
-    <PlatformToolset>v141</PlatformToolset>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"
@@ -30,7 +28,7 @@
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <LinkIncremental>true</LinkIncremental>
     <PlatformToolset>v141</PlatformToolset>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">$([Microsoft.Build.Utilities.ToolLocationHelper]::GetLatestSDKTargetPlatformVersion('Windows', '10.0'))</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"
                  Label="Configuration">
@@ -39,7 +37,7 @@
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <LinkIncremental>true</LinkIncremental>
     <PlatformToolset>v141</PlatformToolset>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">$([Microsoft.Build.Utilities.ToolLocationHelper]::GetLatestSDKTargetPlatformVersion('Windows', '10.0'))</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Win32|Win32'"
                  Label="Configuration">
@@ -48,7 +46,7 @@
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <LinkIncremental>true</LinkIncremental>
     <PlatformToolset>v141</PlatformToolset>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">$([Microsoft.Build.Utilities.ToolLocationHelper]::GetLatestSDKTargetPlatformVersion('Windows', '10.0'))</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props"/>
   <ImportGroup Label="ExtensionSettings"/>
@@ -57,10 +55,6 @@
             Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')"
             Label="LocalAppDataPlatform"/>
   </ImportGroup>
-  <PropertyGroup Label="UserMacros">
-    <PlatformToolset>v141</PlatformToolset>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
-  </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <TargetExt>.dll</TargetExt>
@@ -79,8 +73,6 @@
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_Win32|Win32'">Ctrlr-Win32</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release_Win32|Win32'">true</GenerateManifest>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release_Win32|Win32'">$(LibraryPath);$(SolutionDir)$(Platform)\$(Configuration)\Shared Code</LibraryPath>
-    <PlatformToolset>v141</PlatformToolset>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -93,7 +85,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\JuceLibraryCode;c:\devel\ctrlr\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\JuceLibraryCode;..\..\..\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=6.0.0;JUCE_APP_VERSION_HEX=0x60000;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -138,7 +130,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\JuceLibraryCode;c:\devel\ctrlr\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\JuceLibraryCode;..\..\..\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=6.0.0;JUCE_APP_VERSION_HEX=0x60000;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -185,7 +177,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\JuceLibraryCode;c:\devel\ctrlr\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\JuceLibraryCode;..\..\..\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=6.0.0;JUCE_APP_VERSION_HEX=0x60000;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>

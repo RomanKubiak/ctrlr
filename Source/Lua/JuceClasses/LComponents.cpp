@@ -76,10 +76,9 @@ void LAlertWindow::wrapForLua (lua_State *L)
 
 	module(L)
     [
-		class_<AlertWindow>("JAlertWindow")
-		,
+		class_<AlertWindow>("JAlertWindow"),
 		class_<LAlertWindow, bases<AlertWindow, Component> >("AlertWindow")
-			.def(constructor<const String &, const String &, AlertIconType>())
+            .def(constructor<const String &, const String &, AlertIconType>())
 			.def("getAlertType", &AlertWindow::getAlertType)
 			.def("setMessage", &AlertWindow::setMessage)
 			.def("addButton", &AlertWindow::addButton)
@@ -101,13 +100,13 @@ void LAlertWindow::wrapForLua (lua_State *L)
 			.def("setModalHandler", &LAlertWindow::setModalHandler)
 			.def("runModalLoop", &LAlertWindow::runModalLoop)
 			.def("exitModalState", &Component::exitModalState)
-			.enum_("AlertIconType")
-			[
-				value("NoIcon", 0),
-				value("QuestionIcon", 1),
-				value("WarningIcon", 2),
-				value("InfoIcon", 3)
-			]
+            .enum_("AlertIconType")
+            [
+                value("NoIcon", 0),
+                value("QuestionIcon", 1),
+                value("WarningIcon", 2),
+                value("InfoIcon", 3)
+            ]
 			.scope
 			[
 				def("showMessageBox", &LAlertWindow::showMessageBox),
@@ -116,7 +115,7 @@ void LAlertWindow::wrapForLua (lua_State *L)
 				def("showYesNoCancelBox", &LAlertWindow::showYesNoCancelBox),
 				def("showNativeDialogBox", &LAlertWindow::showNativeDialogBox),
 				def("queryText", &LAlertWindow::queryText)
-			]
+             ]
 	];
 }
 
@@ -175,8 +174,8 @@ void LButton::wrapForLua (lua_State *L)
 
 	module(L)
     [
-        class_<SettableTooltipClient>("SettableTooltipClient")
-        ,
+        class_<SettableTooltipClient>("SettableTooltipClient"),
+        class_<Button::ButtonState>("ButtonState"),
 		class_<Button, bases<Component, SettableTooltipClient> >("Button")
             .def("setButtonText", &Button::setButtonText)
             .def("getButtonText", &Button::getButtonText)
