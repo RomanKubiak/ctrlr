@@ -131,7 +131,7 @@ using namespace juce;
 #endif
 
 #undef MemoryBlock
-
+#include "CtrlrMacros.h"
 class JuceVSTWrapper;
 static bool recursionCheck = false;
 
@@ -344,7 +344,14 @@ public:
         vstEffect.numOutputs = maxNumOutChannels;
         vstEffect.initialDelay = processor->getLatencySamples();
         vstEffect.object = this;
-        vstEffect.uniqueID = JucePlugin_VSTUniqueID;
+		if (processor)
+		{
+			vstEffect.uniqueID = processor->getInputChannelName(VST_INDEX_UNIQUEID).getIntValue();
+		}
+		else
+		{
+			vstEffect.uniqueID = JucePlugin_VSTUniqueID;
+	}
 
        #ifdef JucePlugin_VSTChunkStructureVersion
         vstEffect.version = JucePlugin_VSTChunkStructureVersion;
@@ -411,6 +418,7 @@ public:
         }
     }
 
+	AudioProcessor *getProcessor() { return (processor); }
     Vst2::AEffect* getAEffect() noexcept    { return &vstEffect; }
 
     template <typename FloatType>
@@ -1166,7 +1174,7 @@ public:
         }
     }
 
-    pointer_sized_int dispatcher (int32 opCode, VstOpCodeArguments args)
+    pointer_sized_int dispatcher (int32 opCode, VstOpCodeArguments args, AudioProcessor *proc)
     {
         if (hasShutdown)
             return 0;
@@ -1227,12 +1235,12 @@ public:
 
         if (opCode == Vst2::effClose)
         {
-            wrapper->dispatcher (opCode, args);
+            wrapper->dispatcher (opCode, args, wrapper->getProcessor());
             delete wrapper;
             return 1;
         }
 
-        return wrapper->dispatcher (opCode, args);
+        return wrapper->dispatcher (opCode, args, wrapper->getProcessor());
     }
 
     //==============================================================================
@@ -2009,18 +2017,30 @@ private:
 
     pointer_sized_int handleGetPlugInName (VstOpCodeArguments args)
     {
+		if (processor)
+		{
+			String (processor->getName()).copyToUTF8 ((char*)args.ptr, 64 + 1);
+		}
         String (JucePlugin_Name).copyToUTF8 ((char*) args.ptr, 64 + 1);
         return 1;
     }
 
     pointer_sized_int handleGetManufacturerName (VstOpCodeArguments args)
     {
+		if (processor)
+		{
+			String (processor->getInputChannelName(VST_INDEX_MANUFACTURER).copyToUTF8 ((char*)args.ptr, 64 + 1));
+		}
         String (JucePlugin_Manufacturer).copyToUTF8 ((char*) args.ptr, 64 + 1);
         return 1;
     }
 
     pointer_sized_int handleGetManufacturerVersion (VstOpCodeArguments)
     {
+		if (processor)
+		{
+			processor->getInputChannelName(VST_INDEX_VERSION_CODE).getIntValue();
+		}
         return convertHexVersionToDecimal (JucePlugin_VersionCode);
     }
 
