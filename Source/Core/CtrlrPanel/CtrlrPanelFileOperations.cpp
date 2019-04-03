@@ -19,6 +19,13 @@ ValueTree CtrlrPanel::getCleanPanelTree()
 		exportTree.removeProperty (Ids::panelMidiInputDevice, 0);
 		exportTree.removeProperty (Ids::panelMidiControllerDevice, 0);
 	}
+
+	// Remove custom data
+	if (exportTree.getChildWithName(Ids::panelCustomData).isValid())
+	{
+		exportTree.removeChild(exportTree.getChildWithName(Ids::panelCustomData), nullptr);
+	}
+
 	ValueTree ed = exportTree.getChildWithName(Ids::uiPanelEditor);
 
 	if (ed.isValid())
@@ -726,7 +733,7 @@ void CtrlrPanel::convertLuaMethodToProperty(const File &panelLuaDir, ValueTree *
 		return;
 
 	const String methodName = method->getProperty(Ids::luaMethodName);
-	const String methodFilePath = method->getProperty(Ids::luaMethodCode);
+	const String methodFilePath = method->getProperty(Ids::luaMethodSourcePath);
 	if (methodName.isEmpty() || methodFilePath.isEmpty())
 		return;
 	// Get file path
