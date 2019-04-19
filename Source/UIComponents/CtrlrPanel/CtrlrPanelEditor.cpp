@@ -110,7 +110,8 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	setProperty(Ids::uiPanelDisabledOnEdit, false);
 	setProperty(Ids::uiPanelMenuBarVisible, true);
 	setProperty(Ids::uiPanelMenuBarHideOnExport, false);
- 	setProperty(Ids::uiPanelWidth, 400);
+	setProperty(Ids::uiPanelProgramsMenuHideOnExport, false);
+	setProperty(Ids::uiPanelWidth, 400);
  	setProperty(Ids::uiPanelHeight, 400);
  	setProperty(Ids::name, panelName);
 	setProperty(Ids::uiPanelImageAlpha, 255);

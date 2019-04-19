@@ -74,6 +74,11 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 	
 	lookAndFeelChanged();
 	activeCtrlrChanged();
+
+	if (isRestricted() && owner.getActivePanel())
+	{
+		hideProgramsMenu = owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelProgramsMenuHideOnExport);
+	}
 }
 
 CtrlrEditor::~CtrlrEditor()

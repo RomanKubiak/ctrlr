@@ -84,8 +84,16 @@ StringArray CtrlrEditor::getMenuBarNames()
 	}
 	else
 	{
-		const char* const names[] = { "File", "Edit", "View",  "MIDI", "Programs", "Tools", "Help", nullptr };
-		n = StringArray (names);
+		if (hideProgramsMenu)
+		{
+			const char* const names[] = { "File", "Edit", "View",  "MIDI", "Tools", "Help", nullptr };
+			n = StringArray(names);
+		}
+		else
+		{
+			const char* const names[] = { "File", "Edit", "View",  "MIDI", "Programs", "Tools", "Help", nullptr };
+			n = StringArray(names);
+		}
 	}
 
 	return (n);
@@ -198,7 +206,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
         menu.addSubMenu ("Input channel", getMidiChannelMenu(hostInputDevice),		(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
         menu.addSubMenu ("Output channel", getMidiChannelMenu(hostOutputDevice),	(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
     }
-	else if ((!isRestricted() && (topLevelMenuIndex == MenuPrograms)) || (isRestricted() && (topLevelMenuIndex == MenuRestrictedPrograms))) // Programs
+	else if ((!isRestricted() && (topLevelMenuIndex == MenuPrograms)) || (isRestricted() && !hideProgramsMenu && (topLevelMenuIndex == MenuRestrictedPrograms))) // Programs
 	{
 		menu.addSectionHeader ("Snapshots");
 		menu.addCommandItem (commandManager, doSnapshotStore);
@@ -207,7 +215,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, optMidiSnapshotOnProgramChange);
 		menu.addCustomItem (1, new CtrlrMenuSlider(this, "Snapshot delay", getPanelProperty(Ids::panelMidiSnapshotDelay), 0, 2000, 1));
 	}
-	else if ((!isRestricted() && (topLevelMenuIndex == MenuTools)) || (isRestricted() && (topLevelMenuIndex == MenuRestrictedTools))) // Tools
+	else if ((!isRestricted() && (topLevelMenuIndex == MenuTools)) || (isRestricted() && (topLevelMenuIndex == (hideProgramsMenu ? (MenuRestrictedTools - 1) : MenuRestrictedTools)))) // Tools
 	{
 		menu.addCommandItem (commandManager, showMidiMonitor);
 		menu.addCommandItem (commandManager, showMidiCalculator);
@@ -216,7 +224,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, doRegisterExtension);
 		menu.addCommandItem (commandManager, doKeyGenerator);
 	}
-	else if ((!isRestricted() && (topLevelMenuIndex == MenuHelp)) || (isRestricted() && (topLevelMenuIndex == MenuRestrictedHelp))) // Help
+	else if ((!isRestricted() && (topLevelMenuIndex == MenuHelp)) || (isRestricted() && (topLevelMenuIndex == (hideProgramsMenu ? (MenuRestrictedHelp - 1) : MenuRestrictedHelp)))) // Help
 	{
 		menu.addCommandItem (commandManager, showAboutDialog);
 		menu.addSeparator();
