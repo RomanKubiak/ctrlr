@@ -29,6 +29,17 @@ class CtrlrEditor  : public AudioProcessorEditor,
 			MenuHelp
 		};
 
+		enum TopMenuRestrictedIDs
+		{
+			MenuRestrictedFile,
+			MenuRestrictedEdit,
+			MenuRestrictedView,
+			MenuRestrictedMidi,
+			MenuRestrictedPrograms,
+			MenuRestrictedTools,
+			MenuRestrictedHelp
+		};
+
 		enum CommandIDs
 		{
 			doSaveState					= 0x2000,
