@@ -177,7 +177,9 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		CtrlrPanel *invalidCtrlrPtr;
 		Result tempResult;
 		int64 lastCommandInvocationMillis;
-		bool hideProgramsMenu;
+		bool hideProgramsMenu = false;
+		bool hideMidiControllerMenu = false;
+		bool hideMidiThruMenu = false;
 };
 
 

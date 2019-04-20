@@ -110,6 +110,8 @@ namespace Ids
 	DECLARE_ID (uiPanelMenuBarVisible);
 	DECLARE_ID (uiPanelMenuBarHideOnExport);
 	DECLARE_ID (uiPanelProgramsMenuHideOnExport);
+	DECLARE_ID (uiPanelMidiControllerMenuHideOnExport);
+	DECLARE_ID (uiPanelMidiThruMenuHideOnExport);
 
 	DECLARE_ID (panelMidiProgram);
 	DECLARE_ID (panelMidiBankLsb);

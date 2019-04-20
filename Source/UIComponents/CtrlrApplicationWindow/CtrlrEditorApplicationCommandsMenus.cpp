@@ -180,31 +180,42 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addSubMenu ("Device", getMidiDeviceMenu(inputDevice), isPanelActive());
 		menu.addSubMenu ("Channel", getMidiChannelMenu(inputDevice), isPanelActive());
 
-		menu.addSectionHeader ("Controller"+getMidiSummary(controllerDevice));
-		menu.addSubMenu ("Device", getMidiDeviceMenu(controllerDevice), isPanelActive());
-		menu.addSubMenu ("Channel", getMidiChannelMenu(controllerDevice), isPanelActive());
+		if (!hideMidiControllerMenu)
+		{
+			menu.addSectionHeader("Controller" + getMidiSummary(controllerDevice));
+			menu.addSubMenu("Device", getMidiDeviceMenu(controllerDevice), isPanelActive());
+			menu.addSubMenu("Channel", getMidiChannelMenu(controllerDevice), isPanelActive());
+		}
 
 		menu.addSectionHeader ("Output "+getMidiSummary(outputDevice));
 		menu.addSubMenu ("Device", getMidiDeviceMenu(outputDevice), isPanelActive());
 		menu.addSubMenu ("Channel", getMidiChannelMenu(outputDevice), isPanelActive());
-		menu.addSeparator();
-		PopupMenu thru;
-		thru.addCommandItem (commandManager, optMidiThruD2D);
-		thru.addCommandItem (commandManager, optMidiThruD2DChannelize);
-		thru.addCommandItem (commandManager, optMidiThruD2H);
-		thru.addCommandItem (commandManager, optMidiThruD2HChannelize);
-		thru.addCommandItem (commandManager, optMidiThruH2D);
-		thru.addCommandItem (commandManager, optMidiThruH2DChannelize);
-		thru.addCommandItem (commandManager, optMidiThruH2H);
-		thru.addCommandItem (commandManager, optMidiThruH2HChannelize);
 
-		menu.addSubMenu ("MIDI Thru", thru);
-        menu.addSectionHeader ("Plugin options");
-        menu.addCommandItem (commandManager, optMidiInputFromHost);
-        menu.addCommandItem (commandManager, optMidiInputFromHostCompare);
-        menu.addCommandItem (commandManager, optMidiOutuptToHost);
-        menu.addSubMenu ("Input channel", getMidiChannelMenu(hostInputDevice),		(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
-        menu.addSubMenu ("Output channel", getMidiChannelMenu(hostOutputDevice),	(isPanelActive() && (JUCEApplication::isStandaloneApp() == false)) );
+		menu.addSeparator();
+		if (!hideMidiThruMenu)
+		{
+			PopupMenu thru;
+			thru.addCommandItem(commandManager, optMidiThruD2D);
+			thru.addCommandItem(commandManager, optMidiThruD2DChannelize);
+			thru.addCommandItem(commandManager, optMidiThruD2H);
+			thru.addCommandItem(commandManager, optMidiThruD2HChannelize);
+			thru.addCommandItem(commandManager, optMidiThruH2D);
+			thru.addCommandItem(commandManager, optMidiThruH2DChannelize);
+			thru.addCommandItem(commandManager, optMidiThruH2H);
+			thru.addCommandItem(commandManager, optMidiThruH2HChannelize);
+
+			menu.addSubMenu("MIDI Thru", thru);
+		}
+
+		if (!JUCEApplication::isStandaloneApp())
+		{
+			menu.addSectionHeader("Plugin options");
+			menu.addCommandItem(commandManager, optMidiInputFromHost);
+			menu.addCommandItem(commandManager, optMidiInputFromHostCompare);
+			menu.addCommandItem(commandManager, optMidiOutuptToHost);
+			menu.addSubMenu("Input channel", getMidiChannelMenu(hostInputDevice), isPanelActive());
+			menu.addSubMenu("Output channel", getMidiChannelMenu(hostOutputDevice), isPanelActive());
+		}
     }
 	else if ((!isRestricted() && (topLevelMenuIndex == MenuPrograms)) || (isRestricted() && !hideProgramsMenu && (topLevelMenuIndex == MenuRestrictedPrograms))) // Programs
 	{

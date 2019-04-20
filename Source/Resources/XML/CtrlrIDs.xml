@@ -58,6 +58,8 @@
   <id name="uiPanelMenuBarVisible"      text="Is menu bar visible for this panel" type="Bool" />
   <id name="uiPanelMenuBarHideOnExport" text="Hide the menu bar when exporting an instance" type="Bool" />
   <id name="uiPanelProgramsMenuHideOnExport" text="Hide the Programs menu when exporting an instance" type="Bool" />
+  <id name="uiPanelMidiControllerMenuHideOnExport" text="Hide the Midi Controller menu when exporting an instance" type="Bool" />
+  <id name="uiPanelMidiThruMenuHideOnExport" text="Hide the Midi Thru menu when exporting an instance" type="Bool" />
 
   <!-- Panel properties -->
 
