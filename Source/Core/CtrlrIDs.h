@@ -112,6 +112,7 @@ namespace Ids
 	DECLARE_ID (uiPanelProgramsMenuHideOnExport);
 	DECLARE_ID (uiPanelMidiControllerMenuHideOnExport);
 	DECLARE_ID (uiPanelMidiThruMenuHideOnExport);
+	DECLARE_ID (uiPanelMidiChannelMenuHideOnExport);
 
 	DECLARE_ID (panelMidiProgram);
 	DECLARE_ID (panelMidiBankLsb);

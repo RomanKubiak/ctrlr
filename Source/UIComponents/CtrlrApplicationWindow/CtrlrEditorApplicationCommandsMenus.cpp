@@ -178,18 +178,18 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addSeparator();
 		menu.addSectionHeader ("Input"+getMidiSummary(inputDevice));
 		menu.addSubMenu ("Device", getMidiDeviceMenu(inputDevice), isPanelActive());
-		menu.addSubMenu ("Channel", getMidiChannelMenu(inputDevice), isPanelActive());
+		if (!hideMidiChannelMenu) menu.addSubMenu ("Channel", getMidiChannelMenu(inputDevice), isPanelActive());
 
 		if (!hideMidiControllerMenu)
 		{
 			menu.addSectionHeader("Controller" + getMidiSummary(controllerDevice));
 			menu.addSubMenu("Device", getMidiDeviceMenu(controllerDevice), isPanelActive());
-			menu.addSubMenu("Channel", getMidiChannelMenu(controllerDevice), isPanelActive());
+			if (!hideMidiChannelMenu) menu.addSubMenu("Channel", getMidiChannelMenu(controllerDevice), isPanelActive());
 		}
 
 		menu.addSectionHeader ("Output "+getMidiSummary(outputDevice));
 		menu.addSubMenu ("Device", getMidiDeviceMenu(outputDevice), isPanelActive());
-		menu.addSubMenu ("Channel", getMidiChannelMenu(outputDevice), isPanelActive());
+		if (!hideMidiChannelMenu) menu.addSubMenu ("Channel", getMidiChannelMenu(outputDevice), isPanelActive());
 
 		menu.addSeparator();
 		if (!hideMidiThruMenu)
@@ -253,8 +253,8 @@ void CtrlrEditor::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 	/* Some items are not commands, they need to be invoked manualy here */
 	//_DBG("CtrlrEditor::menuItemSelected topLevelMenuIndex="+STR(topLevelMenuIndex)+" menuItemID="+STR(menuItemID)+" MENU_OFFSET_MIDI="+STR(MENU_OFFSET_MIDI));
 
-	if (topLevelMenuIndex == 4)
-	{
+	if (topLevelMenuIndex == 3 || topLevelMenuIndex == 4)
+	{	// This is MIDI menu (3 if Panel menu is hidden, 4 otherwise)
 		if (menuItemID >= MENU_OFFSET_MIDI_DEV_IN && menuItemID < MENU_OFFSET_CUSTOM_REQUESTS)
 		{
 			performMidiDeviceChange(menuItemID);

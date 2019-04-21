@@ -180,6 +180,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		bool hideProgramsMenu = false;
 		bool hideMidiControllerMenu = false;
 		bool hideMidiThruMenu = false;
+		bool hideMidiChannelMenu = false;
 };
 
 
