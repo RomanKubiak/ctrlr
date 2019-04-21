@@ -439,17 +439,26 @@ const String CtrlrEditor::getMidiSummary(const CtrlrMIDIDeviceType type)
 	if (type == inputDevice)
 	{
 		ret << (getPanelProperty(Ids::panelMidiInputDevice).toString().isEmpty() ? "No device" : getPanelProperty(Ids::panelMidiInputDevice).toString());
-		ret << " / CH:" + String(getActivePanel()->getMidiChannel (panelMidiInputChannelDevice));
+		if (!hideMidiChannelMenu)
+		{
+			ret << " / CH:" + String(getActivePanel()->getMidiChannel(panelMidiInputChannelDevice));
+		}
 	}
 	else if (type == outputDevice)
 	{
 		ret << (getPanelProperty(Ids::panelMidiOutputDevice).toString().isEmpty() ? "No device" : getPanelProperty(Ids::panelMidiOutputDevice).toString());
-		ret << " / CH:" + String(getActivePanel()->getMidiChannel (panelMidiOutputChannelDevice));
+		if (!hideMidiChannelMenu)
+		{
+			ret << " / CH:" + String(getActivePanel()->getMidiChannel(panelMidiOutputChannelDevice));
+		}
 	}
 	else if (type == controllerDevice)
 	{
 		ret << (getPanelProperty(Ids::panelMidiControllerDevice).toString().isEmpty() ? "No device" : getPanelProperty(Ids::panelMidiControllerDevice).toString());
-		ret << " / CH:" + String(getActivePanel()->getMidiChannel (panelMidiControllerChannel));
+		if (!hideMidiChannelMenu)
+		{
+			ret << " / CH:" + String(getActivePanel()->getMidiChannel(panelMidiControllerChannel));
+		}
 	}
 
 	ret << ")";
