@@ -173,7 +173,7 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 	}
 	else if ((!isRestricted() && (topLevelMenuIndex == MenuMidi)) || (isRestricted() && (topLevelMenuIndex == MenuRestrictedMidi))) // MIDI
 	{
-		menu.addCommandItem(commandManager, doShowMidiSettingsDialog);
+		if(!isRestricted()) menu.addCommandItem(commandManager, doShowMidiSettingsDialog);
 		menu.addCommandItem (commandManager, doRefreshDeviceList);
 		menu.addSeparator();
 		menu.addSectionHeader ("Input"+getMidiSummary(inputDevice));
