@@ -101,7 +101,7 @@ void CtrlrStandaloneWindow::changeListenerCallback(ChangeBroadcaster* source)
 {	// Check for window title modification
 	CtrlrPanel *panel = ctrlrProcessor->getManager().getActivePanel();
 	String windowTitle = ctrlrProcessor->getManager().getInstanceName();
-	if (panel)
+	if (panel && !ctrlrProcessor->getManager().isSingleInstance())
 	{
 		windowTitle += " - " + panel->getPanelWindowTitle();
 	}

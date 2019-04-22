@@ -293,6 +293,7 @@ class CtrlrManager :    public ValueTree::Listener,
 		const String getInstanceName() const;
         const String getInstanceNameForHost() const;
 		CtrlrInstance getInstanceMode() const;
+		const bool isSingleInstance() const;
 		XmlElement *saveState();
 		Result importInstanceResources(CtrlrNative *native);
 		ValueTree &getInstanceTree();

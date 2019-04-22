@@ -95,8 +95,7 @@ const String CtrlrManager::getInstanceNameForHost() const
 
 const String CtrlrManager::getInstanceName() const
 {
-	if (getInstanceMode() == InstanceSingle
-        || getInstanceMode() == InstanceSingleRestriced)
+	if (isSingleInstance())
 	{
 		return (ctrlrPlayerInstanceTree.getProperty(Ids::name));
 	}
@@ -105,6 +104,12 @@ const String CtrlrManager::getInstanceName() const
 		return ("Ctrlr");
 	}
 }
+
+const bool CtrlrManager::isSingleInstance() const
+{
+	return (ctrlrPlayerInstanceMode == InstanceSingle || ctrlrPlayerInstanceMode == InstanceSingleRestriced);
+}
+
 
 Result CtrlrManager::addInstancePanel()
 {
