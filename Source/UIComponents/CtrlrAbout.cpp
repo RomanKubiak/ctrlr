@@ -133,7 +133,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 	addVersionInfo ("boost", _STR(BOOST_VERSION / 100000) + "." + _STR(BOOST_VERSION / 100 % 1000) + "." + _STR(BOOST_VERSION % 100));
 	versionInfoLabel->setFont (Font (owner.getFontManager().getDefaultMonoFontName(), 14.0f, Font::plain));
 
-	if (owner.getInstanceMode() == InstanceSingle || owner.getInstanceMode() == InstanceSingleRestriced)
+	if (owner.isSingleInstance())
 	{
     //[/UserPreSize]
 

@@ -969,7 +969,10 @@ const String CtrlrPanel::getVersionString(const bool includeVersionName, const b
 	else
 		sep = versionSeparator;
 
-	r << getProperty (Ids::panelVersionMajor).toString()+sep+getProperty (Ids::panelVersionMinor).toString();
+	int versionMajor = getProperty(Ids::panelVersionMajor);
+	int versionMinor = getProperty(Ids::panelVersionMinor);
+
+	r << versionMajor << sep << versionMinor;
 
 	if (includeVersionName && getProperty (Ids::panelVersionName).toString() != "")
 	{
