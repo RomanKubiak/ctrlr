@@ -186,6 +186,7 @@ namespace Ids
 	DECLARE_ID (panelComponentGroupList);
 	DECLARE_ID (panelGlobalVariables);
 	DECLARE_ID (panelAuthorName);
+	DECLARE_ID (panelAuthorDonateUrl);
 	DECLARE_ID (panelAuthorEmail);
 	DECLARE_ID (panelAuthorUrl);
 	DECLARE_ID (panelAuthorDesc);

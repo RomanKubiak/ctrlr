@@ -120,6 +120,7 @@
   <id name="panelComponentGroupList"        text="Component groups" type="VarText"/>
   <id name="panelGlobalVariables"           text="Global variables" type="ReadOnly"/>
   <id name="panelAuthorName"                text="Panel author name" type="Text"/>
+  <id name="panelAuthorDonateUrl"           text="Panel author donate url" type="Text"/>
   <id name="panelAuthorEmail"               text="Panel author email" type="Text"/>
   <id name="panelAuthorUrl"                 text="Panel author url" type="Text"/>
   <id name="panelAuthorDesc"                text="Panel author description" type="MultiLineSmall"/>

@@ -75,6 +75,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
 	setProperty (Ids::panelMessageTime, 10000);
 	setProperty (Ids::panelAuthorName, "");
 	setProperty (Ids::panelAuthorEmail, "");
+	setProperty (Ids::panelAuthorDonateUrl, "");
 	setProperty (Ids::panelAuthorUrl, "");
 	setProperty (Ids::panelAuthorDesc, "");
 	setProperty (Ids::panelVersionMajor, 1);

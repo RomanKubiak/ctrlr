@@ -66,10 +66,14 @@ private:
     ScopedPointer<TextEditor> versionInfoLabel;
     ScopedPointer<Label> label;
     ScopedPointer<Label> label2;
-    ScopedPointer<Label> label3;
+	ScopedPointer<Label> labelDonate;
+	ScopedPointer<Label> labelAuthorEmail;
+	ScopedPointer<Label> label3;
     ScopedPointer<Label> label4;
     ScopedPointer<HyperlinkButton> instanceUrl;
-    ScopedPointer<Label> instanceVersion;
+	ScopedPointer<HyperlinkButton> instanceAuthorDonateUrl;
+	ScopedPointer<HyperlinkButton> instanceAuthorEmail;
+	ScopedPointer<Label> instanceVersion;
     ScopedPointer<Label> instanceAuthor;
     ScopedPointer<Label> instanceName;
     ScopedPointer<TextEditor> instanceDescription;

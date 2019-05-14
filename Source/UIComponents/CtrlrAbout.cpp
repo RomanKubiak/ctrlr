@@ -10,6 +10,9 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
+	String authorEmail = owner.getActivePanel() ? owner.getActivePanel()->getProperty(Ids::panelAuthorEmail) : String::empty;
+	String authorDonateUrl = owner.getActivePanel() ? owner.getActivePanel()->getProperty(Ids::panelAuthorDonateUrl) : String::empty;
+
     addAndMakeVisible (ctrlrName = new Label (String::empty,
                                               TRANS("Ctrlr")));
     ctrlrName->setFont (Font (48.00f, Font::bold));
@@ -46,7 +49,17 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     label->setColour (TextEditor::textColourId, Colours::black);
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (label2 = new Label ("new label",
+	if (!authorDonateUrl.isEmpty())
+	{
+		addAndMakeVisible(labelDonate = new Label("new label", TRANS("Donate")));
+		labelDonate->setFont(Font(24.00f, Font::plain));
+		labelDonate->setJustificationType(Justification::topRight);
+		labelDonate->setEditable(false, false, false);
+		labelDonate->setColour(TextEditor::textColourId, Colours::black);
+		labelDonate->setColour(TextEditor::backgroundColourId, Colour(0x00000000));
+	}
+
+	addAndMakeVisible (label2 = new Label ("new label",
                                            TRANS("Author")));
     label2->setFont (Font (24.00f, Font::plain));
     label2->setJustificationType (Justification::topRight);
@@ -54,7 +67,17 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     label2->setColour (TextEditor::textColourId, Colours::black);
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (label3 = new Label ("new label",
+	if (!authorEmail.isEmpty())
+	{
+		addAndMakeVisible(labelAuthorEmail = new Label("new label", TRANS("Contact")));
+		labelAuthorEmail->setFont(Font(24.00f, Font::plain));
+		labelAuthorEmail->setJustificationType(Justification::topRight);
+		labelAuthorEmail->setEditable(false, false, false);
+		labelAuthorEmail->setColour(TextEditor::textColourId, Colours::black);
+		labelAuthorEmail->setColour(TextEditor::backgroundColourId, Colour(0x00000000));
+	}
+	
+	addAndMakeVisible (label3 = new Label ("new label",
                                            TRANS("Version")));
     label3->setFont (Font (24.00f, Font::plain));
     label3->setJustificationType (Justification::topRight);
@@ -73,8 +96,21 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     addAndMakeVisible (instanceUrl = new HyperlinkButton (String::empty,
                                                           URL ("http://www.rawmaterialsoftware.com/juce")));
     instanceUrl->setTooltip (TRANS("http://www.rawmaterialsoftware.com/juce"));
+	instanceUrl->setJustificationType(Justification::topLeft);
 
-    addAndMakeVisible (instanceVersion = new Label (String::empty,
+	if (!authorEmail.isEmpty())
+	{
+		addAndMakeVisible(instanceAuthorEmail = new HyperlinkButton(authorEmail,URL("mailto:" + authorEmail)));
+		instanceAuthorEmail->setJustificationType(Justification::topLeft);
+	}
+
+	if (!authorDonateUrl.isEmpty())
+	{
+		addAndMakeVisible(instanceAuthorDonateUrl = new HyperlinkButton(authorDonateUrl, URL(authorDonateUrl)));
+		instanceAuthorDonateUrl->setJustificationType(Justification::topLeft);
+	}
+
+	addAndMakeVisible (instanceVersion = new Label (String::empty,
                                                     String::empty));
     instanceVersion->setFont (Font (22.00f, Font::bold));
     instanceVersion->setJustificationType (Justification::topLeft);
@@ -137,7 +173,18 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 	{
     //[/UserPreSize]
 
-    setSize (600, 380);
+		int height = 380;
+		if (!authorEmail.isEmpty())
+		{
+			height += 40;
+		}
+
+		if (!authorDonateUrl.isEmpty())
+		{
+			height += 40;
+		}
+		
+		setSize (600, height);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -168,6 +215,8 @@ CtrlrAbout::~CtrlrAbout()
     ctrlrLogo = nullptr;
     versionInfoLabel = nullptr;
     label = nullptr;
+	labelAuthorEmail = nullptr;
+	labelDonate = nullptr;
     label2 = nullptr;
     label3 = nullptr;
     label4 = nullptr;
@@ -203,15 +252,32 @@ void CtrlrAbout::resized()
     ctrlrName->setBounds (proportionOfWidth (0.0200f) + proportionOfWidth (0.0800f) - -8, 8, proportionOfWidth (0.2000f), 48);
     ctrlrLogo->setBounds (proportionOfWidth (0.0200f), 8, proportionOfWidth (0.0800f), 48);
     versionInfoLabel->setBounds ((proportionOfWidth (0.0200f) + proportionOfWidth (0.0800f) - -8) + proportionOfWidth (0.2000f) - -8, 8, proportionOfWidth (0.6600f), 76);
-    label->setBounds (proportionOfWidth (0.0133f), 120, proportionOfWidth (0.4600f), 24);
-    label2->setBounds (proportionOfWidth (0.0133f), 176, proportionOfWidth (0.4600f), 24);
-    label3->setBounds (proportionOfWidth (0.0133f), 216, proportionOfWidth (0.4600f), 24);
-    label4->setBounds (proportionOfWidth (0.0133f), 256, proportionOfWidth (0.4600f), 24);
-    instanceUrl->setBounds (proportionOfWidth (0.5000f), 256, proportionOfWidth (0.4800f), 24);
-    instanceVersion->setBounds (proportionOfWidth (0.5000f), 216, proportionOfWidth (0.4800f), 24);
-    instanceAuthor->setBounds (proportionOfWidth (0.5000f), 176, proportionOfWidth (0.4800f), 24);
-    instanceName->setBounds (proportionOfWidth (0.5000f), 120, proportionOfWidth (0.4800f), 24);
-    instanceDescription->setBounds (proportionOfWidth (0.0200f), 288, proportionOfWidth (0.9600f), 80);
+	label->setBounds (proportionOfWidth (0.0133f), 120, proportionOfWidth (0.4600f), 24);
+	instanceName->setBounds(proportionOfWidth(0.5000f), 120, proportionOfWidth(0.4800f), 24);
+	int height = 136;
+	if (labelDonate)
+	{
+		height += 40;
+		labelDonate->setBounds(proportionOfWidth(0.0133f), height, proportionOfWidth(0.4600f), 24);
+		instanceAuthorDonateUrl->setBounds(proportionOfWidth(0.5000f), height, proportionOfWidth(0.4800f), 24);
+	}
+	height += 40;
+	label2->setBounds (proportionOfWidth (0.0133f), height, proportionOfWidth (0.4600f), 24);
+	instanceAuthor->setBounds(proportionOfWidth(0.5000f), height, proportionOfWidth(0.4800f), 24);
+	if (labelAuthorEmail)
+	{
+		height += 40;
+		labelAuthorEmail->setBounds(proportionOfWidth(0.0133f), height, proportionOfWidth(0.4600f), 24);
+		instanceAuthorEmail->setBounds(proportionOfWidth(0.5000f), height, proportionOfWidth(0.4800f), 24);
+	}
+	height += 40;
+	label3->setBounds (proportionOfWidth (0.0133f), height, proportionOfWidth (0.4600f), 24);
+	instanceVersion->setBounds(proportionOfWidth(0.5000f), height, proportionOfWidth(0.4800f), 24);
+	height += 40;
+	label4->setBounds (proportionOfWidth (0.0133f), height, proportionOfWidth (0.4600f), 24);
+    instanceUrl->setBounds (proportionOfWidth (0.5000f), height, proportionOfWidth (0.4800f), 24);
+	height += 32;
+	instanceDescription->setBounds (proportionOfWidth (0.0200f), height, proportionOfWidth (0.9600f), 80);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
