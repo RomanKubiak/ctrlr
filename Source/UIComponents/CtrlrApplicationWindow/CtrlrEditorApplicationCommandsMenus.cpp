@@ -232,8 +232,11 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, showMidiCalculator);
 		menu.addCommandItem (commandManager, showLogViewer);
 		menu.addCommandItem (commandManager, showComparatorTables);
-		menu.addCommandItem (commandManager, doRegisterExtension);
-		menu.addCommandItem (commandManager, doKeyGenerator);
+		if(!isRestricted())
+		{
+			menu.addCommandItem(commandManager, doRegisterExtension);
+			menu.addCommandItem(commandManager, doKeyGenerator);
+		}
 	}
 	else if ((!isRestricted() && (topLevelMenuIndex == MenuHelp)) || (isRestricted() && (topLevelMenuIndex == (hideProgramsMenu ? (MenuRestrictedHelp - 1) : MenuRestrictedHelp)))) // Help
 	{
