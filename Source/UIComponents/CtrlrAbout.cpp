@@ -10,8 +10,12 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-	String authorEmail = owner.getActivePanel() ? owner.getActivePanel()->getProperty(Ids::panelAuthorEmail) : String::empty;
-	String authorDonateUrl = owner.getActivePanel() ? owner.getActivePanel()->getProperty(Ids::panelAuthorDonateUrl) : String::empty;
+    String authorEmail;
+    if(owner.getActivePanel()) authorEmail = owner.getActivePanel()->getProperty(Ids::panelAuthorEmail);
+        else authorEmail = String::empty;
+    String authorDonateUrl;
+    if(owner.getActivePanel()) authorDonateUrl =   owner.getActivePanel()->getProperty(Ids::panelAuthorDonateUrl);
+        else authorDonateUrl = String::empty;
 
     addAndMakeVisible (ctrlrName = new Label (String::empty,
                                               TRANS("Ctrlr")));

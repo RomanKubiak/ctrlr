@@ -16,7 +16,7 @@ CtrlrMac::~CtrlrMac()
 {
 }
 
-const Result CtrlrMac::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted, const bool signPanel, RSAKey privateKey)
+const Result CtrlrMac::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted, const bool signPanel)
 {
 	if (panelToWrite == nullptr)
 	{

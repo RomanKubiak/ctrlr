@@ -10,7 +10,7 @@ class CtrlrMac : public CtrlrNative
 	public:
 		CtrlrMac(CtrlrManager &_owner);
 		~CtrlrMac();
-		const Result exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted=false, const bool signPanel=false, RSAKey privateKey=RSAKey());
+		const Result exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const bool isRestricted=false, const bool signPanel=false);
 		const Result getDefaultPanel(MemoryBlock &dataToWrite);
 		const Result getDefaultResources(MemoryBlock& dataToWrite);
 		const Result setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle);
