@@ -27,6 +27,7 @@ class CtrlrComponentResizableBorder : public ResizableBorderComponent, public Lo
 {
 	public:
 		CtrlrComponentResizableBorder(CtrlrComponent *_owner, ComponentBoundsConstrainer *constrainer);
+		~CtrlrComponentResizableBorder();
 		void paint (Graphics &g);
 		void drawResizableFrame (Graphics& g, int w, int h, const BorderSize<int> &borderSize);
 
@@ -118,7 +119,7 @@ class CtrlrComponent :	public Component,
 		bool editMode;
 		bool allowDimSnap;
 		int snapDimSize;
-		CtrlrComponentResizableBorder selectionBorder;
+		std::unique_ptr<CtrlrComponentResizableBorder> selectionBorder;
 		ValueTree componentTree;
 		CtrlrModulator &owner;
 		Label componentNameLabel;

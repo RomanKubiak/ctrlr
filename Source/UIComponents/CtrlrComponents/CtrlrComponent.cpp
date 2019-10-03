@@ -33,6 +33,11 @@ CtrlrComponentResizableBorder::CtrlrComponentResizableBorder(CtrlrComponent *_ow
 	setLookAndFeel (this);
 }
 
+CtrlrComponentResizableBorder::~CtrlrComponentResizableBorder()
+{
+	setLookAndFeel(nullptr);
+}
+
 void CtrlrComponentResizableBorder::paint (Graphics &g)
 {
 	if (owner->getRestoreState())
@@ -56,8 +61,7 @@ void CtrlrComponentResizableBorder::drawResizableFrame (Graphics& g, int w, int 
 /** */
 
 CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
-	:	selectionBorder(this, 0),
-		componentTree(Ids::component),
+	:	componentTree(Ids::component),
 		owner(_owner),
 		restoreStateInProgress(true),
 		glowEffect(nullptr),
@@ -67,11 +71,12 @@ CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
 	owner.getModulatorTree().addChild (componentTree, -1, nullptr);
 	componentTree.addListener (this);
 
-	selectionBorder.setBorderThickness (BorderSize<int>(6));
-	selectionBorder.setAlwaysOnTop (true);
-	selectionBorder.addComponentListener (this);
-	selectionBorder.addMouseListener (this, true);
-	addChildComponent (&selectionBorder, -1);
+	selectionBorder.reset(new CtrlrComponentResizableBorder(this, 0));
+	selectionBorder->setBorderThickness (BorderSize<int>(6));
+	selectionBorder->setAlwaysOnTop (true);
+	selectionBorder->addComponentListener (this);
+	selectionBorder->addMouseListener (this, true);
+	addChildComponent (selectionBorder.get(), -1);
 
 	componentNameLabel.setText (getVisibleName(), dontSendNotification);
 	componentNameLabel.setJustificationType (Justification::centred);
@@ -120,7 +125,8 @@ CtrlrComponent::~CtrlrComponent()
 	{
 		delete (glowEffect.release());
 	}
-
+	if (selectionBorder.get())
+		delete selectionBorder.release();
 	componentTree.removeListener (this);
 	masterReference.clear();
 }
@@ -175,7 +181,7 @@ void CtrlrComponent::resized()
 
 	if (restoreStateInProgress == false)
 	{
-		selectionBorder.setBounds (0, 0, w, h);
+		selectionBorder->setBounds (0, 0, w, h);
 	}
 }
 
@@ -266,11 +272,11 @@ void CtrlrComponent::changeListenerCallback (ChangeBroadcaster* source)
 		{
 			if ((bool)getProperty(Ids::componentIsLocked) == true)
 				return;
-			selectionBorder.setVisible (true);
+			selectionBorder->setVisible (true);
 		}
 		else
 		{
-			selectionBorder.setVisible (false);
+			selectionBorder->setVisible (false);
 		}
 
 		CtrlrComponent::resized();
@@ -616,7 +622,7 @@ void CtrlrComponent::panelEditModeChanged(const bool isInEditMode)
 			{
 				for (int i=0; i<getNumChildComponents(); i++)
 				{
-					if (getChildComponent(i) == &selectionBorder || getChildComponent(i) == &componentNameLabel)
+					if (getChildComponent(i) == selectionBorder.get() || getChildComponent(i) == &componentNameLabel)
 						continue;
 
 					getChildComponent(i)->setEnabled (false);
@@ -631,7 +637,7 @@ void CtrlrComponent::panelEditModeChanged(const bool isInEditMode)
 		{
 			for (int i=0; i<getNumChildComponents(); i++)
 			{
-				if (getChildComponent(i) == &selectionBorder || getChildComponent(i) == &componentNameLabel)
+				if (getChildComponent(i) == selectionBorder.get() || getChildComponent(i) == &componentNameLabel)
 					continue;
 
 				getChildComponent(i)->setEnabled (true);

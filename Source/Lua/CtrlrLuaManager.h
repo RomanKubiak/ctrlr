@@ -18,15 +18,7 @@ class CtrlrLuaManager : public ValueTree::Listener
 {
 	public:
 		CtrlrLuaManager(CtrlrPanel &_owner);
-		~CtrlrLuaManager();
-		static void console (const String &arg);
-		static void assert_();
-		static void print_d (const String &arg);
-		static void sleep (const int milliseconds);
-		static std::string stringToLua (const String &string);
-		static const String toJuceString (const std::string &arg);
-		static const double int64ToDouble(const int64 value);
-		static const int int64ToInt(const int64 value);
+		~CtrlrLuaManager();		
 
 		void assignDefaultObjects(lua_State* L);
 		void wrapBasicIO(lua_State* L);

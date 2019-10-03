@@ -22,6 +22,8 @@ class LGlobalFunctions
 		static void console (const std::string &arg);
 		static void wrapForLua (lua_State *L);
 		static void setLookAndFeel (Component *component, luabind::object lookAndFeelObject);
+		static const double int64ToDouble(const int64 value);
+		static const int int64ToInt(const int64 value);
 };
 
 #endif

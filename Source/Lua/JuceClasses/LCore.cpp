@@ -233,6 +233,16 @@ void LGlobalFunctions::sleep(const int milliseconds)
     Thread::sleep(milliseconds);
 }
 
+const double LGlobalFunctions::int64ToDouble(const int64 value)
+{
+	return (static_cast<double>(value));
+}
+
+const int LGlobalFunctions::int64ToInt(const int64 value)
+{
+	return (static_cast<int>(value));
+}
+
 void LGlobalFunctions::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -317,7 +327,9 @@ void LGlobalFunctions::wrapForLua (lua_State *L)
 		def("floor", (double (*) (double))&floor),
 		def("floorf", (float (*) (float))&floorf),
 		def("fmod", (double (*) (double, double))&fmod),
-		def("fmodf", (float (*) (float, float))&fmodf)
+		def("fmodf", (float (*) (float, float))&fmodf),
+		def("int64ToInt", &int64ToInt),
+		def("int64ToDouble", &int64ToDouble)
 	];
 }
 

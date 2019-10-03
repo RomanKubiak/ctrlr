@@ -69,7 +69,10 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 	}
 	else
 	{
-		centreWithSize(800, 600);
+		if (JUCEApplication::isStandaloneApp())
+			centreWithSize(800, 600);
+		else
+			setSize(800, 600);
 	}
 	
 	lookAndFeelChanged();
