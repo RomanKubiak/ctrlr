@@ -62,8 +62,15 @@ void CtrlrPanelCanvas::paint (Graphics& g)
 		}
 	}
 
-	gradientFromProperty(g, getBounds(), getOwner().getObjectTree(), Ids::uiPanelBackgroundGradientType, Ids::uiPanelBackgroundColour1, Ids::uiPanelBackgroundColour2);
-	g.fillAll();
+	if ((int)getOwner().getProperty (Ids::uiPanelBackgroundGradientType) == 0)
+	{
+		g.fillAll(VAR2COLOUR(getOwner().getProperty(Ids::uiPanelBackgroundColour)));
+	}
+	else
+	{
+		gradientFromProperty(g, getBounds(), getOwner().getObjectTree(), Ids::uiPanelBackgroundGradientType, Ids::uiPanelBackgroundColour1, Ids::uiPanelBackgroundColour2);
+		g.fillAll();
+	}
 
 	Colour c = VAR2COLOUR (getOwner().getProperty (Ids::uiPanelBackgroundColour1, "ffffffff"));
 
