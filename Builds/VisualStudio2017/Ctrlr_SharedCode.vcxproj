@@ -449,12 +449,12 @@
     <ClCompile Include="..\..\Source\Core\CtrlrUtilities.cpp" />
     <ClCompile Include="..\..\Source\Core\CtrlrUtilitiesGUI.cpp" />
     <ClCompile Include="..\..\Source\Core\stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Win32|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\Source\Core\stdafx_luabind.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Win32|Win32'">Create</PrecompiledHeader>
     </ClCompile>

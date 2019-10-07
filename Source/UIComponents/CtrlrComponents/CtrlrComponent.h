@@ -10,6 +10,7 @@ class CtrlrComponent;
 class CtrlrModulator;
 class CtrlrFontManager;
 class CtrlrLuaMethod;
+class CtrlrLuaRectangle;
 
 enum CtrlrComponentInternalFunctions
 {
@@ -107,6 +108,7 @@ class CtrlrComponent :	public Component,
 		static void wrapForLua (lua_State *L);
 		double getMaximum();
 		double getMinimum();
+		CtrlrLuaRectangle getLuaBounds() const;
 		void setCustomLookAndFeel (const luabind::object &customLookAndFeel);
 		void setCustomLookAndFeel (LookAndFeelBase *customLookAndFeel);
 		virtual void customLookAndFeelChanged(LookAndFeelBase *customLookAndFeel = nullptr) = 0;

@@ -12,19 +12,7 @@
 #include "CtrlrComponents/Groups/CtrlrGroup.h"
 #include "CtrlrComponents/Groups/CtrlrTabsComponent.h"
 #include "JuceClasses/LLookAndFeel.h"
-
-/*#include "CtrlrMacros.h"
-#include "CtrlrProcessor.h"
-#include "CtrlrLuaManager.h"
-#include "CtrlrUtilitiesGUI.h"
-#include "../CtrlrComponentSelection.h"
-#include "CtrlrManager/CtrlrManager.h"
-#include "Groups/CtrlrTabsComponent.h"
-#include "Groups/CtrlrGroup.h"
-#include "CtrlrPanel/CtrlrPanelEditor.h"
-#include "CtrlrLog.h"
-#include "Lua/JuceClasses/LLookAndFeel.h"
-*/
+#include "Deprecated/CtrlrLuaRectangle.h"
 
 /** Border implementation */
 CtrlrComponentResizableBorder::CtrlrComponentResizableBorder(CtrlrComponent *_owner, ComponentBoundsConstrainer *constrainer)
@@ -713,6 +701,11 @@ bool CtrlrComponent::isInternal()
 	return (false);
 }
 
+CtrlrLuaRectangle CtrlrComponent::getLuaBounds() const
+{
+	return (CtrlrLuaRectangle(getBounds()));
+}
+
 void CtrlrComponent::wrapForLua (lua_State *L)
 {
 	using namespace luabind;
@@ -734,7 +727,7 @@ void CtrlrComponent::wrapForLua (lua_State *L)
 			.def("keyPressed", &Component::keyPressed)
 			.def("getBounds", &Component::getBounds)
 			.def("getRect", &CtrlrComponent::getBounds)
-			//.def("setBounds", (void (Component::*)(const Rectangle<int> &) )&CtrlrComponent::setBounds)
+			.def("setBounds", (void (Component::*)(const Rectangle<int> ) )&Component::setBounds)
 			.def("setBounds", (void (Component::*)(int, int, int, int))&CtrlrComponent::setBounds)
 			.def("getComponentText", &CtrlrComponent::getComponentText)
 			.def("setComponentText", &CtrlrComponent::setComponentText)
@@ -754,5 +747,6 @@ void CtrlrComponent::wrapForLua (lua_State *L)
 			.def("getTextForValue", &CtrlrComponent::getTextForValue)
 			.def("getOwner", &CtrlrComponent::getOwner)
 			.def("setCustomLookAndFeel", (void (CtrlrComponent::*)(const luabind::object &)) &CtrlrComponent::setCustomLookAndFeel)
+			.def("getLuaBounds", &CtrlrComponent::getLuaBounds)
 	];
 }

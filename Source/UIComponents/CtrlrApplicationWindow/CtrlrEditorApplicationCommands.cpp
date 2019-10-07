@@ -35,7 +35,6 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
 								showLuaEditor,
 								showLuaConsole,
 								showComparatorTables,
-								showMidiLibrary,
 								showModulatorList,
 								showBufferEditor,
 								showLayers,

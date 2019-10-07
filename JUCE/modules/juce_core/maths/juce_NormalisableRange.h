@@ -258,7 +258,7 @@ public:
 private:
     void checkInvariants() const
     {
-        jassert (end > start);
+        //jassert (end > start);
         jassert (interval >= ValueType());
         jassert (skew > ValueType());
     }

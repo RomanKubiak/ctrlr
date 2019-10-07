@@ -142,6 +142,7 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			break;
 
 		case doPanelMode:
+			DBG("doPanelMode");
 			if (getActivePanelEditor()) getActivePanelEditor()->setProperty (Ids::uiPanelEditMode, !getActivePanelEditor()->getProperty(Ids::uiPanelEditMode));
 			break;
 
@@ -169,10 +170,6 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			if (getActivePanel()) getActivePanel()->dumpComparatorTables();
 			break;
 
-		case showMidiLibrary:
-			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::MIDILibrary, true);
-			break;
-
 		case showModulatorList:
 			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::ModulatorList, true);
 			break;
@@ -183,10 +180,6 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 
 		case doSendSnapshot:
 			if (getActivePanel()) getActivePanel()->sendSnapshot();
-			break;
-
-		case doSnapshotStore:
-			// if (getActivePanel()) getActivePanel()->getCtrlrMIDILibrary().snapshot();
 			break;
 
 		case showBufferEditor:

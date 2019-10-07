@@ -118,11 +118,14 @@ void CtrlrEditor::activeCtrlrChanged()
 	ownerFilter->activePanelChanged();
 	bool menuBarVisible = true;
 	
-	if (owner.getActivePanel())
-		menuBarVisible = owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMenuBarVisible);
-	if (menuBarVisible != menuBar->isVisible())
+	if (owner.getActivePanel() && owner.getActivePanel()->getEditor())
 	{
-		setMenuBarVisible(menuBarVisible);
+		menuBarVisible = owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMenuBarVisible);
+
+		if (menuBarVisible != menuBar->isVisible())
+		{
+			setMenuBarVisible(menuBarVisible);
+		}
 	}
 }
 

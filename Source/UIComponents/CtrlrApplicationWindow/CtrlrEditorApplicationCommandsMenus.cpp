@@ -163,7 +163,6 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, doPanelLock);
 		menu.addCommandItem (commandManager, doPanelDisableCombosOnEdit);
 		menu.addSeparator();
-		menu.addCommandItem (commandManager, showMidiLibrary);
 		menu.addCommandItem (commandManager, showModulatorList);
 		menu.addSeparator();
 		if (!isRestricted()) menu.addCommandItem (commandManager, showLayers);
@@ -270,7 +269,8 @@ void CtrlrEditor::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 		}
 		else
 		{
-			invokeDirectly (menuItemID, true);
+			// this causes double invocation BAD
+			//invokeDirectly (menuItemID, false);
 			return;
 		}
 	}
