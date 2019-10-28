@@ -5,7 +5,7 @@
 #ifndef __OBJC__
 
 #undef nil
-
+#include "stdafx.h"
 #include <string>
 
 extern "C"
@@ -51,7 +51,7 @@ extern "C"
 #include <luabind/discard_result_policy.hpp>
 #include <luabind/version.hpp>
 #include <luabind/shared_ptr_converter.hpp>
-#include "stdafx.h"
+
 
 static const std::string obj_name(const luabind::object& o)
 {

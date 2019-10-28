@@ -4,7 +4,7 @@ echo "CTRLR[linux]: Building for $HOSTTYPE, JOBS $JOBS"
 if [ "$1" == "-f" ]; then
 	echo "CTRLR[linux]: Compile PCH"
 	echo "stadfx.h"
-	g++  -std=c++0x -D "LINUX=1" -D "NDEBUG=1" \
+	g++  -w -std=c++14 -D "LINUX=1" -D "NDEBUG=1" \
 		-D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=1" \
 		-D "JucePlugin_Build_Standalone" -D "LUA_USE_LINUX" \
 		-D "_LINUX=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" \
@@ -21,7 +21,7 @@ if [ "$1" == "-f" ]; then
 		-march=native -Os -fpermissive \
 		-o "../../Source/Core/stdafx.h.gch" -c "../../Source/Core/stdafx.h"
 	echo "stdafx_luabind.h"
-	g++  -std=c++0x -D "LINUX=1" -D "NDEBUG=1" \
+	g++  -w -std=c++14 -D "LINUX=1" -D "NDEBUG=1" \
 		-D "JUCE_FORCE_DEBUG=0" -D "CTRLR_NIGHTLY=1" \
 		-D "JucePlugin_Build_Standalone" -D "LUA_USE_LINUX" \
 		-D "_LINUX=1" -D "JUCER_LINUX_MAKE_CC96CACF=1" \
