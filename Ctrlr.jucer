@@ -1094,78 +1094,10 @@
           <FILE id="nPCJjL" name="CtrlrViewport.h" compile="0" resource="0" file="Source/UIComponents/CtrlrPanel/CtrlrViewport.h"/>
         </GROUP>
         <GROUP id="{0AA1C725-FBF4-DC1C-097A-234700BEC657}" name="CtrlrPropertyEditors">
-          <FILE id="z1W2nB" name="CtrlrBooleanPropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.cpp"/>
-          <FILE id="lfxkQ1" name="CtrlrBooleanPropertyComponent.h" compile="0"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.h"/>
-          <FILE id="x73HOh" name="CtrlrButtonPropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.cpp"/>
-          <FILE id="fdCkG4" name="CtrlrButtonPropertyComponent.h" compile="0"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.h"/>
-          <FILE id="e46bVG" name="CtrlrChoicePropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrChoicePropertyComponent.cpp"/>
-          <FILE id="JXqsRl" name="CtrlrChoicePropertyComponent.h" compile="0"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrChoicePropertyComponent.h"/>
-          <FILE id="ejLkuF" name="CtrlrColourPropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrColourPropertyComponent.cpp"/>
-          <FILE id="bZEGZk" name="CtrlrColourPropertyComponent.h" compile="0"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrColourPropertyComponent.h"/>
-          <FILE id="EVQ60O" name="CtrlrExpressionProperty.cpp" compile="1" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrExpressionProperty.cpp"/>
-          <FILE id="QhPWO9" name="CtrlrExpressionProperty.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrExpressionProperty.h"/>
-          <FILE id="ATegDL" name="CtrlrFilePropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrFilePropertyComponent.cpp"/>
-          <FILE id="EFjiwk" name="CtrlrFilePropertyComponent.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrFilePropertyComponent.h"/>
-          <FILE id="BOhtWW" name="CtrlrFontPropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrFontPropertyComponent.cpp"/>
-          <FILE id="hyZrPo" name="CtrlrFontPropertyComponent.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrFontPropertyComponent.h"/>
-          <FILE id="HDdrM6" name="CtrlrLuaMethodProperty.cpp" compile="1" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrLuaMethodProperty.cpp"/>
-          <FILE id="HPpLnA" name="CtrlrLuaMethodProperty.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrLuaMethodProperty.h"/>
-          <FILE id="DjZucv" name="CtrlrModulatorListProperty.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.cpp"/>
-          <FILE id="j5dESK" name="CtrlrModulatorListProperty.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.h"/>
-          <FILE id="LpsBuh" name="CtrlrMultiMidiPropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrMultiMidiPropertyComponent.cpp"/>
-          <FILE id="khxx7h" name="CtrlrMultiMidiPropertyComponent.h" compile="0"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrMultiMidiPropertyComponent.h"/>
           <FILE id="vJ4OND" name="CtrlrPropertyComponent.cpp" compile="1" resource="0"
                 file="Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp"/>
           <FILE id="dolBa3" name="CtrlrPropertyComponent.h" compile="0" resource="0"
                 file="Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.h"/>
-          <FILE id="gUieZR" name="CtrlrSliderPropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrSliderPropertyComponent.cpp"/>
-          <FILE id="JukEAF" name="CtrlrSliderPropertyComponent.h" compile="0"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrSliderPropertyComponent.h"/>
-          <FILE id="uYKQsy" name="CtrlrSysExEditor.cpp" compile="1" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.cpp"/>
-          <FILE id="HErpoX" name="CtrlrSysExEditor.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.h"/>
-          <FILE id="F3kSOu" name="CtrlrSysExFormulaEditor.cpp" compile="1" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExFormulaEditor.cpp"/>
-          <FILE id="DLXDqC" name="CtrlrSysExFormulaEditor.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExFormulaEditor.h"/>
-          <FILE id="JKUpnk" name="CtrlrSysExPropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExPropertyComponent.cpp"/>
-          <FILE id="GzadvB" name="CtrlrSysExPropertyComponent.h" compile="0"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExPropertyComponent.h"/>
-          <FILE id="nfGSIB" name="CtrlrTextPropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrTextPropertyComponent.cpp"/>
-          <FILE id="VrBOg4" name="CtrlrTextPropertyComponent.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrTextPropertyComponent.h"/>
-          <FILE id="uiDXjf" name="CtrlrTimestampProperty.cpp" compile="1" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrTimestampProperty.cpp"/>
-          <FILE id="Gae9U9" name="CtrlrTimestampProperty.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrPropertyEditors/CtrlrTimestampProperty.h"/>
-          <FILE id="cwBXon" name="CtrlrUnknownPropertyComponent.cpp" compile="1"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.cpp"/>
-          <FILE id="h9ETuF" name="CtrlrUnknownPropertyComponent.h" compile="0"
-                resource="0" file="Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.h"/>
         </GROUP>
         <GROUP id="{B01F1BE8-BD6C-CC8D-6AFE-E508BFBBDC7F}" name="CtrlrWindowManagers">
           <FILE id="MXMqnG" name="CtrlrChildWindow.cpp" compile="1" resource="0"
@@ -1243,7 +1175,6 @@
         <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
@@ -1255,14 +1186,13 @@
     <XCODE_MAC targetFolder="Builds/MacOSX" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
                enableGNUExtensions="0">
       <CONFIGURATIONS>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr"
+                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr"
                        headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
                        enablePluginBinaryCopyStep="0"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr"
-                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
@@ -1287,7 +1217,6 @@
                        headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_opengl" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
         <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
@@ -1302,6 +1231,28 @@
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
+    <CODEBLOCKS_LINUX targetFolder="Builds/CodeBlocksLinux" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
+                      extraCompilerFlags="-w" externalLibraries="z&#10;udev&#10;bfd"
+                      enableGNUExtensions="1" vstLegacyFolder="Source/Misc/vst2sdk">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../JUCE/modules"/>
+        <CONFIGURATION isDebug="0" name="Release" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../juce"/>
+        <MODULEPATH id="juce_gui_basics" path="../../juce"/>
+        <MODULEPATH id="juce_graphics" path="../../juce"/>
+        <MODULEPATH id="juce_events" path="../../juce"/>
+        <MODULEPATH id="juce_data_structures" path="../../juce"/>
+        <MODULEPATH id="juce_core" path="../../juce"/>
+        <MODULEPATH id="juce_audio_utils" path="../../juce"/>
+        <MODULEPATH id="juce_audio_processors" path="../../juce"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../juce"/>
+        <MODULEPATH id="juce_audio_formats" path="../../juce"/>
+        <MODULEPATH id="juce_audio_devices" path="../../juce"/>
+        <MODULEPATH id="juce_audio_basics" path="../../juce"/>
+      </MODULEPATHS>
+    </CODEBLOCKS_LINUX>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
@@ -1317,7 +1268,6 @@
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
   <LIVE_SETTINGS>

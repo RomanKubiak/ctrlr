@@ -79,7 +79,6 @@ void CtrlrManager::setDefaults()
 	setProperty (Ids::ctrlrNativeAlerts, false);
 	setProperty (Ids::ctrlrNativeFileDialogs, true);
 	setProperty (Ids::ctrlrPrivateKey, String::empty);
-	setProperty (Ids::ctrlrUsingOpenGL, false);
 	setProperty (Ids::ctrlrFontSizeBaseValue, 14.0f);
 	setProperty (Ids::uiLuaConsoleInputRemoveAfterRun, true);
 	setProperty (Ids::luaCtrlrSaveState, COMBO_ITEM_NONE);
@@ -344,13 +343,6 @@ void CtrlrManager::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChan
 		}
 		*/
 	}
-	else if (property == Ids::ctrlrUsingOpenGL)
-    {
-        if (getEditor())
-        {
-            getEditor()->setUsingOpenGL (getProperty (property));
-        }
-    }
 }
 
 bool CtrlrManager::isValidComponentName(const String &name)

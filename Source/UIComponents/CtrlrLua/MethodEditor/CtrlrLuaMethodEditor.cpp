@@ -8,8 +8,7 @@
 #include "CtrlrLuaMethodFind.h"
 #include "CtrlrLuaMethodEditorTabs.h"
 #include "CtrlrLuaMethodCodeEditor.h"
-#include "CtrlrPropertyEditors/CtrlrFontPropertyComponent.h"
-#include "CtrlrPropertyEditors/CtrlrColourPropertyComponent.h"
+#include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 #include "CtrlrLuaMethodCodeEditorSettings.h"
 #include "CtrlrWindowManagers/CtrlrDialogWindow.h"
 

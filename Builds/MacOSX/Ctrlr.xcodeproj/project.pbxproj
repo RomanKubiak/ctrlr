@@ -73,10 +73,6 @@
 			isa = PBXBuildFile;
 			fileRef = FB1020E59256FCA5678E10C0;
 		};
-		8CCA4D9C9EA3CAE7833509EC = {
-			isa = PBXBuildFile;
-			fileRef = F3227D442E5DC9825E885B28;
-		};
 		723FA9CC3B56841D49EDBD63 = {
 			isa = PBXBuildFile;
 			fileRef = 7CE5048906C588900968497C;
@@ -813,77 +809,9 @@
 			isa = PBXBuildFile;
 			fileRef = B41A8E86578104A96E0AB5D6;
 		};
-		27C93D86E141FFCE12659C93 = {
-			isa = PBXBuildFile;
-			fileRef = 06BADECFF911CEC8771310FA;
-		};
-		25E2139DE75AC61AFCA026CD = {
-			isa = PBXBuildFile;
-			fileRef = 3CDEB353F90451AD0F5A4945;
-		};
-		F3312CD8A62F34F17D9D49A6 = {
-			isa = PBXBuildFile;
-			fileRef = 27E280B4DC09DA6AB789B386;
-		};
-		DB57FB2926DAFDFF1B226603 = {
-			isa = PBXBuildFile;
-			fileRef = C78B44360957E70851823B7D;
-		};
-		798B94D65EE909E6AA36BBDA = {
-			isa = PBXBuildFile;
-			fileRef = 475B094E5ABE12ADF0FECEAD;
-		};
-		5ED54C667E0FA8C89D742D64 = {
-			isa = PBXBuildFile;
-			fileRef = 18E1ACA079E1425051ADE6B5;
-		};
-		A778F9A7E35FAC6A3BBBB632 = {
-			isa = PBXBuildFile;
-			fileRef = 5CE602941F84A2E687F121D5;
-		};
-		40F938B2A23459AEAC5D5910 = {
-			isa = PBXBuildFile;
-			fileRef = 7C1DAB03A121621554C83BE8;
-		};
-		C12806AA1485FC2D785F0653 = {
-			isa = PBXBuildFile;
-			fileRef = 6ADC55D9174A12AEEA6559ED;
-		};
-		5AB8FA498B5129CB20229416 = {
-			isa = PBXBuildFile;
-			fileRef = CAC0EE864AAC61F8456E95AE;
-		};
 		2828A22E215A8DE4463EF564 = {
 			isa = PBXBuildFile;
 			fileRef = C60D34CA69315C57E7623612;
-		};
-		47EC69A2E761A3B0447F70B0 = {
-			isa = PBXBuildFile;
-			fileRef = 6F73F41ADE1368F7B0CF8202;
-		};
-		A72C41B0FC1D76A4490BD2E3 = {
-			isa = PBXBuildFile;
-			fileRef = 9548EA0C68682220893AD64C;
-		};
-		2E3E6926F2AEA062FAB9DCD8 = {
-			isa = PBXBuildFile;
-			fileRef = 264905B777B135972F517E72;
-		};
-		40DC26B050FEEFDA8D9F45C0 = {
-			isa = PBXBuildFile;
-			fileRef = 8033D48AB70E3F2EE357EDB8;
-		};
-		07CB36F9337F00908F6F5B48 = {
-			isa = PBXBuildFile;
-			fileRef = BFC847EF40FE3C8184424510;
-		};
-		68C034E9943B4EDDDB78D483 = {
-			isa = PBXBuildFile;
-			fileRef = 85D1A1F9754E030BB5ADEF4C;
-		};
-		4330687E966576086BF9256D = {
-			isa = PBXBuildFile;
-			fileRef = F478B679A96FD9A449AE0545;
 		};
 		62EB76598635D6B2A2D1988E = {
 			isa = PBXBuildFile;
@@ -1017,10 +945,6 @@
 			isa = PBXBuildFile;
 			fileRef = ED66FFC9A2DFC7AD774DBA34;
 		};
-		437191F8961AE61B5F786774 = {
-			isa = PBXBuildFile;
-			fileRef = 933554E1EE3E7AE32835161C;
-		};
 		00CA10B65166797BBFF46544 = {
 			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
@@ -1091,13 +1015,6 @@
 			path = ../../Source/Core/CtrlrPanel/CtrlrPanelResourceManager.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		04A1B8E8A0BC2AE597525251 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrColourPropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrColourPropertyComponent.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		04D35A69CB5051F569EAC73E = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1152,13 +1069,6 @@
 			lastKnownFileType = file.lua;
 			name = test.lua;
 			path = ../../Source/Resources/Lua/clidebugger/test.lua;
-			sourceTree = "SOURCE_ROOT";
-		};
-		06BADECFF911CEC8771310FA = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrBooleanPropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		07058AFB9597851928CB22DC = {
@@ -1434,13 +1344,6 @@
 			path = System/Library/Frameworks/AudioToolbox.framework;
 			sourceTree = SDKROOT;
 		};
-		13212DA4E93E062F2D91916A = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrLuaMethodProperty.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrLuaMethodProperty.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		134842774F3183AC3DEAB2DE = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1462,13 +1365,6 @@
 			path = "../../Source/Misc/luabind/doc/policies/discard_result.rst";
 			sourceTree = "SOURCE_ROOT";
 		};
-		13B33ADF6CD40B87A3BF7E15 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrBooleanPropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		14E07B50B0FBB4DBF37A2872 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1488,13 +1384,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LTypeface.h;
 			path = ../../Source/Lua/JuceClasses/LTypeface.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		1585BB1E62BCE2DFEF33F15F = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrExpressionProperty.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrExpressionProperty.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		159EE2D36848A8A46A017737 = {
@@ -1616,13 +1505,6 @@
 			path = ../../Source/Misc/luabind/src/CMakeLists.txt;
 			sourceTree = "SOURCE_ROOT";
 		};
-		18E1ACA079E1425051ADE6B5 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrFilePropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFilePropertyComponent.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
 		18EEE58439ECC30FEB25801C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1691,13 +1573,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrComponentLuaRegistration.cpp;
 			path = ../../Source/UIComponents/CtrlrComponents/CtrlrComponentLuaRegistration.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		1CFF7F94D31F458FC649EDD0 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrMultiMidiPropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrMultiMidiPropertyComponent.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		1DA555ECFAB8AC21A63BB223 = {
@@ -1805,13 +1680,6 @@
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		2335E52D20EB8ED2C55727A1 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrChoicePropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrChoicePropertyComponent.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		23B017EC8BF44B190F6EC0B9 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1917,13 +1785,6 @@
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		264905B777B135972F517E72 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrSysExFormulaEditor.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExFormulaEditor.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
 		26A74C89ED81C51334CEE2D3 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -1964,13 +1825,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = constructor.hpp;
 			path = ../../Source/Misc/luabind/luabind/detail/constructor.hpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		27E280B4DC09DA6AB789B386 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrChoicePropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrChoicePropertyComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		27F15EEE5DDFF0BE31F18D1D = {
@@ -2414,13 +2268,6 @@
 			path = ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		3B64F02A66B9A450B1944DE1 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrFilePropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFilePropertyComponent.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		3BDA4B6514A7F13278C6B080 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.in;
@@ -2433,13 +2280,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = open.hpp;
 			path = ../../Source/Misc/luabind/luabind/open.hpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		3CDEB353F90451AD0F5A4945 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrButtonPropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		3D5C0E7CE03EE182DE22714E = {
@@ -2526,13 +2366,6 @@
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		41390364C43F5606420DFEE7 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrSysExFormulaEditor.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExFormulaEditor.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		42B0E8630C9BE81D4888CCAA = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2601,13 +2434,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrIDs.h;
 			path = ../../Source/Core/CtrlrIDs.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		475B094E5ABE12ADF0FECEAD = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrExpressionProperty.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrExpressionProperty.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		48BA08BCAE35A39CE50503FC = {
@@ -2769,13 +2595,6 @@
 			lastKnownFileType = file.md;
 			name = README.md;
 			path = ../../Source/Misc/luabind/README.md;
-			sourceTree = "SOURCE_ROOT";
-		};
-		51BF718D221F438442689106 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrUnknownPropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		521D39094B26F87E60B37329 = {
@@ -2953,13 +2772,6 @@
 			path = ../../Source/Resources/XML/CtrlrMIDITransactions.xml;
 			sourceTree = "SOURCE_ROOT";
 		};
-		5CE602941F84A2E687F121D5 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrFontPropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFontPropertyComponent.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
 		5D1776D2FCC10C7E60362BA8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -2979,13 +2791,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrMIDIDeviceManager.h;
 			path = ../../Source/MIDI/CtrlrMIDIDeviceManager.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		5D8786C8D0847A4CDB1951DB = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_opengl";
-			path = "../../JUCE/modules/juce_opengl";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5DD042154373640AB11D7C1B = {
@@ -3058,13 +2863,6 @@
 			path = "../../Source/Misc/luabind/build_information.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		61C2125842E8757A769BAE77 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrFontPropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFontPropertyComponent.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		61D889264603A97AC0029D91 = {
 			isa = PBXFileReference;
 			lastKnownFileType = text.txt;
@@ -3107,13 +2905,6 @@
 			path = ../../Source/Core/CtrlrInlineUtilitiesGUI.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		62C7618420CA72E24B844E9F = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrSysExPropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExPropertyComponent.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		63964F016C558F761B3872EE = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3154,13 +2945,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrPanelLayerListItem.h;
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		6552C505E8A6A2A1D228B62F = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrModulatorListProperty.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		659799BB45A27857BD0D0F29 = {
@@ -3240,13 +3024,6 @@
 			path = ../../Source/Misc/luabind/luabind/detail/other.hpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		6ADC55D9174A12AEEA6559ED = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrModulatorListProperty.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
 		6B26EF039BF0D99DEFA3A21A = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3308,13 +3085,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LTextButton.h;
 			path = ../../Source/Lua/JuceClasses/LTextButton.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		6F73F41ADE1368F7B0CF8202 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrSliderPropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSliderPropertyComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		6F8D97AD231698E4C7DF5876 = {
@@ -3427,13 +3197,6 @@
 			lastKnownFileType = file.rst;
 			name = dependency.rst;
 			path = ../../Source/Misc/luabind/doc/policies/dependency.rst;
-			sourceTree = "SOURCE_ROOT";
-		};
-		7533E1C8A4F28A78167D8FF7 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrSysExEditor.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		754E33D66708A7B8BA59D3A3 = {
@@ -3590,13 +3353,6 @@
 			path = "../../Source/Misc/libusb/include/darwin_usb.h";
 			sourceTree = "SOURCE_ROOT";
 		};
-		7C1DAB03A121621554C83BE8 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrLuaMethodProperty.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrLuaMethodProperty.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
 		7C5E8C9543F5EC02EFBF08AC = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -3659,13 +3415,6 @@
 			name = CoreMIDI.framework;
 			path = System/Library/Frameworks/CoreMIDI.framework;
 			sourceTree = SDKROOT;
-		};
-		8033D48AB70E3F2EE357EDB8 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrSysExPropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExPropertyComponent.cpp;
-			sourceTree = "SOURCE_ROOT";
 		};
 		8113EB89C57303227E2D816A = {
 			isa = PBXFileReference;
@@ -3777,13 +3526,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = function.hpp;
 			path = ../../Source/Misc/luabind/luabind/function.hpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		85D1A1F9754E030BB5ADEF4C = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrTimestampProperty.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTimestampProperty.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		85F1C3879B1B82D07708CAE9 = {
@@ -3996,13 +3738,6 @@
 			path = ../../Source/Core/CtrlrUtilities.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		933554E1EE3E7AE32835161C = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.objcpp;
-			name = "include_juce_opengl.mm";
-			path = "../../JuceLibraryCode/include_juce_opengl.mm";
-			sourceTree = "SOURCE_ROOT";
-		};
 		937AA936FA55E0E975C560FD = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -4038,13 +3773,6 @@
 			path = RecentFilesMenuTemplate.nib;
 			sourceTree = "SOURCE_ROOT";
 		};
-		9548EA0C68682220893AD64C = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrSysExEditor.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
 		957DC001BF32F77D08ADD74B = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -4078,13 +3806,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrLuaDebugger.h;
 			path = ../../Source/Lua/CtrlrLuaDebugger.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		98291FFADA18C25ABE635931 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = keys.h;
-			path = ../../Source/Misc/include/keys.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		9837D1AA088F9F844329E136 = {
@@ -4178,13 +3899,6 @@
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		9D26E90BA9CC5C4F847768D9 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.c;
-			name = compat.c;
-			path = ../../Source/Misc/libusb/src/compat.c;
-			sourceTree = "SOURCE_ROOT";
-		};
 		9DA3C319781492A3ABA0E6E8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
@@ -4197,13 +3911,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LAudioFile.h;
 			path = ../../Source/Lua/JuceClasses/LAudioFile.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		9E4C945505092247AC116660 = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.xml;
-			name = "Info-AU.plist";
-			path = "Info-AU.plist";
 			sourceTree = "SOURCE_ROOT";
 		};
 		9E9CD1FE77F9A326349EF066 = {
@@ -4269,25 +3976,11 @@
 			path = ../../Source/Misc/luabind/CMakeLists.txt;
 			sourceTree = "SOURCE_ROOT";
 		};
-		A16F2A44227BC96C4B82F110 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = "libusb_windows.h";
-			path = "../../Source/Misc/libusb/include/libusb_windows.h";
-			sourceTree = "SOURCE_ROOT";
-		};
 		A1D39E0E2160E282D69B3C11 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = "object_rep.hpp";
 			path = "../../Source/Misc/luabind/luabind/detail/object_rep.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A21578F5CCD85614653CF7E2 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrTextPropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTextPropertyComponent.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A239B9FC3E6A496E5EA987A6 = {
@@ -4353,25 +4046,11 @@
 			path = "../../Source/Misc/luabind/luabind/weak_ref.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		A6FA33AFCFB294F47AF8DED6 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = "iterator_policy.hpp";
-			path = "../../Source/Misc/luabind/luabind/iterator_policy.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
 		A7050D4D35229D5E274BDCE3 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
 			name = "threads_posix.c";
 			path = "../../Source/Misc/libusb/src/threads_posix.c";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A742AE615610087C9FFB1F78 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = dxtrans.h;
-			path = ../../Source/Core/dxtrans.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A7C255EAD19ED0421CC5F12E = {
@@ -4381,18 +4060,137 @@
 			path = ../../Source/Lua/JuceClasses/LRectangle.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		A7E98B228FEB7065FD874B54 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_snapshot_new.png";
-			path = "../../Source/Resources/Icons/ico_snapshot_new.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		A7F857B105E8C3C0779E4A5A = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
 			name = luabind.png;
 			path = ../../Source/Misc/luabind/doc/luabind.png;
+			sourceTree = "SOURCE_ROOT";
+		};
+		A9C1A29AC60CD69A7202EED9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.cmake;
+			name = FindLua52.cmake;
+			path = ../../Source/Misc/luabind/cmake/Modules/FindLua52.cmake;
+			sourceTree = "SOURCE_ROOT";
+		};
+		AA049A9F8871EB57C01DDC57 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.rst;
+			name = "return_stl_iterator.rst";
+			path = "../../Source/Misc/luabind/doc/policies/return_stl_iterator.rst";
+			sourceTree = "SOURCE_ROOT";
+		};
+		ACF025505BA4198943D0FA00 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "make_instance.hpp";
+			path = "../../Source/Misc/luabind/luabind/detail/make_instance.hpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		ADFEF45B79F54656ECC34693 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = typeid.hpp;
+			path = ../../Source/Misc/luabind/luabind/typeid.hpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		B0D91E1934724AD202CE5C8D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrModulator.h;
+			path = ../../Source/Core/CtrlrModulator/CtrlrModulator.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		B4FBC58B684954F13EF955E6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = sync.c;
+			path = ../../Source/Misc/libusb/src/sync.c;
+			sourceTree = "SOURCE_ROOT";
+		};
+		EB6134FB2CFC4B1825455D47 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = Ctrlr.vst3;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		908E0C8A957286821FB05A54 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = Ctrlr.component;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		BC0FDD38B90E990BC541525A = {
+			isa = PBXFileReference;
+			explicitFileType = "wrapper.app-extension";
+			includeInIndex = 0;
+			path = Ctrlr.appex;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		C8515F3F3AB5B7773D926D96 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = Ctrlr.app;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		75C913600A8B4A361ED6FABA = {
+			isa = PBXFileReference;
+			explicitFileType = archive.ar;
+			includeInIndex = 0;
+			path = libCtrlr.a;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		98291FFADA18C25ABE635931 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = keys.h;
+			path = ../../Source/Misc/include/keys.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		9D26E90BA9CC5C4F847768D9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = compat.c;
+			path = ../../Source/Misc/libusb/src/compat.c;
+			sourceTree = "SOURCE_ROOT";
+		};
+		9E4C945505092247AC116660 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			name = "Info-AU.plist";
+			path = "Info-AU.plist";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A16F2A44227BC96C4B82F110 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "libusb_windows.h";
+			path = "../../Source/Misc/libusb/include/libusb_windows.h";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A6FA33AFCFB294F47AF8DED6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "iterator_policy.hpp";
+			path = "../../Source/Misc/luabind/luabind/iterator_policy.hpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A742AE615610087C9FFB1F78 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = dxtrans.h;
+			path = ../../Source/Core/dxtrans.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		A7E98B228FEB7065FD874B54 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "ico_snapshot_new.png";
+			path = "../../Source/Resources/Icons/ico_snapshot_new.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		A953EF00390AB61D1A43FEC0 = {
@@ -4409,25 +4207,11 @@
 			path = "../../JUCE/modules/juce_graphics";
 			sourceTree = "SOURCE_ROOT";
 		};
-		A9C1A29AC60CD69A7202EED9 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.cmake;
-			name = FindLua52.cmake;
-			path = ../../Source/Misc/luabind/cmake/Modules/FindLua52.cmake;
-			sourceTree = "SOURCE_ROOT";
-		};
 		A9EFD3390F1B6E4317EF18AF = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
 			name = LICENSE;
 			path = ../../Source/Resources/Lua/clidebugger/LICENSE;
-			sourceTree = "SOURCE_ROOT";
-		};
-		AA049A9F8871EB57C01DDC57 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.rst;
-			name = "return_stl_iterator.rst";
-			path = "../../Source/Misc/luabind/doc/policies/return_stl_iterator.rst";
 			sourceTree = "SOURCE_ROOT";
 		};
 		AA7BBB362459C4F44F98D723 = {
@@ -4486,13 +4270,6 @@
 			path = ../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		ACF025505BA4198943D0FA00 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = "make_instance.hpp";
-			path = "../../Source/Misc/luabind/luabind/detail/make_instance.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
 		ACFE138F6324F3110FCF9517 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.objcpp;
@@ -4526,13 +4303,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrLuaCodeTokeniserFunctions.h;
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaCodeTokeniserFunctions.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		ADFEF45B79F54656ECC34693 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = typeid.hpp;
-			path = ../../Source/Misc/luabind/luabind/typeid.hpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		AE4A7B6C5C59D70F11F076E3 = {
@@ -4584,13 +4354,6 @@
 			path = ../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		B0D91E1934724AD202CE5C8D = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrModulator.h;
-			path = ../../Source/Core/CtrlrModulator/CtrlrModulator.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		B13B21B03D21AA2CB3109C2C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.objcpp;
@@ -4610,13 +4373,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LAudioSampleBuffer.h;
 			path = ../../Source/Lua/JuceClasses/LAudioSampleBuffer.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		B29BEF58C342506031694168 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrTimestampProperty.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTimestampProperty.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		B2C37576B9B4FE991BD462C9 = {
@@ -4666,13 +4422,6 @@
 			lastKnownFileType = file.rst;
 			name = "pure_out_value.rst";
 			path = "../../Source/Misc/luabind/doc/policies/pure_out_value.rst";
-			sourceTree = "SOURCE_ROOT";
-		};
-		B4FBC58B684954F13EF955E6 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.c;
-			name = sync.c;
-			path = ../../Source/Misc/libusb/src/sync.c;
 			sourceTree = "SOURCE_ROOT";
 		};
 		B540160AFA6B409652D0615E = {
@@ -4815,6 +4564,13 @@
 			path = ../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		BD273234F29DAB4984F03A19 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = "darwin_usb.c";
+			path = "../../Source/Misc/libusb/src/darwin_usb.c";
+			sourceTree = "SOURCE_ROOT";
+		};
 		BD3C01E95BED9EDF47408E00 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -4883,13 +4639,6 @@
 			lastKnownFileType = image.png;
 			name = "ico_next.png";
 			path = "../../Source/Resources/Icons/ico_next.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		BFC847EF40FE3C8184424510 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrTextPropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTextPropertyComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		C0337BCA0B692B4D55B3D22C = {
@@ -4962,6 +4711,13 @@
 			path = "../../Source/Resources/Lua/gen_LookAndFeelBase.cpp.sh";
 			sourceTree = "SOURCE_ROOT";
 		};
+		C44ADBC0C6DA10D0436E00CD = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.c;
+			name = descriptor.c;
+			path = ../../Source/Misc/libusb/src/descriptor.c;
+			sourceTree = "SOURCE_ROOT";
+		};
 		C4B7F59791333FA8F5349BF0 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -4997,11 +4753,25 @@
 			path = "../../JUCE/modules/juce_audio_plugin_client";
 			sourceTree = "SOURCE_ROOT";
 		};
+		C5BC52758E1A8D68F73FDBF0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = LComboBox.h;
+			path = ../../Source/Lua/JuceClasses/LComboBox.h;
+			sourceTree = "SOURCE_ROOT";
+		};
 		C60D34CA69315C57E7623612 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrPropertyComponent.cpp;
 			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		C61519857998F17A3B0ABFE9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = LGlobalFunctions.h;
+			path = ../../Source/Lua/JuceClasses/LGlobalFunctions.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		C6792BF85E0D780ACFB8D8A3 = {
@@ -5025,20 +4795,6 @@
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		C78B44360957E70851823B7D = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrColourPropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrColourPropertyComponent.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		C79AFAC7DB79DA8E5B56C6CE = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrSliderPropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSliderPropertyComponent.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		C83EFA65C49C08A19915BB82 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -5060,153 +4816,6 @@
 			path = ../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		CA5F7318B846B9649736D26E = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrPanelResourceEditor.h;
-			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelResourceEditor.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		CA8274F000E932EA35A3F556 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrMIDIDeviceManager.cpp;
-			path = ../../Source/MIDI/CtrlrMIDIDeviceManager.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		CAC0EE864AAC61F8456E95AE = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrMultiMidiPropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrMultiMidiPropertyComponent.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		CB0D722415A8C1F74E3AFA23 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrLuaMethodManager.cpp;
-			path = ../../Source/Lua/Methods/CtrlrLuaMethodManager.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		CBE873D62A907173F6031423 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = appbar.debug.step.out.png;
-			path = ../../Source/Resources/Icons/appbar.debug.step.out.png;
-			sourceTree = "SOURCE_ROOT";
-		};
-		CC780C0C3F2E8B72C9125C39 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.bat;
-			name = make.bat;
-			path = ../../Source/Misc/luabind/doc/make.bat;
-			sourceTree = "SOURCE_ROOT";
-		};
-		CD4B26E573BE0A79E59AE948 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.rst;
-			name = index.rst;
-			path = ../../Source/Misc/luabind/doc/index.rst;
-			sourceTree = "SOURCE_ROOT";
-		};
-		CF594223ACF5123407268388 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = "format_signature.hpp";
-			path = "../../Source/Misc/luabind/luabind/detail/format_signature.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		D2AA7FF5FE789D054F674392 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.rst;
-			name = "lua-classes.rst";
-			path = "../../Source/Misc/luabind/doc/lua-classes.rst";
-			sourceTree = "SOURCE_ROOT";
-		};
-		DAD5A394CB033B1F2905971D = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.rst;
-			name = "userdefined-converters.rst";
-			path = "../../Source/Misc/luabind/doc/userdefined-converters.rst";
-			sourceTree = "SOURCE_ROOT";
-		};
-		DE9BC1EBBFB27FB0B0CAB897 = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.xml;
-			name = "Info-VST.plist";
-			path = "Info-VST.plist";
-			sourceTree = "SOURCE_ROOT";
-		};
-		EA9F16D66F9D852D8EC0E83C = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.rst;
-			name = policies.rst;
-			path = ../../Source/Misc/luabind/doc/policies.rst;
-			sourceTree = "SOURCE_ROOT";
-		};
-		EB6134FB2CFC4B1825455D47 = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.cfbundle;
-			includeInIndex = 0;
-			path = Ctrlr.vst3;
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		908E0C8A957286821FB05A54 = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.cfbundle;
-			includeInIndex = 0;
-			path = Ctrlr.component;
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		BC0FDD38B90E990BC541525A = {
-			isa = PBXFileReference;
-			explicitFileType = "wrapper.app-extension";
-			includeInIndex = 0;
-			path = Ctrlr.appex;
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		BD273234F29DAB4984F03A19 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.c;
-			name = "darwin_usb.c";
-			path = "../../Source/Misc/libusb/src/darwin_usb.c";
-			sourceTree = "SOURCE_ROOT";
-		};
-		C8515F3F3AB5B7773D926D96 = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.application;
-			includeInIndex = 0;
-			path = Ctrlr.app;
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		75C913600A8B4A361ED6FABA = {
-			isa = PBXFileReference;
-			explicitFileType = archive.ar;
-			includeInIndex = 0;
-			path = libCtrlr.a;
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		C44ADBC0C6DA10D0436E00CD = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.c;
-			name = descriptor.c;
-			path = ../../Source/Misc/libusb/src/descriptor.c;
-			sourceTree = "SOURCE_ROOT";
-		};
-		C5BC52758E1A8D68F73FDBF0 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = LComboBox.h;
-			path = ../../Source/Lua/JuceClasses/LComboBox.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		C61519857998F17A3B0ABFE9 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = LGlobalFunctions.h;
-			path = ../../Source/Lua/JuceClasses/LGlobalFunctions.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		C94B9482DDBC07FB1B2AA293 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
@@ -5221,6 +4830,20 @@
 			path = ../../Source/Core/CtrlrPanel/CtrlrPanel.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		CA5F7318B846B9649736D26E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrPanelResourceEditor.h;
+			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelResourceEditor.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		CA8274F000E932EA35A3F556 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = CtrlrMIDIDeviceManager.cpp;
+			path = ../../Source/MIDI/CtrlrMIDIDeviceManager.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
 		CA9DEEDADCB2C7A39E92EF86 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -5233,6 +4856,13 @@
 			lastKnownFileType = file.xml;
 			name = CtrlrLuaMethodTemplates.xml;
 			path = ../../Source/Resources/XML/CtrlrLuaMethodTemplates.xml;
+			sourceTree = "SOURCE_ROOT";
+		};
+		CB0D722415A8C1F74E3AFA23 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = CtrlrLuaMethodManager.cpp;
+			path = ../../Source/Lua/Methods/CtrlrLuaMethodManager.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		CB26D7AD16FBA31531764BB8 = {
@@ -5263,11 +4893,32 @@
 			path = ../../Source/Lua/JuceClasses/LLookAndFeel.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		CBE873D62A907173F6031423 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = appbar.debug.step.out.png;
+			path = ../../Source/Resources/Icons/appbar.debug.step.out.png;
+			sourceTree = "SOURCE_ROOT";
+		};
+		CC780C0C3F2E8B72C9125C39 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.bat;
+			name = make.bat;
+			path = ../../Source/Misc/luabind/doc/make.bat;
+			sourceTree = "SOURCE_ROOT";
+		};
 		CD1306996512A494035C90DF = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
 			name = "libr-bfd.c";
 			path = "../../Source/Misc/libr-bfd.c";
+			sourceTree = "SOURCE_ROOT";
+		};
+		CD4B26E573BE0A79E59AE948 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.rst;
+			name = index.rst;
+			path = ../../Source/Misc/luabind/doc/index.rst;
 			sourceTree = "SOURCE_ROOT";
 		};
 		CDC936D8DAB259B26129393B = {
@@ -5282,6 +4933,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrWaveform.cpp;
 			path = ../../Source/UIComponents/CtrlrComponents/Specials/CtrlrWaveform.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		CF594223ACF5123407268388 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "format_signature.hpp";
+			path = "../../Source/Misc/luabind/luabind/detail/format_signature.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
 		D0303AC8DCAF574EFFB40098 = {
@@ -5347,6 +5005,13 @@
 			path = ../../Source/UIComponents/CtrlrComponents/Specials/CtrlrMidiKeyboard.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		D2AA7FF5FE789D054F674392 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.rst;
+			name = "lua-classes.rst";
+			path = "../../Source/Misc/luabind/doc/lua-classes.rst";
+			sourceTree = "SOURCE_ROOT";
+		};
 		D2FA4EF0A09D0BD605FF0383 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -5380,13 +5045,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LPopupMenu.h;
 			path = ../../Source/Lua/JuceClasses/LPopupMenu.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		D415A5E69EDEB7CAE230B937 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrButtonPropertyComponent.h;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		D4355B7EBCF4BEE21C2F3374 = {
@@ -5501,6 +5159,13 @@
 			path = ../../Source/Core/CtrlrManager/CtrlrManagerVst.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		DAD5A394CB033B1F2905971D = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.rst;
+			name = "userdefined-converters.rst";
+			path = "../../Source/Misc/luabind/doc/userdefined-converters.rst";
+			sourceTree = "SOURCE_ROOT";
+		};
 		DB7123FECD0C2152C83E2B9A = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.gif;
@@ -5583,6 +5248,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LString.h;
 			path = ../../Source/Lua/JuceClasses/LString.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		DE9BC1EBBFB27FB0B0CAB897 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			name = "Info-VST.plist";
+			path = "Info-VST.plist";
 			sourceTree = "SOURCE_ROOT";
 		};
 		DEF276E0DE85D2E7AA61A30C = {
@@ -5779,6 +5451,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = error.hpp;
 			path = ../../Source/Misc/luabind/luabind/error.hpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		EA9F16D66F9D852D8EC0E83C = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.rst;
+			name = policies.rst;
+			path = ../../Source/Misc/luabind/doc/policies.rst;
 			sourceTree = "SOURCE_ROOT";
 		};
 		EACDE3D93965D7475567B77E = {
@@ -5998,13 +5677,6 @@
 			path = ../../Source/MIDI/CtrlrMIDIFilter.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		F3227D442E5DC9825E885B28 = {
-			isa = PBXFileReference;
-			lastKnownFileType = wrapper.framework;
-			name = OpenGL.framework;
-			path = System/Library/Frameworks/OpenGL.framework;
-			sourceTree = SDKROOT;
-		};
 		F32459B4D439A18C9B334D56 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -6038,13 +5710,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LDrawable.h;
 			path = ../../Source/Lua/JuceClasses/LDrawable.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		F478B679A96FD9A449AE0545 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrUnknownPropertyComponent.cpp;
-			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		F48FCDE54E596B2D8DD8BE6D = {
@@ -7271,42 +6936,8 @@
 		BC0C4329266130DD1F87665E = {
 			isa = PBXGroup;
 			children = (
-				06BADECFF911CEC8771310FA,
-				13B33ADF6CD40B87A3BF7E15,
-				3CDEB353F90451AD0F5A4945,
-				D415A5E69EDEB7CAE230B937,
-				27E280B4DC09DA6AB789B386,
-				2335E52D20EB8ED2C55727A1,
-				C78B44360957E70851823B7D,
-				04A1B8E8A0BC2AE597525251,
-				475B094E5ABE12ADF0FECEAD,
-				1585BB1E62BCE2DFEF33F15F,
-				18E1ACA079E1425051ADE6B5,
-				3B64F02A66B9A450B1944DE1,
-				5CE602941F84A2E687F121D5,
-				61C2125842E8757A769BAE77,
-				7C1DAB03A121621554C83BE8,
-				13212DA4E93E062F2D91916A,
-				6ADC55D9174A12AEEA6559ED,
-				6552C505E8A6A2A1D228B62F,
-				CAC0EE864AAC61F8456E95AE,
-				1CFF7F94D31F458FC649EDD0,
 				C60D34CA69315C57E7623612,
 				48BA08BCAE35A39CE50503FC,
-				6F73F41ADE1368F7B0CF8202,
-				C79AFAC7DB79DA8E5B56C6CE,
-				9548EA0C68682220893AD64C,
-				7533E1C8A4F28A78167D8FF7,
-				264905B777B135972F517E72,
-				41390364C43F5606420DFEE7,
-				8033D48AB70E3F2EE357EDB8,
-				62C7618420CA72E24B844E9F,
-				BFC847EF40FE3C8184424510,
-				A21578F5CCD85614653CF7E2,
-				85D1A1F9754E030BB5ADEF4C,
-				B29BEF58C342506031694168,
-				F478B679A96FD9A449AE0545,
-				51BF718D221F438442689106,
 			);
 			name = CtrlrPropertyEditors;
 			sourceTree = "<group>";
@@ -7394,7 +7025,6 @@
 				A97F734E6D9114D0DD4BA42A,
 				81ED1CA2751505D8CB3488AB,
 				72576EEC7384B75DF2639197,
-				5D8786C8D0847A4CDB1951DB,
 			);
 			name = "JUCE Modules";
 			sourceTree = "<group>";
@@ -7425,7 +7055,6 @@
 				B13B21B03D21AA2CB3109C2C,
 				E9A0EE201CC3976AE18A9E32,
 				ED66FFC9A2DFC7AD774DBA34,
-				933554E1EE3E7AE32835161C,
 				1ED7DC087519E1882492560C,
 			);
 			name = "JUCE Library Code";
@@ -7458,7 +7087,6 @@
 				800611686F77A753B5094410,
 				D93E69BEDA9388F3D0B0A272,
 				FB1020E59256FCA5678E10C0,
-				F3227D442E5DC9825E885B28,
 				7CE5048906C588900968497C,
 				D48535429B2C961DA9D22FF8,
 			);
@@ -7491,13 +7119,6 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
-		E886C22F980B6C8D8CB0126A = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-			};
-			name = Debug;
-		};
 		F9F02D9F3BCC0444BFFB9028 = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -7505,65 +7126,10 @@
 			};
 			name = Release;
 		};
-		FB6DA6C537F17CC2AC508F87 = {
+		E886C22F980B6C8D8CB0126A = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"_DEBUG=1",
-					"DEBUG=1",
-					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
-					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=6.0.0",
-					"JUCE_APP_VERSION_HEX=0x60000",
-					"JucePlugin_Build_VST=1",
-					"JucePlugin_Build_VST3=0",
-					"JucePlugin_Build_AU=0",
-					"JucePlugin_Build_AUv3=0",
-					"JucePlugin_Build_RTAS=0",
-					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=0",
-					"JucePlugin_Build_Unity=0",
-				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Info-VST.plist;
-				INFOPLIST_PREPROCESS = NO;
-				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_LDFLAGS = "-bundle -lCtrlr";
-				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
-				PRODUCT_NAME = "Ctrlr";
-				USE_HEADERMAP = NO;
-				WRAPPER_EXTENSION = vst;
 			};
 			name = Debug;
 		};
@@ -7634,7 +7200,7 @@
 			};
 			name = Release;
 		};
-		2CBEE81EA64E8106CDAE1A13 = {
+		FB6DA6C537F17CC2AC508F87 = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
@@ -7653,8 +7219,8 @@
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
-					"JucePlugin_Build_VST=0",
-					"JucePlugin_Build_VST3=1",
+					"JucePlugin_Build_VST=1",
+					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
@@ -7684,7 +7250,7 @@
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Info-VST3.plist;
+				INFOPLIST_FILE = Info-VST.plist;
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -7692,7 +7258,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				WRAPPER_EXTENSION = vst3;
+				WRAPPER_EXTENSION = vst;
 			};
 			name = Debug;
 		};
@@ -7763,7 +7329,7 @@
 			};
 			name = Release;
 		};
-		6595B7BBF7951A8271DAD849 = {
+		2CBEE81EA64E8106CDAE1A13 = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
@@ -7783,8 +7349,8 @@
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
 					"JucePlugin_Build_VST=0",
-					"JucePlugin_Build_VST3=0",
-					"JucePlugin_Build_AU=1",
+					"JucePlugin_Build_VST3=1",
+					"JucePlugin_Build_AU=0",
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
 					"JucePlugin_Build_AAX=0",
@@ -7813,16 +7379,15 @@
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Info-AU.plist;
+				INFOPLIST_FILE = Info-VST3.plist;
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "-bundle -lCtrlr";
-				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				WRAPPER_EXTENSION = component;
+				WRAPPER_EXTENSION = vst3;
 			};
 			name = Debug;
 		};
@@ -7894,14 +7459,12 @@
 			};
 			name = Release;
 		};
-		9E5A6F0B9A2BE2A01D119E4D = {
+		6595B7BBF7951A8271DAD849 = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_ENTITLEMENTS = "Ctrlr.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
@@ -7917,14 +7480,15 @@
 					"JUCE_APP_VERSION_HEX=0x60000",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
-					"JucePlugin_Build_AU=0",
-					"JucePlugin_Build_AUv3=1",
+					"JucePlugin_Build_AU=1",
+					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
@@ -7945,13 +7509,16 @@
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Info-AUv3_AppExtension.plist;
+				INFOPLIST_FILE = Info-AU.plist;
 				INFOPLIST_PREPROCESS = NO;
+				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_LDFLAGS = "-lCtrlr";
-				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr.CtrlrAUv3;
+				OTHER_LDFLAGS = "-bundle -lCtrlr";
+				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
+				WRAPPER_EXTENSION = component;
 			};
 			name = Debug;
 		};
@@ -8018,12 +7585,14 @@
 			};
 			name = Release;
 		};
-		8A52C8B6E4D92344867DF395 = {
+		9E5A6F0B9A2BE2A01D119E4D = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_ENTITLEMENTS = "Ctrlr.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
@@ -8040,10 +7609,10 @@
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
-					"JucePlugin_Build_AUv3=0",
+					"JucePlugin_Build_AUv3=1",
 					"JucePlugin_Build_RTAS=0",
 					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=1",
+					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -8067,11 +7636,11 @@
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
+				INFOPLIST_FILE = Info-AUv3_AppExtension.plist;
 				INFOPLIST_PREPROCESS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "-lCtrlr";
-				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr.CtrlrAUv3;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
 			};
@@ -8138,7 +7707,7 @@
 			};
 			name = Release;
 		};
-		E76D20C9D82E07AE3F982464 = {
+		8A52C8B6E4D92344867DF395 = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
@@ -8157,15 +7726,14 @@
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
 					"JUCE_APP_VERSION=6.0.0",
 					"JUCE_APP_VERSION_HEX=0x60000",
-					"JucePlugin_Build_VST=1",
-					"JucePlugin_Build_VST3=1",
-					"JucePlugin_Build_AU=1",
-					"JucePlugin_Build_AUv3=1",
+					"JucePlugin_Build_VST=0",
+					"JucePlugin_Build_VST3=0",
+					"JucePlugin_Build_AU=0",
+					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=1",
 					"JucePlugin_Build_Unity=0",
-					"JUCE_SHARED_CODE=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
@@ -8188,11 +7756,12 @@
 					"../../JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
+				INFOPLIST_PREPROCESS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_LDFLAGS = "-lCtrlr";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
-				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;
@@ -8258,50 +7827,62 @@
 			};
 			name = Release;
 		};
-		9D5DCEF351ACB47AC0D6D4AA = {
+		E76D20C9D82E07AE3F982464 = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = c11;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
-				GCC_WARN_MISSING_PARENTHESES = YES;
-				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
-				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_DEBUG=1",
+					"DEBUG=1",
+					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
+					"JUCE_APP_VERSION=6.0.0",
+					"JUCE_APP_VERSION_HEX=0x60000",
+					"JucePlugin_Build_VST=1",
+					"JucePlugin_Build_VST3=1",
+					"JucePlugin_Build_AU=1",
+					"JucePlugin_Build_AUv3=1",
+					"JucePlugin_Build_RTAS=0",
+					"JucePlugin_Build_AAX=0",
+					"JucePlugin_Build_Standalone=1",
+					"JucePlugin_Build_Unity=0",
+					"JUCE_SHARED_CODE=1",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"../../JuceLibraryCode",
+					"../../JUCE/modules",
+					"../../Source",
+					"../../Source/Misc",
+					"../../Source/Misc/include",
+					"../../Source/Misc/lua/include",
+					"../../Source/Misc/luabind",
+					"../../Source/Misc/libusb/include",
+					"../../Source/Misc/boost",
+					"../../Source/MIDI",
+					"../../Source/Core",
+					"../../Source/Native",
+					"../../Source/Plugin",
+					"../../Source/UIComponents",
+					"../../Source/Lua",
+					"../../JUCE/modules/juce_audio_plugin_client",
+					"$(inherited)",
+				);
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
-				WARNING_CFLAGS = "-Wreorder";
-				ZERO_LINK = NO;
+				SKIP_INSTALL = YES;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -8350,6 +7931,53 @@
 			};
 			name = Release;
 		};
+		9D5DCEF351ACB47AC0D6D4AA = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Ctrlr";
+				WARNING_CFLAGS = "-Wreorder";
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
 		9DA61523A00774EA2E4A20C5 = {
 			isa = PBXTargetDependency;
 			target = DA246935607B47B955421D13;
@@ -8377,20 +8005,20 @@
 		12F7390729F977433DEAAC10 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D5DCEF351ACB47AC0D6D4AA,
 				EB070C00A5EC36757F3C1E89,
+				9D5DCEF351ACB47AC0D6D4AA,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C9ADCA1828FD3EE0227288B3 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E886C22F980B6C8D8CB0126A,
 				F9F02D9F3BCC0444BFFB9028,
+				E886C22F980B6C8D8CB0126A,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		46A18ED82E58216C4534B54D = {
 			isa = PBXAggregateTarget;
@@ -8411,11 +8039,11 @@
 		8379A4F095EE99397532323E = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB6DA6C537F17CC2AC508F87,
 				0EC8955D6F8297394810C8F0,
+				FB6DA6C537F17CC2AC508F87,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		A24237C9B292F6BEE7A9AD2C = {
 			isa = PBXResourcesBuildPhase;
@@ -8442,11 +8070,9 @@
 				7B646BA09CE20A58EF99FEB4,
 				AD5F166D68B28CCC99A2F46B,
 				6295D31908D48C37464D1999,
-				4D6D24160D269BC6105E97AA,
 				763955490185CD31CCF73F57,
 				AEA98A58B96C35D0852AFB05,
 				270D27903B9EE88454909712,
-				8CCA4D9C9EA3CAE7833509EC,
 				723FA9CC3B56841D49EDBD63,
 				68EC84A6DB7A3DA154280D74,
 			);
@@ -8472,11 +8098,11 @@
 		57CCB31EE535BBC1B13BEA81 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2CBEE81EA64E8106CDAE1A13,
 				70635220F439E060AE43258A,
+				2CBEE81EA64E8106CDAE1A13,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		731542C2D6D2CF3CF7AC0FFE = {
 			isa = PBXResourcesBuildPhase;
@@ -8503,11 +8129,9 @@
 				7B646BA09CE20A58EF99FEB4,
 				AD5F166D68B28CCC99A2F46B,
 				6295D31908D48C37464D1999,
-				4D6D24160D269BC6105E97AA,
 				763955490185CD31CCF73F57,
 				AEA98A58B96C35D0852AFB05,
 				270D27903B9EE88454909712,
-				8CCA4D9C9EA3CAE7833509EC,
 				723FA9CC3B56841D49EDBD63,
 				68EC84A6DB7A3DA154280D74,
 			);
@@ -8533,11 +8157,11 @@
 		0B12C372827C5A0B17ABABDD = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6595B7BBF7951A8271DAD849,
 				1E7313904E36E5EB693E7A3E,
+				6595B7BBF7951A8271DAD849,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		7247FAE1608929C5140F91AA = {
 			isa = PBXResourcesBuildPhase;
@@ -8578,7 +8202,6 @@
 				763955490185CD31CCF73F57,
 				AEA98A58B96C35D0852AFB05,
 				270D27903B9EE88454909712,
-				8CCA4D9C9EA3CAE7833509EC,
 				723FA9CC3B56841D49EDBD63,
 				68EC84A6DB7A3DA154280D74,
 			);
@@ -8605,11 +8228,11 @@
 		1FAE48C6F02BB7830147C0D4 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E5A6F0B9A2BE2A01D119E4D,
 				7664C908B6A4E6ABE76D4EA4,
+				9E5A6F0B9A2BE2A01D119E4D,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		FAD86F6ED6262BAE92E394D7 = {
 			isa = PBXResourcesBuildPhase;
@@ -8642,7 +8265,6 @@
 				763955490185CD31CCF73F57,
 				AEA98A58B96C35D0852AFB05,
 				270D27903B9EE88454909712,
-				8CCA4D9C9EA3CAE7833509EC,
 				723FA9CC3B56841D49EDBD63,
 				68EC84A6DB7A3DA154280D74,
 			);
@@ -8668,11 +8290,11 @@
 		6CA18AA72E74EE33D154617E = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8A52C8B6E4D92344867DF395,
 				66B80B04DD65924F5626E627,
+				8A52C8B6E4D92344867DF395,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		AC0AAAB7B88B75F04DFBF657 = {
 			isa = PBXResourcesBuildPhase;
@@ -8699,11 +8321,9 @@
 				7B646BA09CE20A58EF99FEB4,
 				AD5F166D68B28CCC99A2F46B,
 				6295D31908D48C37464D1999,
-				4D6D24160D269BC6105E97AA,
 				763955490185CD31CCF73F57,
 				AEA98A58B96C35D0852AFB05,
 				270D27903B9EE88454909712,
-				8CCA4D9C9EA3CAE7833509EC,
 				723FA9CC3B56841D49EDBD63,
 				68EC84A6DB7A3DA154280D74,
 			);
@@ -8742,11 +8362,11 @@
 		BA47B59CB175C918A7D06B26 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E76D20C9D82E07AE3F982464,
 				D32232F4D1708637923E8E93,
+				E76D20C9D82E07AE3F982464,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		71A774F7D36A7922E08E6813 = {
 			isa = PBXSourcesBuildPhase;
@@ -8933,24 +8553,7 @@
 				56005371E34C762E12AE743C,
 				25F40D63430CA04E056E25D5,
 				EACE6B0AD16834150B944D42,
-				27C93D86E141FFCE12659C93,
-				25E2139DE75AC61AFCA026CD,
-				F3312CD8A62F34F17D9D49A6,
-				DB57FB2926DAFDFF1B226603,
-				798B94D65EE909E6AA36BBDA,
-				5ED54C667E0FA8C89D742D64,
-				A778F9A7E35FAC6A3BBBB632,
-				40F938B2A23459AEAC5D5910,
-				C12806AA1485FC2D785F0653,
-				5AB8FA498B5129CB20229416,
 				2828A22E215A8DE4463EF564,
-				47EC69A2E761A3B0447F70B0,
-				A72C41B0FC1D76A4490BD2E3,
-				2E3E6926F2AEA062FAB9DCD8,
-				40DC26B050FEEFDA8D9F45C0,
-				07CB36F9337F00908F6F5B48,
-				68C034E9943B4EDDDB78D483,
-				4330687E966576086BF9256D,
 				62EB76598635D6B2A2D1988E,
 				702921C9870ADBEBFF7B2EBB,
 				E2EE19ACCABF2F08116AC16B,
@@ -8977,7 +8580,6 @@
 				29268E61B2983EB29C90EC94,
 				175F3D1384AFC9284D7092CB,
 				F6DF1C136894196EC858A246,
-				437191F8961AE61B5F786774,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

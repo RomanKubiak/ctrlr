@@ -28,7 +28,7 @@
 #include "CtrlrWindowManagers/CtrlrChildWindowContent.h"
 #include "CtrlrWindowManagers/CtrlrPanelWindowManager.h"
 #include "CtrlrLuaCodeTokeniser.h"
-#include "CtrlrPropertyEditors/CtrlrColourPropertyComponent.h"
+#include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 class CtrlrLuaMethodEditor;
 //[/Headers]
 

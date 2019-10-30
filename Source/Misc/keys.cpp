@@ -1,6 +1,14 @@
 #ifdef LINUX
+#include <float.h>
+#include <sys/time.h>
 #include <X11/Xlib.h>
-#include <X11/keysym.h>
+#include <X11/Xutil.h>
+#include <X11/Xatom.h>
+#undef Font
+#undef KeyPress
+#undef Drawable
+#undef Time
+#undef Drawble
 #undef KeyPress
 #define KEYCODE XK_Down
 #include "keys.h"

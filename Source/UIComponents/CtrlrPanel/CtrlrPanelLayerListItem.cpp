@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CtrlrPanelLayerListItem.h"
-#include "CtrlrPropertyEditors/CtrlrColourPropertyComponent.h"
+#include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 #include "CtrlrPanelCanvasLayer.h"
 #include "CtrlrPanelLayerList.h"
 

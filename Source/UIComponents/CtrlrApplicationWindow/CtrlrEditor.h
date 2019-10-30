@@ -12,7 +12,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 					 public ApplicationCommandTarget,
 					 public MenuBarModel,
 					 public Slider::Listener,
-					 public LookAndFeel_V2
+					 public LookAndFeel_V4
 {
 	public:
 		CtrlrEditor (CtrlrProcessor *ownerFilter, CtrlrManager &_owner);
@@ -154,18 +154,10 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		void performKeyGenerator();
 		void performMidiDeviceRefresh();
 		void initTest();
-		StringArray getRenderingEngines() const;
-		int getActiveRenderingEngine() const;
-		void setRenderingEngine (int index);
-		void setOpenGLRenderingEngine();
-		void setUsingOpenGL(const bool isUsingOpenGL);
 		void setMenuBarVisible(const bool shouldBeVisible=true);
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrEditor)
 
 	private:
-		#if JUCE_OPENGL
-			OpenGLContext openGLContext;
-		#endif
 		bool menuHandlerCalled;
 		MenuBarComponent *menuBar;
 		TooltipWindow tooltipWindow;

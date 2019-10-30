@@ -50,7 +50,7 @@ ifeq ($(CONFIG),Debug)
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -g -ggdb -O0 -w $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=gnu++14 $(CXXFLAGS)
-  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -lrt -ldl -lpthread -lGL -lz -ludev -lbfd $(LDFLAGS)
+  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -lrt -ldl -lpthread -lz -ludev -lbfd $(LDFLAGS)
 
   CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
@@ -80,7 +80,7 @@ ifeq ($(CONFIG),Release)
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -O3 -w $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=gnu++14 $(CXXFLAGS)
-  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -fvisibility=hidden -lrt -ldl -lpthread -lGL -lz -ludev -lbfd $(LDFLAGS)
+  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -fvisibility=hidden -lrt -ldl -lpthread -lz -ludev -lbfd $(LDFLAGS)
 
   CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
@@ -275,24 +275,7 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/CtrlrPanelUtilities_c2ab4ae1.o \
   $(JUCE_OBJDIR)/CtrlrPanelViewport_dadb95f9.o \
   $(JUCE_OBJDIR)/CtrlrViewport_fa4a1ea1.o \
-  $(JUCE_OBJDIR)/CtrlrBooleanPropertyComponent_efabd7a8.o \
-  $(JUCE_OBJDIR)/CtrlrButtonPropertyComponent_83c81d58.o \
-  $(JUCE_OBJDIR)/CtrlrChoicePropertyComponent_7069249.o \
-  $(JUCE_OBJDIR)/CtrlrColourPropertyComponent_7bb78afe.o \
-  $(JUCE_OBJDIR)/CtrlrExpressionProperty_536ed895.o \
-  $(JUCE_OBJDIR)/CtrlrFilePropertyComponent_2834a08e.o \
-  $(JUCE_OBJDIR)/CtrlrFontPropertyComponent_86771b9b.o \
-  $(JUCE_OBJDIR)/CtrlrLuaMethodProperty_1a69fd70.o \
-  $(JUCE_OBJDIR)/CtrlrModulatorListProperty_ccc35124.o \
-  $(JUCE_OBJDIR)/CtrlrMultiMidiPropertyComponent_2201fa56.o \
   $(JUCE_OBJDIR)/CtrlrPropertyComponent_8edd6f2a.o \
-  $(JUCE_OBJDIR)/CtrlrSliderPropertyComponent_780ff09.o \
-  $(JUCE_OBJDIR)/CtrlrSysExEditor_516051af.o \
-  $(JUCE_OBJDIR)/CtrlrSysExFormulaEditor_5edb6fb.o \
-  $(JUCE_OBJDIR)/CtrlrSysExPropertyComponent_322a9730.o \
-  $(JUCE_OBJDIR)/CtrlrTextPropertyComponent_cefbb97d.o \
-  $(JUCE_OBJDIR)/CtrlrTimestampProperty_13f85c0d.o \
-  $(JUCE_OBJDIR)/CtrlrUnknownPropertyComponent_cf2c60c6.o \
   $(JUCE_OBJDIR)/CtrlrChildWindow_4cf4d23d.o \
   $(JUCE_OBJDIR)/CtrlrChildWindowContainer_4534500e.o \
   $(JUCE_OBJDIR)/CtrlrChildWindowContent_3235f206.o \
@@ -318,7 +301,6 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/include_juce_graphics_f817e147.o \
   $(JUCE_OBJDIR)/include_juce_gui_basics_e3f79785.o \
   $(JUCE_OBJDIR)/include_juce_gui_extra_6dee1c1a.o \
-  $(JUCE_OBJDIR)/include_juce_opengl_a8a032b.o \
 
 .PHONY: clean all strip VST Standalone
 
@@ -1270,94 +1252,9 @@ $(JUCE_OBJDIR)/CtrlrViewport_fa4a1ea1.o: ../../Source/UIComponents/CtrlrPanel/Ct
 	@echo "Compiling CtrlrViewport.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
-$(JUCE_OBJDIR)/CtrlrBooleanPropertyComponent_efabd7a8.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrBooleanPropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrBooleanPropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrButtonPropertyComponent_83c81d58.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrButtonPropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrButtonPropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrChoicePropertyComponent_7069249.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrChoicePropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrChoicePropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrColourPropertyComponent_7bb78afe.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrColourPropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrColourPropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrExpressionProperty_536ed895.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrExpressionProperty.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrExpressionProperty.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrFilePropertyComponent_2834a08e.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFilePropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrFilePropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrFontPropertyComponent_86771b9b.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrFontPropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrFontPropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrLuaMethodProperty_1a69fd70.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrLuaMethodProperty.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrLuaMethodProperty.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrModulatorListProperty_ccc35124.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrModulatorListProperty.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrModulatorListProperty.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrMultiMidiPropertyComponent_2201fa56.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrMultiMidiPropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrMultiMidiPropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
 $(JUCE_OBJDIR)/CtrlrPropertyComponent_8edd6f2a.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrPropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrSliderPropertyComponent_780ff09.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSliderPropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrSliderPropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrSysExEditor_516051af.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExEditor.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrSysExEditor.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrSysExFormulaEditor_5edb6fb.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExFormulaEditor.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrSysExFormulaEditor.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrSysExPropertyComponent_322a9730.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrSysExPropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrSysExPropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrTextPropertyComponent_cefbb97d.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTextPropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrTextPropertyComponent.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrTimestampProperty_13f85c0d.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrTimestampProperty.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrTimestampProperty.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrUnknownPropertyComponent_cf2c60c6.o: ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrUnknownPropertyComponent.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrUnknownPropertyComponent.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/CtrlrChildWindow_4cf4d23d.o: ../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.cpp
@@ -1483,11 +1380,6 @@ $(JUCE_OBJDIR)/include_juce_gui_basics_e3f79785.o: ../../JuceLibraryCode/include
 $(JUCE_OBJDIR)/include_juce_gui_extra_6dee1c1a.o: ../../JuceLibraryCode/include_juce_gui_extra.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling include_juce_gui_extra.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/include_juce_opengl_a8a032b.o: ../../JuceLibraryCode/include_juce_opengl.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling include_juce_opengl.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 clean:

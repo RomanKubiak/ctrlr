@@ -13,6 +13,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 		menuHandlerCalled(false),
 		lastCommandInvocationMillis(0)
 {
+    setColourScheme(LookAndFeel_V4::getLightColourScheme());
 	LookAndFeel::setDefaultLookAndFeel(this);
 	Rectangle<int> editorRect;
     // http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
@@ -74,7 +75,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 		else
 			setSize(800, 600);
 	}
-	
+
 	lookAndFeelChanged();
 	activeCtrlrChanged();
 
@@ -117,7 +118,7 @@ void CtrlrEditor::activeCtrlrChanged()
 {
 	ownerFilter->activePanelChanged();
 	bool menuBarVisible = true;
-	
+
 	if (owner.getActivePanel() && owner.getActivePanel()->getEditor())
 	{
 		menuBarVisible = owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMenuBarVisible);
@@ -179,71 +180,6 @@ bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
 void CtrlrEditor::initTest()
 {
     /* this does nothing */
-}
-
-static const char* openGLRendererName = "OpenGL Renderer";
-
-StringArray CtrlrEditor::getRenderingEngines() const
-{
-    StringArray renderingEngines;
-
-    if (ComponentPeer* peer = getPeer())
-        renderingEngines = peer->getAvailableRenderingEngines();
-
-   #if JUCE_OPENGL
-    renderingEngines.add (openGLRendererName);
-   #endif
-
-    return renderingEngines;
-}
-
-void CtrlrEditor::setRenderingEngine (int index)
-{
-   #if JUCE_OPENGL
-    if (getRenderingEngines()[index] == openGLRendererName)
-    {
-        openGLContext.attachTo (*getTopLevelComponent());
-        return;
-    }
-
-    openGLContext.detach();
-   #endif
-
-    if (ComponentPeer* peer = getPeer())
-        peer->setCurrentRenderingEngine (index);
-}
-
-void CtrlrEditor::setOpenGLRenderingEngine()
-{
-    setRenderingEngine (getRenderingEngines().indexOf (openGLRendererName));
-}
-
-int CtrlrEditor::getActiveRenderingEngine() const
-{
-   #if JUCE_OPENGL
-    if (openGLContext.isAttached())
-        return getRenderingEngines().indexOf (openGLRendererName);
-   #endif
-
-    if (ComponentPeer* peer = getPeer())
-        return peer->getCurrentRenderingEngine();
-
-    return 0;
-}
-
-void CtrlrEditor::setUsingOpenGL(const bool isUsingOpenGL)
-{
-    if (isUsingOpenGL)
-    {
-        if (getRenderingEngines().contains(openGLRendererName))
-        {
-            setOpenGLRenderingEngine();
-        }
-    }
-    else
-    {
-        setRenderingEngine (0);
-    }
 }
 
 void CtrlrEditor::setMenuBarVisible(const bool shouldBeVisible)

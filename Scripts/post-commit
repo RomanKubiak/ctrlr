@@ -188,7 +188,7 @@ function build_now_osx {
 	echo -n > $BUILD_LOG
 	
 	echo "[CTRLR]: Build Standalone"
-	cd $CTRLR_ROOT/Builds/Generated/Mac/Standalone
+	cd $CTRLR_ROOT/Builds/MacOSX
 	xcodebuild -configuration Release_Nightly | tee -ia $BUILD_LOG
 	
 	if [ $? -ne 0 ]; then
@@ -197,7 +197,7 @@ function build_now_osx {
 	fi
 
 	echo "[CTRLR]: Build VST"
-	cd $CTRLR_ROOT/Builds/Generated/Mac/VST
+	cd $CTRLR_ROOT/Builds/MacOSX
 	xcodebuild -configuration Release_Nightly | tee -ia $BUILD_LOG
 	
 	if [ $? -ne 0 ]; then
@@ -206,7 +206,7 @@ function build_now_osx {
 	fi
 	
 	echo "[CTRLR]: Build AU Wrapper"
-	cd $CTRLR_ROOT/Builds/Generated/Mac/AU_Wrapper
+	cd $CTRLR_ROOT/Builds/MacOSX
 	xcodebuild -configuration Release_Nightly | tee -ia $BUILD_LOG
 	
 	if [ $? -ne 0 ]; then
@@ -215,7 +215,7 @@ function build_now_osx {
 	fi
 	
 	echo "[CTRLR]: Build AU"
-	cd $CTRLR_ROOT/Builds/Generated/Mac/AU
+	cd $CTRLR_ROOT/Builds/MacOSX
 	xcodebuild -configuration Release_Nightly | tee -ia $BUILD_LOG
 	
 	if [ $? -ne 0 ]; then
@@ -322,7 +322,7 @@ function build_now_linux {
 	rm -f $CTRLR_ROOT/Bin/Ctrlr-*
 	
 	echo "CTRLR: check if boost is unpacked"
-	if [ ! -d $CTRLR_ROOT/Boost/boost ]; then
+	if [ ! -d $CTRLR_ROOT/Source/Misc/boost ]; then
 		echo "CTRLR: need to unpack boost.zip"
 		cd $CTRLR_ROOT/Boost
 		if [ -e boost.zip ]; then
@@ -338,7 +338,7 @@ function build_now_linux {
 	echo "CTRLR: Build Standalone"
 	echo -n > $BUILD_LOG
 	
-	cd $CTRLR_ROOT/Builds/Generated/Linux/Standalone
+	cd $CTRLR_ROOT/Builds/LinuxMakefile
 	if [ "$ARGS" == "clean" ]; then
 		echo "CTRLR: clean before build"
 		rm -rf ./build
@@ -350,7 +350,7 @@ function build_now_linux {
 		exit 1
 	fi
 	
-	cd $CTRLR_ROOT/Builds/Generated/Linux/VST
+	cd $CTRLR_ROOT/Builds/LinuxMakefile
 	if [ "$ARGS" == "clean" ]; then
 		echo "CTRLR: clean before build"
 		rm -rf ./build
@@ -363,12 +363,8 @@ function build_now_linux {
 	fi
 	
 	echo "CTRLR: strip binaries"
-	if [ -e $CTRLR_ROOT/Bin/Ctrlr ]; then
-		strip $CTRLR_ROOT/bin/Ctrlr-*
-	fi
-	
-	if [ -e $CTRLR_ROOT/Bin/Ctrlr-VST.so ]; then
-		strip $CTRLR_ROOT/Bin/libCtrlr-*.so
+	if [ -e $CTRLR_ROOT/Builds/LinuxMakefile/build/Ctrlr ]; then
+		strip $CTRLR_ROOT/Builds/LinuxMakefile/build/Ctrlr/*
 	fi
 	
 	echo "CTRLR: Clean old package files"
@@ -377,8 +373,8 @@ function build_now_linux {
 	echo "CTRLR: copy files for package"
 	mkdir -p $CTRLR_ROOT/Packaging/Linux/Ctrlr
 	
-	cp -r $CTRLR_ROOT/Bin/Ctrlr-* $CTRLR_ROOT/Packaging/Linux/Ctrlr/
-	cp -r $CTRLR_ROOT/Bin/libCtrlr-* $CTRLR_ROOT/Packaging/Linux/Ctrlr/
+	cp $CTRLR_ROOT/Builds/LinuxMakefile/build/Ctrlr $CTRLR_ROOT/Packaging/Linux/Ctrlr/
+	cp $CTRLR_ROOT/Builds/LinuxMakefile/build/Ctrlr.so $CTRLR_ROOT/Packaging/Linux/Ctrlr/
 	cp -r $CTRLR_ROOT/Panels $CTRLR_ROOT/Packaging/Linux/Ctrlr/
 	cp -r $CTRLR_ROOT/Doc $CTRLR_ROOT/Packaging/Linux/Ctrlr/
 	
