@@ -9,148 +9,148 @@
 namespace BinaryData
 {
     extern const char*   FindLua52_cmake;
-    const int            FindLua52_cmakeSize = 4567;
+    const int            FindLua52_cmakeSize = 4438;
 
     extern const char*   FindLuabind_cmake;
-    const int            FindLuabind_cmakeSize = 1373;
+    const int            FindLuabind_cmakeSize = 1331;
 
     extern const char*   adopt_rst;
-    const int            adopt_rstSize = 778;
+    const int            adopt_rstSize = 730;
 
     extern const char*   copy_rst;
-    const int            copy_rstSize = 1055;
+    const int            copy_rstSize = 1002;
 
     extern const char*   dependency_rst;
-    const int            dependency_rstSize = 1028;
+    const int            dependency_rstSize = 976;
 
     extern const char*   discard_result_rst;
-    const int            discard_result_rstSize = 619;
+    const int            discard_result_rstSize = 573;
 
     extern const char*   out_value_rst;
-    const int            out_value_rstSize = 1605;
+    const int            out_value_rstSize = 1539;
 
     extern const char*   pure_out_value_rst;
-    const int            pure_out_value_rstSize = 1379;
+    const int            pure_out_value_rstSize = 1315;
 
     extern const char*   raw_rst;
-    const int            raw_rstSize = 1155;
+    const int            raw_rstSize = 1094;
 
     extern const char*   return_reference_to_rst;
-    const int            return_reference_to_rstSize = 1702;
+    const int            return_reference_to_rstSize = 1621;
 
     extern const char*   return_stl_iterator_rst;
-    const int            return_stl_iterator_rstSize = 791;
+    const int            return_stl_iterator_rstSize = 742;
 
     extern const char*   yield_rst;
-    const int            yield_rstSize = 499;
+    const int            yield_rstSize = 458;
 
     extern const char*   acknowledgments_rst;
-    const int            acknowledgments_rstSize = 801;
+    const int            acknowledgments_rstSize = 777;
 
     extern const char*   basicusage_rst;
-    const int            basicusage_rstSize = 1856;
+    const int            basicusage_rstSize = 1786;
 
     extern const char*   buildoptions_rst;
-    const int            buildoptions_rstSize = 5920;
+    const int            buildoptions_rstSize = 5794;
 
     extern const char*   building_rst;
-    const int            building_rstSize = 2028;
+    const int            building_rstSize = 1966;
 
     extern const char*   changes_txt;
-    const int            changes_txtSize = 5078;
+    const int            changes_txtSize = 4925;
 
     extern const char*   classes_rst;
-    const int            classes_rstSize = 19994;
+    const int            classes_rstSize = 19370;
 
     extern const char*   CMakeLists_txt;
-    const int            CMakeLists_txtSize = 2227;
+    const int            CMakeLists_txtSize = 2151;
 
     extern const char*   conf_py;
-    const int            conf_pySize = 8495;
+    const int            conf_pySize = 8232;
 
     extern const char*   errors_rst;
-    const int            errors_rstSize = 7111;
+    const int            errors_rstSize = 6929;
 
     extern const char*   exceptions_rst;
-    const int            exceptions_rstSize = 4572;
+    const int            exceptions_rstSize = 4447;
 
     extern const char*   faq_rst;
-    const int            faq_rstSize = 4218;
+    const int            faq_rstSize = 4130;
 
     extern const char*   functions_rst;
-    const int            functions_rstSize = 6697;
+    const int            functions_rstSize = 6474;
 
     extern const char*   GetGitRevisionDescription_cmake;
-    const int            GetGitRevisionDescription_cmakeSize = 4172;
+    const int            GetGitRevisionDescription_cmakeSize = 4056;
 
     extern const char*   GetGitRevisionDescription_cmake_in;
-    const int            GetGitRevisionDescription_cmake_inSize = 1284;
+    const int            GetGitRevisionDescription_cmake_inSize = 1246;
 
     extern const char*   git_version_in;
-    const int            git_version_inSize = 16;
+    const int            git_version_inSize = 15;
 
     extern const char*   implnotes_rst;
-    const int            implnotes_rstSize = 1820;
+    const int            implnotes_rstSize = 1779;
 
     extern const char*   index_html;
-    const int            index_htmlSize = 2629;
+    const int            index_htmlSize = 2565;
 
     extern const char*   index_rst;
-    const int            index_rstSize = 983;
+    const int            index_rstSize = 939;
 
     extern const char*   intro_rst;
-    const int            intro_rstSize = 2708;
+    const int            intro_rstSize = 2639;
 
     extern const char*   issues_rst;
-    const int            issues_rstSize = 579;
+    const int            issues_rstSize = 562;
 
     extern const char*   luaclasses_rst;
-    const int            luaclasses_rstSize = 10753;
+    const int            luaclasses_rstSize = 10414;
 
     extern const char*   luabindlogolabel_ps;
-    const int            luabindlogolabel_psSize = 5047;
+    const int            luabindlogolabel_psSize = 4837;
 
     extern const char*   luabind_png;
     const int            luabind_pngSize = 20263;
 
     extern const char*   make_bat;
-    const int            make_batSize = 7150;
+    const int            make_batSize = 6908;
 
     extern const char*   Makefile;
-    const int            MakefileSize = 6943;
+    const int            MakefileSize = 6766;
 
     extern const char*   object_rst;
-    const int            object_rstSize = 11199;
+    const int            object_rstSize = 10878;
 
     extern const char*   policies_rst;
-    const int            policies_rstSize = 9932;
+    const int            policies_rstSize = 9559;
 
     extern const char*   scopes_rst;
-    const int            scopes_rstSize = 1990;
+    const int            scopes_rstSize = 1907;
 
     extern const char*   splitregistration_rst;
-    const int            splitregistration_rstSize = 833;
+    const int            splitregistration_rstSize = 791;
 
     extern const char*   style_css;
-    const int            style_cssSize = 5306;
+    const int            style_cssSize = 5014;
 
     extern const char*   userdefinedconverters_rst;
-    const int            userdefinedconverters_rstSize = 1515;
+    const int            userdefinedconverters_rstSize = 1462;
 
     extern const char*   CMakeLists_txt2;
-    const int            CMakeLists_txt2Size = 5694;
+    const int            CMakeLists_txt2Size = 5493;
 
     extern const char*   CMakeLists_txt3;
-    const int            CMakeLists_txt3Size = 9283;
+    const int            CMakeLists_txt3Size = 8955;
 
     extern const char*   INSTALL_txt;
-    const int            INSTALL_txtSize = 2121;
+    const int            INSTALL_txtSize = 2054;
 
     extern const char*   LICENSE_txt;
-    const int            LICENSE_txtSize = 1230;
+    const int            LICENSE_txtSize = 1207;
 
     extern const char*   README_md;
-    const int            README_mdSize = 7480;
+    const int            README_mdSize = 7469;
 
     extern const char*   CtrlrRevision_template;
     const int            CtrlrRevision_templateSize = 199;

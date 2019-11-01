@@ -29,6 +29,7 @@
 #include <boost/config.hpp>
 #include <boost/integer_traits.hpp>
 #include <boost/limits.hpp>
+#include <boost/mpl/and.hpp>
 #include <boost/mpl/bool.hpp>
 #include <boost/mpl/equal_to.hpp>
 #include <boost/mpl/eval_if.hpp>
@@ -42,6 +43,7 @@
 #include <boost/type_traits/is_base_and_derived.hpp>
 #include <boost/type_traits/is_enum.hpp>
 #include <boost/type_traits/is_pointer.hpp>
+#include <boost/type_traits/remove_const.hpp>
 #include <boost/type_traits/remove_reference.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/version.hpp>
@@ -176,11 +178,7 @@ namespace luabind { namespace detail
     {
         if (get_pointer(x))
         {
-#ifdef LUABIND_USE_CXX11
-            make_instance(L, std::move(x));
-#else
             make_instance(L, x);
-#endif
         }
         else
         {
@@ -191,13 +189,8 @@ namespace luabind { namespace detail
     template <class T>
     void make_pointee_instance(lua_State* L, T& x, mpl::false_, mpl::true_)
     {
-#ifdef LUABIND_USE_CXX11
-        std::unique_ptr<T> ptr(new T(x));
-        make_instance(L, std::move(ptr));
-#else
         std::auto_ptr<T> ptr(new T(x));
         make_instance(L, ptr);
-#endif
     }
 
     template <class T>
@@ -683,7 +676,9 @@ struct native_converter_base
 // *********** converter for arithmetic (number) types *****************
 template <typename QualifiedT>
 struct number_converter
-  : native_converter_base<typename boost::remove_reference<typename boost::remove_const<QualifiedT>::type>::type>
+  : native_converter_base<
+        typename boost::remove_const<
+            typename boost::remove_reference<QualifiedT>::type>::type>
 {
 
     template <
@@ -698,7 +693,7 @@ struct number_converter
         && Traits::const_max <= TraitsLua::const_max>
     {};
 
-    typedef typename boost::remove_reference<typename boost::remove_const<QualifiedT>::type>::type T;
+    typedef typename boost::remove_const<typename boost::remove_reference<QualifiedT>::type>::type T;
     typedef typename native_converter_base<T>::param_type param_type;
     typedef typename native_converter_base<T>::value_type value_type;
 
@@ -742,11 +737,23 @@ struct number_converter
     }
 };
 // template partial specialization for those types that boost knows to be
-// floating-point
+// arithmetic and const references to them
 template <typename T>
 struct default_converter<T,
-    typename boost::enable_if<boost::is_arithmetic<T> >::type
-    >
+    typename boost::enable_if<boost::mpl::or_<
+          boost::is_arithmetic<T>,
+          boost::mpl::and_<
+              boost::is_reference<T>,
+              boost::is_const<
+                  typename boost::remove_reference<T>::type
+              >,
+              boost::is_arithmetic<
+                  typename boost::remove_const<
+                      typename boost::remove_reference<T>::type>::type
+              >
+          >
+    > >::type
+>
     : number_converter<T> {};
 
 // *********** converter for bool *****************

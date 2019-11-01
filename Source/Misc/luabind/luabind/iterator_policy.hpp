@@ -2,8 +2,8 @@
 // subject to the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef LUABIND_ITERATOR_POLICY__071111_HPP
-# define LUABIND_ITERATOR_POLICY__071111_HPP
+#ifndef LUABIND_ITERATOR_POLICY_071111_HPP
+# define LUABIND_ITERATOR_POLICY_071111_HPP
 
 # include <luabind/config.hpp>           // for LUABIND_ANONYMOUS_FIX
 # include <luabind/detail/convert_to_lua.hpp>  // for convert_to_lua

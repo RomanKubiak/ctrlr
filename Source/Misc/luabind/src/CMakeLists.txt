@@ -105,7 +105,6 @@ set(LUABIND_DETAIL_API
     ../luabind/detail/object_call.hpp
     ../luabind/detail/object.hpp
     ../luabind/detail/object_rep.hpp
-    ../luabind/detail/open.hpp
     ../luabind/detail/operator_id.hpp
     ../luabind/detail/other.hpp
     ../luabind/detail/pcall.hpp
@@ -129,7 +128,7 @@ endif()
 
 set(CMAKE_DEBUG_POSTFIX "-d")
 add_library(luabind ${LUABIND_SRCS} ${LUABIND_API} ${LUABIND_DETAIL_API})
-target_link_libraries(luabind ${LUA_LIBRARIES} ${LUABIND_EXTRA_LIBS})
+target_link_libraries(luabind ${LUA_LIBRARIES} ${LUABIND_EXTRA_LIBS} ${CMAKE_DL_LIBS})
 set_property(TARGET
     luabind PROPERTY
     COMPILE_FLAGS

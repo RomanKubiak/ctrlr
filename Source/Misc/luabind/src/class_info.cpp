@@ -55,12 +55,12 @@ namespace luabind
             if (!obj)
             {
                 VERBOSE("Not a obj rep");
-                class_info result_local;
-				result_local.name = lua_typename(L, lua_type(L, -1));
+                class_info result;
+                result.name = lua_typename(L, lua_type(L, -1));
                 lua_pop(L, 1);
-				result_local.methods = newtable(L);
-				result_local.attributes = newtable(L);
-                return result_local;
+                result.methods = newtable(L);
+                result.attributes = newtable(L);
+                return result;
             } else {
                 lua_pop(L, 1);
                 // OK, we were given an object - gotta get the crep.
@@ -71,10 +71,10 @@ namespace luabind
         object table(from_stack(L, -1));
         lua_pop(L, 1);
 
-        class_info result_local;
-		result_local.name = detail::get_class_name(L, crep->type());
-		result_local.methods = newtable(L);
-		result_local.attributes = newtable(L);
+        class_info result;
+        result.name = detail::get_class_name(L, crep->type());
+        result.methods = newtable(L);
+        result.attributes = newtable(L);
 
         std::size_t index = 1;
 
@@ -92,15 +92,15 @@ namespace luabind
 
             if (lua_tocfunction(L, -1) == &detail::property_tag)
             {
-				result_local.attributes[index++] = i.key();
+                result.attributes[index++] = i.key();
             }
             else
             {
-				result_local.methods[i.key()] = *i;
+                result.methods[i.key()] = *i;
             }
         }
 
-        return result_local;
+        return result;
     }
 
     LUABIND_API object get_class_names(lua_State* L)
@@ -109,16 +109,16 @@ namespace luabind
 
         std::map<type_id, detail::class_rep*> const& classes = reg->get_classes();
 
-        object result_local = newtable(L);
+        object result = newtable(L);
         std::size_t index = 1;
 
         for (std::map<type_id, detail::class_rep*>::const_iterator iter = classes.begin();
             iter != classes.end(); ++iter)
         {
-			result_local[index++] = iter->second->name();
+            result[index++] = iter->second->name();
         }
 
-        return result_local;
+        return result;
     }
 
     LUABIND_API void bind_class_info(lua_State* L)

@@ -41,8 +41,8 @@ class PluginHostType
 public:
     //==============================================================================
     PluginHostType()  : type (getHostType()) {}
-    PluginHostType (const PluginHostType& other) noexcept  : type (other.type) {}
-    PluginHostType& operator= (const PluginHostType& other) noexcept { type = other.type; return *this; }
+    PluginHostType (const PluginHostType& other) = default;
+    PluginHostType& operator= (const PluginHostType& other) = default;
 
     //==============================================================================
     /** Represents the host type and also its version for some hosts. */
@@ -52,6 +52,8 @@ public:
         AbletonLive6,               /**< Represents Ableton Live 6. */
         AbletonLive7,               /**< Represents Ableton Live 7. */
         AbletonLive8,               /**< Represents Ableton Live 8. */
+        AbletonLive9,               /**< Represents Ableton Live 9. */
+        AbletonLive10,              /**< Represents Ableton Live 10. */
         AbletonLiveGeneric,         /**< Represents Ableton Live. */
         AdobeAudition,              /**< Represents Adobe Audition. */
         AdobePremierePro,           /**< Represents Adobe Premiere Pro. */
@@ -73,6 +75,7 @@ public:
         MagixSequoia,               /**< Represents Magix Sequoia. */
         MergingPyramix,             /**< Represents Merging Pyramix. */
         MuseReceptorGeneric,        /**< Represents Muse Receptor. */
+        pluginval,                  /**< Represents pluginval. */
         Reaper,                     /**< Represents Cockos Reaper. */
         Renoise,                    /**< Represents Renoise. */
         SADiE,                      /**< Represents SADiE. */
@@ -109,7 +112,7 @@ public:
 
     //==============================================================================
     /** Returns true if the host is any version of Ableton Live. */
-    bool isAbletonLive() const noexcept       { return type == AbletonLive6 || type == AbletonLive7 || type == AbletonLive8 || type == AbletonLiveGeneric; }
+    bool isAbletonLive() const noexcept       { return type == AbletonLive6 || type == AbletonLive7 || type == AbletonLive8 || type == AbletonLive9 || type == AbletonLive10 || type == AbletonLiveGeneric; }
     /** Returns true if the host is Adobe Audition. */
     bool isAdobeAudition() const noexcept     { return type == AdobeAudition; }
     /** Returns true if the host is Ardour. */
@@ -140,6 +143,8 @@ public:
     bool isMainStage() const noexcept         { return type == AppleMainStage; }
     /** Returns true if the host is any version of Steinberg Nuendo. */
     bool isNuendo() const noexcept            { return type == SteinbergNuendo3 || type == SteinbergNuendo4  || type == SteinbergNuendo5 ||  type == SteinbergNuendoGeneric; }
+    /** Returns true if the host is pluginval. */
+    bool isPluginval() const noexcept         { return type == pluginval; }
     /** Returns true if the host is Adobe Premiere Pro. */
     bool isPremiere() const noexcept          { return type == AdobePremierePro; }
     /** Returns true if the host is Avid Pro Tools. */
@@ -188,6 +193,8 @@ public:
             case AbletonLive6:             return "Ableton Live 6";
             case AbletonLive7:             return "Ableton Live 7";
             case AbletonLive8:             return "Ableton Live 8";
+            case AbletonLive9:             return "Ableton Live 9";
+            case AbletonLive10:            return "Ableton Live 10";
             case AbletonLiveGeneric:       return "Ableton Live";
             case AdobeAudition:            return "Adobe Audition";
             case AdobePremierePro:         return "Adobe Premiere";
@@ -207,6 +214,7 @@ public:
             case JUCEPluginHost:           return "JUCE AudioPluginHost";
             case MagixSamplitude:          return "Magix Samplitude";
             case MagixSequoia:             return "Magix Sequoia";
+            case pluginval:                return "pluginval";
             case MergingPyramix:           return "Pyramix";
             case MuseReceptorGeneric:      return "Muse Receptor";
             case Reaper:                   return "Reaper";
@@ -273,11 +281,15 @@ public:
     */
     static AudioProcessor::WrapperType getPluginLoadedAs() noexcept    { return jucePlugInClientCurrentWrapperType; }
 
+    /** Returns true if the AudioProcessor instance is an AAX plug-in running in AudioSuite. */
+    static bool isInAAXAudioSuite (AudioProcessor&);
+
     //==============================================================================
 
    #ifndef DOXYGEN
     // @internal
     static AudioProcessor::WrapperType jucePlugInClientCurrentWrapperType;
+    static std::function<bool(AudioProcessor&)> jucePlugInIsRunningInAudioSuiteFn;
    #endif
 
 private:
@@ -292,6 +304,8 @@ private:
         if (hostPath.containsIgnoreCase       ("Live 6."))           return AbletonLive6;
         if (hostPath.containsIgnoreCase       ("Live 7."))           return AbletonLive7;
         if (hostPath.containsIgnoreCase       ("Live 8."))           return AbletonLive8;
+        if (hostPath.containsIgnoreCase       ("Live 9."))           return AbletonLive9;
+        if (hostPath.containsIgnoreCase       ("Live 10."))          return AbletonLive10;
         if (hostFilename.containsIgnoreCase   ("Live"))              return AbletonLiveGeneric;
         if (hostFilename.containsIgnoreCase   ("Adobe Premiere"))    return AdobePremierePro;
         if (hostFilename.containsIgnoreCase   ("GarageBand"))        return AppleGarageBand;
@@ -326,12 +340,15 @@ private:
         if (hostFilename.containsIgnoreCase   ("Resolve"))           return DaVinciResolve;
         if (hostFilename.startsWith           ("Bitwig"))            return BitwigStudio;
         if (hostFilename.containsIgnoreCase   ("OsxFL"))             return FruityLoops;
+        if (hostFilename.containsIgnoreCase   ("pluginval"))         return pluginval;
         if (hostFilename.containsIgnoreCase   ("AudioPluginHost"))   return JUCEPluginHost;
 
        #elif JUCE_WINDOWS
         if (hostFilename.containsIgnoreCase   ("Live 6."))           return AbletonLive6;
         if (hostFilename.containsIgnoreCase   ("Live 7."))           return AbletonLive7;
         if (hostFilename.containsIgnoreCase   ("Live 8."))           return AbletonLive8;
+        if (hostFilename.containsIgnoreCase   ("Live 9."))           return AbletonLive9;
+        if (hostFilename.containsIgnoreCase   ("Live 10."))          return AbletonLive10;
         if (hostFilename.containsIgnoreCase   ("Live "))             return AbletonLiveGeneric;
         if (hostFilename.containsIgnoreCase   ("Audition"))          return AdobeAudition;
         if (hostFilename.containsIgnoreCase   ("Adobe Premiere"))    return AdobePremierePro;
@@ -381,6 +398,7 @@ private:
         if (hostFilename.containsIgnoreCase   ("Resolve"))           return DaVinciResolve;
         if (hostPath.containsIgnoreCase       ("Bitwig Studio"))     return BitwigStudio;
         if (hostFilename.containsIgnoreCase   ("Sadie"))             return SADiE;
+        if (hostFilename.containsIgnoreCase   ("pluginval"))         return pluginval;
         if (hostFilename.containsIgnoreCase   ("AudioPluginHost"))   return JUCEPluginHost;
 
        #elif JUCE_LINUX
@@ -388,6 +406,7 @@ private:
         if (hostFilename.startsWithIgnoreCase ("Waveform"))          return TracktionWaveform;
         if (hostFilename.containsIgnoreCase   ("Tracktion"))         return TracktionGeneric;
         if (hostFilename.startsWith           ("Bitwig"))            return BitwigStudio;
+        if (hostFilename.containsIgnoreCase   ("pluginval"))         return pluginval;
         if (hostFilename.containsIgnoreCase   ("AudioPluginHost"))   return JUCEPluginHost;
 
        #elif JUCE_IOS

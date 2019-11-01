@@ -59,17 +59,13 @@ namespace luabind {
     struct LUABIND_API scope
     {
         scope();
-#ifdef LUABIND_USE_CXX11
-        explicit scope(std::unique_ptr<detail::registration> reg);
-#else
         explicit scope(std::auto_ptr<detail::registration> reg);
-#endif
         scope(scope const& other_);
         ~scope();
 
         scope& operator=(scope const& other_);
 
-        scope& operator,(const scope& s);
+        scope& operator,(scope s);
 
         void register_(lua_State* L) const;
 

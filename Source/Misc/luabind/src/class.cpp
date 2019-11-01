@@ -233,11 +233,7 @@ namespace luabind { namespace detail {
     // -- interface ---------------------------------------------------------
 
     class_base::class_base(char const* name_)
-#ifdef LUABIND_USE_CXX11
-        : scope(std::unique_ptr<registration>(
-#else
         : scope(std::auto_ptr<registration>(
-#endif
                 m_registration = new class_registration(name_))
           )
     {
@@ -260,24 +256,14 @@ namespace luabind { namespace detail {
 
     void class_base::add_member(registration* member)
     {
-#ifdef LUABIND_USE_CXX11
-        std::unique_ptr<registration> ptr(member);
-        m_registration->m_members.operator,(scope(std::move(ptr)));
-#else
         std::auto_ptr<registration> ptr(member);
         m_registration->m_members.operator,(scope(ptr));
-#endif
     }
 
     void class_base::add_default_member(registration* member)
     {
-#ifdef LUABIND_USE_CXX11
-        std::unique_ptr<registration> ptr(member);
-        m_registration->m_default_members.operator,(scope(std::move(ptr)));
-#else
         std::auto_ptr<registration> ptr(member);
         m_registration->m_default_members.operator,(scope(ptr));
-#endif
     }
 
     const char* class_base::name() const

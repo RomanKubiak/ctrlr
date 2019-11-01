@@ -48,9 +48,9 @@ LUABIND_API bool is_luabind_function(lua_State* L, int index)
 {
     if (!lua_getupvalue(L, index, 2))
         return false;
-    bool result_local = lua_touserdata(L, -1) == &function_tag;
+    bool result = lua_touserdata(L, -1) == &function_tag;
     lua_pop(L, 1);
-    return result_local;
+    return result;
 }
 
 namespace
@@ -59,9 +59,9 @@ namespace
   inline bool is_luabind_function(object const& obj)
   {
       obj.push(obj.interpreter());
-      bool result_local = detail::is_luabind_function(obj.interpreter(), -1);
+      bool result = detail::is_luabind_function(obj.interpreter(), -1);
       lua_pop(obj.interpreter(), 1);
-      return result_local;
+      return result;
   }
 
 } // namespace unnamed

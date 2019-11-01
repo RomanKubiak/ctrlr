@@ -52,11 +52,7 @@ inline mpl::true_ check_const_pointer(void const*)
 }
 
 template <class T>
-#ifdef LUABIND_USE_CXX11
-void release_ownership(std::unique_ptr<T>& p)
-#else
 void release_ownership(std::auto_ptr<T>& p)
-#endif
 {
     p.release();
 }
@@ -82,11 +78,7 @@ public:
         P p, class_id dynamic_id, void* dynamic_ptr
     )
       : instance_holder(check_const_pointer(false ? get_pointer(p) : 0))
-#ifdef LUABIND_USE_CXX11
-      , m_p(std::move(p))
-#else
       , m_p(p)
-#endif
       , m_weak(0)
       , m_dynamic_id(dynamic_id)
       , m_dynamic_ptr(dynamic_ptr)

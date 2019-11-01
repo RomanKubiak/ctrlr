@@ -23,6 +23,8 @@
 #ifndef LUABIND_LUA_INCLUDE_HPP_INCLUDED
 #define LUABIND_LUA_INCLUDE_HPP_INCLUDED
 
+#include <luabind/config.hpp>
+
 #ifndef LUABIND_CPLUSPLUS_LUA
 extern "C"
 {
@@ -36,7 +38,6 @@ extern "C"
 #endif
 
 #if LUA_VERSION_NUM < 502
-#include <luabind/config.hpp>
 
 # define lua_compare(L, index1, index2, fn) fn(L, index1, index2)
 # define LUA_OPEQ lua_equal

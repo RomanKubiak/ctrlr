@@ -106,35 +106,36 @@ inline int invoke(
    );
 }
 
-inline int maybe_yield_aux(lua_State*, int results, mpl::false_)
+inline int maybe_yield_aux(int results, mpl::false_)
 {
     return results;
 }
 
-inline int maybe_yield_aux(lua_State* L, int results, mpl::true_)
+inline int maybe_yield_aux(int results, mpl::true_)
 {
-    return lua_yield(L, results);
+    assert(results >= 0);
+    return -results - 1;
 }
 
 template <class Policies>
-int maybe_yield(lua_State* L, int results, Policies*)
+int maybe_yield(int results, Policies*)
 {
     return maybe_yield_aux(
-        L, results, has_policy<Policies, yield_policy>());
+        results, has_policy<Policies, yield_policy>());
 }
 
 inline int sum_scores(int const* first, int const* last)
 {
-    int result_local = 0;
+    int result = 0;
 
     for (; first != last; ++first)
     {
         if (*first < 0)
             return *first;
-		result_local += *first;
+        result += *first;
     }
 
-    return result_local;
+    return result;
 }
 
 #  define LUABIND_INVOKE_NEXT_ITER(n) \
@@ -314,7 +315,9 @@ invoke_normal
 #  include BOOST_PP_LOCAL_ITERATE()
 # endif
 
-        results = maybe_yield(L, lua_gettop(L) - arguments, (Policies*)0);
+        results = maybe_yield(lua_gettop(L) - arguments, (Policies*)0);
+        if (results < 0) // We should yield.
+            return results;
 
         int const indices[] = {
             arguments + results BOOST_PP_ENUM_TRAILING_PARAMS(N, index)

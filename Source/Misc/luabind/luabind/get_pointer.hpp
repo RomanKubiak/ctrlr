@@ -33,14 +33,6 @@ namespace luabind {
 
 using boost::get_pointer;
 
-#ifdef LUABIND_USE_CXX11
-template <typename T, typename Deleter>
-T* get_pointer(std::unique_ptr<T, Deleter> const& ptr)
-{
-    return ptr.get();
-}
-#endif
-
 } // namespace luabind
 
 #endif // LUABIND_GET_POINTER_051023_HPP

@@ -89,11 +89,7 @@ void make_instance(lua_State* L, P p)
 
     try
     {
-#ifdef LUABIND_USE_CXX11
-        new (storage) holder_type(std::move(p), dynamic.first, dynamic.second);
-#else
         new (storage) holder_type(p, dynamic.first, dynamic.second);
-#endif
     }
     catch (...)
     {

@@ -1,0 +1,3 @@
+#define LUABIND_TEST_HEADERCOMPILE
+#include "@FULLHEADER@"
+int main() { }

@@ -337,13 +337,13 @@ void LMidiMessage::wrapForLua (lua_State *L)
 				.def("isMidiClock", &MidiMessage::isMidiClock)
 				.def("isSongPositionPointer", &MidiMessage::isSongPositionPointer)
 				.def("getSongPositionPointerMidiBeat", &MidiMessage::getSongPositionPointerMidiBeat)
-				.def("isQuarterFrame", &MidiMessage::isQuarterFrame)
-				.def("getQuarterFrameSequenceNumber", &MidiMessage::getQuarterFrameSequenceNumber)
-				.def("getQuarterFrameValue", &MidiMessage::getQuarterFrameValue)
-				.def("isFullFrame", &MidiMessage::isFullFrame)
-				.def("isMidiMachineControlMessage", &MidiMessage::isMidiMachineControlMessage)
-				.def("getMidiMachineControlCommand", &MidiMessage::getMidiMachineControlCommand)
-				.def("isMidiMachineControlGoto", &MidiMessage::isMidiMachineControlGoto)
+				//.def("isQuarterFrame", &MidiMessage::isQuarterFrame)
+				//.def("getQuarterFrameSequenceNumber", &MidiMessage::getQuarterFrameSequenceNumber)
+				//.def("getQuarterFrameValue", &MidiMessage::getQuarterFrameValue)
+				//.def("isFullFrame", &MidiMessage::isFullFrame)
+				//.def("isMidiMachineControlMessage", &MidiMessage::isMidiMachineControlMessage)
+				//.def("getMidiMachineControlCommand", &MidiMessage::getMidiMachineControlCommand)
+				//.def("isMidiMachineControlGoto", &MidiMessage::isMidiMachineControlGoto)
 				.enum_("SmpteTimecodeType")
 				[
 					value("fps24", 0),
@@ -384,11 +384,11 @@ void LMidiMessage::wrapForLua (lua_State *L)
 					def("midiContinue", &MidiMessage::midiContinue),
 					def("midiStop", &MidiMessage::midiStop),
 					def("midiClock", &MidiMessage::midiClock),
-					def("songPositionPointer", &MidiMessage::songPositionPointer),
-					def("quarterFrame", &MidiMessage::quarterFrame),
-					def("fullFrame", (MidiMessage (*)(int,int,int,int,MidiMessage::SmpteTimecodeType))&MidiMessage::fullFrame),
-					def("midiMachineControlCommand", &MidiMessage::midiMachineControlCommand),
-					def("midiMachineControlGoto", &MidiMessage::midiMachineControlGoto),
+					//def("songPositionPointer", &MidiMessage::songPositionPointer),
+					//def("quarterFrame", &MidiMessage::quarterFrame),
+					//def("fullFrame", (MidiMessage (*)(int,int,int,int,MidiMessage::SmpteTimecodeType))&MidiMessage::fullFrame),
+					//def("midiMachineControlCommand", &MidiMessage::midiMachineControlCommand),
+					//def("midiMachineControlGoto", &MidiMessage::midiMachineControlGoto),
 					def("masterVolume", &MidiMessage::masterVolume),
 					def("createSysExMessage", &MidiMessage::createSysExMessage),
 					def("readVariableLengthVal", &MidiMessage::readVariableLengthVal),

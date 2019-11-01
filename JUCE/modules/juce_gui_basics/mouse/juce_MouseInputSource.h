@@ -49,7 +49,7 @@ namespace juce
 
     @tags{GUI}
 */
-class JUCE_API  MouseInputSource
+class JUCE_API  MouseInputSource  final
 {
 public:
     /** Possible mouse input sources. */
@@ -236,6 +236,11 @@ public:
     /** Default values for tilt, which are used when a device doesn't support it */
     static const float invalidTiltX;
     static const float invalidTiltY;
+
+    /** An offscreen mouse position used when triggering mouse exits where we don't want to move
+        the cursor over an existing component.
+    */
+    static const Point<float> offscreenMousePos;
 
    #if ! DOXYGEN
     // This method has been deprecated and replaced with the isLongPressOrDrag() and hasMovedSignificantlySincePressed()

@@ -24,6 +24,7 @@
 # define LUABIND_HAS_GET_POINTER_051022_HPP
 
 # include <boost/type_traits/add_reference.hpp>
+# include <boost/mpl/bool.hpp>
 
 # ifndef BOOST_NO_ARGUMENT_DEPENDENT_LOOKUP
 #  include <memory>
@@ -58,11 +59,7 @@ namespace has_get_pointer_
   T* get_pointer(T const volatile*);
 
   template<class T>
-# ifdef LUABIND_USE_CXX11
-  T* get_pointer(std::unique_ptr<T> const&);
-# else
   T* get_pointer(std::auto_ptr<T> const&);
-# endif
 
 # endif
 

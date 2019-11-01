@@ -92,11 +92,7 @@ namespace luabind { namespace detail
     template <class T>
     struct pointer_or_default<void, T>
     {
-#ifdef LUABIND_USE_CXX11
-        typedef std::unique_ptr<T> type;
-#else
         typedef std::auto_ptr<T> type;
-#endif
     };
 
     template <class Pointer>

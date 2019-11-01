@@ -96,6 +96,7 @@ namespace luabind
         struct enum_maker
         {
             explicit enum_maker(From& from): from_(from) {}
+            enum_maker(enum_maker<From> const& rhs): from_(rhs.from_) {}
 
             From& operator[](const value& val)
             {

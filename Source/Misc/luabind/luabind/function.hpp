@@ -44,11 +44,7 @@ namespace detail
 template <class F, class Policies>
 scope def(char const* name, F f, Policies const& policies)
 {
-#ifdef LUABIND_USE_CXX11
-    return scope(std::unique_ptr<detail::registration>(
-#else
     return scope(std::auto_ptr<detail::registration>(
-#endif
         new detail::function_registration<F, Policies>(name, f, policies)));
 }
 

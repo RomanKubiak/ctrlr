@@ -49,11 +49,7 @@ namespace luabind { namespace detail {
     {
     }
 
-#ifdef LUABIND_USE_CXX11
-    scope::scope(std::unique_ptr<detail::registration> reg)
-#else
     scope::scope(std::auto_ptr<detail::registration> reg)
-#endif
         : m_chain(reg.release())
     {
     }
@@ -77,12 +73,12 @@ namespace luabind { namespace detail {
         delete m_chain;
     }
 
-    scope& scope::operator,(const scope& s)
+    scope& scope::operator,(scope s)
     {
         if (!m_chain)
         {
             m_chain = s.m_chain;
-            const_cast<scope&>(s).m_chain = 0;
+            s.m_chain = 0;
             return *this;
         }
 
@@ -91,7 +87,7 @@ namespace luabind { namespace detail {
             if (!c->m_next)
             {
                 c->m_next = s.m_chain;
-                const_cast<scope&>(s).m_chain = 0;
+                s.m_chain = 0;
                 break;
             }
         }
@@ -203,11 +199,7 @@ namespace luabind {
     };
 
     namespace_::namespace_(char const* name)
-#ifdef LUABIND_USE_CXX11
-        : scope(std::unique_ptr<detail::registration>(
-#else
         : scope(std::auto_ptr<detail::registration>(
-#endif
               m_registration = new registration_(name)))
     {
     }
