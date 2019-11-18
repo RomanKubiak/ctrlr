@@ -134,6 +134,7 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	setProperty(Ids::uiPanelTooltipCornerRound, 1.0);
 	setProperty(Ids::uiPanelTooltipPlacement, BubbleComponent::below);
 	setProperty(Ids::uiPanelTooltipFont, Font(15.0f, Font::bold).toString());
+	setProperty(Ids::uiPanelLookAndFeel, "V3");
 	setProperty(Ids::uiPanelZoom, 1.0);
 
  	ctrlrComponentSelection->addChangeListener (ctrlrPanelProperties);

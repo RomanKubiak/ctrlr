@@ -73,50 +73,6 @@ void CtrlrPropertyComponent::refresh()
 	}
 }
 
-void CtrlrPropertyComponent::mouseEnter (const MouseEvent &e)
-{
-	if (e.x < getLookAndFeel().getPropertyComponentContentPosition (*this).getX())
-	{
-		setMouseCursor (MouseCursor::PointingHandCursor);
-		repaint();
-	}
-}
-
-void CtrlrPropertyComponent::mouseExit (const MouseEvent &e)
-{
-	setMouseCursor (MouseCursor::NormalCursor);
-	repaint();
-}
-
-void CtrlrPropertyComponent::mouseDown (const MouseEvent &e)
-{
-	if (e.x < getLookAndFeel().getPropertyComponentContentPosition (*this).getX())
-	{
-		if (panel)
-		{
-			if ((bool)panel->getOwner().getProperty (Ids::ctrlrPropertiesAreURLs) == true)
-			{
-				url = URL (urlString.replace ("%ELEMENT_TYPE%", getElementType().isEmpty() ? "" : (":"+getElementType()))
-								.replace ("%ELEMENT_SUBTYPE%", getElementSubType().isEmpty() ? "" : (":"+getElementSubType()))
-								.replace ("%ELEMENT_PROPERTY%", propertyName.toString()));
-				url.launchInDefaultBrowser();
-			}
-		}
-	}
-}
-
-void CtrlrPropertyComponent::mouseMove (const MouseEvent &e)
-{
-	if (e.x < getLookAndFeel().getPropertyComponentContentPosition (*this).getX())
-	{
-		if (getMouseCursor() != MouseCursor::PointingHandCursor)
-		{
-			setMouseCursor (MouseCursor::PointingHandCursor);
-			repaint();
-		}
-	}
-}
-
 Component *CtrlrPropertyComponent::getPropertyComponent()
 {
 	Value valueToControl	= propertyElement.getPropertyAsValue (propertyName, panel ? panel->getUndoManager() : nullptr);

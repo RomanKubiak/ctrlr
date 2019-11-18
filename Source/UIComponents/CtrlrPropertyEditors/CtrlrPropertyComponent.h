@@ -29,10 +29,7 @@ class CtrlrPropertyComponent  : public PropertyComponent
 		void resized();
 		void paint (Graphics &g);
 		void refresh();
-		void mouseEnter (const MouseEvent &e);
-		void mouseExit (const MouseEvent &e);
-		void mouseDown (const MouseEvent &e);
-		void mouseMove (const MouseEvent &e);
+
 		const String getElementSubType();
 		const String getElementType();
 

@@ -63,6 +63,7 @@ namespace Ids
 	DECLARE_ID (modulatorCustomName);
 
 	DECLARE_ID (uiPanelImageAlpha);
+	DECLARE_ID (uiPanelLookAndFeel);
 	DECLARE_ID (uiPanelImageLayout);
 	DECLARE_ID (uiPanelImageResource);
 	DECLARE_ID (uiPanelBackgroundColour);

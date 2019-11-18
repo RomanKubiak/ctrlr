@@ -28,6 +28,7 @@
 
   <!-- Panel editor properties -->
   <id name="uiPanelImageAlpha" 				text="Background image opacity" type="Numeric" max="255"/>
+  <id name="uiPanelLookAndFeel"             text="LookAndFeel scheme for panel" type="VarText" defaults="@lookandfeel" />
   <id name="uiPanelImageLayout" 			text="Image layout" type="VarNumeric" defaults="@imageLayout"/>
   <id name="uiPanelImageResource" 			text="Panel background image" type="VarText"/>
   <id name="uiPanelBackgroundColour" 		text="Background colour" type="Colour"/>
@@ -498,7 +499,7 @@
   <id name="uiHyperlinkTextJustification" text="Text justification" type="VarText" defaults="@justification"/>
   <id name="uiHyperlinkOpensUrl"          text="Should the button actually open the web browser" type="Bool" />
   <id name="uiHyperlinkUrl"               text="Hyperlink URL" type="Text"/>
-  
+
   <!-- XY Surface -->
   <id name="uiXYSurfaceBgGradientType"                text="Background gradient type"           type="VarNumeric" defaults="@gradient"/>
   <id name="uiXYSurfaceBackgroundColour1"             text="Background colour1"                 type="Colour"/>
@@ -744,7 +745,7 @@
   <id name="ctrlrPrivateKey"                   text="RSA private key used to sign exported panels" type="FileProperty" />
   <id name="ctrlrUsingOpenGL"            text="Use OpenGL render" type="Bool" />
   <id name="ctrlrFontSizeBaseValue" text="Base value for all font sizes in the Ctrlr UI (won't affect panel UI)" type="Numeric" min="8.0" max="128.0" int="0.1"/>
-  
+
   <!-- LUA callbacks -->
   <id name="luaManagerMethods"                text="luaManagerMethods"                                    type="Text" />
   <id name="luaMethodCode"                    text="luaMethodCode"                                        type="Text" />
@@ -845,6 +846,7 @@
     <const name="dynamicContent"    value="None=0,Modulator List=1,Filesystem=2,Bank,Program=3" />
     <const name="lcdFonts"          value="LCD=0,Digital-7=1,Dotty-Shadow=2,ZX81=3,Invasion2000=4,Digit=5,Computerfont=6,Electronic-Highway-Sign=7,Karmatic-Arcade=8,60sekuntia=9" />
     <const name="internalFunctions" value="-- None=0,MIDI Device Selection=1" />
+    <const name="lookandfeel"       value="V4,V3,V2,V1" />
   </constants>
 
 </ctrlrIds>
