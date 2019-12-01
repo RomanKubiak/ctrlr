@@ -2,6 +2,7 @@
 #include "stdafx_luabind.h"
 #include "LJuce.h"
 #include "CtrlrUtilities.h"
+#include "CtrlrLuaObjectWrapper.h"
 
 void LAffineTransform::wrapForLua (lua_State *L)
 {

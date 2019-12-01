@@ -10,7 +10,7 @@ extern  "C"
 class LImage
 {
 	public:
-        static Image null() { return (Image::null); }
+        static Image null() { return (Image()); }
 		static void wrapForLua (lua_State *L);
 };
 

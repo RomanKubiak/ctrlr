@@ -1,9 +1,6 @@
-#ifndef __CTRLR_MIDI_MESSAGE__
-#define __CTRLR_MIDI_MESSAGE__
+#pragma once
 
-#include "CtrlrMacros.h"
 #include "CtrlrMidiMessageEx.h"
-#include "CtrlrLuaObject.h"
 
 class CtrlrLuaObjectWrapper;
 
@@ -47,7 +44,7 @@ class TimestampComparator
 /** @brief Class that represents a MIDI message
 
 */
-class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
+class CtrlrMidiMessage : public ValueTree::Listener
 {
 	public:
 		CtrlrMidiMessage();
@@ -56,7 +53,6 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 		CtrlrMidiMessage (MemoryBlock& other);
 		CtrlrMidiMessage (const String& hexData);
 		CtrlrMidiMessage (const CtrlrLuaObjectWrapper& other);
-		CtrlrMidiMessage (const luabind::object &hexData);
 
 		virtual ~CtrlrMidiMessage();
 
@@ -178,5 +174,3 @@ class CtrlrMidiMessage : public ValueTree::Listener, public CtrlrLuaObject
 		MemoryBlock messagePattern;
 		TimestampComparator timestampComparator;
 };
-
-#endif

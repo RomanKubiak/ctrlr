@@ -399,7 +399,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const int param1, cons
 	return (true);
 }
 
-const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const int param1, const int param2, const int param3, luabind::object const &param4)
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const int param1, const int param2, const int param3, CtrlrLuaObjectWrapper const &param4)
 {
 	const ScopedLock sl(methodManagerCriticalSection);
 
@@ -477,7 +477,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrWaveform *param1)
 
 
 
-const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const ValueTree &param1, luabind::object &param2)
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const ValueTree &param1, CtrlrLuaObjectWrapper &param2)
 {
 	const ScopedLock sl(methodManagerCriticalSection);
 
@@ -888,7 +888,7 @@ const bool CtrlrLuaMethodManager::callAudio(CtrlrLuaMethod *o, MidiBuffer &param
 	return (true);
 }
 
-const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const String &param1, const String &param2, luabind::object const &param3)
+const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const String &param1, const String &param2, CtrlrLuaObjectWrapper const &param3)
 {
 	const ScopedLock sl(methodManagerCriticalSection);
 

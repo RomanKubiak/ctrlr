@@ -238,7 +238,7 @@ void CtrlrMIDIDevice::wrapForLua(lua_State *L)
 
 	module(L)
     [
-		class_<CtrlrMIDIDevice, CtrlrLuaObject>("CtrlrMIDIDevice")
+		class_<CtrlrMIDIDevice>("CtrlrMIDIDevice")
 			.def("openDevice", &CtrlrMIDIDevice::openDevice)
 			.def("closeDevice", &CtrlrMIDIDevice::closeDevice)
 			.def("sendMidiMessage", &CtrlrMIDIDevice::sendMidiMessage)

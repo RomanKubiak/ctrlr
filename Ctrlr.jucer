@@ -400,10 +400,6 @@
         <FILE id="RPBK9g" name="CtrlrLog.h" compile="0" resource="0" file="Source/Core/CtrlrLog.h"/>
         <FILE id="qo0QqJ" name="CtrlrMacros.h" compile="0" resource="0" file="Source/Core/CtrlrMacros.h"/>
         <FILE id="QcIml7" name="CtrlrMainPage.h" compile="0" resource="0" file="Source/Core/CtrlrMainPage.h"/>
-        <FILE id="tJPnWw" name="CtrlrMasterClock.cpp" compile="1" resource="0"
-              file="Source/Core/CtrlrMasterClock.cpp"/>
-        <FILE id="aYeVjV" name="CtrlrMasterClock.h" compile="0" resource="0"
-              file="Source/Core/CtrlrMasterClock.h"/>
         <FILE id="qcddRw" name="CtrlrProperties.cpp" compile="1" resource="0"
               file="Source/Core/CtrlrProperties.cpp"/>
         <FILE id="Ehw87V" name="CtrlrProperties.h" compile="0" resource="0"
@@ -1150,39 +1146,6 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <VS2017 targetFolder="Builds/VisualStudio2017" vst3Folder="Source/Misc/vst3sdk"
-            extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1" extraCompilerFlags="/bigobj /Fpstadfx.h"
-            smallIcon="DzYszo" bigIcon="zQnOx7" vstLegacyFolder="Source/Misc/vst2sdk">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="2" generateManifest="1" winArchitecture="x64"
-                       isDebug="1" optimisation="1" targetName="Ctrlr-x64" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
-                       enableIncrementalLinking="1"/>
-        <CONFIGURATION name="Release" winWarningLevel="2" generateManifest="1" winArchitecture="x64"
-                       isDebug="0" optimisation="3" targetName="Ctrlr-x64" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
-                       enableIncrementalLinking="1" alwaysGenerateDebugSymbols="0" linkTimeOptimisation="0"/>
-        <CONFIGURATION name="Release_Win32" winWarningLevel="2" generateManifest="1"
-                       winArchitecture="Win32" isDebug="0" optimisation="3" targetName="Ctrlr-Win32"
-                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
-                       enableIncrementalLinking="1" alwaysGenerateDebugSymbols="0" linkTimeOptimisation="0"/>
-        <CONFIGURATION name="Debug_Win32" winWarningLevel="2" generateManifest="1" winArchitecture="Win32"
-                       isDebug="1" optimisation="1" targetName="Ctrlr-x64" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
-                       enableIncrementalLinking="1"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="JUCE/modules"/>
-      </MODULEPATHS>
-    </VS2017>
     <XCODE_MAC targetFolder="Builds/MacOSX" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
                enableGNUExtensions="0" extraCompilerFlags="-w">
       <CONFIGURATIONS>

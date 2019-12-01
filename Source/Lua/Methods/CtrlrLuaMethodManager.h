@@ -15,6 +15,7 @@ class CtrlrWaveform;
 class CtrlrPanelCanvas;
 class CtrlrComponent;
 class LMemoryBlock;
+class CtrlrLuaObjectWrapper;
 
 class CtrlrLuaMethodManager : public ValueTree::Listener
 {
@@ -94,7 +95,7 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		const bool call(CtrlrLuaMethod *o, const CtrlrMidiMessage &param1);
 		const bool call(CtrlrLuaMethod *o, const MidiMessage &param1);
 		const bool call(CtrlrLuaMethod *o, const uint8 param1);
-		const bool call(CtrlrLuaMethod *o, const int param1, const int param2, const int param3, luabind::object const &param4);
+		const bool call(CtrlrLuaMethod *o, const int param1, const int param2, const int param3, CtrlrLuaObjectWrapper const &param4);
 		const bool call(CtrlrLuaMethod *o, const int param1, const int param2, const int param3);
 		const bool call(CtrlrLuaMethod *o, const int param1, const int param2);
 		const bool call(CtrlrLuaMethod *o, const int param1, const File &param2);
@@ -102,13 +103,13 @@ class CtrlrLuaMethodManager : public ValueTree::Listener
 		const bool call(CtrlrLuaMethod *o);
 		const bool call(CtrlrLuaMethod *o, const StringArray &param1, const int param2, const int param3);
 		const bool call(CtrlrLuaMethod *o, const StringArray &param1);
-		const bool call(CtrlrLuaMethod *o, const ValueTree &param1, luabind::object &param2);
+		const bool call(CtrlrLuaMethod *o, const ValueTree &param1, CtrlrLuaObjectWrapper &param2);
 		const bool call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, DragAndDropSourceDetails param2);
 		const bool call(CtrlrLuaMethod *o, LMemoryBlock *param1);
 		const bool call(CtrlrLuaMethod *o, ValueTree &param1);
 		const bool call(CtrlrLuaMethod *o, MidiBuffer *param1);
 		const bool call(CtrlrLuaMethod *o, const ValueTree &param1);
-		const bool call(CtrlrLuaMethod *o, const String &param1, const String &param2, luabind::object const &param3);
+		const bool call(CtrlrLuaMethod *o, const String &param1, const String &param2, CtrlrLuaObjectWrapper const &param3);
 
 		int callWithRet(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, DragAndDropSourceDetails param2);
 		int callWithRet(CtrlrLuaMethod *o, ValueTree valueTree1, ValueTree valueTree2);

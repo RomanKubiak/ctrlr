@@ -32,9 +32,9 @@
 // ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 // OR OTHER DEALINGS IN THE SOFTWARE.
+#include "stdafx.h"
 
 #define LUABIND_BUILDING
-
 // Internal Includes
 #include <luabind/config.hpp>              // for LUABIND_API
 #include <luabind/detail/call.hpp>         // for function_object

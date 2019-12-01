@@ -20,13 +20,12 @@ class CtrlrModulator;
 		component on a panel.
 
 */
-class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, public CtrlrLuaObject
+class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener
 {
 	public:
 		CtrlrModulator(CtrlrPanel &_owner);
 		CtrlrModulator(CtrlrPanel &_owner, const int suggestedVstIndex);
 		~CtrlrModulator();
-
 
 		/** @brief Get the VST/AU index this modulator uses
 
@@ -155,6 +154,7 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, pub
 		CtrlrManager &getCtrlrManagerOwner();
 		void allModulatorsInitialized();
 		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false);
+		void removeProperty(const Identifier& name);
 		const String getModulatorText();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void valueTreeChildrenChanged (ValueTree &/*treeWhoseChildHasChanged*/){}

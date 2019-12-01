@@ -1,7 +1,6 @@
 #ifndef CTRLR_INLINE_UTILITIES_GUI
 #define CTRLR_INLINE_UTILITIES_GUI
 
-#include "stdafx.h"
 #include "CtrlrMacros.h"
 
 static const inline void drawSelectionRectangle (Graphics &g, int width, int height, Colour base=Colour(HIGHLIGHT_COLOUR), const float baseSaturation=0.9f, const float baseAlpha=0.9f, const float gradientMin=0.2f, const float gradientMax=0.25f)

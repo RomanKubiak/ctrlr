@@ -19,9 +19,8 @@
 // ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 // OR OTHER DEALINGS IN THE SOFTWARE.
-
+#include "stdafx.h"
 #define LUABIND_BUILDING
-
 #include <luabind/config.hpp>
 #include <luabind/detail/class_rep.hpp>  // for class_rep, is_class_rep
 #include <luabind/detail/debug.hpp>      // for declaration of stack_content_by_name

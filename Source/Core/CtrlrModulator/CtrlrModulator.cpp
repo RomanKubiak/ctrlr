@@ -391,6 +391,11 @@ void CtrlrModulator::setProperty (const Identifier& name, const var &newValue, c
 	}
 }
 
+void CtrlrModulator::removeProperty(const Identifier& name)
+{
+	modulatorTree.removeProperty(name, owner.getUndoManager());
+}
+
 void CtrlrModulator::allModulatorsInitialized()
 {
 	for (int i=0; i<delayedProperties.getNumProperties(); i++)

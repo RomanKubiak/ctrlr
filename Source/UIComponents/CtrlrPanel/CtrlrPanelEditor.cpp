@@ -135,6 +135,7 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	setProperty(Ids::uiPanelTooltipPlacement, BubbleComponent::below);
 	setProperty(Ids::uiPanelTooltipFont, Font(15.0f, Font::bold).toString());
 	setProperty(Ids::uiPanelLookAndFeel, "V3");
+	setProperty(Ids::uiPanelColourScheme, "Light");
 	setProperty(Ids::uiPanelZoom, 1.0);
 
  	ctrlrComponentSelection->addChangeListener (ctrlrPanelProperties);
@@ -369,6 +370,16 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 				owner.getCtrlrManagerOwner().getEditor()->activeCtrlrChanged();
 			}
 		}
+		else if (property == Ids::uiPanelLookAndFeel)
+		{
+			if (lookAndFeel)
+			{
+				getCanvas()->setLookAndFeel(nullptr);
+				delete lookAndFeel.release();
+			}
+			lookAndFeel.reset(getLookAndFeelFromDescription(getProperty(property)));
+			getCanvas()->setLookAndFeel (lookAndFeel.get());
+		}
 		else if (property == Ids::uiPanelBackgroundGradientType
 					|| property == Ids::uiPanelBackgroundColour1
 					|| property == Ids::uiPanelBackgroundColour2
@@ -378,6 +389,20 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 			repaint();
 		}
 	}
+}
+
+LookAndFeel* CtrlrPanelEditor::getLookAndFeelFromDescription(const String &lookAndFeelDesc)
+{
+	if (lookAndFeelDesc == "V1")
+		return new LookAndFeel_V1();
+	if (lookAndFeelDesc == "V2")
+		return new LookAndFeel_V2();
+	if (lookAndFeelDesc == "V3")
+		return new LookAndFeel_V3();
+	if (lookAndFeelDesc == "V4")
+		return new LookAndFeel_V4();
+
+	return (nullptr);
 }
 
 const var &CtrlrPanelEditor::getProperty (const Identifier& name) const

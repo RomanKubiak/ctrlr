@@ -17,7 +17,7 @@ void CtrlrManager::setEmbeddedDefaults()
 		ctrlrPlayerInstanceMode = InstanceSingle;
 	}
 
-	ctrlrProperties			= new CtrlrProperties (*this);
+	ctrlrProperties.reset(new CtrlrProperties (*this));
 
 	setProperty (Ids::ctrlrLogToFile, false);
 	setProperty (Ids::ctrlrLuaDebug, false);
@@ -36,7 +36,7 @@ void CtrlrManager::setEmbeddedDefaults()
 
 Result CtrlrManager::initEmbeddedInstance()
 {
-	ctrlrNativeObject	= CtrlrNative::getNativeObject(*this);
+	ctrlrNativeObject.reset(CtrlrNative::getNativeObject(*this));
 
 	if (ctrlrNativeObject)
 	{
@@ -53,7 +53,7 @@ Result CtrlrManager::initEmbeddedInstance()
 
 				/* Look at the resources, see if
 					we need to import them **/
-				Result result = importInstanceResources(ctrlrNativeObject);
+				Result result = importInstanceResources(ctrlrNativeObject.get());
 
 				if (result.wasOk())
 				{

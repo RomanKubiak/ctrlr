@@ -158,7 +158,6 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/CtrlrFontManager_edb07ae8.o \
   $(JUCE_OBJDIR)/CtrlrIDManager_40d647fc.o \
   $(JUCE_OBJDIR)/CtrlrLog_cd89ebce.o \
-  $(JUCE_OBJDIR)/CtrlrMasterClock_12038e56.o \
   $(JUCE_OBJDIR)/CtrlrProperties_eb107cf3.o \
   $(JUCE_OBJDIR)/CtrlrSysexProcessor_bc5102f2.o \
   $(JUCE_OBJDIR)/CtrlrSysexProcessorOwned_1864a89d.o \
@@ -665,11 +664,6 @@ $(JUCE_OBJDIR)/CtrlrIDManager_40d647fc.o: ../../Source/Core/CtrlrIDManager.cpp
 $(JUCE_OBJDIR)/CtrlrLog_cd89ebce.o: ../../Source/Core/CtrlrLog.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrLog.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrMasterClock_12038e56.o: ../../Source/Core/CtrlrMasterClock.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrMasterClock.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/CtrlrProperties_eb107cf3.o: ../../Source/Core/CtrlrProperties.cpp

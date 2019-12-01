@@ -6,6 +6,7 @@
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "JuceClasses/LMemoryBlock.h"
+#include "CtrlrLuaObjectWrapper.h"
 
 #ifdef _WIN32
 #pragma warning(disable:4706)
@@ -954,12 +955,12 @@ bool isInvalidMethodName(const String &name)
 	return (false);
 }
 
-const MemoryBlock luaArrayTomemoryBlock(const luabind::object &luaArray)
+const MemoryBlock luaArrayTomemoryBlock(const CtrlrLuaObjectWrapper &luaArray)
 {
 	MemoryBlock bl;
-	if (luaArray.is_valid() && luabind::type(luaArray) == LUA_TTABLE)
+	if (luaArray.getObject().is_valid() && luabind::type(luaArray.getObject()) == LUA_TTABLE)
 	{
-		for (luabind::iterator i(luaArray), end; i != end; i++)
+		for (luabind::iterator i(luaArray.getObject()), end; i != end; i++)
 		{
 			const uint8 v = luabind::object_cast<uint8>(*i);
 			bl.append(&v, 1);
@@ -969,13 +970,13 @@ const MemoryBlock luaArrayTomemoryBlock(const luabind::object &luaArray)
 	return (bl);
 }
 
-Array<float> luaArrayToFloat(const luabind::object &luaArray)
+Array<float> luaArrayToFloat(const CtrlrLuaObjectWrapper&luaArray)
 {
 	Array<float> data;
 
-	if (luaArray.is_valid() && luabind::type(luaArray) == LUA_TTABLE)
+	if (luaArray.getObject().is_valid() && luabind::type(luaArray.getObject()) == LUA_TTABLE)
 	{
-		for (luabind::iterator i(luaArray), end; i != end; i++)
+		for (luabind::iterator i(luaArray.getObject()), end; i != end; i++)
 		{
 			data.add(luabind::object_cast<float>(*i));
 		}

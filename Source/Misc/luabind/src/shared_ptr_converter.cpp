@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #define LUABIND_BUILDING
 #include <luabind/shared_ptr_converter.hpp>
 

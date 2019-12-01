@@ -1,11 +1,11 @@
-#ifndef __CTRLR_UTILITIES__
-#define __CTRLR_UTILITIES__
+#pragma once
 
-#include "stdafx.h"
 #include "CtrlrMidiMessage.h"
+
 class CtrlrToolbarButton;
 class CtrlrPanel;
 class CtrlrModulator;
+class CtrlrLuaObjectWrapper;
 
 /** MidiMessage and CtrlrMidiMessage operations **/
 const String removeInvalidChars(const String &dataToValidate, const bool showSpecials=false, const char characterToReplace=' ');
@@ -57,8 +57,8 @@ static const String dumpMemoryBlock(const MemoryBlock &data);
 const String memoryBlockToString(const MemoryBlock &data);
 static const MemoryBlock hexStringToMemoryBlock(const String &hexData);
 static const MemoryBlock stringToMemoryBlock(const String &stringToConvert);
-Array<float> luaArrayToFloat(const luabind::object &luaArray);
-const MemoryBlock luaArrayTomemoryBlock(const luabind::object &luaArray);
+Array<float> luaArrayToFloat(const CtrlrLuaObjectWrapper &luaArray);
+const MemoryBlock luaArrayTomemoryBlock(const CtrlrLuaObjectWrapper&luaArray);
 bool isInvalidMethodName(const String &name);
 int add_file_and_line(lua_State* L);
 double denormalizeValue(const float& normalized, const double& minValue, const double& maxValue);
@@ -74,5 +74,3 @@ static float getFloatValue(const int intValueToUse, const int maxValue);
 static int getIntValue(const float newValue, const int maxValue);
 const void mergeMidiData(const CtrlrMidiMessage &source, CtrlrMidiMessage &destination);
 void restoreProperties(const ValueTree &sourceTree, ValueTree &destinationTree, UndoManager *undoManager = 0, const String &propertyPrefix = String::empty);
-
-#endif

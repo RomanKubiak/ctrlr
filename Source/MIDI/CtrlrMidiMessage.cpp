@@ -4,6 +4,7 @@
 #include "CtrlrUtilities.h"
 #include "CtrlrIDs.h"
 #include "CtrlrLog.h"
+#include "CtrlrLuaObjectWrapper.h"
 #include "CtrlrManager/CtrlrManager.h"
 #include "JuceClasses/LMemoryBlock.h"
 
@@ -103,7 +104,7 @@ CtrlrMidiMessage::CtrlrMidiMessage (MemoryBlock& other)
 	}
 }
 
-CtrlrMidiMessage::CtrlrMidiMessage (const luabind::object &luaArray)
+CtrlrMidiMessage::CtrlrMidiMessage (const CtrlrLuaObjectWrapper &luaArray)
 	:	midiTree(Ids::midi), multiMasterValue(1),
 		multiMasterNumber(1), messagePattern(0,true),
 		initializationResult(Result::ok())
@@ -114,7 +115,7 @@ CtrlrMidiMessage::CtrlrMidiMessage (const luabind::object &luaArray)
 		use the created MemoryBlock as initial data for a MidiMessage
 		initialize properties based on that message*/
 
-	MemoryBlock possibleMidiData = luaArrayTomemoryBlock(luaArray);
+	MemoryBlock possibleMidiData = luaArrayTomemoryBlock(luaArray.getObject());
 
 	if (possibleMidiData.getSize() > 0)
 	{
@@ -880,9 +881,9 @@ void CtrlrMidiMessage::wrapForLua(lua_State *L)
 
 	module(L)
     [
-		class_<CtrlrMidiMessage, CtrlrLuaObject>("CtrlrMidiMessage")
+		class_<CtrlrMidiMessage>("CtrlrMidiMessage")
 			.def(constructor<const String&>())
-			.def(constructor<const luabind::object&>())
+			.def(constructor<const CtrlrLuaObjectWrapper&>())
 			.def(constructor<const MidiMessage&>())
 			.def(constructor<MemoryBlock&>())
 			.enum_("CtrlrMidiMessageType")

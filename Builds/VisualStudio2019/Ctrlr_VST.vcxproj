@@ -99,7 +99,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\devel\ctrlr\juce\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=6.0.0;JUCE_APP_VERSION_HEX=0x60000;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -144,7 +144,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\devel\ctrlr\juce\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=6.0.0;JUCE_APP_VERSION_HEX=0x60000;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -192,7 +192,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\devel\ctrlr\juce\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=6.0.0;JUCE_APP_VERSION_HEX=0x60000;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -238,7 +238,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\Misc\vst3sdk;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\devel\ctrlr\juce\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=6.0.0;JUCE_APP_VERSION_HEX=0x60000;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=0;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>

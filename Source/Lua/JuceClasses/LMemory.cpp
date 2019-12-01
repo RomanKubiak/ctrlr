@@ -4,6 +4,7 @@
 #include "CtrlrMacros.h"
 #include "CtrlrLog.h"
 #include "CtrlrUtilities.h"
+#include "CtrlrLuaObjectWrapper.h"
 #include "luabind/object_fwd.hpp"
 
 void LAsyncUpdater::handleAsyncUpdate()

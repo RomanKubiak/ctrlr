@@ -341,10 +341,6 @@
 			isa = PBXBuildFile;
 			fileRef = C31EC20F95074DD445F5D3A7;
 		};
-		639DD3DC54D09F2F69BAEAB9 = {
-			isa = PBXBuildFile;
-			fileRef = 5124165A9ACAB05080BEC4A1;
-		};
 		DA0A66F3F2DCE1AF18252D73 = {
 			isa = PBXBuildFile;
 			fileRef = BA01E80D911718E11C616CA0;
@@ -1440,13 +1436,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrLuaMethodDebuggerControls.h;
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		172DCA985831F6B1527AB0D5 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrMasterClock.h;
-			path = ../../Source/Core/CtrlrMasterClock.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		175F337785A2A02ACD7B0499 = {
@@ -2581,13 +2570,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrToggleButton.cpp;
 			path = ../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrToggleButton.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		5124165A9ACAB05080BEC4A1 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrMasterClock.cpp;
-			path = ../../Source/Core/CtrlrMasterClock.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		51699DA6089A4B5703F23969 = {
@@ -6328,8 +6310,6 @@
 				282802E3F3E3C4918492A935,
 				130CDEDC4775ACFA3A91B8FC,
 				670756B819698DA8177FCDE4,
-				5124165A9ACAB05080BEC4A1,
-				172DCA985831F6B1527AB0D5,
 				BA01E80D911718E11C616CA0,
 				831E21E617866D4E3253DF9A,
 				957DC001BF32F77D08ADD74B,
@@ -8448,7 +8428,6 @@
 				C93902DB97F0EFB6EC8374A2,
 				E0C72DCF26A89DA9FEF3CA4F,
 				56DD47CDF5C027F47EB2208C,
-				639DD3DC54D09F2F69BAEAB9,
 				DA0A66F3F2DCE1AF18252D73,
 				0AD88609E20AC9A20188A4AC,
 				0626FFD01E0719BA3670FB1E,

@@ -29,6 +29,7 @@
   <!-- Panel editor properties -->
   <id name="uiPanelImageAlpha" 				text="Background image opacity" type="Numeric" max="255"/>
   <id name="uiPanelLookAndFeel"             text="LookAndFeel scheme for panel" type="VarText" defaults="@lookandfeel" />
+  <id name="uiPanelColourScheme"            text="LookAndFeel's colour scheme" type="VarText" defaults="Light,Dark" />
   <id name="uiPanelImageLayout" 			text="Image layout" type="VarNumeric" defaults="@imageLayout"/>
   <id name="uiPanelImageResource" 			text="Panel background image" type="VarText"/>
   <id name="uiPanelBackgroundColour" 		text="Background colour" type="Colour"/>
@@ -726,25 +727,24 @@
   <id name="ctrlrRecenetOpenedPanelFiles"   text="Recent opened Panel file" type="Text" />
   <id name="ctrlrLastBrowsedFileDirectory"  text="Last browsed file directory" type="Text" />
 
-  <id name="ctrlrMenuItemBackgroundColour"  	text="Menu item background colour" type="Colour" />
-  <id name="ctrlrMenuItemTextColour" 			text="Menu item text colour" type="Colour" />
+  <id name="ctrlrMenuItemBackgroundColour"  	  text="Menu item background colour" type="Colour" />
+  <id name="ctrlrMenuItemTextColour" 			      text="Menu item text colour" type="Colour" />
   <id name="ctrlrMenuItemHighlightedTextColour" text="Menu item highlighted text colour" type="Colour" />
-  <id name="ctrlrMenuItemHighlightColour" 		text="Menu item highlight colour" type="Colour" />
-  <id name="ctrlrMenuItemFont" 					text="Menu item font" type="Font" />
-  <id name="ctrlrMenuItemSeparatorColour"		text="Menu separator colour" type="Colour" />
-  <id name="ctrlrMenuItemHeaderColour"			text="Menu header colour" type="Colour" />
+  <id name="ctrlrMenuItemHighlightColour" 		  text="Menu item highlight colour" type="Colour" />
+  <id name="ctrlrMenuItemFont" 					        text="Menu item font" type="Font" />
+  <id name="ctrlrMenuItemSeparatorColour"		    text="Menu separator colour" type="Colour" />
+  <id name="ctrlrMenuItemHeaderColour"			    text="Menu header colour" type="Colour" />
 
-  <id name="ctrlrMenuBarBackgroundColour1" 		text="Menu bar background gradient colour top" type="Colour" />
-  <id name="ctrlrMenuBarBackgroundColour2" 		text="Menu bar background gradient colour bottom" type="Colour" />
-  <id name="ctrlrMenuBarTextColour" 			text="Menu bar text colour" type="Colour" />
+  <id name="ctrlrMenuBarBackgroundColour1" 		  text="Menu bar background gradient colour top" type="Colour" />
+  <id name="ctrlrMenuBarBackgroundColour2" 		  text="Menu bar background gradient colour bottom" type="Colour" />
+  <id name="ctrlrMenuBarTextColour" 			      text="Menu bar text colour" type="Colour" />
   <id name="ctrlrMenuBarHighlightedTextColour" 	text="Menu bar highlighted text colour" type="Colour" />
-  <id name="ctrlrMenuBarHighlightColour" 		text="Menu bar highlight colour" type="Colour" />
-  <id name="ctrlrMenuBarFont" 					text="Menu bar font" type="Font" />
-  <id name="ctrlrNativeAlerts"					text="Use OS native dialog windows" type="Bool" />
-  <id name="ctrlrNativeFileDialogs"     text="Use OS native file open/save dialogs (disable for Linux)" type="Bool" />
-  <id name="ctrlrPrivateKey"                   text="RSA private key used to sign exported panels" type="FileProperty" />
-  <id name="ctrlrUsingOpenGL"            text="Use OpenGL render" type="Bool" />
-  <id name="ctrlrFontSizeBaseValue" text="Base value for all font sizes in the Ctrlr UI (won't affect panel UI)" type="Numeric" min="8.0" max="128.0" int="0.1"/>
+  <id name="ctrlrMenuBarHighlightColour" 		    text="Menu bar highlight colour" type="Colour" />
+  <id name="ctrlrMenuBarFont" 					        text="Menu bar font" type="Font" />
+  <id name="ctrlrNativeAlerts"					        text="Use OS native dialog windows" type="Bool" />
+  <id name="ctrlrNativeFileDialogs"             text="Use OS native file open/save dialogs (disable for Linux)" type="Bool" />
+  <id name="ctrlrPrivateKey"                    text="RSA private key used to sign exported panels" type="FileProperty" />
+  <id name="ctrlrFontSizeBaseValue"             text="Base value for all font sizes in the Ctrlr UI (won't affect panel UI)" type="Numeric" min="6.0" max="128.0" int="0.1"/>
 
   <!-- LUA callbacks -->
   <id name="luaManagerMethods"                text="luaManagerMethods"                                    type="Text" />

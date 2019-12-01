@@ -23,15 +23,15 @@ CtrlrManager::CtrlrManager(CtrlrProcessor *_owner, CtrlrLog &_ctrlrLog)
 		nullPanel(nullptr),
 		ctrlrFontManager(nullptr)
 {
-	ctrlrManagerVst			= new CtrlrManagerVst(*this);
+	ctrlrManagerVst.reset(new CtrlrManagerVst(*this));
 
 	commandManager.addListener (this);
 	audioFormatManager.registerBasicFormats ();
 
-	ctrlrDocumentPanel		= new CtrlrDocumentPanel(*this);
-	nullPanel				= new CtrlrPanel(*this);
-	nullModulator			= new CtrlrModulator (*nullPanel);
-    ctrlrFontManager        = new CtrlrFontManager (*this);
+	ctrlrDocumentPanel.reset(new CtrlrDocumentPanel(*this));
+	nullPanel = new CtrlrPanel(*this);
+	nullModulator = new CtrlrModulator (*nullPanel);
+    ctrlrFontManager.reset(new CtrlrFontManager (*this));
 }
 
 CtrlrManager::~CtrlrManager()
@@ -59,9 +59,9 @@ void CtrlrManager::setManagerReady()
 void CtrlrManager::setDefaults()
 {
 	if (ctrlrProperties != nullptr)
-		delete (ctrlrProperties.get());
+		delete (ctrlrProperties.release());
 
-	ctrlrProperties = new CtrlrProperties(*this);
+	ctrlrProperties.reset(new CtrlrProperties(*this));
 
 	setProperty (Ids::ctrlrLogToFile, false);
 	setProperty (Ids::ctrlrLuaDebug, false);

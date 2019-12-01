@@ -87,6 +87,8 @@ class CtrlrPanelEditor  :	public Component,
 		void setRestoreState(const bool _state) { currentRestoreState = _state; }
 		void reloadResources (Array <CtrlrPanelResource*> resourcesThatChanged);
         void showComponentRuntimeConfig(CtrlrComponent *componentToConfigure);
+		static LookAndFeel* getLookAndFeelFromDescription(const String &lookAndFeelDesc);
+
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrPanelEditor)
 
 	private:
@@ -106,6 +108,7 @@ class CtrlrPanelEditor  :	public Component,
 		WeakReference<CtrlrNotificationCallback> notificationCallback;
 		Component* editorComponentsInEditMode[3];
 		Component* editorComponents[2];
+		std::unique_ptr<LookAndFeel> lookAndFeel;
 };
 
 

@@ -724,7 +724,6 @@ Result CtrlrPanel::saveLuaCode(const File &panelLuaDir, CtrlrPanel *panel)
 	{
 		return (Result::fail("saveLuaCode failed due to missing luaManager"));
 	}
-	return Result::ok();
 }
 
 void CtrlrPanel::convertLuaMethodToProperty(const File &panelLuaDir, ValueTree *method)

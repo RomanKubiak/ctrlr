@@ -1,3 +1,4 @@
+#pragma once
 #include "JuceHeader.h"
 #include "../CtrlrComponent.h"
 #include "CtrlrPanel/CtrlrPanel.h"
