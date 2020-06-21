@@ -57,7 +57,7 @@ Linux
 =====
 A build.sh script is provided in Builds/Generated/Linux/Standalone, a symlink of that
 script is location in Builds/Generated/Linux/VST and is used to create a precompiled header
-and then to trigger the build using make. You can do that manualy if you like just have
+and then to trigger the build using make. You can do that manually if you like just have
 a look at the script, it's really simple.
 
 A more complex solution exists in Scripts/post-commit, this script will build all solutions
@@ -67,7 +67,7 @@ a self extracting Ctrlr.sh file in Packaging/Linux (create using makeself.sh), i
 try to scp it to ctrlr.org but that will fail without the correct ssh key, you can just comment
 out the scp line in post-commit.
 
-The post-commit script takes an argument "clean" if you wish to clean all the intermididate
+The post-commit script takes an argument "clean" if you wish to clean all the intermediate
 files before building. If you want to ignore any package errors that it reports (i assume you
 know your system better then my script) then just add -f as an option when building.
 
@@ -77,7 +77,7 @@ You need the CoreAudio developer files for the build to work.
 
 First you need to build the AU_wrapper library that simplifies the build a lot, it's located in
 Builds/Generated/Mac/AU_Wrapper, it will create a .a library and try to put it in /usr/local/lib
-if it fails, do that manualy (permission problems)
+if it fails, do that manually (permission problems)
 
 Open the corresponding Xcode project in Builds/Generated/Mac, after that just build it, in case of
 errors you are on your own, the amount of changes between Xcode versions and OSX versions is impossible
