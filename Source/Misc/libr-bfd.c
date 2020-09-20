@@ -106,7 +106,7 @@ int keep_symbol(libr_section *sections, libr_section *chkscn)
 		if(scn == chkscn)
 		{
 			/* if it is, and has size zero, then it was marked for deletion */
-			if(bfd_get_section_size(chkscn) == 0)
+			if(bfd_section_size(chkscn) == 0)
 				return false;
 			return true;
 		}
@@ -128,7 +128,7 @@ void remove_sections(libr_section *sections, void *symtab_buffer, long *symtab_c
 		asymbol *symbol = symtab[i];
 
 		if(symbol != NULL)
-			chkscn = bfd_get_section(symbol);
+			chkscn = bfd_asymbol_section(symbol);
 		if(chkscn != NULL && !keep_symbol(sections, chkscn))
 		{
 			/* remove the symbol from the table */
@@ -149,7 +149,7 @@ int setup_sections(bfd *ihandle, bfd *ohandle)
 
 	for(iscn = ihandle->sections; iscn != NULL; iscn = iscn->next)
 	{
-		if(bfd_get_section_size(iscn) == 0)
+		if(bfd_section_size(iscn) == 0)
 		{
 			continue; /* Section has been marked for deletion */
 		}
@@ -160,19 +160,19 @@ int setup_sections(bfd *ihandle, bfd *ohandle)
 			printf("failed to create out section: %s\n", bfd_errmsg(bfd_get_error()));
 			return false;
 		}
-		if(!bfd_set_section_size(ohandle, oscn, iscn->size))
+		if(!bfd_set_section_size(oscn, iscn->size))
 		{
 			printf("failed to set data size: %s\n", bfd_errmsg(bfd_get_error()));
 			return false;
 		}
-		vma = bfd_section_vma(ihandle, iscn);
-		if(!bfd_set_section_vma(ohandle, oscn, vma))
+		vma = bfd_section_vma(iscn);
+		if(!bfd_set_section_vma(oscn, vma))
 		{
 			printf("failed to set virtual memory address: %s\n", bfd_errmsg(bfd_get_error()));
 			return false;
 		}
 		oscn->lma = iscn->lma;
-		if(!bfd_set_section_alignment(ohandle, oscn, bfd_section_alignment(ihandle, iscn)))
+		if(!bfd_set_section_alignment(oscn, bfd_section_alignment(iscn)))
 		{
 			printf("failed to compute section alignment: %s\n", bfd_errmsg(bfd_get_error()));
 			return false;
@@ -244,7 +244,7 @@ int build_output(libr_file *file_handle)
 	/* Actually copy section data */
 	for(iscn = ihandle->sections; iscn != NULL; iscn = iscn->next)
 	{
-		size = bfd_get_section_size(iscn);
+		size = bfd_section_size(iscn);
 		if(size == 0)
 			continue; /* Section has been marked for deletion */
 		oscn = iscn->output_section;
@@ -257,7 +257,7 @@ int build_output(libr_file *file_handle)
 			reloc_count = bfd_canonicalize_reloc(ihandle, iscn, reloc_buffer, symtab_buffer);
 			bfd_set_reloc(ohandle, oscn, reloc_buffer, reloc_count);
 		}
-		if(bfd_get_section_flags(ihandle, iscn) & SEC_HAS_CONTENTS)
+		if(bfd_section_flags(iscn) & SEC_HAS_CONTENTS)
 		{
 			/* NOTE: if the section is just being copied then do that, otherwise grab
 			 * the user data for the section (stored previously by set_data)
@@ -492,7 +492,7 @@ libr_intstatus add_section(libr_file *file_handle, char *resource_name, libr_sec
 	scn = bfd_make_section(file_handle->bfd_read, resource_name);
 	if(scn == NULL)
 		RETURN(LIBR_ERROR_NEWSECTION, "Failed to create new section");
-	if(!bfd_set_section_flags(file_handle->bfd_read, scn, SEC_HAS_CONTENTS | SEC_DATA | SEC_IN_MEMORY))
+	if(!bfd_set_section_flags(scn, SEC_HAS_CONTENTS | SEC_DATA | SEC_IN_MEMORY))
 		RETURN(LIBR_ERROR_SETFLAGS, "Failed to set flags for section");
 	*retscn = scn;
 	RETURN_OK;
