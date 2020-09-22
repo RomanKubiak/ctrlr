@@ -30,7 +30,7 @@
 #include <bfd.h>
 
 #define ENABLE_NLS 1
-
+#define HAVE_BFD_2_34 1
 /* Define to 1 if you have the MacOS X function CFLocaleCopyCurrent in the
    CoreFoundation framework. */
 /* #undef HAVE_CFLOCALECOPYCURRENT */
