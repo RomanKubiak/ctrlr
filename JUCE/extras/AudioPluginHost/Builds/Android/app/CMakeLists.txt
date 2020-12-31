@@ -3,12 +3,16 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-SET(BINARY_NAME "juce_jni")
+set(BINARY_NAME "juce_jni")
+
+set(OBOE_DIR "../../../../../modules/juce_audio_devices/native/oboe")
+
+add_subdirectory (${OBOE_DIR} ./oboe)
 
 add_library("cpufeatures" STATIC "${ANDROID_NDK}/sources/android/cpufeatures/cpu-features.c")
 set_source_files_properties("${ANDROID_NDK}/sources/android/cpufeatures/cpu-features.c" PROPERTIES COMPILE_FLAGS "-Wno-sign-conversion -Wno-gnu-statement-expression")
 
-add_definitions("-DJUCE_ANDROID=1" "-DJUCE_ANDROID_API_VERSION=23" "-DJUCE_PUSH_NOTIFICATIONS=1" "-DJUCE_ANDROID_GL_ES_VERSION_3_0=1" "-DJUCER_ANDROIDSTUDIO_7F0E4A25=1" "-DJUCE_APP_VERSION=1.0.0" "-DJUCE_APP_VERSION_HEX=0x10000")
+add_definitions("-DJUCE_ANDROID=1" "-DJUCE_ANDROID_API_VERSION=23" "-DJUCE_PUSH_NOTIFICATIONS=1" "-DJUCE_PUSH_NOTIFICATIONS_ACTIVITY=\"com/rmsl/juce/JuceActivity\"" "-DJUCE_ANDROID_GL_ES_VERSION_3_0=1" "-DJUCER_ANDROIDSTUDIO_7F0E4A25=1" "-DJUCE_APP_VERSION=1.0.0" "-DJUCE_APP_VERSION_HEX=0x10000")
 
 include_directories( AFTER
     "../../../../../modules/juce_audio_processors/format_types/VST3_SDK"
@@ -19,18 +23,18 @@ include_directories( AFTER
 
 enable_language(ASM)
 
-IF(JUCE_BUILD_CONFIGURATION MATCHES "DEBUG")
-    add_definitions("-DDEBUG=1" "-D_DEBUG=1")
-ELSEIF(JUCE_BUILD_CONFIGURATION MATCHES "RELEASE")
-    add_definitions("-DNDEBUG=1")
+if(JUCE_BUILD_CONFIGURATION MATCHES "DEBUG")
+    add_definitions("-DJUCER_ANDROIDSTUDIO_7F0E4A25=1" "-DJUCE_APP_VERSION=1.0.0" "-DJUCE_APP_VERSION_HEX=0x10000" "-DDEBUG=1" "-D_DEBUG=1")
+elseif(JUCE_BUILD_CONFIGURATION MATCHES "RELEASE")
+    add_definitions("-DJUCER_ANDROIDSTUDIO_7F0E4A25=1" "-DJUCE_APP_VERSION=1.0.0" "-DJUCE_APP_VERSION_HEX=0x10000" "-DNDEBUG=1")
     if(NOT (ANDROID_ABI STREQUAL "mips" OR ANDROID_ABI STREQUAL "mips64"))
-        SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -flto")
-        SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -flto")
-        SET(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} -flto")
-    ENDIF(NOT (ANDROID_ABI STREQUAL "mips" OR ANDROID_ABI STREQUAL "mips64"))
-ELSE(JUCE_BUILD_CONFIGURATION MATCHES "DEBUG")
-    MESSAGE( FATAL_ERROR "No matching build-configuration found." )
-ENDIF(JUCE_BUILD_CONFIGURATION MATCHES "DEBUG")
+        set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -flto")
+        set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -flto")
+        set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} -flto")
+    endif()
+else()
+    message( FATAL_ERROR "No matching build-configuration found." )
+endif()
 
 add_library( ${BINARY_NAME}
 
@@ -2732,6 +2736,16 @@ set_source_files_properties("../../../JuceLibraryCode/AppConfig.h" PROPERTIES HE
 set_source_files_properties("../../../JuceLibraryCode/BinaryData.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties("../../../JuceLibraryCode/JuceHeader.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 
+target_compile_options( ${BINARY_NAME} PRIVATE "-fsigned-char" )
+
+if( JUCE_BUILD_CONFIGURATION MATCHES "DEBUG" )
+    target_compile_options( ${BINARY_NAME} PRIVATE)
+endif()
+
+if( JUCE_BUILD_CONFIGURATION MATCHES "RELEASE" )
+    target_compile_options( ${BINARY_NAME} PRIVATE)
+endif()
+
 find_library(log "log")
 find_library(android "android")
 find_library(glesv3 "GLESv3")
@@ -2744,4 +2758,5 @@ target_link_libraries( ${BINARY_NAME}
     ${glesv3}
     ${egl}
     "cpufeatures"
+    "oboe"
 )

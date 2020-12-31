@@ -25,12 +25,12 @@
 /*
   ==============================================================================
 
-   In accordance with the terms of the JUCE 5 End-Use License Agreement, the
+   In accordance with the terms of the JUCE 6 End-Use License Agreement, the
    JUCE Code in SECTION A cannot be removed, changed or otherwise rendered
    ineffective unless you have a JUCE Indie or Pro license, or are using JUCE
    under the GPL v3 license.
 
-   End User License Agreement: www.juce.com/juce-5-licence
+   End User License Agreement: www.juce.com/juce-6-licence
 
   ==============================================================================
 */
@@ -41,13 +41,11 @@
  #define JUCE_DISPLAY_SPLASH_SCREEN 0
 #endif
 
-#ifndef JUCE_REPORT_APP_USAGE
- #define JUCE_REPORT_APP_USAGE 0
-#endif
-
 // END SECTION A
 
 #define JUCE_USE_DARK_SPLASH_SCREEN 1
+
+#define JUCE_PROJUCER_VERSION 0x60001
 
 //==============================================================================
 #define JUCE_MODULE_AVAILABLE_juce_audio_basics          1
@@ -141,19 +139,19 @@
 // juce_audio_processors flags:
 
 #ifndef    JUCE_PLUGINHOST_VST
- #define JUCE_PLUGINHOST_VST 1
+ #define   JUCE_PLUGINHOST_VST 1
 #endif
 
 #ifndef    JUCE_PLUGINHOST_VST3
- #define   JUCE_PLUGINHOST_VST3 1
+ #define   JUCE_PLUGINHOST_VST3 0
 #endif
 
 #ifndef    JUCE_PLUGINHOST_AU
- #define   JUCE_PLUGINHOST_AU 1
+ #define   JUCE_PLUGINHOST_AU 0
 #endif
 
 #ifndef    JUCE_PLUGINHOST_LADSPA
- #define   JUCE_PLUGINHOST_LADSPA 1
+ #define   JUCE_PLUGINHOST_LADSPA 0
 #endif
 
 //==============================================================================

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="hrcYoO" name="Ctrlr" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Dark" projectType="audioplug" version="6.0.0"
+              splashScreenColour="Light" projectType="audioplug" version="5.4.0"
               bundleIdentifier="com.instigator.Ctrlr" includeBinaryInAppConfig="1"
               cppLanguageStandard="14" buildVST="1" buildVST3="1" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
@@ -10,12 +10,181 @@
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
               pluginIsMidiEffectPlugin="1" pluginEditorRequiresKeys="1" pluginAUExportPrefix="CtrlrAU"
               pluginRTASCategory="" aaxIdentifier="com.instigator.Ctrlr" pluginAAXCategory="2"
-              jucerVersion="5.4.5" companyName="Instigator" pluginAUMainType="CtrlrAU"
-              pluginFormats="buildVST,buildVST3,buildAU,buildAUv3,buildStandalone"
-              pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginProducesMidiOut,pluginIsMidiEffectPlugin,pluginEditorRequiresKeys">
+              companyName="Instigator" pluginAUMainType="CtrlrAU" pluginFormats="buildVST,buildVST3,buildAU,buildAUv3,buildStandalone"
+              pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginProducesMidiOut,pluginIsMidiEffectPlugin,pluginEditorRequiresKeys"
+              jucerFormatVersion="1">
   <MAINGROUP id="SRLsFb" name="Ctrlr">
     <GROUP id="{BE407432-92DD-AEAB-3C70-AAE03FCD0B1D}" name="Source">
       <GROUP id="{F4D7C0F1-7F03-CB3F-30C6-F728F0E39FE2}" name="Misc">
+        <GROUP id="{E0E4DD68-0D44-4709-7B14-B00F9E7420BF}" name="luabind">
+          <GROUP id="{2091F07D-D8F8-5C6F-EEAF-33E046D84C00}" name="luabind">
+            <GROUP id="{3D1DEE58-7341-D84F-43D9-D93F78FFDB5B}" name="detail">
+              <FILE id="j5XUiP" name="call.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/call.hpp"/>
+              <FILE id="gZT8vm" name="call_function.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/call_function.hpp"/>
+              <FILE id="voEZnc" name="call_member.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/call_member.hpp"/>
+              <FILE id="kLodpF" name="call_operator_iterate.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/call_operator_iterate.hpp"/>
+              <FILE id="foL1xD" name="class_registry.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/class_registry.hpp"/>
+              <FILE id="HTuiBT" name="class_rep.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/class_rep.hpp"/>
+              <FILE id="HGI9yJ" name="constructor.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/constructor.hpp"/>
+              <FILE id="R5DOCs" name="convert_to_lua.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/convert_to_lua.hpp"/>
+              <FILE id="KwCyM9" name="debug.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/debug.hpp"/>
+              <FILE id="Y1LDwZ" name="decorate_type.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/decorate_type.hpp"/>
+              <FILE id="dkd3vK" name="deduce_signature.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/deduce_signature.hpp"/>
+              <FILE id="Db5ZS7" name="enum_maker.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/enum_maker.hpp"/>
+              <FILE id="HlmGFV" name="format_signature.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/format_signature.hpp"/>
+              <FILE id="fPSdcM" name="garbage_collector.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/garbage_collector.hpp"/>
+              <FILE id="C4JYT4" name="has_get_pointer.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/has_get_pointer.hpp"/>
+              <FILE id="VDZ2Vl" name="inheritance.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/inheritance.hpp"/>
+              <FILE id="d6C0Up" name="instance_holder.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/instance_holder.hpp"/>
+              <FILE id="NMYbDa" name="link_compatibility.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/link_compatibility.hpp"/>
+              <FILE id="EWAnEl" name="make_instance.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/make_instance.hpp"/>
+              <FILE id="ZZNxLE" name="most_derived.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/most_derived.hpp"/>
+              <FILE id="NzF2ek" name="object.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/object.hpp"/>
+              <FILE id="ephK3R" name="object_call.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/object_call.hpp"/>
+              <FILE id="EErVEv" name="object_rep.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/object_rep.hpp"/>
+              <FILE id="NhBWd1" name="operator_id.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/operator_id.hpp"/>
+              <FILE id="D5qSqk" name="other.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/other.hpp"/>
+              <FILE id="UKOj5L" name="pcall.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/pcall.hpp"/>
+              <FILE id="mcpjXl" name="pointee_sizeof.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/pointee_sizeof.hpp"/>
+              <FILE id="sEr0Yd" name="policy.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/policy.hpp"/>
+              <FILE id="VIFvGg" name="primitives.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/primitives.hpp"/>
+              <FILE id="M9b20D" name="property.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/property.hpp"/>
+              <FILE id="Hbs0gE" name="signature_match.hpp" compile="0" resource="0"
+                    file="Source/Misc/luabind/luabind/detail/signature_match.hpp"/>
+              <FILE id="tgrctH" name="stack_utils.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/stack_utils.hpp"/>
+              <FILE id="MgQXNo" name="typetraits.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/typetraits.hpp"/>
+              <FILE id="tydqNh" name="yes_no.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/yes_no.hpp"/>
+            </GROUP>
+            <FILE id="VhCyIg" name="adopt_policy.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/adopt_policy.hpp"/>
+            <FILE id="IH0Nkz" name="back_reference.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/back_reference.hpp"/>
+            <FILE id="mlDBCK" name="back_reference_fwd.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/back_reference_fwd.hpp"/>
+            <FILE id="XvMlaB" name="class.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/class.hpp"/>
+            <FILE id="aAmVKS" name="class_info.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/class_info.hpp"/>
+            <FILE id="vN2T8D" name="config.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/config.hpp"/>
+            <FILE id="YJvHC9" name="container_policy.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/container_policy.hpp"/>
+            <FILE id="ipc05b" name="copy_policy.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/copy_policy.hpp"/>
+            <FILE id="UPu5Lf" name="dependency_policy.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/dependency_policy.hpp"/>
+            <FILE id="kg6ZgM" name="discard_result_policy.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/discard_result_policy.hpp"/>
+            <FILE id="wyyaU7" name="error.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/error.hpp"/>
+            <FILE id="fIwPAO" name="error_callback_fun.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/error_callback_fun.hpp"/>
+            <FILE id="QbN2ES" name="exception_handler.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/exception_handler.hpp"/>
+            <FILE id="OWM5Jn" name="from_stack.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/from_stack.hpp"/>
+            <FILE id="n3T53d" name="function.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/function.hpp"/>
+            <FILE id="y2Hini" name="function_converter.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/function_converter.hpp"/>
+            <FILE id="zDPrzT" name="function_introspection.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/function_introspection.hpp"/>
+            <FILE id="x2SQ4n" name="get_main_thread.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/get_main_thread.hpp"/>
+            <FILE id="NLrzJW" name="get_pointer.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/get_pointer.hpp"/>
+            <FILE id="oWCsvC" name="handle.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/handle.hpp"/>
+            <FILE id="YxQIVC" name="intrusive_ptr_converter.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/intrusive_ptr_converter.hpp"/>
+            <FILE id="KgAqVS" name="iterator_policy.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/iterator_policy.hpp"/>
+            <FILE id="OOmDht" name="lua_include.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/lua_include.hpp"/>
+            <FILE id="GKaX0V" name="lua_state_fwd.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/lua_state_fwd.hpp"/>
+            <FILE id="V3wVwD" name="luabind.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/luabind.hpp"/>
+            <FILE id="Kor843" name="make_function.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/make_function.hpp"/>
+            <FILE id="hlgqBp" name="nil.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/nil.hpp"/>
+            <FILE id="VjnnQl" name="no_dependency.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/no_dependency.hpp"/>
+            <FILE id="oco6QZ" name="object.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/object.hpp"/>
+            <FILE id="ysUvae" name="object_fwd.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/object_fwd.hpp"/>
+            <FILE id="dEtyaq" name="open.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/open.hpp"/>
+            <FILE id="KqAd6q" name="operator.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/operator.hpp"/>
+            <FILE id="h4Myw5" name="out_value_policy.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/out_value_policy.hpp"/>
+            <FILE id="CoHK97" name="prefix.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/prefix.hpp"/>
+            <FILE id="J3nq06" name="raw_policy.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/raw_policy.hpp"/>
+            <FILE id="plboGa" name="return_reference_to_policy.hpp" compile="0"
+                  resource="0" file="Source/Misc/luabind/luabind/return_reference_to_policy.hpp"/>
+            <FILE id="ZKwL5E" name="scope.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/scope.hpp"/>
+            <FILE id="EiWW5V" name="set_package_preload.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/set_package_preload.hpp"/>
+            <FILE id="jYrQHp" name="shared_ptr_converter.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/shared_ptr_converter.hpp"/>
+            <FILE id="KAeyK9" name="stack.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/stack.hpp"/>
+            <FILE id="y3hZ6H" name="std_shared_ptr_converter.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/std_shared_ptr_converter.hpp"/>
+            <FILE id="dVQdzY" name="tag_function.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/tag_function.hpp"/>
+            <FILE id="qujnEj" name="typeid.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/typeid.hpp"/>
+            <FILE id="Wrbtao" name="value_wrapper.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/value_wrapper.hpp"/>
+            <FILE id="qcI61Y" name="version.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/version.hpp"/>
+            <FILE id="tP1gdC" name="weak_ref.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/weak_ref.hpp"/>
+            <FILE id="ATDHaf" name="wrapper_base.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/wrapper_base.hpp"/>
+            <FILE id="LdjQvu" name="yield_policy.hpp" compile="0" resource="0"
+                  file="Source/Misc/luabind/luabind/yield_policy.hpp"/>
+          </GROUP>
+          <GROUP id="{B2457A23-F1D1-76BC-CF64-37E7E9152169}" name="src">
+            <FILE id="sQLQ0c" name="class.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/class.cpp"/>
+            <FILE id="JrG8u0" name="class_info.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/class_info.cpp"/>
+            <FILE id="SloKao" name="class_registry.cpp" compile="1" resource="0"
+                  file="Source/Misc/luabind/src/class_registry.cpp"/>
+            <FILE id="DQMIWf" name="class_rep.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/class_rep.cpp"/>
+            <FILE id="JDSRdY" name="create_class.cpp" compile="1" resource="0"
+                  file="Source/Misc/luabind/src/create_class.cpp"/>
+            <FILE id="SvuqiV" name="error.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/error.cpp"/>
+            <FILE id="Sg3D2j" name="exception_handler.cpp" compile="1" resource="0"
+                  file="Source/Misc/luabind/src/exception_handler.cpp"/>
+            <FILE id="AsCozr" name="function.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/function.cpp"/>
+            <FILE id="J0Q7FZ" name="function_introspection.cpp" compile="1" resource="0"
+                  file="Source/Misc/luabind/src/function_introspection.cpp"/>
+            <FILE id="WQxulc" name="inheritance.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/inheritance.cpp"/>
+            <FILE id="FnrqGh" name="link_compatibility.cpp" compile="1" resource="0"
+                  file="Source/Misc/luabind/src/link_compatibility.cpp"/>
+            <FILE id="N3prNn" name="lua51compat.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/lua51compat.cpp"/>
+            <FILE id="zIlhaQ" name="object_rep.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/object_rep.cpp"/>
+            <FILE id="BDqYQt" name="open.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/open.cpp"/>
+            <FILE id="J17XLa" name="operator.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/operator.cpp"/>
+            <FILE id="qTQyXb" name="pcall.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/pcall.cpp"/>
+            <FILE id="ODYTH2" name="scope.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/scope.cpp"/>
+            <FILE id="ybFajO" name="set_package_preload.cpp" compile="1" resource="0"
+                  file="Source/Misc/luabind/src/set_package_preload.cpp"/>
+            <FILE id="AP859C" name="shared_ptr_converter.cpp" compile="1" resource="0"
+                  file="Source/Misc/luabind/src/shared_ptr_converter.cpp"/>
+            <FILE id="nqI6L7" name="stack_content_by_name.cpp" compile="1" resource="0"
+                  file="Source/Misc/luabind/src/stack_content_by_name.cpp"/>
+            <FILE id="wPEO50" name="weak_ref.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/weak_ref.cpp"/>
+            <FILE id="Qt35Lt" name="wrapper_base.cpp" compile="1" resource="0"
+                  file="Source/Misc/luabind/src/wrapper_base.cpp"/>
+          </GROUP>
+          <FILE id="vq3mB0" name="build_information.hpp" compile="0" resource="0"
+                file="Source/Misc/luabind/build_information.hpp"/>
+          <FILE id="pEXR5d" name="build_information.hpp.cmake_in" compile="0"
+                resource="1" file="Source/Misc/luabind/build_information.hpp.cmake_in"/>
+          <FILE id="SdlZA4" name="get-deps.sh" compile="0" resource="1" file="Source/Misc/luabind/get-deps.sh"/>
+          <FILE id="t3iuRk" name="INSTALL.txt" compile="0" resource="1" file="Source/Misc/luabind/INSTALL.txt"/>
+          <FILE id="Lc6B3e" name="LICENSE.txt" compile="0" resource="1" file="Source/Misc/luabind/LICENSE.txt"/>
+          <FILE id="S3Qhqe" name="README.md" compile="0" resource="1" file="Source/Misc/luabind/README.md"/>
+        </GROUP>
         <GROUP id="{1C4788E8-DEC6-8DD4-1530-75A1A430E869}" name="include">
           <FILE id="CkCjmf" name="inttypes.h" compile="0" resource="0" file="Source/Misc/include/inttypes.h"/>
           <FILE id="st1G2O" name="juce_PluginHostType.h" compile="0" resource="0"
@@ -80,238 +249,6 @@
           <GROUP id="{9697EBDD-AD3B-A492-9E42-523E6103690D}" name="src">
             <FILE id="DaE24i" name="lua.c" compile="1" resource="0" file="Source/Misc/lua/src/lua.c"/>
           </GROUP>
-        </GROUP>
-        <GROUP id="{CA10A1F3-C7BA-BDD4-C958-8F7F60A3F3D6}" name="luabind">
-          <GROUP id="{9B389245-450F-A061-5319-7B1762D47E37}" name="cmake">
-            <GROUP id="{7F51618A-22AD-C9F7-A7AE-D9CD6A6D9A90}" name="Modules">
-              <FILE id="KHDuga" name="FindLua52.cmake" compile="0" resource="1" file="Source/Misc/luabind/cmake/Modules/FindLua52.cmake"/>
-              <FILE id="KqMYsT" name="FindLuabind.cmake" compile="0" resource="1"
-                    file="Source/Misc/luabind/cmake/Modules/FindLuabind.cmake"/>
-            </GROUP>
-          </GROUP>
-          <GROUP id="{7A8A4A4D-A764-1388-F548-AD75BB5DC853}" name="doc">
-            <GROUP id="{D959FD92-6766-3D43-2A55-975E330A2515}" name="policies">
-              <FILE id="usQZND" name="adopt.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/policies/adopt.rst"/>
-              <FILE id="rkX9Zy" name="copy.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/policies/copy.rst"/>
-              <FILE id="lTKL2q" name="dependency.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/policies/dependency.rst"/>
-              <FILE id="VZbamt" name="discard_result.rst" compile="0" resource="1"
-                    file="Source/Misc/luabind/doc/policies/discard_result.rst"/>
-              <FILE id="UuQF2L" name="out_value.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/policies/out_value.rst"/>
-              <FILE id="RptUxa" name="pure_out_value.rst" compile="0" resource="1"
-                    file="Source/Misc/luabind/doc/policies/pure_out_value.rst"/>
-              <FILE id="fNlBE9" name="raw.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/policies/raw.rst"/>
-              <FILE id="qmwmfX" name="return_reference_to.rst" compile="0" resource="1"
-                    file="Source/Misc/luabind/doc/policies/return_reference_to.rst"/>
-              <FILE id="otLDrX" name="return_stl_iterator.rst" compile="0" resource="1"
-                    file="Source/Misc/luabind/doc/policies/return_stl_iterator.rst"/>
-              <FILE id="n64qPz" name="yield.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/policies/yield.rst"/>
-            </GROUP>
-            <FILE id="fxIBgY" name="acknowledgments.rst" compile="0" resource="1"
-                  file="Source/Misc/luabind/doc/acknowledgments.rst"/>
-            <FILE id="GkOMCv" name="basic-usage.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/basic-usage.rst"/>
-            <FILE id="hhmqF0" name="build-options.rst" compile="0" resource="1"
-                  file="Source/Misc/luabind/doc/build-options.rst"/>
-            <FILE id="t9ZmFN" name="building.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/building.rst"/>
-            <FILE id="jrSf1d" name="changes.txt" compile="0" resource="1" file="Source/Misc/luabind/doc/changes.txt"/>
-            <FILE id="JAyPAo" name="classes.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/classes.rst"/>
-            <FILE id="dA3YTt" name="CMakeLists.txt" compile="0" resource="1" file="Source/Misc/luabind/doc/CMakeLists.txt"/>
-            <FILE id="RJfV31" name="conf.py" compile="0" resource="1" file="Source/Misc/luabind/doc/conf.py"/>
-            <FILE id="uEomY3" name="errors.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/errors.rst"/>
-            <FILE id="kXdDEo" name="exceptions.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/exceptions.rst"/>
-            <FILE id="nD83i5" name="faq.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/faq.rst"/>
-            <FILE id="AulEHv" name="functions.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/functions.rst"/>
-            <FILE id="SExSqW" name="GetGitRevisionDescription.cmake" compile="0"
-                  resource="1" file="Source/Misc/luabind/doc/GetGitRevisionDescription.cmake"/>
-            <FILE id="l6FLSr" name="GetGitRevisionDescription.cmake.in" compile="0"
-                  resource="1" file="Source/Misc/luabind/doc/GetGitRevisionDescription.cmake.in"/>
-            <FILE id="zETo3d" name="git_version.in" compile="0" resource="1" file="Source/Misc/luabind/doc/git_version.in"/>
-            <FILE id="qsbx3E" name="impl-notes.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/impl-notes.rst"/>
-            <FILE id="tQGJ6p" name="index.html" compile="0" resource="1" file="Source/Misc/luabind/doc/index.html"/>
-            <FILE id="BYnZxW" name="index.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/index.rst"/>
-            <FILE id="y7tPBc" name="intro.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/intro.rst"/>
-            <FILE id="ERrbpf" name="issues.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/issues.rst"/>
-            <FILE id="htvaqN" name="lua-classes.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/lua-classes.rst"/>
-            <FILE id="WhP6pR" name="luabind-logo-label.ps" compile="0" resource="1"
-                  file="Source/Misc/luabind/doc/luabind-logo-label.ps"/>
-            <FILE id="ywAxbn" name="luabind.png" compile="0" resource="1" file="Source/Misc/luabind/doc/luabind.png"/>
-            <FILE id="aUd4uz" name="make.bat" compile="0" resource="1" file="Source/Misc/luabind/doc/make.bat"/>
-            <FILE id="kZvqCz" name="Makefile" compile="0" resource="1" file="Source/Misc/luabind/doc/Makefile"/>
-            <FILE id="oCKnMu" name="object.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/object.rst"/>
-            <FILE id="wWjXiD" name="policies.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/policies.rst"/>
-            <FILE id="cmRUcj" name="scopes.rst" compile="0" resource="1" file="Source/Misc/luabind/doc/scopes.rst"/>
-            <FILE id="Ba8CMs" name="split-registration.rst" compile="0" resource="1"
-                  file="Source/Misc/luabind/doc/split-registration.rst"/>
-            <FILE id="Ewb2vR" name="style.css" compile="0" resource="1" file="Source/Misc/luabind/doc/style.css"/>
-            <FILE id="DHre0V" name="userdefined-converters.rst" compile="0" resource="1"
-                  file="Source/Misc/luabind/doc/userdefined-converters.rst"/>
-          </GROUP>
-          <GROUP id="{AAF1F249-AD7A-F79D-D351-D0CECA10CFD0}" name="luabind">
-            <GROUP id="{296645DD-4F16-8FE5-4076-1C108621A5DC}" name="detail">
-              <FILE id="b0gqSH" name="call.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/call.hpp"/>
-              <FILE id="N1GEyN" name="call_function.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/call_function.hpp"/>
-              <FILE id="vyKuOB" name="call_member.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/call_member.hpp"/>
-              <FILE id="rl2IBY" name="call_operator_iterate.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/call_operator_iterate.hpp"/>
-              <FILE id="m91xOW" name="class_registry.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/class_registry.hpp"/>
-              <FILE id="sPqkKB" name="class_rep.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/class_rep.hpp"/>
-              <FILE id="BdCzxY" name="constructor.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/constructor.hpp"/>
-              <FILE id="WPAJr6" name="convert_to_lua.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/convert_to_lua.hpp"/>
-              <FILE id="zILVfV" name="debug.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/debug.hpp"/>
-              <FILE id="UnlF7N" name="decorate_type.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/decorate_type.hpp"/>
-              <FILE id="vSbA9T" name="deduce_signature.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/deduce_signature.hpp"/>
-              <FILE id="ZTgnbk" name="enum_maker.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/enum_maker.hpp"/>
-              <FILE id="lWuxvs" name="format_signature.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/format_signature.hpp"/>
-              <FILE id="u8fJ28" name="garbage_collector.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/garbage_collector.hpp"/>
-              <FILE id="rz1arL" name="has_get_pointer.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/has_get_pointer.hpp"/>
-              <FILE id="jKpUU8" name="inheritance.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/inheritance.hpp"/>
-              <FILE id="OLEoYr" name="instance_holder.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/instance_holder.hpp"/>
-              <FILE id="VSp2yL" name="link_compatibility.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/link_compatibility.hpp"/>
-              <FILE id="yezHLO" name="make_instance.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/make_instance.hpp"/>
-              <FILE id="PI44ff" name="most_derived.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/most_derived.hpp"/>
-              <FILE id="v4T1cp" name="object.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/object.hpp"/>
-              <FILE id="PUMXEB" name="object_call.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/object_call.hpp"/>
-              <FILE id="cwYEOQ" name="object_rep.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/object_rep.hpp"/>
-              <FILE id="cpP5jg" name="open.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/open.hpp"/>
-              <FILE id="qQH5gQ" name="operator_id.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/operator_id.hpp"/>
-              <FILE id="F546yd" name="other.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/other.hpp"/>
-              <FILE id="Eti1oZ" name="pcall.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/pcall.hpp"/>
-              <FILE id="FwcpDe" name="pointee_sizeof.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/pointee_sizeof.hpp"/>
-              <FILE id="ZOZaFK" name="policy.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/policy.hpp"/>
-              <FILE id="ptDck3" name="primitives.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/primitives.hpp"/>
-              <FILE id="zSoPEU" name="property.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/property.hpp"/>
-              <FILE id="wTQiqn" name="signature_match.hpp" compile="0" resource="0"
-                    file="Source/Misc/luabind/luabind/detail/signature_match.hpp"/>
-              <FILE id="s2HwCe" name="stack_utils.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/stack_utils.hpp"/>
-              <FILE id="rmMt0o" name="typetraits.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/typetraits.hpp"/>
-              <FILE id="roaIKh" name="yes_no.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/detail/yes_no.hpp"/>
-            </GROUP>
-            <FILE id="cj12qA" name="adopt_policy.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/adopt_policy.hpp"/>
-            <FILE id="k9Q6Uq" name="back_reference.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/back_reference.hpp"/>
-            <FILE id="dnszUx" name="back_reference_fwd.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/back_reference_fwd.hpp"/>
-            <FILE id="B3YlUX" name="class.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/class.hpp"/>
-            <FILE id="T0x0v9" name="class_info.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/class_info.hpp"/>
-            <FILE id="HjR9Wo" name="config.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/config.hpp"/>
-            <FILE id="qpVhO9" name="container_policy.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/container_policy.hpp"/>
-            <FILE id="nHCb3q" name="copy_policy.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/copy_policy.hpp"/>
-            <FILE id="j82119" name="dependency_policy.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/dependency_policy.hpp"/>
-            <FILE id="DWVRlA" name="discard_result_policy.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/discard_result_policy.hpp"/>
-            <FILE id="EICZf4" name="error.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/error.hpp"/>
-            <FILE id="k19Zst" name="error_callback_fun.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/error_callback_fun.hpp"/>
-            <FILE id="MPGhkF" name="exception_handler.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/exception_handler.hpp"/>
-            <FILE id="OwVwHe" name="from_stack.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/from_stack.hpp"/>
-            <FILE id="y1Cj6d" name="function.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/function.hpp"/>
-            <FILE id="TxEBqs" name="function_converter.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/function_converter.hpp"/>
-            <FILE id="KTMtZC" name="function_introspection.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/function_introspection.hpp"/>
-            <FILE id="HKPuam" name="get_main_thread.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/get_main_thread.hpp"/>
-            <FILE id="FrPeP1" name="get_pointer.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/get_pointer.hpp"/>
-            <FILE id="ozB2ms" name="handle.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/handle.hpp"/>
-            <FILE id="EitXcw" name="intrusive_ptr_converter.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/intrusive_ptr_converter.hpp"/>
-            <FILE id="NdfFBT" name="iterator_policy.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/iterator_policy.hpp"/>
-            <FILE id="y5FFPm" name="lua_include.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/lua_include.hpp"/>
-            <FILE id="gtWJxK" name="lua_state_fwd.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/lua_state_fwd.hpp"/>
-            <FILE id="HB13Sr" name="luabind.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/luabind.hpp"/>
-            <FILE id="tSpUJU" name="make_function.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/make_function.hpp"/>
-            <FILE id="Rizga1" name="nil.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/nil.hpp"/>
-            <FILE id="O4F2t4" name="no_dependency.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/no_dependency.hpp"/>
-            <FILE id="L7xK5E" name="object.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/object.hpp"/>
-            <FILE id="gk7AoW" name="object_fwd.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/object_fwd.hpp"/>
-            <FILE id="nAZcWG" name="open.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/open.hpp"/>
-            <FILE id="hmSg5M" name="operator.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/operator.hpp"/>
-            <FILE id="haJPxN" name="out_value_policy.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/out_value_policy.hpp"/>
-            <FILE id="BBfWSR" name="prefix.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/prefix.hpp"/>
-            <FILE id="BIiUcU" name="raw_policy.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/raw_policy.hpp"/>
-            <FILE id="TuNRIJ" name="return_reference_to_policy.hpp" compile="0"
-                  resource="0" file="Source/Misc/luabind/luabind/return_reference_to_policy.hpp"/>
-            <FILE id="J4vD31" name="scope.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/scope.hpp"/>
-            <FILE id="szPnlw" name="set_package_preload.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/set_package_preload.hpp"/>
-            <FILE id="QOgqNW" name="shared_ptr_converter.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/shared_ptr_converter.hpp"/>
-            <FILE id="GU0gVV" name="stack.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/stack.hpp"/>
-            <FILE id="Svga30" name="std_shared_ptr_converter.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/std_shared_ptr_converter.hpp"/>
-            <FILE id="UyN60C" name="tag_function.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/tag_function.hpp"/>
-            <FILE id="kKsUAh" name="typeid.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/typeid.hpp"/>
-            <FILE id="IVBn6m" name="value_wrapper.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/value_wrapper.hpp"/>
-            <FILE id="AjoCtW" name="version.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/version.hpp"/>
-            <FILE id="q5HfOB" name="weak_ref.hpp" compile="0" resource="0" file="Source/Misc/luabind/luabind/weak_ref.hpp"/>
-            <FILE id="sGtonc" name="wrapper_base.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/wrapper_base.hpp"/>
-            <FILE id="EQUbb3" name="yield_policy.hpp" compile="0" resource="0"
-                  file="Source/Misc/luabind/luabind/yield_policy.hpp"/>
-          </GROUP>
-          <GROUP id="{CD80A6AD-907C-A582-7F52-111DBEFC3E5D}" name="src">
-            <FILE id="NtvzwW" name="class.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/class.cpp"/>
-            <FILE id="HZktAB" name="class_info.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/class_info.cpp"/>
-            <FILE id="oE48Vo" name="class_registry.cpp" compile="1" resource="0"
-                  file="Source/Misc/luabind/src/class_registry.cpp"/>
-            <FILE id="vJBvvX" name="class_rep.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/class_rep.cpp"/>
-            <FILE id="kCiMd4" name="CMakeLists.txt" compile="0" resource="1" file="Source/Misc/luabind/src/CMakeLists.txt"/>
-            <FILE id="fJVMtd" name="create_class.cpp" compile="1" resource="0"
-                  file="Source/Misc/luabind/src/create_class.cpp"/>
-            <FILE id="Xj7FqN" name="error.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/error.cpp"/>
-            <FILE id="pOqUvN" name="exception_handler.cpp" compile="1" resource="0"
-                  file="Source/Misc/luabind/src/exception_handler.cpp"/>
-            <FILE id="BM3WZ0" name="function.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/function.cpp"/>
-            <FILE id="CjPbNq" name="function_introspection.cpp" compile="1" resource="0"
-                  file="Source/Misc/luabind/src/function_introspection.cpp"/>
-            <FILE id="dqend3" name="inheritance.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/inheritance.cpp"/>
-            <FILE id="O31tQS" name="link_compatibility.cpp" compile="1" resource="0"
-                  file="Source/Misc/luabind/src/link_compatibility.cpp"/>
-            <FILE id="ReTPjQ" name="lua51compat.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/lua51compat.cpp"/>
-            <FILE id="ku0ELx" name="object_rep.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/object_rep.cpp"/>
-            <FILE id="V4FxKs" name="open.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/open.cpp"/>
-            <FILE id="Z4e3Bk" name="operator.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/operator.cpp"/>
-            <FILE id="sdUo68" name="pcall.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/pcall.cpp"/>
-            <FILE id="T2qNcE" name="scope.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/scope.cpp"/>
-            <FILE id="PTreS4" name="set_package_preload.cpp" compile="1" resource="0"
-                  file="Source/Misc/luabind/src/set_package_preload.cpp"/>
-            <FILE id="inGdHQ" name="shared_ptr_converter.cpp" compile="1" resource="0"
-                  file="Source/Misc/luabind/src/shared_ptr_converter.cpp"/>
-            <FILE id="hCaEDX" name="stack_content_by_name.cpp" compile="1" resource="0"
-                  file="Source/Misc/luabind/src/stack_content_by_name.cpp"/>
-            <FILE id="ur17vJ" name="weak_ref.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/weak_ref.cpp"/>
-            <FILE id="q9ZgVB" name="wrapper_base.cpp" compile="1" resource="0"
-                  file="Source/Misc/luabind/src/wrapper_base.cpp"/>
-          </GROUP>
-          <FILE id="lioCx6" name="build_information.hpp" compile="0" resource="0"
-                file="Source/Misc/luabind/build_information.hpp"/>
-          <FILE id="FIeyb8" name="CMakeLists.txt" compile="0" resource="1" file="Source/Misc/luabind/CMakeLists.txt"/>
-          <FILE id="xMwc9Q" name="INSTALL.txt" compile="0" resource="1" file="Source/Misc/luabind/INSTALL.txt"/>
-          <FILE id="w1Et7Q" name="LICENSE.txt" compile="0" resource="1" file="Source/Misc/luabind/LICENSE.txt"/>
-          <FILE id="D2EaGr" name="README.md" compile="0" resource="1" file="Source/Misc/luabind/README.md"/>
         </GROUP>
         <FILE id="ba8H2u" name="keys.cpp" compile="1" resource="0" file="Source/Misc/keys.cpp"/>
         <FILE id="N35AKi" name="libr-bfd.c" compile="1" resource="0" file="Source/Misc/libr-bfd.c"/>
@@ -1202,18 +1139,18 @@
         <CONFIGURATION isDebug="0" name="Release" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_gui_extra" path="../../juce"/>
-        <MODULEPATH id="juce_gui_basics" path="../../juce"/>
-        <MODULEPATH id="juce_graphics" path="../../juce"/>
-        <MODULEPATH id="juce_events" path="../../juce"/>
-        <MODULEPATH id="juce_data_structures" path="../../juce"/>
-        <MODULEPATH id="juce_core" path="../../juce"/>
-        <MODULEPATH id="juce_audio_utils" path="../../juce"/>
-        <MODULEPATH id="juce_audio_processors" path="../../juce"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../juce"/>
-        <MODULEPATH id="juce_audio_formats" path="../../juce"/>
-        <MODULEPATH id="juce_audio_devices" path="../../juce"/>
-        <MODULEPATH id="juce_audio_basics" path="../../juce"/>
+        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
     <VS2019 targetFolder="Builds/VisualStudio2019" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
@@ -1242,6 +1179,22 @@
         <MODULEPATH id="juce_audio_basics"/>
       </MODULEPATHS>
     </VS2019>
+    <CLION targetFolder="Builds/CLion">
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../juce"/>
+        <MODULEPATH id="juce_gui_basics" path="../../juce"/>
+        <MODULEPATH id="juce_graphics" path="../../juce"/>
+        <MODULEPATH id="juce_events" path="../../juce"/>
+        <MODULEPATH id="juce_data_structures" path="../../juce"/>
+        <MODULEPATH id="juce_core" path="../../juce"/>
+        <MODULEPATH id="juce_audio_utils" path="../../juce"/>
+        <MODULEPATH id="juce_audio_processors" path="../../juce"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../juce"/>
+        <MODULEPATH id="juce_audio_formats" path="../../juce"/>
+        <MODULEPATH id="juce_audio_devices" path="../../juce"/>
+        <MODULEPATH id="juce_audio_basics" path="../../juce"/>
+      </MODULEPATHS>
+    </CLION>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
@@ -1258,7 +1211,7 @@
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
-  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_WEB_BROWSER="0" JUCE_ENABLE_LIVE_CONSTANT_EDITOR="0"/>
   <LIVE_SETTINGS>
     <WINDOWS/>
     <OSX/>

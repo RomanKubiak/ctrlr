@@ -32,25 +32,37 @@ ifeq ($(CONFIG),Debug)
   JUCE_OUTDIR := build
 
   ifeq ($(TARGET_ARCH),)
-    TARGET_ARCH := -march=native
+    TARGET_ARCH := 
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DDEBUG=1 -D_DEBUG=1 -DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -pthread -I../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I../../Source/Misc/vst2sdk -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source -I../../Source/Misc -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/libusb/include -I../../Source/Misc/boost -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DDEBUG=1" "-D_DEBUG=1" "-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=5.4.0" "-DJUCE_APP_VERSION_HEX=0x50400" $(shell pkg-config --cflags alsa x11 xinerama xext freetype2 libcurl) -pthread -I../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I../../Source/Misc/vst2sdk -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source -I../../Source/Misc -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/libusb/include -I../../Source/Misc/boost -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua $(CPPFLAGS)
 
-  JUCE_CPPFLAGS_VST := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0 -DJucePlugin_Build_Unity=0
+  JUCE_CPPFLAGS_VST :=  "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
   JUCE_LDFLAGS_VST := -shared -Wl,--no-undefined
   JUCE_TARGET_VST := Ctrlr.so
+  JUCE_VSTDESTDIR := $(HOME)/.vst
+  JUCE_COPYCMD_VST := $(JUCE_OUTDIR)/Ctrlr.so $(JUCE_VSTDESTDIR)
 
-  JUCE_CPPFLAGS_STANDALONE_PLUGIN := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=1 -DJucePlugin_Build_Unity=0
+  JUCE_CPPFLAGS_VST3 :=  "-DJucePlugin_Build_VST=0" "-DJucePlugin_Build_VST3=1" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
+  JUCE_CFLAGS_VST3 := -fPIC -fvisibility=hidden
+  JUCE_LDFLAGS_VST3 := -shared -Wl,--no-undefined
+  JUCE_VST3DIR := Ctrlr.vst3
+  VST3_PLATFORM_ARCH := $(shell $(CXX) make_helpers/arch_detection.cpp 2>&1 | tr '\n' ' ' | sed "s/.*JUCE_ARCH \([a-zA-Z0-9_-]*\).*/\1/")
+  JUCE_VST3SUBDIR := Contents/$(VST3_PLATFORM_ARCH)-linux
+  JUCE_TARGET_VST3 := $(JUCE_VST3DIR)/$(JUCE_VST3SUBDIR)/Ctrlr.so
+  JUCE_VST3DESTDIR := $(HOME)/.vst3
+  JUCE_COPYCMD_VST3 := $(JUCE_OUTDIR)/$(JUCE_VST3DIR) $(JUCE_VST3DESTDIR)
+
+  JUCE_CPPFLAGS_STANDALONE_PLUGIN :=  "-DJucePlugin_Build_VST=0" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=1" "-DJucePlugin_Build_Unity=0"
   JUCE_TARGET_STANDALONE_PLUGIN := Ctrlr
 
-  JUCE_CPPFLAGS_SHARED_CODE := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=1 -DJucePlugin_Build_Unity=0 -DJUCE_SHARED_CODE=1
+  JUCE_CPPFLAGS_SHARED_CODE :=  "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=1" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=1" "-DJucePlugin_Build_Unity=0" "-DJUCE_SHARED_CODE=1"
   JUCE_TARGET_SHARED_CODE := Ctrlr.a
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -g -ggdb -O0 -w $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=gnu++14 $(CXXFLAGS)
-  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -lrt -ldl -lpthread -lz -ludev -lbfd $(LDFLAGS)
+  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa x11 xinerama xext freetype2 libcurl) -fvisibility=hidden -lrt -ldl -lpthread -lz -ludev -lbfd $(LDFLAGS)
 
   CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
@@ -62,25 +74,37 @@ ifeq ($(CONFIG),Release)
   JUCE_OUTDIR := build
 
   ifeq ($(TARGET_ARCH),)
-    TARGET_ARCH := -march=native
+    TARGET_ARCH := 
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) -DLINUX=1 -DNDEBUG=1 -DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1 -DJUCER_LINUX_MAKE_6D53C8B4=1 -DJUCE_APP_VERSION=6.0.0 -DJUCE_APP_VERSION_HEX=0x60000 $(shell pkg-config --cflags alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -pthread -I../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I../../Source/Misc/vst2sdk -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source -I../../Source/Misc -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/libusb/include -I../../Source/Misc/boost -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DNDEBUG=1" "-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=5.4.0" "-DJUCE_APP_VERSION_HEX=0x50400" $(shell pkg-config --cflags alsa x11 xinerama xext freetype2 libcurl) -pthread -I../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I../../Source/Misc/vst2sdk -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source -I../../Source/Misc -I../../Source/Misc/include -I../../Source/Misc/lua/include -I../../Source/Misc/luabind -I../../Source/Misc/libusb/include -I../../Source/Misc/boost -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua $(CPPFLAGS)
 
-  JUCE_CPPFLAGS_VST := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=0 -DJucePlugin_Build_Unity=0
+  JUCE_CPPFLAGS_VST :=  "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
   JUCE_LDFLAGS_VST := -shared -Wl,--no-undefined
   JUCE_TARGET_VST := Ctrlr.so
+  JUCE_VSTDESTDIR := $(HOME)/.vst
+  JUCE_COPYCMD_VST := $(JUCE_OUTDIR)/Ctrlr.so $(JUCE_VSTDESTDIR)
 
-  JUCE_CPPFLAGS_STANDALONE_PLUGIN := -DJucePlugin_Build_VST=0 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=1 -DJucePlugin_Build_Unity=0
+  JUCE_CPPFLAGS_VST3 :=  "-DJucePlugin_Build_VST=0" "-DJucePlugin_Build_VST3=1" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
+  JUCE_CFLAGS_VST3 := -fPIC -fvisibility=hidden
+  JUCE_LDFLAGS_VST3 := -shared -Wl,--no-undefined
+  JUCE_VST3DIR := Ctrlr.vst3
+  VST3_PLATFORM_ARCH := $(shell $(CXX) make_helpers/arch_detection.cpp 2>&1 | tr '\n' ' ' | sed "s/.*JUCE_ARCH \([a-zA-Z0-9_-]*\).*/\1/")
+  JUCE_VST3SUBDIR := Contents/$(VST3_PLATFORM_ARCH)-linux
+  JUCE_TARGET_VST3 := $(JUCE_VST3DIR)/$(JUCE_VST3SUBDIR)/Ctrlr.so
+  JUCE_VST3DESTDIR := $(HOME)/.vst3
+  JUCE_COPYCMD_VST3 := $(JUCE_OUTDIR)/$(JUCE_VST3DIR) $(JUCE_VST3DESTDIR)
+
+  JUCE_CPPFLAGS_STANDALONE_PLUGIN :=  "-DJucePlugin_Build_VST=0" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=1" "-DJucePlugin_Build_Unity=0"
   JUCE_TARGET_STANDALONE_PLUGIN := Ctrlr
 
-  JUCE_CPPFLAGS_SHARED_CODE := -DJucePlugin_Build_VST=1 -DJucePlugin_Build_VST3=0 -DJucePlugin_Build_AU=0 -DJucePlugin_Build_AUv3=0 -DJucePlugin_Build_RTAS=0 -DJucePlugin_Build_AAX=0 -DJucePlugin_Build_Standalone=1 -DJucePlugin_Build_Unity=0 -DJUCE_SHARED_CODE=1
+  JUCE_CPPFLAGS_SHARED_CODE :=  "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=1" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=1" "-DJucePlugin_Build_Unity=0" "-DJUCE_SHARED_CODE=1"
   JUCE_TARGET_SHARED_CODE := Ctrlr.a
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -O3 -w $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=gnu++14 $(CXXFLAGS)
-  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl) -fvisibility=hidden -lrt -ldl -lpthread -lz -ludev -lbfd $(LDFLAGS)
+  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa x11 xinerama xext freetype2 libcurl) -fvisibility=hidden -lrt -ldl -lpthread -lz -ludev -lbfd $(LDFLAGS)
 
   CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
@@ -90,29 +114,13 @@ OBJECTS_ALL := \
 OBJECTS_VST := \
   $(JUCE_OBJDIR)/include_juce_audio_plugin_client_VST2_dd551e08.o \
 
+OBJECTS_VST3 := \
+  $(JUCE_OBJDIR)/include_juce_audio_plugin_client_VST3_dd633589.o \
+
 OBJECTS_STANDALONE_PLUGIN := \
   $(JUCE_OBJDIR)/include_juce_audio_plugin_client_Standalone_1a871192.o \
 
 OBJECTS_SHARED_CODE := \
-  $(JUCE_OBJDIR)/compat_9b146423.o \
-  $(JUCE_OBJDIR)/core_27542800.o \
-  $(JUCE_OBJDIR)/darwin_usb_8122958d.o \
-  $(JUCE_OBJDIR)/descriptor_ef0446d0.o \
-  $(JUCE_OBJDIR)/enums_2b775c5b.o \
-  $(JUCE_OBJDIR)/hotplug_1fb630e4.o \
-  $(JUCE_OBJDIR)/io_997ddac7.o \
-  $(JUCE_OBJDIR)/linux_udev_8d6fd84c.o \
-  $(JUCE_OBJDIR)/linux_usbfs_39f3530f.o \
-  $(JUCE_OBJDIR)/poll_posix_5f7c8864.o \
-  $(JUCE_OBJDIR)/poll_windows_ffaf3564.o \
-  $(JUCE_OBJDIR)/strerror_2ffe76d8.o \
-  $(JUCE_OBJDIR)/structs_24498007.o \
-  $(JUCE_OBJDIR)/sync_432cc3fc.o \
-  $(JUCE_OBJDIR)/threads_posix_c92ae076.o \
-  $(JUCE_OBJDIR)/threads_windows_b727d0f6.o \
-  $(JUCE_OBJDIR)/usb_96e926cd.o \
-  $(JUCE_OBJDIR)/windows_usb_3c8c6a11.o \
-  $(JUCE_OBJDIR)/lua_260ca39c.o \
   $(JUCE_OBJDIR)/class_51e55959.o \
   $(JUCE_OBJDIR)/class_info_e81f919e.o \
   $(JUCE_OBJDIR)/class_registry_cf7ee82d.o \
@@ -135,6 +143,25 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/stack_content_by_name_d5b108d7.o \
   $(JUCE_OBJDIR)/weak_ref_28658f55.o \
   $(JUCE_OBJDIR)/wrapper_base_8bfc9886.o \
+  $(JUCE_OBJDIR)/compat_9b146423.o \
+  $(JUCE_OBJDIR)/core_27542800.o \
+  $(JUCE_OBJDIR)/darwin_usb_8122958d.o \
+  $(JUCE_OBJDIR)/descriptor_ef0446d0.o \
+  $(JUCE_OBJDIR)/enums_2b775c5b.o \
+  $(JUCE_OBJDIR)/hotplug_1fb630e4.o \
+  $(JUCE_OBJDIR)/io_997ddac7.o \
+  $(JUCE_OBJDIR)/linux_udev_8d6fd84c.o \
+  $(JUCE_OBJDIR)/linux_usbfs_39f3530f.o \
+  $(JUCE_OBJDIR)/poll_posix_5f7c8864.o \
+  $(JUCE_OBJDIR)/poll_windows_ffaf3564.o \
+  $(JUCE_OBJDIR)/strerror_2ffe76d8.o \
+  $(JUCE_OBJDIR)/structs_24498007.o \
+  $(JUCE_OBJDIR)/sync_432cc3fc.o \
+  $(JUCE_OBJDIR)/threads_posix_c92ae076.o \
+  $(JUCE_OBJDIR)/threads_windows_b727d0f6.o \
+  $(JUCE_OBJDIR)/usb_96e926cd.o \
+  $(JUCE_OBJDIR)/windows_usb_3c8c6a11.o \
+  $(JUCE_OBJDIR)/lua_260ca39c.o \
   $(JUCE_OBJDIR)/keys_f237af18.o \
   $(JUCE_OBJDIR)/libr-bfd_fc7a9004.o \
   $(JUCE_OBJDIR)/libr_d73fc571.o \
@@ -301,26 +328,41 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/include_juce_gui_basics_e3f79785.o \
   $(JUCE_OBJDIR)/include_juce_gui_extra_6dee1c1a.o \
 
-.PHONY: clean all strip VST Standalone
+.PHONY: clean all strip VST VST3 Standalone
 
-all : VST Standalone
+all : VST VST3 Standalone
 
 VST : $(JUCE_OUTDIR)/$(JUCE_TARGET_VST)
+VST3 : $(JUCE_OUTDIR)/$(JUCE_TARGET_VST3)
 Standalone : $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)
 
 
 $(JUCE_OUTDIR)/$(JUCE_TARGET_VST) : $(OBJECTS_VST) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
-	@pkg-config --print-errors alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl
+	@pkg-config --print-errors alsa x11 xinerama xext freetype2 libcurl
 	@echo Linking "Ctrlr - VST"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
 	-$(V_AT)mkdir -p $(JUCE_OUTDIR)
 	$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/$(JUCE_TARGET_VST) $(OBJECTS_VST) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) $(JUCE_LDFLAGS) $(JUCE_LDFLAGS_VST) $(RESOURCES) $(TARGET_ARCH)
+	-$(V_AT)mkdir -p $(JUCE_VSTDESTDIR)
+	-$(V_AT)cp -R $(JUCE_COPYCMD_VST)
+
+$(JUCE_OUTDIR)/$(JUCE_TARGET_VST3) : $(OBJECTS_VST3) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
+	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
+	@pkg-config --print-errors alsa x11 xinerama xext freetype2 libcurl
+	@echo Linking "Ctrlr - VST3"
+	-$(V_AT)mkdir -p $(JUCE_BINDIR)
+	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
+	-$(V_AT)mkdir -p $(JUCE_OUTDIR)
+	-$(V_AT)mkdir -p $(JUCE_OUTDIR)/$(JUCE_VST3DIR)/$(JUCE_VST3SUBDIR)
+	$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/$(JUCE_TARGET_VST3) $(OBJECTS_VST3) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) $(JUCE_LDFLAGS) $(JUCE_LDFLAGS_VST3) $(RESOURCES) $(TARGET_ARCH)
+	-$(V_AT)mkdir -p $(JUCE_VST3DESTDIR)
+	-$(V_AT)cp -R $(JUCE_COPYCMD_VST3)
 
 $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) : $(OBJECTS_STANDALONE_PLUGIN) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
-	@pkg-config --print-errors alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl
+	@pkg-config --print-errors alsa x11 xinerama xext freetype2 libcurl
 	@echo Linking "Ctrlr - Standalone Plugin"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
@@ -329,7 +371,7 @@ $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) : $(OBJECTS_STANDALONE_PLUGIN) $
 
 $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) : $(OBJECTS_SHARED_CODE) $(RESOURCES)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
-	@pkg-config --print-errors alsa x11 xinerama xext freetype2 webkit2gtk-4.0 gtk+-x11-3.0 libcurl
+	@pkg-config --print-errors alsa x11 xinerama xext freetype2 libcurl
 	@echo Linking "Ctrlr - Shared Code"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
@@ -341,105 +383,15 @@ $(JUCE_OBJDIR)/include_juce_audio_plugin_client_VST2_dd551e08.o: ../../JuceLibra
 	@echo "Compiling include_juce_audio_plugin_client_VST2.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_VST) $(JUCE_CFLAGS_VST) -o "$@" -c "$<"
 
+$(JUCE_OBJDIR)/include_juce_audio_plugin_client_VST3_dd633589.o: ../../JuceLibraryCode/include_juce_audio_plugin_client_VST3.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling include_juce_audio_plugin_client_VST3.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_VST3) $(JUCE_CFLAGS_VST3) -o "$@" -c "$<"
+
 $(JUCE_OBJDIR)/include_juce_audio_plugin_client_Standalone_1a871192.o: ../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling include_juce_audio_plugin_client_Standalone.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_STANDALONE_PLUGIN) $(JUCE_CFLAGS_STANDALONE_PLUGIN) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/compat_9b146423.o: ../../Source/Misc/libusb/src/compat.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling compat.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/core_27542800.o: ../../Source/Misc/libusb/src/core.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling core.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/darwin_usb_8122958d.o: ../../Source/Misc/libusb/src/darwin_usb.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling darwin_usb.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/descriptor_ef0446d0.o: ../../Source/Misc/libusb/src/descriptor.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling descriptor.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/enums_2b775c5b.o: ../../Source/Misc/libusb/src/enums.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling enums.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/hotplug_1fb630e4.o: ../../Source/Misc/libusb/src/hotplug.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling hotplug.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/io_997ddac7.o: ../../Source/Misc/libusb/src/io.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling io.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/linux_udev_8d6fd84c.o: ../../Source/Misc/libusb/src/linux_udev.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling linux_udev.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/linux_usbfs_39f3530f.o: ../../Source/Misc/libusb/src/linux_usbfs.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling linux_usbfs.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/poll_posix_5f7c8864.o: ../../Source/Misc/libusb/src/poll_posix.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling poll_posix.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/poll_windows_ffaf3564.o: ../../Source/Misc/libusb/src/poll_windows.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling poll_windows.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/strerror_2ffe76d8.o: ../../Source/Misc/libusb/src/strerror.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling strerror.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/structs_24498007.o: ../../Source/Misc/libusb/src/structs.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling structs.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/sync_432cc3fc.o: ../../Source/Misc/libusb/src/sync.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling sync.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/threads_posix_c92ae076.o: ../../Source/Misc/libusb/src/threads_posix.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling threads_posix.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/threads_windows_b727d0f6.o: ../../Source/Misc/libusb/src/threads_windows.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling threads_windows.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/usb_96e926cd.o: ../../Source/Misc/libusb/src/usb.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling usb.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/windows_usb_3c8c6a11.o: ../../Source/Misc/libusb/src/windows_usb.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling windows_usb.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/lua_260ca39c.o: ../../Source/Misc/lua/src/lua.c
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling lua.c"
-	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/class_51e55959.o: ../../Source/Misc/luabind/src/class.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
@@ -550,6 +502,101 @@ $(JUCE_OBJDIR)/wrapper_base_8bfc9886.o: ../../Source/Misc/luabind/src/wrapper_ba
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling wrapper_base.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/compat_9b146423.o: ../../Source/Misc/libusb/src/compat.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling compat.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/core_27542800.o: ../../Source/Misc/libusb/src/core.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling core.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/darwin_usb_8122958d.o: ../../Source/Misc/libusb/src/darwin_usb.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling darwin_usb.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/descriptor_ef0446d0.o: ../../Source/Misc/libusb/src/descriptor.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling descriptor.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/enums_2b775c5b.o: ../../Source/Misc/libusb/src/enums.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling enums.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/hotplug_1fb630e4.o: ../../Source/Misc/libusb/src/hotplug.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling hotplug.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/io_997ddac7.o: ../../Source/Misc/libusb/src/io.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling io.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/linux_udev_8d6fd84c.o: ../../Source/Misc/libusb/src/linux_udev.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling linux_udev.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/linux_usbfs_39f3530f.o: ../../Source/Misc/libusb/src/linux_usbfs.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling linux_usbfs.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/poll_posix_5f7c8864.o: ../../Source/Misc/libusb/src/poll_posix.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling poll_posix.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/poll_windows_ffaf3564.o: ../../Source/Misc/libusb/src/poll_windows.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling poll_windows.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/strerror_2ffe76d8.o: ../../Source/Misc/libusb/src/strerror.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling strerror.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/structs_24498007.o: ../../Source/Misc/libusb/src/structs.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling structs.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/sync_432cc3fc.o: ../../Source/Misc/libusb/src/sync.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling sync.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/threads_posix_c92ae076.o: ../../Source/Misc/libusb/src/threads_posix.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling threads_posix.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/threads_windows_b727d0f6.o: ../../Source/Misc/libusb/src/threads_windows.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling threads_windows.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/usb_96e926cd.o: ../../Source/Misc/libusb/src/usb.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling usb.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/windows_usb_3c8c6a11.o: ../../Source/Misc/libusb/src/windows_usb.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling windows_usb.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lua_260ca39c.o: ../../Source/Misc/lua/src/lua.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lua.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/keys_f237af18.o: ../../Source/Misc/keys.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
@@ -1385,5 +1432,6 @@ strip:
 	-$(V_AT)$(STRIP) --strip-unneeded $(JUCE_OUTDIR)/$(TARGET)
 
 -include $(OBJECTS_VST:%.o=%.d)
+-include $(OBJECTS_VST3:%.o=%.d)
 -include $(OBJECTS_STANDALONE_PLUGIN:%.o=%.d)
 -include $(OBJECTS_SHARED_CODE:%.o=%.d)
