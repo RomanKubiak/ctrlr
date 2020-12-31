@@ -9,6 +9,7 @@
 #define _DBG(message)										do {} while (0)
 #endif
 
+#define _TST(...)                                           if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(CtrlrLog::Info, __VA_ARGS__)
 #define _WRN(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Warn)
 #define _ERR(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Error)
 #define _INF(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Info)
@@ -20,6 +21,7 @@
 #define _MOUT(device, midiMessage, time)					if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(device, midiMessage, time, CtrlrLog::MidiOut)
 #define _MINSTR(message)									if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::MidiIn)
 #define _MOUTSTR(message)									if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::MidiOut)
+
 
 class CtrlrLog : public AsyncUpdater, public Logger, public DeletedAtShutdown
 {
@@ -66,6 +68,8 @@ class CtrlrLog : public AsyncUpdater, public Logger, public DeletedAtShutdown
 		void logMessage (const String &device, const MidiBuffer &buffer, const LogLevel level);
 		void logMessage (const String &device, const MidiBuffer &buffer, const double time, const LogLevel level);
 		void logMessage (const String &message);
+		void logMessage(CtrlrLog::LogLevel, char *fmt, ...);
+
 		void setLogToFile (const bool _logToFile);
 		bool getLogMidiInput ();
 		bool getLogMidiOutput ();

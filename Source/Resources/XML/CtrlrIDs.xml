@@ -195,11 +195,11 @@
   <id name="componentInternalFunction"            text="Internal function this component should execute" type="VarNumeric" defaults="@internalFunctions" />
 
   <!-- Slider -->
-  <id name="uiSliderStyle" 					text="Slider style" type="VarNumeric" defaults="LinearHorizontal,LinearVertical,LinearBar,Rotary,RotaryHorizontalDrag,RotaryVerticalDrag,IncDecButtons"/>
-  <id name="uiSliderMin" 					text="Minimum value" type="Numeric" min="-65536" max="65536" int="0.0001" />
-  <id name="uiSliderMax" 					text="Maximum value" type="Numeric" min="-65536" max="65536" int="0.0001" />
-  <id name="uiSliderInterval" 				text="Interval" type="Numeric" min="-65536" max="65536" int="0.0001" />
-  <id name="uiSliderDoubleClickValue" 		text="The value to set when double clicked" type="Numeric" min="-65536" max="65536" int="0.0001" />
+  <id name="uiSliderStyle" 					text="Slider style"     type="VarNumeric" defaults="LinearHorizontal,LinearVertical,LinearBar,Rotary,RotaryHorizontalDrag,RotaryVerticalDrag,IncDecButtons"/>
+  <id name="uiSliderMin" 					text="Minimum value"    type="Numeric" min="-2147483648" max="2147483647" int="0.000000001" />
+  <id name="uiSliderMax" 					text="Maximum value"    type="Numeric" min="-2147483648" max="2147483647" int="0.000000001" />
+  <id name="uiSliderInterval" 				text="Interval"         type="Numeric" min="-2147483648" max="2147483647" int="0.000000001" />
+  <id name="uiSliderDoubleClickValue" 		text="The value to set when double clicked" type="Numeric" min="-2147483648" max="2147483647" int="0.000000001" />
   <id name="uiSliderDoubleClickEnabled" 	text="Double clicked setting" type="Bool" defaults="Enabled/Disabled"/>
   <id name="uiSliderValuePosition" 			text="Value position" type="VarNumeric" defaults="NoTextBox=0,TextBoxLeft=1,TextBoxRight=2,TextBoxAbove=3,TextBoxBelow=4"/>
   <id name="uiSliderValueHeight" 			text="Value height" type="Text"/>
@@ -234,6 +234,7 @@
   <id name="uiSliderSpringValue" 			text="Slider spring to value" type="Numeric" min="-65536" max="65536"  int="0.0001" />
   <id name="uiSliderMouseWheelInterval" 	text="Interval for mouse wheel" type="Numeric" min="0" max="65536" int="0.0001" />
   <id name="uiSliderPopupBubble" 			text="Display popup bubble when dragging" type="Bool"/>
+  <id name="uiSliderDecimalPlaces" 			text="Modifies the best number of decimal places to use when displaying this slider's value" type="Numeric" min="0" max="16" />
 
   <!-- Fixed slider -->
   <id name="uiFixedSliderContent" text="Slider contents" type="MultiLine"/>

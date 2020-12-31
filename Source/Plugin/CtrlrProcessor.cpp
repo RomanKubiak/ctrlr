@@ -267,6 +267,7 @@ void CtrlrProcessor::releaseResources()
 
 void CtrlrProcessor::addMidiToOutputQueue (CtrlrMidiMessage &m)
 {
+
 	for (int i=0; i<m.getNumMessages(); i++)
 	{
 		m.getReference(i).m.setTimeStamp(i+1);
@@ -313,8 +314,7 @@ void CtrlrProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMe
 		processPanels(midiMessages, info);
 	}
 
-	midiCollector.removeNextBlockOfMessages (midiMessages, buffer.getNumSamples());
-
+	midiCollector.removeNextBlockOfMessages (midiMessages, (buffer.getNumSamples() > 0) ? buffer.getNumSamples() : 1);
 	MidiBuffer::Iterator i(midiMessages);
 	while (i.getNextEvent(logResult, logSamplePos))
 		_MOUT("VST OUTPUT", logResult, logSamplePos);
@@ -331,7 +331,7 @@ void CtrlrProcessor::processPanels(MidiBuffer &midiMessages, const AudioPlayHead
 			panelProcessors[i]->processBlock (midiMessages, leftoverBuffer, positionInfo);
 		}
 	}
-
+    _TST("processPanels left %d events", leftoverBuffer.getNumEvents());
 	midiMessages.swapWith(leftoverBuffer);
 }
 

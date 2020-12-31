@@ -56,6 +56,16 @@ void CtrlrLog::setLogToFile (const bool _logToFile)
 	}
 }
 
+void CtrlrLog::logMessage(CtrlrLog::LogLevel, char *format, ...)
+{
+    char buffer[512];
+    va_list args;
+    va_start (args, format);
+    vsnprintf (buffer,512,format, args);
+    logMessage (buffer);
+    va_end (args);
+}
+
 void CtrlrLog::logMessage (const String &message)
 {
 	logMessage (message, Info);
@@ -276,3 +286,4 @@ void CtrlrLog::removeListener (Listener *l)
 {
     listeners.remove(l);
 }
+

@@ -413,10 +413,6 @@ void CtrlrModulatorProcessor::sendMidiMessage()
             if (!isMute)
             {
                 owner.getOwnerPanel().sendMidi (getMidiMessage(), -1);
-                if (owner.getOwnerPanel().getMidiOptionBool(panelMidiOutputToHost))
-                {
-                    owner.getOwnerPanel().queueMessageForHostOutput (getMidiMessage());
-                }
             }
         }
 	}

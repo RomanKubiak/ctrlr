@@ -5,7 +5,7 @@
 
 namespace Ids
 {
-	#define DECLARE_ID(name)      const Identifier name (#name)
+	#define DECLARE_ID(name)      static const Identifier name (#name)
 
 	DECLARE_ID (ctrlr);
 	DECLARE_ID (panel);
@@ -291,6 +291,7 @@ namespace Ids
 	DECLARE_ID (uiSliderPopupBubblePlacement);
 	DECLARE_ID (uiSliderDoubleClickEnabled);
 	DECLARE_ID (uiSliderDoubleClickValue);
+	DECLARE_ID (uiSliderDecimalPlaces);
 	DECLARE_ID (uiFixedSliderContent);
 
 	DECLARE_ID (uiImageSliderResource);

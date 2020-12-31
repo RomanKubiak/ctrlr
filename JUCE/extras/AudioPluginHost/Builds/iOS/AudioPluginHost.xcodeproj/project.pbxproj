@@ -779,8 +779,8 @@
 		C8B793AC1BEFBE7A99BE8352 = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
@@ -792,6 +792,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_DEBUG=1",
 					"DEBUG=1",
+					"JUCE_CONTENT_SHARING=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
@@ -814,6 +815,11 @@
 				INFOPLIST_FILE = Info-App.plist;
 				INFOPLIST_PREPROCESS = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MTL_HEADER_SEARCH_PATHS = (
+					"../../../../modules/juce_audio_processors/format_types/VST3_SDK",
+					"../../JuceLibraryCode",
+					"../../../../modules",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.roli.juce.pluginhost;
 				PRODUCT_NAME = "Plugin Host";
 				USE_HEADERMAP = NO;
@@ -823,8 +829,8 @@
 		49453CC5AD9F08D2738464AC = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
@@ -836,6 +842,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_NDEBUG=1",
 					"NDEBUG=1",
+					"JUCE_CONTENT_SHARING=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
 					"JUCE_APP_VERSION=1.0.0",
 					"JUCE_APP_VERSION_HEX=0x10000",
@@ -848,7 +855,6 @@
 					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"../../../../modules/juce_audio_processors/format_types/VST3_SDK",
@@ -860,6 +866,11 @@
 				INFOPLIST_PREPROCESS = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LLVM_LTO = YES;
+				MTL_HEADER_SEARCH_PATHS = (
+					"../../../../modules/juce_audio_processors/format_types/VST3_SDK",
+					"../../JuceLibraryCode",
+					"../../../../modules",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.roli.juce.pluginhost;
 				PRODUCT_NAME = "Plugin Host";
 				USE_HEADERMAP = NO;
@@ -869,7 +880,7 @@
 		8D1CA827F1EFD443BDCF198A = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -889,13 +900,14 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
@@ -911,7 +923,7 @@
 				PRODUCT_NAME = "Plugin Host";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WARNING_CFLAGS = -Wreorder;
+				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
 			};
 			name = Debug;
@@ -919,7 +931,7 @@
 		C9295196717FABE454A210B7 = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -939,12 +951,14 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
@@ -959,14 +973,10 @@
 				PRODUCT_NAME = "Plugin Host";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WARNING_CFLAGS = -Wreorder;
+				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
 			};
 			name = Release;
-		};
-		B9D79D85AC7DE5BED1B6547C = {
-			isa = PBXTargetDependency;
-			target = DE12B7643D374BFF7E4FEB1C;
 		};
 		493C2C5E457692E5149C5525 = {
 			isa = XCConfigurationList;
@@ -1065,13 +1075,14 @@
 		ADE6E539DB98A302483A82D0 = {
 			isa = PBXProject;
 			buildConfigurationList = 493C2C5E457692E5149C5525;
-			attributes = { LastUpgradeCheck = 0930; ORGANIZATIONNAME = "ROLI Ltd."; TargetAttributes = { DE12B7643D374BFF7E4FEB1C = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; }; }; }; };
+			attributes = { LastUpgradeCheck = 1200; ORGANIZATIONNAME = "ROLI Ltd."; TargetAttributes = { DE12B7643D374BFF7E4FEB1C = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = 65BEFC705A89E5C8A9E35C97;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (DE12B7643D374BFF7E4FEB1C);
+			knownRegions = (en, Base);
 		};
 	};
 	rootObject = ADE6E539DB98A302483A82D0;

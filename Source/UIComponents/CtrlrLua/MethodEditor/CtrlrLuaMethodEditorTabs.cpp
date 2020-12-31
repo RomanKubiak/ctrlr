@@ -13,13 +13,13 @@ CtrlrLuaMethodEditorTabsLF::~CtrlrLuaMethodEditorTabsLF()
 
 int	CtrlrLuaMethodEditorTabsLF::getTabButtonBestWidth (TabBarButton &button, int tabDepth)
 {
-	Font f(14.0f);
+	Font f(16.0f);
 	return (f.getStringWidth (button.getButtonText()) + 24);
 }
 
 void CtrlrLuaMethodEditorTabsLF::createTabTextLayout (const TabBarButton& button, float length, float depth, Colour colour, TextLayout& textLayout)
 {
-    Font font (12.0f);
+    Font font (16.0f);
     font.setUnderline (button.hasKeyboardFocus (false));
 
     AttributedString s;
@@ -116,7 +116,7 @@ Rectangle <int> CtrlrLuaMethodEditorTabsLF::getTabButtonExtraComponentBounds (co
 }
 
 // Tabbed component
-CtrlrLuaMethodEditorTabs::CtrlrLuaMethodEditorTabs(CtrlrLuaMethodEditor &_owner) 
+CtrlrLuaMethodEditorTabs::CtrlrLuaMethodEditorTabs(CtrlrLuaMethodEditor &_owner)
 	:	owner(_owner),
 		TabbedComponent(TabbedButtonBar::TabsAtTop)
 {
