@@ -8,7 +8,7 @@ CtrlrPanelComponentProperties::CtrlrPanelComponentProperties (CtrlrPanelEditor &
     : owner(_owner), panelPropertyOpennessState("invalid"), modulatorPropertyOpennessState("invalid")
 {
     addAndMakeVisible (propertyPanel = new PropertyPanel());
-
+    propertyPanel->getViewport().setScrollBarThickness(owner.getOwner().getOwner().getProperty(Ids::ctrlrScrollbarThickness));
 
     //[UserPreSize]
 	selectedItems=-1;

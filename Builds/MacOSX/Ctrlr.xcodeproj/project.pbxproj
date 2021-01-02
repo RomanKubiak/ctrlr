@@ -3615,18 +3615,18 @@
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		99B07FC400C7D239499FA34C = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrImageSlider.h;
-			path = ../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrImageSlider.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		9A06E9B87ADDC9090530FD83 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = "copy_policy.hpp";
 			path = "../../Source/Misc/luabind/luabind/copy_policy.hpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		9B7F977B1D8697F1B9678FA1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrComponentTypeManager.h;
+			path = ../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		9DA3C319781492A3ABA0E6E8 = {
@@ -3664,6 +3664,13 @@
 			path = "../../Source/Misc/luabind/luabind/detail/decorate_type.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		99B07FC400C7D239499FA34C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrImageSlider.h;
+			path = ../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrImageSlider.h;
+			sourceTree = "SOURCE_ROOT";
+		};
 		9AFE4B5F6733B058CB25B4D7 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -3676,13 +3683,6 @@
 			lastKnownFileType = sourcecode.cpp.objcpp;
 			name = "include_juce_audio_devices.mm";
 			path = "../../JuceLibraryCode/include_juce_audio_devices.mm";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9B7F977B1D8697F1B9678FA1 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrComponentTypeManager.h;
-			path = ../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		9D2287C90B5ADF6CD324984F = {
@@ -4894,13 +4894,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrManagerVst.cpp;
 			path = ../../Source/Core/CtrlrManager/CtrlrManagerVst.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		DB7123FECD0C2152C83E2B9A = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.gif;
-			name = tile.gif;
-			path = ../../Source/Resources/Images/tile.gif;
 			sourceTree = "SOURCE_ROOT";
 		};
 		DB8194F91DBF732BD52FE1AC = {
@@ -6224,14 +6217,6 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
-		DBB6E9700E4A95FF764C14CF = {
-			isa = PBXGroup;
-			children = (
-				DB7123FECD0C2152C83E2B9A,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
 		A55507262ACF98F3CD8D9369 = {
 			isa = PBXGroup;
 			children = (
@@ -6298,7 +6283,6 @@
 			children = (
 				BECBED479FDF052BF5C48BA2,
 				2A23E92C94AA7BCB1213154C,
-				DBB6E9700E4A95FF764C14CF,
 				27C9F3AF45EAB96B59330A5A,
 				0EC77A0D518F4C56E5127381,
 				136E237D9EEF3F4964B4B1D9,
@@ -6806,8 +6790,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -6891,8 +6875,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -6976,8 +6960,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=0",
@@ -7061,8 +7045,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=0",
@@ -7146,8 +7130,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=1",
@@ -7232,8 +7216,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=1",
@@ -7318,8 +7302,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -7401,8 +7385,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -7481,8 +7465,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -7562,8 +7546,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -7642,8 +7626,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=1",
@@ -7723,8 +7707,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.4.0",
-					"JUCE_APP_VERSION_HEX=0x50400",
+					"JUCE_APP_VERSION=5.5",
+					"JUCE_APP_VERSION_HEX=0x50500",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=1",

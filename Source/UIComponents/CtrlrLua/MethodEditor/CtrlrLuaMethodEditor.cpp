@@ -53,6 +53,7 @@ CtrlrLuaMethodEditor::~CtrlrLuaMethodEditor()
 
 void CtrlrLuaMethodEditor::paint (Graphics& g)
 {
+    g.fillAll(Colours::lightgrey.brighter(0.2f));
 }
 
 TabbedComponent *CtrlrLuaMethodEditor::getTabs()

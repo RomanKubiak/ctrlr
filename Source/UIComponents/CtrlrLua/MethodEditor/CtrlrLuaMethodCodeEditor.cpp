@@ -17,13 +17,14 @@ CtrlrLuaMethodCodeEditor::CtrlrLuaMethodCodeEditor(CtrlrLuaMethodEditor &_owner,
 															document, codeTokeniser = new CtrlrLuaCodeTokeniser()));
 
 	editorComponent->grabKeyboardFocus();
+	editorComponent->setScrollbarThickness(owner.getOwner().getOwner().getProperty(Ids::ctrlrScrollbarThickness));
 	document.replaceAllContent(method->getCode());
 	document.setSavePoint();
 
 	document.addListener (this);
 	editorComponent->addMouseListener (this, true);
 	editorComponent->addKeyListener (this);
-
+	editorComponent->setColour(CodeEditorComponent::lineNumberBackgroundId, Colours::lightgrey);
 	if (method != nullptr)
 		method->setCodeEditor (this);
 

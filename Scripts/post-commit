@@ -375,30 +375,22 @@ function build_now_linux {
 	
 	cp $CTRLR_ROOT/Builds/LinuxMakefile/build/Ctrlr $CTRLR_ROOT/Packaging/Linux/Ctrlr/
 	cp $CTRLR_ROOT/Builds/LinuxMakefile/build/Ctrlr.so $CTRLR_ROOT/Packaging/Linux/Ctrlr/
+	cp -r $CTRLR_ROOT/Builds/LinuxMakefile/build/Ctrlr.vst3 $CTRLR_ROOT/Packaging/Linux/Ctrlr/
+	
 	cp -r $CTRLR_ROOT/Panels $CTRLR_ROOT/Packaging/Linux/Ctrlr/
 	cp -r $CTRLR_ROOT/Doc $CTRLR_ROOT/Packaging/Linux/Ctrlr/
 	
 	echo "CTRLR: strip binaries"
-	strip $CTRLR_ROOT/Packaging/Linux/Ctrlr/Ctrlr-*
-	strip $CTRLR_ROOT/Packaging/Linux/Ctrlr/libCtrlr-*.so
-	
+	strip $CTRLR_ROOT/Packaging/Linux/Ctrlr/Ctrlr
+	strip $CTRLR_ROOT/Packaging/Linux/Ctrlr/Ctrlr.so
+	strip $CTRLR_ROOT/Packaging/Linux/Ctrlr/Ctrlr.vst3/Contents/x86_64-linux/Ctrlr.so
 	echo "CTRLR: create self extracting package"
 	
 	$CTRLR_ROOT/Packaging/Linux/makeself.sh --bzip2 --notemp $CTRLR_ROOT/Packaging/Linux/Ctrlr $PACKAGE Ctrlr-$VERSION
 	if [ $? -ne 0 ]; then
 		echo "CTRLR: Creating self extractring package failed"
 		exit 1
-	fi
-	
-	echo "CTRLR: scp, key: $CTRLR_KEY, pkg: $PACKAGE, out: $OUTPUT"
-	
-	if [ -f $CTRLR_KEY ]; then
-		echo "CTRLR: using private key: $CTRLR_KEY"	
-		scp -v -i "$CTRLR_KEY" $PACKAGE $BUILD_LOG $OUTPUT
-	else
-		echo "CTRLR: private key not specified, using defaults"
-		scp -v $PACKAGE $BUILD_LOG $OUTPUT
-	fi
+	fi	
 }
 
 detect_os

@@ -15,6 +15,7 @@ CtrlrSettings::CtrlrSettings (CtrlrManager &_owner) : Component ("Global Propert
 		);
 	}
 	propertyPanel->addSection ("Ctrlr", globalProperties);
+	propertyPanel->getViewport().setScrollBarThickness(owner.getManagerTree().getProperty(Ids::ctrlrScrollbarThickness));
     setSize (700, 600);
 }
 

@@ -200,9 +200,6 @@ namespace BinaryData
     extern const char*   ico_waveform_png;
     const int            ico_waveform_pngSize = 1520;
 
-    extern const char*   tile_gif;
-    const int            tile_gifSize = 326;
-
     extern const char*   debugger_lua;
     const int            debugger_luaSize = 44867;
 
@@ -258,7 +255,7 @@ namespace BinaryData
     const int            RSRC_zipSize = 49800;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 84240;
+    const int            CtrlrIDs_xmlSize = 84361;
 
     extern const char*   CtrlrLuaClassTemplates_xml;
     const int            CtrlrLuaClassTemplates_xmlSize = 109;
@@ -276,7 +273,7 @@ namespace BinaryData
     const int            CtrlrMIDIVendors_xmlSize = 15061;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 89;
+    const int namedResourceListSize = 88;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

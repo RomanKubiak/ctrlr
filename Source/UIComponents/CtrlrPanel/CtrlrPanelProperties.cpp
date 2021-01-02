@@ -41,7 +41,7 @@ CtrlrPanelProperties::CtrlrPanelProperties (CtrlrPanelEditor &_owner)
       tabbedComponent (0)
 {
     addAndMakeVisible (tabbedComponent = new TabbedComponent (TabbedButtonBar::TabsAtRight));
-    tabbedComponent->setTabBarDepth (24);
+    tabbedComponent->setTabBarDepth (32);
     tabbedComponent->setCurrentTabIndex (-1);
 
 

@@ -706,6 +706,7 @@
   <id name="time"                             text="Timestamp" type="Timestamp" />
   <id name="number"                           text="Number" type="Numeric" min="-65535" max="65535" />
   <id name="uuid"                             text="Unique identifier" type="ReadOnly" />
+  <id name="ctrlrScrollbarThickness"          text="Thickness for all scrollbars" type="Numeric" min="8" max="128"/>
 
   <!-- Logging settings  -->
   <id name="ctrlrMidiMonInputBufferSize"    text="MIDI Mon input buffer size"       type="Numeric" min="512" max="65535"/>

@@ -9,7 +9,7 @@ CtrlrPanelUtilities::CtrlrPanelUtilities (CtrlrPanelEditor &_owner)
 {
     addAndMakeVisible (xmlPreview = new CodeEditorComponent (codeDocument, &xmlTokeniser));
     xmlPreview->setName (L"xmlPreview");
-
+    xmlPreview->setScrollbarThickness(owner.getOwner().getOwner().getProperty(Ids::ctrlrScrollbarThickness));
 
     //[UserPreSize]
 	xmlPreview->setColour (CodeEditorComponent::backgroundColourId, Colours::white);

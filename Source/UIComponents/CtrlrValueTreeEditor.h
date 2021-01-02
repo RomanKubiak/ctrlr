@@ -10,8 +10,8 @@ class CtrlrValueTreeEditorLookProvider : public AsyncUpdater
 	public:
 		virtual const String			getUniqueName(const ValueTree &item)	const { return (item.getType().toString()); }
 		virtual const AttributedString	getDisplayString(const ValueTree &item)	const { return (AttributedString(getUniqueName(item))); }
-		virtual const Font				getItemFont(const ValueTree &item)		const { return (Font(12)); }
-		virtual const int				getItemHeight(const ValueTree &item)	const { return (24); }
+		virtual const Font				getItemFont(const ValueTree &item)		const { return (Font(16)); }
+		virtual const int				getItemHeight(const ValueTree &item)	const { return (32); }
 		virtual bool					canBeSelected(const ValueTree &item)	const { return (true); }
 		virtual Image					getIconForItem(const ValueTree &item)	const { return (Image::null); }
 		virtual void					itemClicked(const MouseEvent &e, ValueTree &item)	{ }

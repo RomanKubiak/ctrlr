@@ -83,9 +83,6 @@
     <Filter Include="Ctrlr\Source\Resources\Icons">
       <UniqueIdentifier>{C784EEFB-9AA3-9F72-C895-DA6DB1C58A90}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Ctrlr\Source\Resources\Images">
-      <UniqueIdentifier>{C8471661-6FBD-2652-209C-A469AE4F0283}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Ctrlr\Source\Resources\Lua\clidebugger">
       <UniqueIdentifier>{F13159A8-772F-FA84-6EA5-4B09E6D69507}</UniqueIdentifier>
     </Filter>
@@ -6124,9 +6121,6 @@
     </None>
     <None Include="..\..\Source\Resources\Icons\ico_waveform.png">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Images\tile.gif">
-      <Filter>Ctrlr\Source\Resources\Images</Filter>
     </None>
     <None Include="..\..\Source\Resources\Lua\clidebugger\debugger.lua">
       <Filter>Ctrlr\Source\Resources\Lua\clidebugger</Filter>

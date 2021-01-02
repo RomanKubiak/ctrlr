@@ -51,9 +51,11 @@ CtrlrLuaConsole::CtrlrLuaConsole (CtrlrPanel &_owner)
 {
     addAndMakeVisible (luaConsoleOutput = new CodeEditorComponent (outputDocument, 0));
     luaConsoleOutput->setName (L"luaConsoleOutput");
+    luaConsoleOutput->setScrollbarThickness(owner.getOwner().getProperty(Ids::ctrlrScrollbarThickness));
 
     addAndMakeVisible (luaConsoleInput = new CodeEditorComponent (inputDocument, 0));
     luaConsoleInput->setName (L"luaConsoleInput");
+    luaConsoleInput->setScrollbarThickness(owner.getOwner().getProperty(Ids::ctrlrScrollbarThickness));
 
     addAndMakeVisible (resizer = new StretchableLayoutResizerBar (&layoutManager, 1, false));
 

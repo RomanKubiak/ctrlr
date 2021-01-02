@@ -764,6 +764,7 @@ namespace Ids
 	DECLARE_ID (ctrlrMenuBarFont);
     DECLARE_ID (ctrlrPrivateKey);
 	DECLARE_ID (ctrlrFontSizeBaseValue);
+    DECLARE_ID (ctrlrScrollbarThickness);
 
 	DECLARE_ID (luaMethodName);
 	DECLARE_ID (luaManagerMethods); // need to keep it for compatibility reasons

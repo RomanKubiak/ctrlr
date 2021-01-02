@@ -118,7 +118,7 @@ void CtrlrPanelResourceEditor::paintCell (Graphics& g, int rowNumber, int column
 	}
 	else
 	{
-		g.setColour (Colours::lightgrey);
+		g.setColour (Colours::black);
 	}
 
 	if (columnId == 1)
