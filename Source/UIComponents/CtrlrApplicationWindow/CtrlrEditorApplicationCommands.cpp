@@ -47,6 +47,7 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
 								doExportFileInstance,
 								doExportFileInstanceRestricted,
 								doExportGenerateUID,
+                                 doSearchForProperty,
 								doShowMidiSettingsDialog,
 								optMidiInputFromHost,
 								optMidiInputFromHostCompare,
@@ -172,6 +173,11 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 			result.addDefaultKeypress ('y', ModifierKeys::commandModifier);
 			result.setActive (isPanelActive(true));
 			break;
+	    case doSearchForProperty:
+            result.setInfo ("Search for property", "Search for any property in the current panel or selected component", panelCategory, 0);
+            result.addDefaultKeypress ('f', ModifierKeys::commandModifier);
+            result.setActive (isPanelActive(true));
+            break;
 
 		case doSave:
 			result.setInfo ("Save", "Save panel to a file", panelCategory, 0);

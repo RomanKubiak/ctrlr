@@ -121,7 +121,7 @@ void CtrlrValueTreeEditorItem::paintItem (Graphics &g, int width, int height)
 	Image icon = provider.getIconForItem (treeToEdit);
 	if (isSelected())
 	{
-		drawSelectionRectangle (g,width,height);
+        gui::drawSelectionRectangle (g,width,height);
 	}
 
 	g.setColour (Colours::black);

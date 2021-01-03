@@ -51,14 +51,15 @@
 #define WARN(x)													AlertWindow::showMessageBox (AlertWindow::WarningIcon, "WARNING", x, "OK", nullptr)
 #define INFO(x,y)												AlertWindow::showMessageBox (AlertWindow::InfoIcon, x, y, "OK", nullptr)
 #define SURE(x,y)												AlertWindow::showOkCancelBox (AlertWindow::QuestionIcon, "Are you sure?", x, "Yes", "No", y, nullptr)
-#define _STR(x)													String(x)
-#define STR(x)													String(x)
+#define _STR(x)                                                 String(x)
+#define STR(x)													_STR(x)
 #define IMAGE(x)												ImageCache::getFromMemory(BinaryData::x, BinaryData::x ## Size)
 #define STR2RECT(x)												Rectangle<int>::fromString(x)
 #define VAR2RECT(x)												STR2RECT(x.toString())
 #define STR2COLOUR(x)											Colour::fromString(x)
 #define VAR2COLOUR(x)											STR2COLOUR(x.toString())
 #define COLOUR2STR(x)											x.toString()
+#define BIN2STR(x)                                              String(BinaryData::x, BinaryData::x ## Size)
 #define STR2LUASTR(x)											x.toUTF8().getAddress()
 #define XML2STR(x)												ScopedPointer <XmlElement> (x.createXml())->createDocument(String::empty)
 #define DUMPTREE(x,y)                                           ScopedPointer <XmlElement> (x.createXml())->createDocument(String::empty).substring(0,y)
@@ -68,10 +69,8 @@
 #define FONT2STRM(m,x)											m.getStringFromFont(x)
 #define INTERNAL_FONT(x)										getFontManager().getFont (BinaryData::x, BinaryData::x ## Size)
 #define HIGHLIGHT_COLOUR										0xff4364ff
-#define IMAGES(x)												false, true, true, IMAGE(x), 0.6500f, Colour(0xFFFFFFFF), IMAGE(x), 0.8000f, Colour(0xFFCECECE), IMAGE(x), 1.0000f, Colour(0xFFB0B0B0)
-
-#define MAXZOOM                                                 3.0
-#define MINZOOM                                                 0.5
+#define MAXZOOM                                                 10.0
+#define MINZOOM                                                 0.01
 
 #define VST_INDEX_MANUFACTURER			1025
 #define VST_INDEX_VERSION_CODE			1026

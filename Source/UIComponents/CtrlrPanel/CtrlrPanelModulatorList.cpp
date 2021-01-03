@@ -206,7 +206,7 @@ void CtrlrPanelModulatorList::paintRowBackground (Graphics& g, int rowNumber, in
 {
 	if (rowIsSelected)
 	{
-		drawSelectionRectangle (g, width, height);
+		gui::drawSelectionRectangle (g, width, height);
 	}
 }
 
@@ -232,7 +232,7 @@ Component* CtrlrPanelModulatorList::refreshComponentForCell (int rowNumber, int 
 		label->setColour (TextEditor::highlightColourId, findColour(TextEditor::highlightColourId));
 	}
 
-	label->setColour (Label::textColourId, isRowSelected ? Colours::white : Colours::lightgrey);
+	label->setColour (Label::textColourId, isRowSelected ? Colours::white : Colours::black);
 	label->getTextValue().referTo(Value());
 	label->setText (getValueStringForColumn (m, getColumnCtrlrId (columnId-1)), dontSendNotification);
 	label->getProperties().set ("rowNumber", rowNumber);

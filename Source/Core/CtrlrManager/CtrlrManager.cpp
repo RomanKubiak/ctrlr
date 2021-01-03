@@ -81,6 +81,10 @@ void CtrlrManager::setDefaults()
 	setProperty (Ids::ctrlrPrivateKey, String::empty);
 	setProperty (Ids::ctrlrFontSizeBaseValue, 14.0f);
     setProperty (Ids::ctrlrScrollbarThickness, 18.0f);
+    setProperty (Ids::ctrlrColourScheme, "Light");
+    setProperty (Ids::ctrlrLookAndFeel, "Light");
+    setProperty (Ids::ctrlrMenuBarHeight, 24);
+
 	setProperty (Ids::uiLuaConsoleInputRemoveAfterRun, true);
 	setProperty (Ids::luaCtrlrSaveState, COMBO_ITEM_NONE);
 	setProperty (Ids::luaCtrlrRestoreState, COMBO_ITEM_NONE);
@@ -337,12 +341,8 @@ void CtrlrManager::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChan
 	}
 	else if (property == Ids::ctrlrNativeAlerts)
 	{
-		/*
-		if (getCtrlrLookAndFeel())
-		{
-			getCtrlrLookAndFeel()->setUsingNativeAlerts(getProperty(property));
-		}
-		*/
+		if (getEditor())
+		    getEditor()->getLookAndFeel().setUsingNativeAlertWindows((bool)getProperty(property));
 	}
 }
 

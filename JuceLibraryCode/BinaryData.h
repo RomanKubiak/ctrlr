@@ -59,11 +59,44 @@ namespace BinaryData
     extern const char*   FONT_ZX81_ttf;
     const int            FONT_ZX81_ttfSize = 17176;
 
-    extern const char*   appbar_control_play_png;
-    const int            appbar_control_play_pngSize = 434;
+    extern const char*   RobotoBlack_ttf;
+    const int            RobotoBlack_ttfSize = 171072;
 
-    extern const char*   appbar_debug_clean_png;
-    const int            appbar_debug_clean_pngSize = 723;
+    extern const char*   RobotoBlackItalic_ttf;
+    const int            RobotoBlackItalic_ttfSize = 177120;
+
+    extern const char*   RobotoBold_ttf;
+    const int            RobotoBold_ttfSize = 170348;
+
+    extern const char*   RobotoBoldItalic_ttf;
+    const int            RobotoBoldItalic_ttfSize = 174520;
+
+    extern const char*   RobotoItalic_ttf;
+    const int            RobotoItalic_ttfSize = 173516;
+
+    extern const char*   RobotoLight_ttf;
+    const int            RobotoLight_ttfSize = 170012;
+
+    extern const char*   RobotoLightItalic_ttf;
+    const int            RobotoLightItalic_ttfSize = 176184;
+
+    extern const char*   RobotoMedium_ttf;
+    const int            RobotoMedium_ttfSize = 171656;
+
+    extern const char*   RobotoMediumItalic_ttf;
+    const int            RobotoMediumItalic_ttfSize = 176428;
+
+    extern const char*   RobotoRegular_ttf;
+    const int            RobotoRegular_ttfSize = 171272;
+
+    extern const char*   RobotoThin_ttf;
+    const int            RobotoThin_ttfSize = 171500;
+
+    extern const char*   RobotoThinItalic_ttf;
+    const int            RobotoThinItalic_ttfSize = 175872;
+
+    extern const char*   add_svg;
+    const int            add_svgSize = 255;
 
     extern const char*   appbar_debug_restart_png;
     const int            appbar_debug_restart_pngSize = 436;
@@ -77,128 +110,122 @@ namespace BinaryData
     extern const char*   appbar_debug_step_over_png;
     const int            appbar_debug_step_over_pngSize = 489;
 
-    extern const char*   appbar_debug_stop_png;
-    const int            appbar_debug_stop_pngSize = 218;
+    extern const char*   bold_svg;
+    const int            bold_svgSize = 384;
 
-    extern const char*   ico_box_png;
-    const int            ico_box_pngSize = 3869;
+    extern const char*   bug_svg;
+    const int            bug_svgSize = 529;
 
-    extern const char*   ico_bug_png;
-    const int            ico_bug_pngSize = 4091;
+    extern const char*   camera_svg;
+    const int            camera_svgSize = 341;
 
-    extern const char*   ico_copy_png;
-    const int            ico_copy_pngSize = 3721;
+    extern const char*   camera_special_svg;
+    const int            camera_special_svgSize = 514;
+
+    extern const char*   cleanup_svg;
+    const int            cleanup_svgSize = 479;
+
+    extern const char*   clear_svg;
+    const int            clear_svgSize = 256;
+
+    extern const char*   cog_svg;
+    const int            cog_svgSize = 1039;
+
+    extern const char*   copy_svg;
+    const int            copy_svgSize = 282;
+
+    extern const char*   ctrlr_logo_svg;
+    const int            ctrlr_logo_svgSize = 23612;
+
+    extern const char*   cut_svg;
+    const int            cut_svgSize = 692;
+
+    extern const char*   done_svg;
+    const int            done_svgSize = 268;
+
+    extern const char*   edit_svg;
+    const int            edit_svgSize = 304;
+
+    extern const char*   file_svg;
+    const int            file_svgSize = 250;
+
+    extern const char*   folder_svg;
+    const int            folder_svgSize = 246;
+
+    extern const char*   folder_open_svg;
+    const int            folder_open_svgSize = 262;
+
+    extern const char*   gradient_svg;
+    const int            gradient_svgSize = 383;
+
+    extern const char*   happy_svg;
+    const int            happy_svgSize = 508;
 
     extern const char*   ico_ctrlr_mac_icns;
     const int            ico_ctrlr_mac_icnsSize = 64064;
 
-    extern const char*   ico_cut_png;
-    const int            ico_cut_pngSize = 4206;
+    extern const char*   invisible_svg;
+    const int            invisible_svgSize = 699;
 
-    extern const char*   ico_delete_png;
-    const int            ico_delete_pngSize = 3644;
+    extern const char*   italic_svg;
+    const int            italic_svgSize = 203;
 
-    extern const char*   ico_document_png;
-    const int            ico_document_pngSize = 3303;
+    extern const char*   memory_svg;
+    const int            memory_svgSize = 348;
 
-    extern const char*   ico_document_new_png;
-    const int            ico_document_new_pngSize = 3841;
+    extern const char*   midi_svg;
+    const int            midi_svgSize = 9017;
 
-    extern const char*   ico_edit_document_png;
-    const int            ico_edit_document_pngSize = 3781;
+    extern const char*   nav_next_svg;
+    const int            nav_next_svgSize = 201;
 
-    extern const char*   ico_eye_png;
-    const int            ico_eye_pngSize = 3744;
+    extern const char*   nav_prev_svg;
+    const int            nav_prev_svgSize = 200;
 
-    extern const char*   ico_file_png;
-    const int            ico_file_pngSize = 3198;
+    extern const char*   new_folder_svg;
+    const int            new_folder_svgSize = 291;
 
-    extern const char*   ico_firmware_png;
-    const int            ico_firmware_pngSize = 269;
+    extern const char*   open_in_new_svg;
+    const int            open_in_new_svgSize = 285;
 
-    extern const char*   ico_folder_png;
-    const int            ico_folder_pngSize = 3300;
+    extern const char*   paste_svg;
+    const int            paste_svgSize = 355;
 
-    extern const char*   ico_folder_alt_png;
-    const int            ico_folder_alt_pngSize = 367;
+    extern const char*   play_svg;
+    const int            play_svgSize = 168;
 
-    extern const char*   ico_folder_new_png;
-    const int            ico_folder_new_pngSize = 1738;
+    extern const char*   radio_svg;
+    const int            radio_svgSize = 279;
 
-    extern const char*   ico_font_bold_png;
-    const int            ico_font_bold_pngSize = 3436;
+    extern const char*   radio_checked_svg;
+    const int            radio_checked_svgSize = 336;
 
-    extern const char*   ico_font_italic_png;
-    const int            ico_font_italic_pngSize = 3323;
+    extern const char*   receive_svg;
+    const int            receive_svgSize = 198;
 
-    extern const char*   ico_font_underline_png;
-    const int            ico_font_underline_pngSize = 3364;
+    extern const char*   sad_svg;
+    const int            sad_svgSize = 511;
 
-    extern const char*   ico_gui_png;
-    const int            ico_gui_pngSize = 3311;
+    extern const char*   send_svg;
+    const int            send_svgSize = 198;
 
-    extern const char*   ico_happy_png;
-    const int            ico_happy_pngSize = 4371;
+    extern const char*   stop_svg;
+    const int            stop_svgSize = 168;
 
-    extern const char*   ico_import_document_png;
-    const int            ico_import_document_pngSize = 3600;
+    extern const char*   sync_svg;
+    const int            sync_svgSize = 378;
 
-    extern const char*   ico_midi_png;
-    const int            ico_midi_pngSize = 16903;
+    extern const char*   trash_svg;
+    const int            trash_svgSize = 232;
 
-    extern const char*   ico_midi_plug_png;
-    const int            ico_midi_plug_pngSize = 1401;
+    extern const char*   underline_svg;
+    const int            underline_svgSize = 270;
 
-    extern const char*   ico_midi_plug_in_png;
-    const int            ico_midi_plug_in_pngSize = 1172;
+    extern const char*   visible_svg;
+    const int            visible_svgSize = 364;
 
-    extern const char*   ico_midi_plug_out_png;
-    const int            ico_midi_plug_out_pngSize = 1208;
-
-    extern const char*   ico_midi_small_png;
-    const int            ico_midi_small_pngSize = 6920;
-
-    extern const char*   ico_new_document_png;
-    const int            ico_new_document_pngSize = 3493;
-
-    extern const char*   ico_next_png;
-    const int            ico_next_pngSize = 4099;
-
-    extern const char*   ico_paste_png;
-    const int            ico_paste_pngSize = 3739;
-
-    extern const char*   ico_previous_png;
-    const int            ico_previous_pngSize = 4163;
-
-    extern const char*   ico_receive_png;
-    const int            ico_receive_pngSize = 3359;
-
-    extern const char*   ico_sad_png;
-    const int            ico_sad_pngSize = 4314;
-
-    extern const char*   ico_send_png;
-    const int            ico_send_pngSize = 3420;
-
-    extern const char*   ico_snapshot_png;
-    const int            ico_snapshot_pngSize = 1108;
-
-    extern const char*   ico_snapshot_new_png;
-    const int            ico_snapshot_new_pngSize = 1897;
-
-    extern const char*   ico_transaction_png;
-    const int            ico_transaction_pngSize = 3798;
-
-    extern const char*   ico_unit_png;
-    const int            ico_unit_pngSize = 4223;
-
-    extern const char*   ico_unit_alt_png;
-    const int            ico_unit_alt_pngSize = 1157;
-
-    extern const char*   ico_unknown_png;
-    const int            ico_unknown_pngSize = 3086;
-
-    extern const char*   ico_waveform_png;
-    const int            ico_waveform_pngSize = 1520;
+    extern const char*   wysiwyg_svg;
+    const int            wysiwyg_svgSize = 326;
 
     extern const char*   debugger_lua;
     const int            debugger_luaSize = 44867;
@@ -255,7 +282,7 @@ namespace BinaryData
     const int            RSRC_zipSize = 49800;
 
     extern const char*   CtrlrIDs_xml;
-    const int            CtrlrIDs_xmlSize = 84361;
+    const int            CtrlrIDs_xmlSize = 84856;
 
     extern const char*   CtrlrLuaClassTemplates_xml;
     const int            CtrlrLuaClassTemplates_xmlSize = 109;
@@ -273,7 +300,7 @@ namespace BinaryData
     const int            CtrlrMIDIVendors_xmlSize = 15061;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 88;
+    const int namedResourceListSize = 97;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

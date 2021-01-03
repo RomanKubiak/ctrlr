@@ -5,6 +5,7 @@
 #include "CtrlrEditor.h"
 #include "CtrlrProcessor.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
+#include "CtrlrInlineUtilitiesGUI.h"
 
 CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 	:	AudioProcessorEditor (_ownerFilter), ownerFilter(_ownerFilter),
@@ -13,7 +14,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 		menuHandlerCalled(false),
 		lastCommandInvocationMillis(0)
 {
-    setColourScheme(LookAndFeel_V4::getLightColourScheme());
+    setColourScheme(gui::colourSchemeFromProperty(owner.getProperty(Ids::ctrlrColourScheme)));
 	LookAndFeel::setDefaultLookAndFeel(this);
 	Rectangle<int> editorRect;
     // http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
@@ -61,7 +62,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 			editorRect = VAR2RECT(owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelCanvasRectangle));
 
 			if ((bool)owner.getActivePanel()->getEditor()->getProperty(Ids::uiPanelMenuBarVisible))
-				editorRect.setHeight (editorRect.getHeight() + CTRLR_MENUBAR_HEIGHT);
+				editorRect.setHeight (editorRect.getHeight() + (int)owner.getProperty(Ids::ctrlrMenuBarHeight));
 			else
 				editorRect.setHeight (editorRect.getHeight());
 		}
@@ -76,6 +77,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 			setSize(800, 600);
 	}
 
+    getLookAndFeel().setUsingNativeAlertWindows((bool)owner.getProperty(Ids::ctrlrNativeAlerts));
 	lookAndFeelChanged();
 	activeCtrlrChanged();
 
@@ -96,14 +98,15 @@ CtrlrEditor::~CtrlrEditor()
 
 void CtrlrEditor::paint (Graphics& g)
 {
+    g.fillAll(Colours::lightgrey);
 }
 
 void CtrlrEditor::resized()
 {
 	if (menuBar->isVisible())
 	{
-		menuBar->setBounds (0, 0, getWidth(), CTRLR_MENUBAR_HEIGHT);
-		owner.getCtrlrDocumentPanel().setBounds (0, CTRLR_MENUBAR_HEIGHT, getWidth(), getHeight() - (CTRLR_MENUBAR_HEIGHT));
+		menuBar->setBounds (0, 0, getWidth(), (int)owner.getProperty(Ids::ctrlrMenuBarHeight));
+		owner.getCtrlrDocumentPanel().setBounds (0, (int)owner.getProperty(Ids::ctrlrMenuBarHeight), getWidth(), getHeight() - ((int)owner.getProperty(Ids::ctrlrMenuBarHeight)));
 	}
 	else
 	{
@@ -175,11 +178,6 @@ bool CtrlrEditor::isPanelActive(const bool checkRestrictedInstance)
 	}
 
 	return (false);
-}
-
-void CtrlrEditor::initTest()
-{
-    /* this does nothing */
 }
 
 void CtrlrEditor::setMenuBarVisible(const bool shouldBeVisible)

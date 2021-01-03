@@ -759,30 +759,30 @@ Image CtrlrLuaMethodEditor::getIconForItem (const ValueTree &item) const
 	{
 		if ((int)item.getProperty (Ids::luaMethodSource) == (int)CtrlrLuaMethod::codeInProperty)
 		{
-			return (IMAGE(ico_unit_png));
+			return (IMAGE(radio_checked_svg));
 		}
 
 		if ((int)item.getProperty (Ids::luaMethodSource) == (int)CtrlrLuaMethod::codeInFile)
 		{
 			if (owner.getLuaMethodSourceFile(&item).existsAsFile())
 			{
-				return (IMAGE(ico_file_png));
+				return (IMAGE(file_svg));
 			}
 			else
 			{
-				return (IMAGE(ico_unknown_png));
+				return (IMAGE(radio_svg));
 			}
 		}
 	}
 	else if (item.hasType (Ids::luaMethodGroup))
 	{
-		return (IMAGE(ico_folder_png));
+		return (IMAGE(folder_svg));
 	}
 	else if (item.hasType (Ids::luaManagerMethods))
 	{
-		return (IMAGE(ico_box_png));
+		return (IMAGE(folder_open_svg));
 	}
-	return (IMAGE(ico_unknown_png));
+	return (IMAGE(radio_svg));
 }
 
 void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)

@@ -28,11 +28,6 @@
   </ItemGroup>
   <ItemGroup/>
   <ItemGroup>
-    <None Include=".\icon.ico">
-      <Filter>JUCE Library Code</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include=".\resources.rc">
       <Filter>JUCE Library Code</Filter>
     </ResourceCompile>

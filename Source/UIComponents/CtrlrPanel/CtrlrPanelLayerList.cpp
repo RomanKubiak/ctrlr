@@ -26,6 +26,7 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrPanel/CtrlrPanelCanvas.h"
 #include "CtrlrPanelLayerListItem.h"
+#include "CtrlrInlineUtilitiesGUI.h"
 //[/Headers]
 
 #include "CtrlrPanelLayerList.h"
@@ -93,14 +94,10 @@ int CtrlrPanelLayerList::getNumRows()
 
 void CtrlrPanelLayerList::paintListBoxItem (int rowNumber, Graphics& g, int width, int height, bool rowIsSelected)
 {
-	if (rowIsSelected)
-	{
-		g.fillAll(Colours::lightblue);
-	}
-	else
-	{
-		g.fillAll(Colours::white);
-	}
+    if (rowIsSelected)
+    {
+        gui::drawSelectionRectangle (g, width, height);
+    }
 }
 
 Component* CtrlrPanelLayerList::refreshComponentForRow (int rowNumber, bool isRowSelected, Component* existingComponentToUpdate)

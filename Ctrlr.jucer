@@ -615,84 +615,81 @@
           <FILE id="i3du0Q" name="FONT_Warenhaus-Standard.ttf" compile="0" resource="1"
                 file="Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf"/>
           <FILE id="OOpHQ2" name="FONT_ZX81.ttf" compile="0" resource="1" file="Source/Resources/Fonts/FONT_ZX81.ttf"/>
+          <FILE id="t5XANW" name="Roboto-Black.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-Black.ttf"/>
+          <FILE id="ZpqPZb" name="Roboto-BlackItalic.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-BlackItalic.ttf"/>
+          <FILE id="bxdQSv" name="Roboto-Bold.ttf" compile="0" resource="1" file="Source/Resources/Fonts/Roboto-Bold.ttf"/>
+          <FILE id="ESjLXu" name="Roboto-BoldItalic.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-BoldItalic.ttf"/>
+          <FILE id="WYwDSM" name="Roboto-Italic.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-Italic.ttf"/>
+          <FILE id="WCGPiV" name="Roboto-Light.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-Light.ttf"/>
+          <FILE id="O3A0Q6" name="Roboto-LightItalic.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-LightItalic.ttf"/>
+          <FILE id="fbgjHI" name="Roboto-Medium.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-Medium.ttf"/>
+          <FILE id="BrI5Z1" name="Roboto-MediumItalic.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-MediumItalic.ttf"/>
+          <FILE id="U8chMT" name="Roboto-Regular.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-Regular.ttf"/>
+          <FILE id="CUV5UQ" name="Roboto-Thin.ttf" compile="0" resource="1" file="Source/Resources/Fonts/Roboto-Thin.ttf"/>
+          <FILE id="B05jEo" name="Roboto-ThinItalic.ttf" compile="0" resource="1"
+                file="Source/Resources/Fonts/Roboto-ThinItalic.ttf"/>
         </GROUP>
         <GROUP id="{57CA4634-99B0-23FB-F19C-154181EAAE85}" name="Icons">
-          <FILE id="ZIPjQ7" name="appbar.control.play.png" compile="0" resource="1"
-                file="Source/Resources/Icons/appbar.control.play.png"/>
-          <FILE id="ZxMuYD" name="appbar.debug.clean.png" compile="0" resource="1"
-                file="Source/Resources/Icons/appbar.debug.clean.png"/>
-          <FILE id="x3O5jA" name="appbar.debug.restart.png" compile="0" resource="1"
+          <FILE id="CzArw5" name="add.svg" compile="0" resource="1" file="Source/Resources/Icons/add.svg"/>
+          <FILE id="aAwGwI" name="appbar.debug.restart.png" compile="0" resource="1"
                 file="Source/Resources/Icons/appbar.debug.restart.png"/>
-          <FILE id="A3MNCv" name="appbar.debug.step.into.png" compile="0" resource="1"
+          <FILE id="QEqZUY" name="appbar.debug.step.into.png" compile="0" resource="1"
                 file="Source/Resources/Icons/appbar.debug.step.into.png"/>
-          <FILE id="YcApDk" name="appbar.debug.step.out.png" compile="0" resource="1"
+          <FILE id="HL8hrU" name="appbar.debug.step.out.png" compile="0" resource="1"
                 file="Source/Resources/Icons/appbar.debug.step.out.png"/>
-          <FILE id="UTj8qM" name="appbar.debug.step.over.png" compile="0" resource="1"
+          <FILE id="gtMLG6" name="appbar.debug.step.over.png" compile="0" resource="1"
                 file="Source/Resources/Icons/appbar.debug.step.over.png"/>
-          <FILE id="XhYouH" name="appbar.debug.stop.png" compile="0" resource="1"
-                file="Source/Resources/Icons/appbar.debug.stop.png"/>
-          <FILE id="Db1ddT" name="ico_box.png" compile="0" resource="1" file="Source/Resources/Icons/ico_box.png"/>
-          <FILE id="eatDlu" name="ico_bug.png" compile="0" resource="1" file="Source/Resources/Icons/ico_bug.png"/>
-          <FILE id="dHoV5r" name="ico_copy.png" compile="0" resource="1" file="Source/Resources/Icons/ico_copy.png"/>
-          <FILE id="kH5cCQ" name="ico_ctrlr_mac.icns" compile="0" resource="1"
+          <FILE id="WhYONv" name="bold.svg" compile="0" resource="1" file="Source/Resources/Icons/bold.svg"/>
+          <FILE id="Ip6zR7" name="bug.svg" compile="0" resource="1" file="Source/Resources/Icons/bug.svg"/>
+          <FILE id="yOH9na" name="camera.svg" compile="0" resource="1" file="Source/Resources/Icons/camera.svg"/>
+          <FILE id="NBHgKu" name="camera_special.svg" compile="0" resource="1"
+                file="Source/Resources/Icons/camera_special.svg"/>
+          <FILE id="fzpIaO" name="cleanup.svg" compile="0" resource="1" file="Source/Resources/Icons/cleanup.svg"/>
+          <FILE id="MsuSN0" name="clear.svg" compile="0" resource="1" file="Source/Resources/Icons/clear.svg"/>
+          <FILE id="fe0YIy" name="cog.svg" compile="0" resource="1" file="Source/Resources/Icons/cog.svg"/>
+          <FILE id="CADlo2" name="copy.svg" compile="0" resource="1" file="Source/Resources/Icons/copy.svg"/>
+          <FILE id="mclA4s" name="ctrlr_logo.svg" compile="0" resource="1" file="Source/Resources/Icons/ctrlr_logo.svg"/>
+          <FILE id="gPN3PO" name="cut.svg" compile="0" resource="1" file="Source/Resources/Icons/cut.svg"/>
+          <FILE id="jfpxDG" name="done.svg" compile="0" resource="1" file="Source/Resources/Icons/done.svg"/>
+          <FILE id="LnkuiD" name="edit.svg" compile="0" resource="1" file="Source/Resources/Icons/edit.svg"/>
+          <FILE id="X8SWb8" name="file.svg" compile="0" resource="1" file="Source/Resources/Icons/file.svg"/>
+          <FILE id="AlOJmm" name="folder.svg" compile="0" resource="1" file="Source/Resources/Icons/folder.svg"/>
+          <FILE id="coiSlo" name="folder_open.svg" compile="0" resource="1" file="Source/Resources/Icons/folder_open.svg"/>
+          <FILE id="e4Y3fi" name="gradient.svg" compile="0" resource="1" file="Source/Resources/Icons/gradient.svg"/>
+          <FILE id="XM0x72" name="happy.svg" compile="0" resource="1" file="Source/Resources/Icons/happy.svg"/>
+          <FILE id="nhykVL" name="ico_ctrlr_mac.icns" compile="0" resource="1"
                 file="Source/Resources/Icons/ico_ctrlr_mac.icns"/>
-          <FILE id="XuGSKP" name="ico_cut.png" compile="0" resource="1" file="Source/Resources/Icons/ico_cut.png"/>
-          <FILE id="avQUq8" name="ico_delete.png" compile="0" resource="1" file="Source/Resources/Icons/ico_delete.png"/>
-          <FILE id="bWVcHx" name="ico_document.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_document.png"/>
-          <FILE id="St1BWd" name="ico_document_new.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_document_new.png"/>
-          <FILE id="iG8vAf" name="ico_edit_document.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_edit_document.png"/>
-          <FILE id="ma4GNL" name="ico_eye.png" compile="0" resource="1" file="Source/Resources/Icons/ico_eye.png"/>
-          <FILE id="VSio4E" name="ico_file.png" compile="0" resource="1" file="Source/Resources/Icons/ico_file.png"/>
-          <FILE id="M6zxcN" name="ico_firmware.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_firmware.png"/>
-          <FILE id="zgCwVW" name="ico_folder.png" compile="0" resource="1" file="Source/Resources/Icons/ico_folder.png"/>
-          <FILE id="Lwj1OV" name="ico_folder_alt.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_folder_alt.png"/>
-          <FILE id="idNfHA" name="ico_folder_new.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_folder_new.png"/>
-          <FILE id="jna1EQ" name="ico_font_bold.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_font_bold.png"/>
-          <FILE id="wXc9SL" name="ico_font_italic.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_font_italic.png"/>
-          <FILE id="XEMGgJ" name="ico_font_underline.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_font_underline.png"/>
-          <FILE id="HqlZI0" name="ico_gui.png" compile="0" resource="1" file="Source/Resources/Icons/ico_gui.png"/>
-          <FILE id="vhnSOY" name="ico_happy.png" compile="0" resource="1" file="Source/Resources/Icons/ico_happy.png"/>
-          <FILE id="GTzrWp" name="ico_import_document.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_import_document.png"/>
-          <FILE id="zQnOx7" name="ico_midi.png" compile="0" resource="1" file="Source/Resources/Icons/ico_midi.png"/>
-          <FILE id="WooipL" name="ico_midi_plug.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_midi_plug.png"/>
-          <FILE id="P6OIdW" name="ico_midi_plug_in.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_midi_plug_in.png"/>
-          <FILE id="XmlLbz" name="ico_midi_plug_out.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_midi_plug_out.png"/>
-          <FILE id="DzYszo" name="ico_midi_small.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_midi_small.png"/>
-          <FILE id="ykwuGe" name="ico_new_document.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_new_document.png"/>
-          <FILE id="i3XFjM" name="ico_next.png" compile="0" resource="1" file="Source/Resources/Icons/ico_next.png"/>
-          <FILE id="reCmUm" name="ico_paste.png" compile="0" resource="1" file="Source/Resources/Icons/ico_paste.png"/>
-          <FILE id="Qu1QYD" name="ico_previous.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_previous.png"/>
-          <FILE id="bOTU3e" name="ico_receive.png" compile="0" resource="1" file="Source/Resources/Icons/ico_receive.png"/>
-          <FILE id="iSf2ur" name="ico_sad.png" compile="0" resource="1" file="Source/Resources/Icons/ico_sad.png"/>
-          <FILE id="yAjED0" name="ico_send.png" compile="0" resource="1" file="Source/Resources/Icons/ico_send.png"/>
-          <FILE id="rO4PkF" name="ico_snapshot.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_snapshot.png"/>
-          <FILE id="QCEolF" name="ico_snapshot_new.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_snapshot_new.png"/>
-          <FILE id="aZzV5S" name="ico_transaction.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_transaction.png"/>
-          <FILE id="CxhLJa" name="ico_unit.png" compile="0" resource="1" file="Source/Resources/Icons/ico_unit.png"/>
-          <FILE id="F7pcAo" name="ico_unit_alt.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_unit_alt.png"/>
-          <FILE id="vIcSSc" name="ico_unknown.png" compile="0" resource="1" file="Source/Resources/Icons/ico_unknown.png"/>
-          <FILE id="QvAwiv" name="ico_waveform.png" compile="0" resource="1"
-                file="Source/Resources/Icons/ico_waveform.png"/>
+          <FILE id="QUmRz1" name="invisible.svg" compile="0" resource="1" file="Source/Resources/Icons/invisible.svg"/>
+          <FILE id="vf9Duu" name="italic.svg" compile="0" resource="1" file="Source/Resources/Icons/italic.svg"/>
+          <FILE id="sP074S" name="memory.svg" compile="0" resource="1" file="Source/Resources/Icons/memory.svg"/>
+          <FILE id="HFzydJ" name="midi.svg" compile="0" resource="1" file="Source/Resources/Icons/midi.svg"/>
+          <FILE id="vfITcR" name="nav_next.svg" compile="0" resource="1" file="Source/Resources/Icons/nav_next.svg"/>
+          <FILE id="NcD4aF" name="nav_prev.svg" compile="0" resource="1" file="Source/Resources/Icons/nav_prev.svg"/>
+          <FILE id="ZUQfoi" name="new_folder.svg" compile="0" resource="1" file="Source/Resources/Icons/new_folder.svg"/>
+          <FILE id="ft7Fea" name="open_in_new.svg" compile="0" resource="1" file="Source/Resources/Icons/open_in_new.svg"/>
+          <FILE id="yUx0pJ" name="paste.svg" compile="0" resource="1" file="Source/Resources/Icons/paste.svg"/>
+          <FILE id="DkC3YO" name="play.svg" compile="0" resource="1" file="Source/Resources/Icons/play.svg"/>
+          <FILE id="qYVjhB" name="radio.svg" compile="0" resource="1" file="Source/Resources/Icons/radio.svg"/>
+          <FILE id="ZOzalU" name="radio_checked.svg" compile="0" resource="1"
+                file="Source/Resources/Icons/radio_checked.svg"/>
+          <FILE id="Bzu0K5" name="receive.svg" compile="0" resource="1" file="Source/Resources/Icons/receive.svg"/>
+          <FILE id="EUnLX9" name="sad.svg" compile="0" resource="1" file="Source/Resources/Icons/sad.svg"/>
+          <FILE id="ky2beP" name="send.svg" compile="0" resource="1" file="Source/Resources/Icons/send.svg"/>
+          <FILE id="poxFCM" name="stop.svg" compile="0" resource="1" file="Source/Resources/Icons/stop.svg"/>
+          <FILE id="la0zet" name="sync.svg" compile="0" resource="1" file="Source/Resources/Icons/sync.svg"/>
+          <FILE id="Yu4oYl" name="trash.svg" compile="0" resource="1" file="Source/Resources/Icons/trash.svg"/>
+          <FILE id="RgSDCA" name="underline.svg" compile="0" resource="1" file="Source/Resources/Icons/underline.svg"/>
+          <FILE id="X1vtOS" name="visible.svg" compile="0" resource="1" file="Source/Resources/Icons/visible.svg"/>
+          <FILE id="IJR3yG" name="wysiwyg.svg" compile="0" resource="1" file="Source/Resources/Icons/wysiwyg.svg"/>
         </GROUP>
         <GROUP id="{9DD7C62F-9CD5-D638-1ED9-0A44B6B63DC3}" name="Images"/>
         <GROUP id="{C1E779C4-0308-163A-70D6-2D2F2A99F43A}" name="Lua">

@@ -3,6 +3,7 @@
 #include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 #include "CtrlrPanelCanvasLayer.h"
 #include "CtrlrPanelLayerList.h"
+#include "CtrlrInlineUtilitiesGUI.h"
 
 CtrlrPanelLayerListItem::CtrlrPanelLayerListItem (CtrlrPanelLayerList &_owner)
     : layer(0), owner(_owner),
@@ -20,19 +21,13 @@ CtrlrPanelLayerListItem::CtrlrPanelLayerListItem (CtrlrPanelLayerList &_owner)
     layerName->setColour (TextEditor::backgroundColourId, Colour (0x0));
     layerName->addListener (this);
 
-    addAndMakeVisible (layerVisibility = new ImageButton (String::empty));
-    layerVisibility->setTooltip (L"Layer visibility");
+    addAndMakeVisible (layerVisibility = new ToggleButton(""));
     layerVisibility->addListener (this);
 
-    layerVisibility->setImages (false, true, true,
-                                Image(), 1.0000f, Colour (0x0),
-                                Image(), 0.5000f, Colour (0x0),
-                                Image(), 1.0000f, Colour (0x0));
     addAndMakeVisible (layerColour = new CtrlrColourEditorComponent (this));
-
     addAndMakeVisible (layerIndex = new Label (L"layerIndex",
                                                L"2"));
-    layerIndex->setFont (Font (8.0000f, Font::plain));
+    layerIndex->setFont (Font (12.0000f, Font::plain));
     layerIndex->setJustificationType (Justification::centred);
     layerIndex->setEditable (false, false, false);
     layerIndex->setColour (TextEditor::textColourId, Colours::black);
@@ -46,8 +41,6 @@ CtrlrPanelLayerListItem::CtrlrPanelLayerListItem (CtrlrPanelLayerList &_owner)
 	layerIndex->addMouseListener (this, true);
 
 	layerVisibility->setMouseCursor (MouseCursor::PointingHandCursor);
-	layerVisibility->setClickingTogglesState (true);
-	layerVisibility->setImages (false, true, true, IMAGE(ico_eye_png), 0.2000f, Colour (0x0), IMAGE(ico_eye_png), 0.2000f, Colour (0x0), IMAGE(ico_eye_png), 1.0000f, Colour (0x0));
     //[/UserPreSize]
 
     setSize (355, 40);
@@ -87,7 +80,7 @@ void CtrlrPanelLayerListItem::resized()
     layerName->setBounds (48, 4, proportionOfWidth (0.5183f), 12);
     layerVisibility->setBounds (8, 4, 32, 32);
     layerColour->setBounds (48, 16, getWidth() - 144, 16);
-    layerIndex->setBounds (getWidth() - 83, getHeight() - 8, 14, 8);
+    layerIndex->setBounds (getWidth() - 83, getHeight() - 16, 14, 16);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -123,12 +116,6 @@ void CtrlrPanelLayerListItem::buttonClicked (Button* buttonThatWasClicked)
 		{
 			layer->setProperty (Ids::uiPanelCanvasLayerVisibility, layerVisibility->getToggleState());
 		}
-
-		layerVisibility->setImages (false, true, true,
-                                 IMAGE(ico_eye_png), layerVisibility->getToggleState() ? 1.0f : 0.2f, Colour (0x0),
-                                 IMAGE(ico_eye_png), layerVisibility->getToggleState() ? 1.0f : 0.2f, Colour (0x0),
-                                 IMAGE(ico_eye_png), 1.0000f, Colour (0x0));
-
         //[/UserButtonCode_layerVisibility]
     }
 

@@ -32,7 +32,7 @@ void CtrlrSliderInternal::mouseWheelMove (const MouseEvent &e, const MouseWheelD
 }
 
 /** */
-void CtrlrSliderLookAndFeel::drawLinearSliderBackground (Graphics& g, int x, int y, int width, int height, float /*sliderPos*/, float /*minSliderPos*/, float /*maxSliderPos*/, const Slider::SliderStyle /*style*/, Slider& slider)
+void CtrlrSliderLookAndFeel_V2::drawLinearSliderBackground (Graphics& g, int x, int y, int width, int height, float /*sliderPos*/, float /*minSliderPos*/, float /*maxSliderPos*/, const Slider::SliderStyle /*style*/, Slider& slider)
 {
     const float sliderRadius = (float) (getSliderThumbRadius (slider) - 2);
 
@@ -72,7 +72,7 @@ void CtrlrSliderLookAndFeel::drawLinearSliderBackground (Graphics& g, int x, int
     g.strokePath (indent, PathStrokeType (0.5f));
 }
 
-void CtrlrSliderLookAndFeel::drawLinearSliderThumb (Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle style, Slider& slider)
+void CtrlrSliderLookAndFeel_V2::drawLinearSliderThumb (Graphics& g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const Slider::SliderStyle style, Slider& slider)
 {
     const float sliderRadius = (float) (getSliderThumbRadius (slider) - 2);
 
@@ -158,7 +158,7 @@ void CtrlrSliderLookAndFeel::drawLinearSliderThumb (Graphics& g, int x, int y, i
     }
 }
 
-int CtrlrSliderLookAndFeel::getSliderPopupPlacement(Slider &slider)
+int CtrlrSliderLookAndFeel_V2::getSliderPopupPlacement(Slider &slider)
 {
 	/* TO FIX
 	CtrlrLookAndFeel *lf = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getCtrlrLookAndFeel();
@@ -170,7 +170,7 @@ int CtrlrSliderLookAndFeel::getSliderPopupPlacement(Slider &slider)
 	return (0);
 }
 
-Font CtrlrSliderLookAndFeel::getSliderPopupFont(Slider &slider)
+Font CtrlrSliderLookAndFeel_V2::getSliderPopupFont(Slider &slider)
 {
 	/* TO FIX
 	CtrlrLookAndFeel *lf = owner.getOwner().getOwnerPanel().getCtrlrManagerOwner().getCtrlrLookAndFeel();
@@ -182,7 +182,7 @@ Font CtrlrSliderLookAndFeel::getSliderPopupFont(Slider &slider)
 	return (Font());
 }
 
-Colour CtrlrSliderLookAndFeel::findColour (int colourId) const noexcept
+Colour CtrlrSliderLookAndFeel_V2::findColour (int colourId) const noexcept
 {
 	return (LookAndFeel::findColour (colourId));
 }

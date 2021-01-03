@@ -3,6 +3,7 @@
 #include "CtrlrAbout.h"
 #include "CtrlrRevision.h"
 #include "CtrlrPanel/CtrlrPanel.h"
+#include "CtrlrInlineUtilitiesGUI.h"
 
 CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     : owner(_owner)
@@ -26,13 +27,9 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     ctrlrName->setColour (TextEditor::textColourId, Colours::black);
     ctrlrName->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (ctrlrLogo = new ImageButton (String::empty));
+    addAndMakeVisible (ctrlrLogo = gui::createDrawableButton("Ctrlr", BIN2STR(ctrlr_logo_svg)));
     ctrlrLogo->addListener (this);
 
-    ctrlrLogo->setImages (false, true, true,
-                          Image(), 0.750f, Colour (0x00000000),
-                          Image(), 0.850f, Colour (0x00000000),
-                          Image(), 0.990f, Colour (0x00000000));
     addAndMakeVisible (versionInfoLabel = new TextEditor (String::empty));
     versionInfoLabel->setMultiLine (true);
     versionInfoLabel->setReturnKeyStartsNewLine (true);
@@ -153,10 +150,6 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 
     //[UserPreSize]
 	ctrlrLogo->setMouseCursor(MouseCursor::PointingHandCursor);
-	ctrlrLogo->setImages (false, true, true,
-                          IMAGE(ico_midi_small_png), 0.8500f, Colour (0x0),
-                          IMAGE(ico_midi_small_png), 0.9500f, Colour (0x0),
-                          IMAGE(ico_midi_small_png), 1.0000f, Colour (0x0));
 	addVersionInfo ("Version", STR(ctrlrRevision));
 	addVersionInfo ("Build date", STR(ctrlrRevisionDate));
 #if CTRLR_NIGHTLY == 1

@@ -5,7 +5,7 @@
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrPanel/CtrlrPanelCanvas.h"
-
+#include "CtrlrInlineUtilitiesGUI.h"
 
 
 /* ********************************************************************************** */
@@ -13,7 +13,6 @@ CtrlrModulatorTreeLabel::CtrlrModulatorTreeLabel(CtrlrModulatorTreeViewItem &_ow
 	:	owner(_owner),
 		itemToAttach(_itemToAttach)
 {
-	icon				= getIconForOurType();
 	label.setText (owner.getUniqueName(),dontSendNotification);
 	label.addMouseListener (this, false);
 	addAndMakeVisible (&label);
@@ -38,7 +37,7 @@ void CtrlrModulatorTreeLabel::resized()
 
 void CtrlrModulatorTreeLabel::paint(Graphics &g)
 {
-	g.drawImageWithin (icon, 2, 2, 20, 20, RectanglePlacement::centred);
+    CtrlrPanelModulatorListTree::drawIconForType(g, itemToAttach);
 }
 
 void CtrlrModulatorTreeLabel::setSelected (const bool isSelected)
@@ -51,11 +50,6 @@ void CtrlrModulatorTreeLabel::setSelected (const bool isSelected)
 	{
 		label.setColour (Label::backgroundColourId, Colours::transparentBlack);
 	}
-}
-
-Image CtrlrModulatorTreeLabel::getIconForOurType()
-{
-	return (owner.getIconForType(itemToAttach));
 }
 
 void CtrlrModulatorTreeLabel::mouseEnter (const MouseEvent &e)
@@ -201,16 +195,6 @@ void CtrlrModulatorTreeViewItem::mouseDoubleClick (const MouseEvent &e)
 CtrlrModulatorTreeLabel *CtrlrModulatorTreeViewItem::createItemLabel(const ValueTree &_itemToAttach)
 {
 	return (itemLabel);
-}
-
-Image CtrlrModulatorTreeViewItem::getIconForType(const ValueTree &item)
-{
-	if (defaultListener)
-	{
-		return (defaultListener->getIconForType(item));
-	}
-
-	return (Image::null);
 }
 
 void CtrlrModulatorTreeViewItem::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
@@ -410,26 +394,23 @@ void CtrlrPanelModulatorListTree::itemChanged (ValueTree &itemTreeThatChanged)
 	propertyPanel.setSelectedTree (itemTreeThatChanged);
 }
 
-Image CtrlrPanelModulatorListTree::getIconForType (const ValueTree &item)
+void CtrlrPanelModulatorListTree::drawIconForType(Graphics &g, const ValueTree &item)
 {
-	if (item.getType() == Ids::panel)
-	{
-		return (IMAGE(ico_box_png));
-	}
-	else if (item.getType() == Ids::component)
-	{
-		return (IMAGE(ico_gui_png));
-	}
-	else if (item.getType() == Ids::modulator)
-	{
-		return (IMAGE(ico_unit_png));
-	}
-	else if (item.getType() == Ids::midi)
-	{
-		return (IMAGE(ico_midi_png));
-	}
-	else
-	{
-		return (IMAGE(ico_unknown_png));
-	}
+    std::unique_ptr<Drawable> icon;
+
+    if (item.getType() == Ids::panel)
+        icon.reset(gui::createDrawable(BIN2STR(folder_open_svg)));
+
+    if (item.getType() == Ids::component)
+        icon.reset(gui::createDrawable(BIN2STR(wysiwyg_svg)));
+
+    if (item.getType() == Ids::modulator)
+        icon.reset(gui::createDrawable(BIN2STR(cog_svg)));
+
+    if (item.getType() == Ids::midi)
+        icon.reset(gui::createDrawable(BIN2STR(midi_svg)));
+
+    if (icon != nullptr)
+        icon->drawWithin(g, Rectangle<float>(2, 2, 20, 20), RectanglePlacement::centred, 1.0f);
 }
+

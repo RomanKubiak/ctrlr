@@ -32,7 +32,7 @@ class CtrlrSlider  : public CtrlrComponent,
 		JUCE_LEAK_DETECTOR(CtrlrSlider)
 
 	private:
-		CtrlrSliderLookAndFeel lf;
+		CtrlrSliderLookAndFeel_V2 lf;
 		CtrlrSliderInternal ctrlrSlider;
 };
 

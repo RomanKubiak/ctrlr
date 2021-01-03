@@ -86,6 +86,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 			doExportFileZBinRes			= 0x4005,
 			doExportFileInstance		= 0x4006,
 			doExportGenerateUID			= 0x4007,
+			doSearchForProperty         = 0x4018,
 			doExportFileInstanceRestricted		= 0x4008,
 			doSnapshotStore						= 0x4009,
 			optMidiSnapshotOnLoad				= 0x6003,
@@ -153,8 +154,8 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		void performRecentFileOpen(const int menuItemID);
 		void performKeyGenerator();
 		void performMidiDeviceRefresh();
-		void initTest();
 		void setMenuBarVisible(const bool shouldBeVisible=true);
+
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrEditor)
 
 	private:
@@ -173,6 +174,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		bool hideMidiControllerMenu = false;
 		bool hideMidiThruMenu = false;
 		bool hideMidiChannelMenu = false;
+
 };
 
 

@@ -148,6 +148,8 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addSeparator();
 		menu.addCommandItem (commandManager, showKeyboardMappingDialog);
 		menu.addCommandItem (commandManager, showGlobalSettingsDialog);
+		menu.addSeparator();
+		menu.addCommandItem(commandManager, doSearchForProperty);
 	}
 	else if (topLevelMenuIndex == MenuView) // View
 	{
@@ -364,9 +366,9 @@ const PopupMenu CtrlrEditor::getMidiDeviceMenu(const CtrlrMIDIDeviceType type)
 				if (owner.getCtrlrMidiDeviceManager().getDeviceByIndex(i, type))
 				{
 					if (owner.getCtrlrMidiDeviceManager().getDeviceByIndex(i, type)->getState() == false)
-						deviceStateIcon = IMAGE(ico_sad_png);
+						deviceStateIcon = IMAGE(sad_svg);
 					else
-						deviceStateIcon = IMAGE(ico_happy_png);
+						deviceStateIcon = IMAGE(happy_svg);
 				}
 
 				m.addItem (offset + 2 + i, devs[i], true, true, deviceStateIcon);

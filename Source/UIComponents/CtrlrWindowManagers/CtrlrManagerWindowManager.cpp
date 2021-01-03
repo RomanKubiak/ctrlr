@@ -8,7 +8,8 @@
 #include "CtrlrLogViewer.h"
 #include "CtrlrMIDI/CtrlrMIDICalculator.h"
 
-CtrlrManagerWindowManager::CtrlrManagerWindowManager(CtrlrManager &_owner) : owner(_owner), managerTree(Ids::uiWindowManager)
+CtrlrManagerWindowManager::CtrlrManagerWindowManager(CtrlrManager &_owner)
+    : owner(_owner), managerTree(Ids::uiWindowManager), CtrlrWindowManager(_owner)
 {
 }
 

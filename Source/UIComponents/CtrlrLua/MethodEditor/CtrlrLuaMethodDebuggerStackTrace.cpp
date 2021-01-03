@@ -133,7 +133,7 @@ void CtrlrLuaMethodDebuggerStackTrace::paintRowBackground (Graphics &g, int rowN
 {
     if (rowIsSelected)
     {
-        drawSelectionRectangle(g, width, height);
+        gui::drawSelectionRectangle(g, width, height);
     }
     else
     {

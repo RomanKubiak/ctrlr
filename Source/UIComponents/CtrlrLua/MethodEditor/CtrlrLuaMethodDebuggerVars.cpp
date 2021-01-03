@@ -155,7 +155,7 @@ void CtrlrLuaMethodDebuggerVars::paintRowBackground (Graphics &g, int rowNumber,
 {
     if (rowIsSelected)
     {
-        drawSelectionRectangle(g, width, height);
+        gui::drawSelectionRectangle(g, width, height);
     }
     else
     {

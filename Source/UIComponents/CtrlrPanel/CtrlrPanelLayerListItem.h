@@ -46,7 +46,7 @@ private:
 
     //==============================================================================
     Label* layerName;
-    ImageButton* layerVisibility;
+    ToggleButton* layerVisibility;
     CtrlrColourEditorComponent* layerColour;
     Label* layerIndex;
 

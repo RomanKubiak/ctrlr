@@ -948,6 +948,27 @@
 			path = System/Library/Frameworks/Carbon.framework;
 			sourceTree = SDKROOT;
 		};
+		01C471AB1F99996B713BEBF0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = wysiwyg.svg;
+			path = ../../Source/Resources/Icons/wysiwyg.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
+		01CF7DD7F1553C9255C95656 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = radio.svg;
+			path = ../../Source/Resources/Icons/radio.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
+		01D9B021E20744D0E501D478 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = midi.svg;
+			path = ../../Source/Resources/Icons/midi.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		02CDDCAFAA32A6615AC4B713 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -974,13 +995,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrCustomButtonInternal.h;
 			path = ../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrCustomButtonInternal.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		043A2C6F9971204F311886D2 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_font_bold.png";
-			path = "../../Source/Resources/Icons/ico_font_bold.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		0480EEA6868BD74A79F761B8 = {
@@ -1053,13 +1067,6 @@
 			path = ../../Source/UIComponents/CtrlrLua/CtrlrLuaConsole.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		07094DD7323B3BAAD31DDB28 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_document.png";
-			path = "../../Source/Resources/Icons/ico_document.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		078784770DB536D63D9C3586 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.sh;
@@ -1079,13 +1086,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LColour.h;
 			path = ../../Source/Lua/JuceClasses/LColour.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		08989E251BB6986F60779F2F = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = appbar.debug.stop.png;
-			path = ../../Source/Resources/Icons/appbar.debug.stop.png;
 			sourceTree = "SOURCE_ROOT";
 		};
 		09A40761E2F8E7F822BF6F08 = {
@@ -1142,20 +1142,6 @@
 			lastKnownFileType = file.lua;
 			name = inspect.lua;
 			path = ../../Source/Resources/Lua/inspect.lua;
-			sourceTree = "SOURCE_ROOT";
-		};
-		0B92A29B32B64AD5518EA1BE = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_eye.png";
-			path = "../../Source/Resources/Icons/ico_eye.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		0BF24BF6C461FFF3E1B6A6BA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_transaction.png";
-			path = "../../Source/Resources/Icons/ico_transaction.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		0BFC9F3C3A67D99D1CCB1AC2 = {
@@ -1249,18 +1235,18 @@
 			path = ../../Source/Core/stdafx.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		11C5082812E554C3DC0CF47E = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = "open_in_new.svg";
+			path = "../../Source/Resources/Icons/open_in_new.svg";
+			sourceTree = "SOURCE_ROOT";
+		};
 		11D163A0C69C36EA973EC07B = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = "error_callback_fun.hpp";
 			path = "../../Source/Misc/luabind/luabind/error_callback_fun.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		11D4A06E578CAA9393844D61 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_import_document.png";
-			path = "../../Source/Resources/Icons/ico_import_document.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		11FED9EC8A29E53C76A621C7 = {
@@ -1345,13 +1331,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LTypeface.h;
 			path = ../../Source/Lua/JuceClasses/LTypeface.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		159EE2D36848A8A46A017737 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_midi_plug.png";
-			path = "../../Source/Resources/Icons/ico_midi_plug.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		15C8E6290DF559375AA00C3D = {
@@ -1445,13 +1424,6 @@
 			path = ../../Source/Misc/libusb/src/structs.c;
 			sourceTree = "SOURCE_ROOT";
 		};
-		186319C46546AB71A9FF3D7E = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = appbar.control.play.png;
-			path = ../../Source/Resources/Icons/appbar.control.play.png;
-			sourceTree = "SOURCE_ROOT";
-		};
 		18EEE58439ECC30FEB25801C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1487,18 +1459,18 @@
 			path = "../../Source/Misc/luabind/luabind/lua_include.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		1A7C4BB749E964BA86AAF3C7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = copy.svg;
+			path = ../../Source/Resources/Icons/copy.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		1AEAE368CFFDE8146CF83A63 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = "deduce_signature.hpp";
 			path = "../../Source/Misc/luabind/luabind/detail/deduce_signature.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		1B577E5925FDF93A79417FD0 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_bug.png";
-			path = "../../Source/Resources/Icons/ico_bug.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		1B5EBEA0C6E225BF354E22CE = {
@@ -1529,6 +1501,13 @@
 			path = ../../Source/Resources/Icons/appbar.debug.restart.png;
 			sourceTree = "SOURCE_ROOT";
 		};
+		1E6CE03FDB3E12ECCCD79C16 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = done.svg;
+			path = ../../Source/Resources/Icons/done.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		1ED7DC087519E1882492560C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1541,13 +1520,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrLuaMethodDebuggerVars.h;
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		1F4E208D509DAC351416ED81 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_gui.png";
-			path = "../../Source/Resources/Icons/ico_gui.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		1F9E8D0269DF81D65730FAD9 = {
@@ -1578,13 +1550,6 @@
 			path = ../../Source/MIDI/CtrlrMidiInputComparatorMulti.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		20AE1593CA0E55D97D9941B5 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_receive.png";
-			path = "../../Source/Resources/Icons/ico_receive.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		217B1EF464519CA0D97E9D15 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -1592,11 +1557,11 @@
 			path = ../../Source/Misc/luabind/src/function.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		22294BF6298D164B81D97604 = {
+		21BCCF9C9D6C27564FEFF1E2 = {
 			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_midi_small.png";
-			path = "../../Source/Resources/Icons/ico_midi_small.png";
+			lastKnownFileType = file.svg;
+			name = receive.svg;
+			path = ../../Source/Resources/Icons/receive.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		224CB5EC4209DD08AEC4F3A3 = {
@@ -1641,13 +1606,6 @@
 			path = ../../Source/Lua/CtrlrLuaAudioConverter.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		24516825D16ADD4BEBB92DDC = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_file.png";
-			path = "../../Source/Resources/Icons/ico_file.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		246B6316D3078F901FE7BDEC = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.ttf;
@@ -1669,13 +1627,6 @@
 			path = ../../Source/Misc/libusb/src/enums.c;
 			sourceTree = "SOURCE_ROOT";
 		};
-		2499F7E7BC48AD477A96AAAE = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_paste.png";
-			path = "../../Source/Resources/Icons/ico_paste.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		24A43B3A58D63BB76D1BB11F = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1690,13 +1641,6 @@
 			path = "../../Source/Misc/luabind/src/wrapper_base.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		24F182D960817AD5C146A3D6 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_folder.png";
-			path = "../../Source/Resources/Icons/ico_folder.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		24F784FABEB9402808B038EF = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
@@ -1709,13 +1653,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrLuaMethodDebuggerPrompt.cpp;
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerPrompt.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		251D56137A55944A7361384E = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_copy.png";
-			path = "../../Source/Resources/Icons/ico_copy.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		2521DC7373BB36EAC237E5CF = {
@@ -1814,13 +1751,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = prefix.hpp;
 			path = ../../Source/Misc/luabind/luabind/prefix.hpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		28DA874AECB2B9EA48BB4725 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_font_italic.png";
-			path = "../../Source/Resources/Icons/ico_font_italic.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		28E4D3E8A282202A0E4E5A24 = {
@@ -1963,18 +1893,11 @@
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		323F0E1F4C23C91E0DFA3559 = {
+		3222A34D5B8A6EA0694D3E91 = {
 			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_midi_plug_out.png";
-			path = "../../Source/Resources/Icons/ico_midi_plug_out.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		325948DCC4C2D170820EDEFF = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_firmware.png";
-			path = "../../Source/Resources/Icons/ico_firmware.png";
+			lastKnownFileType = file.ttf;
+			name = "Roboto-BlackItalic.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-BlackItalic.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		32D65CC8930D223076EC2BF2 = {
@@ -2040,6 +1963,13 @@
 			path = ../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContainer.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		339C5BADAA917A4609A50B91 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = cog.svg;
+			path = ../../Source/Resources/Icons/cog.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		3416F1BC073BFDEDA86AB558 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2061,11 +1991,11 @@
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		351FE1F63B8690568154F5D8 = {
+		350C2B6E5901771A17D06ED5 = {
 			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_cut.png";
-			path = "../../Source/Resources/Icons/ico_cut.png";
+			lastKnownFileType = file.ttf;
+			name = "Roboto-MediumItalic.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-MediumItalic.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		35D06E0FC0AE5CC6A605F4D5 = {
@@ -2115,6 +2045,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrImage.h;
 			path = ../../Source/UIComponents/CtrlrComponents/Labels/CtrlrImage.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		37E615DAAB7C744FC55CF136 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = clear.svg;
+			path = ../../Source/Resources/Icons/clear.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		38C21BA17D1250EB25BD3122 = {
@@ -2187,6 +2124,13 @@
 			path = ../../Source/Misc/luabind/luabind/open.hpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		3D3B139C4256B59D5D1F33D1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = paste.svg;
+			path = ../../Source/Resources/Icons/paste.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		3D5C0E7CE03EE182DE22714E = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2229,6 +2173,13 @@
 			path = "../../Source/Misc/libusb/include/windows_usb.h";
 			sourceTree = "SOURCE_ROOT";
 		};
+		3F6C0A6A6E8FB819D65A94E6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-ThinItalic.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-ThinItalic.ttf";
+			sourceTree = "SOURCE_ROOT";
+		};
 		3FB054E0A2DBE328B8695D52 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2241,6 +2192,13 @@
 			lastKnownFileType = image.png;
 			name = appbar.debug.step.over.png;
 			path = ../../Source/Resources/Icons/appbar.debug.step.over.png;
+			sourceTree = "SOURCE_ROOT";
+		};
+		408635A7242EF173179CDD89 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = "new_folder.svg";
+			path = "../../Source/Resources/Icons/new_folder.svg";
 			sourceTree = "SOURCE_ROOT";
 		};
 		40A88138BF25BCB48FDF35E7 = {
@@ -2341,13 +2299,6 @@
 			path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		494A0E3A084D45B3ED21888A = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_document_new.png";
-			path = "../../Source/Resources/Icons/ico_document_new.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		4990686164A358741A334843 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -2423,6 +2374,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrMIDIBuffer.cpp;
 			path = ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		4F7ECD390D3898D6B0386C31 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = memory.svg;
+			path = ../../Source/Resources/Icons/memory.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		4FAB31D01797604D1CD9C934 = {
@@ -2523,6 +2481,13 @@
 			path = ../../Source/Core/CtrlrSysexProcessor.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		5552B66718F6F4A23939D75B = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = happy.svg;
+			path = ../../Source/Resources/Icons/happy.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		561A1E356A1A351189B322B3 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -2577,13 +2542,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrOwnedMidiMessage.cpp;
 			path = ../../Source/MIDI/CtrlrOwnedMidiMessage.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		58A423151BFDAA87653322B2 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_previous.png";
-			path = "../../Source/Resources/Icons/ico_previous.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		58AD9273120E1F3F80BD7A02 = {
@@ -2661,6 +2619,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrLogViewer.h;
 			path = ../../Source/UIComponents/CtrlrLogViewer.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		5E674E0912763489D4627966 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-LightItalic.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-LightItalic.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5E99E5215BC1612027A3CF20 = {
@@ -2761,6 +2726,13 @@
 			path = ../../Source/Core/CtrlrInlineUtilitiesGUI.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		634F40A630706BAB838A6397 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = trash.svg;
+			path = ../../Source/Resources/Icons/trash.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		63964F016C558F761B3872EE = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2808,13 +2780,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LGlyphArrangement.h;
 			path = ../../Source/Lua/JuceClasses/LGlyphArrangement.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		66D99C0F3061ADA39D3E9343 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_edit_document.png";
-			path = "../../Source/Resources/Icons/ico_edit_document.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		66E64A55B461A935142C7E42 = {
@@ -2887,18 +2852,18 @@
 			path = "../../JuceLibraryCode/include_juce_audio_utils.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
-		6BB8DE2CB5C2537F5999BECF = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_folder_new.png";
-			path = "../../Source/Resources/Icons/ico_folder_new.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		6C408292127D30F680366A7E = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = lualib.h;
 			path = ../../Source/Misc/lua/include/lualib.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		6C9636E12C671A65C74F7519 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = sad.svg;
+			path = ../../Source/Resources/Icons/sad.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		6D80C172EEEC08FC7A983D46 = {
@@ -2920,13 +2885,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = property.hpp;
 			path = ../../Source/Misc/luabind/luabind/detail/property.hpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		6E60DFF6549C4242B2F30B3D = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_new_document.png";
-			path = "../../Source/Resources/Icons/ico_new_document.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		6F588452AC2AEA651D003670 = {
@@ -2964,13 +2922,6 @@
 			path = ../../Source/Lua/Deprecated/CtrlrLuaFile.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		708FD37E0F44F01FCE398FA0 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_midi.png";
-			path = "../../Source/Resources/Icons/ico_midi.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		719C10F6CF942636B89EEDCB = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -2983,6 +2934,13 @@
 			lastKnownFileType = file;
 			name = "juce_gui_extra";
 			path = "../../JUCE/modules/juce_gui_extra";
+			sourceTree = "SOURCE_ROOT";
+		};
+		726AD29C1615E14D8F87F2D5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = underline.svg;
+			path = ../../Source/Resources/Icons/underline.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		72C10694B0567CA32B18E554 = {
@@ -3032,6 +2990,20 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "std_shared_ptr_converter.hpp";
 			path = "../../Source/Misc/luabind/luabind/std_shared_ptr_converter.hpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		74E9FF36F03C9CB45B3C522C = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = italic.svg;
+			path = ../../Source/Resources/Icons/italic.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
+		7541824804125C8BB23A7FA9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-Thin.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-Thin.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		754E33D66708A7B8BA59D3A3 = {
@@ -3139,6 +3111,13 @@
 			path = ../../Source/Lua/JuceClasses/LThreadWithProgressWindow.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		7B3DC8D23D6D7E05313D3C53 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = send.svg;
+			path = ../../Source/Resources/Icons/send.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		7B9BD09D1AF8A5B0C0569F61 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -3165,13 +3144,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "darwin_usb.h";
 			path = "../../Source/Misc/libusb/include/darwin_usb.h";
-			sourceTree = "SOURCE_ROOT";
-		};
-		7C5E8C9543F5EC02EFBF08AC = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_midi_plug_in.png";
-			path = "../../Source/Resources/Icons/ico_midi_plug_in.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		7CBDFF9E1B2BA17DC8B5A0B4 = {
@@ -3237,6 +3209,13 @@
 			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_VST2.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		815D2D0F87E24B1CAE9FE43D = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = cut.svg;
+			path = ../../Source/Resources/Icons/cut.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		815DDD7EFF9B4CCDE97796D7 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -3258,18 +3237,18 @@
 			path = "../../JUCE/modules/juce_gui_basics";
 			sourceTree = "SOURCE_ROOT";
 		};
+		81FBA511FBF878802FB218C3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = "camera_special.svg";
+			path = "../../Source/Resources/Icons/camera_special.svg";
+			sourceTree = "SOURCE_ROOT";
+		};
 		8216F6B1C0BAEF4C4E39DE50 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = "class_info.cpp";
 			path = "../../Source/Misc/luabind/src/class_info.cpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		821A4EC8A9DBFCE50CF99E50 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_font_underline.png";
-			path = "../../Source/Resources/Icons/ico_font_underline.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		823C266EF65B73A9C976E384 = {
@@ -3284,6 +3263,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrSliderInternal.cpp;
 			path = ../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		82C279124FEC4D4995A13EEB = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-Bold.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-Bold.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		831E21E617866D4E3253DF9A = {
@@ -3319,13 +3305,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LTimer.h;
 			path = ../../Source/Lua/JuceClasses/LTimer.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		846E941F6F1908BF4D6D91E4 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_snapshot.png";
-			path = "../../Source/Resources/Icons/ico_snapshot.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		847EADA5B10E8E89A9BD7189 = {
@@ -3419,6 +3398,13 @@
 			path = "../../Source/Misc/luabind/luabind/detail/convert_to_lua.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		88F0B446AE93F927289CC695 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = visible.svg;
+			path = ../../Source/Resources/Icons/visible.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		89A3CF6F02D3A3BF2D2DCA37 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -3431,6 +3417,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "libusb_osx.h";
 			path = "../../Source/Misc/libusb/include/libusb_osx.h";
+			sourceTree = "SOURCE_ROOT";
+		};
+		8B772393B9609B02E9909D88 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-BoldItalic.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-BoldItalic.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		8BA7A3331C4F868A7F8B6289 = {
@@ -3517,6 +3510,13 @@
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		901DE05A4BEC8A2CFE8D19CC = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-Italic.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-Italic.ttf";
+			sourceTree = "SOURCE_ROOT";
+		};
 		906A521261FE605D99D23F2B = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3580,18 +3580,18 @@
 			path = "../../Source/Misc/luabind/luabind/set_package_preload.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		971269430F04297B42B47FD0 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_happy.png";
-			path = "../../Source/Resources/Icons/ico_happy.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		97256BA6038A6829C357DC7C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrLuaDebugger.h;
 			path = ../../Source/Lua/CtrlrLuaDebugger.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		978C8268B29F6EA8667DFEB0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = cleanup.svg;
+			path = ../../Source/Resources/Icons/cleanup.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		98291FFADA18C25ABE635931 = {
@@ -3608,11 +3608,11 @@
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		999823AE3B2263235823375E = {
+		995C4F63F8C42E9CB0C1F46E = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrPanelCanvasHandlers.cpp;
-			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp;
+			name = CtrlrHyperlink.cpp;
+			path = ../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		9A06E9B87ADDC9090530FD83 = {
@@ -3620,13 +3620,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "copy_policy.hpp";
 			path = "../../Source/Misc/luabind/luabind/copy_policy.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9B7F977B1D8697F1B9678FA1 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrComponentTypeManager.h;
-			path = ../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		9DA3C319781492A3ABA0E6E8 = {
@@ -3650,18 +3643,18 @@
 			path = Ctrlr.component;
 			sourceTree = "BUILT_PRODUCTS_DIR";
 		};
-		995C4F63F8C42E9CB0C1F46E = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrHyperlink.cpp;
-			path = ../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
 		9990CAFD46E3141D3D6C8167 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = "decorate_type.hpp";
 			path = "../../Source/Misc/luabind/luabind/detail/decorate_type.hpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		999823AE3B2263235823375E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = CtrlrPanelCanvasHandlers.cpp;
+			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		99B07FC400C7D239499FA34C = {
@@ -3685,6 +3678,20 @@
 			path = "../../JuceLibraryCode/include_juce_audio_devices.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		9B7F977B1D8697F1B9678FA1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrComponentTypeManager.h;
+			path = ../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		9B9306FD5C5A3F52834FAFA7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = bold.svg;
+			path = ../../Source/Resources/Icons/bold.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		9D2287C90B5ADF6CD324984F = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3704,6 +3711,20 @@
 			lastKnownFileType = file.ttf;
 			name = "FONT_Digit.ttf";
 			path = "../../Source/Resources/Fonts/FONT_Digit.ttf";
+			sourceTree = "SOURCE_ROOT";
+		};
+		9EBD72D954FE619FF673D49A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = CtrlrImage.cpp;
+			path = ../../Source/UIComponents/CtrlrComponents/Labels/CtrlrImage.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		9EDF3B4FF4D5FBBE5DA1EFB7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrSlider.h;
+			path = ../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSlider.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A27E0032E164381190E16C17 = {
@@ -3811,20 +3832,6 @@
 			path = "Info-AU.plist";
 			sourceTree = "SOURCE_ROOT";
 		};
-		9EBD72D954FE619FF673D49A = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrImage.cpp;
-			path = ../../Source/UIComponents/CtrlrComponents/Labels/CtrlrImage.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		9EDF3B4FF4D5FBBE5DA1EFB7 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrSlider.h;
-			path = ../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSlider.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		9FD6B9BC6214CC08756FC70C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3860,6 +3867,13 @@
 			path = "../../Source/Misc/libusb/include/libusb_windows.h";
 			sourceTree = "SOURCE_ROOT";
 		};
+		A18C8C5D82DC19C37B882431 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = stop.svg;
+			path = ../../Source/Resources/Icons/stop.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		A1D39E0E2160E282D69B3C11 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3886,6 +3900,13 @@
 			lastKnownFileType = file;
 			name = "juce_events";
 			path = "../../JUCE/modules/juce_events";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A3526EEB0D08526BA90C3645 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = play.svg;
+			path = ../../Source/Resources/Icons/play.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A4933A9345C52BC2E3855E16 = {
@@ -3937,11 +3958,18 @@
 			path = ../../Source/Lua/JuceClasses/LRectangle.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		A7E98B228FEB7065FD874B54 = {
+		A7D55FCFFEA4E1081CD23ABC = {
 			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_snapshot_new.png";
-			path = "../../Source/Resources/Icons/ico_snapshot_new.png";
+			lastKnownFileType = file.svg;
+			name = "radio_checked.svg";
+			path = "../../Source/Resources/Icons/radio_checked.svg";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A809AB2A9D9B92188B4C24F6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = bug.svg;
+			path = ../../Source/Resources/Icons/bug.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A953EF00390AB61D1A43FEC0 = {
@@ -4119,6 +4147,13 @@
 			path = ../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		B0998C8F6B8C61D13A204D54 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-Light.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-Light.ttf";
+			sourceTree = "SOURCE_ROOT";
+		};
 		B13B21B03D21AA2CB3109C2C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.objcpp;
@@ -4182,6 +4217,13 @@
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrViewport.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		B46EA1DCF4C8DCB4365D5D61 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = "folder_open.svg";
+			path = "../../Source/Resources/Icons/folder_open.svg";
+			sourceTree = "SOURCE_ROOT";
+		};
 		B4FBC58B684954F13EF955E6 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
@@ -4203,25 +4245,11 @@
 			path = ../../Source/Lua/JuceClasses/LBorderSize.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		B60B55BC8D6B39E210F3E665 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_unknown.png";
-			path = "../../Source/Resources/Icons/ico_unknown.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		B64FF99C432FA2D2861CE5A9 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = version.h;
 			path = ../../Source/Misc/libusb/include/version.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		B69A8706C40814510F791956 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_delete.png";
-			path = "../../Source/Resources/Icons/ico_delete.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		B78DF8DD848C1FB5951284E6 = {
@@ -4236,13 +4264,6 @@
 			lastKnownFileType = file.sh;
 			name = "gen_LLookAndFeel.h.sh";
 			path = "../../Source/Resources/Lua/gen_LLookAndFeel.h.sh";
-			sourceTree = "SOURCE_ROOT";
-		};
-		B83A1A17B2D2DB09D68C8790 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_unit.png";
-			path = "../../Source/Resources/Icons/ico_unit.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		B84AAF260F550F97636440A1 = {
@@ -4264,13 +4285,6 @@
 			lastKnownFileType = sourcecode.c.c;
 			name = strerror.c;
 			path = ../../Source/Misc/libusb/src/strerror.c;
-			sourceTree = "SOURCE_ROOT";
-		};
-		B98061AD5D43A452DCAC2DAE = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_sad.png";
-			path = "../../Source/Resources/Icons/ico_sad.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		BA01E80D911718E11C616CA0 = {
@@ -4301,18 +4315,18 @@
 			path = "../../Source/Misc/luabind/src/function_introspection.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		BBCB69FA116DA06CFCBD1E04 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = "nav_next.svg";
+			path = "../../Source/Resources/Icons/nav_next.svg";
+			sourceTree = "SOURCE_ROOT";
+		};
 		BC11B6FC8F4C6C14333AFD13 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
 			name = appbar.debug.step.into.png;
 			path = ../../Source/Resources/Icons/appbar.debug.step.into.png;
-			sourceTree = "SOURCE_ROOT";
-		};
-		BCAB5D7AED07A9BE90A0AF1A = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_send.png";
-			path = "../../Source/Resources/Icons/ico_send.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		BCB4CC3578E6D34A889A3E85 = {
@@ -4399,13 +4413,6 @@
 			path = ../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		BF9C56B441FA575F6395BB6E = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_next.png";
-			path = "../../Source/Resources/Icons/ico_next.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		C0337BCA0B692B4D55B3D22C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -4432,13 +4439,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "has_get_pointer.hpp";
 			path = "../../Source/Misc/luabind/luabind/detail/has_get_pointer.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		C1D8832AAA9A2338B7C51829 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_box.png";
-			path = "../../Source/Resources/Icons/ico_box.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		C2AD221A3563BA068703FB11 = {
@@ -4546,6 +4546,13 @@
 			path = ../../Source/Lua/Methods/CtrlrLuaMethod.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		C6FFD19A15441991E9A53C01 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = gradient.svg;
+			path = ../../Source/Resources/Icons/gradient.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		C73F1BB9399AC32F400FD9F2 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -4558,13 +4565,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrHyperlink.h;
 			path = ../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		C88A26ED57C0D5060AEA518D = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_folder_alt.png";
-			path = "../../Source/Resources/Icons/ico_folder_alt.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		C911A1F5BBF78CD3B06211F8 = {
@@ -4658,6 +4658,13 @@
 			path = ../../Source/Resources/Icons/appbar.debug.step.out.png;
 			sourceTree = "SOURCE_ROOT";
 		};
+		CBECB0F4C2B108FB4FCA64FB = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-Black.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-Black.ttf";
+			sourceTree = "SOURCE_ROOT";
+		};
 		CD1306996512A494035C90DF = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
@@ -4719,13 +4726,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrXYModulator.h;
 			path = ../../Source/UIComponents/CtrlrComponents/Specials/CtrlrXYModulator.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		D17D69A4E572E4368E732E4C = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = appbar.debug.clean.png;
-			path = ../../Source/Resources/Icons/appbar.debug.clean.png;
 			sourceTree = "SOURCE_ROOT";
 		};
 		D18E912FC3B2EEAB6A033B85 = {
@@ -4833,6 +4833,13 @@
 			path = ../../Source/UIComponents/CtrlrComponents/Groups/CtrlrGroup.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		D66D628E8B3CBE149B2FFF85 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = "nav_prev.svg";
+			path = "../../Source/Resources/Icons/nav_prev.svg";
+			sourceTree = "SOURCE_ROOT";
+		};
 		D8028658582715EE580BF0F7 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -4896,6 +4903,13 @@
 			path = ../../Source/Core/CtrlrManager/CtrlrManagerVst.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		DB5EDD9CAF7141B3C6645C11 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = "ctrlr_logo.svg";
+			path = "../../Source/Resources/Icons/ctrlr_logo.svg";
+			sourceTree = "SOURCE_ROOT";
+		};
 		DB8194F91DBF732BD52FE1AC = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -4908,6 +4922,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrPanelResourceManager.cpp;
 			path = ../../Source/Core/CtrlrPanel/CtrlrPanelResourceManager.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		DCD50FD3FD23DBA2A1DE1645 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = sync.svg;
+			path = ../../Source/Resources/Icons/sync.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		DCF0F6AFF5D48D1824376DBF = {
@@ -4950,6 +4971,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrUtilitiesGUI.cpp;
 			path = ../../Source/Core/CtrlrUtilitiesGUI.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		DDEABFDAFCF21B4A7DDF4CB4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-Regular.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-Regular.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		DDFF8DDCB7F80A5CDA09E855 = {
@@ -5022,6 +5050,20 @@
 			path = ../../Source/Lua/JuceClasses/LFont.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		E0BC3115B0A7D5306E0F03AD = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = invisible.svg;
+			path = ../../Source/Resources/Icons/invisible.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
+		E0F31BC2B62EABBED2D2DBEF = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = folder.svg;
+			path = ../../Source/Resources/Icons/folder.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		E152A8E0DB4A438B966F78BA = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -5034,13 +5076,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrLuaMethodFind.cpp;
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodFind.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		E15ED6178806AC9FE4BD5080 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_waveform.png";
-			path = "../../Source/Resources/Icons/ico_waveform.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		E192B5A2D23F6ADC01724644 = {
@@ -5076,6 +5111,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrMIDICalculator.cpp;
 			path = ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDICalculator.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		E3B050F2C672727FCB97E49F = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.ttf;
+			name = "Roboto-Medium.ttf";
+			path = "../../Source/Resources/Fonts/Roboto-Medium.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		E3D4EE68B85AA3C3F741DA4C = {
@@ -5139,6 +5181,13 @@
 			lastKnownFileType = sourcecode.cpp.objcpp;
 			name = "include_juce_gui_basics.mm";
 			path = "../../JuceLibraryCode/include_juce_gui_basics.mm";
+			sourceTree = "SOURCE_ROOT";
+		};
+		E9CE9F8876B7D204B8AA3168 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = file.svg;
+			path = ../../Source/Resources/Icons/file.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		E9FF546CBC0DCEFA30FB89F9 = {
@@ -5351,13 +5400,6 @@
 			path = "../../Source/Misc/luabind/luabind/detail/call_function.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		F2BC48AE27F6598DAD03BD10 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "ico_unit_alt.png";
-			path = "../../Source/Resources/Icons/ico_unit_alt.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		F321210BC055AFED477AB53D = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -5391,6 +5433,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = config.hpp;
 			path = ../../Source/Misc/luabind/luabind/config.hpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		F405BEDA284FD7655CD22C72 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = camera.svg;
+			path = ../../Source/Resources/Icons/camera.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		F4576182F6EB02E65AEADB60 = {
@@ -5561,6 +5610,13 @@
 			path = ../../Source/Core/StandaloneWrapper/CtrlrStandaloneWindow.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		FE034F012628C6EAA1251E7F = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = edit.svg;
+			path = ../../Source/Resources/Icons/edit.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		FE5EFD6DDC865E6021F1669E = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -5580,6 +5636,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = LImage.h;
 			path = ../../Source/Lua/JuceClasses/LImage.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		FF5E0CE1B844032293A168A2 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = add.svg;
+			path = ../../Source/Resources/Icons/add.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		FF6BEDB081380169B1217EC2 = {
@@ -6159,6 +6222,18 @@
 				EAFAD691ACB5744C6C518923,
 				0C2B4BBADAAB36C1AA16C744,
 				49DCC73CAF54A6FD236F0906,
+				CBECB0F4C2B108FB4FCA64FB,
+				3222A34D5B8A6EA0694D3E91,
+				82C279124FEC4D4995A13EEB,
+				8B772393B9609B02E9909D88,
+				901DE05A4BEC8A2CFE8D19CC,
+				B0998C8F6B8C61D13A204D54,
+				5E674E0912763489D4627966,
+				E3B050F2C672727FCB97E49F,
+				350C2B6E5901771A17D06ED5,
+				DDEABFDAFCF21B4A7DDF4CB4,
+				7541824804125C8BB23A7FA9,
+				3F6C0A6A6E8FB819D65A94E6,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -6166,53 +6241,50 @@
 		2A23E92C94AA7BCB1213154C = {
 			isa = PBXGroup;
 			children = (
-				186319C46546AB71A9FF3D7E,
-				D17D69A4E572E4368E732E4C,
+				FF5E0CE1B844032293A168A2,
 				1DA555ECFAB8AC21A63BB223,
 				BC11B6FC8F4C6C14333AFD13,
 				CBE873D62A907173F6031423,
 				3FB979CC9BFC7B16C499CF25,
-				08989E251BB6986F60779F2F,
-				C1D8832AAA9A2338B7C51829,
-				1B577E5925FDF93A79417FD0,
-				251D56137A55944A7361384E,
+				9B9306FD5C5A3F52834FAFA7,
+				A809AB2A9D9B92188B4C24F6,
+				F405BEDA284FD7655CD22C72,
+				81FBA511FBF878802FB218C3,
+				978C8268B29F6EA8667DFEB0,
+				37E615DAAB7C744FC55CF136,
+				339C5BADAA917A4609A50B91,
+				1A7C4BB749E964BA86AAF3C7,
+				DB5EDD9CAF7141B3C6645C11,
+				815D2D0F87E24B1CAE9FE43D,
+				1E6CE03FDB3E12ECCCD79C16,
+				FE034F012628C6EAA1251E7F,
+				E9CE9F8876B7D204B8AA3168,
+				E0F31BC2B62EABBED2D2DBEF,
+				B46EA1DCF4C8DCB4365D5D61,
+				C6FFD19A15441991E9A53C01,
+				5552B66718F6F4A23939D75B,
 				A239B9FC3E6A496E5EA987A6,
-				351FE1F63B8690568154F5D8,
-				B69A8706C40814510F791956,
-				07094DD7323B3BAAD31DDB28,
-				494A0E3A084D45B3ED21888A,
-				66D99C0F3061ADA39D3E9343,
-				0B92A29B32B64AD5518EA1BE,
-				24516825D16ADD4BEBB92DDC,
-				325948DCC4C2D170820EDEFF,
-				24F182D960817AD5C146A3D6,
-				C88A26ED57C0D5060AEA518D,
-				6BB8DE2CB5C2537F5999BECF,
-				043A2C6F9971204F311886D2,
-				28DA874AECB2B9EA48BB4725,
-				821A4EC8A9DBFCE50CF99E50,
-				1F4E208D509DAC351416ED81,
-				971269430F04297B42B47FD0,
-				11D4A06E578CAA9393844D61,
-				708FD37E0F44F01FCE398FA0,
-				159EE2D36848A8A46A017737,
-				7C5E8C9543F5EC02EFBF08AC,
-				323F0E1F4C23C91E0DFA3559,
-				22294BF6298D164B81D97604,
-				6E60DFF6549C4242B2F30B3D,
-				BF9C56B441FA575F6395BB6E,
-				2499F7E7BC48AD477A96AAAE,
-				58A423151BFDAA87653322B2,
-				20AE1593CA0E55D97D9941B5,
-				B98061AD5D43A452DCAC2DAE,
-				BCAB5D7AED07A9BE90A0AF1A,
-				846E941F6F1908BF4D6D91E4,
-				A7E98B228FEB7065FD874B54,
-				0BF24BF6C461FFF3E1B6A6BA,
-				B83A1A17B2D2DB09D68C8790,
-				F2BC48AE27F6598DAD03BD10,
-				B60B55BC8D6B39E210F3E665,
-				E15ED6178806AC9FE4BD5080,
+				E0BC3115B0A7D5306E0F03AD,
+				74E9FF36F03C9CB45B3C522C,
+				4F7ECD390D3898D6B0386C31,
+				01D9B021E20744D0E501D478,
+				BBCB69FA116DA06CFCBD1E04,
+				D66D628E8B3CBE149B2FFF85,
+				408635A7242EF173179CDD89,
+				11C5082812E554C3DC0CF47E,
+				3D3B139C4256B59D5D1F33D1,
+				A3526EEB0D08526BA90C3645,
+				01CF7DD7F1553C9255C95656,
+				A7D55FCFFEA4E1081CD23ABC,
+				21BCCF9C9D6C27564FEFF1E2,
+				6C9636E12C671A65C74F7519,
+				7B3DC8D23D6D7E05313D3C53,
+				A18C8C5D82DC19C37B882431,
+				DCD50FD3FD23DBA2A1DE1645,
+				634F40A630706BAB838A6397,
+				726AD29C1615E14D8F87F2D5,
+				88F0B446AE93F927289CC695,
+				01C471AB1F99996B713BEBF0,
 			);
 			name = Icons;
 			sourceTree = "<group>";

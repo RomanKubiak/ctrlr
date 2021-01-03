@@ -88,7 +88,7 @@ namespace Ids
 	DECLARE_ID (uiPanelModulatorListViewTree);
 	DECLARE_ID (uiPanelModulatorListTreeState);
 	DECLARE_ID (uiPanelDisableCombosOnEdit);
-
+    DECLARE_ID (uiPanelColorScheme);
 	DECLARE_ID (uiPanelTooltipBackgroundColour);
     DECLARE_ID (uiPanelTooltipOutlineColour);
     DECLARE_ID (uiPanelTooltipCornerRound);
@@ -759,12 +759,15 @@ namespace Ids
 	DECLARE_ID (ctrlrMenuBarBackgroundColour1);
 	DECLARE_ID (ctrlrMenuBarBackgroundColour2);
 	DECLARE_ID (ctrlrMenuBarTextColour);
+	DECLARE_ID (ctrlrMenuBarHeight);
 	DECLARE_ID (ctrlrMenuBarHighlightedTextColour);
 	DECLARE_ID (ctrlrMenuBarHighlightColour);
 	DECLARE_ID (ctrlrMenuBarFont);
     DECLARE_ID (ctrlrPrivateKey);
 	DECLARE_ID (ctrlrFontSizeBaseValue);
     DECLARE_ID (ctrlrScrollbarThickness);
+    DECLARE_ID (ctrlrColourScheme);
+    DECLARE_ID (ctrlrLookAndFeel);
 
 	DECLARE_ID (luaMethodName);
 	DECLARE_ID (luaManagerMethods); // need to keep it for compatibility reasons

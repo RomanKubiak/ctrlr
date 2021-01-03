@@ -12,7 +12,6 @@ class CtrlrTreeViewItemListener
 {
 	public:
 		virtual void itemChanged (ValueTree &itemTreeThatChanged)=0;
-		virtual Image getIconForType (const ValueTree &item)=0;
 		virtual const String getDisplayTextForItem (const ValueTree &item) { return (String::empty); }
 		virtual void itemClicked (const MouseEvent &e, const ValueTree &item) { }
 		virtual void itemDoubleClicked (const MouseEvent &e, const ValueTree &item) { }
@@ -67,7 +66,6 @@ class CtrlrModulatorTreeLabel : public Component, public KeyListener, public Dra
 		void resized();
 		void paint(Graphics &g);
 		bool keyPressed (const KeyPress &key, Component *originatingComponent);
-		Image getIconForOurType();
 		const String getLabelText();
 		void addLabelListener (Label::Listener *listenerToAdd);
 		void removeLabelListener (Label::Listener *listenerToRemove);
@@ -77,7 +75,6 @@ class CtrlrModulatorTreeLabel : public Component, public KeyListener, public Dra
 		friend class WeakReference<CtrlrModulatorTreeLabel>;
 		WeakReference<CtrlrModulatorTreeLabel>::Master masterReference;
 		Label label;
-		Image icon;
 		CtrlrModulatorTreeViewItem &owner;
 		ValueTree itemToAttach;
 };
@@ -118,7 +115,6 @@ class CtrlrModulatorTreeViewItem : public TreeViewItem,
 
 		void addListener (CtrlrTreeViewItemListener *listener)						{ listeners.add(listener); }
 		void removeListener (CtrlrTreeViewItemListener *listener)					{ listeners.remove(listener); }
-		Image getIconForType(const ValueTree &item);
 
 		JUCE_LEAK_DETECTOR(CtrlrModulatorTreeViewItem)
 
@@ -138,7 +134,7 @@ class CtrlrPanelModulatorListTree : public Component, public CtrlrTreeViewItemLi
 		~CtrlrPanelModulatorListTree();
 		void resized();
 		void itemChanged (ValueTree &itemTreeThatChanged);
-		Image getIconForType (const ValueTree &item);
+		static void drawIconForType (Graphics &g, const ValueTree &item);
 		JUCE_LEAK_DETECTOR(CtrlrPanelModulatorListTree)
 
 	private:

@@ -135,9 +135,9 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
     debuggerInput->addListener (this);
 
     debugContinue->setImages (false, true, true,
-                              ImageCache::getFromMemory(BinaryData::appbar_control_play_png, BinaryData::appbar_control_play_pngSize), 0.550f, Colour (0x00000000),
-                              ImageCache::getFromMemory(BinaryData::appbar_control_play_png, BinaryData::appbar_control_play_pngSize), 0.850f, Colour (0x00000000),
-                              ImageCache::getFromMemory(BinaryData::appbar_control_play_png, BinaryData::appbar_control_play_pngSize), 1.000f, Colour (0x00000000));
+                              ImageCache::getFromMemory(BinaryData::play_svg, BinaryData::play_svgSize), 0.550f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::play_svg, BinaryData::play_svgSize), 0.850f, Colour (0x00000000),
+                              ImageCache::getFromMemory(BinaryData::play_svg, BinaryData::play_svgSize), 1.000f, Colour (0x00000000));
     debugContinue->setMouseCursor (MouseCursor::PointingHandCursor);
 
     debugStepInto->setImages (false, true, true,
@@ -165,15 +165,15 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
     debugStepOut->setMouseCursor (MouseCursor::PointingHandCursor);
 
     debugStop->setImages (false, true, true,
-								ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 0.550f, Colour (0x00000000),
-								ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 0.850f, Colour (0x00000000),
-								ImageCache::getFromMemory(BinaryData::appbar_debug_stop_png, BinaryData::appbar_debug_stop_pngSize), 1.000f, Colour (0x00000000));
+								ImageCache::getFromMemory(BinaryData::stop_svg, BinaryData::stop_svgSize), 0.550f, Colour (0x00000000),
+								ImageCache::getFromMemory(BinaryData::stop_svg, BinaryData::stop_svgSize), 0.850f, Colour (0x00000000),
+								ImageCache::getFromMemory(BinaryData::stop_svg, BinaryData::stop_svgSize), 1.000f, Colour (0x00000000));
     debugStop->setMouseCursor (MouseCursor::PointingHandCursor);
 
     clearOutput->setImages (false, true, true,
-								ImageCache::getFromMemory(BinaryData::appbar_debug_clean_png, BinaryData::appbar_debug_clean_pngSize), 0.550f, Colour (0x00000000),
-								ImageCache::getFromMemory(BinaryData::appbar_debug_clean_png, BinaryData::appbar_debug_clean_pngSize), 0.850f, Colour (0x00000000),
-								ImageCache::getFromMemory(BinaryData::appbar_debug_clean_png, BinaryData::appbar_debug_clean_pngSize), 1.000f, Colour (0x00000000));
+								ImageCache::getFromMemory(BinaryData::cleanup_svg, BinaryData::cleanup_svgSize), 0.550f, Colour (0x00000000),
+								ImageCache::getFromMemory(BinaryData::cleanup_svg, BinaryData::cleanup_svgSize), 0.850f, Colour (0x00000000),
+								ImageCache::getFromMemory(BinaryData::cleanup_svg, BinaryData::cleanup_svgSize), 1.000f, Colour (0x00000000));
     clearOutput->setMouseCursor (MouseCursor::PointingHandCursor);
 
     //[/UserPreSize]

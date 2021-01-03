@@ -9,13 +9,16 @@ class CtrlrPanelWindowManager;
 class CtrlrChildWindowContent;
 class CtrlrLookAndFeel;
 class CtrlrChildWindow;
-
+class CtrlrManager;
 class CtrlrWindowManager
 {
 	public:
+        CtrlrWindowManager (CtrlrManager &_managerOwner) : managerOwner(_managerOwner) {}
 		virtual ~CtrlrWindowManager() {}
 		virtual void windowChanged(CtrlrChildWindow *windowThatChanged)=0;
 		virtual void windowClosedButtonPressed(CtrlrChildWindow *windowThatChanged)=0;
+
+		CtrlrManager &managerOwner;
 };
 
 class CtrlrChildWindow  : public DocumentWindow, public KeyListener

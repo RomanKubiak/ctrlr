@@ -56,6 +56,7 @@ class CtrlrFontManager
 		Array<Font> importedFonts;
 		StringArray osTypefaceNames;
 		StringArray osTypefaceStyles;
+        Font defaultFont;
 		int64 allFontCount;
 };
 

@@ -548,53 +548,62 @@ add_library (SHARED_CODE STATIC
     "../../Source/Resources/Fonts/FONT_LCD.ttf"
     "../../Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf"
     "../../Source/Resources/Fonts/FONT_ZX81.ttf"
-    "../../Source/Resources/Icons/appbar.control.play.png"
-    "../../Source/Resources/Icons/appbar.debug.clean.png"
+    "../../Source/Resources/Fonts/Roboto-Black.ttf"
+    "../../Source/Resources/Fonts/Roboto-BlackItalic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Bold.ttf"
+    "../../Source/Resources/Fonts/Roboto-BoldItalic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Italic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Light.ttf"
+    "../../Source/Resources/Fonts/Roboto-LightItalic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Medium.ttf"
+    "../../Source/Resources/Fonts/Roboto-MediumItalic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Regular.ttf"
+    "../../Source/Resources/Fonts/Roboto-Thin.ttf"
+    "../../Source/Resources/Fonts/Roboto-ThinItalic.ttf"
+    "../../Source/Resources/Icons/add.svg"
     "../../Source/Resources/Icons/appbar.debug.restart.png"
     "../../Source/Resources/Icons/appbar.debug.step.into.png"
     "../../Source/Resources/Icons/appbar.debug.step.out.png"
     "../../Source/Resources/Icons/appbar.debug.step.over.png"
-    "../../Source/Resources/Icons/appbar.debug.stop.png"
-    "../../Source/Resources/Icons/ico_box.png"
-    "../../Source/Resources/Icons/ico_bug.png"
-    "../../Source/Resources/Icons/ico_copy.png"
+    "../../Source/Resources/Icons/bold.svg"
+    "../../Source/Resources/Icons/bug.svg"
+    "../../Source/Resources/Icons/camera.svg"
+    "../../Source/Resources/Icons/camera_special.svg"
+    "../../Source/Resources/Icons/cleanup.svg"
+    "../../Source/Resources/Icons/clear.svg"
+    "../../Source/Resources/Icons/cog.svg"
+    "../../Source/Resources/Icons/copy.svg"
+    "../../Source/Resources/Icons/ctrlr_logo.svg"
+    "../../Source/Resources/Icons/cut.svg"
+    "../../Source/Resources/Icons/done.svg"
+    "../../Source/Resources/Icons/edit.svg"
+    "../../Source/Resources/Icons/file.svg"
+    "../../Source/Resources/Icons/folder.svg"
+    "../../Source/Resources/Icons/folder_open.svg"
+    "../../Source/Resources/Icons/gradient.svg"
+    "../../Source/Resources/Icons/happy.svg"
     "../../Source/Resources/Icons/ico_ctrlr_mac.icns"
-    "../../Source/Resources/Icons/ico_cut.png"
-    "../../Source/Resources/Icons/ico_delete.png"
-    "../../Source/Resources/Icons/ico_document.png"
-    "../../Source/Resources/Icons/ico_document_new.png"
-    "../../Source/Resources/Icons/ico_edit_document.png"
-    "../../Source/Resources/Icons/ico_eye.png"
-    "../../Source/Resources/Icons/ico_file.png"
-    "../../Source/Resources/Icons/ico_firmware.png"
-    "../../Source/Resources/Icons/ico_folder.png"
-    "../../Source/Resources/Icons/ico_folder_alt.png"
-    "../../Source/Resources/Icons/ico_folder_new.png"
-    "../../Source/Resources/Icons/ico_font_bold.png"
-    "../../Source/Resources/Icons/ico_font_italic.png"
-    "../../Source/Resources/Icons/ico_font_underline.png"
-    "../../Source/Resources/Icons/ico_gui.png"
-    "../../Source/Resources/Icons/ico_happy.png"
-    "../../Source/Resources/Icons/ico_import_document.png"
-    "../../Source/Resources/Icons/ico_midi.png"
-    "../../Source/Resources/Icons/ico_midi_plug.png"
-    "../../Source/Resources/Icons/ico_midi_plug_in.png"
-    "../../Source/Resources/Icons/ico_midi_plug_out.png"
-    "../../Source/Resources/Icons/ico_midi_small.png"
-    "../../Source/Resources/Icons/ico_new_document.png"
-    "../../Source/Resources/Icons/ico_next.png"
-    "../../Source/Resources/Icons/ico_paste.png"
-    "../../Source/Resources/Icons/ico_previous.png"
-    "../../Source/Resources/Icons/ico_receive.png"
-    "../../Source/Resources/Icons/ico_sad.png"
-    "../../Source/Resources/Icons/ico_send.png"
-    "../../Source/Resources/Icons/ico_snapshot.png"
-    "../../Source/Resources/Icons/ico_snapshot_new.png"
-    "../../Source/Resources/Icons/ico_transaction.png"
-    "../../Source/Resources/Icons/ico_unit.png"
-    "../../Source/Resources/Icons/ico_unit_alt.png"
-    "../../Source/Resources/Icons/ico_unknown.png"
-    "../../Source/Resources/Icons/ico_waveform.png"
+    "../../Source/Resources/Icons/invisible.svg"
+    "../../Source/Resources/Icons/italic.svg"
+    "../../Source/Resources/Icons/memory.svg"
+    "../../Source/Resources/Icons/midi.svg"
+    "../../Source/Resources/Icons/nav_next.svg"
+    "../../Source/Resources/Icons/nav_prev.svg"
+    "../../Source/Resources/Icons/new_folder.svg"
+    "../../Source/Resources/Icons/open_in_new.svg"
+    "../../Source/Resources/Icons/paste.svg"
+    "../../Source/Resources/Icons/play.svg"
+    "../../Source/Resources/Icons/radio.svg"
+    "../../Source/Resources/Icons/radio_checked.svg"
+    "../../Source/Resources/Icons/receive.svg"
+    "../../Source/Resources/Icons/sad.svg"
+    "../../Source/Resources/Icons/send.svg"
+    "../../Source/Resources/Icons/stop.svg"
+    "../../Source/Resources/Icons/sync.svg"
+    "../../Source/Resources/Icons/trash.svg"
+    "../../Source/Resources/Icons/underline.svg"
+    "../../Source/Resources/Icons/visible.svg"
+    "../../Source/Resources/Icons/wysiwyg.svg"
     "../../Source/Resources/Lua/clidebugger/debugger.lua"
     "../../Source/Resources/Lua/clidebugger/LICENSE"
     "../../Source/Resources/Lua/clidebugger/README.md"
@@ -2337,53 +2346,62 @@ set_source_files_properties ("../../Source/Resources/Fonts/FONT_Karmatic Arcade.
 set_source_files_properties ("../../Source/Resources/Fonts/FONT_LCD.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Fonts/FONT_ZX81.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/appbar.control.play.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.clean.png" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Black.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-BlackItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Bold.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-BoldItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Italic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Light.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-LightItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Medium.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-MediumItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Regular.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Thin.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-ThinItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/add.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.restart.png" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.step.into.png" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.step.out.png" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.step.over.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.stop.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_box.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_bug.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_copy.png" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/bold.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/bug.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/camera.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/camera_special.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/cleanup.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/clear.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/cog.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/copy.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/ctrlr_logo.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/cut.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/done.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/edit.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/file.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/folder.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/folder_open.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/gradient.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/happy.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/ico_ctrlr_mac.icns" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_cut.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_delete.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_document.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_document_new.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_edit_document.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_eye.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_file.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_firmware.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_folder.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_folder_alt.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_folder_new.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_font_bold.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_font_italic.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_font_underline.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_gui.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_happy.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_import_document.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi_plug.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi_plug_in.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi_plug_out.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi_small.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_new_document.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_next.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_paste.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_previous.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_receive.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_sad.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_send.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_snapshot.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_snapshot_new.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_transaction.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_unit.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_unit_alt.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_unknown.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_waveform.png" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/invisible.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/italic.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/memory.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/midi.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/nav_next.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/nav_prev.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/new_folder.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/open_in_new.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/paste.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/play.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/radio.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/radio_checked.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/receive.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/sad.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/send.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/stop.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/sync.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/trash.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/underline.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/visible.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/wysiwyg.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Lua/clidebugger/debugger.lua" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Lua/clidebugger/LICENSE" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Lua/clidebugger/README.md" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -5347,53 +5365,62 @@ add_library (SHARED_CODE STATIC
     "../../Source/Resources/Fonts/FONT_LCD.ttf"
     "../../Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf"
     "../../Source/Resources/Fonts/FONT_ZX81.ttf"
-    "../../Source/Resources/Icons/appbar.control.play.png"
-    "../../Source/Resources/Icons/appbar.debug.clean.png"
+    "../../Source/Resources/Fonts/Roboto-Black.ttf"
+    "../../Source/Resources/Fonts/Roboto-BlackItalic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Bold.ttf"
+    "../../Source/Resources/Fonts/Roboto-BoldItalic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Italic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Light.ttf"
+    "../../Source/Resources/Fonts/Roboto-LightItalic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Medium.ttf"
+    "../../Source/Resources/Fonts/Roboto-MediumItalic.ttf"
+    "../../Source/Resources/Fonts/Roboto-Regular.ttf"
+    "../../Source/Resources/Fonts/Roboto-Thin.ttf"
+    "../../Source/Resources/Fonts/Roboto-ThinItalic.ttf"
+    "../../Source/Resources/Icons/add.svg"
     "../../Source/Resources/Icons/appbar.debug.restart.png"
     "../../Source/Resources/Icons/appbar.debug.step.into.png"
     "../../Source/Resources/Icons/appbar.debug.step.out.png"
     "../../Source/Resources/Icons/appbar.debug.step.over.png"
-    "../../Source/Resources/Icons/appbar.debug.stop.png"
-    "../../Source/Resources/Icons/ico_box.png"
-    "../../Source/Resources/Icons/ico_bug.png"
-    "../../Source/Resources/Icons/ico_copy.png"
+    "../../Source/Resources/Icons/bold.svg"
+    "../../Source/Resources/Icons/bug.svg"
+    "../../Source/Resources/Icons/camera.svg"
+    "../../Source/Resources/Icons/camera_special.svg"
+    "../../Source/Resources/Icons/cleanup.svg"
+    "../../Source/Resources/Icons/clear.svg"
+    "../../Source/Resources/Icons/cog.svg"
+    "../../Source/Resources/Icons/copy.svg"
+    "../../Source/Resources/Icons/ctrlr_logo.svg"
+    "../../Source/Resources/Icons/cut.svg"
+    "../../Source/Resources/Icons/done.svg"
+    "../../Source/Resources/Icons/edit.svg"
+    "../../Source/Resources/Icons/file.svg"
+    "../../Source/Resources/Icons/folder.svg"
+    "../../Source/Resources/Icons/folder_open.svg"
+    "../../Source/Resources/Icons/gradient.svg"
+    "../../Source/Resources/Icons/happy.svg"
     "../../Source/Resources/Icons/ico_ctrlr_mac.icns"
-    "../../Source/Resources/Icons/ico_cut.png"
-    "../../Source/Resources/Icons/ico_delete.png"
-    "../../Source/Resources/Icons/ico_document.png"
-    "../../Source/Resources/Icons/ico_document_new.png"
-    "../../Source/Resources/Icons/ico_edit_document.png"
-    "../../Source/Resources/Icons/ico_eye.png"
-    "../../Source/Resources/Icons/ico_file.png"
-    "../../Source/Resources/Icons/ico_firmware.png"
-    "../../Source/Resources/Icons/ico_folder.png"
-    "../../Source/Resources/Icons/ico_folder_alt.png"
-    "../../Source/Resources/Icons/ico_folder_new.png"
-    "../../Source/Resources/Icons/ico_font_bold.png"
-    "../../Source/Resources/Icons/ico_font_italic.png"
-    "../../Source/Resources/Icons/ico_font_underline.png"
-    "../../Source/Resources/Icons/ico_gui.png"
-    "../../Source/Resources/Icons/ico_happy.png"
-    "../../Source/Resources/Icons/ico_import_document.png"
-    "../../Source/Resources/Icons/ico_midi.png"
-    "../../Source/Resources/Icons/ico_midi_plug.png"
-    "../../Source/Resources/Icons/ico_midi_plug_in.png"
-    "../../Source/Resources/Icons/ico_midi_plug_out.png"
-    "../../Source/Resources/Icons/ico_midi_small.png"
-    "../../Source/Resources/Icons/ico_new_document.png"
-    "../../Source/Resources/Icons/ico_next.png"
-    "../../Source/Resources/Icons/ico_paste.png"
-    "../../Source/Resources/Icons/ico_previous.png"
-    "../../Source/Resources/Icons/ico_receive.png"
-    "../../Source/Resources/Icons/ico_sad.png"
-    "../../Source/Resources/Icons/ico_send.png"
-    "../../Source/Resources/Icons/ico_snapshot.png"
-    "../../Source/Resources/Icons/ico_snapshot_new.png"
-    "../../Source/Resources/Icons/ico_transaction.png"
-    "../../Source/Resources/Icons/ico_unit.png"
-    "../../Source/Resources/Icons/ico_unit_alt.png"
-    "../../Source/Resources/Icons/ico_unknown.png"
-    "../../Source/Resources/Icons/ico_waveform.png"
+    "../../Source/Resources/Icons/invisible.svg"
+    "../../Source/Resources/Icons/italic.svg"
+    "../../Source/Resources/Icons/memory.svg"
+    "../../Source/Resources/Icons/midi.svg"
+    "../../Source/Resources/Icons/nav_next.svg"
+    "../../Source/Resources/Icons/nav_prev.svg"
+    "../../Source/Resources/Icons/new_folder.svg"
+    "../../Source/Resources/Icons/open_in_new.svg"
+    "../../Source/Resources/Icons/paste.svg"
+    "../../Source/Resources/Icons/play.svg"
+    "../../Source/Resources/Icons/radio.svg"
+    "../../Source/Resources/Icons/radio_checked.svg"
+    "../../Source/Resources/Icons/receive.svg"
+    "../../Source/Resources/Icons/sad.svg"
+    "../../Source/Resources/Icons/send.svg"
+    "../../Source/Resources/Icons/stop.svg"
+    "../../Source/Resources/Icons/sync.svg"
+    "../../Source/Resources/Icons/trash.svg"
+    "../../Source/Resources/Icons/underline.svg"
+    "../../Source/Resources/Icons/visible.svg"
+    "../../Source/Resources/Icons/wysiwyg.svg"
     "../../Source/Resources/Lua/clidebugger/debugger.lua"
     "../../Source/Resources/Lua/clidebugger/LICENSE"
     "../../Source/Resources/Lua/clidebugger/README.md"
@@ -7135,53 +7162,62 @@ set_source_files_properties ("../../Source/Resources/Fonts/FONT_Karmatic Arcade.
 set_source_files_properties ("../../Source/Resources/Fonts/FONT_LCD.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Fonts/FONT_ZX81.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/appbar.control.play.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.clean.png" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Black.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-BlackItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Bold.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-BoldItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Italic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Light.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-LightItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Medium.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-MediumItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Regular.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-Thin.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Fonts/Roboto-ThinItalic.ttf" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/add.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.restart.png" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.step.into.png" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.step.out.png" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.step.over.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/appbar.debug.stop.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_box.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_bug.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_copy.png" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/bold.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/bug.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/camera.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/camera_special.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/cleanup.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/clear.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/cog.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/copy.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/ctrlr_logo.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/cut.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/done.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/edit.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/file.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/folder.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/folder_open.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/gradient.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/happy.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/ico_ctrlr_mac.icns" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_cut.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_delete.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_document.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_document_new.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_edit_document.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_eye.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_file.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_firmware.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_folder.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_folder_alt.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_folder_new.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_font_bold.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_font_italic.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_font_underline.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_gui.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_happy.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_import_document.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi_plug.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi_plug_in.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi_plug_out.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_midi_small.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_new_document.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_next.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_paste.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_previous.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_receive.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_sad.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_send.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_snapshot.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_snapshot_new.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_transaction.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_unit.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_unit_alt.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_unknown.png" PROPERTIES HEADER_FILE_ONLY TRUE)
-set_source_files_properties ("../../Source/Resources/Icons/ico_waveform.png" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/invisible.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/italic.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/memory.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/midi.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/nav_next.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/nav_prev.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/new_folder.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/open_in_new.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/paste.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/play.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/radio.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/radio_checked.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/receive.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/sad.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/send.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/stop.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/sync.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/trash.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/underline.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/visible.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/wysiwyg.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Lua/clidebugger/debugger.lua" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Lua/clidebugger/LICENSE" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Lua/clidebugger/README.md" PROPERTIES HEADER_FILE_ONLY TRUE)

@@ -2,6 +2,7 @@
 #include "CtrlrPropertyComponent.h"
 #include "CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h"
 #include "CtrlrLuaManager.h"
+#include "CtrlrInlineUtilitiesGUI.h"
 
 CtrlrPropertyComponent::CtrlrPropertyComponent (const Identifier &_propertyName,
 								const ValueTree &_propertyElement,
@@ -520,11 +521,10 @@ CtrlrExpressionProperty::CtrlrExpressionProperty (const Value &_valeToControl) :
 	text->setColour(TextEditor::highlightedTextColourId, findColour(TextEditor::highlightedTextColourId));
 	text->setColour(TextEditor::highlightColourId, findColour(TextEditor::focusedOutlineColourId));
 
-    addAndMakeVisible (apply = new ImageButton ("Compile"));
+    addAndMakeVisible (apply = gui::createDrawableButton("Apply", BIN2STR(bug_svg)));
     apply->addListener (this);
 	apply->setTooltip ("Compile expression, if it's valid set the property");
 	apply->setMouseCursor (MouseCursor::PointingHandCursor);
-	apply->setImages(IMAGES(ico_bug_png));
 
 	text->setFont (Font (Font::getDefaultMonospacedFontName(), 10.0f, Font::plain));
 	text->setText (valeToControl.toString(), false);
@@ -667,24 +667,17 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
     typeface->setTextWhenNoChoicesAvailable (L"<Sans-Serif>");
     typeface->addListener (this);
 
-    addAndMakeVisible (fontBold = new ImageButton (String::empty));
+    addAndMakeVisible (fontBold = gui::createDrawableButton("Bold", BIN2STR(bold_svg)));
     fontBold->setTooltip (L"Bold");
-    fontBold->setButtonText (L"new button");
     fontBold->addListener (this);
 
-    fontBold->setImages (IMAGES (ico_font_bold_png));
-    addAndMakeVisible (fontItalic = new ImageButton (String::empty));
+    addAndMakeVisible (fontItalic = gui::createDrawableButton("Italic", BIN2STR(italic_svg)));
     fontItalic->setTooltip (L"Italic");
-    fontItalic->setButtonText (L"new button");
     fontItalic->addListener (this);
 
-    fontItalic->setImages (IMAGES (ico_font_italic_png));
-    addAndMakeVisible (fontUnderline = new ImageButton (String::empty));
+    addAndMakeVisible (fontUnderline = gui::createDrawableButton("Underline", BIN2STR(underline_svg)));
     fontUnderline->setTooltip (L"Underline");
-    fontUnderline->setButtonText (L"new button");
     fontUnderline->addListener (this);
-
-    fontUnderline->setImages (IMAGES (ico_font_underline_png));
 
     addAndMakeVisible (fontSize = new Slider (String::empty));
 	fontSize->setLookAndFeel (this);
@@ -838,44 +831,24 @@ CtrlrLuaMethodProperty::CtrlrLuaMethodProperty (const Value &_valeToControl, con
     methodSelectorCombo->setTextWhenNoChoicesAvailable (L"(no choices)");
     methodSelectorCombo->addListener (this);
 
-    addAndMakeVisible (editMethodButton = new ImageButton (L"editMethodButton"));
+    addAndMakeVisible (editMethodButton = gui::createDrawableButton("Edit Metod", BIN2STR(edit_svg)));
     editMethodButton->setTooltip (L"Edit selected method");
     editMethodButton->setButtonText (L"new button");
     editMethodButton->addListener (this);
 
-    editMethodButton->setImages (false, true, true,
-                                 Image(), 1.0000f, Colour (0x0),
-                                 Image(), 1.0000f, Colour (0x0),
-                                 Image(), 1.0000f, Colour (0x0));
-    addAndMakeVisible (newMethodButton = new ImageButton (L"newMethodButton"));
+    addAndMakeVisible (newMethodButton = gui::createDrawableButton("New Method", BIN2STR(file_svg)));
     newMethodButton->setTooltip (L"Add new method");
     newMethodButton->setButtonText (L"new button");
     newMethodButton->addListener (this);
 
-    newMethodButton->setImages (false, true, true,
-                                Image(), 1.0000f, Colour (0x0),
-                                Image(), 1.0000f, Colour (0x0),
-                                Image(), 1.0000f, Colour (0x0));
-    addAndMakeVisible (deleteMethodButton = new ImageButton (L"deleteMethodButton"));
+    addAndMakeVisible (deleteMethodButton = gui::createDrawableButton("Delete Method", BIN2STR(clear_svg)));
     deleteMethodButton->setTooltip (L"Remove selected method");
     deleteMethodButton->setButtonText (L"new button");
     deleteMethodButton->addListener (this);
 
-    deleteMethodButton->setImages (false, true, true,
-                                   Image(), 1.0000f, Colour (0x0),
-                                   Image(), 1.0000f, Colour (0x0),
-                                   Image(), 1.0000f, Colour (0x0));
-
 	editMethodButton->setMouseCursor(MouseCursor::PointingHandCursor);
 	newMethodButton->setMouseCursor(MouseCursor::PointingHandCursor);
 	deleteMethodButton->setMouseCursor(MouseCursor::PointingHandCursor);
-
-
-	editMethodButton->setImages (IMAGES(ico_edit_document_png));
-
-	newMethodButton->setImages (IMAGES(ico_new_document_png));
-
-	deleteMethodButton->setImages (IMAGES(ico_delete_png));
 
     setSize (200, 25);
 }
@@ -1050,74 +1023,28 @@ CtrlrMultiMidiPropertyComponent::CtrlrMultiMidiPropertyComponent (const Value &_
       paste (0),
       insert (0)
 {
-    addAndMakeVisible (add = new ImageButton (String::empty));
+    addAndMakeVisible (add = gui::createDrawableButton("Add", BIN2STR(file_svg)));
     add->setTooltip (L"Add message");
-    add->setButtonText (L"new button");
     add->addListener (this);
 
-    add->setImages (false, true, true,
-                    Image(), 0.6500f, Colour (0x0),
-                    Image(), 0.8500f, Colour (0x0),
-                    Image(), 1.0000f, Colour (0x0));
-    addAndMakeVisible (remove = new ImageButton (String::empty));
+    addAndMakeVisible (remove = gui::createDrawableButton("Remove", BIN2STR(clear_svg)));
     remove->setTooltip (L"Remove selected message");
-    remove->setButtonText (L"new button");
     remove->addListener (this);
 
-    remove->setImages (false, true, true,
-                       Image(), 0.6500f, Colour (0x0),
-                       Image(), 0.8500f, Colour (0x0),
-                       Image(), 1.0000f, Colour (0x0));
+
     addAndMakeVisible (list = new ListBox ("list", this));
 
-    addAndMakeVisible (copy = new ImageButton (String::empty));
+    addAndMakeVisible (copy = gui::createDrawableButton("Copy", BIN2STR(copy_svg)));
     copy->setTooltip (L"Copy to clipboard");
-    copy->setButtonText (L"new button");
     copy->addListener (this);
 
-    copy->setImages (false, true, true,
-                     Image(), 0.6500f, Colour (0x0),
-                     Image(), 0.8500f, Colour (0x0),
-                     Image(), 1.0000f, Colour (0x0));
-    addAndMakeVisible (paste = new ImageButton (String::empty));
+    addAndMakeVisible (paste = gui::createDrawableButton("Paste", BIN2STR(paste_svg)));
     paste->setTooltip (L"Paste from clipboard");
-    paste->setButtonText (L"new button");
     paste->addListener (this);
 
-    paste->setImages (false, true, true,
-                      Image(), 0.6500f, Colour (0x0),
-                      Image(), 0.8500f, Colour (0x0),
-                      Image(), 1.0000f, Colour (0x0));
-    addAndMakeVisible (insert = new ImageButton (String::empty));
+    addAndMakeVisible (insert = gui::createDrawableButton("Insert", BIN2STR(receive_svg)));
     insert->setTooltip (L"Insert pre-defined");
-    insert->setButtonText (L"new button");
     insert->addListener (this);
-
-		insert->setImages (false, true, true,
-                       Image(), 1.0000f, Colour (0x0),
-                       Image(), 1.0000f, Colour (0x0),
-                       Image(), 1.0000f, Colour (0x0));
-
-		add->setImages (false, true, true,
-						IMAGE(ico_new_document_png), 0.6500f, Colour (0x0),
-						IMAGE(ico_new_document_png), 0.8500f, Colour (0x0),
-						IMAGE(ico_new_document_png), 1.0000f, Colour (0x0));
-		copy->setImages (false, true, true,
-						IMAGE(ico_copy_png), 0.6500f, Colour (0x0),
-						IMAGE(ico_copy_png), 0.8500f, Colour (0x0),
-						IMAGE(ico_copy_png), 1.0000f, Colour (0x0));
-		paste->setImages (false, true, true,
-						IMAGE(ico_paste_png), 0.6500f, Colour (0x0),
-						IMAGE(ico_paste_png), 0.8500f, Colour (0x0),
-						IMAGE(ico_paste_png), 1.0000f, Colour (0x0));
-		remove->setImages (false, true, true,
-						IMAGE(ico_delete_png), 0.6500f, Colour (0x0),
-						IMAGE(ico_delete_png), 0.8500f, Colour (0x0),
-						IMAGE(ico_delete_png), 1.0000f, Colour (0x0));
-		insert->setImages (false, true, true,
-						IMAGE(ico_import_document_png), 0.6500f, Colour (0x0),
-						IMAGE(ico_import_document_png), 0.8500f, Colour (0x0),
-						IMAGE(ico_import_document_png), 1.0000f, Colour (0x0));
 
 	list->setRowHeight (14);
 	add->setMouseCursor (MouseCursor::PointingHandCursor);
@@ -1843,19 +1770,13 @@ CtrlrSysExPropertyComponent::CtrlrSysExPropertyComponent (const Value &_valueToC
     editButton->setButtonText (L"Edit");
     editButton->addListener (this);
 
-    addAndMakeVisible (copy = new ImageButton (String::empty));
+    addAndMakeVisible (copy = gui::createDrawableButton("Copy", BIN2STR(copy_svg)));
     copy->setTooltip (L"Copy to clipboard");
-    copy->setButtonText (L"new button");
     copy->addListener (this);
 
-    copy->setImages (IMAGES(ico_copy_png));
-
-    addAndMakeVisible (paste = new ImageButton (String::empty));
+    addAndMakeVisible (paste = gui::createDrawableButton("Paste", BIN2STR(paste_svg)));
     paste->setTooltip (L"Paste from clipboard");
-    paste->setButtonText (L"new button");
     paste->addListener (this);
-
-    paste->setImages (IMAGES(ico_paste_png));
 
 	copy->setMouseCursor(MouseCursor::PointingHandCursor);
 	paste->setMouseCursor(MouseCursor::PointingHandCursor);

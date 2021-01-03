@@ -5981,10 +5981,43 @@
     <None Include="..\..\Source\Resources\Fonts\FONT_ZX81.ttf">
       <Filter>Ctrlr\Source\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\appbar.control.play.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-Black.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\appbar.debug.clean.png">
+    <None Include="..\..\Source\Resources\Fonts\Roboto-BlackItalic.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-Bold.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-BoldItalic.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-Italic.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-Light.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-LightItalic.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-Medium.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-MediumItalic.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-Regular.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-Thin.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Fonts\Roboto-ThinItalic.ttf">
+      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\add.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
     <None Include="..\..\Source\Resources\Icons\appbar.debug.restart.png">
@@ -5999,127 +6032,121 @@
     <None Include="..\..\Source\Resources\Icons\appbar.debug.step.over.png">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\appbar.debug.stop.png">
+    <None Include="..\..\Source\Resources\Icons\bold.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_box.png">
+    <None Include="..\..\Source\Resources\Icons\bug.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_bug.png">
+    <None Include="..\..\Source\Resources\Icons\camera.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_copy.png">
+    <None Include="..\..\Source\Resources\Icons\camera_special.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\cleanup.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\clear.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\cog.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\copy.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\ctrlr_logo.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\cut.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\done.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\edit.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\file.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\folder.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\folder_open.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\gradient.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\happy.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
     <None Include="..\..\Source\Resources\Icons\ico_ctrlr_mac.icns">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_cut.png">
+    <None Include="..\..\Source\Resources\Icons\invisible.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_delete.png">
+    <None Include="..\..\Source\Resources\Icons\italic.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_document.png">
+    <None Include="..\..\Source\Resources\Icons\memory.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_document_new.png">
+    <None Include="..\..\Source\Resources\Icons\midi.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_edit_document.png">
+    <None Include="..\..\Source\Resources\Icons\nav_next.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_eye.png">
+    <None Include="..\..\Source\Resources\Icons\nav_prev.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_file.png">
+    <None Include="..\..\Source\Resources\Icons\new_folder.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_firmware.png">
+    <None Include="..\..\Source\Resources\Icons\open_in_new.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_folder.png">
+    <None Include="..\..\Source\Resources\Icons\paste.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_folder_alt.png">
+    <None Include="..\..\Source\Resources\Icons\play.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_folder_new.png">
+    <None Include="..\..\Source\Resources\Icons\radio.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_font_bold.png">
+    <None Include="..\..\Source\Resources\Icons\radio_checked.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_font_italic.png">
+    <None Include="..\..\Source\Resources\Icons\receive.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_font_underline.png">
+    <None Include="..\..\Source\Resources\Icons\sad.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_gui.png">
+    <None Include="..\..\Source\Resources\Icons\send.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_happy.png">
+    <None Include="..\..\Source\Resources\Icons\stop.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_import_document.png">
+    <None Include="..\..\Source\Resources\Icons\sync.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_midi.png">
+    <None Include="..\..\Source\Resources\Icons\trash.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_midi_plug.png">
+    <None Include="..\..\Source\Resources\Icons\underline.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_midi_plug_in.png">
+    <None Include="..\..\Source\Resources\Icons\visible.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\ico_midi_plug_out.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_midi_small.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_new_document.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_next.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_paste.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_previous.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_receive.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_sad.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_send.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_snapshot.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_snapshot_new.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_transaction.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_unit.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_unit_alt.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_unknown.png">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\ico_waveform.png">
+    <None Include="..\..\Source\Resources\Icons\wysiwyg.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
     <None Include="..\..\Source\Resources\Lua\clidebugger\debugger.lua">

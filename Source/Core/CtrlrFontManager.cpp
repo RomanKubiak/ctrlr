@@ -9,6 +9,10 @@
 CtrlrFontManager::CtrlrFontManager(CtrlrManager &_owner) : owner(_owner)
 {
 	reloadFonts();
+
+    defaultFont = getBuiltInFont("RobotoRegular_ttf");
+
+    _TXT("loading RobotoRegular_ttf, typeface name %s", defaultFont.getTypeface()->getName().toRawUTF8());
 }
 
 CtrlrFontManager::~CtrlrFontManager()
@@ -402,15 +406,15 @@ Array<Font> &CtrlrFontManager::getFontSet (const FontSet fontSetToFetch)
 
 Font CtrlrFontManager::getDefaultLargeFont()
 {
-	return (Font());
+	return (defaultFont);
 }
 
 Font CtrlrFontManager::getDefaultSmallFont()
 {
-	return (Font());
+	return (defaultFont);
 }
 
 Font CtrlrFontManager::getDefaultNormalFont()
 {
-	return (Font());
+	return (defaultFont);
 }

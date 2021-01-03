@@ -13,7 +13,7 @@
 #include "CtrlrUtilities.h"
 
 CtrlrPanelWindowManager::CtrlrPanelWindowManager(CtrlrPanel &_owner)
-	: owner(_owner), managerTree(Ids::uiWindowManager)
+	: owner(_owner), managerTree(Ids::uiWindowManager), CtrlrWindowManager(_owner.getOwner())
 {
 	owner.getObjectTree().addChild (managerTree, -1, nullptr);
 }

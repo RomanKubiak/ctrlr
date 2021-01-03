@@ -331,7 +331,6 @@ void CtrlrProcessor::processPanels(MidiBuffer &midiMessages, const AudioPlayHead
 			panelProcessors[i]->processBlock (midiMessages, leftoverBuffer, positionInfo);
 		}
 	}
-    _TST("processPanels left %d events", leftoverBuffer.getNumEvents());
 	midiMessages.swapWith(leftoverBuffer);
 }
 

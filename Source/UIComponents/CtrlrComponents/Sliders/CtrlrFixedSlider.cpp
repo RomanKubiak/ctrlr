@@ -7,7 +7,7 @@ CtrlrFixedSlider::CtrlrFixedSlider (CtrlrModulator &owner)
       ctrlrSlider (0)
 {
 	valueMap = new CtrlrValueMap();
-	lf = new CtrlrSliderLookAndFeel (*this, componentTree);
+	lf = new CtrlrSliderLookAndFeel_V2 (*this, componentTree);
     addAndMakeVisible (ctrlrSlider = new CtrlrSliderInternal (*this));
     ctrlrSlider->setName ("ctrlrSlider");
 

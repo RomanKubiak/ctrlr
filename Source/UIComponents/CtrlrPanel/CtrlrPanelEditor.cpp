@@ -22,7 +22,7 @@ CtrlrPanelNotifier::CtrlrPanelNotifier(CtrlrPanelEditor &_owner)
 
 void CtrlrPanelNotifier::paint (Graphics &g)
 {
-	drawSelectionRectangle (g, getWidth(), getHeight(), background);
+	gui::drawSelectionRectangle (g, getWidth(), getHeight(), background);
 }
 
 void CtrlrPanelNotifier::resized()
@@ -388,6 +388,10 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		{
 			repaint();
 		}
+		else if (property == Ids::uiPanelLookAndFeel)
+        {
+		    setLookAndFeel(getLookAndFeelFromDescription(getProperty(Ids::uiPanelLookAndFeel)));
+        }
 	}
 }
 
@@ -516,4 +520,9 @@ void CtrlrPanelEditor::reloadResources (Array <CtrlrPanelResource*> resourcesTha
 	}
 
 	resized();
+}
+
+void CtrlrPanelEditor::searchForProperty()
+{
+
 }

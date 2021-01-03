@@ -107,6 +107,10 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			getActivePanel()->redo();
 			break;
 
+        case doSearchForProperty:
+            getActivePanelEditor()->searchForProperty();
+            break;
+
 		case doSave:
 			getActivePanel()->savePanel();
 			break;

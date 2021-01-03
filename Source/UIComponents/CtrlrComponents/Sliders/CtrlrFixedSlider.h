@@ -49,7 +49,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-	ScopedPointer<CtrlrSliderLookAndFeel> lf;
+	ScopedPointer<CtrlrSliderLookAndFeel_V2> lf;
 	ScopedPointer<CtrlrValueMap> valueMap;
     //[/UserVariables]
 

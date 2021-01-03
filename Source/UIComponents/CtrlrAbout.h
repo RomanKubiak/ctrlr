@@ -62,7 +62,7 @@ private:
 
     //==============================================================================
     ScopedPointer<Label> ctrlrName;
-    ScopedPointer<ImageButton> ctrlrLogo;
+    ScopedPointer<DrawableButton> ctrlrLogo;
     ScopedPointer<TextEditor> versionInfoLabel;
     ScopedPointer<Label> label;
     ScopedPointer<Label> label2;

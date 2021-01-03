@@ -263,7 +263,7 @@ class CtrlrExpressionProperty  : public Component,
 		CtrlrFloatingWindow *externalEditorWindow;
 		Value valeToControl;
 		TextEditor* text;
-		ImageButton* apply;
+		DrawableButton* apply;
 };
 
 class CtrlrFileProperty  : public Component, public Label::Listener, public Button::Listener, public CtrlrPropertyChild
@@ -315,9 +315,9 @@ class CtrlrFontPropertyComponent  : public Component,
 		StringArray choices;
 		CtrlrPanel *owner;
 		ComboBox* typeface;
-		ImageButton* fontBold;
-		ImageButton* fontItalic;
-		ImageButton* fontUnderline;
+		DrawableButton* fontBold;
+		DrawableButton* fontItalic;
+		DrawableButton* fontUnderline;
 		Slider* fontSize,*horizontalScale,*kerning;
 };
 
@@ -340,9 +340,9 @@ class CtrlrLuaMethodProperty  : public Component,
 		String propertyName;
 		CtrlrPanel *owner;
 		ComboBox* methodSelectorCombo;
-		ImageButton* editMethodButton;
-		ImageButton* newMethodButton;
-		ImageButton* deleteMethodButton;
+		DrawableButton* editMethodButton;
+        DrawableButton* newMethodButton;
+        DrawableButton* deleteMethodButton;
 };
 
 class CtrlrModulatorListProperty :	public CtrlrPropertyChild,
@@ -449,12 +449,12 @@ class CtrlrMultiMidiPropertyComponent  : public Component,
 		StringArray values;
 		Value valueToControl;
 		StringPairArray templates;
-		ImageButton* add;
-		ImageButton* remove;
+        DrawableButton* add;
+        DrawableButton* remove;
 		ListBox* list;
-		ImageButton* copy;
-		ImageButton* paste;
-	    ImageButton* insert;
+		DrawableButton* copy;
+        DrawableButton* paste;
+        DrawableButton* insert;
 };
 
 class CtrlrSliderPropertyComponent   : public Component, private Slider::Listener, public CtrlrPropertyChild
@@ -575,8 +575,8 @@ class CtrlrSysExPropertyComponent  : public Component,
 		Value valueToControl;
 		Label* sysexPreview;
 		TextButton* editButton;
-		ImageButton* copy;
-		ImageButton* paste;
+		DrawableButton* copy;
+        DrawableButton* paste;
 		ValueTree propertyTree;
 		Identifier propertyName;
 		CtrlrPanel *owner;

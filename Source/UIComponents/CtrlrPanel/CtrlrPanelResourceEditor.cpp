@@ -106,7 +106,7 @@ void CtrlrPanelResourceEditor::paintRowBackground (Graphics& g, int rowNumber, i
 {
 	if (rowIsSelected)
 	{
-		drawSelectionRectangle (g, width, height);
+        gui::drawSelectionRectangle (g, width, height);
 	}
 }
 
