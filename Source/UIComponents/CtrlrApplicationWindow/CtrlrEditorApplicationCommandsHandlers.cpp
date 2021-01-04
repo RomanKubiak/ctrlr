@@ -186,10 +186,6 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 			if (getActivePanel()) getActivePanel()->sendSnapshot();
 			break;
 
-		case showBufferEditor:
-			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::BufferEditor, true);
-			break;
-
 		case doShowMidiSettingsDialog:
 			if (getActivePanel()) getActivePanel()->getPanelWindowManager().toggle (CtrlrPanelWindowManager::MIDISettings, true);
 			break;

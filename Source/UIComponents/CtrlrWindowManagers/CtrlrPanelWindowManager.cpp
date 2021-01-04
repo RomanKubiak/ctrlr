@@ -8,7 +8,6 @@
 #include "CtrlrPanel/CtrlrPanelLayerList.h"
 #include "CtrlrLua/CtrlrLuaConsole.h"
 #include "CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h"
-#include "CtrlrMIDI/CtrlrMIDIBufferEditor.h"
 #include "CtrlrMIDI/CtrlrMIDISettingsDialog.h"
 #include "CtrlrUtilities.h"
 
@@ -121,8 +120,6 @@ const String CtrlrPanelWindowManager::getWindowName(const CtrlrPanelWindowManage
 			return ("LayerEditor");
 		case MIDILibrary:
 			return ("MIDILibrary");
-		case BufferEditor:
-			return ("BufferEditor");
 		case MIDISettings:
 			return ("MIDISettings");
 		default:
@@ -142,8 +139,6 @@ CtrlrPanelWindowManager::WindowType CtrlrPanelWindowManager::getWindowType(const
 		return (LayerEditor);
 	if (windowName == "MIDILibrary")
 		return (MIDILibrary);
-	if (windowName == "BufferEditor")
-		return (BufferEditor);
 	if (windowName == "MIDISettings")
 		return (MIDISettings);
 	return (LuaConsole);
@@ -174,10 +169,6 @@ CtrlrChildWindow *CtrlrPanelWindowManager::createWindow(const CtrlrPanelWindowMa
 
 		case CtrlrPanelWindowManager::LayerEditor:
 			w->setContent (new CtrlrPanelLayerList(owner));
-			break;
-
-		case CtrlrPanelWindowManager::BufferEditor:
-			w->setContent (new CtrlrMIDIBufferEditor(owner));
 			break;
 
 		case CtrlrPanelWindowManager::MIDISettings:

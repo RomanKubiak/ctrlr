@@ -1,5 +1,4 @@
-#ifndef __CTRLR_PANEL_SCHEME_MIGRATION__
-#define __CTRLR_PANEL_SCHEME_MIGRATION__
+#pragma once
 
 #include "CtrlrMacros.h"
 
@@ -13,5 +12,3 @@ class CtrlrPanelSchemeMigration
 	private:
 		CtrlrPanel &owner;
 };
-
-#endif

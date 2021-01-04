@@ -1,5 +1,4 @@
-#ifndef CTRLR_PANEL
-#define CTRLR_PANEL
+#pragma once
 
 #include "CtrlrMacros.h"
 #include "CtrlrMIDIDeviceManager.h"
@@ -384,5 +383,3 @@ class CtrlrPanel:	public ValueTree::Listener,
 		Array<MemoryBlock,CriticalSection> partialMidiQueue;
 		int currentActionIndex, indexOfSavedState;
 };
-
-#endif

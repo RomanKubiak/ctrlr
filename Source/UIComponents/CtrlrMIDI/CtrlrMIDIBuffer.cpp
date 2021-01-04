@@ -1,18 +1,18 @@
 /*
   ==============================================================================
 
-  This is an automatically generated GUI class created by the Introjucer!
+  This is an automatically generated GUI class created by the Projucer!
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.2.0
+  Created with Projucer version: 6.0.1
 
   ------------------------------------------------------------------------------
 
-  The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright (c) 2015 - ROLI Ltd.
+  The Projucer is part of the JUCE library.
+  Copyright (c) 2020 - Raw Material Software Limited.
 
   ==============================================================================
 */
@@ -231,11 +231,13 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    addAndMakeVisible (documentEditor = new CodeEditorComponent (document, &tokeniser));
+    documentEditor.reset (new CodeEditorComponent (document, &tokeniser));
+    addAndMakeVisible (documentEditor.get());
 
-    addAndMakeVisible (bufferSource = new ComboBox (String::empty));
+    bufferSource.reset (new juce::ComboBox (juce::String()));
+    addAndMakeVisible (bufferSource.get());
     bufferSource->setEditableText (false);
-    bufferSource->setJustificationType (Justification::centredLeft);
+    bufferSource->setJustificationType (juce::Justification::centredLeft);
     bufferSource->setTextWhenNothingSelected (TRANS("Select buffer source"));
     bufferSource->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
     bufferSource->addItem (TRANS("Custom data"), 1);
@@ -243,113 +245,145 @@ CtrlrMIDIBuffer::CtrlrMIDIBuffer (CtrlrPanel &_owner)
     bufferSource->addItem (TRANS("File - Text"), 3);
     bufferSource->addListener (this);
 
-    addAndMakeVisible (label = new Label ("new label",
-                                          TRANS("Prefix")));
-    label->setFont (Font (11.00f, Font::bold | Font::italic));
-    label->setJustificationType (Justification::centredLeft);
+    label.reset (new juce::Label ("new label",
+                                  TRANS("Prefix")));
+    addAndMakeVisible (label.get());
+    label->setFont (juce::Font (11.00f, juce::Font::plain).withTypefaceStyle ("Bold Italic"));
+    label->setJustificationType (juce::Justification::centredLeft);
     label->setEditable (false, false, false);
-    label->setColour (TextEditor::textColourId, Colours::black);
-    label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    label->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    label->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
-    addAndMakeVisible (prefixLengthLabel = new Label ("new label",
-                                                      TRANS("4")));
-    prefixLengthLabel->setFont (Font (12.00f, Font::plain));
-    prefixLengthLabel->setJustificationType (Justification::centred);
+    label->setBounds (8, 40, 32, 16);
+
+    prefixLengthLabel.reset (new juce::Label ("new label",
+                                              TRANS("4")));
+    addAndMakeVisible (prefixLengthLabel.get());
+    prefixLengthLabel->setFont (juce::Font (12.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    prefixLengthLabel->setJustificationType (juce::Justification::centred);
     prefixLengthLabel->setEditable (true, true, false);
-    prefixLengthLabel->setColour (Label::backgroundColourId, Colour (0xffefff8f));
-    prefixLengthLabel->setColour (Label::outlineColourId, Colour (0x8c000000));
-    prefixLengthLabel->setColour (TextEditor::textColourId, Colours::black);
-    prefixLengthLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    prefixLengthLabel->setColour (juce::Label::backgroundColourId, juce::Colour (0xffefff8f));
+    prefixLengthLabel->setColour (juce::Label::outlineColourId, juce::Colour (0x8c000000));
+    prefixLengthLabel->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    prefixLengthLabel->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
     prefixLengthLabel->addListener (this);
 
-    addAndMakeVisible (nameLengthLabel = new Label ("new label",
-                                                    TRANS("16")));
+    prefixLengthLabel->setBounds (8, 56, 32, 24);
+
+    nameLengthLabel.reset (new juce::Label ("new label",
+                                            TRANS("16")));
+    addAndMakeVisible (nameLengthLabel.get());
     nameLengthLabel->setTooltip (TRANS("Name section length"));
-    nameLengthLabel->setFont (Font (12.00f, Font::plain));
-    nameLengthLabel->setJustificationType (Justification::centred);
+    nameLengthLabel->setFont (juce::Font (12.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    nameLengthLabel->setJustificationType (juce::Justification::centred);
     nameLengthLabel->setEditable (true, true, false);
-    nameLengthLabel->setColour (Label::backgroundColourId, Colour (0xffbeff87));
-    nameLengthLabel->setColour (Label::outlineColourId, Colour (0x8c000000));
-    nameLengthLabel->setColour (TextEditor::textColourId, Colours::black);
-    nameLengthLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    nameLengthLabel->setColour (juce::Label::backgroundColourId, juce::Colour (0xffbeff87));
+    nameLengthLabel->setColour (juce::Label::outlineColourId, juce::Colour (0x8c000000));
+    nameLengthLabel->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    nameLengthLabel->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
     nameLengthLabel->addListener (this);
 
-    addAndMakeVisible (dataOffsetLabel = new Label ("new label",
-                                                    TRANS("4")));
+    nameLengthLabel->setBounds (80, 56, 32, 24);
+
+    dataOffsetLabel.reset (new juce::Label ("new label",
+                                            TRANS("4")));
+    addAndMakeVisible (dataOffsetLabel.get());
     dataOffsetLabel->setTooltip (TRANS("Data section offset"));
-    dataOffsetLabel->setFont (Font (12.00f, Font::plain));
-    dataOffsetLabel->setJustificationType (Justification::centred);
+    dataOffsetLabel->setFont (juce::Font (12.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    dataOffsetLabel->setJustificationType (juce::Justification::centred);
     dataOffsetLabel->setEditable (true, true, false);
-    dataOffsetLabel->setColour (Label::backgroundColourId, Colour (0xffa6a6a6));
-    dataOffsetLabel->setColour (Label::outlineColourId, Colour (0x8c000000));
-    dataOffsetLabel->setColour (TextEditor::textColourId, Colours::black);
-    dataOffsetLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    dataOffsetLabel->setColour (juce::Label::backgroundColourId, juce::Colour (0xffa6a6a6));
+    dataOffsetLabel->setColour (juce::Label::outlineColourId, juce::Colour (0x8c000000));
+    dataOffsetLabel->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    dataOffsetLabel->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
     dataOffsetLabel->addListener (this);
 
-    addAndMakeVisible (suffixLengthLabel = new Label ("new label",
-                                                      TRANS("4")));
-    suffixLengthLabel->setFont (Font (12.00f, Font::plain));
-    suffixLengthLabel->setJustificationType (Justification::centred);
+    dataOffsetLabel->setBounds (120, 56, 32, 24);
+
+    suffixLengthLabel.reset (new juce::Label ("new label",
+                                              TRANS("4")));
+    addAndMakeVisible (suffixLengthLabel.get());
+    suffixLengthLabel->setFont (juce::Font (12.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    suffixLengthLabel->setJustificationType (juce::Justification::centred);
     suffixLengthLabel->setEditable (true, true, false);
-    suffixLengthLabel->setColour (Label::backgroundColourId, Colour (0xff79a0ff));
-    suffixLengthLabel->setColour (Label::outlineColourId, Colour (0x8c000000));
-    suffixLengthLabel->setColour (TextEditor::textColourId, Colours::black);
-    suffixLengthLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    suffixLengthLabel->setColour (juce::Label::backgroundColourId, juce::Colour (0xff79a0ff));
+    suffixLengthLabel->setColour (juce::Label::outlineColourId, juce::Colour (0x8c000000));
+    suffixLengthLabel->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    suffixLengthLabel->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
     suffixLengthLabel->addListener (this);
 
-    addAndMakeVisible (label7 = new Label ("new label",
-                                           TRANS("Name")));
-    label7->setFont (Font (11.00f, Font::bold | Font::italic));
-    label7->setJustificationType (Justification::centred);
+    suffixLengthLabel->setBounds (192, 56, 32, 24);
+
+    label7.reset (new juce::Label ("new label",
+                                   TRANS("Name")));
+    addAndMakeVisible (label7.get());
+    label7->setFont (juce::Font (11.00f, juce::Font::plain).withTypefaceStyle ("Bold Italic"));
+    label7->setJustificationType (juce::Justification::centred);
     label7->setEditable (false, false, false);
-    label7->setColour (TextEditor::textColourId, Colours::black);
-    label7->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    label7->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    label7->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
-    addAndMakeVisible (label8 = new Label ("new label",
-                                           TRANS("Data")));
-    label8->setFont (Font (11.00f, Font::bold | Font::italic));
-    label8->setJustificationType (Justification::centred);
+    label7->setBounds (48, 40, 64, 16);
+
+    label8.reset (new juce::Label ("new label",
+                                   TRANS("Data")));
+    addAndMakeVisible (label8.get());
+    label8->setFont (juce::Font (11.00f, juce::Font::plain).withTypefaceStyle ("Bold Italic"));
+    label8->setJustificationType (juce::Justification::centred);
     label8->setEditable (false, false, false);
-    label8->setColour (TextEditor::textColourId, Colours::black);
-    label8->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    label8->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    label8->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
-    addAndMakeVisible (label9 = new Label ("new label",
-                                           TRANS("Suffix")));
-    label9->setFont (Font (11.00f, Font::bold | Font::italic));
-    label9->setJustificationType (Justification::centred);
+    label8->setBounds (120, 40, 64, 16);
+
+    label9.reset (new juce::Label ("new label",
+                                   TRANS("Suffix")));
+    addAndMakeVisible (label9.get());
+    label9->setFont (juce::Font (11.00f, juce::Font::plain).withTypefaceStyle ("Bold Italic"));
+    label9->setJustificationType (juce::Justification::centred);
     label9->setEditable (false, false, false);
-    label9->setColour (TextEditor::textColourId, Colours::black);
-    label9->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    label9->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    label9->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
-    addAndMakeVisible (nameOffsetLabel = new Label ("new label",
-                                                    TRANS("16")));
+    label9->setBounds (192, 40, 32, 16);
+
+    nameOffsetLabel.reset (new juce::Label ("new label",
+                                            TRANS("16")));
+    addAndMakeVisible (nameOffsetLabel.get());
     nameOffsetLabel->setTooltip (TRANS("Name section offset"));
-    nameOffsetLabel->setFont (Font (12.00f, Font::plain));
-    nameOffsetLabel->setJustificationType (Justification::centred);
+    nameOffsetLabel->setFont (juce::Font (12.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    nameOffsetLabel->setJustificationType (juce::Justification::centred);
     nameOffsetLabel->setEditable (true, true, false);
-    nameOffsetLabel->setColour (Label::backgroundColourId, Colour (0xffe6ffd0));
-    nameOffsetLabel->setColour (Label::outlineColourId, Colour (0x8c000000));
-    nameOffsetLabel->setColour (TextEditor::textColourId, Colours::black);
-    nameOffsetLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    nameOffsetLabel->setColour (juce::Label::backgroundColourId, juce::Colour (0xffe6ffd0));
+    nameOffsetLabel->setColour (juce::Label::outlineColourId, juce::Colour (0x8c000000));
+    nameOffsetLabel->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    nameOffsetLabel->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
     nameOffsetLabel->addListener (this);
 
-    addAndMakeVisible (dataLengthLabel = new Label ("new label",
-                                                    TRANS("4")));
-    dataLengthLabel->setFont (Font (12.00f, Font::plain));
-    dataLengthLabel->setJustificationType (Justification::centred);
+    nameOffsetLabel->setBounds (48, 56, 32, 24);
+
+    dataLengthLabel.reset (new juce::Label ("new label",
+                                            TRANS("4")));
+    addAndMakeVisible (dataLengthLabel.get());
+    dataLengthLabel->setFont (juce::Font (12.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    dataLengthLabel->setJustificationType (juce::Justification::centred);
     dataLengthLabel->setEditable (true, true, false);
-    dataLengthLabel->setColour (Label::backgroundColourId, Colour (0xff7c7c7c));
-    dataLengthLabel->setColour (Label::outlineColourId, Colour (0x8c000000));
-    dataLengthLabel->setColour (TextEditor::textColourId, Colours::black);
-    dataLengthLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    dataLengthLabel->setColour (juce::Label::backgroundColourId, juce::Colour (0xff7c7c7c));
+    dataLengthLabel->setColour (juce::Label::outlineColourId, juce::Colour (0x8c000000));
+    dataLengthLabel->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    dataLengthLabel->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
     dataLengthLabel->addListener (this);
 
-    addAndMakeVisible (reloadButton = new TextButton (String::empty));
+    dataLengthLabel->setBounds (152, 56, 32, 24);
+
+    reloadButton.reset (new juce::TextButton (juce::String()));
+    addAndMakeVisible (reloadButton.get());
     reloadButton->setButtonText (TRANS("Reload"));
     reloadButton->addListener (this);
-    reloadButton->setColour (TextButton::buttonColourId, Colour (0xff8cff7f));
+    reloadButton->setColour (juce::TextButton::buttonColourId, juce::Colour (0xff8cff7f));
 
-    addAndMakeVisible (status = new CtrlrMidiBufferStatus (*this));
+    status.reset (new CtrlrMidiBufferStatus (*this));
+    addAndMakeVisible (status.get());
 
 
     //[UserPreSize]
@@ -395,7 +429,7 @@ CtrlrMIDIBuffer::~CtrlrMIDIBuffer()
 }
 
 //==============================================================================
-void CtrlrMIDIBuffer::paint (Graphics& g)
+void CtrlrMIDIBuffer::paint (juce::Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
@@ -410,18 +444,8 @@ void CtrlrMIDIBuffer::resized()
     //[/UserPreResize]
 
     documentEditor->setBounds (0, 88, getWidth() - 0, getHeight() - 104);
-    bufferSource->setBounds (8, 8, proportionOfWidth (0.4000f), 24);
-    label->setBounds (8, 40, 32, 16);
-    prefixLengthLabel->setBounds (8, 56, 32, 24);
-    nameLengthLabel->setBounds (80, 56, 32, 24);
-    dataOffsetLabel->setBounds (120, 56, 32, 24);
-    suffixLengthLabel->setBounds (192, 56, 32, 24);
-    label7->setBounds (48, 40, 64, 16);
-    label8->setBounds (120, 40, 64, 16);
-    label9->setBounds (192, 40, 32, 16);
-    nameOffsetLabel->setBounds (48, 56, 32, 24);
-    dataLengthLabel->setBounds (152, 56, 32, 24);
-    reloadButton->setBounds (8 + proportionOfWidth (0.4000f), 8, proportionOfWidth (0.1537f), 24);
+    bufferSource->setBounds (8, 8, proportionOfWidth (0.4016f), 24);
+    reloadButton->setBounds (8 + proportionOfWidth (0.4016f), 8, proportionOfWidth (0.1557f), 24);
     status->setBounds (0, getHeight() - 16, getWidth() - 0, 16);
     //[UserResized] Add your own custom resize handling here..
 	const int columnsVisible	= documentEditor->getNumColumnsOnScreen();
@@ -434,12 +458,12 @@ void CtrlrMIDIBuffer::resized()
     //[/UserResized]
 }
 
-void CtrlrMIDIBuffer::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
+void CtrlrMIDIBuffer::comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged)
 {
     //[UsercomboBoxChanged_Pre]
     //[/UsercomboBoxChanged_Pre]
 
-    if (comboBoxThatHasChanged == bufferSource)
+    if (comboBoxThatHasChanged == bufferSource.get())
     {
         //[UserComboBoxCode_bufferSource] -- add your combo box handling code here..
 		switch (bufferSource->getSelectedId())
@@ -462,37 +486,37 @@ void CtrlrMIDIBuffer::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
     //[/UsercomboBoxChanged_Post]
 }
 
-void CtrlrMIDIBuffer::labelTextChanged (Label* labelThatHasChanged)
+void CtrlrMIDIBuffer::labelTextChanged (juce::Label* labelThatHasChanged)
 {
     //[UserlabelTextChanged_Pre]
     //[/UserlabelTextChanged_Pre]
 
-    if (labelThatHasChanged == prefixLengthLabel)
+    if (labelThatHasChanged == prefixLengthLabel.get())
     {
         //[UserLabelCode_prefixLengthLabel] -- add your label text handling code here..
         //[/UserLabelCode_prefixLengthLabel]
     }
-    else if (labelThatHasChanged == nameLengthLabel)
+    else if (labelThatHasChanged == nameLengthLabel.get())
     {
         //[UserLabelCode_nameLengthLabel] -- add your label text handling code here..
         //[/UserLabelCode_nameLengthLabel]
     }
-    else if (labelThatHasChanged == dataOffsetLabel)
+    else if (labelThatHasChanged == dataOffsetLabel.get())
     {
         //[UserLabelCode_dataOffsetLabel] -- add your label text handling code here..
         //[/UserLabelCode_dataOffsetLabel]
     }
-    else if (labelThatHasChanged == suffixLengthLabel)
+    else if (labelThatHasChanged == suffixLengthLabel.get())
     {
         //[UserLabelCode_suffixLengthLabel] -- add your label text handling code here..
         //[/UserLabelCode_suffixLengthLabel]
     }
-    else if (labelThatHasChanged == nameOffsetLabel)
+    else if (labelThatHasChanged == nameOffsetLabel.get())
     {
         //[UserLabelCode_nameOffsetLabel] -- add your label text handling code here..
         //[/UserLabelCode_nameOffsetLabel]
     }
-    else if (labelThatHasChanged == dataLengthLabel)
+    else if (labelThatHasChanged == dataLengthLabel.get())
     {
         //[UserLabelCode_dataLengthLabel] -- add your label text handling code here..
         //[/UserLabelCode_dataLengthLabel]
@@ -503,12 +527,12 @@ void CtrlrMIDIBuffer::labelTextChanged (Label* labelThatHasChanged)
     //[/UserlabelTextChanged_Post]
 }
 
-void CtrlrMIDIBuffer::buttonClicked (Button* buttonThatWasClicked)
+void CtrlrMIDIBuffer::buttonClicked (juce::Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
     //[/UserbuttonClicked_Pre]
 
-    if (buttonThatWasClicked == reloadButton)
+    if (buttonThatWasClicked == reloadButton.get())
     {
         //[UserButtonCode_reloadButton] -- add your button handler code here..
         switch (bufferSource->getSelectedId())
@@ -749,9 +773,9 @@ LMemoryBlock CtrlrMIDIBuffer::processFormula(const String &formula)
 
 //==============================================================================
 #if 0
-/*  -- Introjucer information section --
+/*  -- Projucer information section --
 
-    This is where the Introjucer stores the metadata that describe this GUI layout, so
+    This is where the Projucer stores the metadata that describe this GUI layout, so
     make changes in here at your peril!
 
 BEGIN_JUCER_METADATA
@@ -766,64 +790,67 @@ BEGIN_JUCER_METADATA
                     explicitFocusOrder="0" pos="0 88 0M 104M" class="CodeEditorComponent"
                     params="document, &amp;tokeniser"/>
   <COMBOBOX name="" id="89bbcb18489c2790" memberName="bufferSource" virtualName=""
-            explicitFocusOrder="0" pos="8 8 40% 24" editable="0" layout="33"
+            explicitFocusOrder="0" pos="8 8 40.156% 24" editable="0" layout="33"
             items="Custom data&#10;File - SYX&#10;File - Text" textWhenNonSelected="Select buffer source"
             textWhenNoItems="(no choices)"/>
   <LABEL name="new label" id="812d76f10e6a2f58" memberName="label" virtualName=""
          explicitFocusOrder="0" pos="8 40 32 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Prefix" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="11"
-         bold="1" italic="1" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="11.0"
+         kerning="0.0" bold="1" italic="1" justification="33" typefaceStyle="Bold Italic"/>
   <LABEL name="new label" id="a8af45fb34466561" memberName="prefixLengthLabel"
          virtualName="" explicitFocusOrder="0" pos="8 56 32 24" bkgCol="ffefff8f"
          outlineCol="8c000000" edTextCol="ff000000" edBkgCol="0" labelText="4"
          editableSingleClick="1" editableDoubleClick="1" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="12" bold="0" italic="0" justification="36"/>
+         fontname="Default font" fontsize="12.0" kerning="0.0" bold="0"
+         italic="0" justification="36"/>
   <LABEL name="new label" id="c4b3824503e9b2ce" memberName="nameLengthLabel"
          virtualName="" explicitFocusOrder="0" pos="80 56 32 24" tooltip="Name section length"
          bkgCol="ffbeff87" outlineCol="8c000000" edTextCol="ff000000"
          edBkgCol="0" labelText="16" editableSingleClick="1" editableDoubleClick="1"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="12"
-         bold="0" italic="0" justification="36"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="12.0"
+         kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="new label" id="ea5df1a95ce050da" memberName="dataOffsetLabel"
          virtualName="" explicitFocusOrder="0" pos="120 56 32 24" tooltip="Data section offset"
          bkgCol="ffa6a6a6" outlineCol="8c000000" edTextCol="ff000000"
          edBkgCol="0" labelText="4" editableSingleClick="1" editableDoubleClick="1"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="12"
-         bold="0" italic="0" justification="36"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="12.0"
+         kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="new label" id="7bcc861e345cae32" memberName="suffixLengthLabel"
          virtualName="" explicitFocusOrder="0" pos="192 56 32 24" bkgCol="ff79a0ff"
          outlineCol="8c000000" edTextCol="ff000000" edBkgCol="0" labelText="4"
          editableSingleClick="1" editableDoubleClick="1" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="12" bold="0" italic="0" justification="36"/>
+         fontname="Default font" fontsize="12.0" kerning="0.0" bold="0"
+         italic="0" justification="36"/>
   <LABEL name="new label" id="61138b8535d5fcc9" memberName="label7" virtualName=""
          explicitFocusOrder="0" pos="48 40 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Name" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="11"
-         bold="1" italic="1" justification="36"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="11.0"
+         kerning="0.0" bold="1" italic="1" justification="36" typefaceStyle="Bold Italic"/>
   <LABEL name="new label" id="399521cf99c21fdb" memberName="label8" virtualName=""
          explicitFocusOrder="0" pos="120 40 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Data" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="11"
-         bold="1" italic="1" justification="36"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="11.0"
+         kerning="0.0" bold="1" italic="1" justification="36" typefaceStyle="Bold Italic"/>
   <LABEL name="new label" id="617443e4e1f072fd" memberName="label9" virtualName=""
          explicitFocusOrder="0" pos="192 40 32 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Suffix" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="11"
-         bold="1" italic="1" justification="36"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="11.0"
+         kerning="0.0" bold="1" italic="1" justification="36" typefaceStyle="Bold Italic"/>
   <LABEL name="new label" id="28f6d8c68ee16e6f" memberName="nameOffsetLabel"
          virtualName="" explicitFocusOrder="0" pos="48 56 32 24" tooltip="Name section offset"
          bkgCol="ffe6ffd0" outlineCol="8c000000" edTextCol="ff000000"
          edBkgCol="0" labelText="16" editableSingleClick="1" editableDoubleClick="1"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="12"
-         bold="0" italic="0" justification="36"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="12.0"
+         kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="new label" id="949532f6fb03bcb4" memberName="dataLengthLabel"
          virtualName="" explicitFocusOrder="0" pos="152 56 32 24" bkgCol="ff7c7c7c"
          outlineCol="8c000000" edTextCol="ff000000" edBkgCol="0" labelText="4"
          editableSingleClick="1" editableDoubleClick="1" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="12" bold="0" italic="0" justification="36"/>
+         fontname="Default font" fontsize="12.0" kerning="0.0" bold="0"
+         italic="0" justification="36"/>
   <TEXTBUTTON name="" id="4308facfa36a7140" memberName="reloadButton" virtualName=""
-              explicitFocusOrder="0" pos="0R 8 15.25% 24" posRelativeX="89bbcb18489c2790"
+              explicitFocusOrder="0" pos="0R 8 15.573% 24" posRelativeX="89bbcb18489c2790"
               bgColOff="ff8cff7f" buttonText="Reload" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
   <GENERICCOMPONENT name="" id="d3e76702cdb231b8" memberName="status" virtualName=""
@@ -838,3 +865,4 @@ END_JUCER_METADATA
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
+

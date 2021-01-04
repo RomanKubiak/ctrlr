@@ -1,8 +1,8 @@
-#ifndef __CTRLR_MANAGER_WINDOW_MANAGER__
-#define __CTRLR_MANAGER_WINDOW_MANAGER__
+#pragma once
 
 #include "CtrlrMacros.h"
 #include "CtrlrChildWindow.h"
+
 class CtrlrManager;
 class CtrlrChildWindow;
 
@@ -68,5 +68,3 @@ class CtrlrManagerWindowManager : public CtrlrWindowManager
 		OwnedArray <CtrlrChildWindow> windows;
 		ValueTree managerTree;
 };
-
-#endif

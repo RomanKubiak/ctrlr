@@ -768,6 +768,7 @@ namespace Ids
     DECLARE_ID (ctrlrScrollbarThickness);
     DECLARE_ID (ctrlrColourScheme);
     DECLARE_ID (ctrlrLookAndFeel);
+    DECLARE_ID (ctrlrTabBarDepth);
 
 	DECLARE_ID (luaMethodName);
 	DECLARE_ID (luaManagerMethods); // need to keep it for compatibility reasons

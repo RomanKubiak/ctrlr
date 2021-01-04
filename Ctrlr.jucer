@@ -615,28 +615,6 @@
           <FILE id="i3du0Q" name="FONT_Warenhaus-Standard.ttf" compile="0" resource="1"
                 file="Source/Resources/Fonts/FONT_Warenhaus-Standard.ttf"/>
           <FILE id="OOpHQ2" name="FONT_ZX81.ttf" compile="0" resource="1" file="Source/Resources/Fonts/FONT_ZX81.ttf"/>
-          <FILE id="t5XANW" name="Roboto-Black.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-Black.ttf"/>
-          <FILE id="ZpqPZb" name="Roboto-BlackItalic.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-BlackItalic.ttf"/>
-          <FILE id="bxdQSv" name="Roboto-Bold.ttf" compile="0" resource="1" file="Source/Resources/Fonts/Roboto-Bold.ttf"/>
-          <FILE id="ESjLXu" name="Roboto-BoldItalic.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-BoldItalic.ttf"/>
-          <FILE id="WYwDSM" name="Roboto-Italic.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-Italic.ttf"/>
-          <FILE id="WCGPiV" name="Roboto-Light.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-Light.ttf"/>
-          <FILE id="O3A0Q6" name="Roboto-LightItalic.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-LightItalic.ttf"/>
-          <FILE id="fbgjHI" name="Roboto-Medium.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-Medium.ttf"/>
-          <FILE id="BrI5Z1" name="Roboto-MediumItalic.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-MediumItalic.ttf"/>
-          <FILE id="U8chMT" name="Roboto-Regular.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-Regular.ttf"/>
-          <FILE id="CUV5UQ" name="Roboto-Thin.ttf" compile="0" resource="1" file="Source/Resources/Fonts/Roboto-Thin.ttf"/>
-          <FILE id="B05jEo" name="Roboto-ThinItalic.ttf" compile="0" resource="1"
-                file="Source/Resources/Fonts/Roboto-ThinItalic.ttf"/>
         </GROUP>
         <GROUP id="{57CA4634-99B0-23FB-F19C-154181EAAE85}" name="Icons">
           <FILE id="CzArw5" name="add.svg" compile="0" resource="1" file="Source/Resources/Icons/add.svg"/>
@@ -665,7 +643,6 @@
           <FILE id="AlOJmm" name="folder.svg" compile="0" resource="1" file="Source/Resources/Icons/folder.svg"/>
           <FILE id="coiSlo" name="folder_open.svg" compile="0" resource="1" file="Source/Resources/Icons/folder_open.svg"/>
           <FILE id="e4Y3fi" name="gradient.svg" compile="0" resource="1" file="Source/Resources/Icons/gradient.svg"/>
-          <FILE id="XM0x72" name="happy.svg" compile="0" resource="1" file="Source/Resources/Icons/happy.svg"/>
           <FILE id="nhykVL" name="ico_ctrlr_mac.icns" compile="0" resource="1"
                 file="Source/Resources/Icons/ico_ctrlr_mac.icns"/>
           <FILE id="QUmRz1" name="invisible.svg" compile="0" resource="1" file="Source/Resources/Icons/invisible.svg"/>
@@ -682,7 +659,6 @@
           <FILE id="ZOzalU" name="radio_checked.svg" compile="0" resource="1"
                 file="Source/Resources/Icons/radio_checked.svg"/>
           <FILE id="Bzu0K5" name="receive.svg" compile="0" resource="1" file="Source/Resources/Icons/receive.svg"/>
-          <FILE id="EUnLX9" name="sad.svg" compile="0" resource="1" file="Source/Resources/Icons/sad.svg"/>
           <FILE id="ky2beP" name="send.svg" compile="0" resource="1" file="Source/Resources/Icons/send.svg"/>
           <FILE id="poxFCM" name="stop.svg" compile="0" resource="1" file="Source/Resources/Icons/stop.svg"/>
           <FILE id="la0zet" name="sync.svg" compile="0" resource="1" file="Source/Resources/Icons/sync.svg"/>
@@ -940,10 +916,6 @@
                 file="Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp"/>
           <FILE id="eth7kO" name="CtrlrMIDIBuffer.h" compile="0" resource="0"
                 file="Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.h"/>
-          <FILE id="F0deLM" name="CtrlrMIDIBufferEditor.cpp" compile="1" resource="0"
-                file="Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.cpp"/>
-          <FILE id="z4ZZXJ" name="CtrlrMIDIBufferEditor.h" compile="0" resource="0"
-                file="Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.h"/>
           <FILE id="NesvuX" name="CtrlrMIDICalculator.cpp" compile="1" resource="0"
                 file="Source/UIComponents/CtrlrMIDI/CtrlrMIDICalculator.cpp"/>
           <FILE id="APHaO5" name="CtrlrMIDICalculator.h" compile="0" resource="0"
@@ -1126,31 +1098,9 @@
         <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <CODEBLOCKS_LINUX targetFolder="Builds/CodeBlocksLinux" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
-                      extraCompilerFlags="-w" externalLibraries="z&#10;udev&#10;bfd"
-                      enableGNUExtensions="1" vstLegacyFolder="Source/Misc/vst2sdk">
-      <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua&#10;../../JUCE/modules"/>
-        <CONFIGURATION isDebug="0" name="Release" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="JUCE/modules"/>
-        <MODULEPATH id="juce_core" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="JUCE/modules"/>
-      </MODULEPATHS>
-    </CODEBLOCKS_LINUX>
     <VS2019 targetFolder="Builds/VisualStudio2019" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
             vst3Folder="Source/Misc/vst3sdk" vstLegacyFolder="Source/Misc/vst2sdk"
-            extraCompilerFlags="/bigobj /Fpstadfx.h" smallIcon="DzYszo" bigIcon="zQnOx7">
+            extraCompilerFlags="/bigobj /Fpstadfx.h" smallIcon="mclA4s" bigIcon="mclA4s">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
         <CONFIGURATION isDebug="0" name="Release" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
@@ -1174,7 +1124,8 @@
         <MODULEPATH id="juce_audio_basics"/>
       </MODULEPATHS>
     </VS2019>
-    <CLION targetFolder="Builds/CLion" clionXcodeEnabled="1" clionMakefileEnabled="1">
+    <CLION targetFolder="Builds/CLion" clionXcodeEnabled="1" clionMakefileEnabled="1"
+           clionCodeBlocksEnabled="1">
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="../../juce"/>
         <MODULEPATH id="juce_gui_basics" path="../../juce"/>
@@ -1190,10 +1141,16 @@
         <MODULEPATH id="juce_audio_basics" path="../../juce"/>
       </MODULEPATHS>
     </CLION>
-    <VS2017 targetFolder="Builds/VisualStudio2017">
+    <VS2017 targetFolder="Builds/VisualStudio2017" extraCompilerFlags="/bigobj /Fpstadfx.h"
+            smallIcon="mclA4s" bigIcon="mclA4s" vstLegacyFolder="Source/Misc/vst2sdk">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug"/>
-        <CONFIGURATION isDebug="0" name="Release"/>
+        <CONFIGURATION isDebug="1" name="Debug" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
+        <CONFIGURATION isDebug="0" name="Release" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
+                       targetName="Ctrlr-x64"/>
+        <CONFIGURATION isDebug="1" name="Debug_Win32" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
+                       winArchitecture="Win32" targetName="Ctrlr"/>
+        <CONFIGURATION isDebug="0" name="Release_Win32" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
+                       winArchitecture="Win32" targetName="Ctrlr-Win32" winWarningLevel="2"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra"/>
@@ -1210,6 +1167,26 @@
         <MODULEPATH id="juce_audio_basics"/>
       </MODULEPATHS>
     </VS2017>
+    <CODEBLOCKS_WINDOWS targetFolder="Builds/CodeBlocksWindows" vstLegacyFolder="Source/Misc/vst2sdk">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
+        <CONFIGURATION isDebug="0" name="Release" headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../juce"/>
+        <MODULEPATH id="juce_gui_basics" path="../../juce"/>
+        <MODULEPATH id="juce_graphics" path="../../juce"/>
+        <MODULEPATH id="juce_events" path="../../juce"/>
+        <MODULEPATH id="juce_data_structures" path="../../juce"/>
+        <MODULEPATH id="juce_core" path="../../juce"/>
+        <MODULEPATH id="juce_audio_utils" path="../../juce"/>
+        <MODULEPATH id="juce_audio_processors" path="../../juce"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../juce"/>
+        <MODULEPATH id="juce_audio_formats" path="../../juce"/>
+        <MODULEPATH id="juce_audio_devices" path="../../juce"/>
+        <MODULEPATH id="juce_audio_basics" path="../../juce"/>
+      </MODULEPATHS>
+    </CODEBLOCKS_WINDOWS>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>

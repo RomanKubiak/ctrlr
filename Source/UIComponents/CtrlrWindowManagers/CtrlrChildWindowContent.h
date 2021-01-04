@@ -1,5 +1,4 @@
-#ifndef __CTRLR_CHILD_WINDOW_CONTENT__
-#define __CTRLR_CHILD_WINDOW_CONTENT__
+#pragma once
 
 #include "CtrlrMacros.h"
 
@@ -29,4 +28,3 @@ class CtrlrChildWindowContent :	public Component
 		ValueTree componentTree;
 		CtrlrChildWindowContainer *container;
 };
-#endif

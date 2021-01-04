@@ -1,24 +1,23 @@
 /*
   ==============================================================================
 
-  This is an automatically generated GUI class created by the Introjucer!
+  This is an automatically generated GUI class created by the Projucer!
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.2.0
+  Created with Projucer version: 6.0.1
 
   ------------------------------------------------------------------------------
 
-  The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright (c) 2015 - ROLI Ltd.
+  The Projucer is part of the JUCE library.
+  Copyright (c) 2020 - Raw Material Software Limited.
 
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_16DA51FEAFD7A9F8__
-#define __JUCE_HEADER_16DA51FEAFD7A9F8__
+#pragma once
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceClasses/LMemoryBlock.h"
@@ -105,14 +104,14 @@ class CtrlrMIDIBufferTokeniser : public CodeTokeniser
 */
 class CtrlrMIDIBuffer  : public Component,
                          public CodeDocument::Listener,
-						 public ComboBox::Listener,
-						 public Label::Listener,
-						 public Button::Listener
+                         public juce::ComboBox::Listener,
+                         public juce::Label::Listener,
+                         public juce::Button::Listener
 {
 public:
     //==============================================================================
     CtrlrMIDIBuffer (CtrlrPanel &_owner);
-    ~CtrlrMIDIBuffer();
+    ~CtrlrMIDIBuffer() override;
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
@@ -142,11 +141,11 @@ public:
 	LMemoryBlock processFormula(const String &formula);
     //[/UserMethods]
 
-    void paint (Graphics& g);
-    void resized();
-    void comboBoxChanged (ComboBox* comboBoxThatHasChanged);
-    void labelTextChanged (Label* labelThatHasChanged);
-    void buttonClicked (Button* buttonThatWasClicked);
+    void paint (juce::Graphics& g) override;
+    void resized() override;
+    void comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged) override;
+    void labelTextChanged (juce::Label* labelThatHasChanged) override;
+    void buttonClicked (juce::Button* buttonThatWasClicked) override;
 
 
 
@@ -167,20 +166,20 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<CodeEditorComponent> documentEditor;
-    ScopedPointer<ComboBox> bufferSource;
-    ScopedPointer<Label> label;
-    ScopedPointer<Label> prefixLengthLabel;
-    ScopedPointer<Label> nameLengthLabel;
-    ScopedPointer<Label> dataOffsetLabel;
-    ScopedPointer<Label> suffixLengthLabel;
-    ScopedPointer<Label> label7;
-    ScopedPointer<Label> label8;
-    ScopedPointer<Label> label9;
-    ScopedPointer<Label> nameOffsetLabel;
-    ScopedPointer<Label> dataLengthLabel;
-    ScopedPointer<TextButton> reloadButton;
-    ScopedPointer<CtrlrMidiBufferStatus> status;
+    std::unique_ptr<CodeEditorComponent> documentEditor;
+    std::unique_ptr<juce::ComboBox> bufferSource;
+    std::unique_ptr<juce::Label> label;
+    std::unique_ptr<juce::Label> prefixLengthLabel;
+    std::unique_ptr<juce::Label> nameLengthLabel;
+    std::unique_ptr<juce::Label> dataOffsetLabel;
+    std::unique_ptr<juce::Label> suffixLengthLabel;
+    std::unique_ptr<juce::Label> label7;
+    std::unique_ptr<juce::Label> label8;
+    std::unique_ptr<juce::Label> label9;
+    std::unique_ptr<juce::Label> nameOffsetLabel;
+    std::unique_ptr<juce::Label> dataLengthLabel;
+    std::unique_ptr<juce::TextButton> reloadButton;
+    std::unique_ptr<CtrlrMidiBufferStatus> status;
 
 
     //==============================================================================
@@ -190,4 +189,3 @@ private:
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_16DA51FEAFD7A9F8__

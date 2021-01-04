@@ -1,5 +1,4 @@
-#ifndef __CTRLR_PANEL_WINDOW_MANAGER__
-#define __CTRLR_PANEL_WINDOW_MANAGER__
+#pragma once
 
 #include "CtrlrChildWindow.h"
 
@@ -15,8 +14,7 @@ class CtrlrPanelWindowManager : public CtrlrWindowManager
 			ModulatorList,
 			LayerEditor,
 			MIDILibrary,
-			MIDISettings,
-			BufferEditor
+			MIDISettings
 		};
 
 		CtrlrPanelWindowManager(CtrlrPanel &_owner);
@@ -44,5 +42,3 @@ class CtrlrPanelWindowManager : public CtrlrWindowManager
 		OwnedArray <CtrlrChildWindow> windows;
 		ValueTree managerTree;
 };
-
-#endif

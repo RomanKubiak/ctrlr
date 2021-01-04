@@ -1,0 +1,23 @@
+line 6859
+
+target_precompile_headers(SHARED_CODE PUBLIC ../../Source/Core/stdafx.h ../../Source/Core/stdafx_luabind.h)
+set_source_files_properties(../../Source/Misc/keys.cpp PROPERTIES SKIP_PRECOMPILE_HEADERS TRUE)
+set_source_files_properties (
+        "../../Source/Misc/keys.cpp"
+        "../../JuceLibraryCode/BinaryData.cpp"
+        "../../JuceLibraryCode/BinaryData.h"
+        "../../JuceLibraryCode/include_juce_audio_basics.cpp"
+        "../../JuceLibraryCode/include_juce_audio_devices.cpp"
+        "../../JuceLibraryCode/include_juce_audio_formats.cpp"
+        "../../JuceLibraryCode/include_juce_audio_plugin_client_utils.cpp"
+        "../../JuceLibraryCode/include_juce_audio_processors.cpp"
+        "../../JuceLibraryCode/include_juce_audio_utils.cpp"
+        "../../JuceLibraryCode/include_juce_core.cpp"
+        "../../JuceLibraryCode/include_juce_data_structures.cpp"
+        "../../JuceLibraryCode/include_juce_events.cpp"
+        "../../JuceLibraryCode/include_juce_graphics.cpp"
+        "../../JuceLibraryCode/include_juce_gui_basics.cpp"
+        "../../JuceLibraryCode/include_juce_gui_extra.cpp"
+        "../../JuceLibraryCode/JuceHeader.h"
+        "../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp"
+        "../../JuceLibraryCode/JucePluginDefines.h" PROPERTIES SKIP_PRECOMPILE_HEADERS TRUE)

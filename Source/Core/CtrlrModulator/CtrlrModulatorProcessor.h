@@ -1,5 +1,4 @@
-#ifndef __CTRLR_MODULATOR_PROCESSOR__
-#define __CTRLR_MODULATOR_PROCESSOR__
+#pragma once
 
 #include "CtrlrMacros.h"
 #include "CtrlrMidiMessage.h"
@@ -167,5 +166,3 @@ class CtrlrModulatorProcessor : public AsyncUpdater, public Expression::Scope, p
 		WeakReference <CtrlrLuaMethod> valueChangedCbk, getValueForMidiCbk, getValueFromMidiCbk;
 		CtrlrValueMap valueMap;
 };
-
-#endif

@@ -721,10 +721,6 @@
 			isa = PBXBuildFile;
 			fileRef = 4EC17DDFCCFF11A37167F5AB;
 		};
-		200F8F616009672EDC762546 = {
-			isa = PBXBuildFile;
-			fileRef = 3B49F244A2286DC95300C239;
-		};
 		7EAAA095F979CB59DC51A4E8 = {
 			isa = PBXBuildFile;
 			fileRef = E376EC92E643B3FC63AC79B6;
@@ -1893,13 +1889,6 @@
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		3222A34D5B8A6EA0694D3E91 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-BlackItalic.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-BlackItalic.ttf";
-			sourceTree = "SOURCE_ROOT";
-		};
 		32D65CC8930D223076EC2BF2 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -1989,13 +1978,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrPanelModulatorList.cpp;
 			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		350C2B6E5901771A17D06ED5 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-MediumItalic.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-MediumItalic.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		35D06E0FC0AE5CC6A605F4D5 = {
@@ -2110,13 +2092,6 @@
 			path = ../../Source/UIComponents/CtrlrAbout.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		3B49F244A2286DC95300C239 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrMIDIBufferEditor.cpp;
-			path = ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
 		3C7218BD164C8FD51324DAEF = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2171,13 +2146,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "windows_usb.h";
 			path = "../../Source/Misc/libusb/include/windows_usb.h";
-			sourceTree = "SOURCE_ROOT";
-		};
-		3F6C0A6A6E8FB819D65A94E6 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-ThinItalic.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-ThinItalic.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		3FB054E0A2DBE328B8695D52 = {
@@ -2481,13 +2449,6 @@
 			path = ../../Source/Core/CtrlrSysexProcessor.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		5552B66718F6F4A23939D75B = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.svg;
-			name = happy.svg;
-			path = ../../Source/Resources/Icons/happy.svg;
-			sourceTree = "SOURCE_ROOT";
-		};
 		561A1E356A1A351189B322B3 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -2514,13 +2475,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = version.hpp;
 			path = ../../Source/Misc/luabind/luabind/version.hpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		56FE63613402288169210EA4 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrMIDIBufferEditor.h;
-			path = ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		570172B266A3636C2F6805BF = {
@@ -2619,13 +2573,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrLogViewer.h;
 			path = ../../Source/UIComponents/CtrlrLogViewer.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		5E674E0912763489D4627966 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-LightItalic.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-LightItalic.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5E99E5215BC1612027A3CF20 = {
@@ -2859,13 +2806,6 @@
 			path = ../../Source/Misc/lua/include/lualib.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		6C9636E12C671A65C74F7519 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.svg;
-			name = sad.svg;
-			path = ../../Source/Resources/Icons/sad.svg;
-			sourceTree = "SOURCE_ROOT";
-		};
 		6D80C172EEEC08FC7A983D46 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -2997,13 +2937,6 @@
 			lastKnownFileType = file.svg;
 			name = italic.svg;
 			path = ../../Source/Resources/Icons/italic.svg;
-			sourceTree = "SOURCE_ROOT";
-		};
-		7541824804125C8BB23A7FA9 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-Thin.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-Thin.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		754E33D66708A7B8BA59D3A3 = {
@@ -3265,13 +3198,6 @@
 			path = ../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		82C279124FEC4D4995A13EEB = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-Bold.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-Bold.ttf";
-			sourceTree = "SOURCE_ROOT";
-		};
 		831E21E617866D4E3253DF9A = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3419,13 +3345,6 @@
 			path = "../../Source/Misc/libusb/include/libusb_osx.h";
 			sourceTree = "SOURCE_ROOT";
 		};
-		8B772393B9609B02E9909D88 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-BoldItalic.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-BoldItalic.ttf";
-			sourceTree = "SOURCE_ROOT";
-		};
 		8BA7A3331C4F868A7F8B6289 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3508,13 +3427,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrLuaMethodEditorTabs.cpp;
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		901DE05A4BEC8A2CFE8D19CC = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-Italic.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-Italic.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		906A521261FE605D99D23F2B = {
@@ -3615,6 +3527,13 @@
 			path = ../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		999823AE3B2263235823375E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = CtrlrPanelCanvasHandlers.cpp;
+			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
 		9A06E9B87ADDC9090530FD83 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3627,6 +3546,13 @@
 			lastKnownFileType = sourcecode.c.c;
 			name = core.c;
 			path = ../../Source/Misc/libusb/src/core.c;
+			sourceTree = "SOURCE_ROOT";
+		};
+		A18C8C5D82DC19C37B882431 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = stop.svg;
+			path = ../../Source/Resources/Icons/stop.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		EB6134FB2CFC4B1825455D47 = {
@@ -3648,13 +3574,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "decorate_type.hpp";
 			path = "../../Source/Misc/luabind/luabind/detail/decorate_type.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		999823AE3B2263235823375E = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrPanelCanvasHandlers.cpp;
-			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		99B07FC400C7D239499FA34C = {
@@ -3865,13 +3784,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "libusb_windows.h";
 			path = "../../Source/Misc/libusb/include/libusb_windows.h";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A18C8C5D82DC19C37B882431 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.svg;
-			name = stop.svg;
-			path = ../../Source/Resources/Icons/stop.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A1D39E0E2160E282D69B3C11 = {
@@ -4145,13 +4057,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrPanelMIDISnapshot.cpp;
 			path = ../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		B0998C8F6B8C61D13A204D54 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-Light.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-Light.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		B13B21B03D21AA2CB3109C2C = {
@@ -4658,13 +4563,6 @@
 			path = ../../Source/Resources/Icons/appbar.debug.step.out.png;
 			sourceTree = "SOURCE_ROOT";
 		};
-		CBECB0F4C2B108FB4FCA64FB = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-Black.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-Black.ttf";
-			sourceTree = "SOURCE_ROOT";
-		};
 		CD1306996512A494035C90DF = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
@@ -4973,13 +4871,6 @@
 			path = ../../Source/Core/CtrlrUtilitiesGUI.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		DDEABFDAFCF21B4A7DDF4CB4 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-Regular.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-Regular.ttf";
-			sourceTree = "SOURCE_ROOT";
-		};
 		DDFF8DDCB7F80A5CDA09E855 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -5111,13 +5002,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrMIDICalculator.cpp;
 			path = ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDICalculator.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		E3B050F2C672727FCB97E49F = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.ttf;
-			name = "Roboto-Medium.ttf";
-			path = "../../Source/Resources/Fonts/Roboto-Medium.ttf";
 			sourceTree = "SOURCE_ROOT";
 		};
 		E3D4EE68B85AA3C3F741DA4C = {
@@ -6222,18 +6106,6 @@
 				EAFAD691ACB5744C6C518923,
 				0C2B4BBADAAB36C1AA16C744,
 				49DCC73CAF54A6FD236F0906,
-				CBECB0F4C2B108FB4FCA64FB,
-				3222A34D5B8A6EA0694D3E91,
-				82C279124FEC4D4995A13EEB,
-				8B772393B9609B02E9909D88,
-				901DE05A4BEC8A2CFE8D19CC,
-				B0998C8F6B8C61D13A204D54,
-				5E674E0912763489D4627966,
-				E3B050F2C672727FCB97E49F,
-				350C2B6E5901771A17D06ED5,
-				DDEABFDAFCF21B4A7DDF4CB4,
-				7541824804125C8BB23A7FA9,
-				3F6C0A6A6E8FB819D65A94E6,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -6262,7 +6134,6 @@
 				E0F31BC2B62EABBED2D2DBEF,
 				B46EA1DCF4C8DCB4365D5D61,
 				C6FFD19A15441991E9A53C01,
-				5552B66718F6F4A23939D75B,
 				A239B9FC3E6A496E5EA987A6,
 				E0BC3115B0A7D5306E0F03AD,
 				74E9FF36F03C9CB45B3C522C,
@@ -6277,7 +6148,6 @@
 				01CF7DD7F1553C9255C95656,
 				A7D55FCFFEA4E1081CD23ABC,
 				21BCCF9C9D6C27564FEFF1E2,
-				6C9636E12C671A65C74F7519,
 				7B3DC8D23D6D7E05313D3C53,
 				A18C8C5D82DC19C37B882431,
 				DCD50FD3FD23DBA2A1DE1645,
@@ -6541,8 +6411,6 @@
 			children = (
 				4EC17DDFCCFF11A37167F5AB,
 				1FB4C99EB7A37DBE739C07C9,
-				3B49F244A2286DC95300C239,
-				56FE63613402288169210EA4,
 				E376EC92E643B3FC63AC79B6,
 				2A7C85EBA23BD81C9F79F9D2,
 				DA377F50214E401E7C0E94CD,
@@ -8468,7 +8336,6 @@
 				B9827771061A2343DCC3A322,
 				4A875D1A34781D0276A9501D,
 				99319AFC8B66AFB59B23075F,
-				200F8F616009672EDC762546,
 				7EAAA095F979CB59DC51A4E8,
 				A155627EDC7DDF933203812A,
 				0823C4DE32D0BF46702C8461,

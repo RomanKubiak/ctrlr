@@ -1015,9 +1015,6 @@
     <ClCompile Include="..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.cpp">
       <Filter>Ctrlr\Source\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.cpp">
-      <Filter>Ctrlr\Source\UIComponents\CtrlrMIDI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.cpp">
       <Filter>Ctrlr\Source\UIComponents\CtrlrMIDI</Filter>
     </ClCompile>
@@ -3831,9 +3828,6 @@
     <ClInclude Include="..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBuffer.h">
       <Filter>Ctrlr\Source\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDIBufferEditor.h">
-      <Filter>Ctrlr\Source\UIComponents\CtrlrMIDI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrMIDI\CtrlrMIDICalculator.h">
       <Filter>Ctrlr\Source\UIComponents\CtrlrMIDI</Filter>
     </ClInclude>
@@ -5981,42 +5975,6 @@
     <None Include="..\..\Source\Resources\Fonts\FONT_ZX81.ttf">
       <Filter>Ctrlr\Source\Resources\Fonts</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-Black.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-BlackItalic.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-Bold.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-BoldItalic.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-Italic.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-Light.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-LightItalic.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-Medium.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-MediumItalic.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-Regular.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-Thin.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Fonts\Roboto-ThinItalic.ttf">
-      <Filter>Ctrlr\Source\Resources\Fonts</Filter>
-    </None>
     <None Include="..\..\Source\Resources\Icons\add.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
@@ -6080,9 +6038,6 @@
     <None Include="..\..\Source\Resources\Icons\gradient.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icons\happy.svg">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
     <None Include="..\..\Source\Resources\Icons\ico_ctrlr_mac.icns">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
@@ -6123,9 +6078,6 @@
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
     <None Include="..\..\Source\Resources\Icons\receive.svg">
-      <Filter>Ctrlr\Source\Resources\Icons</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\Icons\sad.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
     <None Include="..\..\Source\Resources\Icons\send.svg">
@@ -6250,6 +6202,9 @@
     </None>
     <None Include="C:\JUCE\modules\juce_graphics\image_formats\pnglib\libpng_readme.txt">
       <Filter>JUCE Modules\juce_graphics\image_formats\pnglib</Filter>
+    </None>
+    <None Include=".\icon.ico">
+      <Filter>JUCE Library Code</Filter>
     </None>
   </ItemGroup>
 </Project>

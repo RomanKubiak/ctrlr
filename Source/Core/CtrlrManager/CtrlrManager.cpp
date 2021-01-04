@@ -84,7 +84,7 @@ void CtrlrManager::setDefaults()
     setProperty (Ids::ctrlrColourScheme, "Light");
     setProperty (Ids::ctrlrLookAndFeel, "Light");
     setProperty (Ids::ctrlrMenuBarHeight, 24);
-
+    setProperty (Ids::ctrlrTabBarDepth, 24.0);
 	setProperty (Ids::uiLuaConsoleInputRemoveAfterRun, true);
 	setProperty (Ids::luaCtrlrSaveState, COMBO_ITEM_NONE);
 	setProperty (Ids::luaCtrlrRestoreState, COMBO_ITEM_NONE);

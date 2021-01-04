@@ -33,6 +33,9 @@ void CtrlrDocumentPanel::activeDocumentChanged()
 	CtrlrEditor *ed = dynamic_cast <CtrlrEditor*> (getParentComponent());
 	if (ed)
 		ed->activeCtrlrChanged();
+    if (getCurrentTabbedComponent()) {
+        getCurrentTabbedComponent()->setTabBarDepth(owner.getProperty(Ids::ctrlrTabBarDepth));
+    }
 }
 
 void CtrlrDocumentPanel::setEditor (CtrlrEditor *_editorToSet)

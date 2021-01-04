@@ -1,5 +1,4 @@
-#ifndef __CTRLR_MANAGER_VST__
-#define __CTRLR_MANAGER_VST__
+#pragma once
 
 #include <map>
 #include "CtrlrModulator/CtrlrModulator.h"
@@ -30,5 +29,3 @@ class CtrlrManagerVst
 		CtrlrManager &owner;
 		CtrlrVstMap map;
 };
-
-#endif

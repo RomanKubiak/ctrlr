@@ -1,5 +1,4 @@
-#ifndef CTRLR_EVALUATION_SCOPES
-#define CTRLR_EVALUATION_SCOPES
+#pragma once
 
 #include "CtrlrMacros.h"
 
@@ -26,5 +25,3 @@ class CtrlrGlobalEvaluationScope : public Expression::Scope
 	private:
 		CtrlrPanel &owner;
 };
-
-#endif

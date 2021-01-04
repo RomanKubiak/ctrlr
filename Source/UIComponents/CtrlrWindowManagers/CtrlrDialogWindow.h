@@ -1,5 +1,4 @@
-#ifndef __CTRLR_DIALOG_WINDOW__
-#define __CTRLR_DIALOG_WINDOW__
+#pragma once
 
 #include "CtrlrMacros.h"
 
@@ -9,5 +8,3 @@ class CtrlrDialogWindow
 		
 		static const int showModalDialog (const String &title, Component *content, const bool resizable, Component *parent);
 };
-
-#endif

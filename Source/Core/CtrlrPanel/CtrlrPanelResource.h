@@ -1,5 +1,4 @@
-#ifndef __CTRLR_PANEL_RESOURCE__
-#define __CTRLR_PANEL_RESOURCE__
+#pragma once
 
 #include "CtrlrMacros.h"
 
@@ -63,4 +62,3 @@ class CtrlrPanelResource : public ValueTree::Listener
 		CtrlrPanelResourceType resourceType;
 		CtrlrPanelResourceManager &owner;
 };
-#endif

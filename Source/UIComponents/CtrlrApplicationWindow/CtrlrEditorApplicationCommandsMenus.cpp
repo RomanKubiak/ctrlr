@@ -363,15 +363,7 @@ const PopupMenu CtrlrEditor::getMidiDeviceMenu(const CtrlrMIDIDeviceType type)
 	{
 		if (currentDevName == devs[i])
 		{
-				if (owner.getCtrlrMidiDeviceManager().getDeviceByIndex(i, type))
-				{
-					if (owner.getCtrlrMidiDeviceManager().getDeviceByIndex(i, type)->getState() == false)
-						deviceStateIcon = IMAGE(sad_svg);
-					else
-						deviceStateIcon = IMAGE(happy_svg);
-				}
-
-				m.addItem (offset + 2 + i, devs[i], true, true, deviceStateIcon);
+		    m.addItem (offset + 2 + i, devs[i], true, owner.getCtrlrMidiDeviceManager().getDeviceByIndex(i, type)->getState());
         }
 		else
 		{

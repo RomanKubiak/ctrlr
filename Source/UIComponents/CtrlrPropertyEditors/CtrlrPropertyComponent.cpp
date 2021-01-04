@@ -394,7 +394,7 @@ CtrlrColourEditorComponent::CtrlrColourEditorComponent(ChangeListener *defaultLi
 void CtrlrColourEditorComponent::updateLabel()
 {
 	colourTextInput.setColour (Label::backgroundColourId, getColour());
-	colourTextInput.setColour (Label::textColourId, getColour().contrasting());
+	colourTextInput.setColour (Label::textColourId, getColour().contrasting().darker(0.25f));
 	colourTextInput.setText (getColour().toDisplayString (true), dontSendNotification);
 }
 

@@ -1,5 +1,4 @@
-#ifndef __CTRLR_PANEL_UNDO_MANAGER__
-#define __CTRLR_PANEL_UNDO_MANAGER__
+#pragma once
 
 #include "CtrlrMacros.h"
 
@@ -21,5 +20,3 @@ class CtrlrPanelUndoManager : public UndoManager, ChangeListener
 		CtrlrPanel &owner;
 		bool transactionPending,isUndoing,isRedoing,isClearingHistory;
 };
-
-#endif

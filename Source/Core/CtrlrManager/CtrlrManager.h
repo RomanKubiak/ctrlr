@@ -1,5 +1,4 @@
-#ifndef __CTRLR_MANAGER__
-#define __CTRLR_MANAGER__
+#pragma once
 
 #include "CtrlrModulator/CtrlrModulator.h"
 #include "Native/CtrlrNative.h"
@@ -337,5 +336,3 @@ class CtrlrManager :    public ValueTree::Listener,
 		CtrlrModulator *invalidModulator;
 		WeakReference <CtrlrLuaMethod> luaCtrlrSaveState, luaCtrlrRestoreState;
 };
-
-#endif

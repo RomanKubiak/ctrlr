@@ -280,7 +280,6 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/CtrlrMethodEditorTabCloseButton_77eee52b.o \
   $(JUCE_OBJDIR)/CtrlrLuaConsole_ed40c4ae.o \
   $(JUCE_OBJDIR)/CtrlrMIDIBuffer_96c85485.o \
-  $(JUCE_OBJDIR)/CtrlrMIDIBufferEditor_aeeb3792.o \
   $(JUCE_OBJDIR)/CtrlrMIDICalculator_478db247.o \
   $(JUCE_OBJDIR)/CtrlrMIDIMon_9099a031.o \
   $(JUCE_OBJDIR)/CtrlrMIDISettingsDevices_266f355f.o \
@@ -1186,11 +1185,6 @@ $(JUCE_OBJDIR)/CtrlrLuaConsole_ed40c4ae.o: ../../Source/UIComponents/CtrlrLua/Ct
 $(JUCE_OBJDIR)/CtrlrMIDIBuffer_96c85485.o: ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrMIDIBuffer.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/CtrlrMIDIBufferEditor_aeeb3792.o: ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBufferEditor.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling CtrlrMIDIBufferEditor.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/CtrlrMIDICalculator_478db247.o: ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDICalculator.cpp

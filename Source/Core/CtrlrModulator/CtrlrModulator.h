@@ -1,5 +1,4 @@
-#ifndef __CTRLR_MODULATOR__
-#define __CTRLR_MODULATOR__
+#pragma once
 
 #include "CtrlrMacros.h"
 #include "CtrlrModulatorProcessor.h"
@@ -207,5 +206,3 @@ class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener
 		ListenerList <ModulatorListener> modulatorListeners;
 		bool vstExported;
 };
-
-#endif

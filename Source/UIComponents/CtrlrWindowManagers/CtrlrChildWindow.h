@@ -1,5 +1,4 @@
-#ifndef CTRLR_CHILD_WINDOW_H
-#define CTRLR_CHILD_WINDOW_H
+#pragma once
 
 #include "JuceHeader.h"
 #include "CtrlrChildWindowContainer.h"
@@ -43,6 +42,3 @@ class CtrlrChildWindow  : public DocumentWindow, public KeyListener
 		CtrlrWindowManager &owner;
 		TooltipWindow window;
 };
-
-
-#endif

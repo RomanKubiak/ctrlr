@@ -1,5 +1,4 @@
-#ifndef CTRLR_PANEL_PROCESSOR
-#define CTRLR_PANEL_PROCESSOR
+#pragma once
 
 #include "CtrlrMacros.h"
 #include "Methods/CtrlrLuaMethod.h"
@@ -28,5 +27,3 @@ class CtrlrPanelProcessor : public AsyncUpdater, public CtrlrPanelMidiProcessor
 		MidiBuffer junkBuffer;
 		WeakReference <CtrlrLuaMethod> luaAudioProcessBlockCbk;
 };
-
-#endif

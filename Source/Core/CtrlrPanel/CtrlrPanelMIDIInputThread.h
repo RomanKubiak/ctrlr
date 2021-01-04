@@ -1,5 +1,4 @@
-#ifndef __CTRLR_PANEL_MIDI_INPUT_THREAD__
-#define __CTRLR_PANEL_MIDI_INPUT_THREAD__
+#pragma once
 
 #include "CtrlrMacros.h"
 #include "CtrlrMIDIDevice.h"
@@ -36,5 +35,3 @@ class CtrlrPanelMIDIInputThread : public Thread, public CtrlrMIDIDevice::Listene
 		CtrlrMIDIDeviceType source;
 		ScopedPointer <CtrlrMidiInputComparator> inputComparator;
 };
-
-#endif

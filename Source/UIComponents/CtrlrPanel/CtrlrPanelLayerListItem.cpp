@@ -69,6 +69,8 @@ CtrlrPanelLayerListItem::~CtrlrPanelLayerListItem()
 void CtrlrPanelLayerListItem::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
+    g.setColour(Colours::black);
+    g.drawLine(0, getHeight(), getWidth(), getHeight(), 1.0f);
     //[/UserPrePaint]
 
     //[UserPaint] Add your own custom painting code here..
@@ -154,6 +156,7 @@ void CtrlrPanelLayerListItem::changeListenerCallback (ChangeBroadcaster* source)
 	if (layer)
 	{
 		layer->setProperty (Ids::uiPanelCanvasLayerColour, layerColour->getColour().toString());
+        layerColour->updateLabel();
 	}
 }
 

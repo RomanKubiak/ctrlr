@@ -1,5 +1,4 @@
-#ifndef CTRLR_PANEL_MIDI_SNAPSHOT
-#define CTRLR_PANEL_MIDI_SNAPSHOT
+#pragma once
 
 #include "CtrlrMacros.h"
 class CtrlrPanel;
@@ -33,5 +32,3 @@ class CtrlrPanelMIDISnapshot : public AsyncUpdater, public Thread, public Timer
 		int snapshotDelay;
 		WeakReference <CtrlrLuaMethod> luaPanelMidiSnapshotPostCbk, luaPanelMidiSnapshotPreCbk;
 };
-
-#endif
