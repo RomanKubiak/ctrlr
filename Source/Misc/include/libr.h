@@ -27,7 +27,6 @@
  */
 
 #include <sys/types.h>
-#include <bfd.h>
 
 #define ENABLE_NLS 1
 #define HAVE_BFD_2_34 1
@@ -121,6 +120,8 @@
 
 #define DEPRECATED_FN           __attribute__ ((deprecated))
 #define ALIAS_FN(fn)            __attribute__ ((weak, alias (#fn)))
+
+#include <bfd.h>
 
 /**
  * @addtogroup libr_status libr_status
