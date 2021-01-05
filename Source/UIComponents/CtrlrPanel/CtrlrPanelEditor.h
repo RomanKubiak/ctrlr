@@ -1,5 +1,5 @@
-#ifndef __CTRLR_PANEL_EDITOR__
-#define __CTRLR_PANEL_EDITOR__
+#pragma once
+
 #ifdef _WIN32
 #pragma warning(disable:4355)
 #endif // _WIN32
@@ -12,32 +12,13 @@
 #include "CtrlrPanelProperties.h"
 #include "CtrlrPanelViewport.h"
 #include "CtrlrPanel/CtrlrPanelUndoManager.h"
+#include "CtrlrPanelFindProperty.h"
 
 class CtrlrPanelEditor;
 
-class CtrlrPanelNotifier : public Component
-{
-	public:
-		CtrlrPanelNotifier(CtrlrPanelEditor &_owner);
-		~CtrlrPanelNotifier() {}
-		void paint (Graphics &g);
-		void resized();
-		void setNotification (const String &notification, const CtrlrNotificationType ctrlrNotificationType);
-		Colour getBackgroundColourForNotification(const CtrlrNotificationType ctrlrNotificationType);
-		void mouseDown (const MouseEvent &e);
-
-		JUCE_LEAK_DETECTOR(CtrlrPanelNotifier)
-
-	private:
-		Colour background;
-		ScopedPointer <Label> text;
-		CtrlrPanelEditor &owner;
-};
-
 class CtrlrPanelEditor  :	public Component,
 							public ValueTree::Listener,
-							public CtrlrLuaObject,
-							public ChangeListener
+							public CtrlrLuaObject
 {
 	public:
 		CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrManager, const String &panelName);
@@ -53,6 +34,7 @@ class CtrlrPanelEditor  :	public Component,
 		CtrlrPanelCanvas *getCanvas();
         CtrlrComponentSelection *getSelection();
 		void editModeChanged();
+		CtrlrPanelProperties *getPanelProperties() { return (ctrlrPanelProperties); }
 		CtrlrPanelViewport *getPanelViewport()															{ return (ctrlrPanelViewport); }
 		CtrlrComponent *getSelected(const Identifier &uiType);
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
@@ -77,9 +59,6 @@ class CtrlrPanelEditor  :	public Component,
 		void initSingleInstance();
 		void resized();
 		void visibilityChanged();
-		void notify(const String &notification, CtrlrNotificationCallback *callback, const CtrlrNotificationType ctrlrNotificationType = NotifyInformation);
-		void notificationClicked(const MouseEvent e);
-		void changeListenerCallback (ChangeBroadcaster *source);
 		void setAllCombosDisabled();
 		void setAllCombosEnabled();
 		void saveLayout();
@@ -93,7 +72,6 @@ class CtrlrPanelEditor  :	public Component,
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrPanelEditor)
 
 	private:
-		ScopedPointer <CtrlrPanelNotifier> ctrlrPanelNotifier;
 		ComponentAnimator componentAnimator;
 		CtrlrPanel &owner;
 		ScopedPointer <CtrlrComponentSelection> ctrlrComponentSelection;
@@ -111,6 +89,3 @@ class CtrlrPanelEditor  :	public Component,
 		Component* editorComponents[2];
 		std::unique_ptr<LookAndFeel> lookAndFeel;
 };
-
-
-#endif

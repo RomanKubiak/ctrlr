@@ -10,94 +10,37 @@
 #include "CtrlrComponents/CtrlrCombo.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"
 
-CtrlrPanelNotifier::CtrlrPanelNotifier(CtrlrPanelEditor &_owner)
-	: owner(_owner), background(Colours::lightgrey)
+CtrlrPanelEditor::CtrlrPanelEditor(CtrlrPanel &_owner, CtrlrManager &_ctrlrManager, const String &panelName)
+		: Component(L"Ctrlr Panel Editor"),
+		  lastEditMode(true),
+		  ctrlrManager(_ctrlrManager),
+		  owner(_owner),
+		  panelEditorTree(Ids::uiPanelEditor),
+		  ctrlrComponentSelection(nullptr),
+		  ctrlrPanelProperties(nullptr),
+		  spacerComponent(nullptr)
 {
-	addAndMakeVisible (text = new Label());
-	text->addMouseListener (this,true);
-	text->setColour (Label::backgroundColourId, Colours::transparentBlack);
-	text->setColour (Label::textColourId, Colours::white.withAlpha (0.85f));
-	text->setFont (Font (12.0f, Font::bold));
-}
+	ctrlrComponentSelection = new CtrlrComponentSelection(*this);
 
-void CtrlrPanelNotifier::paint (Graphics &g)
-{
-	gui::drawSelectionRectangle (g, getWidth(), getHeight(), background);
-}
+	removeColour(TooltipWindow::textColourId);
 
-void CtrlrPanelNotifier::resized()
-{
-	text->setBounds (16,0,getWidth()-32,getHeight());
-}
+	addAndMakeVisible(ctrlrPanelViewport = new CtrlrPanelViewport(*this));
+	addAndMakeVisible(ctrlrPanelProperties = new CtrlrPanelProperties(*this));
+	addAndMakeVisible(spacerComponent = new StretchableLayoutResizerBar(&layoutManager, 1, true));
 
-void CtrlrPanelNotifier::setNotification (const String &notification, const CtrlrNotificationType ctrlrNotificationType)
-{
-	background = getBackgroundColourForNotification(ctrlrNotificationType);
-	text->setText (notification, dontSendNotification);
-}
+	spacerComponent->setName(L"spacerComponent");
 
-void CtrlrPanelNotifier::mouseDown (const MouseEvent &e)
-{
-	owner.notificationClicked(e);
-}
+	getPanelEditorTree().addListener(this);
 
-Colour CtrlrPanelNotifier::getBackgroundColourForNotification(const CtrlrNotificationType ctrlrNotificationType)
-{
-	switch (ctrlrNotificationType)
-	{
-		case NotifySuccess:
-			return (Colours::green.brighter(0.2f));
-		case NotifyFailure:
-			return (Colours::red.brighter(0.2f));
-		case NotifyWarning:
-			return (Colours::yellow.darker(0.5f));
-		case NotifyInformation:
-			return (Colours::grey);
-	}
+	layoutManager.setItemLayout(0, -0.001, -1.0, -0.8);
+	layoutManager.setItemLayout(1, 8, 8, 8);
+	layoutManager.setItemLayout(2, -0.001, -1.0, -0.2);
 
-	return (Colours::lightgrey);
-}
+	editorComponentsInEditMode[0] = ctrlrPanelViewport;
+	editorComponentsInEditMode[1] = spacerComponent;
+	editorComponentsInEditMode[2] = ctrlrPanelProperties;
 
-/**
- */
-
-CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrManager, const String &panelName)
-    : Component (L"Ctrlr Panel Editor"),
-      lastEditMode(true),
-	  ctrlrManager(_ctrlrManager),
-	  owner(_owner),
-	  panelEditorTree(Ids::uiPanelEditor),
-	  ctrlrComponentSelection(nullptr),
-      ctrlrPanelProperties (nullptr),
-      spacerComponent (nullptr),
-	  ctrlrPanelNotifier(nullptr)
-{
-	ctrlrComponentSelection = new CtrlrComponentSelection (*this);
-
-	removeColour (TooltipWindow::textColourId);
-
-	addAndMakeVisible (ctrlrPanelViewport = new CtrlrPanelViewport (*this));
-    addAndMakeVisible (ctrlrPanelProperties = new CtrlrPanelProperties (*this));
-    addAndMakeVisible (spacerComponent = new StretchableLayoutResizerBar (&layoutManager, 1, true));
-	addAndMakeVisible (ctrlrPanelNotifier = new CtrlrPanelNotifier(*this));
-
-	ctrlrPanelNotifier->setAlwaysOnTop (true);
-	ctrlrPanelNotifier->setVisible (false);
-	componentAnimator.addChangeListener (this);
-
-    spacerComponent->setName (L"spacerComponent");
-
- 	getPanelEditorTree().addListener (this);
-
- 	layoutManager.setItemLayout (0, -0.001, -1.0, -0.8);
- 	layoutManager.setItemLayout (1, 8, 8, 8);
- 	layoutManager.setItemLayout (2, -0.001, -1.0, -0.2);
-
-	editorComponentsInEditMode[0]	= ctrlrPanelViewport;
-	editorComponentsInEditMode[1]	= spacerComponent;
-	editorComponentsInEditMode[2]	= ctrlrPanelProperties;
-
-	editorComponents[0]				= ctrlrPanelViewport;
+	editorComponents[0] = ctrlrPanelViewport;
 
 	setProperty(Ids::uiPanelSnapSize, 8);
 	setProperty(Ids::uiPanelBackgroundColour, "0xffffffff");
@@ -105,7 +48,7 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	setProperty(Ids::uiPanelBackgroundColour2, "0xffffffff");
 	setProperty(Ids::uiPanelBackgroundGradientType, 1);
 	setProperty(Ids::uiPanelImageResource, COMBO_ITEM_NONE);
- 	setProperty(Ids::uiPanelEditMode, true);
+	setProperty(Ids::uiPanelEditMode, true);
 	setProperty(Ids::uiPanelLock, false);
 	setProperty(Ids::uiPanelDisabledOnEdit, false);
 	setProperty(Ids::uiPanelMenuBarVisible, true);
@@ -115,8 +58,8 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	setProperty(Ids::uiPanelMidiThruMenuHideOnExport, false);
 	setProperty(Ids::uiPanelMidiChannelMenuHideOnExport, false);
 	setProperty(Ids::uiPanelWidth, 400);
- 	setProperty(Ids::uiPanelHeight, 400);
- 	setProperty(Ids::name, panelName);
+	setProperty(Ids::uiPanelHeight, 400);
+	setProperty(Ids::name, panelName);
 	setProperty(Ids::uiPanelImageAlpha, 255);
 	setProperty(Ids::uiPanelImageLayout, 64);
 	setProperty(Ids::uiPanelSnapActive, true);
@@ -138,24 +81,23 @@ CtrlrPanelEditor::CtrlrPanelEditor (CtrlrPanel &_owner, CtrlrManager &_ctrlrMana
 	setProperty(Ids::uiPanelColourScheme, "Light");
 	setProperty(Ids::uiPanelZoom, 1.0);
 
- 	ctrlrComponentSelection->addChangeListener (ctrlrPanelProperties);
+	ctrlrComponentSelection->addChangeListener(ctrlrPanelProperties);
 
-    setSize (600, 400);
+	setSize(600, 400);
 
 	ctrlrComponentSelection->sendChangeMessage();
 }
 
 CtrlrPanelEditor::~CtrlrPanelEditor()
 {
-	componentAnimator.removeChangeListener (this);
-	getPanelEditorTree().removeListener (this);
-	owner.getPanelTree().removeListener (this);
-	owner.getPanelTree().removeChild (getPanelEditorTree(), 0);
-	ctrlrComponentSelection->removeChangeListener (ctrlrPanelProperties);
+	getPanelEditorTree().removeListener(this);
+	owner.getPanelTree().removeListener(this);
+	owner.getPanelTree().removeChild(getPanelEditorTree(), 0);
+	ctrlrComponentSelection->removeChangeListener(ctrlrPanelProperties);
 	masterReference.clear();
-    deleteAndZero (ctrlrPanelProperties);
-    deleteAndZero (spacerComponent);
-    deleteAndZero (ctrlrPanelViewport);
+	deleteAndZero(ctrlrPanelProperties);
+	deleteAndZero(spacerComponent);
+	deleteAndZero(ctrlrPanelViewport);
 }
 
 void CtrlrPanelEditor::visibilityChanged()
@@ -164,14 +106,9 @@ void CtrlrPanelEditor::visibilityChanged()
 
 void CtrlrPanelEditor::resized()
 {
-    ctrlrPanelViewport->setBounds 	(0, 				0, 	getWidth() - 308, 	getHeight());
-    ctrlrPanelProperties->setBounds (getWidth() - 300, 	0, 	300, 				getHeight());
-    spacerComponent->setBounds 		(getWidth(), 		0, 	8, 					getHeight());
-
-	if (ctrlrPanelNotifier)
-	{
-		ctrlrPanelNotifier->setBounds (16, getHeight() - 28, getWidth() - 32, 20);
-	}
+	ctrlrPanelViewport->setBounds(0, 0, getWidth() - 308, getHeight());
+	ctrlrPanelProperties->setBounds(getWidth() - 300, 32, 300, getHeight() - 32);
+	spacerComponent->setBounds(getWidth(), 32, 8, getHeight() - 32);
 
 	layoutItems();
 
@@ -183,7 +120,7 @@ void CtrlrPanelEditor::resized()
 
 CtrlrComponentSelection *CtrlrPanelEditor::getSelection()
 {
-    return (ctrlrComponentSelection);
+	return (ctrlrComponentSelection);
 }
 
 void CtrlrPanelEditor::layoutItems()
@@ -192,25 +129,25 @@ void CtrlrPanelEditor::layoutItems()
 	{
 		if (getProperty(Ids::uiPanelPropertiesOnRight))
 		{
-			Component* comps[] = { ctrlrPanelProperties, spacerComponent, ctrlrPanelViewport  };
-			layoutManager.layOutComponents (comps, 3, 0, 0, getWidth(), getHeight(), false, true);
+			Component *comps[] = {ctrlrPanelProperties, spacerComponent, ctrlrPanelViewport};
+			layoutManager.layOutComponents(comps, 3, 0, 0, getWidth(), getHeight(), false, true);
 		}
 		else
 		{
-			Component* comps[] = { ctrlrPanelViewport, spacerComponent, ctrlrPanelProperties  };
-			layoutManager.layOutComponents (comps, 3, 0, 0, getWidth(), getHeight(), false, true);
+			Component *comps[] = {ctrlrPanelViewport, spacerComponent, ctrlrPanelProperties};
+			layoutManager.layOutComponents(comps, 3, 0, 0, getWidth(), getHeight(), false, true);
 		}
 	}
 	else
 	{
-		layoutManager.layOutComponents (editorComponents, 1, 0, 0, getWidth(), getHeight(), false, true);
+		layoutManager.layOutComponents(editorComponents, 1, 0, 0, getWidth(), getHeight(), false, true);
 	}
 }
 
 void CtrlrPanelEditor::saveLayout()
 {
-	setProperty (Ids::uiPanelViewPortSize, layoutManager.getItemCurrentAbsoluteSize(0));
-	setProperty (Ids::uiPanelPropertiesSize, layoutManager.getItemCurrentAbsoluteSize(2));
+	setProperty(Ids::uiPanelViewPortSize, layoutManager.getItemCurrentAbsoluteSize(0));
+	setProperty(Ids::uiPanelPropertiesSize, layoutManager.getItemCurrentAbsoluteSize(2));
 }
 
 CtrlrPanelCanvas *CtrlrPanelEditor::getCanvas()
@@ -230,24 +167,24 @@ void CtrlrPanelEditor::editModeChanged()
 
 	if (editMode)
 	{
-		layoutManager.setItemLayout (0, -0.001, -1.0, getProperty(Ids::uiPanelViewPortSize, -0.8));
-		layoutManager.setItemLayout (2, -0.001, -1.0, getProperty(Ids::uiPanelPropertiesSize, -0.2));
-		spacerComponent->setVisible (true);
-		ctrlrPanelProperties->setVisible (true);
+		layoutManager.setItemLayout(0, -0.001, -1.0, getProperty(Ids::uiPanelViewPortSize, -0.8));
+		layoutManager.setItemLayout(2, -0.001, -1.0, getProperty(Ids::uiPanelPropertiesSize, -0.2));
+		spacerComponent->setVisible(true);
+		ctrlrPanelProperties->setVisible(true);
 		getCanvas()->getResizableBorder()->setVisible(true);
 
-		if ((bool)getProperty (Ids::uiPanelDisableCombosOnEdit))
+		if ((bool) getProperty(Ids::uiPanelDisableCombosOnEdit))
 			setAllCombosDisabled();
 	}
 	else
 	{
-        if (getSelection())
+		if (getSelection())
 			getSelection()->deselectAll();
-		spacerComponent->setVisible (false);
-		ctrlrPanelProperties->setVisible (false);
+		spacerComponent->setVisible(false);
+		ctrlrPanelProperties->setVisible(false);
 		getCanvas()->getResizableBorder()->setVisible(false);
 
-		if ((bool)getProperty (Ids::uiPanelDisableCombosOnEdit))
+		if ((bool) getProperty(Ids::uiPanelDisableCombosOnEdit))
 			setAllCombosEnabled();
 	}
 
@@ -256,46 +193,46 @@ void CtrlrPanelEditor::editModeChanged()
 
 void CtrlrPanelEditor::setAllCombosDisabled()
 {
-	OwnedArray <CtrlrModulator, CriticalSection> &mods = owner.getModulators();
-	for (int i=0; i<mods.size(); i++)
+	OwnedArray<CtrlrModulator, CriticalSection> &mods = owner.getModulators();
+	for (int i = 0; i < mods.size(); i++)
 	{
-		CtrlrCombo *cc = dynamic_cast<CtrlrCombo*>(mods[i]->getComponent());
+		CtrlrCombo *cc = dynamic_cast<CtrlrCombo *>(mods[i]->getComponent());
 		if (cc != nullptr)
 		{
-			cc->setEnabled (false);
+			cc->setEnabled(false);
 		}
 	}
 }
 
 void CtrlrPanelEditor::setAllCombosEnabled()
 {
-	OwnedArray <CtrlrModulator, CriticalSection> &mods = owner.getModulators();
-	for (int i=0; i<mods.size(); i++)
+	OwnedArray<CtrlrModulator, CriticalSection> &mods = owner.getModulators();
+	for (int i = 0; i < mods.size(); i++)
 	{
-		CtrlrCombo *cc = dynamic_cast<CtrlrCombo*>(mods[i]->getComponent());
+		CtrlrCombo *cc = dynamic_cast<CtrlrCombo *>(mods[i]->getComponent());
 		if (cc != nullptr)
 		{
-			cc->setEnabled (true);
+			cc->setEnabled(true);
 		}
 	}
 }
 
 void CtrlrPanelEditor::restoreState(const ValueTree &savedState)
 {
-	setVisible (false);
+	setVisible(false);
 
 	setRestoreState(true);
 
-	restoreProperties (savedState.getChildWithName(Ids::uiPanelEditor), panelEditorTree, 0);
-	getCanvas()->restoreState (savedState);
+	restoreProperties(savedState.getChildWithName(Ids::uiPanelEditor), panelEditorTree, 0);
+	getCanvas()->restoreState(savedState);
 
-    if (getSelection())
-    {
-        getSelection()->sendChangeMessage();
-    }
+	if (getSelection())
+	{
+		getSelection()->sendChangeMessage();
+	}
 
 	if (owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingle
-		|| owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingleRestriced)
+	    || owner.getCtrlrManagerOwner().getInstanceMode() == InstanceSingleRestriced)
 	{
 		initSingleInstance();
 	}
@@ -303,13 +240,13 @@ void CtrlrPanelEditor::restoreState(const ValueTree &savedState)
 	editModeChanged();
 	setRestoreState(false);
 
-	setVisible (true);
+	setVisible(true);
 }
 
 CtrlrComponent *CtrlrPanelEditor::getSelected(const Identifier &type)
 {
-    if (getSelection() == nullptr)
-        return (nullptr);
+	if (getSelection() == nullptr)
+		return (nullptr);
 
 	if (getSelection()->getNumSelected() == 1)
 	{
@@ -322,7 +259,7 @@ CtrlrComponent *CtrlrPanelEditor::getSelected(const Identifier &type)
 	return (0);
 }
 
-void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
+void CtrlrPanelEditor::valueTreePropertyChanged(ValueTree &treeWhosePropertyHasChanged, const Identifier &property)
 {
 	if (treeWhosePropertyHasChanged.hasType(Ids::uiPanelEditor))
 	{
@@ -350,7 +287,7 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		}
 		else if (property == Ids::uiPanelDisableCombosOnEdit)
 		{
-			if ((bool)getProperty(property) && getMode())
+			if ((bool) getProperty(property) && getMode())
 			{
 				setAllCombosDisabled();
 			}
@@ -361,7 +298,8 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		}
 		else if (property == Ids::uiPanelZoom)
 		{
-			getPanelViewport()->setZoom (getProperty(property), getCanvas()->getBounds().getCentre().getX(), getCanvas()->getBounds().getCentre().getY());
+			getPanelViewport()->setZoom(getProperty(property), getCanvas()->getBounds().getCentre().getX(),
+			                            getCanvas()->getBounds().getCentre().getY());
 		}
 		else if (property == Ids::uiPanelMenuBarVisible)
 		{
@@ -378,24 +316,24 @@ void CtrlrPanelEditor::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 				delete lookAndFeel.release();
 			}
 			lookAndFeel.reset(getLookAndFeelFromDescription(getProperty(property)));
-			getCanvas()->setLookAndFeel (lookAndFeel.get());
+			getCanvas()->setLookAndFeel(lookAndFeel.get());
 		}
 		else if (property == Ids::uiPanelBackgroundGradientType
-					|| property == Ids::uiPanelBackgroundColour1
-					|| property == Ids::uiPanelBackgroundColour2
-					|| property == Ids::uiPanelBackgroundColour
-					)
+		         || property == Ids::uiPanelBackgroundColour1
+		         || property == Ids::uiPanelBackgroundColour2
+		         || property == Ids::uiPanelBackgroundColour
+				)
 		{
 			repaint();
 		}
 		else if (property == Ids::uiPanelLookAndFeel)
-        {
-		    setLookAndFeel(getLookAndFeelFromDescription(getProperty(Ids::uiPanelLookAndFeel)));
-        }
+		{
+			setLookAndFeel(getLookAndFeelFromDescription(getProperty(Ids::uiPanelLookAndFeel)));
+		}
 	}
 }
 
-LookAndFeel* CtrlrPanelEditor::getLookAndFeelFromDescription(const String &lookAndFeelDesc)
+LookAndFeel *CtrlrPanelEditor::getLookAndFeelFromDescription(const String &lookAndFeelDesc)
 {
 	if (lookAndFeelDesc == "V1")
 		return new LookAndFeel_V1();
@@ -409,113 +347,56 @@ LookAndFeel* CtrlrPanelEditor::getLookAndFeelFromDescription(const String &lookA
 	return (nullptr);
 }
 
-const var &CtrlrPanelEditor::getProperty (const Identifier& name) const
+const var &CtrlrPanelEditor::getProperty(const Identifier &name) const
 {
-	return (panelEditorTree.getProperty (name));
+	return (panelEditorTree.getProperty(name));
 }
 
-const var CtrlrPanelEditor::getProperty (const Identifier& name, const var &defaultReturnValue) const
+const var CtrlrPanelEditor::getProperty(const Identifier &name, const var &defaultReturnValue) const
 {
-	return (panelEditorTree.getProperty (name, defaultReturnValue));
+	return (panelEditorTree.getProperty(name, defaultReturnValue));
 }
 
-void CtrlrPanelEditor::setProperty (const Identifier& name, const var &newValue, const bool isUndoable)
+void CtrlrPanelEditor::setProperty(const Identifier &name, const var &newValue, const bool isUndoable)
 {
-	panelEditorTree.setProperty (name, newValue, 0);
+	panelEditorTree.setProperty(name, newValue, 0);
 }
 
 const bool CtrlrPanelEditor::getMode()
 {
-	return (getProperty (Ids::uiPanelEditMode));
+	return (getProperty(Ids::uiPanelEditMode));
 }
 
 AffineTransform CtrlrPanelEditor::moveSelectionToPosition(const int newX, const int newY)
 {
-    if (getSelection() == nullptr)
-        return (AffineTransform::identity);
+	if (getSelection() == nullptr)
+		return (AffineTransform::identity);
 
-	RectangleList <int>rectangleList;
+	RectangleList<int> rectangleList;
 
-	for (int i=0; i<getSelection()->getNumSelected(); i++)
+	for (int i = 0; i < getSelection()->getNumSelected(); i++)
 	{
 		CtrlrComponent *c = getSelection()->getSelectedItem(i);
-		rectangleList.add (c->getBounds());
+		rectangleList.add(c->getBounds());
 	}
 
 	RectanglePlacement rp(RectanglePlacement::xLeft);
-	return (rp.getTransformToFit (rectangleList.getBounds().toFloat(), rectangleList.getBounds().withPosition(newX, newY).toFloat()));
+	return (rp.getTransformToFit(rectangleList.getBounds().toFloat(),
+	                             rectangleList.getBounds().withPosition(newX, newY).toFloat()));
 }
 
 void CtrlrPanelEditor::initSingleInstance()
 {
-	owner.setProperty (Ids::uiPanelEditMode, false);
+	owner.setProperty(Ids::uiPanelEditMode, false);
 }
 
-void CtrlrPanelEditor::notify(const String &notification, CtrlrNotificationCallback *callback, const CtrlrNotificationType ctrlrNotificationType)
+void CtrlrPanelEditor::reloadResources(Array<CtrlrPanelResource *> resourcesThatChanged)
 {
-	if (ctrlrPanelNotifier)
+	for (int i = 0; i < owner.getNumModulators(); i++)
 	{
-		if ((int)owner.getProperty(Ids::panelMessageTime) <= 0)
-			return;
-
-		notificationCallback = callback;
-
-		componentAnimator.cancelAllAnimations (true);
-		ctrlrPanelNotifier->setVisible (true);
-		if (notificationCallback != nullptr)
+		if (owner.getModulatorByIndex(i)->getComponent())
 		{
-			ctrlrPanelNotifier->setMouseCursor (MouseCursor::PointingHandCursor);
-		}
-		else
-		{
-			ctrlrPanelNotifier->setMouseCursor (MouseCursor::NormalCursor);
-		}
-		ctrlrPanelNotifier->setBounds (16, getHeight() - 28, getWidth() - 32, 20);
-		ctrlrPanelNotifier->setAlpha (1.0f);
-
-		ctrlrPanelNotifier->setNotification (notification, ctrlrNotificationType);
-
-		componentAnimator.animateComponent (ctrlrPanelNotifier, ctrlrPanelNotifier->getBounds(), 0.0f, owner.getProperty(Ids::panelMessageTime), false, 1.0, 1.0);
-	}
-}
-
-void CtrlrPanelEditor::notificationClicked(const MouseEvent e)
-{
-	componentAnimator.cancelAllAnimations (true);
-
-	if (!notificationCallback.wasObjectDeleted() && notificationCallback)
-	{
-		notificationCallback->notificationClicked(e);
-	}
-}
-
-void CtrlrPanelEditor::changeListenerCallback (ChangeBroadcaster *source)
-{
-	if (source == &componentAnimator)
-	{
-		if (!componentAnimator.isAnimating())
-		{
-			ctrlrPanelNotifier->setVisible (false);
-		}
-	}
-}
-
-void CtrlrPanelEditor::reloadResources (Array <CtrlrPanelResource*> resourcesThatChanged)
-{
-	if (resourcesThatChanged.size() > 1)
-	{
-		notify("Reloaded ["+STR(resourcesThatChanged.size())+"] resources", nullptr);
-	}
-	else if (resourcesThatChanged.size() == 1)
-	{
-		notify("Reloaded resource: "+resourcesThatChanged[0]->getName()+" from file: "+resourcesThatChanged[0]->getSourceFile().getFullPathName(), nullptr);
-	}
-
-	for (int i=0; i<owner.getNumModulators(); i++)
-	{
-		if (owner.getModulatorByIndex (i)->getComponent())
-		{
-			owner.getModulatorByIndex (i)->getComponent()->reloadResources(resourcesThatChanged);
+			owner.getModulatorByIndex(i)->getComponent()->reloadResources(resourcesThatChanged);
 		}
 	}
 
@@ -524,5 +405,4 @@ void CtrlrPanelEditor::reloadResources (Array <CtrlrPanelResource*> resourcesTha
 
 void CtrlrPanelEditor::searchForProperty()
 {
-
 }

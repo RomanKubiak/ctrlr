@@ -659,6 +659,8 @@
           <FILE id="ZOzalU" name="radio_checked.svg" compile="0" resource="1"
                 file="Source/Resources/Icons/radio_checked.svg"/>
           <FILE id="Bzu0K5" name="receive.svg" compile="0" resource="1" file="Source/Resources/Icons/receive.svg"/>
+          <FILE id="EVBBxM" name="search.svg" compile="0" resource="1" file="Source/Resources/Icons/search.svg"/>
+          <FILE id="dai4Dv" name="search_off.svg" compile="0" resource="1" file="Source/Resources/Icons/search_off.svg"/>
           <FILE id="ky2beP" name="send.svg" compile="0" resource="1" file="Source/Resources/Icons/send.svg"/>
           <FILE id="poxFCM" name="stop.svg" compile="0" resource="1" file="Source/Resources/Icons/stop.svg"/>
           <FILE id="la0zet" name="sync.svg" compile="0" resource="1" file="Source/Resources/Icons/sync.svg"/>
@@ -957,6 +959,10 @@
                 file="Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp"/>
           <FILE id="hv7qCr" name="CtrlrPanelEditor.h" compile="0" resource="0"
                 file="Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h"/>
+          <FILE id="iDNFSe" name="CtrlrPanelFindProperty.cpp" compile="1" resource="0"
+                file="Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.cpp"/>
+          <FILE id="DP5ROh" name="CtrlrPanelFindProperty.h" compile="0" resource="0"
+                file="Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h"/>
           <FILE id="yO9S8B" name="CtrlrPanelLayerList.cpp" compile="1" resource="0"
                 file="Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.cpp"/>
           <FILE id="rrzPPM" name="CtrlrPanelLayerList.h" compile="0" resource="0"

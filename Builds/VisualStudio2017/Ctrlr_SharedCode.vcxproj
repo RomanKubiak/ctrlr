@@ -435,6 +435,7 @@
     <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvasLayers.cpp"/>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelComponentProperties.cpp"/>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelEditor.cpp"/>
+    <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelFindProperty.cpp"/>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelLayerList.cpp"/>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelLayerListItem.cpp"/>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelModulatorList.cpp"/>
@@ -2462,6 +2463,7 @@
     <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelCanvasLayer.h"/>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelComponentProperties.h"/>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelEditor.h"/>
+    <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelFindProperty.h"/>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelLayerList.h"/>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelLayerListItem.h"/>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelModulatorList.h"/>
@@ -3205,6 +3207,8 @@
     <None Include="..\..\Source\Resources\Icons\radio.svg"/>
     <None Include="..\..\Source\Resources\Icons\radio_checked.svg"/>
     <None Include="..\..\Source\Resources\Icons\receive.svg"/>
+    <None Include="..\..\Source\Resources\Icons\search.svg"/>
+    <None Include="..\..\Source\Resources\Icons\search_off.svg"/>
     <None Include="..\..\Source\Resources\Icons\send.svg"/>
     <None Include="..\..\Source\Resources\Icons\stop.svg"/>
     <None Include="..\..\Source\Resources\Icons\sync.svg"/>

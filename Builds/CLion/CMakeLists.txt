@@ -583,6 +583,8 @@ add_library (SHARED_CODE STATIC
     "../../Source/Resources/Icons/radio.svg"
     "../../Source/Resources/Icons/radio_checked.svg"
     "../../Source/Resources/Icons/receive.svg"
+    "../../Source/Resources/Icons/search.svg"
+    "../../Source/Resources/Icons/search_off.svg"
     "../../Source/Resources/Icons/send.svg"
     "../../Source/Resources/Icons/stop.svg"
     "../../Source/Resources/Icons/sync.svg"
@@ -733,6 +735,8 @@ add_library (SHARED_CODE STATIC
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h"
+    "../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.cpp"
+    "../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.cpp"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.h"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp"
@@ -2365,6 +2369,8 @@ set_source_files_properties ("../../Source/Resources/Icons/play.svg" PROPERTIES 
 set_source_files_properties ("../../Source/Resources/Icons/radio.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/radio_checked.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/receive.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/search.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/search_off.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/send.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/stop.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/sync.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -2453,6 +2459,7 @@ set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelCan
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.h" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -5369,6 +5376,8 @@ add_library (SHARED_CODE STATIC
     "../../Source/Resources/Icons/radio.svg"
     "../../Source/Resources/Icons/radio_checked.svg"
     "../../Source/Resources/Icons/receive.svg"
+    "../../Source/Resources/Icons/search.svg"
+    "../../Source/Resources/Icons/search_off.svg"
     "../../Source/Resources/Icons/send.svg"
     "../../Source/Resources/Icons/stop.svg"
     "../../Source/Resources/Icons/sync.svg"
@@ -5519,6 +5528,8 @@ add_library (SHARED_CODE STATIC
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h"
+    "../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.cpp"
+    "../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.cpp"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.h"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp"
@@ -6856,6 +6867,27 @@ add_library (SHARED_CODE STATIC
     "../../JuceLibraryCode/JuceHeader.h"
     "../../JuceLibraryCode/JucePluginDefines.h"
 )
+target_precompile_headers(SHARED_CODE PUBLIC ../../Source/Core/stdafx.h ../../Source/Core/stdafx_luabind.h)
+set_source_files_properties(../../Source/Misc/keys.cpp PROPERTIES SKIP_PRECOMPILE_HEADERS TRUE)
+set_source_files_properties (
+        "../../Source/Misc/keys.cpp"
+        "../../JuceLibraryCode/BinaryData.cpp"
+        "../../JuceLibraryCode/BinaryData.h"
+        "../../JuceLibraryCode/include_juce_audio_basics.cpp"
+        "../../JuceLibraryCode/include_juce_audio_devices.cpp"
+        "../../JuceLibraryCode/include_juce_audio_formats.cpp"
+        "../../JuceLibraryCode/include_juce_audio_plugin_client_utils.cpp"
+        "../../JuceLibraryCode/include_juce_audio_processors.cpp"
+        "../../JuceLibraryCode/include_juce_audio_utils.cpp"
+        "../../JuceLibraryCode/include_juce_core.cpp"
+        "../../JuceLibraryCode/include_juce_data_structures.cpp"
+        "../../JuceLibraryCode/include_juce_events.cpp"
+        "../../JuceLibraryCode/include_juce_graphics.cpp"
+        "../../JuceLibraryCode/include_juce_gui_basics.cpp"
+        "../../JuceLibraryCode/include_juce_gui_extra.cpp"
+        "../../JuceLibraryCode/JuceHeader.h"
+        "../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp"
+        "../../JuceLibraryCode/JucePluginDefines.h" PROPERTIES SKIP_PRECOMPILE_HEADERS TRUE)
 
 set_source_files_properties ("../../Source/Misc/luabind/luabind/detail/call.hpp" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Misc/luabind/luabind/detail/call_function.hpp" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -7150,6 +7182,8 @@ set_source_files_properties ("../../Source/Resources/Icons/play.svg" PROPERTIES 
 set_source_files_properties ("../../Source/Resources/Icons/radio.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/radio_checked.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/receive.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/search.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/search_off.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/send.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/stop.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/sync.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -7238,6 +7272,7 @@ set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelCan
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.h" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -9448,6 +9483,8 @@ add_library (SHARED_CODE STATIC
     "../../Source/Resources/Icons/radio.svg"
     "../../Source/Resources/Icons/radio_checked.svg"
     "../../Source/Resources/Icons/receive.svg"
+    "../../Source/Resources/Icons/search.svg"
+    "../../Source/Resources/Icons/search_off.svg"
     "../../Source/Resources/Icons/send.svg"
     "../../Source/Resources/Icons/stop.svg"
     "../../Source/Resources/Icons/sync.svg"
@@ -9598,6 +9635,8 @@ add_library (SHARED_CODE STATIC
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h"
+    "../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.cpp"
+    "../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.cpp"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.h"
     "../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp"
@@ -11229,6 +11268,8 @@ set_source_files_properties ("../../Source/Resources/Icons/play.svg" PROPERTIES 
 set_source_files_properties ("../../Source/Resources/Icons/radio.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/radio_checked.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/receive.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/search.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/Resources/Icons/search_off.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/send.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/stop.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/Resources/Icons/sync.svg" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -11317,6 +11358,7 @@ set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelCan
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h" PROPERTIES HEADER_FILE_ONLY TRUE)
+set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerList.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.h" PROPERTIES HEADER_FILE_ONLY TRUE)

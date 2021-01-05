@@ -29,7 +29,8 @@ class CtrlrPropertyComponent  : public PropertyComponent
 		void resized();
 		void paint (Graphics &g);
 		void refresh();
-
+		const String getPropertyName();
+		const String getVisibleText();
 		const String getElementSubType();
 		const String getElementType();
 

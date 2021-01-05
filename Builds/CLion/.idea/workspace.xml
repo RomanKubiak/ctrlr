@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="Ctrlr" targetName="VST3" />
+      <config projectName="Ctrlr" targetName="STANDALONE_PLUGIN" />
+      <config projectName="Ctrlr" targetName="SHARED_CODE" />
+      <config projectName="Ctrlr" targetName="VST" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -10,66 +15,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef6bcf6a-c7cf-4e79-9a4b-d4338bc13197" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CodeBlocksLinux/Ctrlr.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../CodeBlocksLinux/Ctrlr.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LinuxMakefile/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../LinuxMakefile/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MacOSX/Ctrlr.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../MacOSX/Ctrlr.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_StandalonePlugin.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_StandalonePlugin.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_StandalonePlugin.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_StandalonePlugin.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST3.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST3.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST3.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST3.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/resources.rc" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/resources.rc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_SharedCode.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_SharedCode.vcxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_SharedCode.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_SharedCode.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_StandalonePlugin.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_StandalonePlugin.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_StandalonePlugin.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_StandalonePlugin.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_VST.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_VST.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_VST.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_VST.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_VST3.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_VST3.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_VST3.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_VST3.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2019/resources.rc" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/resources.rc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Ctrlr.jucer" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ctrlr.jucer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrIDs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrIDs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManagerVst.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManagerVst.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrModulator/CtrlrModulator.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrModulator/CtrlrModulator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrModulator/CtrlrModulatorProcessor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrEvaluationScopes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanel.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanel.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelMIDIInputThread.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelProcessor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelResource.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelResource.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelSchemeMigration.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelSchemeMigration.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelUndoManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrRevision.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrRevision.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Misc/include/keys.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Misc/include/keys.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Resources/XML/CtrlrIDs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Resources/XML/CtrlrIDs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrApplicationWindow/CtrlrDocumentPanel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrApplicationWindow/CtrlrDocumentPanel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsHandlers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsHandlers.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsMenus.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommandsMenus.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrMIDI/CtrlrMIDIBuffer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelLayerListItem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrIDManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrIDManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrInlineUtilitiesGUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrInlineUtilitiesGUI.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanel.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContent.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrDialogWindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrDialogWindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrManagerWindowManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrManagerWindowManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrWindowManagers/CtrlrPanelWindowManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +49,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
@@ -110,11 +81,27 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+  <component name="RunManager" selected="CMake Application.STANDALONE_PLUGIN">
+    <configuration name="SHARED_CODE" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Ctrlr" TARGET_NAME="SHARED_CODE" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="STANDALONE_PLUGIN" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Ctrlr" TARGET_NAME="STANDALONE_PLUGIN" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Ctrlr" RUN_TARGET_NAME="STANDALONE_PLUGIN">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VST" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Ctrlr" TARGET_NAME="VST" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VST3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Ctrlr" TARGET_NAME="VST3" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -124,6 +111,12 @@
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="CMake Application.SHARED_CODE" />
+      <item itemvalue="CMake Application.STANDALONE_PLUGIN" />
+      <item itemvalue="CMake Application.VST" />
+      <item itemvalue="CMake Application.VST3" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -140,6 +133,8 @@
       <workItem from="1609663911526" duration="84000" />
       <workItem from="1609664283278" duration="31242000" />
       <workItem from="1609767697653" duration="6807000" />
+      <workItem from="1609775283930" duration="8606000" />
+      <workItem from="1609844726276" duration="2878000" />
     </task>
     <servers />
   </component>

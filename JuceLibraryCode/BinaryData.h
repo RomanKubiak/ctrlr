@@ -164,6 +164,12 @@ namespace BinaryData
     extern const char*   receive_svg;
     const int            receive_svgSize = 198;
 
+    extern const char*   search_svg;
+    const int            search_svgSize = 372;
+
+    extern const char*   search_off_svg;
+    const int            search_off_svgSize = 628;
+
     extern const char*   send_svg;
     const int            send_svgSize = 198;
 
@@ -258,7 +264,7 @@ namespace BinaryData
     const int            CtrlrMIDIVendors_xmlSize = 15061;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 83;
+    const int namedResourceListSize = 85;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

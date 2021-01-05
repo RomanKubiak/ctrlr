@@ -1,5 +1,4 @@
-#ifndef __JUCE_HEADER_E144F840B8BF67B2__
-#define __JUCE_HEADER_E144F840B8BF67B2__
+#pragma once
 
 #include "CtrlrMacros.h"
 #include "CtrlrManager/CtrlrManager.h"
@@ -10,12 +9,9 @@ class CtrlrPanelComponentProperties  : public Component,
                                        public CtrlrManager::Listener
 {
 public:
-    //==============================================================================
     CtrlrPanelComponentProperties (CtrlrPanelEditor &_owner);
     ~CtrlrPanelComponentProperties();
 
-    //==============================================================================
-    //[UserMethods]     -- You can add your own custom methods in this section.
 	enum ToolbarItems
 	{
 		_none,
@@ -41,15 +37,13 @@ public:
 	void getDefaultItemSet (Array< int > &ids);
 	ToolbarItemComponent *createItem (int itemId);
 	void visibilityChanged();
-    //[/UserMethods]
-
-    void paint (Graphics& g);
+	const String setFilter(const String &filter);
+	Array<PropertyComponent*> filterProperties(Array<PropertyComponent*> &propsToFilter);
+	CtrlrIDManager &getIDManager();
+	void paint (Graphics& g);
     void resized();
 
-
-
 private:
-    //[UserVariables]   -- You can add your own custom variables in this section.
 	bool mark;
 	CtrlrPanelEditor &owner;
 	ValueTree treeToEdit;
@@ -71,17 +65,7 @@ private:
 	XmlElement modulatorPropertyOpennessState;
 	StringArray emptyValueSet;
 	int selectedItems;
-    //[/UserVariables]
-
-    //==============================================================================
+	String currentFilter;
     ScopedPointer<PropertyPanel> propertyPanel;
-
-
-    //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CtrlrPanelComponentProperties)
 };
-
-//[EndFile] You can add extra defines here...
-//[/EndFile]
-
-#endif   // __JUCE_HEADER_E144F840B8BF67B2__

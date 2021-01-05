@@ -1048,6 +1048,9 @@
     <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelEditor.cpp">
       <Filter>Ctrlr\Source\UIComponents\CtrlrPanel</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelFindProperty.cpp">
+      <Filter>Ctrlr\Source\UIComponents\CtrlrPanel</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelLayerList.cpp">
       <Filter>Ctrlr\Source\UIComponents\CtrlrPanel</Filter>
     </ClCompile>
@@ -3855,6 +3858,9 @@
     <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelEditor.h">
       <Filter>Ctrlr\Source\UIComponents\CtrlrPanel</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelFindProperty.h">
+      <Filter>Ctrlr\Source\UIComponents\CtrlrPanel</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrPanel\CtrlrPanelLayerList.h">
       <Filter>Ctrlr\Source\UIComponents\CtrlrPanel</Filter>
     </ClInclude>
@@ -6078,6 +6084,12 @@
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
     <None Include="..\..\Source\Resources\Icons\receive.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\search.svg">
+      <Filter>Ctrlr\Source\Resources\Icons</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Icons\search_off.svg">
       <Filter>Ctrlr\Source\Resources\Icons</Filter>
     </None>
     <None Include="..\..\Source\Resources\Icons\send.svg">

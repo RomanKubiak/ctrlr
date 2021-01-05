@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CtrlrMacros.h"
+#include "CtrlrPanelFindProperty.h"
 class CtrlrPanelEditor;
 class CtrlrLookAndFeel;
 
@@ -22,5 +22,6 @@ private:
 	CtrlrPanelEditor &owner;
     TabbedComponent* tabbedComponent;
     CtrlrPanelProperties (const CtrlrPanelProperties&);
-    const CtrlrPanelProperties& operator= (const CtrlrPanelProperties&);
+	std::unique_ptr<CtrlrPanelFindProperty> ctrlrPanelFindProperty;
+	const CtrlrPanelProperties& operator= (const CtrlrPanelProperties&);
 };

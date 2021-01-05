@@ -765,6 +765,10 @@
 			isa = PBXBuildFile;
 			fileRef = 23131698E470B4BBD046A95C;
 		};
+		59383B5029952D97CAD402AA = {
+			isa = PBXBuildFile;
+			fileRef = 4FCB7D064ABCF4F4C8A8E4E1;
+		};
 		B77A9926295F15A7AB55B006 = {
 			isa = PBXBuildFile;
 			fileRef = D0303AC8DCAF574EFFB40098;
@@ -1399,6 +1403,13 @@
 			path = ../../Source/Resources/XML/CtrlrMidiMultiTemplate.xml;
 			sourceTree = "SOURCE_ROOT";
 		};
+		17CD678C8D20ED121C1D6F28 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = search.svg;
+			path = ../../Source/Resources/Icons/search.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
 		17ED8E453884BA0C95BC0FC0 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -1488,6 +1499,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrComponentLuaRegistration.cpp;
 			path = ../../Source/UIComponents/CtrlrComponents/CtrlrComponentLuaRegistration.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		1D81B0F288FD628CB35DA067 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = "search_off.svg";
+			path = "../../Source/Resources/Icons/search_off.svg";
 			sourceTree = "SOURCE_ROOT";
 		};
 		1DA555ECFAB8AC21A63BB223 = {
@@ -2370,6 +2388,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = inheritance.hpp;
 			path = ../../Source/Misc/luabind/luabind/detail/inheritance.hpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		4FCB7D064ABCF4F4C8A8E4E1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = CtrlrPanelFindProperty.cpp;
+			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		50499DDFC73CAF345301ACB2 = {
@@ -3345,6 +3370,13 @@
 			path = "../../Source/Misc/libusb/include/libusb_osx.h";
 			sourceTree = "SOURCE_ROOT";
 		};
+		8B2DD80BC09CD5BFB81CA7B7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrPanelFindProperty.h;
+			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h;
+			sourceTree = "SOURCE_ROOT";
+		};
 		8BA7A3331C4F868A7F8B6289 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3546,13 +3578,6 @@
 			lastKnownFileType = sourcecode.c.c;
 			name = core.c;
 			path = ../../Source/Misc/libusb/src/core.c;
-			sourceTree = "SOURCE_ROOT";
-		};
-		A18C8C5D82DC19C37B882431 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.svg;
-			name = stop.svg;
-			path = ../../Source/Resources/Icons/stop.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		EB6134FB2CFC4B1825455D47 = {
@@ -3784,6 +3809,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "libusb_windows.h";
 			path = "../../Source/Misc/libusb/include/libusb_windows.h";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A18C8C5D82DC19C37B882431 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = stop.svg;
+			path = ../../Source/Resources/Icons/stop.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A1D39E0E2160E282D69B3C11 = {
@@ -6148,6 +6180,8 @@
 				01CF7DD7F1553C9255C95656,
 				A7D55FCFFEA4E1081CD23ABC,
 				21BCCF9C9D6C27564FEFF1E2,
+				17CD678C8D20ED121C1D6F28,
+				1D81B0F288FD628CB35DA067,
 				7B3DC8D23D6D7E05313D3C53,
 				A18C8C5D82DC19C37B882431,
 				DCD50FD3FD23DBA2A1DE1645,
@@ -6438,6 +6472,8 @@
 				196D493A42E700BDDB6F8D80,
 				23131698E470B4BBD046A95C,
 				FF88A70C0FFB26F4644E7C00,
+				4FCB7D064ABCF4F4C8A8E4E1,
+				8B2DD80BC09CD5BFB81CA7B7,
 				D0303AC8DCAF574EFFB40098,
 				E152A8E0DB4A438B966F78BA,
 				411B837E784F99F4C5BFB333,
@@ -8347,6 +8383,7 @@
 				B2E608A0E1DFA0F16D78323B,
 				A0868A1E675267073B5E01AE,
 				F0239A89C3162BA232E6AA22,
+				59383B5029952D97CAD402AA,
 				B77A9926295F15A7AB55B006,
 				FB5591398FE34A2F34E6F373,
 				42D7FB7FBE6E42CF4EF21D44,

@@ -6,7 +6,9 @@
 namespace gui {
 
     static inline
-    DrawableButton *createDrawableButton(const String &buttonName, const String &svgData, const String &svgDataDown="") {
+    DrawableButton *createDrawableButton(const String &buttonName, const String &svgData,
+										 const String &svgDataDown="",
+										 const MouseCursor cursor = MouseCursor::PointingHandCursor) {
         std::unique_ptr<XmlElement> svgXml (XmlDocument::parse(svgData));
         std::unique_ptr<Drawable> drawable (Drawable::createFromSVG(*svgXml));
 
@@ -16,12 +18,13 @@ namespace gui {
         auto btn = new DrawableButton(buttonName, DrawableButton::ImageFitted);
         btn->setImages(drawable.get(),
                        nullptr,
-                       nullptr,
+                       drawableDown.get(),
                        nullptr,
                        nullptr,
                        nullptr,
                        nullptr,
                        nullptr);
+        btn->setMouseCursor(cursor);
         return btn;
     }
 

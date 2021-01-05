@@ -1670,14 +1670,7 @@ void CtrlrPanel::notify (const String &notification, CtrlrNotificationCallback *
 		}
 	}
 
-	if (getEditor())
-	{
-		getEditor()->notify (notification, callback, ctrlrNotificationType);
-	}
-	else
-	{
-		_INF (notification);
-	}
+	_INF (notification);
 }
 
 bool CtrlrPanel::getDialogStatus()

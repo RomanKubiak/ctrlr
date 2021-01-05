@@ -3,6 +3,7 @@
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 #include "CtrlrComponents/CtrlrComponent.h"
 #include "CtrlrPanel/CtrlrPanelResource.h"
+#include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 
 CtrlrPanelComponentProperties::CtrlrPanelComponentProperties (CtrlrPanelEditor &_owner)
     : owner(_owner), panelPropertyOpennessState("invalid"), modulatorPropertyOpennessState("invalid")
@@ -67,6 +68,11 @@ PropertyComponent *CtrlrPanelComponentProperties::getPropertyEditor (const Value
 	return (new TextPropertyComponent (valueToEdit, valueIdentifier.toString(), 1024, false));
 }
 
+CtrlrIDManager &CtrlrPanelComponentProperties::getIDManager()
+{
+	return owner.getOwner().getCtrlrManagerOwner().getIDManager();
+}
+
 void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const bool force)
 {
 	if (_treeToEdit == treeToEdit && force == false)
@@ -100,7 +106,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(	treeToEdit.getPropertyName(i),
 						treeToEdit,
 						&owner.getOwner(),
@@ -113,7 +119,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelMidiProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -127,7 +133,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelMidiProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -141,7 +147,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelMidiProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -155,7 +161,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelMidiProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -167,7 +173,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelOSCProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -179,7 +185,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				panelProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -198,7 +204,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 				{
 					panelEditorProperties.add
 					(
-						owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+							getIDManager().createComponentForProperty
 						(
 							treeToEdit.getChildWithName (Ids::uiPanelEditor).getPropertyName(i),
 							treeToEdit.getChildWithName(Ids::uiPanelEditor),
@@ -212,7 +218,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 				{
 					panelEditorProperties.add
 					(
-						owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+							getIDManager().createComponentForProperty
 						(
 							treeToEdit.getChildWithName (Ids::uiPanelEditor).getPropertyName(i),
 							treeToEdit.getChildWithName(Ids::uiPanelEditor),
@@ -226,16 +232,18 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 		propertyPanel->clear();
 
 		if (panelProperties.size() != 0)
-			propertyPanel->addSection ("Panel", panelProperties);
+			propertyPanel->addSection ("Panel", filterProperties(panelProperties));
 
 		if (panelMidiProperties.size() != 0)
-			propertyPanel->addSection ("MIDI", panelMidiProperties);
+			propertyPanel->addSection ("MIDI", filterProperties(panelMidiProperties));
 
 		if (panelOSCProperties.size() != 0)
-			propertyPanel->addSection ("OSC", panelOSCProperties);
+			propertyPanel->addSection ("OSC", filterProperties(panelOSCProperties));
 
 		if (panelMidiProperties.size() != 0)
-			propertyPanel->addSection ("Editor", panelEditorProperties);
+			propertyPanel->addSection ("Editor", filterProperties(panelEditorProperties));
+
+		(propertyPanel);
 	}
 
 	/** Modulator properties **/
@@ -257,7 +265,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				modulatorProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -271,7 +279,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				modulatorProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -285,7 +293,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				modulatorProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -299,7 +307,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 			{
 				modulatorProperties.add
 				(
-					owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+						getIDManager().createComponentForProperty
 					(
 						treeToEdit.getPropertyName(i),
 						treeToEdit,
@@ -324,7 +332,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						midiProperties.add
 						(
-							owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+								getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),
@@ -337,7 +345,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						midiProperties.add
 						(
-							owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+								getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),
@@ -363,7 +371,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 							{
 								componentProperties.add
 								(
-									owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+										getIDManager().createComponentForProperty
 									(
 										child.getPropertyName(k),
 										child,
@@ -377,7 +385,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 							{
 								componentProperties.add
 								(
-									owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+										getIDManager().createComponentForProperty
 									(
 										child.getPropertyName(k),
 										child,
@@ -391,7 +399,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 							{
 								componentProperties.add
 								(
-									owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+										getIDManager().createComponentForProperty
 									(
 										child.getPropertyName(k),
 										child,
@@ -416,7 +424,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						componentProperties.add
 						(
-							owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+								getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),
@@ -430,7 +438,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						componentUIProperties.add
 						(
-							owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+								getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),
@@ -442,7 +450,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 					{
 						componentProperties.add
 						(
-							owner.getOwner().getCtrlrManagerOwner().getIDManager().createComponentForProperty
+								getIDManager().createComponentForProperty
 							(
 								treeToEdit.getChild(i).getPropertyName(j),
 								treeToEdit.getChild(i),
@@ -455,16 +463,16 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 		}
 
 		if (modulatorProperties.size() != 0)
-			propertyPanel->addSection ("Modulator", modulatorProperties);
+			propertyPanel->addSection ("Modulator", filterProperties(modulatorProperties));
 
 		if (midiProperties.size() != 0)
-			propertyPanel->addSection ("MIDI", midiProperties);
+			propertyPanel->addSection ("MIDI", filterProperties(midiProperties));
 
 		if (componentProperties.size() != 0)
-			propertyPanel->addSection ("Component generic", componentProperties);
+			propertyPanel->addSection ("Component generic", filterProperties(componentProperties));
 
 		if (componentUIProperties.size() != 0)
-			propertyPanel->addSection ("Component", componentUIProperties);
+			propertyPanel->addSection ("Component", filterProperties(componentUIProperties));
 	}
 }
 
@@ -673,33 +681,57 @@ void CtrlrPanelComponentProperties::visibilityChanged()
 	propertyPanel->clear();
 	refreshAll();
 }
-//[/MiscUserCode]
 
+const String CtrlrPanelComponentProperties::setFilter(const String &filter)
+{
+	if (filter == "" )
+	{
+		currentFilter = filter;
+		visibilityChanged();
+		return "";
+	}
 
-//==============================================================================
-#if 0
-/*  -- Introjucer information section --
+	String tempFilter;
 
-    This is where the Introjucer stores the metadata that describe this GUI layout, so
-    make changes in here at your peril!
+	if (!filter.startsWith("*"))
+		tempFilter = _STR("*") + filter;
 
-BEGIN_JUCER_METADATA
+	if (!filter.endsWith("*"))
+		tempFilter << "*";
 
-<JUCER_COMPONENT documentType="Component" className="CtrlrPanelComponentProperties"
-                 componentName="" parentClasses="public Component, public ChangeListener, public ValueTree::Listener, public CtrlrManager::Listener, public LookAndFeel"
-                 constructorParams="CtrlrPanelEditor &amp;_owner" variableInitialisers="owner(_owner), panelPropertyOpennessState(&quot;invalid&quot;), modulatorPropertyOpennessState(&quot;invalid&quot;)"
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
-                 fixedSize="1" initialWidth="216" initialHeight="400">
-  <BACKGROUND backgroundColour="ffffff"/>
-  <GENERICCOMPONENT name="" id="5bd21e18c5d102" memberName="propertyPanel" virtualName=""
-                    explicitFocusOrder="0" pos="0 0 0M 0M" class="PropertyPanel"
-                    params=""/>
-</JUCER_COMPONENT>
+	currentFilter = tempFilter;
 
-END_JUCER_METADATA
-*/
-#endif
+	visibilityChanged();
 
+	return currentFilter;
+}
 
-//[EndFile] You can add extra defines here...
-//[/EndFile]
+Array<PropertyComponent*> CtrlrPanelComponentProperties::filterProperties(Array<PropertyComponent*> &propsToFilter)
+{
+	if (currentFilter == "")
+	{
+		return propsToFilter;
+	}
+
+	Array<PropertyComponent *> leftovers;
+	for (auto v : propsToFilter)
+	{
+		CtrlrPropertyComponent *p = dynamic_cast<CtrlrPropertyComponent *> (v);
+		if (p != nullptr)
+		{
+			// _TXT("%s || %s match filter %s", p->getPropertyName().toRawUTF8(), p->getVisibleText().toRawUTF8(), currentFilter.toRawUTF8());
+
+			if (p->getPropertyName().matchesWildcard(currentFilter, true) ||
+				p->getVisibleText().matchesWildcard(currentFilter, true))
+			{
+				leftovers.add(v);
+			}
+			else
+			{
+				delete v;
+			}
+		}
+	}
+
+	return leftovers;
+}

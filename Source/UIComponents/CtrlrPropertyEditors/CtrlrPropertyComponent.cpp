@@ -35,6 +35,15 @@ CtrlrPropertyComponent::~CtrlrPropertyComponent()
 	deleteAllChildren();
 }
 
+const String CtrlrPropertyComponent::getPropertyName()
+{
+	return propertyName.toString();
+}
+
+const String CtrlrPropertyComponent::getVisibleText()
+{
+	return visibleText;
+}
 void CtrlrPropertyComponent::paint (Graphics &g)
 {
 	getLookAndFeel().drawPropertyComponentBackground (g, getLookAndFeel().getPropertyComponentContentPosition (*this).getX(), getHeight(), *this);
