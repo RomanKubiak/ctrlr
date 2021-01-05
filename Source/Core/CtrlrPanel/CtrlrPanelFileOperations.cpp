@@ -142,9 +142,7 @@ Result CtrlrPanel::savePanel()
 	if (panelFile.existsAsFile() && panelFile.hasWriteAccess())
 	{
 		if (panelFile.hasFileExtension("panel"))
-		{	
 			res = savePanelXml(panelFile, this, false);
-		}
 		if (panelFile.hasFileExtension("panelz"))
 			res = savePanelXml (panelFile, this, true);
 		if (panelFile.hasFileExtension("bpanel"))
@@ -166,11 +164,12 @@ Result CtrlrPanel::savePanel()
 	}
 	else
 	{
-		File ret = askForPanelFileToSave (this, File(owner.getProperty(Ids::lastBrowsedPanelDir)).getChildFile(getVersionString()));
+		File ret = askForPanelFileToSave (this, File(owner.getProperty(Ids::panelLastSaveDir)).getChildFile(getVersionString()));
 		if (ret != File::nonexistent)
 		{
 			res = savePanelXml(ret, this);
 			setProperty (Ids::panelFilePath, ret.getFullPathName());
+			setProperty (Ids::panelLastSaveDir, ret.getParentDirectory().getFullPathName());
 		}
 		else
 		{
@@ -204,7 +203,7 @@ Result CtrlrPanel::savePanel()
 const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 {
 	File fileToSave;
-	File f(getProperty(Ids::lastBrowsedPanelDir));
+	File f(getProperty(Ids::panelLastSaveDir));
 
 	if (saveOption == CtrlrEditor::doExportFileText)
 	{
@@ -215,6 +214,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 
 		savePanelXml (fileToSave, this);
 		setProperty (Ids::panelFilePath, fileToSave.getFullPathName());
+		setProperty (Ids::panelLastSaveDir, fileToSave.getParentDirectory().getFullPathName());
 	}
 	if (saveOption == CtrlrEditor::doExportFileZText)
 	{
@@ -225,6 +225,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 
 		savePanelXml (fileToSave, this, true);
 		setProperty (Ids::panelFilePath, fileToSave.getFullPathName());
+		setProperty (Ids::panelLastSaveDir, fileToSave.getParentDirectory().getFullPathName());
 	}
 	if (saveOption == CtrlrEditor::doExportFileBin)
 	{
@@ -571,7 +572,6 @@ Result CtrlrPanel::savePanelBin(const File &fileToSave, CtrlrPanel *panel, const
 	else
 	{
 		panel->luaSavePanel (PanelFileBinary, fileToSave);
-
 		panel->getPanelTree().writeToStream(panelBinData);
 	}
 

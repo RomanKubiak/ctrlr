@@ -15,31 +15,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef6bcf6a-c7cf-4e79-9a4b-d4338bc13197" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LinuxMakefile/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../LinuxMakefile/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MacOSX/Ctrlr.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../MacOSX/Ctrlr.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_SharedCode.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_SharedCode.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_SharedCode.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2019/Ctrlr_SharedCode.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ctrlr.jucer" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ctrlr.jucer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrIDManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrIDManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrInlineUtilitiesGUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrInlineUtilitiesGUI.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrIDs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrIDs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelEditor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelFileOperations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelFileOperations.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Resources/XML/CtrlrIDs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Resources/XML/CtrlrIDs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +86,11 @@
       </method>
     </configuration>
     <configuration name="VST3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Ctrlr" TARGET_NAME="VST3" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>

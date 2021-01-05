@@ -6868,7 +6868,6 @@ add_library (SHARED_CODE STATIC
     "../../JuceLibraryCode/JucePluginDefines.h"
 )
 target_precompile_headers(SHARED_CODE PUBLIC ../../Source/Core/stdafx.h ../../Source/Core/stdafx_luabind.h)
-set_source_files_properties(../../Source/Misc/keys.cpp PROPERTIES SKIP_PRECOMPILE_HEADERS TRUE)
 set_source_files_properties (
         "../../Source/Misc/keys.cpp"
         "../../JuceLibraryCode/BinaryData.cpp"

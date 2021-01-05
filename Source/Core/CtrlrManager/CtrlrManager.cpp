@@ -509,7 +509,7 @@ void CtrlrManager::panelFileOpened(const File &panelFile)
 
 void CtrlrManager::openPanelInternal(const File &fileToOpen)
 {
-	setProperty(Ids::lastBrowsedPanelDir, fileToOpen.getParentDirectory().getFullPathName());
+	setProperty(Ids::panelLastSaveDir, fileToOpen.getParentDirectory().getFullPathName());
 
 	ValueTree panelTree;
 

@@ -209,6 +209,7 @@ namespace Ids
 	DECLARE_ID (panelPropertyDisplayIDs);
 	DECLARE_ID (panelMessageTime);
 	DECLARE_ID (panelCustomData);
+	DECLARE_ID (panelLastSaveDir);
 
 	DECLARE_ID (componentRectangle);
 	DECLARE_ID (componentSentBack);
@@ -690,7 +691,6 @@ namespace Ids
 	DECLARE_ID (over);
 	DECLARE_ID (under);
 
-	DECLARE_ID (lastBrowsedPanelDir);
 	DECLARE_ID (lastBrowsedSkinDir);
 	DECLARE_ID (lastBrowsedComponentDir);
 	DECLARE_ID (luaTreeEditorState);

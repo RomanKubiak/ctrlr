@@ -143,6 +143,7 @@
   <id name="panelScheme"					text="Panel scheme" type="ReadOnly" />
   <id name="panelShowDialogs"				text="Show dialogs during panel lifetime" type="Bool" />
   <id name="panelMessageTime"               text="How long messages should appear on screen (ms)"  type="Numeric" min="0" max="100000" />
+  <id name="panelLastSaveDir"               text="Directory last used for panel save" type="Text" />
 
   <!-- Generic component properties -->
   <id name="componentRectangle"                   text="Component position and size" type="Text"/>
@@ -661,8 +662,6 @@
   <id name="over"                 text="over"                                   type="Text"/>
   <id name="under"                text="under"                                  type="Text"/>
   <id name="description"          text="Description of an object"               type="MultiLineSmall"/>
-  <id name="lastBrowsedPanelDir"  text="Last directory used for opening panels" type="Text"/>
-  <id name="lastBrowsedSkinDir"   text="Last directory used for skinz"          type="Text"/>
   <id name="luaTreeEditorState"   text="luaTreeEditorState"                     type="Text"/>
   <id name="properties"           text="properties"                             type="Text"/>
   <id name="timeout"			  text="Timeout"							    type="Numeric" min="0" max="60000" int="1" />

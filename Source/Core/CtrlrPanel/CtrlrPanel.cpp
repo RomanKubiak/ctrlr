@@ -142,6 +142,7 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
     setProperty (Ids::luaPanelOSCReceived, COMBO_ITEM_NONE);
 
 	setProperty (Ids::panelFilePath, String::empty);
+	setProperty (Ids::panelLastSaveDir, String::empty);
 	setProperty (Ids::panelUID, generateRandomUnique());
 	setProperty (Ids::panelInstanceUID, generateRandomUniquePluginId());
     setProperty (Ids::panelInstanceManufacturerID, generateRandomUniquePluginId());
