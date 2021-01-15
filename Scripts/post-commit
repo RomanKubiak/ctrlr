@@ -362,11 +362,6 @@ function build_now_linux {
 		exit 1
 	fi
 	
-	echo "CTRLR: strip binaries"
-	if [ -e $CTRLR_ROOT/Builds/LinuxMakefile/build/Ctrlr ]; then
-		strip $CTRLR_ROOT/Builds/LinuxMakefile/build/Ctrlr/*
-	fi
-	
 	echo "CTRLR: Clean old package files"
 	rm -rf $CTRLR_ROOT/Packaging/Linux/Ctrlr
 	

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="Ctrlr" targetName="VST3" />
       <config projectName="Ctrlr" targetName="STANDALONE_PLUGIN" />
       <config projectName="Ctrlr" targetName="SHARED_CODE" />
       <config projectName="Ctrlr" targetName="VST" />
@@ -15,15 +14,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef6bcf6a-c7cf-4e79-9a4b-d4338bc13197" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PkgInfo" beforeDir="false" afterPath="$PROJECT_DIR$/PkgInfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LinuxMakefile/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../LinuxMakefile/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MacOSX/Ctrlr.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../MacOSX/Ctrlr.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MacOSX/Ctrlr.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" afterPath="$PROJECT_DIR$/../MacOSX/Ctrlr.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_SharedCode.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_StandalonePlugin.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_StandalonePlugin.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_StandalonePlugin.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_StandalonePlugin.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST3.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST3.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST3.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/Ctrlr_VST3.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VisualStudio2017/resources.rc" beforeDir="false" afterPath="$PROJECT_DIR$/../VisualStudio2017/resources.rc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ctrlr.jucer" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ctrlr.jucer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JuceLibraryCode/AppConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../JuceLibraryCode/AppConfig.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../JuceLibraryCode/BinaryData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrIDs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrIDs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrManager/CtrlrManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelFileOperations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrPanel/CtrlrPanelFileOperations.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/Resources/XML/CtrlrIDs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Resources/XML/CtrlrIDs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JuceLibraryCode/JuceHeader.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../JuceLibraryCode/JuceHeader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JuceLibraryCode/JucePluginDefines.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scripts/post-commit" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scripts/post-commit" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrFontManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrFontManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Core/CtrlrRevision.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Core/CtrlrRevision.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/Misc/luabind/luabind/typeid.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/Misc/luabind/luabind/typeid.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrAbout.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrAbout.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditArea.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodEditorTabs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrValueTreeEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrValueTreeEditor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrValueTreeEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/UIComponents/CtrlrValueTreeEditor.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +91,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="CMake Application.STANDALONE_PLUGIN">
     <configuration name="SHARED_CODE" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Ctrlr" TARGET_NAME="SHARED_CODE" CONFIG_NAME="Debug">
@@ -85,16 +109,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VST3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Ctrlr" TARGET_NAME="VST3" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -104,7 +118,6 @@
       <item itemvalue="CMake Application.SHARED_CODE" />
       <item itemvalue="CMake Application.STANDALONE_PLUGIN" />
       <item itemvalue="CMake Application.VST" />
-      <item itemvalue="CMake Application.VST3" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -124,6 +137,11 @@
       <workItem from="1609767697653" duration="6807000" />
       <workItem from="1609775283930" duration="8606000" />
       <workItem from="1609844726276" duration="2878000" />
+      <workItem from="1610016964025" duration="994000" />
+      <workItem from="1610017970726" duration="5044000" />
+      <workItem from="1610104631464" duration="169000" />
+      <workItem from="1610201917176" duration="5195000" />
+      <workItem from="1610451837991" duration="678000" />
     </task>
     <servers />
   </component>

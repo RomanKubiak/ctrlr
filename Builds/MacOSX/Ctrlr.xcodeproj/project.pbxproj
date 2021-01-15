@@ -29,10 +29,6 @@
 			isa = PBXBuildFile;
 			fileRef = 75C913600A8B4A361ED6FABA;
 		};
-		FD4CB042D9A9FA3901985373 = {
-			isa = PBXBuildFile;
-			fileRef = 15C8E6290DF559375AA00C3D;
-		};
 		98F0ADC8B423ED8696F5E9AF = {
 			isa = PBXBuildFile;
 			fileRef = 60B3BC1222FDF4FF37801063;
@@ -40,6 +36,10 @@
 		0AF3FD7D96745ED04BC5F6D4 = {
 			isa = PBXBuildFile;
 			fileRef = 131F986D1C2BA312C45E69DA;
+		};
+		FD4CB042D9A9FA3901985373 = {
+			isa = PBXBuildFile;
+			fileRef = 15C8E6290DF559375AA00C3D;
 		};
 		7612184F35F3845882E2E753 = {
 			isa = PBXBuildFile;
@@ -1366,13 +1366,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrMidiInputComparator.cpp;
 			path = ../../Source/MIDI/CtrlrMidiInputComparator.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		1646FEF997F80824A51F8F69 = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.xml;
-			name = "AUv3_AppExtension.entitlements";
-			path = "AUv3_AppExtension.entitlements";
 			sourceTree = "SOURCE_ROOT";
 		};
 		164E68D7C717EDE14B5F0041 = {
@@ -2978,6 +2971,13 @@
 			path = ../../Source/UIComponents/CtrlrComponents/Groups/CtrlrTabsComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		75D6BAC361D7EE63A301D059 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "link_compatibility.hpp";
+			path = "../../Source/Misc/luabind/luabind/detail/link_compatibility.hpp";
+			sourceTree = "SOURCE_ROOT";
+		};
 		76BC4E626434667F34E477C8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3060,6 +3060,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrFixedSlider.h;
 			path = ../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrFixedSlider.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		7ACE87FFB3FEC7F64FF2F454 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			name = Ctrlr.entitlements;
+			path = Ctrlr.entitlements;
 			sourceTree = "SOURCE_ROOT";
 		};
 		7AD314D3B5FE21C77810847E = {
@@ -3440,13 +3447,6 @@
 			path = "../../Source/Misc/luabind/src/link_compatibility.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		8F867C16C443DA5ECA7CA1FB = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = JucePluginDefines.h;
-			path = ../../JuceLibraryCode/JucePluginDefines.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		8FBDE5EA64AE5AFF728E2609 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -3473,13 +3473,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = "adopt_policy.hpp";
 			path = "../../Source/Misc/luabind/luabind/adopt_policy.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		92B4397C6398EA0145EAD5A7 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrUtilities.h;
-			path = ../../Source/Core/CtrlrUtilities.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		937AA936FA55E0E975C560FD = {
@@ -3510,6 +3503,62 @@
 			path = RecentFilesMenuTemplate.nib;
 			sourceTree = "SOURCE_ROOT";
 		};
+		98291FFADA18C25ABE635931 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = keys.h;
+			path = ../../Source/Misc/include/keys.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		9837D1AA088F9F844329E136 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrPanelModulatorList.h;
+			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		999823AE3B2263235823375E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = CtrlrPanelCanvasHandlers.cpp;
+			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		9A06E9B87ADDC9090530FD83 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "copy_policy.hpp";
+			path = "../../Source/Misc/luabind/luabind/copy_policy.hpp";
+			sourceTree = "SOURCE_ROOT";
+		};
+		EB6134FB2CFC4B1825455D47 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = Ctrlr.vst3;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		908E0C8A957286821FB05A54 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = Ctrlr.component;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		92B4397C6398EA0145EAD5A7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrUtilities.h;
+			path = ../../Source/Core/CtrlrUtilities.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		957DC001BF32F77D08ADD74B = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrRevision.h;
+			path = ../../Source/Core/CtrlrRevision.h;
+			sourceTree = "SOURCE_ROOT";
+		};
 		958B190641E15AF921E89B8C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3538,61 +3587,12 @@
 			path = ../../Source/Resources/Icons/cleanup.svg;
 			sourceTree = "SOURCE_ROOT";
 		};
-		98291FFADA18C25ABE635931 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = keys.h;
-			path = ../../Source/Misc/include/keys.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		9837D1AA088F9F844329E136 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrPanelModulatorList.h;
-			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelModulatorList.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		995C4F63F8C42E9CB0C1F46E = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrHyperlink.cpp;
 			path = ../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.cpp;
 			sourceTree = "SOURCE_ROOT";
-		};
-		999823AE3B2263235823375E = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = CtrlrPanelCanvasHandlers.cpp;
-			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasHandlers.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		9A06E9B87ADDC9090530FD83 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = "copy_policy.hpp";
-			path = "../../Source/Misc/luabind/luabind/copy_policy.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9DA3C319781492A3ABA0E6E8 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.c;
-			name = core.c;
-			path = ../../Source/Misc/libusb/src/core.c;
-			sourceTree = "SOURCE_ROOT";
-		};
-		EB6134FB2CFC4B1825455D47 = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.cfbundle;
-			includeInIndex = 0;
-			path = Ctrlr.vst3;
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		908E0C8A957286821FB05A54 = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.cfbundle;
-			includeInIndex = 0;
-			path = Ctrlr.component;
-			sourceTree = "BUILT_PRODUCTS_DIR";
 		};
 		9990CAFD46E3141D3D6C8167 = {
 			isa = PBXFileReference;
@@ -3643,11 +3643,18 @@
 			path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerInfo.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		9D26E90BA9CC5C4F847768D9 = {
+		9DA3C319781492A3ABA0E6E8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.c;
-			name = compat.c;
-			path = ../../Source/Misc/libusb/src/compat.c;
+			name = core.c;
+			path = ../../Source/Misc/libusb/src/core.c;
+			sourceTree = "SOURCE_ROOT";
+		};
+		9E0BA6F39FA7B10AE6F87766 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = LAudioFile.h;
+			path = ../../Source/Lua/JuceClasses/LAudioFile.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		9E9CD1FE77F9A326349EF066 = {
@@ -3671,6 +3678,34 @@
 			path = ../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSlider.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		9FD6B9BC6214CC08756FC70C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrLuaRectangle.h;
+			path = ../../Source/Lua/Deprecated/CtrlrLuaRectangle.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		A035546887D12C173DE8D47D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrLuaObject.h;
+			path = ../../Source/Lua/CtrlrLuaObject.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		A18C8C5D82DC19C37B882431 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.svg;
+			name = stop.svg;
+			path = ../../Source/Resources/Icons/stop.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
+		A239B9FC3E6A496E5EA987A6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.icns;
+			name = "ico_ctrlr_mac.icns";
+			path = "../../Source/Resources/Icons/ico_ctrlr_mac.icns";
+			sourceTree = "SOURCE_ROOT";
+		};
 		A27E0032E164381190E16C17 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -3683,27 +3718,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = debug.hpp;
 			path = ../../Source/Misc/luabind/luabind/detail/debug.hpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		A393071EEDCB75E8B7D86AB1 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrManagerVst.h;
-			path = ../../Source/Core/CtrlrManager/CtrlrManagerVst.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		ABD98E9A8D924584D3CC18F4 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = "shared_ptr_converter.cpp";
-			path = "../../Source/Misc/luabind/src/shared_ptr_converter.cpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		B0D91E1934724AD202CE5C8D = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrModulator.h;
-			path = ../../Source/Core/CtrlrModulator/CtrlrModulator.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		BC0FDD38B90E990BC541525A = {
@@ -3727,20 +3741,6 @@
 			path = libCtrlr.a;
 			sourceTree = "BUILT_PRODUCTS_DIR";
 		};
-		75D6BAC361D7EE63A301D059 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = "link_compatibility.hpp";
-			path = "../../Source/Misc/luabind/luabind/detail/link_compatibility.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		957DC001BF32F77D08ADD74B = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrRevision.h;
-			path = ../../Source/Core/CtrlrRevision.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		9A587F5971E005E07D8CDD0A = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3762,11 +3762,11 @@
 			path = "../../Source/Misc/luabind/luabind/detail/stack_utils.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		9E0BA6F39FA7B10AE6F87766 = {
+		9D26E90BA9CC5C4F847768D9 = {
 			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = LAudioFile.h;
-			path = ../../Source/Lua/JuceClasses/LAudioFile.h;
+			lastKnownFileType = sourcecode.c.c;
+			name = compat.c;
+			path = ../../Source/Misc/libusb/src/compat.c;
 			sourceTree = "SOURCE_ROOT";
 		};
 		9E4C945505092247AC116660 = {
@@ -3776,25 +3776,11 @@
 			path = "Info-AU.plist";
 			sourceTree = "SOURCE_ROOT";
 		};
-		9FD6B9BC6214CC08756FC70C = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrLuaRectangle.h;
-			path = ../../Source/Lua/Deprecated/CtrlrLuaRectangle.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		A0290DC92CE4ECB25CF1529A = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = handle.hpp;
 			path = ../../Source/Misc/luabind/luabind/handle.hpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		A035546887D12C173DE8D47D = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrLuaObject.h;
-			path = ../../Source/Lua/CtrlrLuaObject.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A04E649F7C9894006F178928 = {
@@ -3811,25 +3797,11 @@
 			path = "../../Source/Misc/libusb/include/libusb_windows.h";
 			sourceTree = "SOURCE_ROOT";
 		};
-		A18C8C5D82DC19C37B882431 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.svg;
-			name = stop.svg;
-			path = ../../Source/Resources/Icons/stop.svg;
-			sourceTree = "SOURCE_ROOT";
-		};
 		A1D39E0E2160E282D69B3C11 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = "object_rep.hpp";
 			path = "../../Source/Misc/luabind/luabind/detail/object_rep.hpp";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A239B9FC3E6A496E5EA987A6 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.icns;
-			name = "ico_ctrlr_mac.icns";
-			path = "../../Source/Resources/Icons/ico_ctrlr_mac.icns";
 			sourceTree = "SOURCE_ROOT";
 		};
 		A240E4DE334D4283CABA0F28 = {
@@ -3851,6 +3823,13 @@
 			lastKnownFileType = file.svg;
 			name = play.svg;
 			path = ../../Source/Resources/Icons/play.svg;
+			sourceTree = "SOURCE_ROOT";
+		};
+		A393071EEDCB75E8B7D86AB1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrManagerVst.h;
+			path = ../../Source/Core/CtrlrManager/CtrlrManagerVst.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A4933A9345C52BC2E3855E16 = {
@@ -3979,6 +3958,13 @@
 			path = ../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditorApplicationCommands.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		ABD98E9A8D924584D3CC18F4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "shared_ptr_converter.cpp";
+			path = "../../Source/Misc/luabind/src/shared_ptr_converter.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
 		ACA0EFC2AB47CCE69BD0F183 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -4089,6 +4075,13 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CtrlrPanelMIDISnapshot.cpp;
 			path = ../../Source/Core/CtrlrPanel/CtrlrPanelMIDISnapshot.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
+		B0D91E1934724AD202CE5C8D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrModulator.h;
+			path = ../../Source/Core/CtrlrModulator/CtrlrModulator.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		B13B21B03D21AA2CB3109C2C = {
@@ -6619,7 +6612,6 @@
 				E9A0EE201CC3976AE18A9E32,
 				ED66FFC9A2DFC7AD774DBA34,
 				1ED7DC087519E1882492560C,
-				8F867C16C443DA5ECA7CA1FB,
 			);
 			name = "JUCE Library Code";
 			sourceTree = "<group>";
@@ -6640,9 +6632,9 @@
 		7F74C7F7D7E281E704B9D345 = {
 			isa = PBXGroup;
 			children = (
-				15C8E6290DF559375AA00C3D,
 				60B3BC1222FDF4FF37801063,
 				131F986D1C2BA312C45E69DA,
+				15C8E6290DF559375AA00C3D,
 				6FCCE378C8BCCB24D7C319B4,
 				00CA10B65166797BBFF46544,
 				337D964741D139674F961A22,
@@ -6673,6 +6665,7 @@
 		5EA2AAF17BCEBE0FB32DED61 = {
 			isa = PBXGroup;
 			children = (
+				7ACE87FFB3FEC7F64FF2F454,
 				5CCB26571F5962886899F653,
 				1DA59199BBA6B45537B5EDF0,
 				D58B9A2ED5B97A2764909FE6,
@@ -6683,59 +6676,10 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
-		05E6291839DCA038AE5FBB37 = {
-			isa = PBXTargetDependency;
-			target = DA246935607B47B955421D13;
-		};
-		F0C497728D844D0AFC81C5C1 = {
-			isa = PBXTargetDependency;
-			target = 95BA742C0DD8D4F51296A065;
-		};
-		CE4AF46A886FEBCBEE6C322C = {
-			isa = PBXTargetDependency;
-			target = 939EBC04F2B294AE199B7E40;
-		};
-		EFD1634977BB88BA5106AF79 = {
-			isa = PBXTargetDependency;
-			target = 70CBFA3BF27569C03E0B9927;
-		};
-		A1FB39729F4FB880ABB507C0 = {
-			isa = PBXTargetDependency;
-			target = E64B69B5ECADB5780A98FC7C;
-		};
-		BA89B3326599D4CF21A58064 = {
-			isa = PBXTargetDependency;
-			target = 544444E5E2056935093BEFD1;
-		};
-		2056E8D16D079BE2A3447F73 = {
-			isa = PBXTargetDependency;
-			target = 544444E5E2056935093BEFD1;
-		};
-		B52172725EDA24628CBFEDFC = {
-			isa = PBXTargetDependency;
-			target = 544444E5E2056935093BEFD1;
-		};
-		F402403B73649067C4AAEA0A = {
-			isa = PBXTargetDependency;
-			target = 544444E5E2056935093BEFD1;
-		};
-		42915082985D8A315FA4A2B4 = {
-			isa = PBXTargetDependency;
-			target = 544444E5E2056935093BEFD1;
-		};
-		02E63B47C0854F51B1D2D274 = {
-			isa = PBXTargetDependency;
-			target = 70CBFA3BF27569C03E0B9927;
-		};
-		3E303910D6C06A9DEA250D4B = {
-			isa = PBXTargetDependency;
-			target = 544444E5E2056935093BEFD1;
-		};
 		F9F02D9F3BCC0444BFFB9028 = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -6743,7 +6687,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -6753,7 +6696,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -6777,6 +6719,7 @@
 					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -6805,31 +6748,11 @@
 				LIBRARY_STYLE = Bundle;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-bundle -lCtrlr";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 				WRAPPER_EXTENSION = vst;
 			};
 			name = Release;
@@ -6840,7 +6763,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -6888,31 +6810,11 @@
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-bundle -lCtrlr";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 				WRAPPER_EXTENSION = vst;
 			};
 			name = Debug;
@@ -6923,7 +6825,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -6947,6 +6848,7 @@
 					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -6975,31 +6877,11 @@
 				LIBRARY_STYLE = Bundle;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-bundle -lCtrlr";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 				WRAPPER_EXTENSION = vst3;
 			};
 			name = Release;
@@ -7010,7 +6892,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -7058,31 +6939,11 @@
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-bundle -lCtrlr";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 				WRAPPER_EXTENSION = vst3;
 			};
 			name = Debug;
@@ -7093,7 +6954,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -7117,6 +6977,7 @@
 					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -7145,32 +7006,12 @@
 				LIBRARY_STYLE = Bundle;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-bundle -lCtrlr";
-				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
+				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 				WRAPPER_EXTENSION = component;
 			};
 			name = Release;
@@ -7181,7 +7022,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -7229,32 +7069,12 @@
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-bundle -lCtrlr";
-				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
+				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 				WRAPPER_EXTENSION = component;
 			};
 			name = Debug;
@@ -7266,8 +7086,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_ENTITLEMENTS = "AUv3_AppExtension.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = "Ctrlr.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -7289,6 +7108,7 @@
 					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
@@ -7314,31 +7134,11 @@
 				INFOPLIST_PREPROCESS = NO;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-lCtrlr";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr.CtrlrAUv3;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 			};
 			name = Release;
 		};
@@ -7349,8 +7149,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_ENTITLEMENTS = "AUv3_AppExtension.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = "Ctrlr.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -7396,31 +7195,11 @@
 				INFOPLIST_FILE = Info-AUv3_AppExtension.plist;
 				INFOPLIST_PREPROCESS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-lCtrlr";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr.CtrlrAUv3;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 			};
 			name = Debug;
 		};
@@ -7430,7 +7209,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -7452,6 +7230,7 @@
 					"JucePlugin_Build_Standalone=1",
 					"JucePlugin_Build_Unity=0",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
@@ -7477,31 +7256,11 @@
 				INFOPLIST_PREPROCESS = NO;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-lCtrlr";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 			};
 			name = Release;
 		};
@@ -7511,7 +7270,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -7557,31 +7315,11 @@
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
 				INFOPLIST_PREPROCESS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				OTHER_LDFLAGS = "-lCtrlr";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 			};
 			name = Debug;
 		};
@@ -7591,7 +7329,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -7614,6 +7351,7 @@
 					"JucePlugin_Build_Unity=0",
 					"JUCE_SHARED_CODE=1",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
@@ -7638,31 +7376,11 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 			};
 			name = Release;
 		};
@@ -7672,7 +7390,6 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -7718,31 +7435,11 @@
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = (
-					"../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../JUCE/modules",
-					"../../Source",
-					"../../Source/Misc",
-					"../../Source/Misc/include",
-					"../../Source/Misc/lua/include",
-					"../../Source/Misc/luabind",
-					"../../Source/Misc/libusb/include",
-					"../../Source/Misc/boost",
-					"../../Source/MIDI",
-					"../../Source/Core",
-					"../../Source/Native",
-					"../../Source/Plugin",
-					"../../Source/UIComponents",
-					"../../Source/Lua",
-					"../../JUCE/modules/juce_audio_plugin_client",
-				);
 				OTHER_CPLUSPLUSFLAGS = "-w";
 				PRODUCT_BUNDLE_IDENTIFIER = com.instigator.Ctrlr;
 				PRODUCT_NAME = "Ctrlr";
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
-				VALID_ARCHS = "i386 x86_64 arm64 arm64e";
 			};
 			name = Debug;
 		};
@@ -7768,15 +7465,12 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
@@ -7788,8 +7482,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PRODUCT_NAME = "Ctrlr";
-				SDKROOT = macosx;
-				WARNING_CFLAGS = "-Wreorder";
+				WARNING_CFLAGS = -Wreorder;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -7816,15 +7509,13 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
@@ -7837,11 +7528,34 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "Ctrlr";
-				SDKROOT = macosx;
-				WARNING_CFLAGS = "-Wreorder";
+				WARNING_CFLAGS = -Wreorder;
 				ZERO_LINK = NO;
 			};
 			name = Debug;
+		};
+		9DA61523A00774EA2E4A20C5 = {
+			isa = PBXTargetDependency;
+			target = DA246935607B47B955421D13;
+		};
+		D806F305EB72D376866F1A14 = {
+			isa = PBXTargetDependency;
+			target = 95BA742C0DD8D4F51296A065;
+		};
+		AA8F37F1B9A694B4434FAC72 = {
+			isa = PBXTargetDependency;
+			target = 939EBC04F2B294AE199B7E40;
+		};
+		BAE0DA97E8A0736409F325B3 = {
+			isa = PBXTargetDependency;
+			target = 70CBFA3BF27569C03E0B9927;
+		};
+		10701CA8CA90A5B89B4EC4D3 = {
+			isa = PBXTargetDependency;
+			target = E64B69B5ECADB5780A98FC7C;
+		};
+		815BE4D5F80010DD95007FDF = {
+			isa = PBXTargetDependency;
+			target = 544444E5E2056935093BEFD1;
 		};
 		12F7390729F977433DEAAC10 = {
 			isa = XCConfigurationList;
@@ -7867,12 +7581,12 @@
 			buildPhases = ( );
 			buildRules = ( );
 			dependencies = (
-				05E6291839DCA038AE5FBB37,
-				F0C497728D844D0AFC81C5C1,
-				CE4AF46A886FEBCBEE6C322C,
-				EFD1634977BB88BA5106AF79,
-				A1FB39729F4FB880ABB507C0,
-				BA89B3326599D4CF21A58064,
+				9DA61523A00774EA2E4A20C5,
+				D806F305EB72D376866F1A14,
+				AA8F37F1B9A694B4434FAC72,
+				BAE0DA97E8A0736409F325B3,
+				10701CA8CA90A5B89B4EC4D3,
+				815BE4D5F80010DD95007FDF,
 			);
 			name = "Ctrlr - All";
 			productName = Ctrlr;
@@ -7929,7 +7643,7 @@
 			);
 			buildRules = ( );
 			dependencies = (
-				2056E8D16D079BE2A3447F73,
+				815BE4D5F80010DD95007FDF,
 			);
 			name = "Ctrlr - VST";
 			productName = Ctrlr;
@@ -7988,7 +7702,7 @@
 			);
 			buildRules = ( );
 			dependencies = (
-				B52172725EDA24628CBFEDFC,
+				815BE4D5F80010DD95007FDF,
 			);
 			name = "Ctrlr - VST3";
 			productName = Ctrlr;
@@ -8033,9 +7747,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD4CB042D9A9FA3901985373,
 				98F0ADC8B423ED8696F5E9AF,
 				0AF3FD7D96745ED04BC5F6D4,
+				FD4CB042D9A9FA3901985373,
 				7B646BA09CE20A58EF99FEB4,
 				AD5F166D68B28CCC99A2F46B,
 				6295D31908D48C37464D1999,
@@ -8059,7 +7773,7 @@
 			);
 			buildRules = ( );
 			dependencies = (
-				F402403B73649067C4AAEA0A,
+				815BE4D5F80010DD95007FDF,
 			);
 			name = "Ctrlr - AU";
 			productName = Ctrlr;
@@ -8095,9 +7809,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD4CB042D9A9FA3901985373,
 				98F0ADC8B423ED8696F5E9AF,
 				0AF3FD7D96745ED04BC5F6D4,
+				FD4CB042D9A9FA3901985373,
 				7612184F35F3845882E2E753,
 				7B646BA09CE20A58EF99FEB4,
 				AD5F166D68B28CCC99A2F46B,
@@ -8121,7 +7835,7 @@
 			);
 			buildRules = ( );
 			dependencies = (
-				42915082985D8A315FA4A2B4,
+				815BE4D5F80010DD95007FDF,
 			);
 			name = "Ctrlr - AUv3 AppExtension";
 			productName = Ctrlr;
@@ -8192,8 +7906,8 @@
 			);
 			buildRules = ( );
 			dependencies = (
-				02E63B47C0854F51B1D2D274,
-				3E303910D6C06A9DEA250D4B,
+				BAE0DA97E8A0736409F325B3,
+				815BE4D5F80010DD95007FDF,
 			);
 			name = "Ctrlr - Standalone Plugin";
 			productName = Ctrlr;
@@ -8439,14 +8153,13 @@
 		B06EC060B1D9D776A62A0E10 = {
 			isa = PBXProject;
 			buildConfigurationList = 12F7390729F977433DEAAC10;
-			attributes = { LastUpgradeCheck = 1200; ORGANIZATIONNAME = "Instigator"; TargetAttributes = { 46A18ED82E58216C4534B54D = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };DA246935607B47B955421D13 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };95BA742C0DD8D4F51296A065 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };939EBC04F2B294AE199B7E40 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };70CBFA3BF27569C03E0B9927 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 1; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };E64B69B5ECADB5780A98FC7C = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };544444E5E2056935093BEFD1 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
+			attributes = { LastUpgradeCheck = 0930; ORGANIZATIONNAME = "Instigator"; TargetAttributes = { 46A18ED82E58216C4534B54D = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; }; };DA246935607B47B955421D13 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; }; };95BA742C0DD8D4F51296A065 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; }; };939EBC04F2B294AE199B7E40 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; }; };70CBFA3BF27569C03E0B9927 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 1; }; }; };E64B69B5ECADB5780A98FC7C = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; }; };544444E5E2056935093BEFD1 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; }; }; }; };
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = 5EA2AAF17BCEBE0FB32DED61;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (46A18ED82E58216C4534B54D, DA246935607B47B955421D13, 95BA742C0DD8D4F51296A065, 939EBC04F2B294AE199B7E40, 70CBFA3BF27569C03E0B9927, E64B69B5ECADB5780A98FC7C, 544444E5E2056935093BEFD1);
-			knownRegions = (en, Base);
 		};
 	};
 	rootObject = B06EC060B1D9D776A62A0E10;

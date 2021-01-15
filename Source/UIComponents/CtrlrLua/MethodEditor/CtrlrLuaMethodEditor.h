@@ -67,7 +67,7 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		void renameGroup(ValueTree parentGroup=ValueTree());
 
 		const String getUniqueName(const ValueTree &item) const;
-		Image getIconForItem(const ValueTree &item)	const;
+		Drawable* getIconForItem(const ValueTree &item)	const;
 		void itemClicked (const MouseEvent &e, ValueTree &item);
 		void itemDoubleClicked (const MouseEvent &e, ValueTree &item);
 		const bool renameItem(const ValueTree &item, const String &newName) const;

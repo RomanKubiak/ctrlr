@@ -1,5 +1,4 @@
-#ifndef __CTRLR_VALUE_TREE_EDITOR__
-#define __CTRLR_VALUE_TREE_EDITOR__
+#pragma once
 
 #include "CtrlrIDs.h"
 #include "CtrlrMacros.h"
@@ -13,7 +12,7 @@ class CtrlrValueTreeEditorLookProvider : public AsyncUpdater
 		virtual const Font				getItemFont(const ValueTree &item)		const { return (Font(16)); }
 		virtual const int				getItemHeight(const ValueTree &item)	const { return (32); }
 		virtual bool					canBeSelected(const ValueTree &item)	const { return (true); }
-		virtual Image					getIconForItem(const ValueTree &item)	const { return (Image::null); }
+		virtual Drawable*				getIconForItem(const ValueTree &item)	const { return (nullptr); }
 		virtual void					itemClicked(const MouseEvent &e, ValueTree &item)	{ }
 		virtual void					itemDoubleClicked(const MouseEvent &e, ValueTree &item)	{ }
 		virtual const bool				renameItem(const ValueTree &item, const String &newName) const	{ return (false); }
@@ -28,8 +27,11 @@ class CtrlrValueTreeEditorLookProvider : public AsyncUpdater
 class CtrlrValueTreeEditorTree : public TreeView
 {
 	public:
-		CtrlrValueTreeEditorTree(const String &name) : TreeView(name) {}
+		CtrlrValueTreeEditorTree(const String &name, CtrlrPanel &_owner) : TreeView(name), owner(_owner) {}
 		bool keyPressed (const KeyPress &key);
+
+	private:
+		CtrlrPanel &owner;
 };
 
 class CtrlrValueTreeEditorItem : public TreeViewItem, public ValueTree::Listener
@@ -67,4 +69,3 @@ class CtrlrValueTreeEditorItem : public TreeViewItem, public ValueTree::Listener
 		Identifier nameIdentifier;
 };
 
-#endif

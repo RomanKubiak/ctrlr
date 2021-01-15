@@ -12,7 +12,7 @@
               pluginRTASCategory="" aaxIdentifier="com.instigator.Ctrlr" pluginAAXCategory="2"
               companyName="Instigator" pluginAUMainType="CtrlrAU" pluginFormats="buildVST,buildVST3,buildAU,buildAUv3,buildStandalone"
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginProducesMidiOut,pluginIsMidiEffectPlugin,pluginEditorRequiresKeys"
-              jucerFormatVersion="1">
+              jucerFormatVersion="1" jucerVersion="5.4.1">
   <MAINGROUP id="SRLsFb" name="Ctrlr">
     <GROUP id="{BE407432-92DD-AEAB-3C70-AAE03FCD0B1D}" name="Source">
       <GROUP id="{F4D7C0F1-7F03-CB3F-30C6-F728F0E39FE2}" name="Misc">

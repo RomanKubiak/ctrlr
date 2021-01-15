@@ -36,7 +36,6 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
     : owner(_owner)
 {
     addAndMakeVisible (lowerTabs = new TabbedComponent (TabbedButtonBar::TabsAtBottom));
-    lowerTabs->setTabBarDepth (24);
     lowerTabs->setCurrentTabIndex (-1);
 
     addAndMakeVisible (upperTabs = new CtrlrLuaMethodEditorTabs (owner));
@@ -44,9 +43,6 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
 
     //[UserPreSize]
 	owner.getOwner().getCtrlrManagerOwner().getCtrlrLog().addListener (this);
-
-	upperTabs->setTabBarDepth (24);
-
 	output						= new CtrlrTextEditor("Output");
 	output->setFont (Font (owner.getOwner().getCtrlrManagerOwner().getFontManager().getDefaultMonoFontName(), 16.0f, Font::plain));
 	output->setMultiLine(true, true);
@@ -64,6 +60,7 @@ CtrlrLuaMethodEditArea::CtrlrLuaMethodEditArea (CtrlrLuaMethodEditor &_owner)
 	lowerTabs->addTab ("Find and replace", Colours::lightgrey, find, true);
     lowerTabs->addTab ("Debugger output", Colours::lightgrey, debuggerPrompt, true);
     lowerTabs->addTab ("Console", Colours::lightgrey, luaConsole, true);
+	lowerTabs->setTabBarDepth(owner.getOwner().getOwner().getProperty(Ids::ctrlrTabBarDepth));
 
 	layoutManager.setItemLayout (0, -0.001, -1.0, -0.79);
  	layoutManager.setItemLayout (1, -0.001, -0.01, -0.01);

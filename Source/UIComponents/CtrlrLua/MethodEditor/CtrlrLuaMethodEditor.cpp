@@ -11,6 +11,7 @@
 #include "CtrlrPropertyEditors/CtrlrPropertyComponent.h"
 #include "CtrlrLuaMethodCodeEditorSettings.h"
 #include "CtrlrWindowManagers/CtrlrDialogWindow.h"
+#include "CtrlrInlineUtilitiesGUI.h"
 
 CtrlrLuaMethodEditor::CtrlrLuaMethodEditor (CtrlrPanel &_owner)
     : owner(_owner),
@@ -24,7 +25,7 @@ CtrlrLuaMethodEditor::CtrlrLuaMethodEditor (CtrlrPanel &_owner)
 	  currentSearchString(String::empty)
 {
 	addAndMakeVisible (resizer			= new StretchableLayoutResizerBar (&layoutManager, 1, true));
-	addAndMakeVisible (methodTree		= new CtrlrValueTreeEditorTree ("LUA METHOD TREE"));
+	addAndMakeVisible (methodTree		= new CtrlrValueTreeEditorTree ("LUA METHOD TREE", owner));
     addAndMakeVisible (methodEditArea	= new CtrlrLuaMethodEditArea(*this));
 
 	methodTree->setRootItem (new CtrlrValueTreeEditorItem(*this, getMethodManager().getManagerTree(), Ids::luaMethodName));
@@ -701,7 +702,8 @@ const String CtrlrLuaMethodEditor::getUniqueName (const ValueTree &item) const
 const AttributedString CtrlrLuaMethodEditor::getDisplayString(const ValueTree &item)	const
 {
 	AttributedString str;
-
+	Font fNormal = owner.getOwner().getFontManager().getDefaultNormalFont();
+	Font fSmall = owner.getOwner().getFontManager().getDefaultSmallFont();
 	if (item.getType () == Ids::luaMethod)
 	{
 		Colour text;
@@ -711,15 +713,15 @@ const AttributedString CtrlrLuaMethodEditor::getDisplayString(const ValueTree &i
 		else
 			text = Colours::black;
 
-		str.append (item.getProperty(Ids::luaMethodName).toString()+"\n", Font(12.0f, Font::plain), text);
+		str.append (item.getProperty(Ids::luaMethodName).toString()+"\n", fNormal, text);
 
 		if ((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile)
 		{
-			str.append (File::descriptionOfSizeInBytes (owner.getLuaMethodSourceFile(&item).getSize()), Font(10.0f, Font::italic), text.brighter(0.2f));
+			str.append (File::descriptionOfSizeInBytes (owner.getLuaMethodSourceFile(&item).getSize()), fSmall, text.brighter(0.2f));
 		}
 		else
 		{
-			str.append (File::descriptionOfSizeInBytes (item.getProperty(Ids::luaMethodCode).toString().length()), Font(10.0f, Font::italic), text.brighter(0.2f));
+			str.append (File::descriptionOfSizeInBytes (item.getProperty(Ids::luaMethodCode).toString().length()), fSmall, text.brighter(0.2f));
 		}
 
 		str.setJustification (Justification::left);
@@ -727,15 +729,15 @@ const AttributedString CtrlrLuaMethodEditor::getDisplayString(const ValueTree &i
 
 	if (item.getType() == Ids::luaMethodGroup)
 	{
-		str.append (item.getProperty(Ids::name), Font(14.0f, Font::plain), Colours::black);
-		str.append (" ["+String(item.getNumChildren())+"]", Font(10.0f, Font::italic), Colours::darkgrey);
+		str.append (item.getProperty(Ids::name), fNormal, Colours::black);
+		str.append (" ["+String(item.getNumChildren())+"]", fSmall, Colours::darkgrey);
 
 		str.setJustification (Justification::left);
 	}
 
 	if (item.getType() == Ids::luaManagerMethods)
 	{
-		str.append ("LUA", Font(14.0f, Font::bold), Colours::black);
+		str.append ("LUA", fNormal.boldened(), Colours::black);
 
 		str.setJustification (Justification::left);
 	}
@@ -753,36 +755,37 @@ const Font CtrlrLuaMethodEditor::getItemFont(const ValueTree &item) const
 	return (Font(12.0f, Font::plain));
 }
 
-Image CtrlrLuaMethodEditor::getIconForItem (const ValueTree &item) const
+Drawable* CtrlrLuaMethodEditor::getIconForItem (const ValueTree &item) const
 {
 	if (item.hasType (Ids::luaMethod))
 	{
 		if ((int)item.getProperty (Ids::luaMethodSource) == (int)CtrlrLuaMethod::codeInProperty)
 		{
-			return (IMAGE(radio_checked_svg));
+			return gui::createDrawable(BIN2STR(cog_svg));
 		}
 
 		if ((int)item.getProperty (Ids::luaMethodSource) == (int)CtrlrLuaMethod::codeInFile)
 		{
 			if (owner.getLuaMethodSourceFile(&item).existsAsFile())
 			{
-				return (IMAGE(file_svg));
+				return gui::createDrawable(BIN2STR(file_svg));
 			}
 			else
 			{
-				return (IMAGE(radio_svg));
+				return gui::createDrawable(BIN2STR(radio_svg));
 			}
 		}
 	}
 	else if (item.hasType (Ids::luaMethodGroup))
 	{
-		return (IMAGE(folder_svg));
+		return gui::createDrawable(BIN2STR(folder_svg));
 	}
 	else if (item.hasType (Ids::luaManagerMethods))
 	{
-		return (IMAGE(folder_open_svg));
+		return gui::createDrawable(BIN2STR(folder_open_svg));
 	}
-	return (IMAGE(radio_svg));
+
+	return gui::createDrawable(BIN2STR(radio_svg));
 }
 
 void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)

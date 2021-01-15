@@ -155,7 +155,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 #if CTRLR_NIGHTLY == 1
 	addVersionInfo ("Branch", "Nightly");
 #else
-	addVersionInfo ("Branch", "Stable");
+	addVersionInfo ("Branch", "master");
 #endif
 	addVersionInfo ("Juce", SystemStats::getJUCEVersion().fromLastOccurrenceOf("JUCE v", false, true));
 

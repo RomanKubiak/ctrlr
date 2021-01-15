@@ -118,7 +118,7 @@ bool CtrlrValueTreeEditorItem::isInterestedInDragSource (const DragAndDropTarget
 
 void CtrlrValueTreeEditorItem::paintItem (Graphics &g, int width, int height)
 {
-	Image icon = provider.getIconForItem (treeToEdit);
+	std::unique_ptr<Drawable> icon(provider.getIconForItem (treeToEdit));
 	if (isSelected())
 	{
         gui::drawSelectionRectangle (g,width,height);
@@ -129,7 +129,10 @@ void CtrlrValueTreeEditorItem::paintItem (Graphics &g, int width, int height)
 	AttributedString as = provider.getDisplayString(treeToEdit);
 	as.setJustification (Justification (Justification::centredLeft));
 	as.draw (g, Rectangle <float> (24.0, 0.0, width - 24.0, height));
-	g.drawImageWithin (icon, 4, 0, 16, height, RectanglePlacement (RectanglePlacement::centred));
+
+	if (icon)
+		icon->drawWithin(g, Rectangle<float>(4,0, 16, height), RectanglePlacement::centred, 1.0f);
+	// g.drawImageWithin (icon, 4, 0, 16, height, RectanglePlacement (RectanglePlacement::centred));
 }
 
 void CtrlrValueTreeEditorItem::itemDropped (const DragAndDropTarget::SourceDetails &dragSourceDetails, int insertIndex)
