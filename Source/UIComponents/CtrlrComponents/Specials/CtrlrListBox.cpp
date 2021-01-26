@@ -182,28 +182,28 @@ void CtrlrListBox::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChan
 	}
 	else if (property == Ids::uiListBoxItemClicked)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		itemClickedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiListBoxItemDoubleClicked)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		itemDoubleClickedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiListBoxItemDeleteKeyPressed)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		itemDeleteKeyPressedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiListBoxItemReturnKeyPressed)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		itemReturnKeyPressedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));

@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -35,7 +35,8 @@ static File createTempFile (const File& parentDirectory, String name,
 TemporaryFile::TemporaryFile (const String& suffix, const int optionFlags)
     : temporaryFile (createTempFile (File::getSpecialLocation (File::tempDirectory),
                                      "temp_" + String::toHexString (Random::getSystemRandom().nextInt()),
-                                     suffix, optionFlags))
+                                     suffix, optionFlags)),
+      targetFile()
 {
 }
 

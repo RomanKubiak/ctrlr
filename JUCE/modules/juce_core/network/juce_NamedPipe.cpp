@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -41,6 +41,7 @@ bool NamedPipe::openExisting (const String& pipeName)
 
 bool NamedPipe::isOpen() const
 {
+    ScopedReadLock sl (lock);
     return pimpl != nullptr;
 }
 
@@ -55,13 +56,15 @@ bool NamedPipe::createNewPipe (const String& pipeName, bool mustNotExist)
 
 String NamedPipe::getName() const
 {
+    ScopedReadLock sl (lock);
     return currentPipeName;
 }
 
 // other methods for this class are implemented in the platform-specific files
 
-//==============================================================================
 
+//==============================================================================
+//==============================================================================
 #if JUCE_UNIT_TESTS
 
 class NamedPipeTests  : public UnitTest
@@ -69,12 +72,12 @@ class NamedPipeTests  : public UnitTest
 public:
     //==============================================================================
     NamedPipeTests()
-        : UnitTest ("NamedPipe", "Networking")
+        : UnitTest ("NamedPipe", UnitTestCategories::networking)
     {}
 
     void runTest() override
     {
-        const String pipeName ("TestPipe");
+        const auto pipeName = "TestPipe" + String ((intptr_t) Thread::getCurrentThreadId());
 
         beginTest ("Pre test cleanup");
         {
@@ -197,9 +200,9 @@ private:
     //==============================================================================
     struct NamedPipeThread   : public Thread
     {
-        NamedPipeThread (const String& threadName, const String& pName,
+        NamedPipeThread (const String& tName, const String& pName,
                          bool shouldCreatePipe, WaitableEvent& completed)
-            : Thread (threadName), pipeName (pName), workCompleted (completed)
+            : Thread (tName), pipeName (pName), workCompleted (completed)
         {
             if (shouldCreatePipe)
                 pipe.createNewPipe (pipeName);
@@ -223,6 +226,11 @@ private:
               sendData (sData)
         {}
 
+        ~SenderThread() override
+        {
+            stopThread (100);
+        }
+
         void run() override
         {
             result = pipe.write (&sendData, sizeof (sendData), 2000);
@@ -239,6 +247,11 @@ private:
                         WaitableEvent& completed)
             : NamedPipeThread ("NamePipeSender", pName, shouldCreatePipe, completed)
         {}
+
+        ~ReceiverThread() override
+        {
+            stopThread (100);
+        }
 
         void run() override
         {

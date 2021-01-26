@@ -6,7 +6,7 @@
 class CtrlrTextEditor : public TextEditor
 {
 	public:
-		CtrlrTextEditor(const String &componentName=String::empty, juce_wchar passwordCharacter=0);
+		CtrlrTextEditor(const String &componentName="", juce_wchar passwordCharacter=0);
 		~CtrlrTextEditor();
 
 		void setAttributedText (const AttributedString &text);

@@ -82,7 +82,7 @@ void CtrlrModulatorProcessor::setModulatorMinValue (const int newMinValue)
 
 void CtrlrModulatorProcessor::setForwardExpression (const String &forwardExpressionString)
 {
-	if (forwardExpressionString == String::empty || forwardExpressionString == EXP_MODULATOR_FORWARD)
+	if (forwardExpressionString == "" || forwardExpressionString == EXP_MODULATOR_FORWARD)
 	{
 		const ScopedWriteLock sl (processorLock);
 
@@ -109,7 +109,7 @@ void CtrlrModulatorProcessor::setForwardExpression (const String &forwardExpress
 
 void CtrlrModulatorProcessor::setReverseExpression (const String &reverseExpressionString)
 {
-	if (reverseExpressionString == String::empty || reverseExpressionString == EXP_MODULATOR_REVERSE)
+	if (reverseExpressionString == "" || reverseExpressionString == EXP_MODULATOR_REVERSE)
 	{
 		const ScopedWriteLock sl (processorLock);
 

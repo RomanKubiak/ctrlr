@@ -212,7 +212,7 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 	if (!string.contains (";"))
 	{
 	    //_DBG("\tno ; in string");
-	    if (string == String::empty)
+	    if (string == "")
         {
             //_DBG("\tstring is empty, return default font");
             return (Font (15.0f));
@@ -224,11 +224,11 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
 	fontProps.addTokens (string, ";", "\"\'");
 	Font font;
 
-	if (fontProps[fontTypefaceName] != String::empty)
+	if (fontProps[fontTypefaceName] != "")
 	{
 	    //_DBG("\tfont name not empty: "+fontProps[fontTypefaceName]);
 
-		if (fontProps[fontSet] != String::empty && fontProps[fontSet].getIntValue() >= 0)
+		if (fontProps[fontSet] != "" && fontProps[fontSet].getIntValue() >= 0)
 		{
 		    //_DBG("\tfont set is not empty and >= 0: "+_STR(fontProps[fontSet]));
 
@@ -260,19 +260,19 @@ const Font CtrlrFontManager::getFontFromString (const String &string)
         font.setUnderline (false);
         font.setItalic (false);
 
-		if (fontProps[fontBold] != String::empty)
+		if (fontProps[fontBold] != "")
 			font.setBold (fontProps[fontBold].getIntValue() ? true : false);
 
-		if (fontProps[fontItalic] != String::empty)
+		if (fontProps[fontItalic] != "")
 			font.setItalic (fontProps[fontItalic].getIntValue() ? true : false);
 
-		if (fontProps[fontUnderline] != String::empty)
+		if (fontProps[fontUnderline] != "")
 			font.setUnderline (fontProps[fontUnderline].getIntValue() ? true : false);
 
-		if (fontProps[fontKerning] != String::empty)
+		if (fontProps[fontKerning] != "")
 			font.setExtraKerningFactor (fontProps[fontKerning].getFloatValue());
 
-		if (fontProps[fontHorizontalScale] != String::empty)
+		if (fontProps[fontHorizontalScale] != "")
 			font.setHorizontalScale (fontProps[fontHorizontalScale].getFloatValue());
 	}
 	return (font);

@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -31,7 +31,7 @@
 
  dependencies:     juce_core, juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra, juce_opengl
- exporters:        xcode_mac, vs2017, xcode_iphone
+ exporters:        xcode_mac, vs2019, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -63,7 +63,7 @@ public:
         setSize (800, 600);
     }
 
-    ~OpenGLAppDemo()
+    ~OpenGLAppDemo() override
     {
         shutdownOpenGL();
     }
@@ -92,7 +92,7 @@ public:
     Matrix3D<float> getViewMatrix() const
     {
         Matrix3D<float> viewMatrix ({ 0.0f, 0.0f, -10.0f });
-        Matrix3D<float> rotationMatrix = viewMatrix.rotation ({ -0.3f, 5.0f * std::sin (getFrameCounter() * 0.01f), 0.0f });
+        Matrix3D<float> rotationMatrix = viewMatrix.rotation ({ -0.3f, 5.0f * std::sin ((float) getFrameCounter() * 0.01f), 0.0f });
 
         return rotationMatrix * viewMatrix;
     }
@@ -107,7 +107,7 @@ public:
         glEnable (GL_BLEND);
         glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-        glViewport (0, 0, roundToInt (desktopScale * getWidth()), roundToInt (desktopScale * getHeight()));
+        glViewport (0, 0, roundToInt (desktopScale * (float) getWidth()), roundToInt (desktopScale * (float) getHeight()));
 
         shader->use();
 

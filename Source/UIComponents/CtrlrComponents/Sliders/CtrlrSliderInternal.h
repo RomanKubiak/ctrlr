@@ -30,7 +30,7 @@ class CtrlrSliderLookAndFeel_V2 : public LookAndFeel_V2
 
 		Button *createSliderButton (Slider&, bool isIncrement)
 		{
-			TextButton *tb = new TextButton (isIncrement ? "+" : "-", String::empty);
+			TextButton *tb = new TextButton (isIncrement ? "+" : "-", "");
 			tb->setLookAndFeel (&LookAndFeel::getDefaultLookAndFeel());
 			tb->setColour (TextButton::buttonColourId, VAR2COLOUR(ownerTree.getProperty(Ids::uiSliderIncDecButtonColour)));
 			tb->setColour (TextButton::textColourOffId, VAR2COLOUR(ownerTree.getProperty(Ids::uiSliderIncDecTextColour)));
@@ -89,7 +89,7 @@ public:
 
     Button *createSliderButton (Slider&, bool isIncrement)
     {
-        TextButton *tb = new TextButton (isIncrement ? "+" : "-", String::empty);
+        TextButton *tb = new TextButton (isIncrement ? "+" : "-", "");
         tb->setLookAndFeel (&LookAndFeel::getDefaultLookAndFeel());
         tb->setColour (TextButton::buttonColourId, VAR2COLOUR(ownerTree.getProperty(Ids::uiSliderIncDecButtonColour)));
         tb->setColour (TextButton::textColourOffId, VAR2COLOUR(ownerTree.getProperty(Ids::uiSliderIncDecTextColour)));
@@ -148,7 +148,7 @@ public:
 
     Button *createSliderButton (Slider&, bool isIncrement)
     {
-        TextButton *tb = new TextButton (isIncrement ? "+" : "-", String::empty);
+        TextButton *tb = new TextButton (isIncrement ? "+" : "-", "");
         tb->setLookAndFeel (&LookAndFeel::getDefaultLookAndFeel());
         tb->setColour (TextButton::buttonColourId, VAR2COLOUR(ownerTree.getProperty(Ids::uiSliderIncDecButtonColour)));
         tb->setColour (TextButton::textColourOffId, VAR2COLOUR(ownerTree.getProperty(Ids::uiSliderIncDecTextColour)));

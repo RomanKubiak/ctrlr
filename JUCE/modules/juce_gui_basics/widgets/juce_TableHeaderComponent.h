@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -194,7 +193,7 @@ public:
 
     /** Triggers a re-sort of the table according to the current sort-column.
 
-        If you modifiy the table's contents, you can call this to signal that the table needs
+        If you modify the table's contents, you can call this to signal that the table needs
         to be re-sorted.
 
         (This doesn't do any sorting synchronously - it just asynchronously sends a call to the
@@ -229,7 +228,7 @@ public:
 
         The index is an index from 0 to the number of columns that are currently visible (hidden
         ones are not counted). It returns a rectangle showing the position of the column relative
-        to this component's top-left. If the index is out-of-range, an empty rectangle is retrurned.
+        to this component's top-left. If the index is out-of-range, an empty rectangle is returned.
     */
     Rectangle<int> getColumnPosition (int index) const;
 
@@ -306,10 +305,10 @@ public:
     {
     public:
         //==============================================================================
-        Listener() {}
+        Listener() = default;
 
         /** Destructor. */
-        virtual ~Listener() {}
+        virtual ~Listener() = default;
 
         //==============================================================================
         /** This is called when some of the table's columns are added, removed, hidden,
@@ -382,7 +381,7 @@ public:
         highlightColourId              = 0x1003830, /**< The colour of the table header background when
                                                          the mouse is over or down above the the table
                                                          header. It's up to the LookAndFeel to use a
-                                                         variant of this colour to destiuish between
+                                                         variant of this colour to distinguish between
                                                          the down and hover state. */
     };
 
@@ -390,7 +389,7 @@ public:
     /** This abstract base class is implemented by LookAndFeel classes. */
     struct JUCE_API  LookAndFeelMethods
     {
-        virtual ~LookAndFeelMethods() {}
+        virtual ~LookAndFeelMethods() = default;
 
         virtual void drawTableHeaderBackground (Graphics&, TableHeaderComponent&) = 0;
 

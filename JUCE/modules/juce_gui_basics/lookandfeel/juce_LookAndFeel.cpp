@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -41,7 +40,7 @@ LookAndFeel::LookAndFeel()
     /* if this fails it means you're trying to create a LookAndFeel object before
        the static Colours have been initialised. That ain't gonna work. It probably
        means that you're using a static LookAndFeel object and that your compiler has
-       decided to intialise it before the Colours class.
+       decided to initialise it before the Colours class.
     */
     jassert (Colours::white == Colour (0xffffffff));
 
@@ -81,7 +80,7 @@ Colour LookAndFeel::findColour (int colourID) const noexcept
     auto index = colours.indexOf (c);
 
     if (index >= 0)
-        return colours.getReference (index).colour;
+        return colours[index].colour;
 
     jassertfalse;
     return Colours::black;
@@ -168,10 +167,11 @@ MouseCursor LookAndFeel::getMouseCursorFor (Component& component)
     return cursor;
 }
 
-LowLevelGraphicsContext* LookAndFeel::createGraphicsContext (const Image& imageToRenderOn, const Point<int>& origin,
-                                                             const RectangleList<int>& initialClip)
+std::unique_ptr<LowLevelGraphicsContext> LookAndFeel::createGraphicsContext (const Image& imageToRenderOn,
+                                                                             Point<int> origin,
+                                                                             const RectangleList<int>& initialClip)
 {
-    return new LowLevelGraphicsSoftwareRenderer (imageToRenderOn, origin, initialClip);
+    return std::make_unique<LowLevelGraphicsSoftwareRenderer> (imageToRenderOn, origin, initialClip);
 }
 
 //==============================================================================

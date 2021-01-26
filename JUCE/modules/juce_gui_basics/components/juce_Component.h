@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -54,7 +53,7 @@ public:
     /** Destructor.
 
         Note that when a component is deleted, any child components it contains are NOT
-        automatically deleted. It's your responsibilty to manage their lifespan - you
+        automatically deleted. It's your responsibility to manage their lifespan - you
         may want to use helper methods like deleteAllChildren(), or less haphazard
         approaches like using std::unique_ptrs or normal object aggregation to manage them.
 
@@ -364,11 +363,24 @@ public:
         a screen coordinate.
 
         If you've used setTransform() to apply one or more transforms to components, then the source rectangle
-        may not actually be rectanglular when converted to the target space, so in that situation this will return
+        may not actually be rectangular when converted to the target space, so in that situation this will return
         the smallest rectangle that fully contains the transformed area.
     */
     Rectangle<int> getLocalArea (const Component* sourceComponent,
                                  Rectangle<int> areaRelativeToSourceComponent) const;
+
+    /** Converts a rectangle to be relative to this component's coordinate space.
+
+        This takes a rectangle that is relative to a different component, and returns its position relative
+        to this component. If the sourceComponent parameter is null, the source rectangle is assumed to be
+        a screen coordinate.
+
+        If you've used setTransform() to apply one or more transforms to components, then the source rectangle
+        may not actually be rectangular when converted to the target space, so in that situation this will return
+        the smallest rectangle that fully contains the transformed area.
+    */
+    Rectangle<float> getLocalArea (const Component* sourceComponent,
+                                   Rectangle<float> areaRelativeToSourceComponent) const;
 
     /** Converts a point relative to this component's top-left into a screen coordinate.
         @see getLocalPoint, localAreaToGlobal
@@ -383,11 +395,20 @@ public:
     /** Converts a rectangle from this component's coordinate space to a screen coordinate.
 
         If you've used setTransform() to apply one or more transforms to components, then the source rectangle
-        may not actually be rectanglular when converted to the target space, so in that situation this will return
+        may not actually be rectangular when converted to the target space, so in that situation this will return
         the smallest rectangle that fully contains the transformed area.
         @see getLocalPoint, localPointToGlobal
     */
     Rectangle<int> localAreaToGlobal (Rectangle<int> localArea) const;
+
+    /** Converts a rectangle from this component's coordinate space to a screen coordinate.
+
+        If you've used setTransform() to apply one or more transforms to components, then the source rectangle
+        may not actually be rectangular when converted to the target space, so in that situation this will return
+        the smallest rectangle that fully contains the transformed area.
+        @see getLocalPoint, localPointToGlobal
+    */
+    Rectangle<float> localAreaToGlobal (Rectangle<float> localArea) const;
 
     //==============================================================================
     /** Moves the component to a new position.
@@ -589,6 +610,11 @@ public:
         @see setTransform
     */
     bool isTransformed() const noexcept;
+
+    /** Returns the approximate scale factor for a given component by traversing its parent hierarchy
+        and applying each transform and finally scaling this by the global scale factor.
+    */
+    static float JUCE_CALLTYPE getApproximateScaleFactorForComponent (Component* targetComponent);
 
     //==============================================================================
     /** Returns a proportion of the component's width.
@@ -867,8 +893,8 @@ public:
 
     /** Changes the default return value for the hitTest() method.
 
-        Setting this to false is an easy way to make a component pass its mouse-clicks
-        through to the components behind it.
+        Setting this to false is an easy way to make a component pass all its mouse events
+        (not just clicks) through to the components behind it.
 
         When a component is created, the default setting for this is true.
 
@@ -1379,7 +1405,7 @@ public:
     virtual void enablementChanged();
 
     //==============================================================================
-    /** Returns the component's current transparancy level.
+    /** Returns the component's current transparency level.
         See setAlpha() for more details.
     */
     float getAlpha() const noexcept;
@@ -1480,7 +1506,7 @@ public:
                      the source component in which it occurred
         @see mouseEnter, mouseExit, mouseDrag, contains
     */
-    virtual void mouseMove (const MouseEvent& event) override;
+    void mouseMove (const MouseEvent& event) override;
 
     /** Called when the mouse first enters a component.
 
@@ -1496,7 +1522,7 @@ public:
                      the source component in which it occurred
         @see mouseExit, mouseDrag, mouseMove, contains
     */
-    virtual void mouseEnter (const MouseEvent& event) override;
+    void mouseEnter (const MouseEvent& event) override;
 
     /** Called when the mouse moves out of a component.
 
@@ -1511,7 +1537,7 @@ public:
                       the source component in which it occurred
         @see mouseEnter, mouseDrag, mouseMove, contains
     */
-    virtual void mouseExit (const MouseEvent& event) override;
+    void mouseExit (const MouseEvent& event) override;
 
     /** Called when a mouse button is pressed.
 
@@ -1526,7 +1552,7 @@ public:
                       the source component in which it occurred
         @see mouseUp, mouseDrag, mouseDoubleClick, contains
     */
-    virtual void mouseDown (const MouseEvent& event) override;
+    void mouseDown (const MouseEvent& event) override;
 
     /** Called when the mouse is moved while a button is held down.
 
@@ -1538,7 +1564,7 @@ public:
                       the source component in which it occurred
         @see mouseDown, mouseUp, mouseMove, contains, setDragRepeatInterval
     */
-    virtual void mouseDrag (const MouseEvent& event) override;
+    void mouseDrag (const MouseEvent& event) override;
 
     /** Called when a mouse button is released.
 
@@ -1553,7 +1579,7 @@ public:
                       the source component in which it occurred
         @see mouseDown, mouseDrag, mouseDoubleClick, contains
     */
-    virtual void mouseUp (const MouseEvent& event) override;
+    void mouseUp (const MouseEvent& event) override;
 
     /** Called when a mouse button has been double-clicked on a component.
 
@@ -1565,7 +1591,7 @@ public:
                       the source component in which it occurred
         @see mouseDown, mouseUp
     */
-    virtual void mouseDoubleClick (const MouseEvent& event) override;
+    void mouseDoubleClick (const MouseEvent& event) override;
 
     /** Called when the mouse-wheel is moved.
 
@@ -1582,8 +1608,8 @@ public:
         @param event   details about the mouse event
         @param wheel   details about the mouse wheel movement
     */
-    virtual void mouseWheelMove (const MouseEvent& event,
-                                 const MouseWheelDetails& wheel) override;
+    void mouseWheelMove (const MouseEvent& event,
+                         const MouseWheelDetails& wheel) override;
 
     /** Called when a pinch-to-zoom mouse-gesture is used.
 
@@ -1596,7 +1622,7 @@ public:
                             should be changed. A value of 1.0 would indicate no change,
                             values greater than 1.0 mean it should be enlarged.
     */
-    virtual void mouseMagnify (const MouseEvent& event, float scaleFactor) override;
+    void mouseMagnify (const MouseEvent& event, float scaleFactor) override;
 
     //==============================================================================
     /** Ensures that a non-stop stream of mouse-drag events will be sent during the
@@ -1730,7 +1756,7 @@ public:
     virtual void modifierKeysChanged (const ModifierKeys& modifiers);
 
     //==============================================================================
-    /** Enumeration used by the focusChanged() and focusLost() methods. */
+    /** Enumeration used by the focusGained() and focusLost() methods. */
     enum FocusChangeType
     {
         focusChangedByMouseClick,   /**< Means that the user clicked the mouse to change focus. */
@@ -2132,7 +2158,7 @@ public:
     {
     public:
         /** Creates a null SafePointer. */
-        SafePointer() noexcept {}
+        SafePointer() = default;
 
         /** Creates a SafePointer that points at the given component. */
         SafePointer (ComponentType* component)                : weakRef (component) {}
@@ -2205,7 +2231,7 @@ public:
         /** Creates a Positioner which can control the specified component. */
         explicit Positioner (Component& component) noexcept;
         /** Destructor. */
-        virtual ~Positioner() {}
+        virtual ~Positioner() = default;
 
         /** Returns the component that this positioner controls. */
         Component& getComponent() const noexcept    { return component; }
@@ -2249,7 +2275,7 @@ public:
 
     /** Sets a flag to indicate whether mouse drag events on this Component should be ignored when it is inside a
         Viewport with drag-to-scroll functionality enabled. This is useful for Components such as sliders that
-        should not move their parent Viewport when dragged.
+        should not move when their parent Viewport when dragged.
     */
     void setViewportIgnoreDragFlag (bool ignoreDrag) noexcept           { flags.viewportIgnoreDragFlag = ignoreDrag; }
 

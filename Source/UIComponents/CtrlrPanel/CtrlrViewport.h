@@ -8,7 +8,7 @@ class CtrlrViewport  : public Component,
                             private ScrollBar::Listener
 {
     public:
-        explicit CtrlrViewport (const String& componentName = String::empty);
+        explicit CtrlrViewport (const String& componentName = "");
         ~CtrlrViewport();
         void setViewedComponent (Component* newViewedComponent, bool deleteComponentWhenNoLongerNeeded = true);
         Component* getViewedComponent() const noexcept                  { return contentComp; }

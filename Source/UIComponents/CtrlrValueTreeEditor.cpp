@@ -96,7 +96,7 @@ var CtrlrValueTreeEditorItem::getDragSourceDescription ()
 		}
 	}
 
-	if ((returnValue = provider.getDragSourceDescription(selectedTreeItems)) != String::empty)
+	if ((returnValue = provider.getDragSourceDescription(selectedTreeItems)) != "")
 	{
 		return (returnValue);
 	}

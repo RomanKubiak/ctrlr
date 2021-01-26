@@ -62,7 +62,7 @@ public:
 	void syncDestination();
 	void allModulatorsInitialized();
 	void showPopupMenu();
-	const PopupMenu getModulatorListAsMenu(const int startIndex=0, const String &itemToSelect=String::empty);
+	const PopupMenu getModulatorListAsMenu(const int startIndex=0, const String &itemToSelect="");
 	const int getValueForPosition(const int position, const bool forX=true);
 	const int getPositionForValue(const int value, const bool forX=true);
 	void rebuildModulatorList();

@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -43,7 +43,7 @@ public:
                           bool deleteInputWhenDeleted);
 
     /** Destructor. */
-    ~IIRFilterAudioSource();
+    ~IIRFilterAudioSource() override;
 
     //==============================================================================
     /** Changes the filter to use the same parameters as the one being passed in. */

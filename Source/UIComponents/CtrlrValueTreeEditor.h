@@ -21,7 +21,7 @@ class CtrlrValueTreeEditorLookProvider : public AsyncUpdater
 		virtual const bool				isInterestedInDragSource(const ValueTree &item, const DragAndDropTarget::SourceDetails &dragSourceDetails) const { return (false); }
 		virtual void					itemDropped (ValueTree &targetItem, const DragAndDropTarget::SourceDetails &dragSourceDetails, int insertIndex) {}
 		virtual void					itemOpennessChanged(const bool isNowOpen)						{ }
-		virtual var						getDragSourceDescription(Array <ValueTree> &selectedTreeItems)	{ return (String::empty); }
+		virtual var						getDragSourceDescription(Array <ValueTree> &selectedTreeItems)	{ return (""); }
 };
 
 class CtrlrValueTreeEditorTree : public TreeView

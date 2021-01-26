@@ -13,12 +13,12 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 
     String authorEmail;
     if(owner.getActivePanel()) authorEmail = owner.getActivePanel()->getProperty(Ids::panelAuthorEmail);
-        else authorEmail = String::empty;
+        else authorEmail = "";
     String authorDonateUrl;
     if(owner.getActivePanel()) authorDonateUrl =   owner.getActivePanel()->getProperty(Ids::panelAuthorDonateUrl);
-        else authorDonateUrl = String::empty;
+        else authorDonateUrl = "";
 
-    addAndMakeVisible (ctrlrName = new Label (String::empty,
+    addAndMakeVisible (ctrlrName = new Label ("",
                                               TRANS("Ctrlr")));
     ctrlrName->setFont (Font (48.00f, Font::bold));
     ctrlrName->setJustificationType (Justification::centredLeft);
@@ -30,7 +30,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     addAndMakeVisible (ctrlrLogo = gui::createDrawableButton("Ctrlr", BIN2STR(ctrlr_logo_svg)));
     ctrlrLogo->addListener (this);
 
-    addAndMakeVisible (versionInfoLabel = new TextEditor (String::empty));
+    addAndMakeVisible (versionInfoLabel = new TextEditor (""));
     versionInfoLabel->setMultiLine (true);
     versionInfoLabel->setReturnKeyStartsNewLine (true);
     versionInfoLabel->setReadOnly (true);
@@ -40,7 +40,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     versionInfoLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
     versionInfoLabel->setColour (TextEditor::outlineColourId, Colour (0x9c000000));
     versionInfoLabel->setColour (TextEditor::shadowColourId, Colour (0x00000000));
-    versionInfoLabel->setText (String::empty);
+    versionInfoLabel->setText ("");
 
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("Instance name")));
@@ -77,7 +77,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 		labelAuthorEmail->setColour(TextEditor::textColourId, Colours::black);
 		labelAuthorEmail->setColour(TextEditor::backgroundColourId, Colour(0x00000000));
 	}
-	
+
 	addAndMakeVisible (label3 = new Label ("new label",
                                            TRANS("Version")));
     label3->setFont (Font (24.00f, Font::plain));
@@ -94,7 +94,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     label4->setColour (TextEditor::textColourId, Colours::black);
     label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (instanceUrl = new HyperlinkButton (String::empty,
+    addAndMakeVisible (instanceUrl = new HyperlinkButton ("",
                                                           URL ("http://www.rawmaterialsoftware.com/juce")));
     instanceUrl->setTooltip (TRANS("http://www.rawmaterialsoftware.com/juce"));
 	instanceUrl->setJustificationType(Justification::topLeft);
@@ -111,31 +111,31 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 		instanceAuthorDonateUrl->setJustificationType(Justification::topLeft);
 	}
 
-	addAndMakeVisible (instanceVersion = new Label (String::empty,
-                                                    String::empty));
+	addAndMakeVisible (instanceVersion = new Label ("",
+                                                    ""));
     instanceVersion->setFont (Font (22.00f, Font::bold));
     instanceVersion->setJustificationType (Justification::topLeft);
     instanceVersion->setEditable (false, false, false);
     instanceVersion->setColour (TextEditor::textColourId, Colours::black);
     instanceVersion->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (instanceAuthor = new Label (String::empty,
-                                                   String::empty));
+    addAndMakeVisible (instanceAuthor = new Label ("",
+                                                   ""));
     instanceAuthor->setFont (Font (22.00f, Font::bold));
     instanceAuthor->setJustificationType (Justification::topLeft);
     instanceAuthor->setEditable (false, false, false);
     instanceAuthor->setColour (TextEditor::textColourId, Colours::black);
     instanceAuthor->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (instanceName = new Label (String::empty,
-                                                 String::empty));
+    addAndMakeVisible (instanceName = new Label ("",
+                                                 ""));
     instanceName->setFont (Font (24.00f, Font::bold));
     instanceName->setJustificationType (Justification::topLeft);
     instanceName->setEditable (false, false, false);
     instanceName->setColour (TextEditor::textColourId, Colours::black);
     instanceName->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (instanceDescription = new TextEditor (String::empty));
+    addAndMakeVisible (instanceDescription = new TextEditor (""));
     instanceDescription->setMultiLine (true);
     instanceDescription->setReturnKeyStartsNewLine (true);
     instanceDescription->setReadOnly (true);
@@ -145,7 +145,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
     instanceDescription->setColour (TextEditor::backgroundColourId, Colour (0x00ffffff));
     instanceDescription->setColour (TextEditor::outlineColourId, Colour (0x59000000));
     instanceDescription->setColour (TextEditor::shadowColourId, Colour (0x00000000));
-    instanceDescription->setText (String::empty);
+    instanceDescription->setText ("");
 
 
     //[UserPreSize]
@@ -180,7 +180,7 @@ CtrlrAbout::CtrlrAbout (CtrlrManager &_owner)
 		{
 			height += 40;
 		}
-		
+
 		setSize (600, height);
 
 

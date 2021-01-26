@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -33,7 +33,7 @@
                    juce_audio_processors, juce_audio_utils, juce_core,
                    juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra
- exporters:        xcode_mac, vs2017, linux_make
+ exporters:        xcode_mac, vs2019, linux_make
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -70,7 +70,7 @@ public:
         startTimerHz (60);
     }
 
-    ~BouncingBallWavetableDemo()
+    ~BouncingBallWavetableDemo() override
     {
         shutdownAudio();
     }
@@ -125,13 +125,13 @@ public:
 
         auto nextPos = pos + delta;
 
-        if (nextPos.x < 10 || nextPos.x + 10 > getWidth())
+        if (nextPos.x < 10 || nextPos.x + 10 > (float) getWidth())
         {
             delta.x = -delta.x;
             nextPos.x = pos.x + delta.x;
         }
 
-        if (nextPos.y < 50 || nextPos.y + 10 > getHeight())
+        if (nextPos.y < 50 || nextPos.y + 10 > (float) getHeight())
         {
             delta.y = -delta.y;
             nextPos.y = pos.y + delta.y;
@@ -217,7 +217,7 @@ public:
 
         for (auto i = 0; i < steps; ++i)
         {
-            auto p = start + ((finish - start) * i) / steps;
+            auto p = start + ((finish - start) * i) / (int) steps;
 
             auto index = (bufferIndex + i) % wavetableSize;
             waveValues[1][index] = yToAmplitude (p.y);
@@ -234,17 +234,17 @@ public:
 
     float amplitudeToY (float amp) const noexcept
     {
-        return getHeight() - (amp + 1.0f) * getHeight() / 2.0f;
+        return (float) getHeight() - (amp + 1.0f) * (float) getHeight() / 2.0f;
     }
 
     float xToAmplitude (float x) const noexcept
     {
-        return jlimit (-1.0f, 1.0f, 2.0f * (getWidth() - x) / getWidth() - 1.0f);
+        return jlimit (-1.0f, 1.0f, 2.0f * ((float) getWidth() - x) / (float) getWidth() - 1.0f);
     }
 
     float yToAmplitude (float y) const noexcept
     {
-        return jlimit (-1.0f, 1.0f, 2.0f * (getHeight() - y) / getHeight() - 1.0f);
+        return jlimit (-1.0f, 1.0f, 2.0f * ((float) getHeight() - y) / (float) getHeight() - 1.0f);
     }
 
     void timerCallback() override

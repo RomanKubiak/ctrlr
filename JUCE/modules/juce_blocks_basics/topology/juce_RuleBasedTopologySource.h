@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -41,16 +41,16 @@ public:
     RuleBasedTopologySource (TopologySource&);
 
     /** Destructor. */
-    ~RuleBasedTopologySource();
+    ~RuleBasedTopologySource() override;
 
-    //==========================================================================
+    //==============================================================================
     /** Returns the currently active topology. */
     BlockTopology getCurrentTopology() const override;
 
     /** A rule that can transform parts of a topology. */
     struct Rule
     {
-        virtual ~Rule() {}
+        virtual ~Rule() = default;
 
         /** Subclasses should implement this method and use it as their opportunity to
             examine the given topology and modify it. For example they may want to substitute
@@ -79,8 +79,10 @@ public:
     /** Returns true, if the TopologySource is currently trying to connect the block devices */
     bool isActive() const override;
 
+    bool isLockedFromOutside() const override { return false; }
+
 private:
-    //==========================================================================
+    //==============================================================================
     struct Internal;
     std::unique_ptr<Internal> internal;
 };

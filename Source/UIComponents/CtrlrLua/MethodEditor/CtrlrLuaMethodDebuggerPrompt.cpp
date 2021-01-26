@@ -42,7 +42,7 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
     debuggerOutput->setColour (TextEditor::textColourId, Colour (0xff5c5c5c));
     debuggerOutput->setColour (TextEditor::outlineColourId, Colour (0x00000000));
     debuggerOutput->setColour (TextEditor::shadowColourId, Colour (0x00000000));
-    debuggerOutput->setText (String::empty);
+    debuggerOutput->setText ("");
 
     addAndMakeVisible (debuggerInput = new TextEditor ("Debugger input"));
     debuggerInput->setMultiLine (false);
@@ -54,7 +54,7 @@ CtrlrLuaMethodDebuggerPrompt::CtrlrLuaMethodDebuggerPrompt (CtrlrLuaMethodEditor
     debuggerInput->setColour (TextEditor::highlightColourId, Colour (0x5b247c8d));
     debuggerInput->setColour (TextEditor::outlineColourId, Colour (0x8a000000));
     debuggerInput->setColour (TextEditor::shadowColourId, Colour (0x00000000));
-    debuggerInput->setText (String::empty);
+    debuggerInput->setText ("");
 
     addAndMakeVisible (debugContinue = new ImageButton ("Continue"));
     debugContinue->setTooltip (TRANS("Continue"));
@@ -306,14 +306,14 @@ void CtrlrLuaMethodDebuggerPrompt::insertRawDebuggerOutput(const String &output)
 
     if (output.contains ("::start trace"))
     {
-        collectedData = String::empty;
+        collectedData = "";
         collectionState = Trace;
         return;
     }
 
     if (output.contains ("::start dumpvar"))
     {
-        collectedData = String::empty;
+        collectedData = "";
         collectionState = Values;
         return;
     }
@@ -380,7 +380,7 @@ StringArray &CtrlrLuaMethodDebuggerPrompt::getCommandQueue()
 const String CtrlrLuaMethodDebuggerPrompt::getCurrentDebuggerCommand(const bool clearTheReturnedCommand)
 {
     if (commandQueue.size() <= 0)
-        return (String::empty);
+        return ("");
 
     const String ret = commandQueue[commandQueue.size() - 1];
     commandQueue.remove (commandQueue.size() - 1);

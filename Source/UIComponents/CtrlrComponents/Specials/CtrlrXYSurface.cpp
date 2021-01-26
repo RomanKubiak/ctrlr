@@ -90,8 +90,8 @@ CtrlrXYSurface::CtrlrXYSurface (CtrlrModulator &owner)
 	setProperty (Ids::uiXYSuraceXFlip, false);
 	setProperty (Ids::uiXYSuraceYFlip, false);
 	setProperty (Ids::uiXYSuraceShowRightClickMenu, true);
-	setProperty (Ids::uiXYSurfaceDestinationXGroupFilter, String::empty);
-	setProperty (Ids::uiXYSurfaceDestinationYGroupFilter, String::empty);
+	setProperty (Ids::uiXYSurfaceDestinationXGroupFilter, "");
+	setProperty (Ids::uiXYSurfaceDestinationYGroupFilter, "");
     //[/UserPreSize]
 
     setSize (256, 256);

@@ -58,7 +58,7 @@ const Result CtrlrMac::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, const b
         return (res);
     }
 
-	if ( (error = CtrlrPanel::exportPanel (panelToWrite, File::nonexistent, newMe, &panelExportData, &panelResourcesData, isRestricted)) == String::empty)
+	if ( (error = CtrlrPanel::exportPanel (panelToWrite, File(), newMe, &panelExportData, &panelResourcesData, isRestricted)) == "")
 	{
 		File panelFile		= newMe.getChildFile("Contents/Resources/"+String(CTRLR_MAC_PANEL_FILE));
 		File resourcesFile	= newMe.getChildFile("Contents/Resources/"+String(CTRLR_MAC_RESOURCES_FILE));

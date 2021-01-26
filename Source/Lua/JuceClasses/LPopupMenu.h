@@ -21,7 +21,7 @@ class LPopupMenu : public PopupMenu
 		void addSubMenu (const String& subMenuName,
                      const LPopupMenu& subMenu,
                      bool isEnabled = true,
-                     const Image& iconToUse = Image::null,
+                     const Image& iconToUse = Image(),
                      bool isTicked = false,
                      int itemResultID = 0);
 

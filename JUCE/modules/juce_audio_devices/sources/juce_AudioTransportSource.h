@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -49,7 +49,7 @@ public:
     AudioTransportSource();
 
     /** Destructor. */
-    ~AudioTransportSource();
+    ~AudioTransportSource() override;
 
     //==============================================================================
     /** Sets the reader that is being used as the input source.
@@ -167,7 +167,7 @@ private:
 
     CriticalSection callbackLock;
     float gain = 1.0f, lastGain = 1.0f;
-    bool playing = false, stopped = true;
+    std::atomic<bool> playing { false }, stopped { true };
     double sampleRate = 44100.0, sourceSampleRate = 0;
     int blockSize = 128, readAheadBufferSize = 0;
     bool isPrepared = false, inputStreamEOF = false;

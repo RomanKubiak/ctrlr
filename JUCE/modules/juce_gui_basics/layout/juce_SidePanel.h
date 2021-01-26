@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -161,7 +160,7 @@ public:
      */
     struct JUCE_API  LookAndFeelMethods
     {
-        virtual ~LookAndFeelMethods() {}
+        virtual ~LookAndFeelMethods() = default;
 
         virtual Font getSidePanelTitleFont (SidePanel&) = 0;
         virtual Justification getSidePanelTitleJustification (SidePanel&) = 0;
@@ -181,8 +180,8 @@ public:
         titleTextColour           = 0x100f002,
         shadowBaseColour          = 0x100f003,
         dismissButtonNormalColour = 0x100f004,
-        dismissButtonOverColour   = 0x100f004,
-        dismissButtonDownColour   = 0x100f005
+        dismissButtonOverColour   = 0x100f005,
+        dismissButtonDownColour   = 0x100f006
     };
 
     //==============================================================================
@@ -190,10 +189,10 @@ public:
     std::function<void()> onPanelMove;
 
     /** You can assign a lambda to this callback object and it will be called when the panel is shown or hidden. */
-    std::function<void(bool)> onPanelShowHide;
+    std::function<void (bool)> onPanelShowHide;
 
 private:
-    //==========================================================================
+    //==============================================================================
     Component* parent = nullptr;
     OptionalScopedPointer<Component> contentComponent;
     OptionalScopedPointer<Component> titleBarComponent;
@@ -216,7 +215,7 @@ private:
 
     bool shouldShowDismissButton = true;
 
-    //==========================================================================
+    //==============================================================================
     void lookAndFeelChanged() override;
     void componentMovedOrResized (Component&, bool wasMoved, bool wasResized) override;
 

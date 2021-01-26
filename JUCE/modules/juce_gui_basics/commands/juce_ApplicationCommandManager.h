@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -102,7 +101,7 @@ public:
         Make sure that you don't delete this if pointers to it are still being used by
         objects such as PopupMenus or Buttons.
     */
-    virtual ~ApplicationCommandManager() override;
+    ~ApplicationCommandManager() override;
 
     //==============================================================================
     /** Clears the current list of all commands.
@@ -338,7 +337,7 @@ class JUCE_API  ApplicationCommandManagerListener
 public:
     //==============================================================================
     /** Destructor. */
-    virtual ~ApplicationCommandManagerListener()  {}
+    virtual ~ApplicationCommandManagerListener() = default;
 
     /** Called when an app command is about to be invoked. */
     virtual void applicationCommandInvoked (const ApplicationCommandTarget::InvocationInfo&) = 0;

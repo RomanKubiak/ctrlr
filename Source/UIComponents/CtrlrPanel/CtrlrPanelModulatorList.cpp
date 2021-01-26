@@ -151,7 +151,7 @@ const Identifier CtrlrPanelModulatorList::getColumnCtrlrId(const int columnId)
 const String CtrlrPanelModulatorList::getValueStringForColumn (CtrlrModulator *m, const Identifier columnName)
 {
 	if (m == nullptr)
-		return (String::empty);
+		return ("");
 
 	if (m->getObjectTree().hasProperty (columnName))
 	{
@@ -165,7 +165,7 @@ const String CtrlrPanelModulatorList::getValueStringForColumn (CtrlrModulator *m
 	{
 		return (m->getMidiMessage().getObjectTree().getProperty(columnName));
 	}
-	return (String::empty);
+	return ("");
 }
 
 Value CtrlrPanelModulatorList::getValueForColumn (CtrlrModulator *m, const Identifier columnName)
@@ -463,7 +463,7 @@ void CtrlrPanelModulatorList::restoreColumns(const String &columnState)
 {
 	//<TABLELAYOUT sortedCol="0" sortForwards="1"><COLUMN id="2" visible="1" width="100"/><COLUMN id="7" visible="1" width="60"/><COLUMN id="1" visible="1" width="60"/><COLUMN id="3" visible="1" width="100"/><COLUMN id="97" visible="1" width="80"/><COLUMN id="101" visible="1" width="60"/><COLUMN id="102" visible="1" width="60"/><COLUMN id="107" visible="1" width="60"/><COLUMN id="401" visible="1" width="60"/><COLUMN id="398" visible="1" width="60"/><COLUMN id="402" visible="1" width="100"/><COLUMN id="21" visible="1" width="60"/><COLUMN id="22" visible="1" width="60"/><COLUMN id="8" visible="1" width="60"/></TABLELAYOUT>
 	XmlDocument doc(columnState);
-	ScopedPointer <XmlElement> xml(doc.getDocumentElement());
+	ScopedPointer <XmlElement> xml(doc.getDocumentElement().release());
 	if (xml)
 	{
 		if (xml->hasTagName ("TABLELAYOUT"))

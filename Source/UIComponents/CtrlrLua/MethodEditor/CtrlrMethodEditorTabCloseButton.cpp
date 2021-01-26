@@ -32,7 +32,7 @@
 
 //==============================================================================
 CtrlrMethodEditorTabCloseButton::CtrlrMethodEditorTabCloseButton (CtrlrLuaMethodEditor &_owner, const int _tabIndex)
-    : Button (String::empty),
+    : Button (""),
       owner(_owner), tabIndex(_tabIndex)
 {
 

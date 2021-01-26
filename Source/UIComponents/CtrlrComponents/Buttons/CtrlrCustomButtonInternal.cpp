@@ -38,7 +38,7 @@
 
 //==============================================================================
 CtrlrCustomButtonInternal::CtrlrCustomButtonInternal (CtrlrImageButton &_owner)
-    : Button (String::empty),
+    : Button (""),
       owner(_owner),
 	  paintMode(RectanglePlacement::stretchToFit)
 {
@@ -84,7 +84,7 @@ void CtrlrCustomButtonInternal::setImage (const Image imageToSet, const int _fra
 {
 	possibleValues.clear();
 
-	if (imageToSet == Image::null)
+	if (imageToSet == Image())
 	{
 		frameWidth	= 0;
 		frameHeight = 0;

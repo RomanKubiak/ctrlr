@@ -2,7 +2,7 @@
 
 #ifdef LINUX
 // https://github.com/RomanKubiak/ctrlr/issues/38
-#define PACKAGE "Ctrlr" 
+#define PACKAGE "Ctrlr"
 
 #include "CtrlrMacros.h"
 #include "CtrlrLinux.h"
@@ -73,7 +73,7 @@ const Result CtrlrLinux::exportWithDefaultPanel(CtrlrPanel *panelToWrite, const 
         _DBG("CtrlrLinux::exportWithDefaultPanel libr_open success on: "+newMe.getFullPathName());
     }
 
-	if ( (error = CtrlrPanel::exportPanel (panelToWrite, File::nonexistent, newMe, &panelExportData, &panelResourcesData, isRestricted)) == String::empty)
+	if ( (error = CtrlrPanel::exportPanel (panelToWrite, File(), newMe, &panelExportData, &panelResourcesData, isRestricted)) == "")
 	{
 		if (!libr_write (outputHandle, (char *)CTRLR_INTERNAL_PANEL_SECTION, (char *)panelExportData.getData(), panelExportData.getSize(), LIBR_UNCOMPRESSED, LIBR_OVERWRITE))
 		{

@@ -225,7 +225,7 @@ void CtrlrManagerWindowManager::create(const CtrlrManagerWindowManager::WindowTy
 		windowState = lastWindowState;
 	}
 
-	if (windowState != String::empty)
+	if (windowState != "")
 	{
 		w->restoreWindowStateFromString(windowState);
 	}

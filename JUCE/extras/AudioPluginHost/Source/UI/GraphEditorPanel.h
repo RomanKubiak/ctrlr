@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -26,21 +25,21 @@
 
 #pragma once
 
-#include "../Filters/FilterGraph.h"
+#include "../Plugins/PluginGraph.h"
 
 class MainHostWindow;
 
 //==============================================================================
 /**
-    A panel that displays and edits a FilterGraph.
+    A panel that displays and edits a PluginGraph.
 */
 class GraphEditorPanel   : public Component,
                            public ChangeListener,
                            private Timer
 {
 public:
-    GraphEditorPanel (FilterGraph& graph);
-    ~GraphEditorPanel();
+    GraphEditorPanel (PluginGraph& graph);
+    ~GraphEditorPanel() override;
 
     void createNewPlugin (const PluginDescription&, Point<int> position);
 
@@ -67,19 +66,19 @@ public:
     void endDraggingConnector (const MouseEvent&);
 
     //==============================================================================
-    FilterGraph& graph;
+    PluginGraph& graph;
 
 private:
-    struct FilterComponent;
+    struct PluginComponent;
     struct ConnectorComponent;
     struct PinComponent;
 
-    OwnedArray<FilterComponent> nodes;
+    OwnedArray<PluginComponent> nodes;
     OwnedArray<ConnectorComponent> connectors;
     std::unique_ptr<ConnectorComponent> draggingConnector;
     std::unique_ptr<PopupMenu> menu;
 
-    FilterComponent* getComponentForFilter (AudioProcessorGraph::NodeID) const;
+    PluginComponent* getComponentForPlugin (AudioProcessorGraph::NodeID) const;
     ConnectorComponent* getComponentForConnection (const AudioProcessorGraph::Connection&) const;
     PinComponent* findPinAt (Point<float>) const;
 
@@ -100,14 +99,15 @@ private:
 */
 class GraphDocumentComponent  : public Component,
                                 public DragAndDropTarget,
-                                public DragAndDropContainer
+                                public DragAndDropContainer,
+                                private ChangeListener
 {
 public:
     GraphDocumentComponent (AudioPluginFormatManager& formatManager,
                             AudioDeviceManager& deviceManager,
                             KnownPluginList& pluginList);
 
-    ~GraphDocumentComponent();
+    ~GraphDocumentComponent() override;
 
     //==============================================================================
     void createNewPlugin (const PluginDescription&, Point<int> position);
@@ -115,7 +115,7 @@ public:
     bool closeAnyOpenPluginWindows();
 
     //==============================================================================
-    std::unique_ptr<FilterGraph> graph;
+    std::unique_ptr<PluginGraph> graph;
 
     void resized() override;
     void unfocusKeyboardComponent();
@@ -142,6 +142,7 @@ private:
 
     AudioProcessorPlayer graphPlayer;
     MidiKeyboardState keyState;
+    MidiOutput* midiOutput = nullptr;
 
     struct TooltipBar;
     std::unique_ptr<TooltipBar> statusBar;
@@ -160,8 +161,11 @@ private:
     SidePanel* lastOpenedSidePanel = nullptr;
 
     //==============================================================================
+    void changeListenerCallback (ChangeBroadcaster*) override;
+
     void init();
     void checkAvailableWidth();
+    void updateMidiOutput();
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GraphDocumentComponent)

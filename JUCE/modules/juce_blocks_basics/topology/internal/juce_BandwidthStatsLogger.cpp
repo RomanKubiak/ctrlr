@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -42,17 +42,17 @@ namespace
             {
                 bytesPerSec = (int) (byteCount / elapsedSec);
                 byteCount = 0;
-                juce::Logger::writeToLog (getString());
+                Logger::writeToLog (getString());
             }
         }
 
-        juce::String getString() const
+        String getString() const
         {
-            return juce::String (name) + ": "
-            + "count="    + juce::String (messageCount).paddedRight (' ', 7)
-            + "rate="     + (juce::String (bytesPerSec / 1024.0f, 1) + " Kb/sec").paddedRight (' ', 11)
-            + "largest="  + (juce::String (largestMessageBytes) + " bytes").paddedRight (' ', 11)
-            + "last="     + (juce::String (lastMessageBytes) + " bytes").paddedRight (' ', 11);
+            return String (name) + ": "
+            + "count="    + String (messageCount).paddedRight (' ', 7)
+            + "rate="     + (String (bytesPerSec / 1024.0f, 1) + " Kb/sec").paddedRight (' ', 11)
+            + "largest="  + (String (largestMessageBytes) + " bytes").paddedRight (' ', 11)
+            + "last="     + (String (lastMessageBytes) + " bytes").paddedRight (' ', 11);
         }
 
         void registerMessage (int numBytes) noexcept
@@ -60,16 +60,16 @@ namespace
             byteCount += numBytes;
             ++messageCount;
             lastMessageBytes = numBytes;
-            largestMessageBytes = juce::jmax (largestMessageBytes, numBytes);
+            largestMessageBytes = jmax (largestMessageBytes, numBytes);
         }
     };
 
     static PortIOStats inputStats { "Input" }, outputStats { "Output" };
     static uint32 startTime = 0;
 
-    static inline void resetOnSecondBoundary()
+    static void resetOnSecondBoundary()
     {
-        auto now = juce::Time::getMillisecondCounter();
+        auto now = Time::getMillisecondCounter();
         double elapsedSec = (now - startTime) / 1000.0;
 
         if (elapsedSec >= 1.0)
@@ -80,20 +80,20 @@ namespace
         }
     }
 
-    static inline void registerBytesOut (int numBytes)
+    static void registerBytesOut (int numBytes)
     {
         outputStats.registerMessage (numBytes);
         resetOnSecondBoundary();
     }
 
-    static inline void registerBytesIn (int numBytes)
+    static void registerBytesIn (int numBytes)
     {
         inputStats.registerMessage (numBytes);
         resetOnSecondBoundary();
     }
 }
 
-juce::String getMidiIOStats()
+String getMidiIOStats()
 {
     return inputStats.getString() + "   " + outputStats.getString();
 }

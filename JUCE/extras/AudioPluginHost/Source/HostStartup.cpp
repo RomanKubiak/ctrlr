@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -24,9 +23,9 @@
   ==============================================================================
 */
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 #include "UI/MainHostWindow.h"
-#include "Filters/InternalFilters.h"
+#include "Plugins/InternalPlugins.h"
 
 #if ! (JUCE_PLUGINHOST_VST || JUCE_PLUGINHOST_VST3 || JUCE_PLUGINHOST_AU)
  #error "If you're building the audio plugin host, you probably want to enable VST and/or AU support"
@@ -76,7 +75,7 @@ public:
         File fileToOpen;
 
        #if JUCE_ANDROID || JUCE_IOS
-        fileToOpen = FilterGraph::getDefaultGraphDocumentOnMobile();
+        fileToOpen = PluginGraph::getDefaultGraphDocumentOnMobile();
        #else
         for (int i = 0; i < getCommandLineParameterArray().size(); ++i)
         {
@@ -112,9 +111,9 @@ public:
     void suspended() override
     {
        #if JUCE_ANDROID || JUCE_IOS
-        if (GraphDocumentComponent* graph = mainWindow->graphHolder.get())
-            if (FilterGraph* ioGraph = graph->graph.get())
-                ioGraph->saveDocument (FilterGraph::getDefaultGraphDocumentOnMobile());
+        if (auto graph = mainWindow->graphHolder.get())
+            if (auto ioGraph = graph->graph.get())
+                ioGraph->saveDocument (PluginGraph::getDefaultGraphDocumentOnMobile());
        #endif
     }
 
@@ -126,10 +125,12 @@ public:
             JUCEApplicationBase::quit();
     }
 
-    void backButtonPressed() override
+    bool backButtonPressed() override
     {
         if (mainWindow->graphHolder != nullptr)
             mainWindow->graphHolder->hideLastSidePanel();
+
+        return true;
     }
 
     const String getApplicationName() override       { return "Juce Plug-In Host"; }
@@ -148,7 +149,11 @@ static PluginHostApp& getApp()                    { return *dynamic_cast<PluginH
 ApplicationProperties& getAppProperties()         { return *getApp().appProperties; }
 ApplicationCommandManager& getCommandManager()    { return getApp().commandManager; }
 
-bool isOnTouchDevice()                            { return Desktop::getInstance().getMainMouseSource().isTouch(); }
+bool isOnTouchDevice()
+{
+    static bool isTouch = Desktop::getInstance().getMainMouseSource().isTouch();
+    return isTouch;
+}
 
 // This kicks the whole thing off..
 START_JUCE_APPLICATION (PluginHostApp)

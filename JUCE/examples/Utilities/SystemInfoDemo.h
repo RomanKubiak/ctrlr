@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -31,7 +31,7 @@
 
  dependencies:     juce_core, juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics
- exporters:        xcode_mac, vs2017, linux_make, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, androidstudio, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -89,6 +89,7 @@ static const char* getDisplayOrientation()
         case Desktop::upsideDown:           return "Upside-down";
         case Desktop::rotatedClockwise:     return "Rotated Clockwise";
         case Desktop::rotatedAntiClockwise: return "Rotated Anti-clockwise";
+        case Desktop::allOrientations:      return "All";
         default: jassertfalse; break;
     }
 
@@ -149,6 +150,8 @@ static String getAllSystemInfo()
       << "CPU model:               " << SystemStats::getCpuModel()  << newLine
       << "CPU speed:               " << SystemStats::getCpuSpeedInMegahertz() << " MHz" << newLine
       << "CPU has MMX:             " << (SystemStats::hasMMX()             ? "yes" : "no") << newLine
+      << "CPU has FMA3:            " << (SystemStats::hasFMA3()            ? "yes" : "no") << newLine
+      << "CPU has FMA4:            " << (SystemStats::hasFMA4()            ? "yes" : "no") << newLine
       << "CPU has SSE:             " << (SystemStats::hasSSE()             ? "yes" : "no") << newLine
       << "CPU has SSE2:            " << (SystemStats::hasSSE2()            ? "yes" : "no") << newLine
       << "CPU has SSE3:            " << (SystemStats::hasSSE3()            ? "yes" : "no") << newLine

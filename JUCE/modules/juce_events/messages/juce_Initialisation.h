@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -66,7 +66,7 @@ JUCE_API void JUCE_CALLTYPE  shutdownJuce_GUI();
 
     @tags{Events}
 */
-class JUCE_API  ScopedJuceInitialiser_GUI  final
+class JUCE_API  ScopedJuceInitialiser_GUI  
 {
 public:
     /** The constructor simply calls initialiseJuce_GUI(). */

@@ -51,7 +51,7 @@ bool CtrlrMIDIDevice::openDevice()
 
 		const ScopedLock sl(deviceLock);
 
-		outJucePtr = MidiOutput::openDevice (getProperty(Ids::midiDevIndex));
+		outJucePtr = MidiOutput::openDevice (getProperty(Ids::midiDevIndex).toString()).release();
 		if (outJucePtr == NULL)
 		{
 			_ERR("CtrlrMIDIDevice::openDevice failed to open device \""+getName()+"\"");
@@ -72,7 +72,7 @@ bool CtrlrMIDIDevice::openDevice()
 			return (true);
 		}
 
-		inJucePtr = MidiInput::openDevice (getProperty(Ids::midiDevIndex), this);
+		inJucePtr = MidiInput::openDevice (getProperty(Ids::midiDevIndex).toString(), this).release();
 
 		if (inJucePtr == NULL)
 		{

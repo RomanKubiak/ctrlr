@@ -370,7 +370,7 @@ const bool CtrlrPanelEditor::getMode()
 AffineTransform CtrlrPanelEditor::moveSelectionToPosition(const int newX, const int newY)
 {
 	if (getSelection() == nullptr)
-		return (AffineTransform::identity);
+		return (AffineTransform());
 
 	RectangleList<int> rectangleList;
 

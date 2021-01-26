@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="Z2Xzcp" name="UnitTestRunner" projectType="consoleapp" bundleIdentifier="com.roli.UnitTestRunner"
-              jucerVersion="5.4.1" defines="JUCE_UNIT_TESTS=1" displaySplashScreen="0"
-              reportAppUsage="0" companyName="ROLI Ltd." companyCopyright="ROLI Ltd.">
+<JUCERPROJECT id="Z2Xzcp" name="UnitTestRunner" projectType="consoleapp" bundleIdentifier="com.juce.UnitTestRunner"
+              defines="JUCE_UNIT_TESTS=1" displaySplashScreen="0" reportAppUsage="0"
+              companyName="Raw Material Software Limited" companyCopyright="Raw Material Software Limited"
+              useAppConfig="0" addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1">
   <MAINGROUP id="GZdWCU" name="UnitTestRunner">
     <GROUP id="{22894462-E1A9-036F-ED94-B51A50C87552}" name="Source">
       <FILE id="ynaYaM" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX" extraCompilerFlags="-Wall -Wno-missing-field-initializers -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Woverloaded-virtual -Wreorder -Wconstant-conversion -Wsign-conversion  -Wunused-private-field -Wbool-conversion -Wextra-semi -Wno-ignored-qualifiers -Wunreachable-code"
-               extraDefs="">
+    <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxCompatibility="10.10 SDK" isDebug="1" targetName="UnitTestRunner"
-                       cppLanguageStandard="gnu++14"/>
+                       recommendedWarnings="LLVM"/>
         <CONFIGURATION name="Release" osxCompatibility="10.10 SDK" isDebug="0" targetName="UnitTestRunner"
-                       cppLanguageStandard="gnu++14"/>
+                       recommendedWarnings="LLVM"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../../modules"/>
@@ -41,8 +41,8 @@
     </XCODE_MAC>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" targetName="UnitTestRunner"/>
-        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" targetName="UnitTestRunner"/>
+        <CONFIGURATION name="Debug" isDebug="1" targetName="UnitTestRunner"/>
+        <CONFIGURATION name="Release" isDebug="0" targetName="UnitTestRunner"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../../modules"/>
@@ -94,6 +94,34 @@
         <MODULEPATH id="juce_analytics" path="../../modules"/>
       </MODULEPATHS>
     </VS2017>
+    <VS2019 targetFolder="Builds/VisualStudio2019" extraCompilerFlags="/w44265 /w45038 /w44062">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" targetName="UnitTestRunner" warningsAreErrors="1"/>
+        <CONFIGURATION name="Release" isDebug="0" targetName="UnitTestRunner" debugInformationFormat="None"
+                       warningsAreErrors="1"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_video" path="../../modules"/>
+        <MODULEPATH id="juce_product_unlocking" path="../../modules"/>
+        <MODULEPATH id="juce_osc" path="../../modules"/>
+        <MODULEPATH id="juce_opengl" path="../../modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../modules"/>
+        <MODULEPATH id="juce_events" path="../../modules"/>
+        <MODULEPATH id="juce_dsp" path="../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../modules"/>
+        <MODULEPATH id="juce_core" path="../../modules"/>
+        <MODULEPATH id="juce_blocks_basics" path="../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../modules"/>
+        <MODULEPATH id="juce_analytics" path="../../modules"/>
+      </MODULEPATHS>
+    </VS2019>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_analytics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>

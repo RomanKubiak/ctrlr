@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -38,10 +38,10 @@ class TouchList
 {
 public:
     /** Creates an empty touch list. */
-    TouchList() {}
+    TouchList() = default;
 
     /** Destructor. */
-    ~TouchList() {}
+    ~TouchList() = default;
 
     /** Returns the number of entries in the touch list. */
     int size() const noexcept { return touches.size(); }
@@ -130,21 +130,21 @@ public:
     TouchEntry* end() noexcept                 { return touches.end(); }
     const TouchEntry* end() const noexcept     { return touches.end(); }
 
-    /** Retrieve a reference to particular item in the list of touch entires. */
+    /** Retrieve a reference to particular item in the list of touch entries. */
     TouchEntry& operator[] (const int index)   { return touches.getReference (index); }
 
     /** Resets all contents, doest not generate any call-backs. */
     void clear() noexcept                      { touches.clear(); }
 
 private:
-    //==========================================================================
+    //==============================================================================
     static bool matches (const TouchSurface::Touch& t1,
                          const TouchSurface::Touch& t2) noexcept
     {
         return t1.index == t2.index && t1.blockUID == t2.blockUID;
     }
 
-    juce::Array<TouchEntry> touches;
+    Array<TouchEntry> touches;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TouchList)
 };

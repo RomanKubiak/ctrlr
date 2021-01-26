@@ -203,7 +203,7 @@ void CtrlrPanelWindowManager::create(const CtrlrPanelWindowManager::WindowType w
 		windowState = lastWindowState;
 	}
 
-	if (windowState != String::empty)
+	if (windowState != "")
 	{
 		w->restoreWindowStateFromString(windowState);
 	}

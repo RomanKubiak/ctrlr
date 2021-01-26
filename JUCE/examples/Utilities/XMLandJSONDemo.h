@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -31,7 +31,7 @@
 
  dependencies:     juce_core, juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra
- exporters:        xcode_mac, vs2017, linux_make, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, androidstudio, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -75,7 +75,7 @@ public:
 
         // use a "colour" attribute in the xml tag for this node to set the text colour..
         g.setColour (Colour::fromString (xml.getStringAttribute ("colour", "ff000000")));
-        g.setFont (height * 0.7f);
+        g.setFont ((float) height * 0.7f);
 
         // draw the xml element's tag name..
         g.drawText (xml.getTagName(),
@@ -145,7 +145,7 @@ public:
             g.fillAll (Colours::blue.withAlpha (0.3f));
 
         g.setColour (Colours::black);
-        g.setFont (height * 0.7f);
+        g.setFont ((float) height * 0.7f);
 
         // draw the element's tag name..
         g.drawText (getText(),
@@ -278,7 +278,7 @@ public:
         setSize (500, 500);
     }
 
-    ~XMLandJSONDemo()
+    ~XMLandJSONDemo() override
     {
         resultsTree.setRootItem (nullptr);
     }
@@ -314,7 +314,7 @@ private:
         std::unique_ptr<XmlElement> openness;
 
         if (rootItem.get() != nullptr)
-            openness.reset (rootItem->getOpennessState());
+            openness = rootItem->getOpennessState();
 
         createNewRootNode();
 
@@ -345,13 +345,13 @@ private:
         resultsTree.setRootItem (rootItem.get());
     }
 
-    /** Parses the editors contects as XML. */
+    /** Parses the editor's contents as XML. */
     TreeViewItem* rebuildXml()
     {
         parsedXml.reset();
 
         XmlDocument doc (codeDocument.getAllContent());
-        parsedXml.reset (doc.getDocumentElement());
+        parsedXml = doc.getDocumentElement();
 
         if (parsedXml.get() == nullptr)
         {
@@ -368,7 +368,7 @@ private:
         return new XmlTreeItem (*parsedXml);
     }
 
-    /** Parses the editors contects as JSON. */
+    /** Parses the editor's contents as JSON. */
     TreeViewItem* rebuildJson()
     {
         var parsedJson;

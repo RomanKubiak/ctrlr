@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -27,30 +27,32 @@ struct MIDIDeviceDetector  : public PhysicalTopologySource::DeviceDetector
 {
     MIDIDeviceDetector() {}
 
-    juce::StringArray scanForDevices() override
+    StringArray scanForDevices() override
     {
-        juce::StringArray result;
+        StringArray result;
 
         for (auto& pair : findDevices())
-            result.add (pair.inputName + " & " + pair.outputName);
+            result.add (pair.input.identifier + " & " + pair.output.identifier);
 
         return result;
     }
 
     PhysicalTopologySource::DeviceConnection* openDevice (int index) override
     {
-        auto pair = findDevices()[index];
+        const auto allDevices = findDevices();
 
-        if (pair.inputIndex >= 0 && pair.outputIndex >= 0)
+        if (allDevices.size() > index)
         {
-            std::unique_ptr<MIDIDeviceConnection> dev (new MIDIDeviceConnection());
+            const auto pair = allDevices[index];
+            auto dev = std::make_unique<MIDIDeviceConnection>();
 
-            if (dev->lockAgainstOtherProcesses (pair.inputName, pair.outputName))
+            if (auto lock = createMidiPortLock (pair.input.name, pair.output.name))
             {
                 lockedFromOutside = false;
 
-                dev->midiInput.reset (juce::MidiInput::openDevice (pair.inputIndex, dev.get()));
-                dev->midiOutput.reset (juce::MidiOutput::openDevice (pair.outputIndex));
+                dev->setLockAgainstOtherProcesses (lock);
+                dev->midiInput  = MidiInput::openDevice  (pair.input.identifier, dev.get());
+                dev->midiOutput = MidiOutput::openDevice (pair.output.identifier);
 
                 if (dev->midiInput != nullptr)
                 {
@@ -72,12 +74,12 @@ struct MIDIDeviceDetector  : public PhysicalTopologySource::DeviceDetector
         return lockedFromOutside && ! findDevices().isEmpty();
     }
 
-    static bool isBlocksMidiDeviceName (const juce::String& name)
+    static bool isBlocksMidiDeviceName (const String& name)
     {
         return name.indexOf (" BLOCK") > 0 || name.indexOf (" Block") > 0;
     }
 
-    static String cleanBlocksDeviceName (juce::String name)
+    static String cleanBlocksDeviceName (String name)
     {
         name = name.trim();
 
@@ -96,33 +98,43 @@ struct MIDIDeviceDetector  : public PhysicalTopologySource::DeviceDetector
 
     struct MidiInputOutputPair
     {
-        juce::String outputName, inputName;
-        int outputIndex = -1, inputIndex = -1;
+        MidiDeviceInfo input, output;
     };
 
-    static juce::Array<MidiInputOutputPair> findDevices()
+    static Array<MidiInputOutputPair> findDevices()
     {
-        juce::Array<MidiInputOutputPair> result;
+        Array<MidiInputOutputPair> result;
 
-        auto midiInputs  = juce::MidiInput::getDevices();
-        auto midiOutputs = juce::MidiOutput::getDevices();
+        auto midiInputs  = MidiInput::getAvailableDevices();
+        auto midiOutputs = MidiOutput::getAvailableDevices();
 
-        for (int j = 0; j < midiInputs.size(); ++j)
+        for (const auto& input : midiInputs)
         {
-            if (isBlocksMidiDeviceName (midiInputs[j]))
+            if (isBlocksMidiDeviceName (input.name))
             {
                 MidiInputOutputPair pair;
-                pair.inputName = midiInputs[j];
-                pair.inputIndex = j;
+                pair.input = input;
 
-                String cleanedInputName = cleanBlocksDeviceName (pair.inputName);
-                for (int i = 0; i < midiOutputs.size(); ++i)
+                String cleanedInputName = cleanBlocksDeviceName (input.name);
+
+                int inputOccurences = 0;
+                int outputOccurences = 0;
+
+                for (const auto& p : result)
+                    if (cleanBlocksDeviceName (p.input.name) == cleanedInputName)
+                        ++inputOccurences;
+
+                for (const auto& output : midiOutputs)
                 {
-                    if (cleanBlocksDeviceName (midiOutputs[i]) == cleanedInputName)
+                    if (cleanBlocksDeviceName (output.name) == cleanedInputName)
                     {
-                        pair.outputName = midiOutputs[i];
-                        pair.outputIndex = i;
-                        break;
+                        if (outputOccurences == inputOccurences)
+                        {
+                            pair.output = output;
+                            break;
+                        }
+
+                        ++outputOccurences;
                     }
                 }
 
@@ -135,6 +147,35 @@ struct MIDIDeviceDetector  : public PhysicalTopologySource::DeviceDetector
 
 private:
     bool lockedFromOutside = true;
+
+    /** For backwards compatibility, the block interprocess lock has to use the midi input name.
+        The below is necessary because blocks of the same type might duplicate a port name, so
+        must share an interprocess lock.
+     */
+    std::shared_ptr<InterProcessLock> createMidiPortLock (const String& midiInName, const String& midiOutName)
+    {
+        const juce::String lockIdentifier = "blocks_sdk_"
+                                            + File::createLegalFileName (midiInName)
+                                            + "_" + File::createLegalFileName (midiOutName);
+
+        const auto existingLock = midiPortLocks.find (lockIdentifier);
+
+        if (existingLock != midiPortLocks.end())
+            if (existingLock->second.use_count() > 0)
+                return existingLock->second.lock();
+
+        auto interprocessLock = std::make_shared<InterProcessLock> (lockIdentifier);
+
+        if (interprocessLock->enter (500))
+        {
+            midiPortLocks[lockIdentifier] = interprocessLock;
+            return interprocessLock;
+        }
+
+        return nullptr;
+    }
+
+    std::map<juce::String, std::weak_ptr<InterProcessLock>> midiPortLocks;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MIDIDeviceDetector)
 };

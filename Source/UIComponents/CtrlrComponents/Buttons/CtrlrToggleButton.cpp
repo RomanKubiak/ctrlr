@@ -174,8 +174,8 @@ void CtrlrToggleButton::valueTreePropertyChanged (ValueTree &treeWhosePropertyHa
 	}
 	else if (property == Ids::uiButtonTrueValue || property == Ids::uiButtonFalseValue)
 	{
-		valueMap->setPair (0, getProperty(Ids::uiButtonFalseValue), String::empty);
-		valueMap->setPair (1, getProperty(Ids::uiButtonTrueValue), String::empty);
+		valueMap->setPair (0, getProperty(Ids::uiButtonFalseValue), "");
+		valueMap->setPair (1, getProperty(Ids::uiButtonTrueValue), "");
 		owner.getProcessor().setValueMap (*valueMap);
 	}
 	else if (property == Ids::uiToggleButtonFocusOutline)

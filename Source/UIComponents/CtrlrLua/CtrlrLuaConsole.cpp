@@ -75,7 +75,7 @@ CtrlrLuaConsole::CtrlrLuaConsole (CtrlrPanel &_owner)
 	nextUpKeyPressWillbeFirst = true;
 	lastCommandNumInHistory = -1;
 	lastMoveDirection = NONE;
-	currentInputString = String::empty;
+	currentInputString = "";
 
 	//luaConsoleOutput->setWantsKeyboardFocus(false);
 	luaConsoleInput->grabKeyboardFocus();
@@ -143,7 +143,7 @@ bool CtrlrLuaConsole::keyPressed (const KeyPress& key, Component* originatingCom
 
 		if ((bool)owner.getProperty(Ids::uiLuaConsoleInputRemoveAfterRun))
 		{
-			inputDocument.replaceAllContent(String::empty);
+			inputDocument.replaceAllContent("");
 		}
 		return (true);
 	}
@@ -201,7 +201,7 @@ void CtrlrLuaConsole::runCode(const String &code)
 		nextUpKeyPressWillbeFirst = true;
 		lastCommandNumInHistory = inputHistory.size() - 1;
 		lastMoveDirection = NONE;
-		currentInputString = String::empty;
+		currentInputString = "";
 	}
 	owner.getCtrlrLuaManager().runCode(code);
 	// luaConsoleInput->clear();

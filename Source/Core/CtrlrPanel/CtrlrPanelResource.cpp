@@ -20,7 +20,7 @@ CtrlrPanelResource::CtrlrPanelResource (CtrlrPanelResourceManager &_owner, const
 		audioFormatReader(nullptr),
 		resourceTree(Ids::resource)
 {
-	if (resourceName == String::empty)
+	if (resourceName == "")
 	{
 		resourceName = _resourceSourceFile.getFileNameWithoutExtension();
 	}
@@ -109,7 +109,7 @@ const Font CtrlrPanelResource::asFont()
 
 const XmlElement *CtrlrPanelResource::asXml()
 {
-	return (XmlDocument::parse(resourceDataFile));
+	return (XmlDocument::parse(resourceDataFile).release());
 }
 
 AudioFormatReader *CtrlrPanelResource::asAudioFormat()

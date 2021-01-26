@@ -13,7 +13,7 @@ class CtrlrPanelResourceManager;
 class CtrlrPanelResource : public ValueTree::Listener
 {
 	public:
-		CtrlrPanelResource (CtrlrPanelResourceManager &_owner, const File &_resourceDataFile, const File &_resourceSourceFile, const String _resourceName=String::empty);
+		CtrlrPanelResource (CtrlrPanelResourceManager &_owner, const File &_resourceDataFile, const File &_resourceSourceFile, const String _resourceName="");
 		~CtrlrPanelResource();
 		void valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChanged, const Identifier &property);
 		void valueTreeChildrenChanged (ValueTree &treeWhoseChildHasChanged){}

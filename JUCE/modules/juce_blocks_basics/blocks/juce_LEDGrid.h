@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -30,9 +30,9 @@ namespace juce
 */
 struct LEDColour
 {
-    LEDColour() noexcept = default;
-    LEDColour (const LEDColour&) noexcept = default;
-    LEDColour& operator= (const LEDColour&) noexcept = default;
+    LEDColour() = default;
+    LEDColour (const LEDColour&) = default;
+    LEDColour& operator= (const LEDColour&) = default;
 
     LEDColour (uint32 argbColour) noexcept : argb (argbColour) {}
 
@@ -73,15 +73,15 @@ public:
 
     //==============================================================================
     /** An interface to use for LEDGrid rendering. */
-    struct Renderer     : public juce::ReferenceCountedObject
+    struct Renderer     : public ReferenceCountedObject
     {
-        virtual ~Renderer();
+        ~Renderer() override;
         virtual void renderLEDGrid (LEDGrid&) = 0;
 
         /** The Renderer class is reference-counted, so always use a Renderer::Ptr when
             you are keeping references to them.
          */
-        using Ptr = juce::ReferenceCountedObjectPtr<Renderer>;
+        using Ptr = ReferenceCountedObjectPtr<Renderer>;
     };
 
     /** Set the visualiser that will create visuals for this block (nullptr for none).

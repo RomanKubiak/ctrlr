@@ -225,7 +225,9 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addCommandItem (commandManager, doSendSnapshot);
 		menu.addCommandItem (commandManager, optMidiSnapshotOnLoad);
 		menu.addCommandItem (commandManager, optMidiSnapshotOnProgramChange);
-		menu.addCustomItem (1, new CtrlrMenuSlider(this, "Snapshot delay", getPanelProperty(Ids::panelMidiSnapshotDelay), 0, 2000, 1));
+		//std::unique_ptr<PopupMenu::CustomComponent> slider;
+		//slider.reset (new CtrlrMenuSlider(this, "Snapshot delay", getPanelProperty(Ids::panelMidiSnapshotDelay), 0, 2000, 1));
+		//menu.addCustomItem (1, slider);
 	}
 	else if ((!isRestricted() && (topLevelMenuIndex == MenuTools)) || (isRestricted() && (topLevelMenuIndex == (hideProgramsMenu ? (MenuRestrictedTools - 1) : MenuRestrictedTools)))) // Tools
 	{
@@ -423,14 +425,14 @@ const var CtrlrEditor::getPanelProperty(const Identifier &propertyName)
 	}
 	else
 	{
-		return (var::null);
+		return (var());
 	}
 }
 
 const String CtrlrEditor::getMidiSummary(const CtrlrMIDIDeviceType type)
 {
 	if (!isPanelActive())
-		return (String::empty);
+		return ("");
 
 	String ret = " (";
 	if (type == inputDevice)

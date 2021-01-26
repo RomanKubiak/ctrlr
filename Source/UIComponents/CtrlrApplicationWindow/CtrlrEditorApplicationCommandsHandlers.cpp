@@ -269,7 +269,7 @@ void CtrlrEditor::performShowKeyboardMappingDialog(const int menuItemID)
 	ScopedPointer <KeyMappingEditorComponent> keys (new KeyMappingEditorComponent (*owner.getCommandManager().getKeyMappings(), true));
 	owner.getWindowManager().showModalDialog ("Keyboard mapping", keys, true, this);
 
-	ScopedPointer <XmlElement> keysXml (owner.getCommandManager().getKeyMappings()->createXml (true));
+	ScopedPointer <XmlElement> keysXml (owner.getCommandManager().getKeyMappings()->createXml (true).release());
 
 	if (keysXml)
 	{

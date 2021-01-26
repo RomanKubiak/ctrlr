@@ -17,7 +17,7 @@ void CtrlrComponentSelection::itemSelected (CtrlrComponent *selectedComponent)
 {
 	if (!selectedComponent->getTransform().isIdentity())
 	{
-		selectedComponent->setTransform (AffineTransform::identity);
+		selectedComponent->setTransform (AffineTransform());
 	}
 }
 
@@ -25,7 +25,7 @@ void CtrlrComponentSelection::itemDeselected (CtrlrComponent *deselectedComponen
 {
 	if (!deselectedComponent->getTransform().isIdentity())
 	{
-		deselectedComponent->setTransform (AffineTransform::identity);
+		deselectedComponent->setTransform (AffineTransform());
 	}
 }
 
@@ -35,7 +35,7 @@ void CtrlrComponentSelection::deselectAll()
 	{
 		if (getSelectedItem(i))
 		{
-			getSelectedItem(i)->setTransform (AffineTransform::identity);
+			getSelectedItem(i)->setTransform (AffineTransform());
 		}
 	}
 	SelectedItemSet<CtrlrComponent*>::deselectAll();

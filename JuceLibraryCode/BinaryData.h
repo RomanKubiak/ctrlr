@@ -9,19 +9,19 @@
 namespace BinaryData
 {
     extern const char*   build_information_hpp_cmake_in;
-    const int            build_information_hpp_cmake_inSize = 2032;
+    const int            build_information_hpp_cmake_inSize = 2087;
 
     extern const char*   getdeps_sh;
-    const int            getdeps_shSize = 457;
+    const int            getdeps_shSize = 477;
 
     extern const char*   INSTALL_txt;
-    const int            INSTALL_txtSize = 2054;
+    const int            INSTALL_txtSize = 2121;
 
     extern const char*   LICENSE_txt;
-    const int            LICENSE_txtSize = 1207;
+    const int            LICENSE_txtSize = 1230;
 
     extern const char*   README_md;
-    const int            README_mdSize = 7469;
+    const int            README_mdSize = 7609;
 
     extern const char*   CtrlrRevision_template;
     const int            CtrlrRevision_templateSize = 199;
@@ -99,7 +99,7 @@ namespace BinaryData
     const int            copy_svgSize = 282;
 
     extern const char*   ctrlr_logo_svg;
-    const int            ctrlr_logo_svgSize = 23612;
+    const int            ctrlr_logo_svgSize = 23961;
 
     extern const char*   cut_svg;
     const int            cut_svgSize = 692;
@@ -135,7 +135,7 @@ namespace BinaryData
     const int            memory_svgSize = 348;
 
     extern const char*   midi_svg;
-    const int            midi_svgSize = 9017;
+    const int            midi_svgSize = 9089;
 
     extern const char*   nav_next_svg;
     const int            nav_next_svgSize = 201;

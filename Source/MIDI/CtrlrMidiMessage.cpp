@@ -167,8 +167,8 @@ void CtrlrMidiMessage::initializeEmptyMessage()
 	setProperty (Ids::midiMessageChannel, 1);
 	setProperty (Ids::midiMessageCtrlrNumber, 1);
 	setProperty (Ids::midiMessageCtrlrValue, 0);
-	setProperty (Ids::midiMessageMultiList, String::empty);
-	setProperty (Ids::midiMessageSysExFormula, String::empty);
+	setProperty (Ids::midiMessageMultiList, "");
+	setProperty (Ids::midiMessageSysExFormula, "");
 
 	midiTree.addListener (this);
 }
@@ -412,8 +412,8 @@ Result CtrlrMidiMessage::fillMessagePropertiesFromData()
 		setProperty (Ids::midiMessageChannel, 1);
 		setProperty (Ids::midiMessageCtrlrNumber, 1);
 		setProperty (Ids::midiMessageCtrlrValue, 0);
-		setProperty (Ids::midiMessageMultiList, String::empty);
-		setProperty (Ids::midiMessageSysExFormula, String::empty);
+		setProperty (Ids::midiMessageMultiList, "");
+		setProperty (Ids::midiMessageSysExFormula, "");
 
 		return (Result::fail("MessageArray is empty, initializing to empty NONE message"));
 	}
@@ -437,7 +437,7 @@ void CtrlrMidiMessage::restoreState (const ValueTree &savedState)
 
 	if (getProperty(Ids::midiMessageSysExFormula).toString().length() > 0 && (int)getProperty(Ids::midiMessageType) != SysEx)
 	{
-		setProperty (Ids::midiMessageSysExFormula, String::empty);
+		setProperty (Ids::midiMessageSysExFormula, "");
 	}
 	else if (getProperty(Ids::midiMessageSysExFormula).toString().length() > 0 && (int)getProperty(Ids::midiMessageType) == SysEx)
 	{
@@ -841,7 +841,7 @@ void CtrlrMidiMessage::clear()
 
 CtrlrMidiMessageEx &CtrlrMidiMessage::getReference(const int messageIndex) const
 {
-	return (messageArray.getReference(messageIndex));
+	return ((CtrlrMidiMessageEx &)messageArray.getReference(messageIndex));
 }
 
 void CtrlrMidiMessage::memoryMerge (const CtrlrMidiMessage &otherMessage)

@@ -18,19 +18,19 @@ void CtrlrPanelCanvas::addAndMakeVisibleNg(CtrlrComponent *componentToAdd, Compo
 		return;
 
 	CtrlrPanelCanvasLayer *layer	= dynamic_cast<CtrlrPanelCanvasLayer*>(componentToAddTo);
-	String componentsCurrentLayer		= String::empty;
+	String componentsCurrentLayer		= "";
 
 	if (componentToAdd->getObjectTree().hasProperty (Ids::componentLayerUid))
 	{
 		componentsCurrentLayer = componentToAdd->getProperty(Ids::componentLayerUid).toString();
 	}
 
-	if (componentsCurrentLayer != String::empty)
+	if (componentsCurrentLayer != "")
 	{
 		/* component has a layer assigned */
 		if (layer == 0)
 		{
-			/* there is no destination component 
+			/* there is no destination component
 				if it's forced, move the component to the top-most visible layer*/
 			if (force && getCurrentLayer())
 			{
@@ -59,7 +59,7 @@ void CtrlrPanelCanvas::addAndMakeVisibleNg(CtrlrComponent *componentToAdd, Compo
 		}
 		else
 		{
-			/* the destination layer is not provided, add it to the top-most visible layer 
+			/* the destination layer is not provided, add it to the top-most visible layer
 				or if there isn't one that's visible, the one indexed 0*/
 			if (getCurrentLayer())
 			{
@@ -265,7 +265,7 @@ void CtrlrPanelCanvas::layersChanged()
 	}
 
 	for (int i=0; i<layers.size(); i++)
-	{	
+	{
 		if ((bool)layers[i]->getProperty (Ids::uiPanelCanvasLayerVisibility) == true)
 		{
 			addAndMakeVisible (layers[i]);

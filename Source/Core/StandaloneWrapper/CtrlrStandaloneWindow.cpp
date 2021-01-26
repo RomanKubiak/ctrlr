@@ -45,7 +45,7 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 
 			if (appProperties != nullptr)
 			{
-				ScopedPointer <XmlElement> xml(appProperties->getUserSettings()->getXmlValue(CTRLR_PROPERTIES_FILTER_STATE));
+				ScopedPointer <XmlElement> xml(appProperties->getUserSettings()->getXmlValue(CTRLR_PROPERTIES_FILTER_STATE).release());
 
 				if (xml != nullptr)
 				{
@@ -55,7 +55,7 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 				AudioProcessorEditor *editor = ctrlrProcessor->createEditorIfNeeded();
 				setName (ctrlrProcessor->getManager().getInstanceName());
 
-				if (appProperties->getUserSettings()->getValue(CTRLR_PROPERTIES_WINDOW_STATE,String::empty) != String::empty)
+				if (appProperties->getUserSettings()->getValue(CTRLR_PROPERTIES_WINDOW_STATE,"") != "")
 				{
 					restoreWindowStateFromString (appProperties->getUserSettings()->getValue(CTRLR_PROPERTIES_WINDOW_STATE));
 				}

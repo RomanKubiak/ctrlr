@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -24,11 +24,11 @@ namespace juce
 {
 
 struct MIDIDeviceConnection  : public PhysicalTopologySource::DeviceConnection,
-                               public juce::MidiInputCallback
+                               public MidiInputCallback
 {
     MIDIDeviceConnection() {}
 
-    ~MIDIDeviceConnection()
+    ~MIDIDeviceConnection() override
     {
         JUCE_ASSERT_MESSAGE_MANAGER_IS_LOCKED
 
@@ -36,40 +36,30 @@ struct MIDIDeviceConnection  : public PhysicalTopologySource::DeviceConnection,
 
         if (midiInput != nullptr)
             midiInput->stop();
-
-        if (interprocessLock != nullptr)
-            interprocessLock->exit();
     }
 
-    bool lockAgainstOtherProcesses (const String& midiInName, const String& midiOutName)
+    void setLockAgainstOtherProcesses (std::shared_ptr<InterProcessLock> newLock)
     {
-        interprocessLock.reset (new juce::InterProcessLock ("blocks_sdk_"
-                                                            + File::createLegalFileName (midiInName)
-                                                            + "_" + File::createLegalFileName (midiOutName)));
-        if (interprocessLock->enter (500))
-            return true;
-
-        interprocessLock = nullptr;
-        return false;
+        midiPortLock = newLock;
     }
 
     struct Listener
     {
         virtual ~Listener() {}
 
-        virtual void handleIncomingMidiMessage (const juce::MidiMessage& message) = 0;
+        virtual void handleIncomingMidiMessage (const MidiMessage& message) = 0;
         virtual void connectionBeingDeleted (const MIDIDeviceConnection&) = 0;
     };
 
     void addListener (Listener* l)
     {
-        juce::ScopedLock scopedLock (criticalSecton);
+        ScopedLock scopedLock (criticalSecton);
         listeners.add (l);
     }
 
     void removeListener (Listener* l)
     {
-        juce::ScopedLock scopedLock (criticalSecton);
+        ScopedLock scopedLock (criticalSecton);
         listeners.remove (l);
     }
 
@@ -77,22 +67,22 @@ struct MIDIDeviceConnection  : public PhysicalTopologySource::DeviceConnection,
     {
         JUCE_ASSERT_MESSAGE_MANAGER_IS_LOCKED // This method must only be called from the message thread!
 
-        jassert (dataSize > sizeof (BlocksProtocol::roliSysexHeader) + 2);
+        jassert (dataSize > sizeof (BlocksProtocol::roliSysexHeader) + 1);
         jassert (memcmp (data, BlocksProtocol::roliSysexHeader, sizeof (BlocksProtocol::roliSysexHeader) - 1) == 0);
         jassert (static_cast<const uint8*> (data)[dataSize - 1] == 0xf7);
 
         if (midiOutput != nullptr)
         {
-            midiOutput->sendMessageNow (juce::MidiMessage (data, (int) dataSize));
+            midiOutput->sendMessageNow (MidiMessage (data, (int) dataSize));
             return true;
         }
 
         return false;
     }
 
-    void handleIncomingMidiMessage (juce::MidiInput*, const juce::MidiMessage& message) override
+    void handleIncomingMidiMessage (MidiInput*, const MidiMessage& message) override
     {
-        juce::ScopedTryLock lock (criticalSecton);
+        ScopedTryLock lock (criticalSecton);
 
         if (lock.isLocked())
         {
@@ -108,14 +98,14 @@ struct MIDIDeviceConnection  : public PhysicalTopologySource::DeviceConnection,
         }
     }
 
-    std::unique_ptr<juce::MidiInput> midiInput;
-    std::unique_ptr<juce::MidiOutput> midiOutput;
+    std::unique_ptr<MidiInput> midiInput;
+    std::unique_ptr<MidiOutput> midiOutput;
 
-    juce::CriticalSection criticalSecton;
+    CriticalSection criticalSecton;
 
 private:
-    juce::ListenerList<Listener> listeners;
-    std::unique_ptr<juce::InterProcessLock> interprocessLock;
+    ListenerList<Listener> listeners;
+    std::shared_ptr<InterProcessLock> midiPortLock;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MIDIDeviceConnection)
 };

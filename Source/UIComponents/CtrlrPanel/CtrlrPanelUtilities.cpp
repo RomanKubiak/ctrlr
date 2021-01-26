@@ -74,10 +74,10 @@ void CtrlrPanelUtilities::reloadContent()
 {
     if ((owner.isVisible() && owner.getSelection()->getNumSelected() == 0) || owner.getSelection()->getNumSelected() > 1)
 	{
-		ScopedPointer <XmlElement> xml (owner.getOwner().getPanelTree().createXml());
+		ScopedPointer <XmlElement> xml (owner.getOwner().getPanelTree().createXml().release());
 		if (xml)
 		{
-			codeDocument.replaceAllContent (xml->createDocument(String::empty));
+			codeDocument.replaceAllContent (xml->createDocument(""));
 		}
 	}
 	else if (owner.isVisible() && owner.getSelection()->getNumSelected() == 1)
@@ -85,8 +85,8 @@ void CtrlrPanelUtilities::reloadContent()
 		CtrlrComponent *c =  owner.getSelection()->getSelectedItem(0);
 		if (c)
 		{
-			ScopedPointer <XmlElement> xml (c->getOwner().getModulatorTree().createXml());
-			String doc = xml->createDocument(String::empty);
+			ScopedPointer <XmlElement> xml (c->getOwner().getModulatorTree().createXml().release());
+			String doc = xml->createDocument("");
 			if (doc.length() <= 8192)
 			{
 				codeDocument.replaceAllContent (doc);

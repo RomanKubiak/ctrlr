@@ -12,7 +12,7 @@ class CtrlrTreeViewItemListener
 {
 	public:
 		virtual void itemChanged (ValueTree &itemTreeThatChanged)=0;
-		virtual const String getDisplayTextForItem (const ValueTree &item) { return (String::empty); }
+		virtual const String getDisplayTextForItem (const ValueTree &item) { return (""); }
 		virtual void itemClicked (const MouseEvent &e, const ValueTree &item) { }
 		virtual void itemDoubleClicked (const MouseEvent &e, const ValueTree &item) { }
 		virtual bool itemRenamed (ValueTree &itemRenamed, const String &newName) { return (false); }

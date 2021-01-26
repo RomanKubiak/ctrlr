@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -31,7 +31,7 @@ namespace juce
 
     @tags{Core}
 */
-class CharPointer_UTF32  final
+class CharPointer_UTF32  
 {
 public:
     using CharType = juce_wchar;
@@ -41,10 +41,7 @@ public:
     {
     }
 
-    inline CharPointer_UTF32 (const CharPointer_UTF32& other) noexcept
-        : data (other.data)
-    {
-    }
+    inline CharPointer_UTF32 (const CharPointer_UTF32& other) = default;
 
     inline CharPointer_UTF32 operator= (CharPointer_UTF32 other) noexcept
     {
@@ -189,7 +186,7 @@ public:
     /** Returns the number of bytes that would be needed to represent the given
         unicode character in this encoding format.
     */
-    static inline size_t getBytesRequiredFor (juce_wchar) noexcept
+    static size_t getBytesRequiredFor (juce_wchar) noexcept
     {
         return sizeof (CharType);
     }

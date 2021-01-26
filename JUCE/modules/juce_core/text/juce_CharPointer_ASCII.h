@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -34,7 +34,7 @@ namespace juce
 
     @tags{Core}
 */
-class CharPointer_ASCII  final
+class CharPointer_ASCII  
 {
 public:
     using CharType = char;
@@ -44,10 +44,7 @@ public:
     {
     }
 
-    inline CharPointer_ASCII (const CharPointer_ASCII& other) noexcept
-        : data (other.data)
-    {
-    }
+    inline CharPointer_ASCII (const CharPointer_ASCII& other) = default;
 
     inline CharPointer_ASCII operator= (const CharPointer_ASCII other) noexcept
     {
@@ -185,7 +182,7 @@ public:
     /** Returns the number of bytes that would be needed to represent the given
         unicode character in this encoding format.
     */
-    static inline size_t getBytesRequiredFor (const juce_wchar) noexcept
+    static size_t getBytesRequiredFor (const juce_wchar) noexcept
     {
         return 1;
     }

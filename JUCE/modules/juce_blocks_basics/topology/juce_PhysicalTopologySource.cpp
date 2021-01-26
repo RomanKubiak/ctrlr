@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -22,10 +22,22 @@
 
 //==============================================================================
 /** These can be useful when debugging the topology. */
-#define LOG_BLOCKS_CONNECTIVITY 0
-#define LOG_BLOCKS_PINGS 0
-#define DUMP_BANDWIDTH_STATS 0
-#define DUMP_TOPOLOGY 0
+
+#ifndef LOG_BLOCKS_CONNECTIVITY
+  #define LOG_BLOCKS_CONNECTIVITY 0
+#endif
+
+#ifndef LOG_BLOCKS_PINGS
+  #define LOG_BLOCKS_PINGS 0
+#endif
+
+#ifndef DUMP_BANDWIDTH_STATS
+  #define DUMP_BANDWIDTH_STATS 0
+#endif
+
+#ifndef DUMP_TOPOLOGY
+  #define DUMP_TOPOLOGY 0
+#endif
 
 #define TOPOLOGY_LOG(text) \
  JUCE_BLOCK_WITH_FORCED_SEMICOLON (juce::String buf ("Topology Src:   "); \
@@ -47,21 +59,11 @@
  #include "internal/juce_BandwidthStatsLogger.cpp"
 #endif
 
-namespace
-{
-    /** Helper function to create juce::String from BlockStringData */
-    template <size_t MaxSize>
-    juce::String asString (juce::BlocksProtocol::BlockStringData<MaxSize> blockString)
-    {
-        return { reinterpret_cast<const char*> (blockString.data),
-                 juce::jmin (sizeof (blockString.data), static_cast<size_t> (blockString.length))};
-    }
-}
-
 #include "internal/juce_MidiDeviceConnection.cpp"
 #include "internal/juce_MIDIDeviceDetector.cpp"
 #include "internal/juce_DeviceInfo.cpp"
 #include "internal/juce_DepreciatedVersionReader.cpp"
+#include "internal/juce_BlockSerialReader.cpp"
 #include "internal/juce_ConnectedDeviceGroup.cpp"
 #include "internal/juce_BlockImplementation.cpp"
 #include "internal/juce_Detector.cpp"
@@ -111,7 +113,7 @@ void PhysicalTopologySource::setActive (bool shouldBeActive)
         detector.reset();
     }
 
-    listeners.call ([](TopologySource::Listener& l){ l.topologyChanged(); });
+    listeners.call ([] (TopologySource::Listener& l){ l.topologyChanged(); });
 }
 
 bool PhysicalTopologySource::isActive() const

@@ -51,7 +51,7 @@ void LFile::findChildFiles (luabind::object const& table, int whatToLookFor, boo
 
 bool LFile::isValid()
 {
-	if (*this == File::nonexistent)
+	if (*this == File())
 	{
 		return (false);
 	}
@@ -676,7 +676,7 @@ void LString::wrapForLua (lua_State *L)
 			.def("get", &LStringArray::get)
 			.def("contains", &StringArray::contains)
 			.def("indexOf", &StringArray::indexOf)
-			.def("getReference", &StringArray::getReference)
+			//.def("getReference", &StringArray::getReference)
 			.def("add", &StringArray::add)
 			.def("insert", &StringArray::insert)
 			.def("addIfNotAlreadyThere", &StringArray::addIfNotAlreadyThere)
@@ -799,7 +799,7 @@ void LURL::wrapForLua (lua_State *L)
 			.def("isProbablyAWebsiteURL", &URL::isProbablyAWebsiteURL)
 			.def("isProbablyAnEmailAddress", &URL::isProbablyAnEmailAddress)
 			.def("readEntireTextStream", &URL::readEntireTextStream)
-			.def("readEntireXmlStream", &URL::readEntireXmlStream)
+			//.def("readEntireXmlStream", &URL::readEntireXmlStream)
 			.def("readEntireBinaryStream", &URL::readEntireBinaryStream)
 			.def("addEscapeChars", &URL::addEscapeChars)
 			.def("removeEscapeChars", &URL::removeEscapeChars)
@@ -883,7 +883,7 @@ void LValueTree::wrapForLua (lua_State *L)
 				.def("indexOf", &ValueTree::indexOf)
 				.def("getParent", &ValueTree::getParent)
 				.def("getSibling", &ValueTree::getSibling)
-				.def("createXml", &ValueTree::createXml)
+				//.def("createXml", &ValueTree::createXml)
 				.def("toXmlString", &ValueTree::toXmlString)
 				.def("writeToStream", &ValueTree::writeToStream)
 				.def("addListener", &ValueTree::addListener)
@@ -958,14 +958,14 @@ void LXmlElement::wrapForLua (lua_State *L)
         class_<XmlDocument>("XmlDocument")
             .def(constructor<const String &>())
             .def(constructor<const File &>())
-            .def("getDocumentElement", &XmlDocument::getDocumentElement)
+            //.def("getDocumentElement", &XmlDocument::getDocumentElement)
             .def("getLastParseError", &XmlDocument::getLastParseError)
             .def("setInputSource", &XmlDocument::setInputSource)
             .def("setEmptyTextElementsIgnored", &XmlDocument::setEmptyTextElementsIgnored)
-            .scope[
+            /*.scope[
                 def("parse", (XmlElement *(*)(const File &))&XmlDocument::parse),
                 def("parse", (XmlElement *(*)(const String &))&XmlDocument::parse)
-            ]
+            ]*/
     ];
 }
 

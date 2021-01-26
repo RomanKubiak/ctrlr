@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -20,10 +20,7 @@
   ==============================================================================
 */
 
-#if JUCE_MSVC
- #pragma warning (push)
- #pragma warning (disable: 4702)
-#endif
+JUCE_BEGIN_IGNORE_WARNINGS_MSVC (4702)
 
 namespace littlefoot
 {
@@ -87,6 +84,31 @@ struct Compiler
         return Program (compiledObjectCode.begin(), (uint32) compiledObjectCode.size());
     }
 
+    static File resolveIncludePath (String include, Array<File> searchPaths)
+    {
+        if (File::isAbsolutePath (include) && File (include).existsAsFile())
+            return { include };
+
+        auto fileName = include.fromLastOccurrenceOf ("/", false, false);
+
+        for (auto path : searchPaths)
+        {
+            if (path == File())
+                continue;
+
+            if (! path.isDirectory())
+                path = path.getParentDirectory();
+
+            if (path.getChildFile (include).existsAsFile())
+                return path.getChildFile (include);
+
+            if (path.getChildFile (fileName).existsAsFile())
+                return path.getChildFile (fileName);
+        }
+
+        return {};
+    }
+
     /** After a successful call to compile(), this contains the bytecode generated.
         A littlefoot::Program object can be created directly from this array.
     */
@@ -101,7 +123,7 @@ private:
     struct Variable;
     struct BlockStatement;
     struct Function;
-    struct AllocatedObject  { virtual ~AllocatedObject() noexcept {} };
+    struct AllocatedObject  { virtual ~AllocatedObject() = default; };
     using StatementPtr = Statement*;
     using ExpPtr = Expression*;
     using BlockPtr = BlockStatement*;
@@ -143,7 +165,7 @@ private:
     struct CodeLocation
     {
         CodeLocation (const String& code, const File& srcFile) noexcept : program (code), location (program.getCharPointer()), sourceFile (srcFile) {}
-        CodeLocation (const CodeLocation& other) noexcept : program (other.program), location (other.location), sourceFile (other.sourceFile) {}
+        CodeLocation (const CodeLocation& other) = default;
 
         [[noreturn]] void throwError (const String& message) const
         {
@@ -489,7 +511,7 @@ private:
                 return;
             }
 
-            juce::File fileToInclude = resolveIncludePath (currentValue.toString());
+            File fileToInclude = resolveIncludePath (currentValue.toString());
 
             if (fileToInclude == File())
                 return;
@@ -522,27 +544,12 @@ private:
                 return {};
             }
 
-            if (File::isAbsolutePath (include) && File (include).existsAsFile())
-                return { include };
+            auto path = Compiler::resolveIncludePath (include, searchPaths);
 
-            auto fileName = include.fromLastOccurrenceOf ("/", false, false);
+            if (! path.existsAsFile())
+                location.throwError ("File not found: " + include);
 
-            for (auto path : searchPaths)
-            {
-                if (path == File())
-                    continue;
-
-                if (! path.isDirectory())
-                    path = path.getParentDirectory();
-
-                if (path.getChildFile (include).existsAsFile())
-                    return path.getChildFile (include);
-
-                if (path.getChildFile (fileName).existsAsFile())
-                    return path.getChildFile (fileName);
-            }
-
-            location.throwError ("File not found: " + include);
+            return path;
         }
 
         //TODO:   should there be a max array size?
@@ -1300,7 +1307,7 @@ private:
     {
         struct Visitor
         {
-            virtual ~Visitor() {}
+            virtual ~Visitor() = default;
             virtual void operator()(StatementPtr) = 0;
         };
 
@@ -1318,7 +1325,7 @@ private:
     {
         Expression (const CodeLocation& l, BlockPtr parent) noexcept : Statement (l, parent) {}
         virtual Type getType (CodeGenerator&) const = 0;
-        virtual ExpPtr simplify (SyntaxTreeBuilder&) override    { return this; }
+        ExpPtr simplify (SyntaxTreeBuilder&) override    { return this; }
         virtual String getIdentifier() const { location.throwError ("This operator requires an assignable variable"); return {}; }
     };
 
@@ -2144,7 +2151,7 @@ private:
 
             if (auto a = dynamic_cast<ArraySubscript*> (target))
             {
-                cg.emitArrayElementIndex (a, parentBlock, stackDepth, location);
+                cg.emitArrayElementIndex (a, parentBlock, ++stackDepth, location);
                 cg.emit (OpCode::setHeapInt);
             }
             else
@@ -2444,6 +2451,4 @@ private:
 
 }
 
-#if JUCE_MSVC
- #pragma warning (pop)
-#endif
+JUCE_END_IGNORE_WARNINGS_MSVC

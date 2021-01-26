@@ -293,7 +293,7 @@ const String removeInvalidChars(const String &dataToValidate, const bool showSpe
 ValueTree valueTreeFromXml (const String &dumpedXmlAsString)
 {
 	XmlDocument doc(dumpedXmlAsString);
-	ScopedPointer <XmlElement> xml(doc.getDocumentElement());
+	ScopedPointer <XmlElement> xml(doc.getDocumentElement().release());
 
 	if (xml)
 	{
@@ -606,12 +606,12 @@ const String getName(const MidiMessage &m)
 
 const String getMidiMessageAsLogString (const MidiMessage &m, const double customTimestamp, const bool name, const bool channel, const bool number, const bool value, const bool timestamp, const bool rawData, const bool rawInDecimal, const bool rawDataSize)
 {
-	return ((timestamp ? (customTimestamp >= 0 ? getTimestamp(customTimestamp) : getTimestamp(m)) : "") 
-				+ (rawDataSize ? getRawDataSize(m) : "") 
-				+ (name ? getName(m) : "") 
-				+ (channel ? getMidiChannel(m) : "") 
-				+ (number ? getMidiNumber(m) : "") 
-				+ (value ? getMidiValue(m) : "") 
+	return ((timestamp ? (customTimestamp >= 0 ? getTimestamp(customTimestamp) : getTimestamp(m)) : "")
+				+ (rawDataSize ? getRawDataSize(m) : "")
+				+ (name ? getName(m) : "")
+				+ (channel ? getMidiChannel(m) : "")
+				+ (number ? getMidiNumber(m) : "")
+				+ (value ? getMidiValue(m) : "")
 				+ (rawData ? getRawData(m,rawInDecimal) : ""));
 }
 
@@ -634,7 +634,7 @@ bool getBitOption (const int &storage, const int &optionToGet)
 
 const String dumpTree (const ValueTree &tree)
 {
-	ScopedPointer <XmlElement> xml(tree.createXml());
+	ScopedPointer <XmlElement> xml(tree.createXml().release());
 	if (xml)
 	{
 		return (xml->createDocument(""));
@@ -656,7 +656,7 @@ const String dataPrefix (const MemoryBlock &data, const int prefixLength)
 const String labelFromProperty (CtrlrModulator *modulator, const String &formatText)
 {
 	if (modulator == nullptr)
-		return (String::empty);
+		return ("");
 
 	String ret = formatText.replace ("%n", modulator->getName());
 	if (modulator->getComponent())
@@ -894,7 +894,7 @@ double denormalizeValue(const float& normalized, const double& minValue, const d
 
 void restoreProperties(const ValueTree &sourceTree, ValueTree &destinationTree, UndoManager *undoManager, const String &propertyPrefix)
 {
-	if (propertyPrefix == String::empty)
+	if (propertyPrefix == "")
 	{
 		for (int i = sourceTree.getNumProperties(); --i >= 0;)
 		{

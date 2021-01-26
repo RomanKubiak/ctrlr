@@ -141,8 +141,8 @@ CtrlrPanel::CtrlrPanel(CtrlrManager &_owner, const String &panelName, const int 
     setProperty (Ids::luaAudioProcessBlock, COMBO_ITEM_NONE);
     setProperty (Ids::luaPanelOSCReceived, COMBO_ITEM_NONE);
 
-	setProperty (Ids::panelFilePath, String::empty);
-	setProperty (Ids::panelLastSaveDir, String::empty);
+	setProperty (Ids::panelFilePath, "");
+	setProperty (Ids::panelLastSaveDir, "");
 	setProperty (Ids::panelUID, generateRandomUnique());
 	setProperty (Ids::panelInstanceUID, generateRandomUniquePluginId());
     setProperty (Ids::panelInstanceManufacturerID, generateRandomUniquePluginId());
@@ -399,7 +399,7 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	}
 	else if (property == Ids::panelMidiInputDevice)
 	{
-		if (getProperty(property).toString() == String::empty || getProperty(property).toString() == COMBO_ITEM_NONE)
+		if (getProperty(property).toString() == "" || getProperty(property).toString() == COMBO_ITEM_NONE)
 		{
 			midiInputThread.closeInputDevice();
 		}
@@ -414,7 +414,7 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	}
 	else if (property == Ids::panelMidiOutputDevice)
 	{
-		if (getProperty(property).toString() == String::empty || getProperty(property).toString() == COMBO_ITEM_NONE)
+		if (getProperty(property).toString() == "" || getProperty(property).toString() == COMBO_ITEM_NONE)
 		{
 			if (outputDevicePtr)
 				outputDevicePtr->closeDevice();
@@ -431,7 +431,7 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	}
 	else if (property == Ids::panelMidiControllerDevice)
 	{
-		if (getProperty(property).toString() == String::empty || getProperty(property).toString() == COMBO_ITEM_NONE)
+		if (getProperty(property).toString() == "" || getProperty(property).toString() == COMBO_ITEM_NONE)
 		{
 			midiControllerInputThread.closeInputDevice();
 		}
@@ -474,105 +474,105 @@ void CtrlrPanel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	}
 	else if (property == Ids::luaPanelMidiReceived)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelMidiReceivedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelMidiMultiReceived)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelMidiMultiReceivedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelMidiChannelChanged)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelMidiChannelChangedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelMessageHandler)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelMessageHandlerCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelSaved)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelSavedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelLoaded)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelLoadedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelGlobalChanged)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelGlobalChangedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelBeforeLoad)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelBeforeLoadCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelProgramChanged)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelProgramChangedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelResourcesLoaded)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelResourcesLoadedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelModulatorValueChanged)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelModulatorValueChangedCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelSaveState)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelSaveStateCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelRestoreState)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelRestoreStateCbk = getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::luaPanelMidiSnapshotPost)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
         snapshot.setPostLuaCallback (getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property)));
 	}
 	else if (property == Ids::luaPanelMidiSnapshotPre)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		snapshot.setPreLuaCallback (getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property)));
@@ -723,10 +723,10 @@ const String CtrlrPanel::getUniqueModulatorName(const String &proposedName)
 		return (proposedName);
 
 	uint32 marker=0;
-	String basename=String::empty;
+	String basename="";
 	String nameToLookFor;
 
-	if (proposedName.fromLastOccurrenceOf("-", false, true) != String::empty)
+	if (proposedName.fromLastOccurrenceOf("-", false, true) != "")
 	{
 		basename		= proposedName.upToLastOccurrenceOf("-", false, true);
 		marker			= proposedName.fromLastOccurrenceOf("-", false, true).getIntValue();
@@ -966,7 +966,7 @@ const String CtrlrPanel::getVersionString(const bool includeVersionName, const b
 	String r;
 	String sep;
 
-	if (versionSeparator == String::empty)
+	if (versionSeparator == "")
 		sep = owner.getProperty(Ids::ctrlrVersionSeparator).toString();
 	else
 		sep = versionSeparator;
@@ -1841,7 +1841,7 @@ String CtrlrPanel::getInternalFunctionsProperty(CtrlrComponent *component)
 	{
 		return (_STR(COMBO_ITEM_NONE) + "\nShow MIDI device settings");
 	}
-	return (String::empty);
+	return ("");
 }
 
 void CtrlrPanel::multiMidiReceived(CtrlrMidiMessage &multiMidiMessage)

@@ -30,7 +30,7 @@ class CtrlrPanelResourceManager
 		Result removeResourceRange (const int resourceIndexStart, const int numberOfResourcesToRemove);
 		Result removeResource (const int resourceIndex);
 		Result removeResource(CtrlrPanelResource *resourceToRemove);
-		Result addResource (const File &source, const String &name=String::empty);
+		Result addResource (const File &source, const String &name="");
 		Result importResource (const ValueTree &resourceTree);
 
 		void panelUIDChanged();

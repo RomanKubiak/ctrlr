@@ -129,8 +129,8 @@ class CtrlrPanel:	public ValueTree::Listener,
 
 		int getGlobalVariable (const int index);
 		int getPanelIndex();
-		ValueTree getProgram(ValueTree treeToWriteTo=ValueTree::invalid);
-		ValueTree getProgramVar(ValueTree programTree=ValueTree::invalid);
+		ValueTree getProgram(ValueTree treeToWriteTo=ValueTree());
+		ValueTree getProgramVar(ValueTree programTree=ValueTree());
 		void setProgram(ValueTree programTree, const bool sendSnapshotNow=false);
 		ValueTree getCustomData();
 		void setCustomData (const ValueTree &customData);
@@ -165,7 +165,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		void luaManagerChanged();
 		void panelResourcesChanged();
 
-		static const String exportPanel(CtrlrPanel *panel, const File &lastBrowsedDir, const File &destinationFile=File::nonexistent, MemoryBlock *outputPanelData=nullptr, MemoryBlock *outputResourcesData=nullptr, const bool isRestricted=false);
+		static const String exportPanel(CtrlrPanel *panel, const File &lastBrowsedDir, const File &destinationFile=File(), MemoryBlock *outputPanelData=nullptr, MemoryBlock *outputResourcesData=nullptr, const bool isRestricted=false);
 		static bool isPanelFile(const File &fileToCheck, const bool beThorough=false);
 		static const ValueTree openPanel(const File &panelFile);
 		static const ValueTree openXmlPanel(const File &panelFile);
@@ -190,7 +190,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		static void convertLuaChildrenToProperties(const File &panelLuaDir, ValueTree *parentElement);
 
 
-		const String getVersionString(const bool includeVersionName=true, const bool includeTime=true, const String versionSeparator=String::empty);
+		const String getVersionString(const bool includeVersionName=true, const bool includeTime=true, const String versionSeparator="");
 		void editModeChanged(const bool isInEditMode);
 		bool getEditMode();
 		const File getPanelDirectory();

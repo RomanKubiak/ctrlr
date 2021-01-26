@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -24,8 +23,10 @@
   ==============================================================================
 */
 
-#if JUCE_MODULE_AVAILABLE_juce_audio_plugin_client
-extern juce::AudioProcessor* JUCE_API JUCE_CALLTYPE createPluginFilterOfType (juce::AudioProcessor::WrapperType type);
+#pragma once
+
+#ifndef DOXYGEN
+ #include "../utility/juce_CreatePluginFilter.h"
 #endif
 
 namespace juce
@@ -123,15 +124,7 @@ public:
     //==============================================================================
     virtual void createPlugin()
     {
-      #if JUCE_MODULE_AVAILABLE_juce_audio_plugin_client
-        processor.reset (::createPluginFilterOfType (AudioProcessor::wrapperType_Standalone));
-      #else
-        AudioProcessor::setTypeOfNextNewPlugin (AudioProcessor::wrapperType_Standalone);
-        processor.reset (createPluginFilter());
-        AudioProcessor::setTypeOfNextNewPlugin (AudioProcessor::wrapperType_Undefined);
-      #endif
-        jassert (processor != nullptr); // Your createPluginFilter() function must return a valid object!
-
+        processor.reset (createPluginFilterOfType (AudioProcessor::wrapperType_Standalone));
         processor->disableNonMainBuses();
         processor->setRateAndBufferSizeDetails (44100, 512);
 
@@ -255,36 +248,23 @@ public:
     {
         DialogWindow::LaunchOptions o;
 
-        int minNumInputs  = std::numeric_limits<int>::max(), maxNumInputs  = 0,
-            minNumOutputs = std::numeric_limits<int>::max(), maxNumOutputs = 0;
-
-        auto updateMinAndMax = [] (int newValue, int& minValue, int& maxValue)
-        {
-            minValue = jmin (minValue, newValue);
-            maxValue = jmax (maxValue, newValue);
-        };
+        int maxNumInputs = 0, maxNumOutputs = 0;
 
         if (channelConfiguration.size() > 0)
         {
-            auto defaultConfig = channelConfiguration.getReference (0);
-            updateMinAndMax ((int) defaultConfig.numIns,  minNumInputs,  maxNumInputs);
-            updateMinAndMax ((int) defaultConfig.numOuts, minNumOutputs, maxNumOutputs);
+            auto& defaultConfig = channelConfiguration.getReference (0);
+
+            maxNumInputs  = jmax (0, (int) defaultConfig.numIns);
+            maxNumOutputs = jmax (0, (int) defaultConfig.numOuts);
         }
 
         if (auto* bus = processor->getBus (true, 0))
-            updateMinAndMax (bus->getDefaultLayout().size(), minNumInputs, maxNumInputs);
+            maxNumInputs = jmax (0, bus->getDefaultLayout().size());
 
         if (auto* bus = processor->getBus (false, 0))
-            updateMinAndMax (bus->getDefaultLayout().size(), minNumOutputs, maxNumOutputs);
+            maxNumOutputs = jmax (0, bus->getDefaultLayout().size());
 
-        minNumInputs  = jmin (minNumInputs,  maxNumInputs);
-        minNumOutputs = jmin (minNumOutputs, maxNumOutputs);
-
-        o.content.setOwned (new SettingsComponent (*this, deviceManager,
-                                                          minNumInputs,
-                                                          maxNumInputs,
-                                                          minNumOutputs,
-                                                          maxNumOutputs));
+        o.content.setOwned (new SettingsComponent (*this, deviceManager, maxNumInputs, maxNumOutputs));
         o.content->setSize (500, 550);
 
         o.dialogTitle                   = TRANS("Audio/MIDI Settings");
@@ -385,7 +365,6 @@ public:
         return false;
     }
 
-   #if JUCE_MODULE_AVAILABLE_juce_gui_basics
     Image getIAAHostIcon (int size)
     {
        #if JUCE_IOS && JucePlugin_Enable_IAA
@@ -397,7 +376,6 @@ public:
 
         return {};
     }
-   #endif
 
     static StandalonePluginHolder* getInstance();
 
@@ -425,14 +403,12 @@ private:
     public:
         SettingsComponent (StandalonePluginHolder& pluginHolder,
                            AudioDeviceManager& deviceManagerToUse,
-                           int minAudioInputChannels,
                            int maxAudioInputChannels,
-                           int minAudioOutputChannels,
                            int maxAudioOutputChannels)
             : owner (pluginHolder),
               deviceSelector (deviceManagerToUse,
-                              minAudioInputChannels, maxAudioInputChannels,
-                              minAudioOutputChannels, maxAudioOutputChannels,
+                              0, maxAudioInputChannels,
+                              0, maxAudioOutputChannels,
                               true,
                               (pluginHolder.processor.get() != nullptr && pluginHolder.processor->producesMidi()),
                               true, false),
@@ -574,7 +550,7 @@ private:
     @tags{Audio}
 */
 class StandaloneFilterWindow    : public DocumentWindow,
-                                  public Button::Listener
+                                  private Button::Listener
 {
 public:
     //==============================================================================
@@ -681,20 +657,6 @@ public:
         JUCEApplicationBase::quit();
     }
 
-    void buttonClicked (Button*) override
-    {
-        PopupMenu m;
-        m.addItem (1, TRANS("Audio/MIDI Settings..."));
-        m.addSeparator();
-        m.addItem (2, TRANS("Save current state..."));
-        m.addItem (3, TRANS("Load a saved state..."));
-        m.addSeparator();
-        m.addItem (4, TRANS("Reset to default state"));
-
-        m.showMenuAsync (PopupMenu::Options(),
-                         ModalCallbackFunction::forComponent (menuCallback, this));
-    }
-
     void handleMenuResult (int result)
     {
         switch (result)
@@ -724,6 +686,20 @@ public:
     std::unique_ptr<StandalonePluginHolder> pluginHolder;
 
 private:
+    void buttonClicked (Button*) override
+    {
+        PopupMenu m;
+        m.addItem (1, TRANS("Audio/MIDI Settings..."));
+        m.addSeparator();
+        m.addItem (2, TRANS("Save current state..."));
+        m.addItem (3, TRANS("Load a saved state..."));
+        m.addSeparator();
+        m.addItem (4, TRANS("Reset to default state"));
+
+        m.showMenuAsync (PopupMenu::Options(),
+                         ModalCallbackFunction::forComponent (menuCallback, this));
+    }
+
     //==============================================================================
     class MainContentComponent  : public Component,
                                   private Value::Listener,
@@ -775,8 +751,9 @@ private:
                 notification.setBounds (r.removeFromTop (NotificationArea::height));
 
             if (editor != nullptr)
-                editor->setBounds (editor->getLocalArea (this, r)
-                                          .withPosition (r.getTopLeft().transformedBy (editor->getTransform().inverted())));
+                editor->setBounds (editor->getLocalArea (this, r.toFloat())
+                                          .withPosition (r.getTopLeft().toFloat().transformedBy (editor->getTransform().inverted()))
+                                     .toNearestInt());
         }
 
     private:

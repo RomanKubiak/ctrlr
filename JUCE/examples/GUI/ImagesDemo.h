@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -31,7 +31,7 @@
 
  dependencies:     juce_core, juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics
- exporters:        xcode_mac, vs2017, linux_make, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, androidstudio, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -82,7 +82,7 @@ public:
         setSize (500, 500);
     }
 
-    ~ImagesDemo()
+    ~ImagesDemo() override
     {
         fileTree.removeListener (this);
     }
@@ -126,7 +126,7 @@ private:
         if (selectedFile.existsAsFile())
             imagePreview.setImage (ImageCache::getFromFile (selectedFile));
 
-        // the image cahce is a handly way to load images from files or directly from memory and
+        // the image cache is a handy way to load images from files or directly from memory and
         // will keep them hanging around for a few seconds in case they are requested elsewhere
     }
 

@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -26,7 +25,7 @@
 
 #pragma once
 
-#include "../Filters/FilterGraph.h"
+#include "../Plugins/PluginGraph.h"
 #include "GraphEditorPanel.h"
 
 
@@ -60,7 +59,7 @@ class MainHostWindow    : public DocumentWindow,
 public:
     //==============================================================================
     MainHostWindow();
-    ~MainHostWindow();
+    ~MainHostWindow() override;
 
     //==============================================================================
     void closeButtonPressed() override;
@@ -86,8 +85,8 @@ public:
 
     void createPlugin (const PluginDescription&, Point<int> pos);
 
-    void addPluginsToMenu (PopupMenu&) const;
-    const PluginDescription* getChosenType (int menuID) const;
+    void addPluginsToMenu (PopupMenu&);
+    PluginDescription getChosenType (int menuID) const;
 
     bool isDoublePrecisionProcessing();
     void updatePrecisionMenuItem (ApplicationCommandInfo& info);
@@ -99,9 +98,10 @@ private:
     AudioDeviceManager deviceManager;
     AudioPluginFormatManager formatManager;
 
-    OwnedArray<PluginDescription> internalTypes;
+    std::vector<PluginDescription> internalTypes;
     KnownPluginList knownPluginList;
     KnownPluginList::SortMethod pluginSortMethod;
+    Array<PluginDescription> pluginDescriptions;
 
     class PluginListWindow;
     std::unique_ptr<PluginListWindow> pluginListWindow;

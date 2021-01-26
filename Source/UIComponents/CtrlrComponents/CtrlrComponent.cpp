@@ -82,7 +82,7 @@ CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
 	setProperty (Ids::componentLabelFont, FONT2STR (Font(12)));
 	setProperty (Ids::componentVisibleName, owner.getProperty(Ids::name));
 	setProperty (Ids::componentMouseCursor, (int)MouseCursor::NormalCursor);
-	setProperty (Ids::componentGroupName, String::empty);
+	setProperty (Ids::componentGroupName, "");
 	setProperty (Ids::componentGroupped, false);
 	setProperty (Ids::componentSnapSize, 0);
 	setProperty (Ids::componentIsLocked, false);
@@ -502,7 +502,7 @@ void CtrlrComponent::removeProperty (const Identifier &name)
 
 const String CtrlrComponent::getVisibleName()
 {
-	if (getProperty(Ids::componentVisibleName).toString() != String::empty)
+	if (getProperty(Ids::componentVisibleName).toString() != "")
 	{
 		return (getProperty(Ids::componentVisibleName));
 	}
@@ -524,7 +524,7 @@ const String CtrlrComponent::getComponentTab()
 
 void CtrlrComponent::setComponentTab (const String &newTab)
 {
-	if (newTab == String::empty)
+	if (newTab == "")
 	{
 		componentTree.removeProperty(Ids::componentTabName, 0);
 		componentTree.removeProperty(Ids::componentTabId, 0);
@@ -695,7 +695,7 @@ bool CtrlrComponent::isInternal()
 	if (!componentTree.hasProperty(Ids::componentInternalFunction))
 		return (false);
 
-	if (getProperty(Ids::componentInternalFunction, String::empty) != COMBO_ITEM_NONE)
+	if (getProperty(Ids::componentInternalFunction, "") != COMBO_ITEM_NONE)
 		return (true);
 
 	return (false);

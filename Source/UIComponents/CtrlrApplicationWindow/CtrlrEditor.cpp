@@ -27,7 +27,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 
 	owner.getCommandManager().registerAllCommandsForTarget (this);
 	owner.getCommandManager().registerAllCommandsForTarget (JUCEApplication::getInstance());
-	ScopedPointer <XmlElement> xml(XmlDocument::parse(owner.getProperty(Ids::ctrlrKeyboardMapping)));
+	ScopedPointer <XmlElement> xml(XmlDocument::parse(owner.getProperty(Ids::ctrlrKeyboardMapping)).release());
 
 	if (xml)
 	{
@@ -50,7 +50,7 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
         }
 	}
 
-	if (owner.getProperty (Ids::ctrlrEditorBounds).toString() != String::empty)
+	if (owner.getProperty (Ids::ctrlrEditorBounds).toString() != "")
 	{
 		if (owner.getInstanceMode() != InstanceSingle
 			&& owner.getInstanceMode() != InstanceSingleRestriced)

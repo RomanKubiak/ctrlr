@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -33,7 +33,7 @@
                    juce_audio_processors, juce_audio_utils, juce_blocks_basics,
                    juce_core, juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra
- exporters:        xcode_mac, vs2017, linux_make, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -317,7 +317,7 @@ public:
         topologyChanged();
     }
 
-    ~BlocksDrawingDemo()
+    ~BlocksDrawingDemo() override
     {
         if (activeBlock != nullptr)
             detachActiveBlock();
@@ -403,13 +403,13 @@ public:
                 if (auto grid = activeBlock->getLEDGrid())
                 {
                     // Work out scale factors to translate X and Y touches to LED indexes
-                    scaleX = (float) (grid->getNumColumns() - 1) / activeBlock->getWidth();
-                    scaleY = (float) (grid->getNumRows() - 1)    / activeBlock->getHeight();
+                    scaleX = (float) (grid->getNumColumns() - 1) / (float) activeBlock->getWidth();
+                    scaleY = (float) (grid->getNumRows() - 1)    / (float) activeBlock->getHeight();
 
                     setLEDProgram (*activeBlock);
                 }
 
-                // Make the on screen Lighpad component visible
+                // Make the on screen Lightpad component visible
                 lightpadComponent.setVisible (true);
                 infoLabel.setVisible (false);
 
@@ -511,14 +511,14 @@ private:
     {
         if (currentMode == canvas)
         {
-            block.setProgram (new BitmapLEDProgram (block));
+            block.setProgram (std::make_unique<BitmapLEDProgram>(block));
 
             // Redraw any previously drawn LEDs
             redrawLEDs();
         }
         else if (currentMode == colourPalette)
         {
-            block.setProgram (new DrumPadGridProgram (block));
+            block.setProgram (std::make_unique <DrumPadGridProgram>(block));
 
             // Setup the grid layout
             if (auto* program = getPaletteProgram())
@@ -566,7 +566,7 @@ private:
                 return;
             }
 
-            // If there is no ActiveLED obejct for this LED then create one,
+            // If there is no ActiveLED object for this LED then create one,
             // add it to the array, set the LED on the Block and return
             if (index < 0)
             {

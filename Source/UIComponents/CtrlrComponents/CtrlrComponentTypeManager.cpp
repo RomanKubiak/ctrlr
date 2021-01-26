@@ -180,7 +180,7 @@ CtrlrComponent *CtrlrComponentTypeManager::getParentIfGroupped(CtrlrComponent *c
 		return (childComponent->getOwner().getOwnerPanel().getModulator (childComponent->getComponentGroup())->getComponent());
 	}
 
-	if (childComponent->getProperty(Ids::componentTabName).toString() != String::empty)
+	if (childComponent->getProperty(Ids::componentTabName).toString() != "")
 	{
 		return (childComponent->getOwner().getOwnerPanel().getModulator(childComponent->getProperty(Ids::componentTabName))->getComponent());
 	}

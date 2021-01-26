@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -222,7 +221,7 @@ public:
         if the user pressed 'ok' rather than cancelling).
 
         On mobile platforms, the file browser may return a URL instead of a local file.
-        Therefore, om mobile platforms, you should call getURLResult() instead.
+        Therefore, on mobile platforms, you should call getURLResult() instead.
 
         If you're using a multiple-file select, then use the getResults() method instead,
         to obtain the list of all files chosen.
@@ -235,7 +234,7 @@ public:
         browse method.
 
         On mobile platforms, the file browser may return a URL instead of a local file.
-        Therefore, om mobile platforms, you should call getURLResults() instead.
+        Therefore, on mobile platforms, you should call getURLResults() instead.
 
         This array may be empty if no files were chosen, or can contain multiple entries
         if multiple files were chosen.
@@ -293,7 +292,7 @@ public:
         Note: On iOS this will only return true if you have iCloud permissions
         and code-signing enabled in the Projucer and have added iCloud containers
         to your app in Apple's online developer portal. Additionally, the user must
-        have installed the iCloud app on their device and used the app at leat once.
+        have installed the iCloud app on their device and used the app at least once.
     */
     static bool isPlatformDialogAvailable();
 
@@ -318,7 +317,7 @@ private:
     //==============================================================================
     struct Pimpl
     {
-        virtual ~Pimpl() {}
+        virtual ~Pimpl() = default;
 
         virtual void launch()     = 0;
         virtual void runModally() = 0;

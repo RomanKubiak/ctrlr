@@ -9,7 +9,7 @@ class CtrlrComponent;
 class CtrlrFilmStripPainter
 {
 	public:
-		CtrlrFilmStripPainter(const Image imageToSet=Image::null, const int frameWidth=-1, const int frameHeight=-1);
+		CtrlrFilmStripPainter(const Image imageToSet=Image(), const int frameWidth=-1, const int frameHeight=-1);
 		~CtrlrFilmStripPainter();
 		void setImage (const Image imageToSet, const int _frameWidth, const int _frameHeight);
 		const int getMaxValue()																							{ return (maxValue); }

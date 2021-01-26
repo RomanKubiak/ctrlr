@@ -99,7 +99,7 @@ String CtrlrModulatorTreeViewItem::getUniqueName () const
 {
 	if (defaultListener)
 	{
-		if (defaultListener->getDisplayTextForItem (itemToAttach) != String::empty)
+		if (defaultListener->getDisplayTextForItem (itemToAttach) != "")
 		{
 			return (defaultListener->getDisplayTextForItem(itemToAttach));
 		}
@@ -284,7 +284,7 @@ void CtrlrModulatorTreeXmlEditor::resized()
 
 void CtrlrModulatorTreeXmlEditor::setSelectedTree(ValueTree &_selectedTree)
 {
-	ScopedPointer <XmlElement> xml(_selectedTree.createXml());
+	ScopedPointer <XmlElement> xml(_selectedTree.createXml().release());
 	if (xml)
 	{
 		xmlDocument.replaceAllContent (xml->createDocument(""));
@@ -295,7 +295,7 @@ void CtrlrModulatorTreeXmlEditor::setSelectedTree(ValueTree &_selectedTree)
 
 void CtrlrModulatorTreeXmlEditor::buttonClicked (Button *btn)
 {
-	ScopedPointer <XmlElement> changedXml (XmlDocument::parse (xmlDocument.getAllContent()));
+	ScopedPointer <XmlElement> changedXml (XmlDocument::parse (xmlDocument.getAllContent()).release());
 
 	if (changedXml)
 	{

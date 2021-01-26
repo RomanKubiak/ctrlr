@@ -209,7 +209,7 @@ void CtrlrLabel::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasChange
 	}
 	else if (property == Ids::uiLabelChangedCbk)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		labelChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));

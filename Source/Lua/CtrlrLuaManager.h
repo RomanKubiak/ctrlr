@@ -18,7 +18,7 @@ class CtrlrLuaManager : public ValueTree::Listener
 {
 	public:
 		CtrlrLuaManager(CtrlrPanel &_owner);
-		~CtrlrLuaManager();		
+		~CtrlrLuaManager();
 
 		void assignDefaultObjects(lua_State* L);
 		void wrapBasicIO(lua_State* L);
@@ -28,7 +28,7 @@ class CtrlrLuaManager : public ValueTree::Listener
 		void wrapJuceCoreClasses(lua_State *L);
 		void wrapConverters(lua_State* L);
 		void wrapUtilities(lua_State* L);
-		bool runCode (const String &code, const String name=String::empty);
+		bool runCode (const String &code, const String name="");
 
 		void setProperty (const Identifier& name, const var &newValue, const bool isUndoable=false);
 		const var &getProperty (const Identifier& name) const											{ return luaManagerTree.getProperty (name); }

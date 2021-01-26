@@ -38,40 +38,40 @@ CtrlrMIDISettingsRouting::CtrlrMIDISettingsRouting (CtrlrPanel &_owner)
     addAndMakeVisible (groupComponent = new GroupComponent ("new group",
                                                             TRANS("THRU")));
 
-    addAndMakeVisible (inDev2OutDev = new ToggleButton (String::empty));
+    addAndMakeVisible (inDev2OutDev = new ToggleButton (""));
     inDev2OutDev->setTooltip (TRANS("All messages that are received on the MIDI Input device will be copied to the selected output MIDI Device"));
     inDev2OutDev->setButtonText (TRANS("IN Device  -> OUT Device"));
     inDev2OutDev->addListener (this);
 
-    addAndMakeVisible (ctrlDev2OutDev = new ToggleButton (String::empty));
+    addAndMakeVisible (ctrlDev2OutDev = new ToggleButton (""));
     ctrlDev2OutDev->setTooltip (TRANS("All messages that are received on the MIDI Controller device will be copied to the selected output MIDI Device"));
     ctrlDev2OutDev->setButtonText (TRANS("CTRL Device -> OUT Device"));
     ctrlDev2OutDev->addListener (this);
 
-    addAndMakeVisible (host2OutDev = new ToggleButton (String::empty));
+    addAndMakeVisible (host2OutDev = new ToggleButton (""));
     host2OutDev->setTooltip (TRANS("All messages received from the plugin HOST, will be copied to the MIDI Output device"));
     host2OutDev->setButtonText (TRANS("HOST -> OUT Device"));
     host2OutDev->addListener (this);
 
-    addAndMakeVisible (host2Host = new ToggleButton (String::empty));
+    addAndMakeVisible (host2Host = new ToggleButton (""));
     host2Host->setTooltip (TRANS("All messages received from the plugin HOST, will be copied back to the plugin HOST"));
     host2Host->setButtonText (TRANS("HOST -> HOST"));
     host2Host->addListener (this);
 
     addAndMakeVisible (inDev2OutDevCh = new ToggleButton ("new toggle button"));
-    inDev2OutDevCh->setButtonText (String::empty);
+    inDev2OutDevCh->setButtonText ("");
     inDev2OutDevCh->addListener (this);
 
     addAndMakeVisible (ctrlDev2OutDevCh = new ToggleButton ("new toggle button"));
-    ctrlDev2OutDevCh->setButtonText (String::empty);
+    ctrlDev2OutDevCh->setButtonText ("");
     ctrlDev2OutDevCh->addListener (this);
 
     addAndMakeVisible (host2OutDevCh = new ToggleButton ("new toggle button"));
-    host2OutDevCh->setButtonText (String::empty);
+    host2OutDevCh->setButtonText ("");
     host2OutDevCh->addListener (this);
 
     addAndMakeVisible (host2HostCh = new ToggleButton ("new toggle button"));
-    host2HostCh->setButtonText (String::empty);
+    host2HostCh->setButtonText ("");
     host2HostCh->addListener (this);
 
     addAndMakeVisible (label = new Label ("new label",
@@ -84,13 +84,13 @@ CtrlrMIDISettingsRouting::CtrlrMIDISettingsRouting (CtrlrPanel &_owner)
     label->setColour (TextEditor::textColourId, Colours::black);
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (inDev2Host = new ToggleButton (String::empty));
+    addAndMakeVisible (inDev2Host = new ToggleButton (""));
     inDev2Host->setTooltip (TRANS("All messages that are received on the MIDI Input device will be copied to the plugin HOST"));
     inDev2Host->setButtonText (TRANS("In Device -> Host"));
     inDev2Host->addListener (this);
 
     addAndMakeVisible (inDev2HostCh = new ToggleButton ("new toggle button"));
-    inDev2HostCh->setButtonText (String::empty);
+    inDev2HostCh->setButtonText ("");
     inDev2HostCh->addListener (this);
 
 

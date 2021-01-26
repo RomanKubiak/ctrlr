@@ -138,7 +138,7 @@ class CtrlrLuaMemoryBlock
 
 		MemoryBlock &getMemoryBlock()			{ return (mb); }
 		const MemoryBlock getCopy()				const { return (mb); }
-		void *getData()					const	{ return (mb.getData()); }
+		void *getData()					const	{ return ((void *)mb.getData()); }
 
 		JUCE_LEAK_DETECTOR(CtrlrLuaMemoryBlock)
 

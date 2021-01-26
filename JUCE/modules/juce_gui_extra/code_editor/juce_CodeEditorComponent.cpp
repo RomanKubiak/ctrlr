@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -86,8 +85,8 @@ public:
     void getHighlightArea (RectangleList<float>& area, float x, int y, int lineH, float characterWidth) const
     {
         if (highlightColumnStart < highlightColumnEnd)
-            area.add (Rectangle<float> (x + highlightColumnStart * characterWidth - 1.0f, y - 0.5f,
-                                        (highlightColumnEnd - highlightColumnStart) * characterWidth + 1.5f, lineH + 1.0f));
+            area.add (Rectangle<float> (x + (float) highlightColumnStart * characterWidth - 1.0f, (float) y - 0.5f,
+                                        (float) (highlightColumnEnd - highlightColumnStart) * characterWidth + 1.5f, (float) lineH + 1.0f));
     }
 
     void draw (CodeEditorComponent& owner, Graphics& g, const Font& fontToUse,
@@ -101,7 +100,7 @@ public:
 
         for (auto& token : tokens)
         {
-            const float tokenX = x + column * characterWidth;
+            const float tokenX = x + (float) column * characterWidth;
             if (tokenX > rightClip)
                 break;
 
@@ -109,7 +108,7 @@ public:
             column += token.length;
         }
 
-        as.draw (g, { x, (float) y, column * characterWidth + 10.0f, (float) lineH });
+        as.draw (g, { x, (float) y, (float) column * characterWidth + 10.0f, (float) lineH });
     }
 
 private:
@@ -302,7 +301,7 @@ public:
                                          lastNumLines - editor.firstLineOnScreen);
 
         auto lineNumberFont = editor.getFont().withHeight (jmin (13.0f, lineHeightFloat * 0.8f));
-        auto w = getWidth() - 2.0f;
+        auto w = (float) getWidth() - 2.0f;
         GlyphArrangement ga;
 
         for (int i = firstLineToDraw; i < lastLineToDraw; ++i)
@@ -349,7 +348,7 @@ CodeEditorComponent::CodeEditorComponent (CodeDocument& doc, CodeTokeniser* cons
     setMouseCursor (MouseCursor::IBeamCursor);
     setWantsKeyboardFocus (true);
 
-    caret.reset (getLookAndFeel().createCaretComponent (this));
+    lookAndFeelChanged();
     addAndMakeVisible (caret.get());
 
     addAndMakeVisible (verticalScrollBar);
@@ -444,7 +443,7 @@ void CodeEditorComponent::resized()
 {
     auto visibleWidth = getWidth() - scrollbarThickness - getGutterSize();
     linesOnScreen   = jmax (1, (getHeight() - scrollbarThickness) / lineHeight);
-    columnsOnScreen = jmax (1, (int) (visibleWidth / charWidth));
+    columnsOnScreen = jmax (1, (int) ((float) visibleWidth / charWidth));
     lines.clear();
     rebuildLineTokens();
     updateCaretPosition();
@@ -465,7 +464,10 @@ void CodeEditorComponent::paint (Graphics& g)
     g.fillAll (findColour (CodeEditorComponent::backgroundColourId));
 
     auto gutterSize = getGutterSize();
-    g.reduceClipRegion (gutterSize, 0, verticalScrollBar.getX() - gutterSize, horizontalScrollBar.getY());
+    auto bottom = horizontalScrollBar.isVisible() ? horizontalScrollBar.getY() : getHeight();
+    auto right  = verticalScrollBar.isVisible()   ? verticalScrollBar.getX()   : getWidth();
+
+    g.reduceClipRegion (gutterSize, 0, right - gutterSize, bottom);
 
     g.setFont (font);
 
@@ -550,9 +552,7 @@ void CodeEditorComponent::codeDocumentChanged (const int startIndex, const int e
     const CodeDocument::Position affectedTextStart (document, startIndex);
     const CodeDocument::Position affectedTextEnd (document, endIndex);
 
-    clearCachedIterators (affectedTextStart.getLineNumber());
-
-    rebuildLineTokensAsync();
+    retokenise (startIndex, endIndex);
 
     updateCaretPosition();
     columnToTryToMaintain = -1;
@@ -567,6 +567,16 @@ void CodeEditorComponent::codeDocumentChanged (const int startIndex, const int e
             moveCaretTo (affectedTextStart, false);
 
     updateScrollBars();
+}
+
+void CodeEditorComponent::retokenise (int startIndex, int endIndex)
+{
+    const CodeDocument::Position affectedTextStart (document, startIndex);
+    juce::ignoreUnused (endIndex); // Leave room for more efficient impl in future.
+
+    clearCachedIterators (affectedTextStart.getLineNumber());
+
+    rebuildLineTokensAsync();
 }
 
 //==============================================================================
@@ -629,6 +639,7 @@ void CodeEditorComponent::moveCaretTo (const CodeDocument::Position& newPos, con
     updateCaretPosition();
     scrollToKeepCaretOnScreen();
     updateScrollBars();
+    caretPositionMoved();
 
     if (appCommandManager != nullptr && selectionWasActive != isHighlightActive())
         appCommandManager->commandStatusChanged();
@@ -726,7 +737,7 @@ void CodeEditorComponent::scrollToKeepCaretOnScreen()
 
 Rectangle<int> CodeEditorComponent::getCharacterBounds (const CodeDocument::Position& pos) const
 {
-    return { roundToInt ((getGutterSize() - xOffset * charWidth) + indexToColumn (pos.getLineNumber(), pos.getIndexInLine()) * charWidth),
+    return { roundToInt ((getGutterSize() - xOffset * charWidth) + (float) indexToColumn (pos.getLineNumber(), pos.getIndexInLine()) * charWidth),
              (pos.getLineNumber() - firstLineOnScreen) * lineHeight,
              roundToInt (charWidth),
              lineHeight };
@@ -757,6 +768,7 @@ void CodeEditorComponent::insertText (const String& newText)
             document.insertText (caretPos, newText);
 
         scrollToKeepCaretOnScreen();
+        caretPositionMoved();
     }
 }
 
@@ -1224,6 +1236,10 @@ void CodeEditorComponent::editorViewportPositionChanged()
 {
 }
 
+void CodeEditorComponent::caretPositionMoved()
+{
+}
+
 //==============================================================================
 ApplicationCommandTarget* CodeEditorComponent::getNextCommandTarget()
 {
@@ -1297,6 +1313,11 @@ void CodeEditorComponent::getCommandInfo (const CommandID commandID, Application
 bool CodeEditorComponent::perform (const InvocationInfo& info)
 {
     return performCommand (info.commandID);
+}
+
+void CodeEditorComponent::lookAndFeelChanged()
+{
+    caret.reset (getLookAndFeel().createCaretComponent (this));
 }
 
 bool CodeEditorComponent::performCommand (const CommandID commandID)
@@ -1536,7 +1557,7 @@ void CodeEditorComponent::clearCachedIterators (const int firstLineToBeInvalid)
 {
     int i;
     for (i = cachedIterators.size(); --i >= 0;)
-        if (cachedIterators.getUnchecked (i)->getLine() < firstLineToBeInvalid)
+        if (cachedIterators.getUnchecked (i).getLine() < firstLineToBeInvalid)
             break;
 
     cachedIterators.removeRange (jmax (0, i - 1), cachedIterators.size());
@@ -1548,29 +1569,29 @@ void CodeEditorComponent::updateCachedIterators (int maxLineNum)
     const int linesBetweenCachedSources = jmax (10, document.getNumLines() / maxNumCachedPositions);
 
     if (cachedIterators.size() == 0)
-        cachedIterators.add (new CodeDocument::Iterator (document));
+        cachedIterators.add (CodeDocument::Iterator (document));
 
     if (codeTokeniser != nullptr)
     {
         for (;;)
         {
-            auto& last = *cachedIterators.getLast();
+            const auto last = cachedIterators.getLast();
 
             if (last.getLine() >= maxLineNum)
                 break;
 
-            auto* t = new CodeDocument::Iterator (last);
-            cachedIterators.add (t);
+            cachedIterators.add (CodeDocument::Iterator (last));
+            auto& t = cachedIterators.getReference (cachedIterators.size() - 1);
             const int targetLine = jmin (maxLineNum, last.getLine() + linesBetweenCachedSources);
 
             for (;;)
             {
-                codeTokeniser->readNextToken (*t);
+                codeTokeniser->readNextToken (t);
 
-                if (t->getLine() >= targetLine)
+                if (t.getLine() >= targetLine)
                     break;
 
-                if (t->isEOF())
+                if (t.isEOF())
                     return;
             }
         }
@@ -1583,7 +1604,7 @@ void CodeEditorComponent::getIteratorForPosition (int position, CodeDocument::It
     {
         for (int i = cachedIterators.size(); --i >= 0;)
         {
-            auto& t = *cachedIterators.getUnchecked (i);
+            auto& t = cachedIterators.getReference (i);
 
             if (t.getPosition() <= position)
             {

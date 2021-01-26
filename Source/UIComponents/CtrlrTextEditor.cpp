@@ -29,7 +29,7 @@ void CtrlrTextEditor::insertText (const String &text, const Font &font, const Co
 {
 	Colour previousColour	= findColour(TextEditor::textColourId);
 	Font previousFont		= getFont();
-	
+
 	setFont (font);
 	setColour (TextEditor::textColourId, colour);
 	insertTextAtCaret (text);
@@ -52,9 +52,9 @@ void CtrlrTextEditor::insertAttributedText (const AttributedString &text)
 	for (int i=0; i<text.getNumAttributes(); i++)
 	{
 		const AttributedString::Attribute a = text.getAttribute(i);
-		
+
 		if (currentRange != a.range)
-		{			
+		{
 			insertTextAtCaret (text.getText().substring (currentRange.getStart(), currentRange.getEnd()));
 		}
 
@@ -70,7 +70,7 @@ void CtrlrTextEditor::insertAttributedText (const AttributedString &text)
 const String CtrlrTextEditor::getLineAtPosition(const int index)
 {
 	const String allText	= getText();
-	
+
 	int indexOfStartingEol;
 
 	for (indexOfStartingEol=index; indexOfStartingEol>=0; indexOfStartingEol--)
@@ -78,7 +78,7 @@ const String CtrlrTextEditor::getLineAtPosition(const int index)
 		if (allText[indexOfStartingEol] == '\n')
 			break;
 	}
-	
+
 	const int indexOfEndingEol = (allText.indexOf (index,"\n") > 0) ? allText.indexOf (index,"\n") : allText.length();
 
 	return (allText.substring(indexOfStartingEol, indexOfEndingEol));
@@ -99,7 +99,7 @@ CtrlrTextEditor *CtrlrTextEditor::readOnlyMultiline(const String &xmlSource, con
 
 void CtrlrTextEditor::setXmlSource (const String &xmlSource)
 {
-	ScopedPointer <XmlElement> xml (XmlDocument::parse(xmlSource));
+	ScopedPointer <XmlElement> xml (XmlDocument::parse(xmlSource).release());
 	if (xml)
 	{
 		forEachXmlChildElement (*xml, el)
@@ -110,14 +110,14 @@ void CtrlrTextEditor::setXmlSource (const String &xmlSource)
 				font					= el->hasAttribute("bold") ? font.withStyle (Font::bold) : font;
 				font					= el->hasAttribute("italic") ? font.withStyle (Font::italic) : font;
 				font					= el->hasAttribute("underline") ? font.withStyle (Font::underlined) : font;
-				
+
 				font					= el->hasAttribute("height") ? font.withHeight (el->getDoubleAttribute("height")) : font;
 
 				if (el->hasAttribute("name"))
 				{
 					if (el->getStringAttribute("name").startsWith(":"))
 					{
-						if (el->getStringAttribute("name") == ":Monospaced")						
+						if (el->getStringAttribute("name") == ":Monospaced")
 							font.setTypefaceName (Font::getDefaultMonospacedFontName());
 						if (el->getStringAttribute("name") == ":Sans")
 							font.setTypefaceName (Font::getDefaultSansSerifFontName());
@@ -136,10 +136,10 @@ void CtrlrTextEditor::setXmlSource (const String &xmlSource)
 				setFont (font);
 				setColour (TextEditor::textColourId, fgColour);
 				setColour (TextEditor::backgroundColourId, bgColour);
-				
+
 				TextEditor::insertTextAtCaret (el->getAllSubText());
 			}
-			
+
 			if (el->hasTagName("br"))
 			{
 				TextEditor::insertTextAtCaret ("\n");

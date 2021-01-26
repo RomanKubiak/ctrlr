@@ -200,7 +200,7 @@ const String CtrlrCustomComponent::getComponentText()
 		}
 	}
 
-	return (String::empty);
+	return ("");
 }
 
 void CtrlrCustomComponent::setComponentText (const String &componentText)

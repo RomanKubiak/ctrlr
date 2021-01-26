@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -30,29 +29,29 @@ namespace dsp
 {
 
 template <typename FloatType>
-static inline FloatType ncos (size_t order, size_t i, size_t size) noexcept
+static FloatType ncos (size_t order, size_t i, size_t size) noexcept
 {
     return std::cos (static_cast<FloatType> (order * i)
                       * MathConstants<FloatType>::pi / static_cast<FloatType> (size - 1));
 }
 
 template <typename FloatType>
-WindowingFunction<FloatType>::WindowingFunction (size_t size, WindowingMethod type, bool normalize, FloatType beta)
+WindowingFunction<FloatType>::WindowingFunction (size_t size, WindowingMethod type, bool normalise, FloatType beta)
 {
-    fillWindowingTables (size, type, normalize, beta);
+    fillWindowingTables (size, type, normalise, beta);
 }
 
 template <typename FloatType>
 void WindowingFunction<FloatType>::fillWindowingTables (size_t size, WindowingMethod type,
-                                                        bool normalize, FloatType beta) noexcept
+                                                        bool normalise, FloatType beta) noexcept
 {
     windowTable.resize (static_cast<int> (size));
-    fillWindowingTables (windowTable.getRawDataPointer(), size, type, normalize, beta);
+    fillWindowingTables (windowTable.getRawDataPointer(), size, type, normalise, beta);
 }
 
 template <typename FloatType>
 void WindowingFunction<FloatType>::fillWindowingTables (FloatType* samples, size_t size,
-                                                        WindowingMethod type, bool normalize,
+                                                        WindowingMethod type, bool normalise,
                                                         FloatType beta) noexcept
 {
     switch (type)
@@ -137,21 +136,23 @@ void WindowingFunction<FloatType>::fillWindowingTables (FloatType* samples, size
         case kaiser:
         {
             const double factor = 1.0 / SpecialFunctions::besselI0 (beta);
+            const auto doubleSize = (double) size;
 
             for (size_t i = 0; i < size; ++i)
-                samples[i] = static_cast<FloatType> (SpecialFunctions::besselI0 (beta * std::sqrt (1.0 - std::pow ((i - 0.5 * (size - 1.0))
-                                                                                                                     / ( 0.5 * (size - 1.0)), 2.0)))
+                samples[i] = static_cast<FloatType> (SpecialFunctions::besselI0 (beta * std::sqrt (1.0 - std::pow (((double) i - 0.5 * (doubleSize - 1.0))
+                                                                                                                     / ( 0.5 * (doubleSize - 1.0)), 2.0)))
                                                       * factor);
         }
         break;
 
+        case numWindowingMethods:
         default:
             jassertfalse;
             break;
     }
 
     // DC frequency amplitude must be one
-    if (normalize)
+    if (normalise)
     {
         FloatType sum (0);
 
@@ -175,20 +176,21 @@ const char* WindowingFunction<FloatType>::getWindowingMethodName (WindowingMetho
 {
     switch (type)
     {
-        case rectangular:       return "Rectangular";
-        case triangular:        return "Triangular";
-        case hann:              return "Hann";
-        case hamming:           return "Hamming";
-        case blackman:          return "Blackman";
-        case blackmanHarris:    return "Blackman-Harris";
-        case flatTop:           return "FlatTop";
-        case kaiser:            return "Kaiser";
-        default: jassertfalse;  return "";
+        case rectangular:          return "Rectangular";
+        case triangular:           return "Triangular";
+        case hann:                 return "Hann";
+        case hamming:              return "Hamming";
+        case blackman:             return "Blackman";
+        case blackmanHarris:       return "Blackman-Harris";
+        case flatTop:              return "Flat Top";
+        case kaiser:               return "Kaiser";
+        case numWindowingMethods:
+        default: jassertfalse;     return "";
     }
 }
 
-template struct WindowingFunction<float>;
-template struct WindowingFunction<double>;
+template class WindowingFunction<float>;
+template class WindowingFunction<double>;
 
 } // namespace dsp
 } // namespace juce

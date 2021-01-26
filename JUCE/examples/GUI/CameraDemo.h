@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -32,7 +32,7 @@
  dependencies:     juce_audio_basics, juce_audio_devices, juce_core, juce_cryptography,
                    juce_data_structures, juce_events, juce_graphics, juce_gui_basics,
                    juce_gui_extra, juce_video
- exporters:        xcode_mac, vs2017, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, androidstudio, xcode_iphone
 
  moduleFlags:      JUCE_USE_CAMERA=1, JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -86,7 +86,7 @@ public:
        #endif
     }
 
-    ~CameraDemo()
+    ~CameraDemo() override
     {
        #if JUCE_IOS || JUCE_ANDROID
         setPortraitOrientationEnabled (false);
@@ -303,7 +303,7 @@ private:
                 snapshotButton.setEnabled (true);
                #endif
 
-               #if JUCE_ANDROID || JUCE_IOS
+               #if JUCE_CONTENT_SHARING
                 URL url (recordingFile);
 
                 snapshotButton   .setEnabled (false);
@@ -337,7 +337,7 @@ private:
 
         lastSnapshot.setImage (image);
 
-       #if JUCE_ANDROID || JUCE_IOS
+       #if JUCE_CONTENT_SHARING
         auto imageFile = File::getSpecialLocation (File::tempDirectory).getNonexistentChildFile ("JuceCameraPhotoDemo", ".jpg");
 
         FileOutputStream stream (imageFile);

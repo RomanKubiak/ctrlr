@@ -36,7 +36,7 @@ CtrlrLuaMethodFind::CtrlrLuaMethodFind (CtrlrLuaMethodEditor &_owner)
     : owner(_owner)
 {
     setName ("Search and Replace");
-    addAndMakeVisible (findInput = new TextEditor (String::empty));
+    addAndMakeVisible (findInput = new TextEditor (""));
     findInput->setMultiLine (true);
     findInput->setReturnKeyStartsNewLine (false);
     findInput->setReadOnly (false);
@@ -46,9 +46,9 @@ CtrlrLuaMethodFind::CtrlrLuaMethodFind (CtrlrLuaMethodEditor &_owner)
     findInput->setColour (TextEditor::backgroundColourId, Colours::white);
     findInput->setColour (TextEditor::outlineColourId, Colour (0x00000000));
     findInput->setColour (TextEditor::shadowColourId, Colour (0x00000000));
-    findInput->setText (String::empty);
+    findInput->setText ("");
 
-    addAndMakeVisible (replaceInput = new TextEditor (String::empty));
+    addAndMakeVisible (replaceInput = new TextEditor (""));
     replaceInput->setMultiLine (true);
     replaceInput->setReturnKeyStartsNewLine (false);
     replaceInput->setReadOnly (false);
@@ -58,21 +58,21 @@ CtrlrLuaMethodFind::CtrlrLuaMethodFind (CtrlrLuaMethodEditor &_owner)
     replaceInput->setColour (TextEditor::backgroundColourId, Colours::white);
     replaceInput->setColour (TextEditor::outlineColourId, Colour (0x00000000));
     replaceInput->setColour (TextEditor::shadowColourId, Colour (0x00000000));
-    replaceInput->setText (String::empty);
+    replaceInput->setText ("");
 
-    addAndMakeVisible (findNext = new TextButton (String::empty));
+    addAndMakeVisible (findNext = new TextButton (""));
     findNext->setButtonText (TRANS("Find"));
     findNext->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     findNext->addListener (this);
     findNext->setColour (TextButton::buttonColourId, Colour (0xffbababa));
 
-    addAndMakeVisible (replaceNextButton = new TextButton (String::empty));
+    addAndMakeVisible (replaceNextButton = new TextButton (""));
     replaceNextButton->setButtonText (TRANS("Next"));
     replaceNextButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     replaceNextButton->addListener (this);
     replaceNextButton->setColour (TextButton::buttonColourId, Colour (0xffcbf2aa));
 
-    addAndMakeVisible (replaceAllButton = new TextButton (String::empty));
+    addAndMakeVisible (replaceAllButton = new TextButton (""));
     replaceAllButton->setButtonText (TRANS("All"));
     replaceAllButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight);
     replaceAllButton->addListener (this);
@@ -86,7 +86,7 @@ CtrlrLuaMethodFind::CtrlrLuaMethodFind (CtrlrLuaMethodEditor &_owner)
     label->setColour (TextEditor::textColourId, Colours::black);
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (matchCase = new ToggleButton (String::empty));
+    addAndMakeVisible (matchCase = new ToggleButton (""));
     matchCase->setButtonText (TRANS("Match Case"));
     matchCase->addListener (this);
 
@@ -98,11 +98,11 @@ CtrlrLuaMethodFind::CtrlrLuaMethodFind (CtrlrLuaMethodEditor &_owner)
     label2->setColour (TextEditor::textColourId, Colours::black);
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (whereToFindCombo = new ComboBox (String::empty));
+    addAndMakeVisible (whereToFindCombo = new ComboBox (""));
     whereToFindCombo->setEditableText (false);
     whereToFindCombo->setJustificationType (Justification::centredLeft);
     whereToFindCombo->setTextWhenNothingSelected (TRANS("Current"));
-    whereToFindCombo->setTextWhenNoChoicesAvailable (String::empty);
+    whereToFindCombo->setTextWhenNoChoicesAvailable ("");
     whereToFindCombo->addItem (TRANS("Current"), 1);
     whereToFindCombo->addItem (TRANS("All Open"), 2);
     whereToFindCombo->addItem (TRANS("All"), 3);

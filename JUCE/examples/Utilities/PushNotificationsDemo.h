@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -34,9 +34,10 @@
                    juce_audio_processors, juce_audio_utils, juce_core,
                    juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra
- exporters:        xcode_mac, vs2017, xcode_iphone, androidstudio
+ exporters:        xcode_mac, xcode_iphone, androidstudio
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
+                   JUCE_PUSH_NOTIFICATIONS=1
 
  type:             Component
  mainClass:        PushNotificationsDemo
@@ -50,6 +51,74 @@
 #pragma once
 
 #include "../Assets/DemoUtilities.h"
+
+/*
+    To finish the setup of this demo, do the following:
+
+1. Download google_services.json from your Firebase project.
+2. Update "Remote Notifications Config File" path in Android exporter (this can be different for debug and release)
+   to point to that json file.
+3. Add image and sound resources by adding the following to "Extra Android Raw Resources" in Projucer:
+
+../../Assets/Notifications/images/ic_stat_name.png
+../../Assets/Notifications/images/ic_stat_name2.png
+../../Assets/Notifications/images/ic_stat_name3.png
+../../Assets/Notifications/images/ic_stat_name4.png
+../../Assets/Notifications/images/ic_stat_name5.png
+../../Assets/Notifications/images/ic_stat_name6.png
+../../Assets/Notifications/images/ic_stat_name7.png
+../../Assets/Notifications/images/ic_stat_name8.png
+../../Assets/Notifications/images/ic_stat_name9.png
+../../Assets/Notifications/images/ic_stat_name10.png
+../../Assets/Notifications/sounds/demonstrative.mp3
+../../Assets/Notifications/sounds/isntit.mp3
+../../Assets/Notifications/sounds/jinglebellssms.mp3
+../../Assets/Notifications/sounds/served.mp3
+../../Assets/Notifications/sounds/solemn.mp3
+
+4. Set "Remote Notifications" to enabled in Projucer Android exporter.
+
+To verify that remote notifications are configured properly, go to Remote tab in the demo and press "GetDeviceToken"
+button, a dialog with your token (also printed to console in debug build) should show up.
+
+
+The following steps are only necessary if you have a custom activity defined:
+
+5. Ensure that its launchMode is set to "singleTop" or "singleTask" in Android manifest. This is the default behaviour
+   in JUCE so you only need to do it if you have custom Android manifest content. You can do it from Projucer by
+   ensuring that "Custom Manifest XML Content" contains:
+
+<manifest>
+<application>
+<activity android:launchMode="singleTask">
+</activity>
+</application>
+</manifest>
+
+6. Ensure that you override onNewIntent() function in the same way as it is done in JuceActivity.java:
+
+package com.rmsl.juce;
+
+import android.app.Activity;
+import android.content.Intent;
+
+//==============================================================================
+public class JuceActivity   extends Activity
+{
+    //==============================================================================
+    private native void appNewIntent (Intent intent);
+
+    @Override
+    protected void onNewIntent (Intent intent)
+    {
+        super.onNewIntent(intent);
+        setIntent(intent);
+
+        appNewIntent (intent);
+    }
+}
+
+*/
 
 //==============================================================================
 class PushNotificationsDemo   : public Component,
@@ -93,7 +162,7 @@ public:
         mainTabs.addTab ("Local",  colour, &localNotificationsTabs, false);
         mainTabs.addTab ("Remote", colour, &remoteView,             false);
 
-        auto userArea = Desktop::getInstance().getDisplays().getMainDisplay().userArea;
+        auto userArea = Desktop::getInstance().getDisplays().getPrimaryDisplay()->userArea;
       #if JUCE_ANDROID || JUCE_IOS
         setSize (userArea.getWidth(), userArea.getHeight());
       #else
@@ -101,22 +170,22 @@ public:
       #endif
 
         sendButton.onClick = [this] { sendLocalNotification(); };
-        auxActionsView.getDeliveredNotificationsButton .onClick = [this]
+        auxActionsView.getDeliveredNotificationsButton .onClick = []
             { PushNotifications::getInstance()->getDeliveredNotifications(); };
         auxActionsView.removeDeliveredNotifWithIdButton.onClick = [this]
             { PushNotifications::getInstance()->removeDeliveredNotification (auxActionsView.deliveredNotifIdentifier.getText()); };
-        auxActionsView.removeAllDeliveredNotifsButton  .onClick = [this]
+        auxActionsView.removeAllDeliveredNotifsButton  .onClick = []
             { PushNotifications::getInstance()->removeAllDeliveredNotifications(); };
       #if JUCE_IOS || JUCE_MAC
-        auxActionsView.getPendingNotificationsButton .onClick = [this]
+        auxActionsView.getPendingNotificationsButton .onClick = []
             { PushNotifications::getInstance()->getPendingLocalNotifications(); };
         auxActionsView.removePendingNotifWithIdButton.onClick = [this]
             { PushNotifications::getInstance()->removePendingLocalNotification (auxActionsView.pendingNotifIdentifier.getText()); };
-        auxActionsView.removeAllPendingNotifsButton  .onClick = [this]
+        auxActionsView.removeAllPendingNotifsButton  .onClick = []
             { PushNotifications::getInstance()->removeAllPendingLocalNotifications(); };
       #endif
 
-        remoteView.getDeviceTokenButton.onClick = [this]
+        remoteView.getDeviceTokenButton.onClick = []
         {
             String token = PushNotifications::getInstance()->getDeviceToken();
 
@@ -129,7 +198,7 @@ public:
         };
 
       #if JUCE_ANDROID
-        remoteView.sendRemoteMessageButton.onClick = [this]
+        remoteView.sendRemoteMessageButton.onClick = []
         {
             StringPairArray data;
             data.set ("key1", "value1");
@@ -144,9 +213,9 @@ public:
                                                                    data);
         };
 
-        remoteView.subscribeToSportsButton    .onClick = [this]
+        remoteView.subscribeToSportsButton    .onClick = []
             { PushNotifications::getInstance()->subscribeToTopic ("sports"); };
-        remoteView.unsubscribeFromSportsButton.onClick = [this]
+        remoteView.unsubscribeFromSportsButton.onClick = []
             { PushNotifications::getInstance()->unsubscribeFromTopic ("sports"); };
       #endif
 
@@ -164,11 +233,31 @@ public:
         PushNotifications::ChannelGroup cg { "demoGroup", "demo group" };
         PushNotifications::getInstance()->setupChannels ({ { cg } }, getAndroidChannels());
       #endif
+
+       #if JUCE_IOS || JUCE_ANDROID
+        setPortraitOrientationEnabled (true);
+       #endif
     }
 
-    ~PushNotificationsDemo()
+    ~PushNotificationsDemo() override
     {
         PushNotifications::getInstance()->removeListener (this);
+
+       #if JUCE_IOS || JUCE_ANDROID
+        setPortraitOrientationEnabled (false);
+       #endif
+    }
+
+    void setPortraitOrientationEnabled (bool shouldBeEnabled)
+    {
+        auto allowedOrientations = Desktop::getInstance().getOrientationsEnabled();
+
+        if (shouldBeEnabled)
+            allowedOrientations |= Desktop::upright;
+        else
+            allowedOrientations &= ~Desktop::upright;
+
+        Desktop::getInstance().setOrientationsEnabled (allowedOrientations);
     }
 
     void paint (Graphics& g) override
@@ -260,7 +349,7 @@ private:
 
       #if JUCE_ANDROID
         // Note: this is not strictly speaking required param, just doing it here because it is the fastest way!
-        n.publicVersion = new PushNotifications::Notification();
+        n.publicVersion.reset (new PushNotifications::Notification());
         n.publicVersion->identifier = "blahblahblah";
         n.publicVersion->title      = "Public title!";
         n.publicVersion->body       = "Public body!";
@@ -414,28 +503,34 @@ private:
 
     void setupAccentColour()
     {
-        paramControls.accentColourSelector = new ColourSelector();
-        paramControls.accentColourSelector->setName ("accent colour");
-        paramControls.accentColourSelector->setCurrentColour (paramControls.accentColourButton.findColour (TextButton::buttonColourId));
-        paramControls.accentColourSelector->setColour (ColourSelector::backgroundColourId, Colours::transparentBlack);
-        paramControls.accentColourSelector->setSize (200, 200);
-        paramControls.accentColourSelector->addComponentListener (this);
-        paramControls.accentColourSelector->addChangeListener (this);
+        auto accentColourSelector = std::make_unique<ColourSelector>();
 
-        CallOutBox::launchAsynchronously (paramControls.accentColourSelector, paramControls.accentColourButton.getScreenBounds(), nullptr);
+        accentColourSelector->setName ("accent colour");
+        accentColourSelector->setCurrentColour (paramControls.accentColourButton.findColour (TextButton::buttonColourId));
+        accentColourSelector->setColour (ColourSelector::backgroundColourId, Colours::transparentBlack);
+        accentColourSelector->setSize (200, 200);
+        accentColourSelector->addComponentListener (this);
+        accentColourSelector->addChangeListener (this);
+
+        paramControls.accentColourSelector = accentColourSelector.get();
+
+        CallOutBox::launchAsynchronously (std::move (accentColourSelector), paramControls.accentColourButton.getScreenBounds(), nullptr);
     }
 
     void setupLedColour()
     {
-        paramControls.ledColourSelector = new ColourSelector();
-        paramControls.ledColourSelector->setName ("led colour");
-        paramControls.ledColourSelector->setCurrentColour (paramControls.ledColourButton.findColour (TextButton::buttonColourId));
-        paramControls.ledColourSelector->setColour (ColourSelector::backgroundColourId, Colours::transparentBlack);
-        paramControls.ledColourSelector->setSize (200, 200);
-        paramControls.ledColourSelector->addComponentListener (this);
-        paramControls.ledColourSelector->addChangeListener (this);
+        auto ledColourSelector = std::make_unique<ColourSelector>();
 
-        CallOutBox::launchAsynchronously (paramControls.ledColourSelector, paramControls.accentColourButton.getScreenBounds(), nullptr);
+        ledColourSelector->setName ("led colour");
+        ledColourSelector->setCurrentColour (paramControls.ledColourButton.findColour (TextButton::buttonColourId));
+        ledColourSelector->setColour (ColourSelector::backgroundColourId, Colours::transparentBlack);
+        ledColourSelector->setSize (200, 200);
+        ledColourSelector->addComponentListener (this);
+        ledColourSelector->addChangeListener (this);
+
+        paramControls.ledColourSelector = ledColourSelector.get();
+
+        CallOutBox::launchAsynchronously (std::move (ledColourSelector), paramControls.accentColourButton.getScreenBounds(), nullptr);
     }
 
     void changeListenerCallback (ChangeBroadcaster* source) override

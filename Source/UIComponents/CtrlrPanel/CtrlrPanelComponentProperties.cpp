@@ -80,7 +80,7 @@ void CtrlrPanelComponentProperties::setTree (const ValueTree &_treeToEdit, const
 		return;
 	}
 
-	ScopedPointer <XmlElement> xml(propertyPanel->getOpennessState());
+	ScopedPointer <XmlElement> xml(propertyPanel->getOpennessState().release());
 	if (treeToEdit.hasType(Ids::panel))
 	{
 		panelPropertyOpennessState		= *xml;

@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -33,7 +33,7 @@
                    juce_audio_processors, juce_audio_utils, juce_core,
                    juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra
- exporters:        xcode_mac, vs2017, linux_make, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, androidstudio, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -52,9 +52,9 @@
 //==============================================================================
 struct MidiDeviceListEntry : ReferenceCountedObject
 {
-    MidiDeviceListEntry (const String& deviceName) : name (deviceName) {}
+    MidiDeviceListEntry (MidiDeviceInfo info) : deviceInfo (info) {}
 
-    String name;
+    MidiDeviceInfo deviceInfo;
     std::unique_ptr<MidiInput> inDevice;
     std::unique_ptr<MidiOutput> outDevice;
 
@@ -65,7 +65,7 @@ struct MidiDeviceListEntry : ReferenceCountedObject
 //==============================================================================
 class MidiDemo  : public Component,
                   private Timer,
-                  private MidiKeyboardStateListener,
+                  private MidiKeyboardState::Listener,
                   private MidiInputCallback,
                   private AsyncUpdater
 {
@@ -116,7 +116,7 @@ public:
         startTimer (500);
     }
 
-    ~MidiDemo()
+    ~MidiDemo() override
     {
         stopTimer();
         midiInputs .clear();
@@ -187,7 +187,7 @@ public:
         if (isInput)
         {
             jassert (midiInputs[index]->inDevice.get() == nullptr);
-            midiInputs[index]->inDevice.reset (MidiInput::openDevice (index, this));
+            midiInputs[index]->inDevice = MidiInput::openDevice (midiInputs[index]->deviceInfo.identifier, this);
 
             if (midiInputs[index]->inDevice.get() == nullptr)
             {
@@ -200,7 +200,7 @@ public:
         else
         {
             jassert (midiOutputs[index]->outDevice.get() == nullptr);
-            midiOutputs[index]->outDevice.reset (MidiOutput::openDevice (index));
+            midiOutputs[index]->outDevice = MidiOutput::openDevice (midiOutputs[index]->deviceInfo.identifier);
 
             if (midiOutputs[index]->outDevice.get() == nullptr)
             {
@@ -273,19 +273,19 @@ private:
 
 
             g.setColour (textColour);
-            g.setFont (height * 0.7f);
+            g.setFont ((float) height * 0.7f);
 
             if (isInput)
             {
                 if (rowNumber < parent.getNumMidiInputs())
-                    g.drawText (parent.getMidiDevice (rowNumber, true)->name,
+                    g.drawText (parent.getMidiDevice (rowNumber, true)->deviceInfo.name,
                                 5, 0, width, height,
                                 Justification::centredLeft, true);
             }
             else
             {
                 if (rowNumber < parent.getNumMidiOutputs())
-                    g.drawText (parent.getMidiDevice (rowNumber, false)->name,
+                    g.drawText (parent.getMidiDevice (rowNumber, false)->deviceInfo.name,
                                 5, 0, width, height,
                                 Justification::centredLeft, true);
             }
@@ -368,34 +368,34 @@ private:
     }
 
     //==============================================================================
-    bool hasDeviceListChanged (const StringArray& deviceNames, bool isInputDevice)
+    bool hasDeviceListChanged (const Array<MidiDeviceInfo>& availableDevices, bool isInputDevice)
     {
         ReferenceCountedArray<MidiDeviceListEntry>& midiDevices = isInputDevice ? midiInputs
                                                                                 : midiOutputs;
 
-        if (deviceNames.size() != midiDevices.size())
+        if (availableDevices.size() != midiDevices.size())
             return true;
 
-        for (auto i = 0; i < deviceNames.size(); ++i)
-            if (deviceNames[i] != midiDevices[i]->name)
+        for (auto i = 0; i < availableDevices.size(); ++i)
+            if (availableDevices[i] != midiDevices[i]->deviceInfo)
                 return true;
 
         return false;
     }
 
-    ReferenceCountedObjectPtr<MidiDeviceListEntry> findDeviceWithName (const String& name, bool isInputDevice) const
+    ReferenceCountedObjectPtr<MidiDeviceListEntry> findDevice (MidiDeviceInfo device, bool isInputDevice) const
     {
         const ReferenceCountedArray<MidiDeviceListEntry>& midiDevices = isInputDevice ? midiInputs
                                                                                       : midiOutputs;
 
-        for (auto midiDevice : midiDevices)
-            if (midiDevice->name == name)
-                return midiDevice;
+        for (auto& d : midiDevices)
+            if (d->deviceInfo == device)
+                return d;
 
         return nullptr;
     }
 
-    void closeUnpluggedDevices (StringArray& currentlyPluggedInDevices, bool isInputDevice)
+    void closeUnpluggedDevices (const Array<MidiDeviceInfo>& currentlyPluggedInDevices, bool isInputDevice)
     {
         ReferenceCountedArray<MidiDeviceListEntry>& midiDevices = isInputDevice ? midiInputs
                                                                                 : midiOutputs;
@@ -404,7 +404,7 @@ private:
         {
             auto& d = *midiDevices[i];
 
-            if (! currentlyPluggedInDevices.contains (d.name))
+            if (! currentlyPluggedInDevices.contains (d.deviceInfo))
             {
                 if (isInputDevice ? d.inDevice .get() != nullptr
                                   : d.outDevice.get() != nullptr)
@@ -417,26 +417,26 @@ private:
 
     void updateDeviceList (bool isInputDeviceList)
     {
-        auto newDeviceNames = isInputDeviceList ? MidiInput::getDevices()
-                                                : MidiOutput::getDevices();
+        auto availableDevices = isInputDeviceList ? MidiInput::getAvailableDevices()
+                                                  : MidiOutput::getAvailableDevices();
 
-        if (hasDeviceListChanged (newDeviceNames, isInputDeviceList))
+        if (hasDeviceListChanged (availableDevices, isInputDeviceList))
         {
 
             ReferenceCountedArray<MidiDeviceListEntry>& midiDevices
                 = isInputDeviceList ? midiInputs : midiOutputs;
 
-            closeUnpluggedDevices (newDeviceNames, isInputDeviceList);
+            closeUnpluggedDevices (availableDevices, isInputDeviceList);
 
             ReferenceCountedArray<MidiDeviceListEntry> newDeviceList;
 
             // add all currently plugged-in devices to the device list
-            for (auto newDeviceName : newDeviceNames)
+            for (auto& newDevice : availableDevices)
             {
-                MidiDeviceListEntry::Ptr entry = findDeviceWithName (newDeviceName, isInputDeviceList);
+                MidiDeviceListEntry::Ptr entry = findDevice (newDevice, isInputDeviceList);
 
                 if (entry == nullptr)
-                    entry = new MidiDeviceListEntry (newDeviceName);
+                    entry = new MidiDeviceListEntry (newDevice);
 
                 newDeviceList.add (entry);
             }

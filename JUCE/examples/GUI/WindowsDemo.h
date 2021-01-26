@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -31,7 +31,7 @@
 
  dependencies:     juce_core, juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra
- exporters:        xcode_mac, vs2017, linux_make, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, androidstudio, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -116,7 +116,7 @@ public:
 
         Random random;
 
-        auto size = 10.0f + random.nextInt (30);
+        auto size = 10.0f + (float) random.nextInt (30);
 
         ballBounds.setBounds (random.nextFloat() * 100.0f,
                               random.nextFloat() * 100.0f,
@@ -142,10 +142,10 @@ public:
     {
         ballBounds += direction;
 
-        if (ballBounds.getX() < 0)                      direction.x =  std::abs (direction.x);
-        if (ballBounds.getY() < 0)                      direction.y =  std::abs (direction.y);
-        if (ballBounds.getRight()  > getParentWidth())  direction.x = -std::abs (direction.x);
-        if (ballBounds.getBottom() > getParentHeight()) direction.y = -std::abs (direction.y);
+        if (ballBounds.getX() < 0)                              direction.x =  std::abs (direction.x);
+        if (ballBounds.getY() < 0)                              direction.y =  std::abs (direction.y);
+        if (ballBounds.getRight()  > (float) getParentWidth())  direction.x = -std::abs (direction.x);
+        if (ballBounds.getBottom() > (float) getParentHeight()) direction.y = -std::abs (direction.y);
 
         setBounds (ballBounds.getSmallestIntegerContainer());
     }
@@ -231,7 +231,7 @@ public:
         setSize (250, 250);
     }
 
-    ~WindowsDemo()
+    ~WindowsDemo() override
     {
         if (dialogWindow != nullptr)
         {
@@ -334,7 +334,7 @@ private:
                                        | RectanglePlacement::doNotResize);
 
         auto result = placement.appliedTo (area, Desktop::getInstance().getDisplays()
-                                                         .getMainDisplay().userArea.reduced (20));
+                                                         .getPrimaryDisplay()->userArea.reduced (20));
         dw->setBounds (result);
 
         dw->setResizable (true, ! native);
@@ -355,7 +355,7 @@ private:
                                        | RectanglePlacement::doNotResize);
 
         auto result = placement.appliedTo (area, Desktop::getInstance().getDisplays()
-                                                         .getMainDisplay().userArea.reduced (20));
+                                                         .getPrimaryDisplay()->userArea.reduced (20));
         balls->setBounds (result);
 
         balls->setVisible (true);

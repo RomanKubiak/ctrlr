@@ -62,7 +62,7 @@ class CtrlrManagerWindowManager : public CtrlrWindowManager
 	private:
 		CtrlrChildWindow *getWindow(const CtrlrManagerWindowManager::WindowType window, const bool createIfNeeded=true);
 		CtrlrChildWindow *createWindow(const CtrlrManagerWindowManager::WindowType window);
-		void create(const CtrlrManagerWindowManager::WindowType window, const String &lastWindowState=String::empty);
+		void create(const CtrlrManagerWindowManager::WindowType window, const String &lastWindowState="");
 		void create(const ValueTree &windowState);
 		CtrlrManager &owner;
 		OwnedArray <CtrlrChildWindow> windows;

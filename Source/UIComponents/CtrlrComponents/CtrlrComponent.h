@@ -55,7 +55,7 @@ class CtrlrComponent :	public Component,
 
 		virtual void setComponentMidiValue (const int newValue, const bool sendChangeMessage=false);
 		virtual int getComponentMidiValue ();
-		virtual const String getComponentText()														{ return (String::empty); }
+		virtual const String getComponentText()														{ return (""); }
 		virtual void setComponentText (const String &)									{}
 		virtual int getComponentRadioGroupId();
 		virtual bool getToggleState()															{ return (false); }

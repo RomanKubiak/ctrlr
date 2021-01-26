@@ -25,19 +25,19 @@ CtrlrPanelResourceEditor::CtrlrPanelResourceEditor (CtrlrPanelEditor &_owner)
     add->addListener (this);
     add->setColour (TextButton::buttonColourId, Colour (0xffb2b2b2));
 
-	addAndMakeVisible (remove = new TextButton (String::empty));
+	addAndMakeVisible (remove = new TextButton (""));
     remove->setTooltip (L"Remove selected resources");
     remove->setButtonText (L"Remove");
     remove->addListener (this);
     remove->setColour (TextButton::buttonColourId, Colour (0xffb2b2b2));
 
-	addAndMakeVisible(move = new TextButton(String::empty));
+	addAndMakeVisible(move = new TextButton(""));
 	move->setTooltip(L"Move resources to panel folder");
 	move->setButtonText(L"Move...");
 	move->addListener(this);
 	move->setColour(TextButton::buttonColourId, Colour(0xffb2b2b2));
 
-	addAndMakeVisible (reload = new TextButton (String::empty));
+	addAndMakeVisible (reload = new TextButton (""));
     reload->setTooltip (L"Reload all resources");
     reload->setButtonText (L"Reload");
     reload->addListener (this);

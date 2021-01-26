@@ -39,7 +39,7 @@ catch (luabind::error &e)\
 	_LERR("Callback error: [" + o->getName() + "] " + String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))))+" "+lastExecutionError+".\nMethod disabled");\
 	if (currentMethodEditor)\
 		currentMethodEditor->getMethodEditArea()->insertOutput(lastExecutionError, juce::Colours::red); \
-	return (String::empty);\
+	return ("");\
 }
 
 #define CATCH_METHOD_EXCEPTION_DAD \
@@ -634,7 +634,7 @@ String CtrlrLuaMethodManager::callWithRetString(CtrlrLuaMethod *o, CtrlrCustomCo
 	LUA_DEBUG
 
 	if (isLuaDisabled())
-		return (String::empty);
+		return ("");
 
 	try
 	{
@@ -645,7 +645,7 @@ String CtrlrLuaMethodManager::callWithRetString(CtrlrLuaMethod *o, CtrlrCustomCo
 	}
 	CATCH_METHOD_EXCEPTION_STR
 
-	return (String::empty);
+	return ("");
 }
 
 const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *param1, const KeyPress &param2, Component *param3)

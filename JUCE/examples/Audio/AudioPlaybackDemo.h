@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -33,7 +33,7 @@
                    juce_audio_processors, juce_audio_utils, juce_core,
                    juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra
- exporters:        xcode_mac, vs2017, linux_make, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, androidstudio, xcode_iphone
 
  type:             Component
  mainClass:        AudioPlaybackDemo
@@ -75,7 +75,7 @@ public:
         addAndMakeVisible (currentPositionMarker);
     }
 
-    ~DemoThumbnailComp()
+    ~DemoThumbnailComp() override
     {
         scrollbar.removeListener (this);
         thumbnail.removeChangeListener (this);
@@ -116,7 +116,7 @@ public:
         if (thumbnail.getTotalLength() > 0)
         {
             auto newScale = jmax (0.001, thumbnail.getTotalLength() * (1.0 - jlimit (0.0, 0.99, amount)));
-            auto timeAtCentre = xToTime (getWidth() / 2.0f);
+            auto timeAtCentre = xToTime ((float) getWidth() / 2.0f);
 
             setRange ({ timeAtCentre - newScale * 0.5, timeAtCentre + newScale * 0.5 });
         }
@@ -229,12 +229,12 @@ private:
         if (visibleRange.getLength() <= 0)
             return 0;
 
-        return getWidth() * (float) ((time - visibleRange.getStart()) / visibleRange.getLength());
+        return (float) getWidth() * (float) ((time - visibleRange.getStart()) / visibleRange.getLength());
     }
 
     double xToTime (const float x) const
     {
-        return (x / getWidth()) * (visibleRange.getLength()) + visibleRange.getStart();
+        return (x / (float) getWidth()) * (visibleRange.getLength()) + visibleRange.getStart();
     }
 
     bool canMoveTransport() const noexcept
@@ -288,12 +288,24 @@ public:
         addAndMakeVisible (followTransportButton);
         followTransportButton.onClick = [this] { updateFollowTransportState(); };
 
+       #if (JUCE_ANDROID || JUCE_IOS)
+        addAndMakeVisible (chooseFileButton);
+        chooseFileButton.addListener (this);
+       #else
+        addAndMakeVisible (fileTreeComp);
+
+        directoryList.setDirectory (File::getSpecialLocation (File::userHomeDirectory), true, true);
+
+        fileTreeComp.setColour (FileTreeComponent::backgroundColourId, Colours::lightgrey.withAlpha (0.6f));
+        fileTreeComp.addListener (this);
+
         addAndMakeVisible (explanation);
         explanation.setFont (Font (14.00f, Font::plain));
         explanation.setJustificationType (Justification::bottomRight);
         explanation.setEditable (false, false, false);
         explanation.setColour (TextEditor::textColourId, Colours::black);
         explanation.setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+       #endif
 
         addAndMakeVisible (zoomSlider);
         zoomSlider.setRange (0, 1, 0);
@@ -314,18 +326,6 @@ public:
 
         thread.startThread (3);
 
-       #if (JUCE_ANDROID || JUCE_IOS)
-        addAndMakeVisible (chooseFileButton);
-        chooseFileButton.addListener (this);
-       #else
-        addAndMakeVisible (fileTreeComp);
-
-        directoryList.setDirectory (File::getSpecialLocation (File::userHomeDirectory), true, true);
-
-        fileTreeComp.setColour (FileTreeComponent::backgroundColourId, Colours::lightgrey.withAlpha (0.6f));
-        fileTreeComp.addListener (this);
-       #endif
-
        #ifndef JUCE_DEMO_RUNNER
         RuntimePermissions::request (RuntimePermissions::recordAudio,
                                      [this] (bool granted)
@@ -342,7 +342,7 @@ public:
         setSize (500, 500);
     }
 
-    ~AudioPlaybackDemo()
+    ~AudioPlaybackDemo() override
     {
         transportSource  .setSource (nullptr);
         audioSourcePlayer.setSource (nullptr);
@@ -368,7 +368,14 @@ public:
         auto r = getLocalBounds().reduced (4);
 
         auto controls = r.removeFromBottom (90);
-        explanation.setBounds (controls.removeFromRight (controls.getWidth() / 3));
+
+        auto controlRightBounds = controls.removeFromRight (controls.getWidth() / 3);
+
+       #if (JUCE_ANDROID || JUCE_IOS)
+        chooseFileButton.setBounds (controlRightBounds.reduced (10));
+       #else
+        explanation.setBounds (controlRightBounds);
+       #endif
 
         auto zoom = controls.removeFromTop (25);
         zoomLabel .setBounds (zoom.removeFromLeft (50));
@@ -378,12 +385,13 @@ public:
         startStopButton      .setBounds (controls);
 
         r.removeFromBottom (6);
+
+       #if JUCE_ANDROID || JUCE_IOS
+        thumbnail->setBounds (r);
+       #else
         thumbnail->setBounds (r.removeFromBottom (140));
         r.removeFromBottom (6);
 
-       #if (JUCE_ANDROID || JUCE_IOS)
-        chooseFileButton.setBounds (r);
-       #else
         fileTreeComp.setBounds (r);
        #endif
     }
@@ -405,6 +413,7 @@ private:
    #else
     DirectoryContentsList directoryList {nullptr, thread};
     FileTreeComponent fileTreeComp {directoryList};
+    Label explanation { {}, "Select an audio file in the treeview above, and this page will display its waveform, and let you play it.." };
    #endif
 
     URL currentAudioFile;
@@ -413,8 +422,7 @@ private:
     std::unique_ptr<AudioFormatReaderSource> currentAudioFileSource;
 
     std::unique_ptr<DemoThumbnailComp> thumbnail;
-    Label zoomLabel   { {}, "zoom:" },
-          explanation { {}, "Select an audio file in the treeview above, and this page will display its waveform, and let you play it.." };
+    Label zoomLabel                     { {}, "zoom:" };
     Slider zoomSlider                   { Slider::LinearHorizontal, Slider::NoTextBox };
     ToggleButton followTransportButton  { "Follow Transport" };
     TextButton startStopButton          { "Play/Stop" };

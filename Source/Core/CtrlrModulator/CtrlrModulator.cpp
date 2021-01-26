@@ -54,9 +54,9 @@ CtrlrModulator::CtrlrModulator(CtrlrPanel &_owner, const int suggestedVstIndex)
 	setProperty (Ids::modulatorBaseValue, 0);
 
 	setProperty (Ids::modulatorCustomIndex, 0);
-	setProperty (Ids::modulatorCustomName, String::empty);
+	setProperty (Ids::modulatorCustomName, "");
 	setProperty (Ids::modulatorCustomIndexGroup, 0);
-	setProperty (Ids::modulatorCustomNameGroup, String::empty);
+	setProperty (Ids::modulatorCustomNameGroup, "");
 
 	setProperty (Ids::modulatorVstNameFormat, "%n");
 	setProperty (Ids::luaModulatorValueChange, COMBO_NONE_ITEM);
@@ -345,7 +345,7 @@ const Identifier CtrlrModulator::getComponentType()
 {
 	if (modulatorTree.getChildWithName(Ids::component).isValid())
 	{
-		if (modulatorTree.getChildWithName(Ids::component).getProperty(Ids::uiType) == String::empty)
+		if (modulatorTree.getChildWithName(Ids::component).getProperty(Ids::uiType) == "")
 		{
 			jassertfalse; // an empty type for a component, that can't happen
 			return (Ids::uiNone);

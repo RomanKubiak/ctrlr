@@ -87,7 +87,7 @@ void CtrlrFilmStripPainter::setImage (const Image imageToSet, const int _frameWi
 {
 	possibleValues.clear();
 
-	if (imageToSet == Image::null)
+	if (imageToSet == Image())
 	{
 		frameWidth	= 0;
 		frameHeight = 0;

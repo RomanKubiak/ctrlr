@@ -165,7 +165,7 @@ bool CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
 
 	String error;
 
-	if (compileRet && getName() != String::empty)
+	if (compileRet && getName() != "")
 	{
 		try
 		{

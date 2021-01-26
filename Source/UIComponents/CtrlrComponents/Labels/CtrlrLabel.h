@@ -9,7 +9,7 @@ class CtrlrLabel;
 class CtrlrLabelInternal : public Label
 {
 	public:
-		CtrlrLabelInternal(CtrlrLabel &_owner, const String &componentName=String::empty, const String &labelText=String::empty);
+		CtrlrLabelInternal(CtrlrLabel &_owner, const String &componentName="", const String &labelText="");
 		TextEditor *createEditorComponent();
 		bool keyPressed (const KeyPress &key);
 	private:

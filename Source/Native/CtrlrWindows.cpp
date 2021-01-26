@@ -90,7 +90,7 @@ const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, con
 	File	newMe;
 	HANDLE	hResource;
 	MemoryBlock panelExportData,panelResourcesData;
-	MemoryBlock iconData(BinaryData::ico_midi_png, BinaryData::ico_midi_pngSize);
+	//MemoryBlock iconData(BinaryData::ico_midi_png, BinaryData::ico_midi_pngSize);
 
 	FileChooser fc(CTRLR_NEW_INSTANCE_DIALOG_TITLE,
 					me.getParentDirectory().getChildFile(File::createLegalFileName(panelToWrite->getProperty(Ids::name))).withFileExtension(me.getFileExtension()),
@@ -122,7 +122,7 @@ const Result CtrlrWindows::exportWithDefaultPanel(CtrlrPanel*  panelToWrite, con
 	{
 		String error;
 
-		if ( (error = CtrlrPanel::exportPanel (panelToWrite, File::nonexistent, newMe, &panelExportData, &panelResourcesData, isRestricted)) == String::empty)
+		if ( (error = CtrlrPanel::exportPanel (panelToWrite, File(), newMe, &panelExportData, &panelResourcesData, isRestricted)) == "")
 		{
 			if (	writeResource (hResource, MAKEINTRESOURCE(CTRLR_INTERNAL_PANEL_RESID), RT_RCDATA, panelExportData)
 				&&	writeResource (hResource, MAKEINTRESOURCE(CTRLR_INTERNAL_RESOURCES_RESID), RT_RCDATA, panelResourcesData)
@@ -269,7 +269,7 @@ static void sendKey(const KeyPress &event)
 
 const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event)
 {
-	return (sendKeyPressEvent(event, String::empty));
+	return (sendKeyPressEvent(event, ""));
 }
 
 const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event, const String &targetWindowName)
@@ -279,7 +279,7 @@ const Result CtrlrWindows::sendKeyPressEvent (const KeyPress &event, const Strin
     TCHAR windowtext[MAX_PATH];
 	// INPUT input;
 
-	if (targetWindowName != String::empty)
+	if (targetWindowName != "")
 	{
 		while(1)
 		{

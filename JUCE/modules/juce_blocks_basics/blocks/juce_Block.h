@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -28,12 +28,12 @@ namespace juce
 
     @tags{Blocks}
 */
-class Block   : public juce::ReferenceCountedObject
+class Block   : public ReferenceCountedObject
 {
 public:
     //==============================================================================
     /** Destructor. */
-    virtual ~Block();
+    ~Block() override;
 
     /** The different block types.
         @see Block::getType()
@@ -46,27 +46,28 @@ public:
         loopBlock,             /**< Loop control block type.      */
         developerControlBlock, /**< Developer control block type. */
         touchBlock,            /**< Touch control block type.     */
-        seaboardBlock          /**< Seaboard block type.          */
+        seaboardBlock,         /**< Seaboard block type.          */
+        lumiKeysBlock          /**< LUMI Keys block type          */
     };
 
     /** The Block class is reference-counted, so always use a Block::Ptr when
         you are keeping references to them.
     */
-    using Ptr = juce::ReferenceCountedObjectPtr<Block>;
+    using Ptr = ReferenceCountedObjectPtr<Block>;
 
     /** The Block class is reference-counted, so Block::Array is useful when
         you are storing lists of them.
     */
-    using Array = juce::ReferenceCountedArray<Block>;
+    using Array = ReferenceCountedArray<Block>;
 
     /** The Block's serial number. */
-    const juce::String serialNumber;
+    const String serialNumber;
 
     /** The Block's version number */
-    juce::String versionNumber;
+    String versionNumber;
 
     /** The Block's name */
-    juce::String name;
+    String name;
 
     /** This type is used for the unique block identifier. */
     using UID = uint64;
@@ -95,7 +96,7 @@ public:
     static bool isControlBlock (Block::Type);
 
     /** Returns a human-readable description of this device type. */
-    virtual juce::String getDeviceDescription() const = 0;
+    virtual String getDeviceDescription() const = 0;
 
     /** Returns the battery level in the range 0.0 to 1.0. */
     virtual float getBatteryLevel() const = 0;
@@ -107,10 +108,26 @@ public:
     /** Returns true if this block is connected and active. */
     virtual bool isConnected() const = 0;
 
+    /** Returns the time this block object was connected to the topology.
+        Only valid when isConnected == true.
+
+        @see Block::isConnected
+     */
+    virtual Time getConnectionTime() const = 0;
+
+    /** Returns true if this block or the master block this block is connected to,
+        is connected via bluetooth.
+
+        Only valid when isConnected == true.
+
+        @see Block::isConnected, Block::isMasterBlock
+     */
+    virtual bool isConnectedViaBluetooth() const = 0;
+
     /** Returns true if this block is directly connected to the application,
         as opposed to only being connected to a different block via a connection port.
 
-        @see ConnectionPort
+        @see Block::ConnectionPort
     */
     virtual bool isMasterBlock() const = 0;
 
@@ -130,10 +147,16 @@ public:
     /** Returns the length of one logical device unit as physical millimeters. */
     virtual float getMillimetersPerUnit() const = 0;
 
+    /** A simple struct representing the area of a block. */
+    struct BlockArea
+    {
+        int x, y, width, height;
+    };
+
     /** Returns the area that this block covers within the layout of the group as a whole.
         The coordinates are in logical block units, and are relative to the origin, which is the master block's top-left corner.
      */
-    virtual Rectangle<int> getBlockAreaWithinLayout() const = 0;
+    virtual BlockArea getBlockAreaWithinLayout() const = 0;
 
     /** Returns the rotation of this block relative to the master block in 90 degree steps clockwise. */
     virtual int getRotation() const = 0;
@@ -212,17 +235,14 @@ public:
     /** A program that can be loaded onto a block. */
     struct Program
     {
-        /** Creates a Program for the corresponding LEDGrid. */
         Program (Block&);
-
-        /** Destructor. */
-        virtual ~Program();
+        virtual ~Program() = default;
 
         /** Returns the LittleFoot program to execute on the BLOCKS device. */
-        virtual juce::String getLittleFootProgram() = 0;
+        virtual String getLittleFootProgram() = 0;
 
         /** Returns an array of search paths to use when resolving includes. **/
-        virtual juce::Array<juce::File> getSearchPaths() { return {}; }
+        virtual juce::Array<File> getSearchPaths() { return {}; }
 
         Block& block;
     };
@@ -231,11 +251,31 @@ public:
 
         The supplied Program's lifetime will be managed by this class, so do not
         use the Program in other places in your code.
+
+        Optional parameter to determine if program is set temporarily or saved
+        to flash as the default prgram./
     */
-    virtual juce::Result setProgram (Program*) = 0;
+    enum class ProgramPersistency { setAsTemp, setAsDefault };
+    virtual Result setProgram (std::unique_ptr<Program>,
+                               ProgramPersistency persistency = ProgramPersistency::setAsTemp) = 0;
 
     /** Returns a pointer to the currently loaded program. */
     virtual Program* getProgram() const = 0;
+
+    /** Listener interface to be informed of program loaded events*/
+    struct ProgramLoadedListener
+    {
+        virtual ~ProgramLoadedListener() = default;
+
+        /** Called whenever a program has been loaded. */
+        virtual void handleProgramLoaded (Block&) = 0;
+    };
+
+    /** Adds a new listener for program load completions. */
+    void addProgramLoadedListener (ProgramLoadedListener*);
+
+    /** Removes a listener for program load completions. */
+    void removeProgramLoadedListener (ProgramLoadedListener*);
 
     //==============================================================================
     /** A message that can be sent to the currently loaded program. */
@@ -260,17 +300,17 @@ public:
     /** Interface for objects listening to custom program events. */
     struct ProgramEventListener
     {
-        virtual ~ProgramEventListener() {}
+        virtual ~ProgramEventListener() = default;
 
         /** Called whenever a message from a block is received. */
         virtual void handleProgramEvent (Block& source, const ProgramEventMessage&) = 0;
     };
 
     /** Adds a new listener for custom program events from the block. */
-    virtual void addProgramEventListener (ProgramEventListener*);
+    void addProgramEventListener (ProgramEventListener*);
 
     /** Removes a listener for custom program events from the block. */
-    virtual void removeProgramEventListener (ProgramEventListener*);
+    void removeProgramEventListener (ProgramEventListener*);
 
     //==============================================================================
     /** Returns the overall memory of the block. */
@@ -288,17 +328,34 @@ public:
     /** Sets multiple bits on the littlefoot heap. */
     virtual void setDataBits (uint32 startBit, uint32 numBits, uint32 value) = 0;
 
+    /** Sets a single, 32 bit or less, value on the littlefoot heap. */
+    template<typename Type>
+    void setData (uint32 offset, Type value)
+    {
+        const auto numBytes = sizeof (Type);
+
+        for (auto byte = numBytes; --byte > 0u;)
+        {
+            auto v = *reinterpret_cast<unsigned*> (&value);
+            v = (v >> (numBytes - byte) * 8) & 0xFF;
+            setDataByte (offset + byte, uint8 (v));
+        }
+    }
+
     /** Gets a byte from the littlefoot heap. */
     virtual uint8 getDataByte (size_t offset) = 0;
 
     /** Sets the current program as the block's default state. */
     virtual void saveProgramAsDefault() = 0;
 
+    /** Resets the loaded program to the block's default state. */
+    virtual void resetProgramToDefault() = 0;
+
     //==============================================================================
     /** Metadata for a given config item */
     struct ConfigMetaData
     {
-        static constexpr int32 numOptionNames = 8;
+        static constexpr int32 numOptionNames = 16;
 
         enum class ConfigType
         {
@@ -309,12 +366,14 @@ public:
             options
         };
 
-        ConfigMetaData() {}
+        ConfigMetaData (uint32 itemIndex)
+          :  item (itemIndex)
+        {}
 
         // Constructor to work around VS2015 bugs...
         ConfigMetaData (uint32 itemIndex,
                         int32 itemValue,
-                        juce::Range<int32> rangeToUse,
+                        Range<int32> rangeToUse,
                         bool active,
                         const char* itemName,
                         ConfigType itemType,
@@ -377,13 +436,31 @@ public:
 
         uint32 item = 0;
         int32 value = 0;
-        juce::Range<int32> range;
+        Range<int32> range;
         bool isActive = false;
-        juce::String name;
+        String name;
         ConfigType type = ConfigType::integer;
-        juce::String optionNames[numOptionNames] = {};
-        juce::String group;
+        String optionNames[numOptionNames] = {};
+        String group;
     };
+
+    /** Listener interface to be informed of block config changes */
+    struct ConfigItemListener
+    {
+        virtual ~ConfigItemListener() = default;
+
+        /** Called whenever a config changes. */
+        virtual void handleConfigItemChanged (Block&, const ConfigMetaData&, uint32 index) = 0;
+
+        /*-* Callled following a config sync request*/
+        virtual void handleConfigSyncEnded (Block&) = 0;
+    };
+
+    /** Adds a new listener for config item changes. */
+    void addConfigItemListener (ConfigItemListener*);
+
+    /** Removes a listener for config item changes. */
+    void removeConfigItemListener (ConfigItemListener*);
 
     /** Returns the maximum number of config items available */
     virtual uint32 getMaxConfigIndex() = 0;
@@ -422,27 +499,21 @@ public:
     virtual void blockReset() = 0;
 
     /** Set Block name */
-    virtual bool setName (const juce::String& name) = 0;
+    virtual bool setName (const String& name) = 0;
 
     //==============================================================================
     /** Allows the user to provide a function that will receive log messages from the block. */
-    virtual void setLogger (std::function<void(const String&)> loggingCallback) = 0;
+    virtual void setLogger (std::function<void (const Block& block, const String&)> loggingCallback) = 0;
 
     /** Sends a firmware update packet to a block, and waits for a reply. Returns an error code. */
     virtual bool sendFirmwareUpdatePacket (const uint8* data, uint8 size,
                                            std::function<void (uint8, uint32)> packetAckCallback) = 0;
 
-    /** Provides a callback that will be called when a config changes. */
-    virtual void setConfigChangedCallback (std::function<void(Block&, const ConfigMetaData&, uint32)>) = 0;
-
-    /** Provides a callback that will be called when a prgoram has been loaded. */
-    virtual void setProgramLoadedCallback (std::function<void(Block&)> programLoaded) = 0;
-
     //==============================================================================
     /** Interface for objects listening to input data port. */
     struct DataInputPortListener
     {
-        virtual ~DataInputPortListener() {}
+        virtual ~DataInputPortListener() = default;
 
         /** Called whenever a message from a block is received. */
         virtual void handleIncomingDataPortMessage (Block& source, const void* messageData, size_t messageSize) = 0;
@@ -465,11 +536,13 @@ public:
 
 protected:
     //==============================================================================
-    Block (const juce::String& serialNumberToUse);
-    Block (const juce::String& serial, const juce::String& version, const juce::String& name);
+    Block (const String& serialNumberToUse);
+    Block (const String& serial, const String& version, const String& name);
 
-    juce::ListenerList<DataInputPortListener> dataInputPortListeners;
-    juce::ListenerList<ProgramEventListener> programEventListeners;
+    ListenerList<ProgramLoadedListener> programLoadedListeners;
+    ListenerList<ProgramEventListener>  programEventListeners;
+    ListenerList<ConfigItemListener>    configItemListeners;
+    ListenerList<DataInputPortListener> dataInputPortListeners;
 
 private:
     //==============================================================================

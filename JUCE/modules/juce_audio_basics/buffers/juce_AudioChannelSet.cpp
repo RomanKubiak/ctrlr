@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -75,6 +75,50 @@ String AudioChannelSet::getChannelTypeName (AudioChannelSet::ChannelType type)
         case ambisonicZ:          return NEEDS_TRANS("Ambisonic Z");
         case topSideLeft:         return NEEDS_TRANS("Top Side Left");
         case topSideRight:        return NEEDS_TRANS("Top Side Right");
+        case ambisonicACN4:       return NEEDS_TRANS("Ambisonic 4");
+        case ambisonicACN5:       return NEEDS_TRANS("Ambisonic 5");
+        case ambisonicACN6:       return NEEDS_TRANS("Ambisonic 6");
+        case ambisonicACN7:       return NEEDS_TRANS("Ambisonic 7");
+        case ambisonicACN8:       return NEEDS_TRANS("Ambisonic 8");
+        case ambisonicACN9:       return NEEDS_TRANS("Ambisonic 9");
+        case ambisonicACN10:      return NEEDS_TRANS("Ambisonic 10");
+        case ambisonicACN11:      return NEEDS_TRANS("Ambisonic 11");
+        case ambisonicACN12:      return NEEDS_TRANS("Ambisonic 12");
+        case ambisonicACN13:      return NEEDS_TRANS("Ambisonic 13");
+        case ambisonicACN14:      return NEEDS_TRANS("Ambisonic 14");
+        case ambisonicACN15:      return NEEDS_TRANS("Ambisonic 15");
+        case ambisonicACN16:      return NEEDS_TRANS("Ambisonic 16");
+        case ambisonicACN17:      return NEEDS_TRANS("Ambisonic 17");
+        case ambisonicACN18:      return NEEDS_TRANS("Ambisonic 18");
+        case ambisonicACN19:      return NEEDS_TRANS("Ambisonic 19");
+        case ambisonicACN20:      return NEEDS_TRANS("Ambisonic 20");
+        case ambisonicACN21:      return NEEDS_TRANS("Ambisonic 21");
+        case ambisonicACN22:      return NEEDS_TRANS("Ambisonic 22");
+        case ambisonicACN23:      return NEEDS_TRANS("Ambisonic 23");
+        case ambisonicACN24:      return NEEDS_TRANS("Ambisonic 24");
+        case ambisonicACN25:      return NEEDS_TRANS("Ambisonic 25");
+        case ambisonicACN26:      return NEEDS_TRANS("Ambisonic 26");
+        case ambisonicACN27:      return NEEDS_TRANS("Ambisonic 27");
+        case ambisonicACN28:      return NEEDS_TRANS("Ambisonic 28");
+        case ambisonicACN29:      return NEEDS_TRANS("Ambisonic 29");
+        case ambisonicACN30:      return NEEDS_TRANS("Ambisonic 30");
+        case ambisonicACN31:      return NEEDS_TRANS("Ambisonic 31");
+        case ambisonicACN32:      return NEEDS_TRANS("Ambisonic 32");
+        case ambisonicACN33:      return NEEDS_TRANS("Ambisonic 33");
+        case ambisonicACN34:      return NEEDS_TRANS("Ambisonic 34");
+        case ambisonicACN35:      return NEEDS_TRANS("Ambisonic 35");
+        case bottomFrontLeft:     return NEEDS_TRANS("Bottom Front Left");
+        case bottomFrontCentre:   return NEEDS_TRANS("Bottom Front Centre");
+        case bottomFrontRight:    return NEEDS_TRANS("Bottom Front Right");
+        case proximityLeft:       return NEEDS_TRANS("Proximity Left");
+        case proximityRight:      return NEEDS_TRANS("Proximity Right");
+        case bottomSideLeft:      return NEEDS_TRANS("Bottom Side Left");
+        case bottomSideRight:     return NEEDS_TRANS("Bottom Side Right");
+        case bottomRearLeft:      return NEEDS_TRANS("Bottom Rear Left");
+        case bottomRearCentre:    return NEEDS_TRANS("Bottom Rear Centre");
+        case bottomRearRight:     return NEEDS_TRANS("Bottom Rear Right");
+        case discreteChannel0:
+        case unknown:
         default:                  break;
     }
 
@@ -115,8 +159,52 @@ String AudioChannelSet::getAbbreviatedChannelTypeName (AudioChannelSet::ChannelT
         case ambisonicACN1:       return "ACN1";
         case ambisonicACN2:       return "ACN2";
         case ambisonicACN3:       return "ACN3";
+        case ambisonicACN4:       return "ACN4";
+        case ambisonicACN5:       return "ACN5";
+        case ambisonicACN6:       return "ACN6";
+        case ambisonicACN7:       return "ACN7";
+        case ambisonicACN8:       return "ACN8";
+        case ambisonicACN9:       return "ACN9";
+        case ambisonicACN10:      return "ACN10";
+        case ambisonicACN11:      return "ACN11";
+        case ambisonicACN12:      return "ACN12";
+        case ambisonicACN13:      return "ACN13";
+        case ambisonicACN14:      return "ACN14";
+        case ambisonicACN15:      return "ACN15";
+        case ambisonicACN16:      return "ACN16";
+        case ambisonicACN17:      return "ACN17";
+        case ambisonicACN18:      return "ACN18";
+        case ambisonicACN19:      return "ACN19";
+        case ambisonicACN20:      return "ACN20";
+        case ambisonicACN21:      return "ACN21";
+        case ambisonicACN22:      return "ACN22";
+        case ambisonicACN23:      return "ACN23";
+        case ambisonicACN24:      return "ACN24";
+        case ambisonicACN25:      return "ACN25";
+        case ambisonicACN26:      return "ACN26";
+        case ambisonicACN27:      return "ACN27";
+        case ambisonicACN28:      return "ACN28";
+        case ambisonicACN29:      return "ACN29";
+        case ambisonicACN30:      return "ACN30";
+        case ambisonicACN31:      return "ACN31";
+        case ambisonicACN32:      return "ACN32";
+        case ambisonicACN33:      return "ACN33";
+        case ambisonicACN34:      return "ACN34";
+        case ambisonicACN35:      return "ACN35";
         case topSideLeft:         return "Tsl";
         case topSideRight:        return "Tsr";
+        case bottomFrontLeft:     return "Bfl";
+        case bottomFrontCentre:   return "Bfc";
+        case bottomFrontRight:    return "Bfr";
+        case proximityLeft:       return "Pl";
+        case proximityRight:      return "Pr";
+        case bottomSideLeft:      return "Bsl";
+        case bottomSideRight:     return "Bsr";
+        case bottomRearLeft:      return "Brl";
+        case bottomRearCentre:    return "Brc";
+        case bottomRearRight:     return "Brr";
+        case discreteChannel0:
+        case unknown:
         default:                  break;
     }
 
@@ -130,38 +218,81 @@ AudioChannelSet::ChannelType AudioChannelSet::getChannelTypeFromAbbreviation (co
 {
     if (abbr.length() > 0 && (abbr[0] >= '0' && abbr[0] <= '9'))
         return static_cast<AudioChannelSet::ChannelType> (static_cast<int> (discreteChannel0)
-                                                               + abbr.getIntValue() + 1);
+                                                               + abbr.getIntValue() - 1);
 
-    if (abbr == "L")    return left;
-    if (abbr == "R")    return right;
-    if (abbr == "C")    return centre;
-    if (abbr == "Lfe")  return LFE;
-    if (abbr == "Ls")   return leftSurround;
-    if (abbr == "Rs")   return rightSurround;
-    if (abbr == "Lc")   return leftCentre;
-    if (abbr == "Rc")   return rightCentre;
-    if (abbr == "Cs")   return centreSurround;
-    if (abbr == "Lrs")  return leftSurroundRear;
-    if (abbr == "Rrs")  return rightSurroundRear;
-    if (abbr == "Tm")   return topMiddle;
-    if (abbr == "Tfl")  return topFrontLeft;
-    if (abbr == "Tfc")  return topFrontCentre;
-    if (abbr == "Tfr")  return topFrontRight;
-    if (abbr == "Trl")  return topRearLeft;
-    if (abbr == "Trc")  return topRearCentre;
-    if (abbr == "Trr")  return topRearRight;
-    if (abbr == "Wl")   return wideLeft;
-    if (abbr == "Wr")   return wideRight;
-    if (abbr == "Lfe2") return LFE2;
-    if (abbr == "Lss")  return leftSurroundSide;
-    if (abbr == "Rss")  return rightSurroundSide;
-    if (abbr == "W")    return ambisonicW;
-    if (abbr == "X")    return ambisonicX;
-    if (abbr == "Y")    return ambisonicY;
-    if (abbr == "Z")    return ambisonicZ;
-    if (abbr == "Tsl")  return topSideLeft;
-    if (abbr == "Tsr")  return topSideRight;
-
+    if (abbr == "L")     return left;
+    if (abbr == "R")     return right;
+    if (abbr == "C")     return centre;
+    if (abbr == "Lfe")   return LFE;
+    if (abbr == "Ls")    return leftSurround;
+    if (abbr == "Rs")    return rightSurround;
+    if (abbr == "Lc")    return leftCentre;
+    if (abbr == "Rc")    return rightCentre;
+    if (abbr == "Cs")    return centreSurround;
+    if (abbr == "Lrs")   return leftSurroundRear;
+    if (abbr == "Rrs")   return rightSurroundRear;
+    if (abbr == "Tm")    return topMiddle;
+    if (abbr == "Tfl")   return topFrontLeft;
+    if (abbr == "Tfc")   return topFrontCentre;
+    if (abbr == "Tfr")   return topFrontRight;
+    if (abbr == "Trl")   return topRearLeft;
+    if (abbr == "Trc")   return topRearCentre;
+    if (abbr == "Trr")   return topRearRight;
+    if (abbr == "Wl")    return wideLeft;
+    if (abbr == "Wr")    return wideRight;
+    if (abbr == "Lfe2")  return LFE2;
+    if (abbr == "Lss")   return leftSurroundSide;
+    if (abbr == "Rss")   return rightSurroundSide;
+    if (abbr == "W")     return ambisonicW;
+    if (abbr == "X")     return ambisonicX;
+    if (abbr == "Y")     return ambisonicY;
+    if (abbr == "Z")     return ambisonicZ;
+    if (abbr == "ACN0")  return ambisonicACN0;
+    if (abbr == "ACN1")  return ambisonicACN1;
+    if (abbr == "ACN2")  return ambisonicACN2;
+    if (abbr == "ACN3")  return ambisonicACN3;
+    if (abbr == "ACN4")  return ambisonicACN4;
+    if (abbr == "ACN5")  return ambisonicACN5;
+    if (abbr == "ACN6")  return ambisonicACN6;
+    if (abbr == "ACN7")  return ambisonicACN7;
+    if (abbr == "ACN8")  return ambisonicACN8;
+    if (abbr == "ACN9")  return ambisonicACN9;
+    if (abbr == "ACN10") return ambisonicACN10;
+    if (abbr == "ACN11") return ambisonicACN11;
+    if (abbr == "ACN12") return ambisonicACN12;
+    if (abbr == "ACN13") return ambisonicACN13;
+    if (abbr == "ACN14") return ambisonicACN14;
+    if (abbr == "ACN15") return ambisonicACN15;
+    if (abbr == "ACN16") return ambisonicACN16;
+    if (abbr == "ACN17") return ambisonicACN17;
+    if (abbr == "ACN18") return ambisonicACN18;
+    if (abbr == "ACN19") return ambisonicACN19;
+    if (abbr == "ACN20") return ambisonicACN20;
+    if (abbr == "ACN21") return ambisonicACN21;
+    if (abbr == "ACN22") return ambisonicACN22;
+    if (abbr == "ACN23") return ambisonicACN23;
+    if (abbr == "ACN24") return ambisonicACN24;
+    if (abbr == "ACN25") return ambisonicACN25;
+    if (abbr == "ACN26") return ambisonicACN26;
+    if (abbr == "ACN27") return ambisonicACN27;
+    if (abbr == "ACN28") return ambisonicACN28;
+    if (abbr == "ACN29") return ambisonicACN29;
+    if (abbr == "ACN30") return ambisonicACN30;
+    if (abbr == "ACN31") return ambisonicACN31;
+    if (abbr == "ACN32") return ambisonicACN32;
+    if (abbr == "ACN33") return ambisonicACN33;
+    if (abbr == "ACN34") return ambisonicACN34;
+    if (abbr == "ACN35") return ambisonicACN35;
+    if (abbr == "Tsl")   return topSideLeft;
+    if (abbr == "Tsr")   return topSideRight;
+    if (abbr == "Bfl")   return bottomFrontLeft;
+    if (abbr == "Bfc")   return bottomFrontCentre;
+    if (abbr == "Bfr")   return bottomFrontRight;
+    if (abbr == "Bsl")   return bottomSideLeft;
+    if (abbr == "Bsr")   return bottomSideRight;
+    if (abbr == "Brl")   return bottomRearLeft;
+    if (abbr == "Brc")   return bottomRearCentre;
+    if (abbr == "Brr")   return bottomRearRight;
     return unknown;
 }
 
@@ -493,12 +624,17 @@ int JUCE_CALLTYPE AudioChannelSet::getAmbisonicOrderForNumChannels (int numChann
     return (static_cast<float> (ambisonicOrder) == sqrtMinusOne ? ambisonicOrder : -1);
 }
 
+
+//==============================================================================
 //==============================================================================
 #if JUCE_UNIT_TESTS
+
 class AudioChannelSetUnitTest  : public UnitTest
 {
 public:
-    AudioChannelSetUnitTest() : UnitTest ("AudioChannelSetUnitTest", "Audio") {}
+    AudioChannelSetUnitTest()
+        : UnitTest ("AudioChannelSetUnitTest", UnitTestCategories::audio)
+    {}
 
     void runTest() override
     {
@@ -581,6 +717,7 @@ private:
 };
 
 static AudioChannelSetUnitTest audioChannelSetUnitTest;
+
 #endif
 
 } // namespace juce

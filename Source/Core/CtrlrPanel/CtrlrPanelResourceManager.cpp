@@ -51,7 +51,7 @@ void CtrlrPanelResourceManager::initManager()
 
 	const File newResourcesDirectory = owner.getPanelDirectory();
 
-	if (newResourcesDirectory != resourcesDirectory && resourcesDirectory != File::nonexistent)
+	if (newResourcesDirectory != resourcesDirectory && resourcesDirectory != File())
 	{
 		if (resourcesDirectory.getNumberOfChildFiles (File::findFiles) == 0)
 		{
@@ -73,7 +73,7 @@ void CtrlrPanelResourceManager::initManager()
 		if (!resourcesDirectory.createDirectory())
 		{
 			_ERR("CtrlrResourceManager::ctor failed to create resources directory");
-			resourcesDirectory = File::nonexistent;
+			resourcesDirectory = File();
 		}
 	}
 	else
@@ -154,7 +154,7 @@ const Image CtrlrPanelResourceManager::getResourceAsImage (const String &resourc
 		return (res->asImage());
 	}
 
-	return (Image::null);
+	return (Image());
 }
 
 const Font CtrlrPanelResourceManager::getResourceAsFont (const String &resourceName)
@@ -438,7 +438,7 @@ CtrlrPanelResourceType CtrlrPanelResourceManager::guessType(const File &resource
 	}
 
 	// XML ?
-	ScopedPointer <XmlElement> xml (XmlDocument::parse (resourceFile));
+	ScopedPointer <XmlElement> xml (XmlDocument::parse (resourceFile).release());
 
 	if (xml != nullptr)
 	{

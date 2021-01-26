@@ -150,7 +150,7 @@ File CtrlrLuaUtils::openFileWindow(const String &dialogBoxTitle, const File &ini
 	}
 	else
 	{
-		return (File::nonexistent);
+		return (File());
 	}
 }
 
@@ -183,7 +183,7 @@ File CtrlrLuaUtils::saveFileWindow(const String &dialogBoxTitle, const File &ini
 	}
 	else
 	{
-		return (File::nonexistent);
+		return (File());
 	}
 }
 

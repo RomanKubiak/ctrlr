@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -35,7 +35,7 @@ class JUCE_API  ActionListener
 {
 public:
     /** Destructor. */
-    virtual ~ActionListener()  {}
+    virtual ~ActionListener() = default;
 
     /** Overridden by your subclass to receive the callback.
 

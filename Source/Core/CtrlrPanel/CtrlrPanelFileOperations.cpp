@@ -165,7 +165,7 @@ Result CtrlrPanel::savePanel()
 	else
 	{
 		File ret = askForPanelFileToSave (this, File(owner.getProperty(Ids::panelLastSaveDir)).getChildFile(getVersionString()));
-		if (ret != File::nonexistent)
+		if (ret != File())
 		{
 			res = savePanelXml(ret, this);
 			setProperty (Ids::panelFilePath, ret.getFullPathName());
@@ -209,7 +209,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 	{
 		fileToSave = CtrlrPanel::askForPanelFileToSave (this, f, true, false);
 
-		if (fileToSave == File::nonexistent)
+		if (fileToSave == File())
 			return (fileToSave);
 
 		savePanelXml (fileToSave, this);
@@ -220,7 +220,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 	{
 		fileToSave = CtrlrPanel::askForPanelFileToSave (this, f, true, true);
 
-		if (fileToSave == File::nonexistent)
+		if (fileToSave == File())
 			return (fileToSave);
 
 		savePanelXml (fileToSave, this, true);
@@ -231,7 +231,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 	{
 		fileToSave = CtrlrPanel::askForPanelFileToSave (this, f, false, false);
 
-		if (fileToSave == File::nonexistent)
+		if (fileToSave == File())
 			return (fileToSave);
 
 		savePanelBin (fileToSave, this, false);
@@ -240,7 +240,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 	{
 		fileToSave = CtrlrPanel::askForPanelFileToSave (this, f, false, true);
 
-		if (fileToSave == File::nonexistent)
+		if (fileToSave == File())
 			return (fileToSave);
 
 		savePanelBin (fileToSave, this, true);
@@ -248,7 +248,7 @@ const File CtrlrPanel::savePanelAs(const CommandID saveOption)
 	if (saveOption == CtrlrEditor::doExportFileZBinRes)
 	{
 		const String err = exportPanel(this, f);
-		if (err != String::empty)
+		if (err != "")
 		{
 			AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Panel Export", err);
 		}
@@ -294,7 +294,7 @@ void CtrlrPanel::savePanelVersioned()
 	{
 		setProperty (Ids::panelVersionMinor, (int)getProperty(Ids::panelVersionMinor)+1);
 
-		if (panelFile != File::nonexistent)
+		if (panelFile != File())
 		{
 			savePanelXml (File(panelFile.getParentDirectory().getChildFile(getProperty(Ids::name).toString() + owner.getProperty(Ids::ctrlrVersionSeparator).toString() + getVersionString()).withFileExtension((bool)owner.getProperty(Ids::ctrlrVersionCompressed) ? "panelz" : "panel")), this, owner.getProperty(Ids::ctrlrVersionCompressed));
 		}
@@ -314,14 +314,14 @@ const String CtrlrPanel::exportPanel(CtrlrPanel *panel, const File &lastBrowsedD
 	if (panel == 0 || panel == nullptr)
 		return ("Undefined panel passeed to exporter");
 
-	File exportedFile = File::nonexistent;
+	File exportedFile = File();
 
-	if (destinationFile == File::nonexistent)
+	if (destinationFile == File())
 		exportedFile = askForPanelFileToSave (panel, lastBrowsedDir, false, true);
 	else
 		exportedFile = destinationFile;
 
-	if (exportedFile == File::nonexistent)
+	if (exportedFile == File())
 		return ("Destination file does not exist or is invalid");
 
 	panel->luaSavePanel (PanelFileExport, exportedFile);
@@ -376,7 +376,7 @@ const String CtrlrPanel::exportPanel(CtrlrPanel *panel, const File &lastBrowsedD
 		}
 	}
 
-	if (panelSnapshot != Image::null)
+	if (panelSnapshot != Image())
 	{
 		MemoryBlock imageData;
 		MemoryOutputStream imageDataStream(imageData, true);
@@ -405,7 +405,7 @@ const String CtrlrPanel::exportPanel(CtrlrPanel *panel, const File &lastBrowsedD
 
 		exportedFile.replaceWithData(compressedData.getData(), compressedData.getDataSize());
 
-		return (String::empty);
+		return ("");
 	}
 	else if (outputPanelData != nullptr && outputResourcesData != nullptr)
 	{
@@ -424,7 +424,7 @@ const String CtrlrPanel::exportPanel(CtrlrPanel *panel, const File &lastBrowsedD
 			gzipOutputStream.flush();
 		}
 
-		return (String::empty);
+		return ("");
 	}
 	else
 	{
@@ -439,7 +439,7 @@ const ValueTree CtrlrPanel::openBinPanel(const File &panelFile)
 
 	if (panelFile.hasFileExtension(".bpanelz"))
 	{
-		ScopedPointer <FileInputStream> fileInputStream (panelFile.createInputStream());
+		ScopedPointer <FileInputStream> fileInputStream (panelFile.createInputStream().release());
 
 		if (fileInputStream)
 		{
@@ -449,7 +449,7 @@ const ValueTree CtrlrPanel::openBinPanel(const File &panelFile)
 	}
 	else if (panelFile.hasFileExtension(".bpanel"))
 	{
-		ScopedPointer <FileInputStream> fileInputStream(panelFile.createInputStream());
+		ScopedPointer <FileInputStream> fileInputStream(panelFile.createInputStream().release());
 		if (fileInputStream)
 		{
 			return (ValueTree::readFromStream (*fileInputStream));
@@ -489,7 +489,7 @@ const ValueTree CtrlrPanel::openXmlPanel(const File &panelFile)
 
 	if (panelFile.hasFileExtension("panelz"))
 	{
-		ScopedPointer <FileInputStream> fz(panelFile.createInputStream());
+		ScopedPointer <FileInputStream> fz(panelFile.createInputStream().release());
 		if (fz)
 		{
 			GZIPDecompressorInputStream gzInput (fz, false);
@@ -500,7 +500,7 @@ const ValueTree CtrlrPanel::openXmlPanel(const File &panelFile)
 			_ERR("CtrlrPanel::openXmlPanel can't create input stream for file: " + panelFile.getFullPathName());
 		}
 
-		ScopedPointer <XmlElement> xml(XmlDocument::parse (xmlData));
+		ScopedPointer <XmlElement> xml(XmlDocument::parse (xmlData).release());
 
 		if (xml)
 		{
@@ -513,7 +513,7 @@ const ValueTree CtrlrPanel::openXmlPanel(const File &panelFile)
 	}
 	else if (panelFile.hasFileExtension("panel"))
 	{
-		ScopedPointer <XmlElement> xml(XmlDocument::parse (panelFile));
+		ScopedPointer <XmlElement> xml(XmlDocument::parse (panelFile).release());
 		if (xml)
 		{
 			return (ValueTree::fromXml (*xml));
@@ -543,7 +543,7 @@ const ValueTree CtrlrPanel::openPanel(const File &panelFile)
 	{
 		result = openBinPanel(panelFile);
 	}
-	else 
+	else
 	{
 		result = ValueTree();
 	}
@@ -600,7 +600,7 @@ void CtrlrPanel::writePanelXml(OutputStream &outputStream, CtrlrPanel *panel, co
 
 	panel->sync();
 
-	ScopedPointer <XmlElement> panelXml (panel->getPanelTree().createXml());
+	ScopedPointer <XmlElement> panelXml (panel->getPanelTree().createXml().release());
 
 	if (compressPanel && panelXml)
 	{
@@ -904,7 +904,7 @@ const File CtrlrPanel::askForPanelFileToSave (CtrlrPanel *panel,
 		}
 	}
 
-	return (File::nonexistent);
+	return (File());
 }
 
 bool CtrlrPanel::isPanelFile(const File &fileToCheck, const bool beThorough)
@@ -971,7 +971,7 @@ const String CtrlrPanel::getPanelWindowTitle()
 void CtrlrPanel::updatePanelWindowTitle()
 {
 	CtrlrPanelEditor *editor = getEditor(false);
-	if (editor) 
+	if (editor)
 	{
 		String newName = getPanelWindowTitle();
 		if (newName != editor->getName())

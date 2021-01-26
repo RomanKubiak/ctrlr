@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -33,7 +33,7 @@
                    juce_audio_processors, juce_audio_utils, juce_core,
                    juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra
- exporters:        xcode_mac, vs2017, linux_make, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, androidstudio, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -149,6 +149,8 @@ struct SineWaveVoice  : public SynthesiserVoice
         }
     }
 
+    using SynthesiserVoice::renderNextBlock;
+
 private:
     double currentAngle = 0.0, angleDelta = 0.0, level = 0.0, tailOff = 0.0;
 };
@@ -180,7 +182,7 @@ struct SynthAudioSource  : public AudioSource
     {
         WavAudioFormat wavFormat;
 
-        std::unique_ptr<AudioFormatReader> audioReader (wavFormat.createReaderFor (createAssetInputStream ("cello.wav"), true));
+        std::unique_ptr<AudioFormatReader> audioReader (wavFormat.createReaderFor (createAssetInputStream ("cello.wav").release(), true));
 
         BigInteger allNotes;
         allNotes.setRange (0, 128, true);
@@ -270,16 +272,16 @@ public:
        #endif
 
         audioDeviceManager.addAudioCallback (&audioSourcePlayer);
-        audioDeviceManager.addMidiInputCallback ({}, &(synthAudioSource.midiCollector));
+        audioDeviceManager.addMidiInputDeviceCallback ({}, &(synthAudioSource.midiCollector));
 
         setOpaque (true);
         setSize (640, 480);
     }
 
-    ~AudioSynthesiserDemo()
+    ~AudioSynthesiserDemo() override
     {
         audioSourcePlayer.setSource (nullptr);
-        audioDeviceManager.removeMidiInputCallback ({}, &(synthAudioSource.midiCollector));
+        audioDeviceManager.removeMidiInputDeviceCallback ({}, &(synthAudioSource.midiCollector));
         audioDeviceManager.removeAudioCallback (&audioSourcePlayer);
         audioDeviceManager.removeAudioCallback (&liveAudioDisplayComp);
     }

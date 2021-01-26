@@ -12,6 +12,7 @@
 #pragma warning(disable:4100)
 #pragma warning(disable:4244)
 #pragma warning(disable:4297)
+#pragma warning(disable:4505)
 #endif
 
 #define CTRLR_PANEL_SCHEME				4
@@ -61,8 +62,8 @@
 #define COLOUR2STR(x)											x.toString()
 #define BIN2STR(x)                                              String(BinaryData::x, BinaryData::x ## Size)
 #define STR2LUASTR(x)											x.toUTF8().getAddress()
-#define XML2STR(x)												ScopedPointer <XmlElement> (x.createXml())->createDocument(String::empty)
-#define DUMPTREE(x,y)                                           ScopedPointer <XmlElement> (x.createXml())->createDocument(String::empty).substring(0,y)
+#define XML2STR(x)												ScopedPointer <XmlElement> (x.createXml().release())->createDocument("")
+#define DUMPTREE(x,y)                                           ScopedPointer <XmlElement> (x.createXml().release())->createDocument("").substring(0,y)
 #define STR2FONT(x)												getFontManager().getFontFromString(x)
 #define STR2FONTM(m,x)											m.getFontFromString(x)
 #define FONT2STR(x)												getFontManager().getStringFromFont(x)
@@ -201,7 +202,7 @@ class DragAndDropSourceDetails
 
 		DragAndDropSourceDetails (const String &_description, Component *_sourceComponent, int _localPositionX, int _localPositionY)
 			: description(_description), sourceComponent(_sourceComponent), localPositionX(_localPositionX), localPositionY(_localPositionY),
-				dragImage(Image::null), imageOffsetX(-1), imageOffsetY(-1)
+				dragImage(Image()), imageOffsetX(-1), imageOffsetY(-1)
 		{
 		}
 
@@ -211,7 +212,7 @@ class DragAndDropSourceDetails
 		}
 
 		DragAndDropSourceDetails ()
-			: dragImage(Image::null), imageOffsetX(-1), imageOffsetY(-1),
+			: dragImage(Image()), imageOffsetX(-1), imageOffsetY(-1),
 				sourceComponent(nullptr), localPositionX(-1), localPositionY(-1)
 		{
 		}

@@ -5,7 +5,7 @@
 CtrlrMIDICalculator::CtrlrMIDICalculator (CtrlrManager &_owner)
     : owner(_owner)
 {
-    addAndMakeVisible (hexDisplay = new TextEditor (String::empty));
+    addAndMakeVisible (hexDisplay = new TextEditor (""));
     hexDisplay->setMultiLine (false);
     hexDisplay->setReturnKeyStartsNewLine (false);
     hexDisplay->setReadOnly (false);
@@ -30,7 +30,7 @@ CtrlrMIDICalculator::CtrlrMIDICalculator (CtrlrManager &_owner)
     label2->setColour (TextEditor::textColourId, Colours::black);
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (binDisplay = new TextEditor (String::empty));
+    addAndMakeVisible (binDisplay = new TextEditor (""));
     binDisplay->setMultiLine (true);
     binDisplay->setReturnKeyStartsNewLine (false);
     binDisplay->setReadOnly (false);
@@ -47,16 +47,16 @@ CtrlrMIDICalculator::CtrlrMIDICalculator (CtrlrManager &_owner)
     label3->setColour (TextEditor::textColourId, Colours::black);
     label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (decDisplay = new TextEditor (String::empty));
+    addAndMakeVisible (decDisplay = new TextEditor (""));
     decDisplay->setMultiLine (false);
     decDisplay->setReturnKeyStartsNewLine (false);
     decDisplay->setReadOnly (false);
     decDisplay->setScrollbarsShown (true);
     decDisplay->setCaretVisible (true);
     decDisplay->setPopupMenuEnabled (true);
-    decDisplay->setText (String::empty);
+    decDisplay->setText ("");
 
-    addAndMakeVisible (hexFormat = new ComboBox (String::empty));
+    addAndMakeVisible (hexFormat = new ComboBox (""));
     hexFormat->setEditableText (false);
     hexFormat->setJustificationType (Justification::centredLeft);
     hexFormat->setTextWhenNothingSelected ("Plain text");
@@ -66,7 +66,7 @@ CtrlrMIDICalculator::CtrlrMIDICalculator (CtrlrManager &_owner)
     hexFormat->addItem ("HEX string format", 3);
     hexFormat->addListener (this);
 
-    addAndMakeVisible (bit16Switch = new ToggleButton (String::empty));
+    addAndMakeVisible (bit16Switch = new ToggleButton (""));
     bit16Switch->setButtonText ("16bit");
     bit16Switch->addListener (this);
 

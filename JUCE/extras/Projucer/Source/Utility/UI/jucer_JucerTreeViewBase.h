@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -45,6 +44,8 @@ public:
     void itemClicked (const MouseEvent& e) override;
     void itemSelectionChanged (bool isNowSelected) override;
     void itemDoubleClicked (const MouseEvent&) override;
+    Component* createItemComponent() override;
+    String getTooltip() override    { return {}; }
 
     void cancelDelayedSelectionTimer();
 
@@ -59,12 +60,11 @@ public:
     virtual Icon getIcon() const = 0;
     virtual bool isIconCrossedOut() const                         { return false; }
     virtual void paintIcon (Graphics& g, Rectangle<float> area);
-    virtual void paintContent (Graphics& g, const Rectangle<int>& area);
+    virtual void paintContent (Graphics& g, Rectangle<int> area);
     virtual int getRightHandButtonSpace() { return 0; }
     virtual Colour getContentColour (bool isIcon) const;
     virtual int getMillisecsAllowedForDragGesture()               { return 120; }
     virtual File getDraggableFile() const                         { return {}; }
-    virtual Component* createItemComponent() override;
 
     void refreshSubItems();
     virtual void deleteItem();
@@ -78,8 +78,6 @@ public:
     virtual void showAddMenu();
     virtual void handlePopupMenuResult (int resultCode);
     virtual void setSearchFilter (const String&) {}
-
-    String getTooltip() override    { return {}; }
 
     //==============================================================================
     // To handle situations where an item gets deleted before openness is
@@ -216,7 +214,7 @@ public:
         auto bounds = getLocalBounds().toFloat();
         auto iconBounds = bounds.removeFromLeft ((float) iconWidth).reduced (7, 5);
 
-        bounds.removeFromRight (buttons.size() * bounds.getHeight());
+        bounds.removeFromRight ((float) buttons.size() * bounds.getHeight());
 
         item.paintIcon    (g, iconBounds);
         item.paintContent (g, bounds.toNearestInt());

@@ -9,7 +9,7 @@ CtrlrIDManager::CtrlrIDManager() : ctrlrIdTree(Ids::ctrlr)
 	XmlDocument vendorsDoc (String (BinaryData::CtrlrMIDIVendors_xml, BinaryData::CtrlrMIDIVendors_xmlSize));
 
 	{
-		ScopedPointer <XmlElement> xml (contstantsDoc.getDocumentElement());
+		ScopedPointer <XmlElement> xml (contstantsDoc.getDocumentElement().release());
 		if (xml)
 		{
 			ctrlrIdTree = ValueTree::fromXml (*xml);
@@ -20,7 +20,7 @@ CtrlrIDManager::CtrlrIDManager() : ctrlrIdTree(Ids::ctrlr)
 	}
 
 	{
-		ScopedPointer <XmlElement> xml (vendorsDoc.getDocumentElement());
+		ScopedPointer <XmlElement> xml (vendorsDoc.getDocumentElement().release());
 		if (xml)
 		{
 			vendorTree = ValueTree::fromXml (*xml);

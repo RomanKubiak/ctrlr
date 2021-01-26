@@ -20,7 +20,7 @@ CtrlrLuaMethodManager::CtrlrLuaMethodManager(CtrlrLuaManager &_owner)
 {
 	XmlDocument methodsDocument(String(BinaryData::CtrlrLuaMethodTemplates_xml, BinaryData::CtrlrLuaMethodTemplates_xmlSize));
 
-	ScopedPointer <XmlElement> methodsXml (methodsDocument.getDocumentElement());
+	ScopedPointer <XmlElement> methodsXml (methodsDocument.getDocumentElement().release());
 
 	if (methodsXml)
 	{
@@ -83,7 +83,7 @@ String CtrlrLuaMethodManager::getUtilityName(const int index)
 	if (utilityXml)
 	{
 		if (utilityXml->hasTagName ("utility"))
-			return (utilityXml->getStringAttribute ("name", String::empty));
+			return (utilityXml->getStringAttribute ("name", ""));
 	}
 
 	return ("UNKNOWN");
@@ -109,10 +109,10 @@ String CtrlrLuaMethodManager::getUtilityDescription(const int index)
 	if (utilityXml)
 	{
 		if (utilityXml->hasTagName ("utility"))
-			return (utilityXml->getStringAttribute ("description", String::empty));
+			return (utilityXml->getStringAttribute ("description", ""));
 	}
 
-	return (String::empty);
+	return ("");
 }
 
 String CtrlrLuaMethodManager::getUtilityUuid(const int index)
@@ -122,10 +122,10 @@ String CtrlrLuaMethodManager::getUtilityUuid(const int index)
 	if (utilityXml)
 	{
 		if (utilityXml->hasTagName ("utility"))
-			return (utilityXml->getStringAttribute ("uuid", String::empty));
+			return (utilityXml->getStringAttribute ("uuid", ""));
 	}
 
-	return (String::empty);
+	return ("");
 }
 
 bool CtrlrLuaMethodManager::isLuaDisabled()
@@ -400,7 +400,7 @@ ValueTree CtrlrLuaMethodManager::findGroupRecursive(ValueTree treeToSearch, cons
 
 const String CtrlrLuaMethodManager::cleanupMethod(XmlElement *methodElement, const String &methodName)
 {
-    String methodCode = String::empty;
+    String methodCode = "";
     String value;
     StringArray lines;
 
@@ -418,7 +418,7 @@ const String CtrlrLuaMethodManager::cleanupMethod(XmlElement *methodElement, con
     else
     {
         methodCode = methodElement->getAllSubText();
-        lines.addTokens (methodCode, "\n", String::empty);
+        lines.addTokens (methodCode, "\n", "");
 
         for (int i=0; i<lines.size(); i++)
         {
@@ -450,7 +450,7 @@ const String CtrlrLuaMethodManager::getTemplateForProperty(const String &methodN
 	}
 
 	_ERR("CtrlrLuaMethodManager::getTemplateForProperty failed to find template for this method \""+methodName+"\" propertyName \""+propertyName+"\"");
-	return (String::empty);
+	return ("");
 }
 
 const StringArray CtrlrLuaMethodManager::getMethodList()
@@ -473,7 +473,7 @@ const StringArray CtrlrLuaMethodManager::getTemplateList()
 	{
 		if (el->hasTagName(Ids::luaMethod.toString()))
 		{
-			ret.add (el->getStringAttribute ("name", String::empty));
+			ret.add (el->getStringAttribute ("name", ""));
 		}
 	}
 
@@ -512,7 +512,7 @@ ValueTree CtrlrLuaMethodManager::getDefaultMethodTree(const File &methodFileSour
 {
 	ValueTree methodTree (Ids::luaMethod);
 	methodTree.setProperty (Ids::luaMethodName, methodFileSource.getFileNameWithoutExtension(), nullptr);
-	
+
 	File panelLuaDir = getOwner().getOwner().getPanelLuaDir();
 	if (panelLuaDir.exists() && panelLuaDir.isDirectory() && methodFileSource.isAChildOf(panelLuaDir))
 	{	// Try and get realtive path
@@ -600,7 +600,7 @@ ValueTree CtrlrLuaMethodManager::getGroupByName(const String &groupName)
 		}
 	}
 
-	return (ValueTree::invalid);
+	return (ValueTree());
 }
 
 const bool CtrlrLuaMethodManager::attachDefaultGroups()
@@ -624,7 +624,7 @@ void CtrlrLuaMethodManager::wrapUtilities()
 
 		for (int i=0; i<getNumUtilities(); i++)
 		{
-			addMethod (getGroupByName("Built-In"), getUtilityName(i), getUtilityCode(i).trim(), String::empty, getUtilityUuid(i), getUtilityAlwaysUpdate(i));
+			addMethod (getGroupByName("Built-In"), getUtilityName(i), getUtilityCode(i).trim(), "", getUtilityUuid(i), getUtilityAlwaysUpdate(i));
 		}
 	}
 }

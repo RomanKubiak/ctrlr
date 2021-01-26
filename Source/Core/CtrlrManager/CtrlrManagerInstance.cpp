@@ -209,7 +209,7 @@ XmlElement *CtrlrManager::saveState()
 				}
 			}
 		}
-		return (managerTree.createXml());
+		return (managerTree.createXml().release());
 	}
 	else
 	{
@@ -220,7 +220,7 @@ XmlElement *CtrlrManager::saveState()
 			restoreProperties (getActivePanel()->getPanelTree(), program, 0, "panelMidi");
 			restoreProperties (getActivePanel()->getPanelTree(), program, 0, Ids::panelCustomData.toString());
 			program.addChild (getActivePanel()->getCustomData(),-1,nullptr);
-			return (program.createXml());
+			return (program.createXml().release());
 		}
 		return (nullptr);
 	}

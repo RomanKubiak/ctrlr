@@ -21,7 +21,7 @@ CtrlrMIDIMon::CtrlrMIDIMon (CtrlrManager &_owner)
 	layoutManager.setItemLayout (0, -0.001, -1.0, -0.49);
  	layoutManager.setItemLayout (1, -0.001, -0.01, -0.01);
  	layoutManager.setItemLayout (2, -0.001, -1.0, -0.49);
-	
+
 	owner.getCtrlrLog().addListener (this);
 
 	inMon->setFont ( Font(owner.getFontManager().getDefaultMonoFontName(), 12, Font::plain) );
@@ -63,7 +63,7 @@ void CtrlrMIDIMon::messageLogged (CtrlrLog::CtrlrLogMessage _message)
 	if (message.level == CtrlrLog::MidiIn)
 	{
 		if (inputDocument.getAllContent().length() > (int)owner.getProperty(Ids::ctrlrMidiMonInputBufferSize))
-			inputDocument.replaceAllContent(String::empty);
+			inputDocument.replaceAllContent("");
 
 		inMon->insertTextAtCaret (CtrlrLog::formatMessage(message, false, true) + "\n");
 	}
@@ -71,7 +71,7 @@ void CtrlrMIDIMon::messageLogged (CtrlrLog::CtrlrLogMessage _message)
 	if (message.level == CtrlrLog::MidiOut)
 	{
 		if (outputDocument.getAllContent().length() > (int)owner.getProperty(Ids::ctrlrMidiMonOutputBufferSize))
-			outputDocument.replaceAllContent(String::empty);
+			outputDocument.replaceAllContent("");
 
 		outMon->insertTextAtCaret (CtrlrLog::formatMessage(message, false, true) + "\n");
 	}

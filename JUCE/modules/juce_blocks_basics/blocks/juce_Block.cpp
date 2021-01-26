@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -27,7 +27,7 @@ static Block::UID getBlockUIDFromSerialNumber (const uint8* serial) noexcept
 {
     Block::UID n = {};
 
-    for (int i = 0; i < (int) sizeof (BlocksProtocol::BlockSerialNumber); ++i)
+    for (int i = 0; i < int (BlocksProtocol::BlockSerialNumber::maxLength); ++i)
         n += n * 127 + serial[i];
 
     return n;
@@ -35,26 +35,26 @@ static Block::UID getBlockUIDFromSerialNumber (const uint8* serial) noexcept
 
 static Block::UID getBlockUIDFromSerialNumber (const BlocksProtocol::BlockSerialNumber& serial) noexcept
 {
-    return getBlockUIDFromSerialNumber (serial.serial);
+    return getBlockUIDFromSerialNumber (serial.data);
 }
 
-static Block::UID getBlockUIDFromSerialNumber (const juce::String& serial) noexcept
+static Block::UID getBlockUIDFromSerialNumber (const String& serial) noexcept
 {
-    if (serial.length() < (int) sizeof (BlocksProtocol::BlockSerialNumber))
+    if (serial.length() < int (BlocksProtocol::BlockSerialNumber::maxLength))
     {
         jassertfalse;
-        return getBlockUIDFromSerialNumber (serial.paddedRight ('0', sizeof (BlocksProtocol::BlockSerialNumber)));
+        return getBlockUIDFromSerialNumber (serial.paddedRight ('0', BlocksProtocol::BlockSerialNumber::maxLength));
     }
 
     return getBlockUIDFromSerialNumber ((const uint8*) serial.toRawUTF8());
 }
 
-Block::Block (const juce::String& serial)
+Block::Block (const String& serial)
    : serialNumber (serial), uid (getBlockUIDFromSerialNumber (serial))
 {
 }
 
-Block::Block (const juce::String& serial, const juce::String& version, const juce::String& blockName)
+Block::Block (const String& serial, const String& version, const String& blockName)
    : serialNumber (serial), versionNumber (version), name (blockName), uid (getBlockUIDFromSerialNumber (serial))
 {
 }
@@ -74,8 +74,14 @@ bool Block::isControlBlock (Block::Type type)
         || type == Block::Type::developerControlBlock;
 }
 
+void Block::addProgramLoadedListener (ProgramLoadedListener* listener)      { programLoadedListeners.add (listener); }
+void Block::removeProgramLoadedListener (ProgramLoadedListener* listener)   { programLoadedListeners.remove (listener); }
+
 void Block::addDataInputPortListener (DataInputPortListener* listener)      { dataInputPortListeners.add (listener); }
 void Block::removeDataInputPortListener (DataInputPortListener* listener)   { dataInputPortListeners.remove (listener); }
+
+void Block::addConfigItemListener (ConfigItemListener* listener)            { configItemListeners.add (listener); }
+void Block::removeConfigItemListener (ConfigItemListener* listener)         { configItemListeners.remove (listener); }
 
 void Block::addProgramEventListener (ProgramEventListener* listener)        { programEventListeners.add (listener); }
 void Block::removeProgramEventListener (ProgramEventListener* listener)     { programEventListeners.remove (listener); }
@@ -85,7 +91,6 @@ bool Block::ConnectionPort::operator== (const ConnectionPort& other) const noexc
 bool Block::ConnectionPort::operator!= (const ConnectionPort& other) const noexcept { return ! operator== (other); }
 
 Block::Program::Program (Block& b) : block (b) {}
-Block::Program::~Program() {}
 
 //==============================================================================
 TouchSurface::TouchSurface (Block& b) : block (b) {}

@@ -30,7 +30,7 @@ CtrlrProcessor::CtrlrProcessor() : overridesTree(Ids::ctrlrOverrides), ctrlrMana
 
 	if (overridesFile.existsAsFile())
 	{
-		ScopedPointer <XmlElement> xml (XmlDocument(overridesFile).getDocumentElement());
+		ScopedPointer <XmlElement> xml (XmlDocument(overridesFile).getDocumentElement().release());
 		if (xml)
 		{
 			overridesTree = ValueTree::fromXml (*xml);
@@ -458,7 +458,7 @@ void CtrlrProcessor::removePanelProcessor (CtrlrPanelProcessor *processorToRemov
 
 void CtrlrProcessor::copyXmlToBinary (const XmlElement& xml, juce::MemoryBlock& destData)
 {
-    const String xmlString (xml.createDocument (String::empty, true, false));
+    const String xmlString (xml.createDocument ("", true, false));
     const int stringLength = (int)xmlString.getNumBytesAsUTF8();
 
     destData.setSize ((size_t) stringLength + 10);
@@ -479,7 +479,7 @@ XmlElement* CtrlrProcessor::getXmlFromBinary (const void* data, const int sizeIn
 
         if (stringLength > 0)
             return XmlDocument::parse (String::fromUTF8 (static_cast<const char*> (data) + 8,
-                                                         jmin ((sizeInBytes - 8), stringLength)));
+                                                         jmin ((sizeInBytes - 8), stringLength))).release();
     }
 
     return nullptr;

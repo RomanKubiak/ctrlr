@@ -43,26 +43,26 @@ CtrlrLuaMethodCodeEditorSettings::CtrlrLuaMethodCodeEditorSettings (CtrlrLuaMeth
       bgColour (0),
       fontTest (0)
 {
-    addAndMakeVisible (fontTypeface = new ComboBox (String::empty));
+    addAndMakeVisible (fontTypeface = new ComboBox (""));
     fontTypeface->setEditableText (false);
     fontTypeface->setJustificationType (Justification::centredLeft);
-    fontTypeface->setTextWhenNothingSelected (String::empty);
+    fontTypeface->setTextWhenNothingSelected ("");
     fontTypeface->setTextWhenNoChoicesAvailable (L"(no choices)");
     fontTypeface->addListener (this);
 
-    addAndMakeVisible (fontBold = new ToggleButton (String::empty));
+    addAndMakeVisible (fontBold = new ToggleButton (""));
     fontBold->setButtonText (L"Bold");
     fontBold->addListener (this);
 
-    addAndMakeVisible (fontUnderline = new ToggleButton (String::empty));
+    addAndMakeVisible (fontUnderline = new ToggleButton (""));
     fontUnderline->setButtonText (L"Underline");
     fontUnderline->addListener (this);
 
-    addAndMakeVisible (fontItalic = new ToggleButton (String::empty));
+    addAndMakeVisible (fontItalic = new ToggleButton (""));
     fontItalic->setButtonText (L"Italic");
     fontItalic->addListener (this);
 
-    addAndMakeVisible (fontSize = new Slider (String::empty));
+    addAndMakeVisible (fontSize = new Slider (""));
     fontSize->setRange (0, 128, 1);
     fontSize->setSliderStyle (Slider::IncDecButtons);
     fontSize->setTextBoxStyle (Slider::TextBoxLeft, false, 32, 24);

@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -40,7 +39,7 @@ struct JUCE_API  ExtraLookAndFeelBaseClasses
     /** This abstract base class is implemented by LookAndFeel classes. */
     struct JUCE_API  LassoComponentMethods
     {
-        virtual ~LassoComponentMethods() {}
+        virtual ~LassoComponentMethods() = default;
 
         virtual void drawLasso (Graphics&, Component& lassoComp) = 0;
     };
@@ -49,7 +48,7 @@ struct JUCE_API  ExtraLookAndFeelBaseClasses
     /** This abstract base class is implemented by LookAndFeel classes. */
     struct JUCE_API  KeyMappingEditorComponentMethods
     {
-        virtual ~KeyMappingEditorComponentMethods() {}
+        virtual ~KeyMappingEditorComponentMethods() = default;
 
         virtual void drawKeymapChangeButton (Graphics&, int width, int height, Button&, const String& keyDescription) = 0;
     };
@@ -58,7 +57,7 @@ struct JUCE_API  ExtraLookAndFeelBaseClasses
     /** This abstract base class is implemented by LookAndFeel classes. */
     struct JUCE_API  AudioDeviceSelectorComponentMethods
     {
-        virtual ~AudioDeviceSelectorComponentMethods() {}
+        virtual ~AudioDeviceSelectorComponentMethods() = default;
 
         virtual void drawLevelMeter (Graphics&, int width, int height, float level) = 0;
     };
@@ -113,7 +112,7 @@ public:
     LookAndFeel();
 
     /** Destructor. */
-    virtual ~LookAndFeel();
+    ~LookAndFeel() override;
 
     //==============================================================================
     /** Returns the current default look-and-feel for a component to use when it
@@ -196,9 +195,9 @@ public:
 
     //==============================================================================
     /** Creates a new graphics context object. */
-    virtual LowLevelGraphicsContext* createGraphicsContext (const Image& imageToRenderOn,
-                                                            const Point<int>& origin,
-                                                            const RectangleList<int>& initialClip);
+    virtual std::unique_ptr<LowLevelGraphicsContext> createGraphicsContext (const Image& imageToRenderOn,
+                                                                            Point<int> origin,
+                                                                            const RectangleList<int>& initialClip);
 
     void setUsingNativeAlertWindows (bool shouldUseNativeAlerts);
     bool isUsingNativeAlertWindows();

@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -31,7 +31,7 @@
 
  dependencies:     juce_core, juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics
- exporters:        xcode_mac, vs2017, linux_make, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, androidstudio, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -71,6 +71,10 @@ public:
 
     void paintItem (Graphics& g, int width, int height) override
     {
+        if (isSelected())
+            g.fillAll (getUIColourIfAvailable (LookAndFeel_V4::ColourScheme::UIColour::highlightedFill,
+                                               Colours::teal));
+
         g.setColour (getUIColourIfAvailable (LookAndFeel_V4::ColourScheme::UIColour::defaultText,
                                              Colours::black));
         g.setFont (15.0f);
@@ -199,7 +203,7 @@ public:
         setSize (500, 500);
     }
 
-    ~ValueTreesDemo()
+    ~ValueTreesDemo() override
     {
         tree.setRootItem (nullptr);
     }
@@ -233,7 +237,7 @@ public:
     {
         auto vt = createTree ("This demo displays a ValueTree as a treeview.");
         vt.appendChild (createTree ("You can drag around the nodes to rearrange them"),               nullptr);
-        vt.appendChild (createTree ("..and press 'delete' to delete them"),                           nullptr);
+        vt.appendChild (createTree ("..and press 'delete' or 'backspace' to delete them"),            nullptr);
         vt.appendChild (createTree ("Then, you can use the undo/redo buttons to undo these changes"), nullptr);
 
         int n = 1;
@@ -267,7 +271,7 @@ public:
 
     bool keyPressed (const KeyPress& key) override
     {
-        if (key == KeyPress::deleteKey)
+        if (key == KeyPress::deleteKey || key == KeyPress::backspaceKey)
         {
             deleteSelectedItems();
             return true;

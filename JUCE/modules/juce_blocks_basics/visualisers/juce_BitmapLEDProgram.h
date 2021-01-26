@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -36,7 +36,7 @@ struct BitmapLEDProgram   : public Block::Program
     void setLED (uint32 x, uint32 y, LEDColour);
 
 private:
-    juce::String getLittleFootProgram() override;
+    String getLittleFootProgram() override;
 };
 
 } // namespace juce

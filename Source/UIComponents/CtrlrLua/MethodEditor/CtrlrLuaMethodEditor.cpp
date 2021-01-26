@@ -22,7 +22,7 @@ CtrlrLuaMethodEditor::CtrlrLuaMethodEditor (CtrlrPanel &_owner)
 	  lookInString("Current"),
 	  searchInString("Editor"),
 	  findDialogActive(false),
-	  currentSearchString(String::empty)
+	  currentSearchString("")
 {
 	addAndMakeVisible (resizer			= new StretchableLayoutResizerBar (&layoutManager, 1, true));
 	addAndMakeVisible (methodTree		= new CtrlrValueTreeEditorTree ("LUA METHOD TREE", owner));
@@ -86,7 +86,7 @@ void CtrlrLuaMethodEditor::restoreState(const ValueTree &savedState)
 {
 	restoreProperties (savedState, componentTree, nullptr);
 
-	ScopedPointer <XmlElement> treeState(XmlDocument::parse (savedState.getProperty(Ids::luaMethodEditor).toString().upToLastOccurrenceOf(";", false, true)));
+	ScopedPointer <XmlElement> treeState(XmlDocument::parse (savedState.getProperty(Ids::luaMethodEditor).toString().upToLastOccurrenceOf(";", false, true)).release());
 
 	if (treeState)
 	{
@@ -94,7 +94,7 @@ void CtrlrLuaMethodEditor::restoreState(const ValueTree &savedState)
 	}
 
 	StringArray openedMethods;
-	openedMethods.addTokens (savedState.getProperty(Ids::luaMethodEditor).toString().fromLastOccurrenceOf(";", false, true), ":", String::empty);
+	openedMethods.addTokens (savedState.getProperty(Ids::luaMethodEditor).toString().fromLastOccurrenceOf(";", false, true), ":", "");
 
 	for (int i=0; i<openedMethods.size(); i++)
 	{
@@ -108,7 +108,7 @@ void CtrlrLuaMethodEditor::updateRootItem()
 {
 	if (methodTree->getRootItem())
 	{
-		ScopedPointer <XmlElement> state (methodTree->getOpennessState(true));
+		ScopedPointer <XmlElement> state (methodTree->getOpennessState(true).release());
 		methodTree->deleteRootItem();
 		methodTree->setRootItem (new CtrlrValueTreeEditorItem(*this, owner.getCtrlrLuaManager().getMethodManager().getManagerTree(), Ids::luaMethodName));
 		if (state)
@@ -259,7 +259,7 @@ CtrlrLuaMethod *CtrlrLuaMethodEditor::setEditedMethod (const Uuid &methodUuid)
 
 void CtrlrLuaMethodEditor::addNewMethod(ValueTree parentGroup)
 {
-	AlertWindow wnd(METHOD_NEW, String::empty, AlertWindow::InfoIcon, this);
+	AlertWindow wnd(METHOD_NEW, "", AlertWindow::InfoIcon, this);
 	wnd.addTextEditor ("methodName", "myNewMethod", "Method name", false);
 	wnd.addComboBox ("templateList", getMethodManager().getTemplateList(), "Initialize from template");
 
@@ -273,7 +273,7 @@ void CtrlrLuaMethodEditor::addNewMethod(ValueTree parentGroup)
 		{
 			const String initialCode = getMethodManager().getDefaultMethodCode(methodName, wnd.getComboBoxComponent("templateList")->getText());
 
-			getMethodManager().addMethod (parentGroup, wnd.getTextEditorContents("methodName"), initialCode, String::empty);
+			getMethodManager().addMethod (parentGroup, wnd.getTextEditorContents("methodName"), initialCode, "");
 		}
 		else
 		{
@@ -338,7 +338,7 @@ void CtrlrLuaMethodEditor::addMethodFromFile(ValueTree parentGroup)
 
 void CtrlrLuaMethodEditor::addNewGroup(ValueTree parentGroup)
 {
-	AlertWindow wnd(GROUP_NEW, String::empty, AlertWindow::InfoIcon, this);
+	AlertWindow wnd(GROUP_NEW, "", AlertWindow::InfoIcon, this);
 	wnd.addTextEditor ("groupName", "New Group", "Group name", false);
 	wnd.addButton ("OK", 1, KeyPress(KeyPress::returnKey));
 	wnd.addButton ("Cancel", 0, KeyPress(KeyPress::escapeKey));
@@ -668,7 +668,7 @@ void CtrlrLuaMethodEditor::saveSettings()
 
 	if (methodTree->getRootItem())
 	{
-		ScopedPointer <XmlElement> treeState(methodTree->getOpennessState(true));
+		ScopedPointer <XmlElement> treeState(methodTree->getOpennessState(true).release());
 
 		if (treeState)
 		{
@@ -1215,7 +1215,7 @@ const String CtrlrLuaMethodEditor::getCurrentDebuggerCommand(const bool clearThe
         return (methodEditArea->getLuaDebuggerPrompt()->getCurrentDebuggerCommand(clearTheReturnedCommand));
     }
 
-    return (String::empty);
+    return ("");
 }
 
 int CtrlrLuaMethodEditor::waitForCommand()

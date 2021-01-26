@@ -124,7 +124,7 @@ void CtrlrLogViewer::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 {
 	if (menuItemID == 2)
 	{
-		logDocument.replaceAllContent(String::empty);
+		logDocument.replaceAllContent("");
 	}
 	if (menuItemID == 1)
 	{

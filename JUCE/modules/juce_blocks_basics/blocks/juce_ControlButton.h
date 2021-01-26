@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -91,17 +91,17 @@ public:
     virtual ButtonFunction getType() const = 0;
 
     /** Returns the button's description. */
-    virtual juce::String getName() const = 0;
+    virtual String getName() const = 0;
 
     /** Returns the position of this button on the device, in device units.
         For buttons that are on the side of the device, this may want to return a value that
-        is beyond the phyiscal block size.
+        is beyond the physical block size.
     */
     virtual float getPositionX() const = 0;
 
     /** Returns the position of this button on the device, in device units.
         For buttons that are on the side of the device, this may want to return a value that
-        is beyond the phyiscal block size.
+        is beyond the physical block size.
     */
     virtual float getPositionY() const = 0;
 
@@ -133,7 +133,7 @@ public:
     Block& block;
 
 protected:
-    juce::ListenerList<Listener> listeners;
+    ListenerList<Listener> listeners;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ControlButton)
 };

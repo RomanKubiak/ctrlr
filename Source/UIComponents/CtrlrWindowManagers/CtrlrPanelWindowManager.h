@@ -35,7 +35,7 @@ class CtrlrPanelWindowManager : public CtrlrWindowManager
 
 	private:
 		CtrlrChildWindow *getWindow(const CtrlrPanelWindowManager::WindowType window, const bool createIfNeeded=true);
-		void create(const CtrlrPanelWindowManager::WindowType window, const String &lastWindowState=String::empty);
+		void create(const CtrlrPanelWindowManager::WindowType window, const String &lastWindowState="");
 		void create(const ValueTree &windowState);
 		CtrlrChildWindow *createWindow(const CtrlrPanelWindowManager::WindowType window);
 		CtrlrPanel &owner;

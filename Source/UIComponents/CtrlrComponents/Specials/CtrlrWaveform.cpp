@@ -145,7 +145,7 @@ void CtrlrWaveform::handlePopupMenu (const int popupMenuItem)
 			if (format != nullptr)
 			{
 				{
-					ScopedPointer <AudioFormatWriter> writer (format->createWriterFor (outputFile.createOutputStream(),
+					ScopedPointer <AudioFormatWriter> writer (format->createWriterFor (outputFile.createOutputStream().get(),
 																						currentSampleRate,
 																						audioThumbnail->getNumChannels(),
 																						32,
@@ -298,7 +298,7 @@ void CtrlrWaveform::addBlock (double sampleNumberInsource, const AudioSampleBuff
 
 void CtrlrWaveform::reset (int numChannels, double sampleRate, double totalSamplesInSource)
 {
-	currentFile			= File::nonexistent;
+	currentFile			= File();
 	currentSampleRate	= sampleRate;
 
 	audioBufferCopy		= AudioSampleBuffer (numChannels, totalSamplesInSource);

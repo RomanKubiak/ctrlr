@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -27,10 +26,7 @@
 namespace juce
 {
 
-#if JUCE_MSVC
- #pragma warning (push)
- #pragma warning (disable: 4127) // "expression is constant" warning
-#endif
+JUCE_BEGIN_IGNORE_WARNINGS_MSVC (4127)
 
 namespace RenderingHelpers
 {
@@ -43,14 +39,10 @@ namespace RenderingHelpers
 class TranslationOrTransform
 {
 public:
-    TranslationOrTransform() noexcept {}
+    TranslationOrTransform() = default;
     TranslationOrTransform (Point<int> origin) noexcept  : offset (origin) {}
 
-    TranslationOrTransform (const TranslationOrTransform& other) noexcept
-        : complexTransform (other.complexTransform), offset (other.offset),
-          isOnlyTranslated (other.isOnlyTranslated), isRotated (other.isRotated)
-    {
-    }
+    TranslationOrTransform (const TranslationOrTransform& other) = default;
 
     AffineTransform getTransform() const noexcept
     {
@@ -100,7 +92,7 @@ public:
 
     float getPhysicalPixelScaleFactor() const noexcept
     {
-        return isOnlyTranslated ? 1.0f : std::abs (complexTransform.getScaleFactor());
+        return isOnlyTranslated ? 1.0f : std::sqrt (std::abs (complexTransform.getDeterminant()));
     }
 
     void moveOriginInDeviceSpace (Point<int> delta) noexcept
@@ -156,7 +148,7 @@ public:
         reset();
     }
 
-    ~GlyphCache()
+    ~GlyphCache() override
     {
         getSingletonPointer() = nullptr;
     }
@@ -283,7 +275,7 @@ template <class RendererType>
 class CachedGlyphEdgeTable  : public ReferenceCountedObject
 {
 public:
-    CachedGlyphEdgeTable() {}
+    CachedGlyphEdgeTable() = default;
 
     void draw (RendererType& state, Point<float> pos) const
     {
@@ -581,18 +573,10 @@ namespace EdgeTableFillers
             : destData (image), sourceColour (colour)
         {
             if (sizeof (PixelType) == 3 && (size_t) destData.pixelStride == sizeof (PixelType))
-            {
                 areRGBComponentsEqual = sourceColour.getRed() == sourceColour.getGreen()
                                             && sourceColour.getGreen() == sourceColour.getBlue();
-                filler[0].set (sourceColour);
-                filler[1].set (sourceColour);
-                filler[2].set (sourceColour);
-                filler[3].set (sourceColour);
-            }
             else
-            {
                 areRGBComponentsEqual = false;
-            }
         }
 
         forcedinline void setEdgeTableYPos (int y) noexcept
@@ -674,7 +658,6 @@ namespace EdgeTableFillers
         const Image::BitmapData& destData;
         PixelType* linePixels;
         PixelARGB sourceColour;
-        PixelRGB filler[4];
         bool areRGBComponentsEqual;
 
         forcedinline PixelType* getPixel (int x) const noexcept
@@ -689,47 +672,10 @@ namespace EdgeTableFillers
 
         forcedinline void replaceLine (PixelRGB* dest, PixelARGB colour, int width) const noexcept
         {
-            if ((size_t) destData.pixelStride == sizeof (*dest))
-            {
-                if (areRGBComponentsEqual)  // if all the component values are the same, we can cheat..
-                {
-                    memset ((void*) dest, colour.getRed(), (size_t) width * 3);
-                }
-                else
-                {
-                    if (width >> 5)
-                    {
-                        auto intFiller = reinterpret_cast<const int*> (filler);
-
-                        while (width > 8 && (((pointer_sized_int) dest) & 7) != 0)
-                        {
-                            dest->set (colour);
-                            ++dest;
-                            --width;
-                        }
-
-                        while (width > 4)
-                        {
-                            auto d = reinterpret_cast<int*> (dest);
-                            *d++ = intFiller[0];
-                            *d++ = intFiller[1];
-                            *d++ = intFiller[2];
-                            dest = reinterpret_cast<PixelRGB*> (d);
-                            width -= 4;
-                        }
-                    }
-
-                    while (--width >= 0)
-                    {
-                        dest->set (colour);
-                        ++dest;
-                    }
-                }
-            }
+            if ((size_t) destData.pixelStride == sizeof (*dest) && areRGBComponentsEqual)
+                memset ((void*) dest, colour.getRed(), (size_t) width * 3);   // if all the component values are the same, we can cheat..
             else
-            {
-                JUCE_PERFORM_PIXEL_OP_LOOP (set (colour))
-            }
+                JUCE_PERFORM_PIXEL_OP_LOOP (set (colour));
         }
 
         forcedinline void replaceLine (PixelAlpha* dest, const PixelARGB colour, int width) const noexcept
@@ -1397,7 +1343,7 @@ namespace EdgeTableFillers
         private:
             struct BresenhamInterpolator
             {
-                BresenhamInterpolator() noexcept {}
+                BresenhamInterpolator() = default;
 
                 void set (int n1, int n2, int steps, int offsetInt) noexcept
                 {
@@ -1476,6 +1422,8 @@ namespace EdgeTableFillers
                 if (tiledFill)  { TransformedImageFill<PixelARGB, PixelRGB, true>  r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 else            { TransformedImageFill<PixelARGB, PixelRGB, false> r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 break;
+            case Image::SingleChannel:
+            case Image::UnknownFormat:
             default:
                 if (tiledFill)  { TransformedImageFill<PixelARGB, PixelAlpha, true>  r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 else            { TransformedImageFill<PixelARGB, PixelAlpha, false> r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
@@ -1484,6 +1432,7 @@ namespace EdgeTableFillers
             break;
 
         case Image::RGB:
+        {
             switch (srcData.pixelFormat)
             {
             case Image::ARGB:
@@ -1494,13 +1443,18 @@ namespace EdgeTableFillers
                 if (tiledFill)  { TransformedImageFill<PixelRGB, PixelRGB, true>  r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 else            { TransformedImageFill<PixelRGB, PixelRGB, false> r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 break;
+            case Image::SingleChannel:
+            case Image::UnknownFormat:
             default:
                 if (tiledFill)  { TransformedImageFill<PixelRGB, PixelAlpha, true>  r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 else            { TransformedImageFill<PixelRGB, PixelAlpha, false> r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 break;
             }
             break;
+        }
 
+        case Image::SingleChannel:
+        case Image::UnknownFormat:
         default:
             switch (srcData.pixelFormat)
             {
@@ -1512,6 +1466,8 @@ namespace EdgeTableFillers
                 if (tiledFill)  { TransformedImageFill<PixelAlpha, PixelRGB, true>  r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 else            { TransformedImageFill<PixelAlpha, PixelRGB, false> r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 break;
+            case Image::SingleChannel:
+            case Image::UnknownFormat:
             default:
                 if (tiledFill)  { TransformedImageFill<PixelAlpha, PixelAlpha, true>  r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
                 else            { TransformedImageFill<PixelAlpha, PixelAlpha, false> r (destData, srcData, transform, alpha, quality); iter.iterate (r); }
@@ -1537,6 +1493,8 @@ namespace EdgeTableFillers
                 if (tiledFill)  { ImageFill<PixelARGB, PixelRGB, true>  r (destData, srcData, alpha, x, y); iter.iterate (r); }
                 else            { ImageFill<PixelARGB, PixelRGB, false> r (destData, srcData, alpha, x, y); iter.iterate (r); }
                 break;
+            case Image::SingleChannel:
+            case Image::UnknownFormat:
             default:
                 if (tiledFill)  { ImageFill<PixelARGB, PixelAlpha, true>  r (destData, srcData, alpha, x, y); iter.iterate (r); }
                 else            { ImageFill<PixelARGB, PixelAlpha, false> r (destData, srcData, alpha, x, y); iter.iterate (r); }
@@ -1555,6 +1513,8 @@ namespace EdgeTableFillers
                 if (tiledFill)  { ImageFill<PixelRGB, PixelRGB, true>  r (destData, srcData, alpha, x, y); iter.iterate (r); }
                 else            { ImageFill<PixelRGB, PixelRGB, false> r (destData, srcData, alpha, x, y); iter.iterate (r); }
                 break;
+            case Image::SingleChannel:
+            case Image::UnknownFormat:
             default:
                 if (tiledFill)  { ImageFill<PixelRGB, PixelAlpha, true>  r (destData, srcData, alpha, x, y); iter.iterate (r); }
                 else            { ImageFill<PixelRGB, PixelAlpha, false> r (destData, srcData, alpha, x, y); iter.iterate (r); }
@@ -1562,6 +1522,8 @@ namespace EdgeTableFillers
             }
             break;
 
+        case Image::SingleChannel:
+        case Image::UnknownFormat:
         default:
             switch (srcData.pixelFormat)
             {
@@ -1573,6 +1535,8 @@ namespace EdgeTableFillers
                 if (tiledFill)  { ImageFill<PixelAlpha, PixelRGB, true>    r (destData, srcData, alpha, x, y); iter.iterate (r); }
                 else            { ImageFill<PixelAlpha, PixelRGB, false>   r (destData, srcData, alpha, x, y); iter.iterate (r); }
                 break;
+            case Image::SingleChannel:
+            case Image::UnknownFormat:
             default:
                 if (tiledFill)  { ImageFill<PixelAlpha, PixelAlpha, true>  r (destData, srcData, alpha, x, y); iter.iterate (r); }
                 else            { ImageFill<PixelAlpha, PixelAlpha, false> r (destData, srcData, alpha, x, y); iter.iterate (r); }
@@ -1628,8 +1592,8 @@ struct ClipRegions
 {
     struct Base  : public SingleThreadedReferenceCountedObject
     {
-        Base() {}
-        virtual ~Base() {}
+        Base() = default;
+        ~Base() override = default;
 
         using Ptr = ReferenceCountedObjectPtr<Base>;
 
@@ -2070,7 +2034,7 @@ struct ClipRegions
 
         Ptr toEdgeTable() const   { return *new EdgeTableRegion (clip); }
 
-        RectangleListRegion& operator= (const RectangleListRegion&);
+        RectangleListRegion& operator= (const RectangleListRegion&) = delete;
     };
 };
 
@@ -2528,10 +2492,7 @@ public:
     {
     }
 
-    SoftwareRendererSavedState (const SoftwareRendererSavedState& other)
-        : BaseClass (other), image (other.image), font (other.font)
-    {
-    }
+    SoftwareRendererSavedState (const SoftwareRendererSavedState& other) = default;
 
     SoftwareRendererSavedState* beginTransparencyLayer (float opacity)
     {
@@ -2557,7 +2518,7 @@ public:
         {
             auto layerBounds = clip->getClipBounds();
 
-            const std::unique_ptr<LowLevelGraphicsContext> g (image.createLowLevelContext());
+            auto g = image.createLowLevelContext();
             g->setOpacity (finishedLayerState.transparencyLayerAlpha);
             g->drawImage (finishedLayerState.image, AffineTransform::translation (layerBounds.getPosition()));
         }
@@ -2642,6 +2603,8 @@ public:
         {
             case Image::ARGB:   EdgeTableFillers::renderSolidFill (iter, destData, colour, replaceContents, (PixelARGB*) nullptr); break;
             case Image::RGB:    EdgeTableFillers::renderSolidFill (iter, destData, colour, replaceContents, (PixelRGB*) nullptr); break;
+            case Image::SingleChannel:
+            case Image::UnknownFormat:
             default:            EdgeTableFillers::renderSolidFill (iter, destData, colour, replaceContents, (PixelAlpha*) nullptr); break;
         }
     }
@@ -2659,6 +2622,8 @@ public:
         {
             case Image::ARGB:   EdgeTableFillers::renderGradient (iter, destData, gradient, trans, lookupTable, numLookupEntries, isIdentity, (PixelARGB*) nullptr); break;
             case Image::RGB:    EdgeTableFillers::renderGradient (iter, destData, gradient, trans, lookupTable, numLookupEntries, isIdentity, (PixelRGB*) nullptr); break;
+            case Image::SingleChannel:
+            case Image::UnknownFormat:
             default:            EdgeTableFillers::renderGradient (iter, destData, gradient, trans, lookupTable, numLookupEntries, isIdentity, (PixelAlpha*) nullptr); break;
         }
     }
@@ -2668,7 +2633,7 @@ public:
     Font font;
 
 private:
-    SoftwareRendererSavedState& operator= (const SoftwareRendererSavedState&);
+    SoftwareRendererSavedState& operator= (const SoftwareRendererSavedState&) = delete;
 };
 
 //==============================================================================
@@ -2680,7 +2645,7 @@ public:
         : currentState (initialState)
     {}
 
-    SavedStateStack() noexcept {}
+    SavedStateStack() = default;
 
     void initialise (StateObjectType* state)
     {
@@ -2764,15 +2729,13 @@ public:
 
 protected:
     StackBasedLowLevelGraphicsContext (SavedStateType* initialState) : stack (initialState) {}
-    StackBasedLowLevelGraphicsContext() {}
+    StackBasedLowLevelGraphicsContext() = default;
 
     RenderingHelpers::SavedStateStack<SavedStateType> stack;
 };
 
 }
 
-#if JUCE_MSVC
- #pragma warning (pop)
-#endif
+JUCE_END_IGNORE_WARNINGS_MSVC
 
 } // namespace juce

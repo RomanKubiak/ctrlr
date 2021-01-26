@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -38,7 +38,7 @@ public:
 
     //==============================================================================
     /** Returns a name to describe this light. */
-    virtual juce::String getName() const = 0;
+    virtual String getName() const = 0;
 
     /** Changes the light's colour. */
     virtual bool setColour (LEDColour newColour) = 0;

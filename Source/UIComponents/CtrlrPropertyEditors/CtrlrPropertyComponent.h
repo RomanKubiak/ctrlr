@@ -307,7 +307,7 @@ class CtrlrFontPropertyComponent  : public Component,
 		class SliderLabelComp : public Label
 		{
 			public:
-				SliderLabelComp() : Label (String::empty, String::empty) {}
+				SliderLabelComp() : Label ("", "") {}
 				void mouseWheelMove (const MouseEvent&, const MouseWheelDetails&) {}
 		};
 
@@ -374,7 +374,7 @@ class MultiMidiAlert : public AlertWindow
 {
 	public:
 		MultiMidiAlert ()
-			:	AlertWindow (String::empty, "Add a new message to the multi list\n[-1 for parent value setting, -2 for parent number setting. For SysEx message the formula is the same as in the SysEx editor.]", AlertWindow::QuestionIcon, 0),
+			:	AlertWindow ("", "Add a new message to the multi list\n[-1 for parent value setting, -2 for parent number setting. For SysEx message the formula is the same as in the SysEx editor.]", AlertWindow::QuestionIcon, 0),
 				valueSlider("Controller Value"), numberSlider("Controller Number")
 		{
 			const char *types[] = { "CC", "Aftertouch", "ChannelPressure", "NoteOn", "NoteOff", "SysEx", "--", "ProgramChange", "PitchWheel", 0 };

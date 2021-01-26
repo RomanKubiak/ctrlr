@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -37,7 +37,7 @@ class JUCE_API  InputStream
 {
 public:
     /** Destructor. */
-    virtual ~InputStream()  {}
+    virtual ~InputStream() = default;
 
     //==============================================================================
     /** Returns the total number of bytes available for reading in this stream.
@@ -76,6 +76,8 @@ public:
                     maxBytesToRead if the stream is exhausted before it gets that far
     */
     virtual int read (void* destBuffer, int maxBytesToRead) = 0;
+
+    ssize_t read (void* destBuffer, size_t maxBytesToRead);
 
     /** Reads a byte from the stream.
         If the stream is exhausted, this will return zero.
@@ -253,7 +255,7 @@ public:
 
 protected:
     //==============================================================================
-    InputStream() noexcept {}
+    InputStream() = default;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (InputStream)

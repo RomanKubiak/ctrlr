@@ -307,7 +307,7 @@ void CtrlrTabsComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyH
 
 	else if (property == Ids::uiTabsCurrentTabChanged)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		tabChangedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
@@ -475,7 +475,7 @@ void CtrlrTabsComponent::setOwned (CtrlrComponent *componentToOwn, const int sub
 
         if (!getOwner().getOwnerPanel().isSchemeAtLeast(1))
 		{
-            componentToOwn->setProperty (Ids::componentTabName, String::empty, false);
+            componentToOwn->setProperty (Ids::componentTabName, "", false);
 		}
 	}
 }

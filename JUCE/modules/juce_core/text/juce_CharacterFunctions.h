@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
@@ -149,9 +149,9 @@ public:
        #if JUCE_MINGW
         bool isNegative = false;
        #else
-        JUCE_CONSTEXPR const int maxSignificantDigits = 17 + 1; // An additional digit for rounding
-        JUCE_CONSTEXPR const int bufferSize = maxSignificantDigits + 7 + 1; // -.E-XXX and a trailing null-terminator
-        char buffer[bufferSize] = {};
+        constexpr const int maxSignificantDigits = 17 + 1; // An additional digit for rounding
+        constexpr const int bufferSize = maxSignificantDigits + 7 + 1; // -.E-XXX and a trailing null-terminator
+        char buffer[(size_t) bufferSize] = {};
         char* currentCharacter = &(buffer[0]);
        #endif
 
@@ -166,9 +166,12 @@ public:
                #else
                 *currentCharacter++ = '-';
                #endif
-                // Fall-through..
+                JUCE_FALLTHROUGH
             case '+':
                 c = *++text;
+                break;
+            default:
+                break;
         }
 
         switch (c)
@@ -184,6 +187,9 @@ public:
                 if ((text[1] == 'n' || text[1] == 'N') && (text[2] == 'f' || text[2] == 'F'))
                     return std::numeric_limits<double>::infinity();
                 break;
+
+            default:
+                break;
         }
 
        #if JUCE_MINGW
@@ -194,7 +200,7 @@ public:
         int exponent = 0, decPointIndex = 0, digit = 0;
         int lastDigit = 0, numSignificantDigits = 0;
         bool digitsFound = false;
-        JUCE_CONSTEXPR const int maxSignificantDigits = 17 + 1;
+        constexpr const int maxSignificantDigits = 17 + 1;
 
         for (;;)
         {
@@ -274,7 +280,7 @@ public:
 
             switch (*++text)
             {
-                case '-':   negativeExponent = true; // fall-through..
+                case '-':   negativeExponent = true; JUCE_FALLTHROUGH
                 case '+':   ++text;
             }
 
@@ -295,6 +301,7 @@ public:
 
         int numSigFigs = 0;
         bool decimalPointFound = false;
+        int extraExponent = 0;
 
         for (;;)
         {
@@ -302,9 +309,22 @@ public:
             {
                 auto digit = (int) text.getAndAdvance() - '0';
 
-                if (numSigFigs >= maxSignificantDigits
-                     || ((numSigFigs == 0 && (! decimalPointFound)) && digit == 0))
-                    continue;
+                if (decimalPointFound)
+                {
+                    if (numSigFigs >= maxSignificantDigits)
+                        continue;
+                }
+                else
+                {
+                    if (numSigFigs >= maxSignificantDigits)
+                    {
+                        ++extraExponent;
+                        continue;
+                    }
+
+                    if (numSigFigs == 0 && digit == 0)
+                        continue;
+                }
 
                 *currentCharacter++ = (char) ('0' + (char) digit);
                 numSigFigs++;
@@ -323,37 +343,59 @@ public:
 
         c = *text;
 
+        auto writeExponentDigits = [] (int exponent, char* destination)
+        {
+            auto exponentDivisor = 100;
+
+            while (exponentDivisor > 1)
+            {
+                auto digit = exponent / exponentDivisor;
+                *destination++ = (char) ('0' + (char) digit);
+                exponent -= digit * exponentDivisor;
+                exponentDivisor /= 10;
+            }
+
+            *destination++ = (char) ('0' + (char) exponent);
+        };
+
         if ((c == 'e' || c == 'E') && numSigFigs > 0)
         {
             *currentCharacter++ = 'e';
+            bool parsedExponentIsPositive = true;
 
             switch (*++text)
             {
-                case '-':   *currentCharacter++ = '-'; // Fall-through..
-                case '+':   ++text;
+                case '-':  parsedExponentIsPositive = false; JUCE_FALLTHROUGH
+                case '+':  ++text; break;
+                default:   break;
             }
 
-            int exponentMagnitude = 0;
+            int exponent = 0;
 
             while (text.isDigit())
             {
-                if (currentCharacter == &buffer[bufferSize - 1])
-                    return std::numeric_limits<double>::quiet_NaN();
-
                 auto digit = (int) text.getAndAdvance() - '0';
 
-                if (digit != 0 || exponentMagnitude != 0)
-                {
-                    *currentCharacter++ = (char) ('0' + (char) digit);
-                    exponentMagnitude = (exponentMagnitude * 10) + digit;
-                }
+                if (digit != 0 || exponent != 0)
+                    exponent = (exponent * 10) + digit;
             }
 
-            if (exponentMagnitude > std::numeric_limits<double>::max_exponent10)
+            exponent = extraExponent + (parsedExponentIsPositive ? exponent : -exponent);
+
+            if (exponent < 0)
+                *currentCharacter++ = '-';
+
+            exponent = std::abs (exponent);
+
+            if (exponent > std::numeric_limits<double>::max_exponent10)
                 return std::numeric_limits<double>::quiet_NaN();
 
-            if (exponentMagnitude == 0)
-                *currentCharacter++ = '0';
+            writeExponentDigits (exponent, currentCharacter);
+        }
+        else if (extraExponent > 0)
+        {
+            *currentCharacter++ = 'e';
+            writeExponentDigits (extraExponent, currentCharacter);
         }
 
        #if JUCE_WINDOWS
@@ -376,35 +418,6 @@ public:
     static double getDoubleValue (CharPointerType text) noexcept
     {
         return readDoubleValue (text);
-    }
-
-    /** If the input is a string representation of a floating-point number, this will
-        find the length of the string without any trailing zeros.
-    */
-    template <typename CharPointerType>
-    static size_t findLengthWithoutTrailingZeros (CharPointerType text)
-    {
-        auto start = text;
-        auto end = text + ((int) text.length());
-
-        for (auto e = end; e > start + 1; --e)
-        {
-            auto lastChar = *(e - 1);
-
-            if (lastChar != '0')
-            {
-                if (lastChar == '.')
-                    return (size_t) (e + 1 - start);
-
-                for (auto s = start; s < e; ++s)
-                    if (*s == '.')
-                        return (size_t) (e - start);
-
-                break;
-            }
-        }
-
-        return (size_t) (end - start);
     }
 
     //==============================================================================
@@ -499,12 +512,12 @@ public:
     {
         auto startAddress = dest.getAddress();
         auto maxBytes = (ssize_t) maxBytesToWrite;
-        maxBytes -= sizeof (typename DestCharPointerType::CharType); // (allow for a terminating null)
+        maxBytes -= (ssize_t) sizeof (typename DestCharPointerType::CharType); // (allow for a terminating null)
 
         for (;;)
         {
             auto c = src.getAndAdvance();
-            auto bytesNeeded = DestCharPointerType::getBytesRequiredFor (c);
+            auto bytesNeeded = (ssize_t) DestCharPointerType::getBytesRequiredFor (c);
             maxBytes -= bytesNeeded;
 
             if (c == 0 || maxBytes < 0)
@@ -538,7 +551,7 @@ public:
     }
 
     /** Compares two characters. */
-    static inline int compare (juce_wchar char1, juce_wchar char2) noexcept
+    static int compare (juce_wchar char1, juce_wchar char2) noexcept
     {
         if (auto diff = static_cast<int> (char1) - static_cast<int> (char2))
             return diff < 0 ? -1 : 1;
@@ -583,7 +596,7 @@ public:
     }
 
     /** Compares two characters, using a case-independant match. */
-    static inline int compareIgnoreCase (juce_wchar char1, juce_wchar char2) noexcept
+    static int compareIgnoreCase (juce_wchar char1, juce_wchar char2) noexcept
     {
         return char1 != char2 ? compare (toUpperCase (char1), toUpperCase (char2)) : 0;
     }

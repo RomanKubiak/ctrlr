@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -24,7 +23,7 @@
   ==============================================================================
 */
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 #include "../../Assets/DemoUtilities.h"
 
 #include "UI/MainComponent.h"
@@ -37,7 +36,8 @@
  {
      DemoTaskbarComponent()
      {
-         setIconImage (getImageFromAssets ("juce_icon.png"));
+         setIconImage (getImageFromAssets ("juce_icon.png"),
+                       getImageFromAssets ("juce_icon_template.png"));
          setIconTooltip ("JUCE demo runner!");
      }
 
@@ -82,7 +82,7 @@ public:
     //==============================================================================
     DemoRunnerApplication() {}
 
-    ~DemoRunnerApplication()
+    ~DemoRunnerApplication() override
     {
         sharedAudioDeviceManager.reset();
     }
@@ -107,7 +107,7 @@ public:
         mainWindow.reset (new MainAppWindow (getApplicationName()));
     }
 
-    void backButtonPressed() override    { mainWindow->getMainComponent().getSidePanel().showOrHide (false); }
+    bool backButtonPressed() override    { mainWindow->getMainComponent().getSidePanel().showOrHide (false); return true; }
     void shutdown() override             { mainWindow = nullptr; }
 
     //==============================================================================
@@ -131,10 +131,10 @@ private:
             setFullScreen (true);
             Desktop::getInstance().setOrientationsEnabled (Desktop::rotatedClockwise | Desktop::rotatedAntiClockwise);
            #else
-            setBounds ((int) (0.1f * getParentWidth()),
-                       (int) (0.1f * getParentHeight()),
-                       jmax (850, (int) (0.5f * getParentWidth())),
-                       jmax (600, (int) (0.7f * getParentHeight())));
+            setBounds ((int) (0.1f * (float) getParentWidth()),
+                       (int) (0.1f * (float) getParentHeight()),
+                       jmax (850, (int) (0.5f * (float) getParentWidth())),
+                       jmax (600, (int) (0.7f * (float) getParentHeight())));
            #endif
 
             setContentOwned (new MainComponent(), false);

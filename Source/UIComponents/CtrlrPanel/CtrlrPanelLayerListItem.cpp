@@ -12,7 +12,7 @@ CtrlrPanelLayerListItem::CtrlrPanelLayerListItem (CtrlrPanelLayerList &_owner)
       layerColour (0),
       layerIndex (0)
 {
-    addAndMakeVisible (layerName = new Label (String::empty,
+    addAndMakeVisible (layerName = new Label ("",
                                               L"Layer Name"));
     layerName->setFont (Font (12.0000f, Font::plain));
     layerName->setJustificationType (Justification::centredLeft);

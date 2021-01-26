@@ -177,7 +177,7 @@ const String CtrlrPropertyComponent::getElementSubType()
 {
 	if (propertyElement.getType() == Ids::panel)
 	{
-		return (String::empty);
+		return ("");
 	}
 	else if (propertyElement.getType() == Ids::component)
 	{
@@ -185,7 +185,7 @@ const String CtrlrPropertyComponent::getElementSubType()
 	}
 	else if (propertyElement.getType() == Ids::modulator)
 	{
-		return (String::empty);
+		return ("");
 	}
 	else if (propertyElement.getType() == Ids::midi)
 	{
@@ -193,7 +193,7 @@ const String CtrlrPropertyComponent::getElementSubType()
 	}
 	else if (propertyElement.getType() == Ids::uiPanelEditor)
 	{
-		return (String::empty);
+		return ("");
 	}
 	else if (propertyElement.getType() == Ids::uiPanelCanvasLayer)
 	{
@@ -213,7 +213,7 @@ const String CtrlrPropertyComponent::getElementType()
 	}
 	else if (propertyElement.getType() == Ids::panel)
 	{
-		return (String::empty);
+		return ("");
 	}
 	else
 	{
@@ -306,10 +306,10 @@ CtrlrChoicePropertyComponent::CtrlrChoicePropertyComponent (const Value &_valueT
       combo (nullptr),
 	  numeric(_numeric)
 {
-    addAndMakeVisible (combo = new ComboBox (String::empty));
+    addAndMakeVisible (combo = new ComboBox (""));
     combo->setEditableText (false);
     combo->setJustificationType (Justification::centredLeft);
-    combo->setTextWhenNothingSelected (String::empty);
+    combo->setTextWhenNothingSelected ("");
     combo->setTextWhenNoChoicesAvailable (L"(no choices)");
     combo->addListener (this);
 
@@ -445,7 +445,9 @@ void CtrlrColourEditorComponent::mouseDown (const MouseEvent &e)
 		o.componentToCentreAround		= this;
 		o.launchAsync();
 		*/
-		 CallOutBox::launchAsynchronously (new CtrlrColourSelectorComp (this, canResetToDefault), getScreenBounds(), nullptr);
+		auto colourSelector = std::make_unique<CtrlrColourSelectorComp> (this, canResetToDefault);
+
+		 CallOutBox::launchAsynchronously (std::move(colourSelector), getScreenBounds(), nullptr);
 	}
 }
 
@@ -518,14 +520,14 @@ void CtrlrReadOnlyProperty::resized()
 
 CtrlrExpressionProperty::CtrlrExpressionProperty (const Value &_valeToControl) : valeToControl(_valeToControl), externalEditorWindow(nullptr)
 {
-    addAndMakeVisible (text = new TextEditor (String::empty));
+    addAndMakeVisible (text = new TextEditor (""));
     text->setMultiLine (true, true);
     text->setReturnKeyStartsNewLine (false);
     text->setReadOnly (false);
     text->setScrollbarsShown (true);
     text->setCaretVisible (true);
     text->setPopupMenuEnabled (true);
-    text->setText (String::empty);
+    text->setText ("");
 	text->setColour (TextEditor::outlineColourId, findColour (TextEditor::outlineColourId));
 	text->setColour(TextEditor::highlightedTextColourId, findColour(TextEditor::highlightedTextColourId));
 	text->setColour(TextEditor::highlightColourId, findColour(TextEditor::focusedOutlineColourId));
@@ -608,7 +610,7 @@ const bool CtrlrExpressionProperty::compile(const bool setPropertyIfValid)
 
 CtrlrFileProperty::CtrlrFileProperty (const Value &_valeToControl) : valueToControl(_valeToControl)
 {
-    addAndMakeVisible (path = new Label (String::empty));
+    addAndMakeVisible (path = new Label (""));
 	path->setText (valueToControl.toString(), dontSendNotification);
 	path->addListener (this);
 	path->setColour (Label::backgroundColourId, findColour(ComboBox::backgroundColourId));
@@ -669,7 +671,7 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
 	  kerning(0),
 	  horizontalScale(0)
 {
-    addAndMakeVisible (typeface = new ComboBox (String::empty));
+    addAndMakeVisible (typeface = new ComboBox (""));
     typeface->setEditableText (false);
     typeface->setJustificationType (Justification::centredLeft);
     typeface->setTextWhenNothingSelected (L"<Sans-Serif>");
@@ -688,7 +690,7 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
     fontUnderline->setTooltip (L"Underline");
     fontUnderline->addListener (this);
 
-    addAndMakeVisible (fontSize = new Slider (String::empty));
+    addAndMakeVisible (fontSize = new Slider (""));
 	fontSize->setLookAndFeel (this);
 	fontSize->setColour(Slider::rotarySliderFillColourId, Component::findColour(TextEditor::textColourId));
 	fontSize->setTooltip (L"Size");
@@ -697,7 +699,7 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
     fontSize->setTextBoxStyle (Slider::TextBoxRight, false, 34, 16);
     fontSize->addListener (this);
 
-	addAndMakeVisible (horizontalScale = new Slider (String::empty));
+	addAndMakeVisible (horizontalScale = new Slider (""));
 	horizontalScale->setLookAndFeel (this);
 	horizontalScale->setColour(Slider::rotarySliderFillColourId, Component::findColour(TextEditor::textColourId));
 	horizontalScale->setTooltip (L"Horizontal Scale");
@@ -706,7 +708,7 @@ CtrlrFontPropertyComponent::CtrlrFontPropertyComponent (const Value &_valueToCon
     horizontalScale->setTextBoxStyle (Slider::TextBoxRight, false, 34, 16);
     horizontalScale->addListener (this);
 
-	addAndMakeVisible (kerning = new Slider (String::empty));
+	addAndMakeVisible (kerning = new Slider (""));
     kerning->setLookAndFeel (this);
 	kerning->setColour(Slider::rotarySliderFillColourId, Component::findColour(TextEditor::textColourId));
 	kerning->setTooltip (L"Extra Kerning");
@@ -836,7 +838,7 @@ CtrlrLuaMethodProperty::CtrlrLuaMethodProperty (const Value &_valeToControl, con
     addAndMakeVisible (methodSelectorCombo = new ComboBox (L"methodSelectorCombo"));
     methodSelectorCombo->setEditableText (false);
     methodSelectorCombo->setJustificationType (Justification::centredLeft);
-    methodSelectorCombo->setTextWhenNothingSelected (String::empty);
+    methodSelectorCombo->setTextWhenNothingSelected ("");
     methodSelectorCombo->setTextWhenNoChoicesAvailable (L"(no choices)");
     methodSelectorCombo->addListener (this);
 
@@ -915,7 +917,7 @@ void CtrlrLuaMethodProperty::buttonClicked (Button* buttonThatWasClicked)
 		{
 			if (owner)
 			{
-				owner->getCtrlrLuaManager().getMethodManager().addMethod (ValueTree(), w.getTextEditorContents("methodName"), String::empty, id.toString());
+				owner->getCtrlrLuaManager().getMethodManager().addMethod (ValueTree(), w.getTextEditorContents("methodName"), "", id.toString());
 			}
 		}
 
@@ -945,7 +947,7 @@ void CtrlrLuaMethodProperty::refresh()
 CtrlrModulatorListProperty::CtrlrModulatorListProperty(const Value &_valueToControl, CtrlrPanel *_owner)
 	: owner(_owner), valueToControl(_valueToControl)
 {
-	addAndMakeVisible (combo = new ComboBox (String::empty));
+	addAndMakeVisible (combo = new ComboBox (""));
     combo->setEditableText (false);
     combo->setJustificationType (Justification::centredLeft);
     combo->setTextWhenNothingSelected (COMBO_ITEM_NONE);
@@ -1062,7 +1064,7 @@ CtrlrMultiMidiPropertyComponent::CtrlrMultiMidiPropertyComponent (const Value &_
 	paste->setMouseCursor (MouseCursor::PointingHandCursor);
 	insert->setMouseCursor (MouseCursor::PointingHandCursor);
 	remove->setTooltip ("Remove selected");
-	loadAdditionalTemplates(File::nonexistent);
+	loadAdditionalTemplates(File());
     setSize (256, 96);
 }
 
@@ -1135,8 +1137,8 @@ void CtrlrMultiMidiPropertyComponent::buttonClicked (Button* buttonThatWasClicke
 		const int ret = m.show();
 		if (ret > 0)
 		{
-			const String data = templates.getValue (templates.getAllKeys() [ret-1], String::empty);
-			if (data != String::empty)
+			const String data = templates.getValue (templates.getAllKeys() [ret-1], "");
+			if (data != "")
 			{
 				valueToControl = data;
 				refresh();
@@ -1194,7 +1196,7 @@ Component *CtrlrMultiMidiPropertyComponent::refreshComponentForRow (int rowNumbe
 
 	if (l == 0)
 	{
-		l = new Label (String::empty, values[rowNumber]);
+		l = new Label ("", values[rowNumber]);
 		l->setEditable (false, true, false);
 		l->setColour (Label::backgroundColourId, Colours::transparentBlack);
 		l->getProperties().set ("dOb", rowNumber);
@@ -1229,8 +1231,8 @@ void CtrlrMultiMidiPropertyComponent::loadAdditionalTemplates(const File &templa
 	XmlDocument staticTemplates(MemoryBlock (BinaryData::CtrlrMidiMultiTemplate_xml, BinaryData::CtrlrMidiMultiTemplate_xmlSize).toString());
 	XmlDocument dynamicTemplates(templateFile);
 
-	ScopedPointer <XmlElement> dynamicXml(dynamicTemplates.getDocumentElement());
-	ScopedPointer <XmlElement> staticXml(staticTemplates.getDocumentElement());
+	ScopedPointer <XmlElement> dynamicXml(dynamicTemplates.getDocumentElement().release());
+	ScopedPointer <XmlElement> staticXml(staticTemplates.getDocumentElement().release());
 
 	if (dynamicXml)
 	{
@@ -1877,7 +1879,7 @@ class CtrlrTextPropLabel  : public Label
 {
 	public:
 		CtrlrTextPropLabel (CtrlrTextPropertyComponent& owner_, const int maxChars_, const bool isMultiline_)
-			: Label (String::empty, String::empty),
+			: Label ("", ""),
 				owner (owner_), maxChars (maxChars_), isMultiline (isMultiline_)
 		{
 	        setEditable (true, true, false);

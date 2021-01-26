@@ -31,7 +31,7 @@ namespace gui {
     static inline
     Drawable *createDrawable(const String &svgData) {
         std::unique_ptr<XmlElement> svgXml (XmlDocument::parse(svgData));
-        return Drawable::createFromSVG(*svgXml);
+        return Drawable::createFromSVG(*svgXml).release();
     }
 
     static const inline void

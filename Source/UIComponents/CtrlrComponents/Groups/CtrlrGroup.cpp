@@ -291,7 +291,7 @@ void CtrlrGroup::setOwned (CtrlrComponent *componentToOwn, const int subIndexInG
 		owner.getOwnerPanel().getEditor()->getCanvas()->addAndMakeVisibleNg(componentToOwn);
 		componentToOwn->setProperty (Ids::componentGroupped, false, true);
         if (!owner.getOwnerPanel().isSchemeAtLeast(1))
-            componentToOwn->setProperty (Ids::componentGroupName, String::empty, false);
+            componentToOwn->setProperty (Ids::componentGroupName, "", false);
 	}
 }
 

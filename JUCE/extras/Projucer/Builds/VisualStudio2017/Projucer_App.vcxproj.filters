@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Projucer\Application\StartPage">
+      <UniqueIdentifier>{1E1D2D75-0ADA-6E9E-105F-2F87632B55AF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projucer\Application\UserAccount">
+      <UniqueIdentifier>{DA27985D-8427-CE70-CA06-EAF7009CCC60}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Projucer\Application\Windows">
       <UniqueIdentifier>{DC7E18A5-E854-3D99-627F-AAA88246B712}</UniqueIdentifier>
     </Filter>
@@ -40,14 +47,14 @@
     <Filter Include="Projucer\ComponentEditor">
       <UniqueIdentifier>{5F21E507-E5E8-0A74-F1AE-874BB67C26CC}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Projucer\Licenses">
-      <UniqueIdentifier>{E5D23B90-895E-EB0B-AC18-C7EBB25546AE}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Projucer\LiveBuildEngine\UI">
       <UniqueIdentifier>{E880260F-D9FB-64B6-244B-6F06B70FE9EE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Projucer\LiveBuildEngine">
       <UniqueIdentifier>{0A3B9446-F50B-3D4E-230F-7ED493541A07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projucer\Project\Modules">
+      <UniqueIdentifier>{F5C79836-30DE-9DC7-9392-DAAB3F04C18E}</UniqueIdentifier>
     </Filter>
     <Filter Include="Projucer\Project\UI\Sidebar">
       <UniqueIdentifier>{A0A94AE6-B447-151A-D0DA-FAE9B5410EBF}</UniqueIdentifier>
@@ -79,20 +86,14 @@
     <Filter Include="Projucer\Utility">
       <UniqueIdentifier>{F77CA057-8DE4-E076-7EB6-D2646794864B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Projucer\Wizards">
-      <UniqueIdentifier>{4BBA3556-B2A1-3008-8BE1-F82DE6666552}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Projucer">
       <UniqueIdentifier>{7DBEF27C-2AFE-DA02-1DBF-E80FAAC99EA7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="JUCE Modules\juce_analytics\analytics">
-      <UniqueIdentifier>{E3CEC08A-FA14-D343-5BFF-3D6A4A4FD713}</UniqueIdentifier>
+    <Filter Include="JUCE Modules\juce_build_tools\utils">
+      <UniqueIdentifier>{D9FAFF6D-6737-F775-056A-D0B29BE13820}</UniqueIdentifier>
     </Filter>
-    <Filter Include="JUCE Modules\juce_analytics\destinations">
-      <UniqueIdentifier>{B3BC836A-3932-C1E4-CA3C-A1C0D83281BA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="JUCE Modules\juce_analytics">
-      <UniqueIdentifier>{97F7F593-75F8-D6B2-DC96-C946C3976226}</UniqueIdentifier>
+    <Filter Include="JUCE Modules\juce_build_tools">
+      <UniqueIdentifier>{065C11E4-EB37-5B72-0A01-F549675EB866}</UniqueIdentifier>
     </Filter>
     <Filter Include="JUCE Modules\juce_core\containers">
       <UniqueIdentifier>{42F7BE9D-3C8A-AE26-289B-8F355C068036}</UniqueIdentifier>
@@ -268,6 +269,9 @@
     <Filter Include="JUCE Modules\juce_gui_basics\mouse">
       <UniqueIdentifier>{FE3CB19C-EF43-5CF5-DAF0-09D4E43D0AB9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JUCE Modules\juce_gui_basics\native\x11">
+      <UniqueIdentifier>{FE7E6CD5-C7A0-DB20-4E7E-D6E7F08C4578}</UniqueIdentifier>
+    </Filter>
     <Filter Include="JUCE Modules\juce_gui_basics\native">
       <UniqueIdentifier>{895C2D33-E08D-B1BA-BB36-FC4CA65090C8}</UniqueIdentifier>
     </Filter>
@@ -312,6 +316,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Application\StartPage\jucer_NewProjectWizard.cpp">
+      <Filter>Projucer\Application\StartPage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Application\StartPage\jucer_StartPageComponent.cpp">
+      <Filter>Projucer\Application\StartPage</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Application\jucer_Application.cpp">
       <Filter>Projucer\Application</Filter>
     </ClCompile>
@@ -325,9 +335,6 @@
       <Filter>Projucer\Application</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Application\jucer_MainWindow.cpp">
-      <Filter>Projucer\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Application\jucer_ProjucerAnalytics.cpp">
       <Filter>Projucer\Application</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BinaryData\Templates\jucer_AnimatedComponentTemplate.cpp">
@@ -354,9 +361,6 @@
     <ClCompile Include="..\..\Source\BinaryData\Templates\jucer_MainTemplate_NoWindow.cpp">
       <Filter>Projucer\BinaryData\Templates</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BinaryData\Templates\jucer_MainTemplate_SimpleWindow.cpp">
-      <Filter>Projucer\BinaryData\Templates</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\BinaryData\Templates\jucer_MainTemplate_Window.cpp">
       <Filter>Projucer\BinaryData\Templates</Filter>
     </ClCompile>
@@ -369,8 +373,8 @@
     <ClCompile Include="..\..\Source\BinaryData\Templates\jucer_OpenGLComponentTemplate.cpp">
       <Filter>Projucer\BinaryData\Templates</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BinaryData\Templates\jucer_PIPMain.cpp">
-      <Filter>Projucer\BinaryData\Templates</Filter>
+    <ClCompile Include="..\..\..\Build\CMake\juce_runtime_arch_detection.cpp">
+      <Filter>Projucer\BinaryData</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\CodeEditor\jucer_DocumentEditorComponent.cpp">
       <Filter>Projucer\CodeEditor</Filter>
@@ -447,9 +451,6 @@
     <ClCompile Include="..\..\Source\ComponentEditor\jucer_PaintRoutine.cpp">
       <Filter>Projucer\ComponentEditor</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Licenses\jucer_LicenseController.cpp">
-      <Filter>Projucer\Licenses</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\LiveBuildEngine\jucer_CompileEngineClient.cpp">
       <Filter>Projucer\LiveBuildEngine</Filter>
     </ClCompile>
@@ -459,14 +460,14 @@
     <ClCompile Include="..\..\Source\LiveBuildEngine\jucer_DownloadCompileEngineThread.cpp">
       <Filter>Projucer\LiveBuildEngine</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Project\Modules\jucer_Modules.cpp">
+      <Filter>Projucer\Project\Modules</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Project\UI\jucer_HeaderComponent.cpp">
       <Filter>Projucer\Project\UI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Project\UI\jucer_ProjectContentComponent.cpp">
       <Filter>Projucer\Project\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Project\jucer_Module.cpp">
-      <Filter>Projucer\Project</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Project\jucer_Project.cpp">
       <Filter>Projucer\Project</Filter>
@@ -495,6 +496,12 @@
     <ClCompile Include="..\..\Source\Utility\Helpers\jucer_MiscUtilities.cpp">
       <Filter>Projucer\Utility\Helpers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Utility\Helpers\jucer_NewFileWizard.cpp">
+      <Filter>Projucer\Utility\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Utility\Helpers\jucer_VersionInfo.cpp">
+      <Filter>Projucer\Utility\Helpers</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Utility\PIPs\jucer_PIPGenerator.cpp">
       <Filter>Projucer\Utility\PIPs</Filter>
     </ClCompile>
@@ -510,23 +517,35 @@
     <ClCompile Include="..\..\Source\Utility\UI\jucer_SlidingPanelComponent.cpp">
       <Filter>Projucer\Utility\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Wizards\jucer_NewFileWizard.cpp">
-      <Filter>Projucer\Wizards</Filter>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\utils\juce_BinaryResourceFile.cpp">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Wizards\jucer_NewProjectWizardClasses.cpp">
-      <Filter>Projucer\Wizards</Filter>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\utils\juce_BuildHelperFunctions.cpp">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\modules\juce_analytics\analytics\juce_Analytics.cpp">
-      <Filter>JUCE Modules\juce_analytics\analytics</Filter>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\utils\juce_CppTokeniserFunctions.cpp">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\modules\juce_analytics\analytics\juce_ButtonTracker.cpp">
-      <Filter>JUCE Modules\juce_analytics\analytics</Filter>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\utils\juce_Entitlements.cpp">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\modules\juce_analytics\destinations\juce_ThreadedAnalyticsDestination.cpp">
-      <Filter>JUCE Modules\juce_analytics\destinations</Filter>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\utils\juce_Icons.cpp">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\modules\juce_analytics\juce_analytics.cpp">
-      <Filter>JUCE Modules\juce_analytics</Filter>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\utils\juce_PlistOptions.cpp">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\utils\juce_ResourceFileHelpers.cpp">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\utils\juce_ResourceRc.cpp">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\utils\juce_VersionNumbers.cpp">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Build\juce_build_tools\juce_build_tools.cpp">
+      <Filter>JUCE Modules\juce_build_tools</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_core\containers\juce_AbstractFifo.cpp">
       <Filter>JUCE Modules\juce_core\containers</Filter>
@@ -576,6 +595,9 @@
     <ClCompile Include="..\..\..\..\modules\juce_core\files\juce_FileSearchPath.cpp">
       <Filter>JUCE Modules\juce_core\files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_core\files\juce_RangedDirectoryIterator.cpp">
+      <Filter>JUCE Modules\juce_core\files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_core\files\juce_TemporaryFile.cpp">
       <Filter>JUCE Modules\juce_core\files</Filter>
     </ClCompile>
@@ -603,6 +625,9 @@
     <ClCompile Include="..\..\..\..\modules\juce_core\maths\juce_Random.cpp">
       <Filter>JUCE Modules\juce_core\maths</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_core\memory\juce_AllocationHooks.cpp">
+      <Filter>JUCE Modules\juce_core\memory</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_core\memory\juce_MemoryBlock.cpp">
       <Filter>JUCE Modules\juce_core\memory</Filter>
     </ClCompile>
@@ -613,9 +638,6 @@
       <Filter>JUCE Modules\juce_core\misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_core\misc\juce_RuntimePermissions.cpp">
-      <Filter>JUCE Modules\juce_core\misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\modules\juce_core\misc\juce_StdFunctionCompat.cpp">
       <Filter>JUCE Modules\juce_core\misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_core\misc\juce_Uuid.cpp">
@@ -658,6 +680,21 @@
       <Filter>JUCE Modules\juce_core\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_core\native\juce_linux_Threads.cpp">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_core\native\juce_mac_Files.mm">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_core\native\juce_mac_Network.mm">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_core\native\juce_mac_Strings.mm">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_core\native\juce_mac_SystemStats.mm">
+      <Filter>JUCE Modules\juce_core\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_core\native\juce_mac_Threads.mm">
       <Filter>JUCE Modules\juce_core\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_core\native\juce_posix_NamedPipe.cpp">
@@ -768,6 +805,9 @@
     <ClCompile Include="..\..\..\..\modules\juce_core\threads\juce_TimeSliceThread.cpp">
       <Filter>JUCE Modules\juce_core\threads</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_core\threads\juce_WaitableEvent.cpp">
+      <Filter>JUCE Modules\juce_core\threads</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_core\time\juce_PerformanceCounter.cpp">
       <Filter>JUCE Modules\juce_core\time</Filter>
     </ClCompile>
@@ -831,6 +871,9 @@
     <ClCompile Include="..\..\..\..\modules\juce_core\juce_core.cpp">
       <Filter>JUCE Modules\juce_core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_core\juce_core.mm">
+      <Filter>JUCE Modules\juce_core</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_cryptography\encryption\juce_BlowFish.cpp">
       <Filter>JUCE Modules\juce_cryptography\encryption</Filter>
     </ClCompile>
@@ -850,6 +893,9 @@
       <Filter>JUCE Modules\juce_cryptography\hashing</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_cryptography\juce_cryptography.cpp">
+      <Filter>JUCE Modules\juce_cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_cryptography\juce_cryptography.mm">
       <Filter>JUCE Modules\juce_cryptography</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_data_structures\app_properties\juce_ApplicationProperties.cpp">
@@ -877,6 +923,9 @@
       <Filter>JUCE Modules\juce_data_structures\values</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_data_structures\juce_data_structures.cpp">
+      <Filter>JUCE Modules\juce_data_structures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_data_structures\juce_data_structures.mm">
       <Filter>JUCE Modules\juce_data_structures</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_events\broadcasters\juce_ActionBroadcaster.cpp">
@@ -915,7 +964,13 @@
     <ClCompile Include="..\..\..\..\modules\juce_events\native\juce_android_Messaging.cpp">
       <Filter>JUCE Modules\juce_events\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_events\native\juce_ios_MessageManager.mm">
+      <Filter>JUCE Modules\juce_events\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_events\native\juce_linux_Messaging.cpp">
+      <Filter>JUCE Modules\juce_events\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_events\native\juce_mac_MessageManager.mm">
       <Filter>JUCE Modules\juce_events\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_events\native\juce_win32_Messaging.cpp">
@@ -931,6 +986,9 @@
       <Filter>JUCE Modules\juce_events\timers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_events\juce_events.cpp">
+      <Filter>JUCE Modules\juce_events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_events\juce_events.mm">
       <Filter>JUCE Modules\juce_events</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_graphics\colour\juce_Colour.cpp">
@@ -1215,6 +1273,12 @@
     <ClCompile Include="..\..\..\..\modules\juce_graphics\native\juce_linux_IconHelpers.cpp">
       <Filter>JUCE Modules\juce_graphics\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_graphics\native\juce_mac_CoreGraphicsContext.mm">
+      <Filter>JUCE Modules\juce_graphics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_graphics\native\juce_mac_Fonts.mm">
+      <Filter>JUCE Modules\juce_graphics\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_graphics\native\juce_mac_IconHelpers.cpp">
       <Filter>JUCE Modules\juce_graphics\native</Filter>
     </ClCompile>
@@ -1237,6 +1301,9 @@
       <Filter>JUCE Modules\juce_graphics\placement</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_graphics\juce_graphics.cpp">
+      <Filter>JUCE Modules\juce_graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_graphics\juce_graphics.mm">
       <Filter>JUCE Modules\juce_graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_basics\application\juce_Application.cpp">
@@ -1392,9 +1459,6 @@
     <ClCompile Include="..\..\..\..\modules\juce_gui_basics\layout\juce_GridItem.cpp">
       <Filter>JUCE Modules\juce_gui_basics\layout</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\layout\juce_GridUnitTests.cpp">
-      <Filter>JUCE Modules\juce_gui_basics\layout</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_basics\layout\juce_GroupComponent.cpp">
       <Filter>JUCE Modules\juce_gui_basics\layout</Filter>
     </ClCompile>
@@ -1491,6 +1555,15 @@
     <ClCompile Include="..\..\..\..\modules\juce_gui_basics\mouse\juce_MouseListener.cpp">
       <Filter>JUCE Modules\juce_gui_basics\mouse</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\x11\juce_linux_X11_DragAndDrop.cpp">
+      <Filter>JUCE Modules\juce_gui_basics\native\x11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\x11\juce_linux_X11_Symbols.cpp">
+      <Filter>JUCE Modules\juce_gui_basics\native\x11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\x11\juce_linux_XWindowSystem.cpp">
+      <Filter>JUCE Modules\juce_gui_basics\native\x11</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_android_ContentSharer.cpp">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
     </ClCompile>
@@ -1506,16 +1579,34 @@
     <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_ios_ContentSharer.cpp">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_ios_FileChooser.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_ios_UIViewComponentPeer.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_ios_Windowing.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_linux_FileChooser.cpp">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_linux_X11.cpp">
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_linux_Windowing.cpp">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_linux_X11_Clipboard.cpp">
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_mac_FileChooser.mm">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_linux_X11_Windowing.cpp">
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_mac_MainMenu.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_mac_MouseCursor.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_mac_NSViewComponentPeer.mm">
+      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_mac_Windowing.mm">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_basics\native\juce_win32_DragAndDrop.cpp">
@@ -1641,6 +1732,9 @@
     <ClCompile Include="..\..\..\..\modules\juce_gui_basics\juce_gui_basics.cpp">
       <Filter>JUCE Modules\juce_gui_basics</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_basics\juce_gui_basics.mm">
+      <Filter>JUCE Modules\juce_gui_basics</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_extra\code_editor\juce_CodeDocument.cpp">
       <Filter>JUCE Modules\juce_gui_extra\code_editor</Filter>
     </ClCompile>
@@ -1701,6 +1795,9 @@
     <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_ios_PushNotifications.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_ios_UIViewComponent.mm">
+      <Filter>JUCE Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_linux_X11_SystemTrayIcon.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
@@ -1710,13 +1807,25 @@
     <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_linux_XEmbedComponent.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_mac_AppleRemote.mm">
+      <Filter>JUCE Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_mac_NSViewComponent.mm">
+      <Filter>JUCE Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_mac_PushNotifications.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_mac_SystemTrayIcon.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_mac_WebBrowserComponent.mm">
+      <Filter>JUCE Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_win32_ActiveXComponent.cpp">
+      <Filter>JUCE Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_win32_HWNDComponent.cpp">
       <Filter>JUCE Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\modules\juce_gui_extra\native\juce_win32_SystemTrayIcon.cpp">
@@ -1728,10 +1837,13 @@
     <ClCompile Include="..\..\..\..\modules\juce_gui_extra\juce_gui_extra.cpp">
       <Filter>JUCE Modules\juce_gui_extra</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\modules\juce_gui_extra\juce_gui_extra.mm">
+      <Filter>JUCE Modules\juce_gui_extra</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\include_juce_analytics.cpp">
+    <ClCompile Include="..\..\JuceLibraryCode\include_juce_build_tools.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_core.cpp">
@@ -1757,10 +1869,34 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\Application\Windows\jucer_AboutWindowComponent.h">
-      <Filter>Projucer\Application\Windows</Filter>
+    <ClInclude Include="..\..\Source\Application\StartPage\jucer_ContentComponents.h">
+      <Filter>Projucer\Application\StartPage</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Application\Windows\jucer_ApplicationUsageDataWindowComponent.h">
+    <ClInclude Include="..\..\Source\Application\StartPage\jucer_NewProjectTemplates.h">
+      <Filter>Projucer\Application\StartPage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Application\StartPage\jucer_NewProjectWizard.h">
+      <Filter>Projucer\Application\StartPage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Application\StartPage\jucer_StartPageComponent.h">
+      <Filter>Projucer\Application\StartPage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Application\StartPage\jucer_StartPageTreeHolder.h">
+      <Filter>Projucer\Application\StartPage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Application\UserAccount\jucer_LicenseController.h">
+      <Filter>Projucer\Application\UserAccount</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Application\UserAccount\jucer_LicenseQueryThread.h">
+      <Filter>Projucer\Application\UserAccount</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Application\UserAccount\jucer_LicenseState.h">
+      <Filter>Projucer\Application\UserAccount</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Application\UserAccount\jucer_LoginFormComponent.h">
+      <Filter>Projucer\Application\UserAccount</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Application\Windows\jucer_AboutWindowComponent.h">
       <Filter>Projucer\Application\Windows</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Application\Windows\jucer_EditorColourSchemeWindowComponent.h">
@@ -1803,9 +1939,6 @@
       <Filter>Projucer\Application</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Application\jucer_MainWindow.h">
-      <Filter>Projucer\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Application\jucer_ProjucerAnalytics.h">
       <Filter>Projucer\Application</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\BinaryData\Templates\jucer_AnimatedComponentSimpleTemplate.h">
@@ -2066,15 +2199,6 @@
     <ClInclude Include="..\..\Source\ComponentEditor\jucer_UtilityFunctions.h">
       <Filter>Projucer\ComponentEditor</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Licenses\jucer_LicenseController.h">
-      <Filter>Projucer\Licenses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Licenses\jucer_LicenseThread.h">
-      <Filter>Projucer\Licenses</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Licenses\jucer_LicenseWebview.h">
-      <Filter>Projucer\Licenses</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\LiveBuildEngine\UI\jucer_ActivityListComponent.h">
       <Filter>Projucer\LiveBuildEngine\UI</Filter>
     </ClInclude>
@@ -2132,6 +2256,15 @@
     <ClInclude Include="..\..\Source\LiveBuildEngine\jucer_SourceCodeRange.h">
       <Filter>Projucer\LiveBuildEngine</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Project\Modules\jucer_AvailableModulesList.h">
+      <Filter>Projucer\Project\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Project\Modules\jucer_ModuleDescription.h">
+      <Filter>Projucer\Project\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Project\Modules\jucer_Modules.h">
+      <Filter>Projucer\Project\Modules</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Project\UI\Sidebar\jucer_ExporterTreeItems.h">
       <Filter>Projucer\Project\UI\Sidebar</Filter>
     </ClInclude>
@@ -2171,13 +2304,13 @@
     <ClInclude Include="..\..\Source\Project\UI\jucer_ProjectContentComponent.h">
       <Filter>Projucer\Project\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Project\jucer_Module.h">
-      <Filter>Projucer\Project</Filter>
+    <ClInclude Include="..\..\Source\Project\UI\jucer_ProjectMessagesComponent.h">
+      <Filter>Projucer\Project\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Project\UI\jucer_UserAvatarComponent.h">
+      <Filter>Projucer\Project\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Project\jucer_Project.h">
-      <Filter>Projucer\Project</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Project\jucer_ProjectType.h">
       <Filter>Projucer\Project</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ProjectSaving\jucer_ProjectExport_Android.h">
@@ -2228,16 +2361,22 @@
     <ClInclude Include="..\..\Source\Utility\Helpers\jucer_MiscUtilities.h">
       <Filter>Projucer\Utility\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Utility\Helpers\jucer_PresetIDs.h">
+    <ClInclude Include="..\..\Source\Utility\Helpers\jucer_NewFileWizard.h">
       <Filter>Projucer\Utility\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Utility\Helpers\jucer_RelativePath.h">
+    <ClInclude Include="..\..\Source\Utility\Helpers\jucer_PresetIDs.h">
       <Filter>Projucer\Utility\Helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Utility\Helpers\jucer_TranslationHelpers.h">
       <Filter>Projucer\Utility\Helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Utility\Helpers\jucer_ValueSourceHelpers.h">
+      <Filter>Projucer\Utility\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Utility\Helpers\jucer_ValueWithDefaultWrapper.h">
+      <Filter>Projucer\Utility\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Utility\Helpers\jucer_VersionInfo.h">
       <Filter>Projucer\Utility\Helpers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Utility\PIPs\jucer_PIPGenerator.h">
@@ -2270,68 +2409,38 @@
     <ClInclude Include="..\..\Source\Utility\UI\jucer_SlidingPanelComponent.h">
       <Filter>Projucer\Utility\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Utility\UI\jucer_UserSettingsPopup.h">
-      <Filter>Projucer\Utility\UI</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_BinaryResourceFile.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_NewFileWizard.h">
-      <Filter>Projucer\Wizards</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_BuildHelperFunctions.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_NewProjectWizard.h">
-      <Filter>Projucer\Wizards</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_Entitlements.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_NewProjectWizardClasses.h">
-      <Filter>Projucer\Wizards</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_Icons.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_NewProjectWizardComponent.h">
-      <Filter>Projucer\Wizards</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_PlistOptions.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_ProjectWizard_Animated.h">
-      <Filter>Projucer\Wizards</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_ProjectType.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_ProjectWizard_AudioApp.h">
-      <Filter>Projucer\Wizards</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_RelativePath.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_ProjectWizard_AudioPlugin.h">
-      <Filter>Projucer\Wizards</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_ResourceFileHelpers.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_ProjectWizard_Blank.h">
-      <Filter>Projucer\Wizards</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_ResourceRc.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_ProjectWizard_Console.h">
-      <Filter>Projucer\Wizards</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\utils\juce_VersionNumbers.h">
+      <Filter>JUCE Modules\juce_build_tools\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_ProjectWizard_DLL.h">
-      <Filter>Projucer\Wizards</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_ProjectWizard_GUIApp.h">
-      <Filter>Projucer\Wizards</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_ProjectWizard_openGL.h">
-      <Filter>Projucer\Wizards</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_ProjectWizard_StaticLibrary.h">
-      <Filter>Projucer\Wizards</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_StartPageComponent.h">
-      <Filter>Projucer\Wizards</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Wizards\jucer_TemplateThumbnailsComponent.h">
-      <Filter>Projucer\Wizards</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\modules\juce_analytics\analytics\juce_Analytics.h">
-      <Filter>JUCE Modules\juce_analytics\analytics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\modules\juce_analytics\analytics\juce_ButtonTracker.h">
-      <Filter>JUCE Modules\juce_analytics\analytics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\modules\juce_analytics\destinations\juce_AnalyticsDestination.h">
-      <Filter>JUCE Modules\juce_analytics\destinations</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\modules\juce_analytics\destinations\juce_ThreadedAnalyticsDestination.h">
-      <Filter>JUCE Modules\juce_analytics\destinations</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\modules\juce_analytics\juce_analytics.h">
-      <Filter>JUCE Modules\juce_analytics</Filter>
+    <ClInclude Include="..\..\..\Build\juce_build_tools\juce_build_tools.h">
+      <Filter>JUCE Modules\juce_build_tools</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\containers\juce_AbstractFifo.h">
       <Filter>JUCE Modules\juce_core\containers</Filter>
@@ -2405,6 +2514,9 @@
     <ClInclude Include="..\..\..\..\modules\juce_core\files\juce_MemoryMappedFile.h">
       <Filter>JUCE Modules\juce_core\files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\juce_core\files\juce_RangedDirectoryIterator.h">
+      <Filter>JUCE Modules\juce_core\files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\files\juce_TemporaryFile.h">
       <Filter>JUCE Modules\juce_core\files</Filter>
     </ClInclude>
@@ -2443,6 +2555,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\maths\juce_StatisticsAccumulator.h">
       <Filter>JUCE Modules\juce_core\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\juce_core\memory\juce_AllocationHooks.h">
+      <Filter>JUCE Modules\juce_core\memory</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\memory\juce_Atomic.h">
       <Filter>JUCE Modules\juce_core\memory</Filter>
@@ -2493,9 +2608,6 @@
       <Filter>JUCE Modules\juce_core\misc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\misc\juce_RuntimePermissions.h">
-      <Filter>JUCE Modules\juce_core\misc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\modules\juce_core\misc\juce_StdFunctionCompat.h">
       <Filter>JUCE Modules\juce_core\misc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\misc\juce_Uuid.h">
@@ -2571,6 +2683,9 @@
       <Filter>JUCE Modules\juce_core\streams</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\system\juce_CompilerSupport.h">
+      <Filter>JUCE Modules\juce_core\system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\juce_core\system\juce_CompilerWarnings.h">
       <Filter>JUCE Modules\juce_core\system</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\system\juce_PlatformDefs.h">
@@ -2688,6 +2803,9 @@
       <Filter>JUCE Modules\juce_core\time</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\unit_tests\juce_UnitTest.h">
+      <Filter>JUCE Modules\juce_core\unit_tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\juce_core\unit_tests\juce_UnitTestCategories.h">
       <Filter>JUCE Modules\juce_core\unit_tests</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_core\xml\juce_XmlDocument.h">
@@ -2997,6 +3115,9 @@
       <Filter>JUCE Modules\juce_graphics\image_formats\pnglib</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_graphics\image_formats\pnglib\pngconf.h">
+      <Filter>JUCE Modules\juce_graphics\image_formats\pnglib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\juce_graphics\image_formats\pnglib\pngdebug.h">
       <Filter>JUCE Modules\juce_graphics\image_formats\pnglib</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_graphics\image_formats\pnglib\pnginfo.h">
@@ -3335,8 +3456,11 @@
     <ClInclude Include="..\..\..\..\modules\juce_gui_basics\mouse\juce_TooltipClient.h">
       <Filter>JUCE Modules\juce_gui_basics\mouse</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\modules\juce_gui_basics\native\juce_linux_X11.h">
-      <Filter>JUCE Modules\juce_gui_basics\native</Filter>
+    <ClInclude Include="..\..\..\..\modules\juce_gui_basics\native\x11\juce_linux_X11_Symbols.h">
+      <Filter>JUCE Modules\juce_gui_basics\native\x11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\juce_gui_basics\native\x11\juce_linux_XWindowSystem.h">
+      <Filter>JUCE Modules\juce_gui_basics\native\x11</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_gui_basics\native\juce_MultiTouchMapper.h">
       <Filter>JUCE Modules\juce_gui_basics\native</Filter>
@@ -3491,6 +3615,9 @@
     <ClInclude Include="..\..\..\..\modules\juce_gui_extra\embedding\juce_AndroidViewComponent.h">
       <Filter>JUCE Modules\juce_gui_extra\embedding</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\modules\juce_gui_extra\embedding\juce_HWNDComponent.h">
+      <Filter>JUCE Modules\juce_gui_extra\embedding</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\modules\juce_gui_extra\embedding\juce_NSViewComponent.h">
       <Filter>JUCE Modules\juce_gui_extra\embedding</Filter>
     </ClInclude>
@@ -3545,9 +3672,6 @@
     <ClInclude Include="..\..\..\..\modules\juce_gui_extra\juce_gui_extra.h">
       <Filter>JUCE Modules\juce_gui_extra</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h">
-      <Filter>JUCE Library Code</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
@@ -3556,6 +3680,24 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\Build\CMake\LaunchScreen.storyboard">
+      <Filter>Projucer\BinaryData</Filter>
+    </None>
+    <None Include="..\..\..\Build\CMake\PIPAudioProcessor.cpp.in">
+      <Filter>Projucer\BinaryData</Filter>
+    </None>
+    <None Include="..\..\..\Build\CMake\PIPComponent.cpp.in">
+      <Filter>Projucer\BinaryData</Filter>
+    </None>
+    <None Include="..\..\..\Build\CMake\PIPConsole.cpp.in">
+      <Filter>Projucer\BinaryData</Filter>
+    </None>
+    <None Include="..\..\..\Build\CMake\RecentFilesMenuTemplate.nib">
+      <Filter>Projucer\BinaryData</Filter>
+    </None>
+    <None Include="..\..\..\Build\CMake\UnityPluginGUIScript.cs.in">
+      <Filter>Projucer\BinaryData</Filter>
+    </None>
     <None Include="..\..\Source\BinaryData\gradle\gradle-wrapper.jar">
       <Filter>Projucer\BinaryData\gradle</Filter>
     </None>
@@ -3589,7 +3731,7 @@
     <None Include="..\..\Source\BinaryData\Icons\export_xcode.svg">
       <Filter>Projucer\BinaryData\Icons</Filter>
     </None>
-    <None Include="..\..\Source\BinaryData\Icons\huckleberry_icon.svg">
+    <None Include="..\..\Source\BinaryData\Icons\gpl_logo.svg">
       <Filter>Projucer\BinaryData\Icons</Filter>
     </None>
     <None Include="..\..\Source\BinaryData\Icons\juce-logo-with-text.svg">
@@ -3628,25 +3770,10 @@
     <None Include="..\..\Source\BinaryData\Icons\wizard_StaticLibrary.svg">
       <Filter>Projucer\BinaryData\Icons</Filter>
     </None>
-    <None Include="..\..\Source\BinaryData\Templates\jucer_UnityPluginGUIScript.cs">
-      <Filter>Projucer\BinaryData\Templates</Filter>
-    </None>
     <None Include="..\..\Source\BinaryData\colourscheme_dark.xml">
       <Filter>Projucer\BinaryData</Filter>
     </None>
     <None Include="..\..\Source\BinaryData\colourscheme_light.xml">
-      <Filter>Projucer\BinaryData</Filter>
-    </None>
-    <None Include="..\..\Source\BinaryData\nothingtoseehere.txt">
-      <Filter>Projucer\BinaryData</Filter>
-    </None>
-    <None Include="..\..\Source\BinaryData\offlinepage.html">
-      <Filter>Projucer\BinaryData</Filter>
-    </None>
-    <None Include="..\..\Source\BinaryData\projucer_EULA.txt">
-      <Filter>Projucer\BinaryData</Filter>
-    </None>
-    <None Include="..\..\Source\BinaryData\RecentFilesMenuTemplate.nib">
       <Filter>Projucer\BinaryData</Filter>
     </None>
     <None Include="..\..\..\..\modules\juce_core\native\java\README.txt">

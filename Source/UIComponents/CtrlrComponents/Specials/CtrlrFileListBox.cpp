@@ -270,28 +270,28 @@ void CtrlrFileListBox::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 	}
 	else if (property == Ids::uiFileListFileClicked)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		fileClickedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiFileListFileDoubleClicked)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		fileDoubleClickedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 /*	else if (property == Ids::uiFileListItemDeleteKeyPressed)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		itemDeleteKeyPressedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
 	else if (property == Ids::uiFileListItemReturnKeyPressed)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		itemReturnKeyPressedCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));

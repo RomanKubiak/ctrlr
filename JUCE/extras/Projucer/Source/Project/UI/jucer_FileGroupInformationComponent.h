@@ -2,17 +2,16 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    JUCE is an open source library subject to commercial or open-source
    licensing.
 
-   By using JUCE, you agree to the terms of both the JUCE 5 End-User License
-   Agreement and JUCE 5 Privacy Policy (both updated and effective as of the
-   27th April 2017).
+   By using JUCE, you agree to the terms of both the JUCE 6 End-User License
+   Agreement and JUCE Privacy Policy (both effective as of the 16th June 2020).
 
-   End User License Agreement: www.juce.com/juce-5-licence
-   Privacy Policy: www.juce.com/juce-5-privacy-policy
+   End User License Agreement: www.juce.com/juce-6-licence
+   Privacy Policy: www.juce.com/juce-privacy-policy
 
    Or: You may also use this code under the terms of the GPL v3 (see
    www.gnu.org/licenses).
@@ -37,8 +36,8 @@ public:
         : item (group),
           header (item.getName(), { getIcons().openFolder, Colours::transparentBlack })
     {
-        list.setHeaderComponent (new ListBoxHeader ( { "File", "Binary Resource", "Xcode Resource", "Compile" },
-                                                     { 0.4f, 0.2f, 0.2f, 0.2f } ));
+        list.setHeaderComponent (std::make_unique<ListBoxHeader> (Array<String> { "File", "Binary Resource", "Xcode Resource", "Compile", "Skip PCH", "Compiler Flag Scheme" },
+                                                                  Array<float>  {  0.25f,  0.125f,            0.125f,           0.125f,    0.125f,     0.25f }));
         list.setModel (this);
         list.setColour (ListBox::backgroundColourId, Colours::transparentBlack);
         addAndMakeVisible (list);
@@ -132,18 +131,35 @@ private:
     public:
         FileOptionComponent (const Project::Item& fileItem, ListBoxHeader* listBoxHeader)
             : item (fileItem),
-              header (listBoxHeader)
+              header (listBoxHeader),
+              compilerFlagSchemeSelector (item)
         {
             if (item.isFile())
             {
-                addAndMakeVisible (compileButton);
-                compileButton.getToggleStateValue().referTo (item.getShouldCompileValue());
+                auto isSourceFile = item.isSourceFile();
+
+                if (isSourceFile)
+                {
+                    addAndMakeVisible (compileButton);
+                    compileButton.getToggleStateValue().referTo (item.getShouldCompileValue());
+                    compileButton.onStateChange = [this] { compileEnablementChanged(); };
+                }
 
                 addAndMakeVisible (binaryResourceButton);
                 binaryResourceButton.getToggleStateValue().referTo (item.getShouldAddToBinaryResourcesValue());
 
                 addAndMakeVisible (xcodeResourceButton);
                 xcodeResourceButton.getToggleStateValue().referTo (item.getShouldAddToXcodeResourcesValue());
+
+                if (isSourceFile)
+                {
+                    addChildComponent (skipPCHButton);
+                    skipPCHButton.getToggleStateValue().referTo (item.getShouldSkipPCHValue());
+
+                    addChildComponent (compilerFlagSchemeSelector);
+
+                    compileEnablementChanged();
+                }
             }
         }
 
@@ -151,7 +167,7 @@ private:
         {
             if (header != nullptr)
             {
-                auto textBounds = getLocalBounds().removeFromLeft (roundToInt (header->getProportionAtIndex (0) * getWidth()));
+                auto textBounds = getLocalBounds().removeFromLeft (roundToInt (header->getProportionAtIndex (0) * (float) getWidth()));
 
                 auto iconBounds = textBounds.removeFromLeft (25);
 
@@ -171,22 +187,176 @@ private:
             if (header != nullptr)
             {
                 auto bounds = getLocalBounds();
-                auto width = getWidth();
+                auto width = (float) getWidth();
 
                 bounds.removeFromLeft (roundToInt (header->getProportionAtIndex (0) * width));
 
-                binaryResourceButton.setBounds (bounds.removeFromLeft (roundToInt (header->getProportionAtIndex (1) * width)));
-                xcodeResourceButton.setBounds  (bounds.removeFromLeft (roundToInt (header->getProportionAtIndex (2) * width)));
-                compileButton.setBounds        (bounds.removeFromLeft (roundToInt (header->getProportionAtIndex (3) * width)));
+                binaryResourceButton.setBounds       (bounds.removeFromLeft (roundToInt (header->getProportionAtIndex (1) * width)));
+                xcodeResourceButton.setBounds        (bounds.removeFromLeft (roundToInt (header->getProportionAtIndex (2) * width)));
+                compileButton.setBounds              (bounds.removeFromLeft (roundToInt (header->getProportionAtIndex (3) * width)));
+                skipPCHButton.setBounds              (bounds.removeFromLeft (roundToInt (header->getProportionAtIndex (4) * width)));
+                compilerFlagSchemeSelector.setBounds (bounds.removeFromLeft (roundToInt (header->getProportionAtIndex (5) * width)));
             }
         }
 
         Project::Item item;
 
     private:
+        //==============================================================================
+        class CompilerFlagSchemeSelector  : public Component,
+                                            private Value::Listener
+        {
+        public:
+            CompilerFlagSchemeSelector (Project::Item& it)
+                : item (it)
+            {
+                schemeBox.setTextWhenNothingSelected ("None");
+                updateCompilerFlagSchemeComboBox();
+                schemeBox.onChange = [this] { handleComboBoxSelection(); };
+
+                addAndMakeVisible (schemeBox);
+                addChildComponent (newSchemeLabel);
+
+                newSchemeLabel.setEditable (true);
+                newSchemeLabel.setJustificationType (Justification::centredLeft);
+                newSchemeLabel.onEditorHide = [this]
+                {
+                    newSchemeLabel.setVisible (false);
+                    schemeBox.setVisible (true);
+
+                    auto newScheme = newSchemeLabel.getText();
+
+                    item.project.addCompilerFlagScheme (newScheme);
+
+                    if (item.getCompilerFlagSchemeString().isEmpty())
+                        item.setCompilerFlagScheme (newScheme);
+
+                    updateCompilerFlagSchemeComboBox();
+                };
+
+                selectScheme (item.getCompilerFlagSchemeString());
+
+                projectCompilerFlagSchemesValue = item.project.getProjectValue (Ids::compilerFlagSchemes);
+                projectCompilerFlagSchemesValue.addListener (this);
+
+                lookAndFeelChanged();
+            }
+
+            void resized() override
+            {
+                auto b =  getLocalBounds();
+
+                schemeBox.setBounds (b);
+                newSchemeLabel.setBounds (b);
+            }
+
+        private:
+            void valueChanged (Value&) override   { updateCompilerFlagSchemeComboBox(); }
+
+            void lookAndFeelChanged() override
+            {
+                schemeBox.setColour (ComboBox::outlineColourId, Colours::transparentBlack);
+                schemeBox.setColour (ComboBox::textColourId,    findColour (defaultTextColourId));
+            }
+
+            void updateCompilerFlagSchemeComboBox()
+            {
+                auto itemScheme = item.getCompilerFlagSchemeString();
+                auto allSchemes = item.project.getCompilerFlagSchemes();
+
+                if (itemScheme.isNotEmpty() && ! allSchemes.contains (itemScheme))
+                {
+                    item.clearCurrentCompilerFlagScheme();
+                    itemScheme = {};
+                }
+
+                schemeBox.clear();
+
+                schemeBox.addItemList (allSchemes, 1);
+                schemeBox.addSeparator();
+                schemeBox.addItem ("Add a new scheme...", -1);
+                schemeBox.addItem ("Delete selected scheme", -2);
+                schemeBox.addItem ("Clear", -3);
+
+                selectScheme (itemScheme);
+            }
+
+            void handleComboBoxSelection()
+            {
+                auto selectedID = schemeBox.getSelectedId();
+
+                if (selectedID > 0)
+                {
+                    item.setCompilerFlagScheme (schemeBox.getItemText (selectedID - 1));
+                }
+                else if (selectedID == -1)
+                {
+                    newSchemeLabel.setText ("NewScheme", dontSendNotification);
+
+                    schemeBox.setVisible (false);
+                    newSchemeLabel.setVisible (true);
+
+                    newSchemeLabel.showEditor();
+
+                    if (auto* ed = newSchemeLabel.getCurrentTextEditor())
+                        ed->setInputRestrictions (64, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_");
+                }
+                else if (selectedID == -2)
+                {
+                    auto currentScheme = item.getCompilerFlagSchemeString();
+
+                    if (currentScheme.isNotEmpty())
+                    {
+                        item.project.removeCompilerFlagScheme (currentScheme);
+                        item.clearCurrentCompilerFlagScheme();
+                    }
+
+                    updateCompilerFlagSchemeComboBox();
+                }
+                else if (selectedID == -3)
+                {
+                    schemeBox.setSelectedId (0);
+                    item.clearCurrentCompilerFlagScheme();
+                }
+            }
+
+            void selectScheme (const String& schemeToSelect)
+            {
+                if (schemeToSelect.isNotEmpty())
+                {
+                    for (int i = 0; i < schemeBox.getNumItems(); ++i)
+                    {
+                        if (schemeBox.getItemText (i) == schemeToSelect)
+                        {
+                            schemeBox.setSelectedItemIndex (i);
+                            return;
+                        }
+                    }
+                }
+
+                schemeBox.setSelectedId (0);
+            }
+
+            Project::Item& item;
+            Value projectCompilerFlagSchemesValue;
+
+            ComboBox schemeBox;
+            Label newSchemeLabel;
+        };
+
+        void compileEnablementChanged()
+        {
+            auto shouldBeCompiled = compileButton.getToggleState();
+
+            skipPCHButton.setVisible (shouldBeCompiled);
+            compilerFlagSchemeSelector.setVisible (shouldBeCompiled);
+        }
+
+        //==============================================================================
         ListBoxHeader* header;
 
-        ToggleButton compileButton, binaryResourceButton, xcodeResourceButton;
+        ToggleButton compileButton, binaryResourceButton, xcodeResourceButton, skipPCHButton;
+        CompilerFlagSchemeSelector compilerFlagSchemeSelector;
     };
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FileGroupInformationComponent)

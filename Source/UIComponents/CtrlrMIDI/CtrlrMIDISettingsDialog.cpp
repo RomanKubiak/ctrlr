@@ -84,8 +84,8 @@ void CtrlrMIDISettingsDialog::resized()
 void CtrlrMIDISettingsDialog::showDialog(CtrlrPanel &_owner)
 {
     DialogWindow::LaunchOptions opts;
-    OptionalScopedPointer <Component> dialogContent (new CtrlrMIDISettingsDialog(_owner), true);
-    opts.content = dialogContent;
+    auto* dialogContent = new CtrlrMIDISettingsDialog(_owner);
+    opts.content.setOwned(dialogContent);
     opts.dialogTitle = "MIDI Settings";
     opts.componentToCentreAround = dynamic_cast<Component*>(_owner.getEditor());
     opts.dialogBackgroundColour = Colours::white;

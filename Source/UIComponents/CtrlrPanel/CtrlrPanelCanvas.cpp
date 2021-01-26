@@ -123,7 +123,7 @@ void CtrlrPanelCanvas::resized()
 {
     ctrlrPanelCanvasResizableBorder->setBounds (-8, -8, getWidth() + 8, getHeight() + 8);
 
-	if (getTransform() == AffineTransform::identity)
+	if (getTransform() == AffineTransform())
 		setProperty (Ids::uiPanelCanvasRectangle, getBounds().toString());
 
 	layersResize();
@@ -727,12 +727,12 @@ void CtrlrPanelCanvas::emptyGroupping(ValueTree &tree)
 {
 	if (!tree.getProperty (Ids::componentGroupName).toString().isEmpty())
 	{
-		tree.setProperty (Ids::componentGroupName, String::empty, 0);
+		tree.setProperty (Ids::componentGroupName, "", 0);
 	}
 
 	if (!tree.getProperty (Ids::componentTabName).toString().isEmpty())
 	{
-		tree.setProperty (Ids::componentTabName, String::empty, 0);
+		tree.setProperty (Ids::componentTabName, "", 0);
 	}
 }
 
@@ -790,7 +790,7 @@ void CtrlrPanelCanvas::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 	{
 		if (treeWhosePropertyHasChanged.getProperty(Ids::uiPanelImageResource).toString() == COMBO_NONE_ITEM)
 		{
-			ctrlrPanelBackgroundImage = Image::null;
+			ctrlrPanelBackgroundImage = Image();
 		}
 		else
 		{
@@ -816,7 +816,7 @@ void CtrlrPanelCanvas::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 
 	if (property == Ids::luaPanelPaintBackground)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		paintCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
@@ -824,7 +824,7 @@ void CtrlrPanelCanvas::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 
 	if (property == Ids::luaPanelResized)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		resizedCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
@@ -832,7 +832,7 @@ void CtrlrPanelCanvas::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 
 	if (property == Ids::luaPanelFileDragDropHandler)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelFileDragDropHandlerCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
@@ -840,7 +840,7 @@ void CtrlrPanelCanvas::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 
 	if (property == Ids::luaPanelFileDragEnterHandler)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelFileDragEnterHandlerCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
@@ -848,7 +848,7 @@ void CtrlrPanelCanvas::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 
 	if (property == Ids::luaPanelFileDragExitHandler)
 	{
-		if (getProperty(property) == String::empty)
+		if (getProperty(property) == "")
 			return;
 
 		luaPanelFileDragExitHandlerCbk = owner.getOwner().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
@@ -1057,7 +1057,7 @@ void CtrlrPanelCanvas::filesDropped (const StringArray &files, int x, int y)
 	for (int i=0; i<files.size(); i++)
 	{
 		const File f = File (files[i]);
-		if (f != File::nonexistent)
+		if (f != File())
         {
             if (f.hasFileExtension(".component"))
             {
@@ -1070,7 +1070,7 @@ void CtrlrPanelCanvas::filesDropped (const StringArray &files, int x, int y)
             else
             {
                 Image img = ImageFileFormat::loadFrom(f);
-                if (img != Image::null)
+                if (img != Image())
                 {
                     importImage (f, x, y);
                 }
@@ -1109,7 +1109,7 @@ void CtrlrPanelCanvas::exportComponent(CtrlrComponent *componentToExport)
 	if (componentToExport != 0)
 	{
 		File f(owner.getProperty (Ids::lastBrowsedComponentDir));
-		if (f == File::nonexistent)
+		if (f == File())
 		{
 			owner.setProperty (Ids::lastBrowsedComponentDir, File::getSpecialLocation(File::userDocumentsDirectory).getFullPathName());
 		}
@@ -1123,7 +1123,7 @@ void CtrlrPanelCanvas::exportComponent(CtrlrComponent *componentToExport)
 			File fileToSave = fileChooser.getResult().withFileExtension(".component");
 
 			owner.setProperty (Ids::lastBrowsedComponentDir, fileToSave.getParentDirectory().getFullPathName());
-			ScopedPointer <FileOutputStream> fileOutputStream(fileToSave.createOutputStream());
+			ScopedPointer <FileOutputStream> fileOutputStream(fileToSave.createOutputStream().release());
 			if (fileOutputStream)
 			{
 				componentToExport->getOwner().getModulatorTree().writeToStream (*fileOutputStream);
@@ -1134,7 +1134,7 @@ void CtrlrPanelCanvas::exportComponent(CtrlrComponent *componentToExport)
 
 void CtrlrPanelCanvas::importComponent (const File &componentFile, int x, int y)
 {
-	ScopedPointer <FileInputStream> fileInputStream(componentFile.createInputStream());
+	ScopedPointer <FileInputStream> fileInputStream(componentFile.createInputStream().release());
 	if (fileInputStream)
 	{
 		ValueTree cTree = ValueTree::readFromStream(*fileInputStream);
@@ -1163,7 +1163,7 @@ void CtrlrPanelCanvas::importImage (const File &imageFile, int x, int y)
 
 	Image i = owner.getOwner().getResourceManager().getResourceAsImage(imageFile.getFileNameWithoutExtension());
 
-	if (i == Image::null)
+	if (i == Image())
 	{
 		AlertWindow::showMessageBox(AlertWindow::InfoIcon, "Image import", "Image has been imported as a resource, but i can't fetch if from the resource manager");
 		return;
@@ -1383,7 +1383,7 @@ const String CtrlrPanelCanvas::getLayerName(const int indexInArray)
 	{
 		return (layers[indexInArray]->getProperty(Ids::uiPanelCanvasLayerName).toString());
 	}
-	return (String::empty);
+	return ("");
 }
 
 bool CtrlrPanelCanvas::isInterestedInDragSource (const SourceDetails &dragSourceDetails)
@@ -1476,7 +1476,7 @@ void CtrlrQuickXmlPreview::buttonClicked(Button *)
 {
 	CodeDocument doc;
 	CodeEditorComponent ed(doc, 0);
-	ScopedPointer <XmlElement> xml(treeToPreview.createXml());
+	ScopedPointer <XmlElement> xml(treeToPreview.createXml().release());
 	doc.replaceAllContent(xml->createDocument(""));
 	ed.setSize (600, 600);
 	DialogWindow::showModalDialog ("XML Preview", &ed, this, Colours::white, true, true, true);

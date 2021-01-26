@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE examples.
-   Copyright (c) 2017 - ROLI Ltd.
+   Copyright (c) 2020 - Raw Material Software Limited
 
    The code included in this file is provided under the terms of the ISC license
    http://www.isc.org/downloads/software-support-policy/isc-license. Permission
@@ -33,7 +33,7 @@
                    juce_audio_processors, juce_audio_utils, juce_core,
                    juce_data_structures, juce_events, juce_graphics,
                    juce_gui_basics, juce_gui_extra
- exporters:        xcode_mac, vs2017, linux_make, androidstudio, xcode_iphone
+ exporters:        xcode_mac, vs2019, linux_make, androidstudio, xcode_iphone
 
  moduleFlags:      JUCE_STRICT_REFCOUNTEDPOINTER=1
 
@@ -64,7 +64,7 @@ public:
         backgroundThread.startThread();
     }
 
-    ~AudioRecorder()
+    ~AudioRecorder() override
     {
         stop();
     }
@@ -178,7 +178,7 @@ public:
         thumbnail.addChangeListener (this);
     }
 
-    ~RecordingThumbnail()
+    ~RecordingThumbnail() override
     {
         thumbnail.removeChangeListener (this);
     }
@@ -272,7 +272,7 @@ public:
         setSize (500, 500);
     }
 
-    ~AudioRecordingDemo()
+    ~AudioRecordingDemo() override
     {
         audioDeviceManager.removeAudioCallback (&recorder);
         audioDeviceManager.removeAudioCallback (&liveAudioScroller);
@@ -348,7 +348,7 @@ private:
     {
         recorder.stop();
 
-       #if (JUCE_ANDROID || JUCE_IOS)
+       #if JUCE_CONTENT_SHARING
         SafePointer<AudioRecordingDemo> safeThis (this);
         File fileToShare = lastRecording;
 

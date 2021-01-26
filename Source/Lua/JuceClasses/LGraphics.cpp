@@ -205,7 +205,7 @@ void LDrawable::wrapForLua (lua_State *L)
 	module(L)
     [
 		class_<Drawable>("Drawable")
-			.def("createCopy", &Drawable::createCopy)
+			//.def("createCopy", &Drawable::createCopy)
 			.def("draw", &Drawable::draw)
 			.def("drawAt", &Drawable::drawAt)
 			.def("drawWithin", &Drawable::drawWithin)
@@ -214,15 +214,15 @@ void LDrawable::wrapForLua (lua_State *L)
 			.def("getParent", &Drawable::getParent)
 			// .def("createFromImageFile", &Drawable::createFromValueTree) removed from JUCE
 			.def("getDrawableBounds", &Drawable::getDrawableBounds)
-			.scope
+			/*.scope
 			[
 				def("createFromImageData", &Drawable::createFromImageData, adopt(result)),
 				def("createFromImageDataStream", &Drawable::createFromImageDataStream, adopt(result)),
 				def("createFromImageFile", &Drawable::createFromImageFile, adopt(result)),
 				def("createFromSVG", &Drawable::createFromSVG, adopt(result)),
-				// def("createFromValueTree", &Drawable::createFromValueTree, adopt(result)), removed from JUCE
+				def("createFromValueTree", &Drawable::createFromValueTree, adopt(result)), removed from JUCE
 				def("toDrawableComposite", &LDrawable::toDrawableComposite)
-			]
+			]*/
 		,
 		class_<DrawableComposite, bases<Drawable> >("DrawableComposite")
 			.def(constructor<>())
@@ -233,7 +233,7 @@ void LDrawable::wrapForLua (lua_State *L)
 			.def("getContentArea", &DrawableComposite::getContentArea)
 			.def("setContentArea", &DrawableComposite::setContentArea)
 			.def("resetContentAreaAndBoundingBoxToFitChildren", &DrawableComposite::resetContentAreaAndBoundingBoxToFitChildren)
-			.def("createCopy", &DrawableComposite::createCopy)
+			//.def("createCopy", &DrawableComposite::createCopy)
 			.def("getDrawableBounds", &DrawableComposite::getDrawableBounds)
 	];
 }
@@ -487,10 +487,6 @@ void LImage::wrapForLua (lua_State *L)
 			.def("desaturate", &Image::desaturate)
 			.def("moveImageSection", &Image::moveImageSection)
 			.def("getReferenceCount", &Image::getReferenceCount)
-			.scope
-			[
-                def("null", &LImage::null)
-			]
 		,
 		class_<ImageFileFormat>("ImageFileFormat")
 			.def("getFormatName", &ImageFileFormat::getFormatName)

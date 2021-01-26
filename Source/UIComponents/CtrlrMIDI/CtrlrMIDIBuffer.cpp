@@ -180,7 +180,7 @@ const String CtrlrMidiBufferStatus::currentByte(const CodeDocument::Position &po
 		return (hexString(byte));
 	}
 
-	return (String::empty);
+	return ("");
 }
 
 const String CtrlrMidiBufferStatus::hexString(const String &hex)
@@ -471,10 +471,10 @@ void CtrlrMIDIBuffer::comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged)
 			case 1:
 				break;
 			case 2:
-				loadBinFile(File::nonexistent);
+				loadBinFile(File());
 				break;
 			case 3:
-				loadTextFile(File::nonexistent);
+				loadTextFile(File());
 				break;
 			default:
 				break;
@@ -567,13 +567,13 @@ const File CtrlrMIDIBuffer::browseForFile(const String &mask)
 		}
 	}
 
-	return (File::nonexistent);
+	return (File());
 }
 
 void CtrlrMIDIBuffer::loadBinFile(const File fileToOpen)
 {
 	_DBG("CtrlrMIDIBuffer::loadBinFile");
-	if (fileToOpen == File::nonexistent)
+	if (fileToOpen == File())
 	{
 		lastFile = browseForFile("*.syx;*.bin;*.dat;*.*");
 	}
@@ -588,7 +588,7 @@ void CtrlrMIDIBuffer::loadBinFile(const File fileToOpen)
 
 void CtrlrMIDIBuffer::loadTextFile(const File fileToOpen)
 {
-	if (fileToOpen == File::nonexistent)
+	if (fileToOpen == File())
 	{
 		lastFile = browseForFile("*.syx;*.bin;*.dat;*.*");
 	}
@@ -660,7 +660,7 @@ void CtrlrMIDIBuffer::wordBreak(const int columns)
 				nextPosition = dataToDisplaySize;
 			}
 
-			total << (prevPosition ? "\n" : String::empty) + dataToDisplay.substring (prevPosition, nextPosition).trim();
+			total << (prevPosition ? "\n" : "") + dataToDisplay.substring (prevPosition, nextPosition).trim();
 
 			prevPosition = nextPosition;
 		}

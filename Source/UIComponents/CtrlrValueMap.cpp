@@ -207,7 +207,7 @@ void CtrlrValueMap::addAdditionalData (const int index, const String &data)
 	}
 	else if (data.startsWith ("__SEPARATOR"))
 	{
-		additionalData.set (index, String::empty);
+		additionalData.set (index, "");
 	}
 }
 
@@ -222,7 +222,7 @@ void CtrlrValueMap::fillCombo (ComboBox &comboToFill, const bool clearBeforeFill
 	{
 		if (additionalData.contains (i))
 		{
-			if (additionalData[i] == String::empty)
+			if (additionalData[i] == "")
 			{
 				comboToFill.addSeparator();
 			}

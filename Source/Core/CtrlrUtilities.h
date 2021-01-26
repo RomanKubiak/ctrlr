@@ -73,4 +73,4 @@ int	indirectOperation(const int inValue, const CtrlrSysExFormulaToken op);
 static float getFloatValue(const int intValueToUse, const int maxValue);
 static int getIntValue(const float newValue, const int maxValue);
 const void mergeMidiData(const CtrlrMidiMessage &source, CtrlrMidiMessage &destination);
-void restoreProperties(const ValueTree &sourceTree, ValueTree &destinationTree, UndoManager *undoManager = 0, const String &propertyPrefix = String::empty);
+void restoreProperties(const ValueTree &sourceTree, ValueTree &destinationTree, UndoManager *undoManager = 0, const String &propertyPrefix = "");

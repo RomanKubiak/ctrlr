@@ -233,7 +233,7 @@ void CtrlrSysexProcessor::setSysExFormula(CtrlrMidiMessage &message, const Strin
 
 void CtrlrSysexProcessor::setMultiMessageFromString(CtrlrMidiMessage &message, const String &savedState)
 {
-	if (savedState.trim() == String::empty)
+	if (savedState.trim() == "")
 		return;
 
 	StringArray messages;

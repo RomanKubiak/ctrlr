@@ -78,7 +78,7 @@ void CtrlrManager::setDefaults()
 	setProperty (Ids::ctrlrPropertiesAreURLs, true);
 	setProperty (Ids::ctrlrNativeAlerts, false);
 	setProperty (Ids::ctrlrNativeFileDialogs, true);
-	setProperty (Ids::ctrlrPrivateKey, String::empty);
+	setProperty (Ids::ctrlrPrivateKey, "");
 	setProperty (Ids::ctrlrFontSizeBaseValue, 14.0f);
     setProperty (Ids::ctrlrScrollbarThickness, 18.0f);
     setProperty (Ids::ctrlrColourScheme, "Light");
@@ -392,7 +392,7 @@ void CtrlrManager::removePanel (CtrlrPanelEditor *editor)
 
 void CtrlrManager::restoreEditorState()
 {
-	if (getProperty(Ids::ctrlrEditorBounds).toString() == String::empty)
+	if (getProperty(Ids::ctrlrEditorBounds).toString() == "")
 	{
 		if (getInstanceMode() == InstanceSingle || getInstanceMode() == InstanceSingleRestriced)
 		{
