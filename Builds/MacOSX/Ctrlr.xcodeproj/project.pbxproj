@@ -89,6 +89,10 @@
 			isa = PBXBuildFile;
 			fileRef = 9503089C289097F8B3937ABF;
 		};
+		9FE286B20806467D22D9C426 = {
+			isa = PBXBuildFile;
+			fileRef = 60FD8A7C67139674C839AEEA;
+		};
 		780AAA7527BC489EAC9A3BFB = {
 			isa = PBXBuildFile;
 			fileRef = C0AD64546A6AF349E9E1D582;
@@ -2674,6 +2678,13 @@
 			path = "../../Source/Misc/luabind/build_information.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		60FD8A7C67139674C839AEEA = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.icns;
+			name = Icon.icns;
+			path = Icon.icns;
+			sourceTree = "SOURCE_ROOT";
+		};
 		6252E9E0F0C328E3DD2340A9 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -3241,13 +3252,6 @@
 			path = ../../Source/UIComponents/CtrlrComponents/Sliders/CtrlrSliderInternal.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		831E21E617866D4E3253DF9A = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrProperties.h;
-			path = ../../Source/Core/CtrlrProperties.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		8379747A6F599AC2C51873DE = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3374,18 +3378,18 @@
 			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		8B2DD80BC09CD5BFB81CA7B7 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = CtrlrPanelFindProperty.h;
-			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		8BA7A3331C4F868A7F8B6289 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = LFileTreeComponent.h;
 			path = ../../Source/Lua/JuceClasses/LFileTreeComponent.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		8BA7B2DBE9CC4AF4E459AE29 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = libusb.h;
+			path = ../../Source/Misc/libusb/include/libusb.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		8BD09BFC4C1199A5F63C8474 = {
@@ -3437,6 +3441,13 @@
 			path = "../../Source/Misc/luabind/luabind/adopt_policy.hpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		937FD0C3F539EE0A3826F487 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = LComponents.cpp;
+			path = ../../Source/Lua/JuceClasses/LComponents.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
 		958B190641E15AF921E89B8C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3456,13 +3467,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = object.hpp;
 			path = ../../Source/Misc/luabind/luabind/detail/object.hpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		A0290DC92CE4ECB25CF1529A = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = handle.hpp;
-			path = ../../Source/Misc/luabind/luabind/handle.hpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		EB6134FB2CFC4B1825455D47 = {
@@ -3500,6 +3504,13 @@
 			path = libCtrlr.a;
 			sourceTree = "BUILT_PRODUCTS_DIR";
 		};
+		831E21E617866D4E3253DF9A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = CtrlrProperties.h;
+			path = ../../Source/Core/CtrlrProperties.h;
+			sourceTree = "SOURCE_ROOT";
+		};
 		87DDC1119A834DE92F61CDCC = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -3514,11 +3525,11 @@
 			path = "../../Source/Misc/libusb/include/libusb_osx.h";
 			sourceTree = "SOURCE_ROOT";
 		};
-		8BA7B2DBE9CC4AF4E459AE29 = {
+		8B2DD80BC09CD5BFB81CA7B7 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
-			name = libusb.h;
-			path = ../../Source/Misc/libusb/include/libusb.h;
+			name = CtrlrPanelFindProperty.h;
+			path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelFindProperty.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		8DF1134A214DC3F8AC25B330 = {
@@ -3568,13 +3579,6 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrChildWindowContent.h;
 			path = ../../Source/UIComponents/CtrlrWindowManagers/CtrlrChildWindowContent.h;
-			sourceTree = "SOURCE_ROOT";
-		};
-		937FD0C3F539EE0A3826F487 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = LComponents.cpp;
-			path = ../../Source/Lua/JuceClasses/LComponents.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		9439EC762A4BA5022A58659F = {
@@ -3764,6 +3768,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = CtrlrLuaRectangle.h;
 			path = ../../Source/Lua/Deprecated/CtrlrLuaRectangle.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		A0290DC92CE4ECB25CF1529A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = handle.hpp;
+			path = ../../Source/Misc/luabind/luabind/handle.hpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		A035546887D12C173DE8D47D = {
@@ -6644,6 +6655,7 @@
 				134AA0F6DA06C006BC3646EA,
 				0F2A10151614696A44E74DF4,
 				9503089C289097F8B3937ABF,
+				60FD8A7C67139674C839AEEA,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -6767,7 +6779,7 @@
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../Packaging/Mac";
 				DEAD_CODE_STRIPPING = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = /;
@@ -6778,8 +6790,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -6793,6 +6805,7 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -6819,6 +6832,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -6863,8 +6877,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -6878,6 +6892,7 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -6902,6 +6917,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -6937,7 +6953,7 @@
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../Packaging/Mac";
 				DEAD_CODE_STRIPPING = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = /;
@@ -6948,8 +6964,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=0",
@@ -6963,6 +6979,7 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -6989,6 +7006,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7033,8 +7051,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=0",
@@ -7048,6 +7066,7 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7072,6 +7091,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7107,7 +7127,7 @@
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../Packaging/Mac";
 				DEAD_CODE_STRIPPING = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = /;
@@ -7118,8 +7138,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=1",
@@ -7133,6 +7153,7 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7159,6 +7180,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7204,8 +7226,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=1",
@@ -7219,6 +7241,7 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7243,6 +7266,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7281,7 +7305,7 @@
 				CODE_SIGN_ENTITLEMENTS = "AUv3_AppExtension.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../Packaging/Mac";
 				DEAD_CODE_STRIPPING = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
@@ -7290,8 +7314,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -7304,6 +7328,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7328,6 +7353,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7373,8 +7399,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -7387,6 +7413,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7410,6 +7437,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7444,7 +7472,7 @@
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../Packaging/Mac";
 				DEAD_CODE_STRIPPING = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
@@ -7453,8 +7481,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -7467,6 +7495,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7491,6 +7520,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7534,8 +7564,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -7548,6 +7578,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7571,6 +7602,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7605,7 +7637,7 @@
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../../Packaging/Mac";
 				DEAD_CODE_STRIPPING = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
@@ -7614,8 +7646,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=1",
@@ -7629,6 +7661,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7652,6 +7685,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7695,8 +7729,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=1",
@@ -7710,6 +7744,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7732,6 +7767,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(SRCROOT)/../../Source/Misc/vst2sdk",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(SRCROOT)/../../JUCE/modules",
 					"$(SRCROOT)/../../Source",
@@ -7903,6 +7939,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C304F9AC74497AEB5234479,
+				9FE286B20806467D22D9C426,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7964,6 +8001,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C304F9AC74497AEB5234479,
+				9FE286B20806467D22D9C426,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8025,6 +8063,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C304F9AC74497AEB5234479,
+				9FE286B20806467D22D9C426,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8097,6 +8136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C304F9AC74497AEB5234479,
+				9FE286B20806467D22D9C426,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8160,6 +8200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C304F9AC74497AEB5234479,
+				9FE286B20806467D22D9C426,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

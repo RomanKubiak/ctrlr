@@ -6,7 +6,7 @@
     <key>CFBundleExecutable</key>
     <string>${EXECUTABLE_NAME}</string>
     <key>CFBundleIconFile</key>
-    <string></string>
+    <string>Icon.icns</string>
     <key>CFBundleIdentifier</key>
     <string>com.instigator.Ctrlr</string>
     <key>CFBundleName</key>
@@ -18,9 +18,9 @@
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleShortVersionString</key>
-    <string>5.5</string>
+    <string>5.6</string>
     <key>CFBundleVersion</key>
-    <string>5.5</string>
+    <string>5.6</string>
     <key>NSHumanReadableCopyright</key>
     <string></string>
     <key>NSHighResolutionCapable</key>
@@ -37,11 +37,11 @@
         <key>manufacturer</key>
         <string>inSt</string>
         <key>type</key>
-        <string>CtrlrAU</string>
+        <string>aumi</string>
         <key>subtype</key>
         <string>cTrl</string>
         <key>version</key>
-        <integer>328960</integer>
+        <integer>329216</integer>
         <key>resourceUsage</key>
         <dict>
           <key>network.client</key>

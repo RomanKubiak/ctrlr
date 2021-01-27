@@ -182,7 +182,7 @@ function build_now_osx {
 	TEMPLATE_DMG_SOURCE="$CTRLR_ROOT/Packaging/Mac/Ctrlr_template.dmg.bz2"
 	TEMPLATE_DMG_TEMP="$CTRLR_ROOT/Packaging/Mac/Ctrlr_template.dmg"
 	TEMPLATE_DMG_MOUNT="/Volumes/Ctrlr"
-	TEMPLATE_FILE_LIST="$CTRLR_ROOT/Bin/Ctrlr.app $CTRLR_ROOT/Bin/Ctrlr.vst $CTRLR_ROOT/Bin/Ctrlr.component $CTRLR_ROOT/Panels $CTRLR_ROOT/Doc"
+	TEMPLATE_FILE_LIST="$CTRLR_ROOT/Packaging/Mac/Ctrlr.app $CTRLR_ROOT/Packaging/Mac/Ctrlr.vst $CTRLR_ROOT/Packaging/Mac/Ctrlr.component $CTRLR_ROOT/Packaging/Mac/Ctrlr.appex $CTRLR_ROOT/Packaging/Mac/Ctrlr.vst3  $CTRLR_ROOT/Panels $CTRLR_ROOT/Doc"
 	
 	echo "[CTRLR]: Empty build log $BUILD_LOG"
 	echo -n > $BUILD_LOG
