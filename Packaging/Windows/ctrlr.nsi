@@ -104,14 +104,14 @@ SectionGroup /e "Standalone" PROG1
 
 	Section "32bit binary" SEC1
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\VisualStudio2017\Win32\Release_Win32\Standalone Plugin\Ctrlr-Win32.exe"
+		File			"..\..\Builds\VisualStudio2019\Win32\Release_Win32\Standalone Plugin\Ctrlr-Win32.exe"
 		WriteUninstaller	"$INSTDIR\Uninstall.exe"
 		Call RegisterApplication
 	SectionEnd
 	
 	Section "64bit binary" SEC2
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\VisualStudio2017\x64\Release\Standalone Plugin\Ctrlr-x64.exe"
+		File			"..\..\Builds\VisualStudio2019\x64\Release\Standalone Plugin\Ctrlr-x64.exe"
 		WriteUninstaller	"$INSTDIR\Uninstall.exe"
 		Call RegisterApplication
 	SectionEnd
@@ -137,12 +137,12 @@ SectionGroup /e "VST" PROG2
 
 	Section "Executables Win32" SEC5
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\VisualStudio2017\Win32\Release_Win32\VST\Ctrlr-Win32.dll"
+		File			"..\..\Builds\VisualStudio2019\Win32\Release_Win32\VST\Ctrlr-Win32.dll"
 	SectionEnd
 	
 	Section "Executables x64" SEC6
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\VisualStudio2017\x64\Release\VST\Ctrlr-x64.dll"
+		File			"..\..\Builds\VisualStudio2019\x64\Release\VST\Ctrlr-x64.dll"
 	SectionEnd
 	
 SectionGroupEnd
@@ -151,12 +151,12 @@ SectionGroup /e "VST3" PROG3
 
 	Section "Executables Win32" SEC7
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\VisualStudio2017\Win32\Release_Win32\VST3\Ctrlr-Win32.vst3"
+		File			"..\..\Builds\VisualStudio2019\Win32\Release_Win32\VST3\Ctrlr-Win32.vst3"
 	SectionEnd
 	
 	Section "Executables x64" SEC8
 		SetOutPath 	"$INSTDIR"
-		File			"..\..\Builds\VisualStudio2017\x64\Release\VST3\Ctrlr-x64.vst3"
+		File			"..\..\Builds\VisualStudio2019\x64\Release\VST3\Ctrlr-x64.vst3"
 	SectionEnd
 	
 SectionGroupEnd

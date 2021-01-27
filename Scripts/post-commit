@@ -51,10 +51,10 @@ function detect_os {
 		BUILD_LOG_WIN64=$CTRLR_ROOT/Builds/Ctrlr-$VERSION.win64.build.log
 		CTRLR_KEY="$CTRLR_ROOT/Packaging/ctrlr.key"
 		if [ -d /cygdrive ]; then
-			MSBUILD="/cygdrive/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe"
+			MSBUILD="/cygdrive/c/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe"
 			NSIS="/cygdrive/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
 		else
-			MSBUILD="/c/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe"
+			MSBUILD="/c/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe"
 			NSIS="/c/Program\ Files\ \(x86\)/NSIS/makensis.exe"
 		fi
 		return
@@ -127,7 +127,7 @@ function windows_msbuild {
 	if [ -e "$MSBUILD" ]; then
 		echo "CTRLR: $MSBUILD found"
 
-		cd $CTRLR_ROOT/Builds/VisualStudio2017
+		cd $CTRLR_ROOT/Builds/VisualStudio2019
 		
 		echo "CTRLR: Build Win32"
 		"$MSBUILD" Ctrlr.sln /target:Rebuild /fileloggerparameters:logfile=Ctrlr-$VERSION.win32.build.log /property:Configuration=Release_Win32 /property:VisualStudioVersion=15.0 
