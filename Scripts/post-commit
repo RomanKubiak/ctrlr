@@ -344,7 +344,7 @@ function build_now_linux {
 		rm -rf ./build
 	fi
 	
-	./build.sh -f | tee -ia $BUILD_LOG
+	./build.sh | tee -ia $BUILD_LOG
 	if [ $? -ne 0 ]; then
 		echo "CTRLR: build for Standalone failed"
 		exit 1
@@ -355,7 +355,7 @@ function build_now_linux {
 		echo "CTRLR: clean before build"
 		rm -rf ./build
 	fi
-	./build.sh -f | tee -ia $BUILD_LOG
+	./build.sh | tee -ia $BUILD_LOG
 	
 	if [ $? -ne 0 ]; then
 		echo "CTRLR: build for VST dailed"
