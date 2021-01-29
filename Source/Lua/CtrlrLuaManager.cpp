@@ -1166,6 +1166,7 @@ void CtrlrModulator::wrapForLua (lua_State *L)
 		.def("setModulatorValue", &CtrlrModulator::setModulatorValue)
 		.def("getLuaName", &CtrlrModulator::getName)
 		.def("getModulatorName", &CtrlrModulator::getName)
+		//.def("getProperty", (const var &(CtrlrModulator::*)(const Identifier&) const)&CtrlrModulator::getProperty)
 		.enum_("CtrlrModulatorValue")
 		[
 			value("initialValue", 0),

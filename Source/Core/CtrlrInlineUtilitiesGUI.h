@@ -84,6 +84,8 @@ namespace gui {
             return LookAndFeel_V4::getMidnightColourScheme();
         if (property == "Light")
             return LookAndFeel_V4::getLightColourScheme();
+
+        return LookAndFeel_V4::getLightColourScheme();
     }
 }
 #endif

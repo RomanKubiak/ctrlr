@@ -14,7 +14,6 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 		menuHandlerCalled(false),
 		lastCommandInvocationMillis(0)
 {
-    setColourScheme(gui::colourSchemeFromProperty(owner.getProperty(Ids::ctrlrColourScheme)));
 	LookAndFeel::setDefaultLookAndFeel(this);
 	Rectangle<int> editorRect;
     // http://www.juce.com/forum/topic/applicationcommandmanager-menus-not-active-annoyance#new
@@ -76,6 +75,8 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 		else
 			setSize(800, 600);
 	}
+
+	setColourScheme(gui::colourSchemeFromProperty(owner.getProperty(Ids::ctrlrColourScheme)));
 
     getLookAndFeel().setUsingNativeAlertWindows((bool)owner.getProperty(Ids::ctrlrNativeAlerts));
 	lookAndFeelChanged();

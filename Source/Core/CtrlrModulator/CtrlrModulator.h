@@ -2,6 +2,7 @@
 
 #include "CtrlrMacros.h"
 #include "CtrlrModulatorProcessor.h"
+#include "CtrlrLuaObject.h"
 
 typedef WeakReference <CtrlrModulator>							CtrlrModulatorReference;
 
@@ -19,7 +20,7 @@ class CtrlrModulator;
 		component on a panel.
 
 */
-class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener
+class CtrlrModulator : public ChangeBroadcaster, public ValueTree::Listener, public CtrlrLuaObject
 {
 	public:
 		CtrlrModulator(CtrlrPanel &_owner);
