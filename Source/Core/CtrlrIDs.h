@@ -672,6 +672,7 @@ namespace Ids
 	DECLARE_ID (midiOutChannel);
 
 	DECLARE_ID (midiDev);
+	DECLARE_ID (midiDevId);
 	DECLARE_ID (midiDevType);
 	DECLARE_ID (midiDevState);
 	DECLARE_ID (midiDevIndex);
