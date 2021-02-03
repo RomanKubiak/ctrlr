@@ -6,7 +6,7 @@
 #include "CtrlrProcessor.h"
 #include "CtrlrLog.h"
 
-CtrlrMIDIDevice::CtrlrMIDIDevice(CtrlrMIDIDeviceManager &_owner, const int idx, const String name, const bool type)
+CtrlrMIDIDevice::CtrlrMIDIDevice(CtrlrMIDIDeviceManager &_owner, const int idx, const String name, const String identifier, const bool type)
 	:	deviceTree(Ids::midiDev),
 		owner(_owner),
 		outJucePtr(nullptr),
@@ -19,6 +19,7 @@ CtrlrMIDIDevice::CtrlrMIDIDevice(CtrlrMIDIDeviceManager &_owner, const int idx, 
 
 	setProperty (Ids::midiDevState, STP);
 	setProperty (Ids::name,  name);
+	setProperty (Ids::midiDevId, identifier );
 	setProperty (Ids::midiDevIndex, idx);
 	setProperty (Ids::midiDevType,  type);
 
@@ -51,7 +52,7 @@ bool CtrlrMIDIDevice::openDevice()
 
 		const ScopedLock sl(deviceLock);
 
-		outJucePtr = MidiOutput::openDevice (getProperty(Ids::midiDevIndex).toString()).release();
+		outJucePtr = MidiOutput::openDevice (getProperty(Ids::midiDevId).toString()).release();
 		if (outJucePtr == NULL)
 		{
 			_ERR("CtrlrMIDIDevice::openDevice failed to open device \""+getName()+"\"");
@@ -72,7 +73,7 @@ bool CtrlrMIDIDevice::openDevice()
 			return (true);
 		}
 
-		inJucePtr = MidiInput::openDevice (getProperty(Ids::midiDevIndex).toString(), this).release();
+		inJucePtr = MidiInput::openDevice (getProperty(Ids::midiDevId).toString(), this).release();
 
 		if (inJucePtr == NULL)
 		{
