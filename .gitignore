@@ -4,3 +4,8 @@ Source/Misc/boost/**
 Builds/VisualStudio2017/**
 !Builds/VisualStudio2017/Ctrlr.sln
 !Builds/VisualStudio2017/resources.rc
+Builds/**
+Packaging/**
+.vscode/**
+Source/Core/stdafx_luabind.h.gch
+Source/Core/stdafx.h.gch
