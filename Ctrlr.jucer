@@ -1081,7 +1081,7 @@
       </MODULEPATHS>
     </XCODE_MAC>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
-                enableGNUExtensions="1" externalLibraries="z&#10;udev&#10;bfd"
+                enableGNUExtensions="1" externalLibraries="z&#10;udev&#10;bfd&#10;X11"
                 vstLegacyFolder="Source/Misc/vst2sdk" extraCompilerFlags="-w">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr"
