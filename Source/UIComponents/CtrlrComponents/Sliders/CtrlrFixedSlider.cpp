@@ -128,8 +128,19 @@ void CtrlrFixedSlider::setComponentValue (const double newValue, const bool send
 
 void CtrlrFixedSlider::sliderContentChanged()
 {
-	valueMap->copyFrom (owner.getProcessor().setValueMap (getProperty (Ids::uiFixedSliderContent)));
-	ctrlrSlider->setRange (valueMap->getNonMappedMin(), valueMap->getNonMappedMax(), 1);
+	String values = getProperty (Ids::uiFixedSliderContent);
+	if (values.isNotEmpty()) {
+		valueMap->copyFrom (owner.getProcessor().setValueMap (values));
+		double max       =  valueMap->getNonMappedMax();
+		const double min = valueMap->getNonMappedMin();
+		// For JUCE MAX must be >= min
+		if (max <= min) {
+			// samething between 0.5 and 1 times the interval
+			// to avoid rounding errors
+			max = min + 0.66;
+		}
+		ctrlrSlider->setRange (min, max, 1);
+	}
 }
 
 
@@ -152,7 +163,7 @@ void CtrlrFixedSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 		ctrlrSlider->setColour (Slider::textBoxTextColourId, VAR2COLOUR(getProperty (Ids::uiSliderValueTextColour)) );
 	}
 	else if (property == Ids::uiSliderValueBgColour)
-	{
+	{  
 		ctrlrSlider->setColour (Slider::textBoxBackgroundColourId, VAR2COLOUR(getProperty (Ids::uiSliderValueBgColour)));
 	}
 	else if (property == Ids::uiSliderThumbColour)
