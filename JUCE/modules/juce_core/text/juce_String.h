@@ -1238,7 +1238,7 @@ public:
         that is returned must not be stored anywhere, as it can be deleted whenever the
         string changes.
     */
-    CharPointerType getCharPointer() const noexcept             { return text; }
+    constexpr CharPointerType getCharPointer() const noexcept             { return text; }
 
     /** Returns a pointer to a UTF-8 version of this string.
 
