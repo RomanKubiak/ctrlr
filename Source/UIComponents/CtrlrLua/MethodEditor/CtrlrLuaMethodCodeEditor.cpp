@@ -16,7 +16,6 @@ CtrlrLuaMethodCodeEditor::CtrlrLuaMethodCodeEditor(CtrlrLuaMethodEditor &_owner,
 	addAndMakeVisible (editorComponent	= new GenericCodeEditorComponent (*this,
 															document, codeTokeniser = new CtrlrLuaCodeTokeniser()));
 
-	editorComponent->grabKeyboardFocus();
 	editorComponent->setScrollbarThickness(owner.getOwner().getOwner().getProperty(Ids::ctrlrScrollbarThickness));
 	document.replaceAllContent(method->getCode());
 	document.setSavePoint();
@@ -37,6 +36,7 @@ CtrlrLuaMethodCodeEditor::CtrlrLuaMethodCodeEditor(CtrlrLuaMethodEditor &_owner,
 	{
 		setFontAndColour (Font (Font::getDefaultMonospacedFontName(), 14.0f, Font::plain), Colours::white);
 	}
+	editorComponent->grabKeyboardFocus();
 }
 
 CtrlrLuaMethodCodeEditor::~CtrlrLuaMethodCodeEditor()
