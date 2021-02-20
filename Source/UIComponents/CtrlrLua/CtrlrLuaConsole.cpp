@@ -78,7 +78,7 @@ CtrlrLuaConsole::CtrlrLuaConsole (CtrlrPanel &_owner)
 	currentInputString = "";
 
 	//luaConsoleOutput->setWantsKeyboardFocus(false);
-	luaConsoleInput->grabKeyboardFocus();
+	//luaConsoleInput->grabKeyboardFocus();
     //[/UserPreSize]
 
     setSize (600, 400);
