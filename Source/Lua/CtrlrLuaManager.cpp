@@ -113,38 +113,10 @@ void CtrlrLuaManager::createLuaState()
 {
 	luaState 		= luaL_newstate();
 	luaL_openlibs(luaState);
-	
-    lua_pushcfunction(luaState, luaopen_base);
-    lua_pushliteral(luaState, "base");
-    lua_call(luaState, 1, 0);
 
-    lua_pushcfunction(luaState, luaopen_table);
-    lua_pushliteral(luaState, "table");
-    lua_call(luaState, 1, 0);
+	// don't try to load standard libs again, here this will crash!!!
 
-    lua_pushcfunction(luaState, luaopen_string);
-    lua_pushliteral(luaState, "string");
-    lua_call(luaState, 1, 0);
 
-    lua_pushcfunction(luaState, luaopen_math);
-    lua_pushliteral(luaState, "math");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_io);
-    lua_pushliteral(luaState, "io");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_debug);
-    lua_pushliteral(luaState, "debug");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_package);
-    lua_pushliteral(luaState, "package");
-    lua_call(luaState, 1, 0);
-
-    lua_pushcfunction(luaState, luaopen_os);
-    lua_pushliteral(luaState, "os");
-    lua_call(luaState, 1, 0);
 
     lua_pushcfunction(luaState, luaopen_bit);
     lua_pushliteral(luaState, "bit");
