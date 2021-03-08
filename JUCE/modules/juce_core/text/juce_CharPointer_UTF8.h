@@ -36,7 +36,7 @@ class CharPointer_UTF8
 public:
     using CharType = char;
 
-    explicit CharPointer_UTF8 (const CharType* rawPointer) noexcept
+    constexpr explicit CharPointer_UTF8 (const CharType* rawPointer) noexcept
         : data (const_cast<CharType*> (rawPointer))
     {
     }
@@ -56,12 +56,12 @@ public:
     }
 
     /** This is a pointer comparison, it doesn't compare the actual text. */
-    bool operator== (CharPointer_UTF8 other) const noexcept      { return data == other.data; }
-    bool operator!= (CharPointer_UTF8 other) const noexcept      { return data != other.data; }
-    bool operator<= (CharPointer_UTF8 other) const noexcept      { return data <= other.data; }
-    bool operator<  (CharPointer_UTF8 other) const noexcept      { return data <  other.data; }
-    bool operator>= (CharPointer_UTF8 other) const noexcept      { return data >= other.data; }
-    bool operator>  (CharPointer_UTF8 other) const noexcept      { return data >  other.data; }
+    constexpr bool operator== (CharPointer_UTF8 other) const noexcept      { return data == other.data; }
+    constexpr bool operator!= (CharPointer_UTF8 other) const noexcept      { return data != other.data; }
+    constexpr bool operator<= (CharPointer_UTF8 other) const noexcept      { return data <= other.data; }
+    constexpr bool operator<  (CharPointer_UTF8 other) const noexcept      { return data <  other.data; }
+    constexpr bool operator>= (CharPointer_UTF8 other) const noexcept      { return data >= other.data; }
+    constexpr bool operator>  (CharPointer_UTF8 other) const noexcept      { return data >  other.data; }
 
     /** Returns the address that this pointer is pointing to. */
     CharType* getAddress() const noexcept        { return data; }

@@ -298,7 +298,15 @@ void CtrlrFileListBox::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 	} */
 	else if (property == Ids::uiFileListCurrentRoot)
 	{
-		directoryContentsList->setDirectory (File(getProperty(property)), true, true);
+		// The path will be wrong if panels are copied between
+		// different OS, so provide a resonable default, here.
+		String filename = getProperty(property);
+		File directory;
+		if (!File::isAbsolutePath(filename))
+			directory = File::getSpecialLocation(File::userDocumentsDirectory);
+		else
+			directory = File(filename);
+		directoryContentsList->setDirectory (directory, true, true);
 		treeComponent->refresh();
 	}
 	else

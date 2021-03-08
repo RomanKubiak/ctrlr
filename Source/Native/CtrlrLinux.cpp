@@ -128,7 +128,8 @@ const Result CtrlrLinux::getDefaultPanel(MemoryBlock& dataToWrite)
 	temp.loadFileAsData (dataToWrite);
 	return (Result::ok());
 #endif
-	libr_file *handle = libr_open (nullptr, LIBR_READ);
+	libr_file *handle = libr_open ( File::getSpecialLocation(File::hostApplicationPath).getFullPathName().toUTF8().getAddress(),
+					LIBR_READ);
 
 	if (handle == nullptr)
 	{
@@ -191,7 +192,8 @@ const Result CtrlrLinux::getDefaultResources(MemoryBlock& dataToWrite)
 	}
 #endif
 
-    libr_file *handle = libr_open (nullptr, LIBR_READ);
+    libr_file *handle = libr_open (File::getSpecialLocation(File::hostApplicationPath).getFullPathName().toUTF8().getAddress(),
+				   LIBR_READ);
 
 	if (handle == nullptr)
 	{
@@ -224,7 +226,7 @@ const Result CtrlrLinux::getDefaultResources(MemoryBlock& dataToWrite)
 
 const Result CtrlrLinux::getSignature(MemoryBlock &dataToWrite)
 {
-    libr_file *handle = libr_open (nullptr, LIBR_READ);
+    libr_file *handle = libr_open (File::getSpecialLocation(File::hostApplicationPath).getFullPathName().toUTF8().getAddress(), LIBR_READ);
 
 	if (handle == nullptr)
 	{

@@ -10,7 +10,11 @@
 CtrlrDocumentPanel::CtrlrDocumentPanel (CtrlrManager &_owner)
     : ctrlrEditor(0), owner(_owner)
 {
-	useFullscreenWhenOneDocument (true);
+	/* Full screen mode is not completely implemented in JUCE 6
+	   we get some assertions when adding the first Tab to an invisble
+	   panel, as it wants to grep the focus, which is not possible at this stage.
+	*/
+	// useFullscreenWhenOneDocument (true);
     setSize (600, 400);
 }
 

@@ -17,7 +17,7 @@ class CtrlrManager;
 class CtrlrMIDIDevice : public ValueTree::Listener, public MidiInputCallback
 {
 	public:
-		CtrlrMIDIDevice(CtrlrMIDIDeviceManager &_owner, const int idx, const String name, const bool type);
+		CtrlrMIDIDevice(CtrlrMIDIDeviceManager &_owner, const int idx, const String name, const String identifier, const bool type);
 		virtual ~CtrlrMIDIDevice();
 
 		class Listener

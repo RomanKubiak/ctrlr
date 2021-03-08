@@ -62,21 +62,30 @@ public:
     PixelARGB() = default;
     ~PixelARGB() = default;
 
-    PixelARGB (const uint8 a, const uint8 r, const uint8 g, const uint8 b) noexcept
+    constexpr PixelARGB (const uint8 a, const uint8 r, const uint8 g, const uint8 b) noexcept
+      #if JUCE_ANDROID
+       #if JUCE_BIG_ENDIAN
+    : components { a, b, g, r }
+       #else
+    : components { r, g, b, a }
+       #endif
+      #else
+       #if JUCE_BIG_ENDIAN
+    : components { a, r, g, b }
+       #else
+    : components { b, g, r, a }
+       #endif
+      #endif
     {
-        components.b = b;
-        components.g = g;
-        components.r = r;
-        components.a = a;
     }
 
     //==============================================================================
     /** Returns a uint32 which represents the pixel in a platform dependent format. */
-    forcedinline uint32 getNativeARGB() const noexcept { return internal; }
+    constexpr forcedinline uint32 getNativeARGB() const noexcept { return internal; }
 
     /** Returns a uint32 which will be in argb order as if constructed with the following mask operation
         ((alpha << 24) | (red << 16) | (green << 8) | blue). */
-    forcedinline uint32 getInARGBMaskOrder() const noexcept
+    constexpr forcedinline uint32 getInARGBMaskOrder() const noexcept
     {
        #if JUCE_ANDROID
         return (uint32) ((components.a << 24) | (components.r << 16) | (components.g << 8) | (components.b << 0));
@@ -105,10 +114,10 @@ public:
     forcedinline uint32 getOddBytes() const noexcept  { return 0x00ff00ff & (internal >> 8); }
 
     //==============================================================================
-    forcedinline uint8 getAlpha() const noexcept      { return components.a; }
-    forcedinline uint8 getRed()   const noexcept      { return components.r; }
-    forcedinline uint8 getGreen() const noexcept      { return components.g; }
-    forcedinline uint8 getBlue()  const noexcept      { return components.b; }
+    constexpr forcedinline uint8 getAlpha() const noexcept      { return components.a; }
+    constexpr forcedinline uint8 getRed()   const noexcept      { return components.r; }
+    constexpr forcedinline uint8 getGreen() const noexcept      { return components.g; }
+    constexpr forcedinline uint8 getBlue()  const noexcept      { return components.b; }
 
     //==============================================================================
     /** Copies another pixel colour over this one.
@@ -224,7 +233,7 @@ public:
     inline PixelARGB getUnpremultiplied() const noexcept { PixelARGB p (internal); p.unpremultiply(); return p; }
 
     /** Premultiplies the pixel's RGB values by its alpha. */
-    forcedinline void premultiply() noexcept
+    constexpr forcedinline void premultiply() noexcept
     {
         const uint32 alpha = components.a;
 
@@ -357,7 +366,7 @@ public:
         with the native format of a PixelARGB.
 
         @see PixelARGB::getNativeARGB */
-    forcedinline uint32 getNativeARGB() const noexcept
+    constexpr forcedinline uint32 getNativeARGB() const noexcept
     {
        #if JUCE_ANDROID
         return (uint32) ((0xffu << 24) | r | ((uint32) g << 8) | ((uint32) b << 16));
@@ -368,7 +377,7 @@ public:
 
     /** Returns a uint32 which will be in argb order as if constructed with the following mask operation
         ((alpha << 24) | (red << 16) | (green << 8) | blue). */
-    forcedinline uint32 getInARGBMaskOrder() const noexcept
+    constexpr forcedinline uint32 getInARGBMaskOrder() const noexcept
     {
        #if JUCE_ANDROID
         return (uint32) ((0xffu << 24) | b | ((uint32) g << 8) | ((uint32) r << 16));
@@ -604,11 +613,11 @@ public:
         with the native format of a PixelARGB.
 
         @see PixelARGB::getNativeARGB */
-    forcedinline uint32 getNativeARGB() const noexcept      { return (uint32) ((a << 24) | (a << 16) | (a << 8) | a); }
+    constexpr forcedinline uint32 getNativeARGB() const noexcept      { return (uint32) ((a << 24) | (a << 16) | (a << 8) | a); }
 
     /** Returns a uint32 which will be in argb order as if constructed with the following mask operation
         ((alpha << 24) | (red << 16) | (green << 8) | blue). */
-    forcedinline uint32 getInARGBMaskOrder() const noexcept { return getNativeARGB(); }
+    constexpr forcedinline uint32 getInARGBMaskOrder() const noexcept { return getNativeARGB(); }
 
     /** Returns a uint32 which when written to memory, will be in the order a, r, g, b. In other words,
         if the return-value is read as a uint8 array then the elements will be in the order of a, r, g, b*/

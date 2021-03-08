@@ -1,6 +1,8 @@
 Source/Core/CtrlrRevision.h
 Source/Misc/boost/**
 !Source/Misc/boost/boost.zip
-Builds/VisualStudio2017/**
-!Builds/VisualStudio2017/Ctrlr.sln
-!Builds/VisualStudio2017/resources.rc
+
+Builds/*/*/*
+
+CMakeFiles
+CMakeCache.txt

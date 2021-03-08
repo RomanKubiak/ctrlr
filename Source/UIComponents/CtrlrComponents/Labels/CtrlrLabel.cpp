@@ -103,10 +103,13 @@ void CtrlrLabel::paint (Graphics& g)
     //[/UserPrePaint]
 
     //[UserPaint] Add your own custom painting code here..
-	int i = getProperty(Ids::uiLabelOutline);
+	const int i = getProperty(Ids::uiLabelOutline);
+	const int i2 = 2*i;
 	g.setColour (VAR2COLOUR(getProperty(Ids::uiLabelBgColour)));
-	g.fillRect( i, i, (getWidth() - 2*i), (getHeight() - 2*i));
-    g.setColour (VAR2COLOUR(getProperty(Ids::uiLabelOutlineColour)));
+	// the background may be completely overpainted:
+	if (getWidth() > i2 && getHeight() > i2)
+	    g.fillRect( i, i, (getWidth() - 2*i), (getHeight() - 2*i));
+	g.setColour (VAR2COLOUR(getProperty(Ids::uiLabelOutlineColour)));
 	g.drawRect (0, 0, getWidth(), getHeight(),  i);
     //[/UserPaint]
 }

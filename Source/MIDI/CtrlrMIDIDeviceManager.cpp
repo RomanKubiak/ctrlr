@@ -272,32 +272,32 @@ const StringArray CtrlrMIDIDeviceManager::getManagedDevices(const CtrlrMIDIDevic
 
 void CtrlrMIDIDeviceManager::refreshDevices()
 {
-//	inDevs.clear();
-//	outDevs.clear();
+	inDevs.clear();
+	outDevs.clear();
 
-	StringArray in		= MidiInput::getDevices();
-	StringArray out		= MidiOutput::getDevices();
+	juce::Array<juce::MidiDeviceInfo> in		= MidiInput::getAvailableDevices();
+	juce::Array<juce::MidiDeviceInfo> out		= MidiOutput::getAvailableDevices();
 
-	for (int i=0; i<inDevs.size(); i++)
+	/*for (int i=0; i<inDevs.size(); i++)
 	{
 		while ( (i != inDevs.size()) && !in.contains( inDevs[i]->getName() ) )
 			inDevs.remove(i);
 		in.removeString( inDevs[i]->getName() );
-	}
+	}*/
 	for (int i=0; i<in.size(); i++)
 	{
-		inDevs.add (new CtrlrMIDIDevice (*this, i, in[i], inputDevice));
+		inDevs.add (new CtrlrMIDIDevice (*this, i, in[i].name, in[i].identifier, inputDevice));
 	}
 
-	for (int i=0; i<outDevs.size(); i++)
+	/*for (int i=0; i<outDevs.size(); i++)
 	{
 		while ( (i != outDevs.size()) && !out.contains( outDevs[i]->getName() ) )
 			outDevs.remove(i);
 		out.removeString ( outDevs[i]->getName() );
-	}
+	}*/
 	for (int i=0; i<out.size(); i++)
 	{
-		outDevs.add (new CtrlrMIDIDevice (*this, i, out[i], outputDevice));
+		outDevs.add (new CtrlrMIDIDevice (*this, i, out[i].name, out[i].identifier, outputDevice));
 	}
 }
 

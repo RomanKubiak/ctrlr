@@ -68,37 +68,42 @@ class CtrlrApplication : public JUCEApplication
                 {
 					Logger::writeToLog("CTRLR:initialise params \""+commandLineParameters+"\"");
 
-					SystemStats::setApplicationCrashHandler ((juce::SystemStats::CrashHandlerFunction) &CtrlrApplication::crashHandler);
 
-					if (!commandLineParameters.isEmpty())
 					{
-						String stackTrace = "?";
-						StringArray parameters		= getParameters(commandLineParameters);
-						StringArray parameterValues	= getParameterValues(commandLineParameters);
-
-						if (parameters.contains("crashReport"))
+						bool setcrashhandler = true;
+						if (!commandLineParameters.isEmpty())
 						{
-							File crashReportForExec(parameterValues[parameters.indexOf("crashReport")]);
-							File crashReportFile(crashReportForExec.withFileExtension(crashReportForExec.getFileExtension()+".crash"));
-							AlertWindow crashReport("Ctrlr has crashed", "This is a crash indicator, it means that Ctrlr has crashed for some reason. Some crash information will be written to: "+crashReportFile.getFullPathName(), AlertWindow::WarningIcon);
+							String stackTrace = "?";
+							StringArray parameters		= getParameters(commandLineParameters);
+							StringArray parameterValues	= getParameterValues(commandLineParameters);
 
-							if (parameters.contains("stackTrace"))
+							if (parameters.contains("crashReport"))
 							{
-								if (!parameterValues[parameters.indexOf("stackTrace")].isEmpty())
+								File crashReportForExec(parameterValues[parameters.indexOf("crashReport")]);
+								File crashReportFile(crashReportForExec.withFileExtension(crashReportForExec.getFileExtension()+".crash"));
+								AlertWindow crashReport("Ctrlr has crashed", "This is a crash indicator, it means that Ctrlr has crashed for some reason. Some crash information will be written to: "+crashReportFile.getFullPathName(), AlertWindow::WarningIcon);
+
+								if (parameters.contains("stackTrace"))
 								{
-									MemoryBlock mb;
-									mb.fromBase64Encoding(parameterValues[parameters.indexOf("stackTrace")]);
-									stackTrace = mb.toString();
-									crashReport.addTextBlock (stackTrace);
+									if (!parameterValues[parameters.indexOf("stackTrace")].isEmpty())
+									{
+										MemoryBlock mb;
+										mb.fromBase64Encoding(parameterValues[parameters.indexOf("stackTrace")]);
+										stackTrace = mb.toString();
+										crashReport.addTextBlock (stackTrace);
+									}
 								}
+								crashReport.addButton ("OK", 1, KeyPress (KeyPress::returnKey));
+								crashReport.runModalLoop();
+
+								crashReportFile.replaceWithText ("Ctrlr crash at: "+Time::getCurrentTime().toString(true, true, true, true) + "\nStack trace:\n"+stackTrace);
+
+								JUCEApplication::quit();
 							}
-							crashReport.addButton ("OK", 1, KeyPress (KeyPress::returnKey));
-							crashReport.runModalLoop();
-
-							crashReportFile.replaceWithText ("Ctrlr crash at: "+Time::getCurrentTime().toString(true, true, true, true) + "\nStack trace:\n"+stackTrace);
-
-							JUCEApplication::quit();
 						}
+						// Set the crash handler only, if no crash is reported.
+						if (setcrashhandler)
+							SystemStats::setApplicationCrashHandler ((juce::SystemStats::CrashHandlerFunction) &CtrlrApplication::crashHandler);
 					}
 
 
