@@ -126,7 +126,7 @@ public:
 
         @param event               the analytics event to add to the queue
     */
-    void logEvent (const AnalyticsEvent& event) override final;
+    void logEvent (const AnalyticsEvent& event) override ;
 
 protected:
     //==============================================================================

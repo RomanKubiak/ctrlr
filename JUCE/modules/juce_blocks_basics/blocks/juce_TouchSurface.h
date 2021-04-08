@@ -82,7 +82,7 @@ public:
         /** True if this is the first event for this finger/index. */
         bool isTouchStart;
 
-        /** True if this is the final event as this finger/index is lifted off. */
+        /** True if this is the  event as this finger/index is lifted off. */
         bool isTouchEnd;
 
         /** The ID of the block that generated this touch. */

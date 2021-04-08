@@ -259,9 +259,9 @@ void findMinAndMax (const Type* values, int numValues, Type& lowest, Type& highe
     @see jmin, jmax, jmap
 */
 template <typename Type>
-constexpr Type jlimit (Type lowerLimit,
-		       Type upperLimit,
-		       Type valueToConstrain) noexcept
+Type jlimit (Type lowerLimit,
+             Type upperLimit,
+             Type valueToConstrain) noexcept
 {
     jassert (lowerLimit <= upperLimit); // if these are in the wrong order, results are unpredictable..
 
@@ -321,7 +321,7 @@ bool isWithin (Type a, Type b, Type tolerance) noexcept
     and double comparisons.
 */
 template <typename Type>
-constexpr bool approximatelyEqual (Type a, Type b) noexcept
+bool approximatelyEqual (Type a, Type b) noexcept
 {
     return std::abs (a - b) <= (std::numeric_limits<Type>::epsilon() * std::max (a, b))
             || std::abs (a - b) < std::numeric_limits<Type>::min();
@@ -468,7 +468,7 @@ inline bool juce_isfinite (double value) noexcept
     even numbers will be rounded up or down differently.
 */
 template <typename FloatType>
-constexpr int roundToInt (const FloatType value) noexcept
+int roundToInt (const FloatType value) noexcept
 {
   #ifdef __INTEL_COMPILER
    #pragma float_control (precise, on, push)

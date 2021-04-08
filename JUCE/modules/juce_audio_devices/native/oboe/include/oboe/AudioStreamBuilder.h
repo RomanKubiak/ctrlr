@@ -115,7 +115,7 @@ public:
      * Set the requested buffer capacity in frames.
      * BufferCapacityInFrames is the maximum possible BufferSizeInFrames.
      *
-     * The final stream capacity may differ. For AAudio it should be at least this big.
+     * The  stream capacity may differ. For AAudio it should be at least this big.
      * For OpenSL ES, it could be smaller.
      *
      * Default is kUnspecified.

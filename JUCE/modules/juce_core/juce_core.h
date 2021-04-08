@@ -32,7 +32,7 @@
 
   ID:                 juce_core
   vendor:             juce
-  version:            6.0.7
+  version:            6.0.8
   name:               JUCE core classes
   description:        The essential set of basic JUCE classes, as required by all the other JUCE modules. Includes text, container, memory, threading and i/o functionality.
   website:            http://www.juce.com/juce
@@ -160,7 +160,7 @@
 #endif
 
 /** Config: JUCE_ALLOW_STATIC_NULL_VARIABLES
-    If disabled, this will turn off dangerous static globals like "", var::null, etc
+    If disabled, this will turn off dangerous static globals like String::empty, var::null, etc
     which can cause nasty order-of-initialisation problems if they are referenced during static
     constructor code.
 */

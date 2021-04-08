@@ -58,7 +58,7 @@ struct CppTokeniserFunctions
               "long", "this", "true", "void", nullptr };
 
         static const char* const keywords5Char[] =
-            { "bitor", "break", "catch", "class", "compl", "const", "false", "final",
+            { "bitor", "break", "catch", "class", "compl", "const", "false", "",
               "float", "or_eq", "short", "throw", "union", "using", "while", nullptr };
 
         static const char* const keywords6Char[] =

@@ -1118,7 +1118,7 @@ PNG_EXPORT(35, void, png_build_grayscale_palette, (int bit_depth,
  * For the 'OPTIMIZED' mode, a pixel is treated as opaque only if the alpha
  * value is equal to the maximum value.
  *
- * The final choice is to gamma encode the alpha channel as well.  This is
+ * The  choice is to gamma encode the alpha channel as well.  This is
  * broken because, in practice, no implementation that uses this choice
  * correctly undoes the encoding before handling alpha composition.  Use this
  * choice only if other serious errors in the software or hardware you use
@@ -3116,7 +3116,7 @@ PNG_EXPORT(245, int, png_image_write_to_memory, (png_imagep image, void *memory,
    /* Return the amount of memory in 'size' required to compress this image.
     * The png_image structure 'image' must be filled in as in the above
     * function and must not be changed before the actual write call, the buffer
-    * and all other parameters must also be identical to that in the final
+    * and all other parameters must also be identical to that in the 
     * write call.  The 'size' variable need not be initialized.
     *
     * NOTE: the macro returns true/false, if false is returned 'size' will be

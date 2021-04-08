@@ -31,12 +31,12 @@ namespace juce
 
     @tags{Core}
 */
-class CharPointer_UTF8
+class CharPointer_UTF8  
 {
 public:
     using CharType = char;
 
-    constexpr explicit CharPointer_UTF8 (const CharType* rawPointer) noexcept
+    explicit CharPointer_UTF8 (const CharType* rawPointer) noexcept
         : data (const_cast<CharType*> (rawPointer))
     {
     }
@@ -56,12 +56,12 @@ public:
     }
 
     /** This is a pointer comparison, it doesn't compare the actual text. */
-    constexpr bool operator== (CharPointer_UTF8 other) const noexcept      { return data == other.data; }
-    constexpr bool operator!= (CharPointer_UTF8 other) const noexcept      { return data != other.data; }
-    constexpr bool operator<= (CharPointer_UTF8 other) const noexcept      { return data <= other.data; }
-    constexpr bool operator<  (CharPointer_UTF8 other) const noexcept      { return data <  other.data; }
-    constexpr bool operator>= (CharPointer_UTF8 other) const noexcept      { return data >= other.data; }
-    constexpr bool operator>  (CharPointer_UTF8 other) const noexcept      { return data >  other.data; }
+    bool operator== (CharPointer_UTF8 other) const noexcept      { return data == other.data; }
+    bool operator!= (CharPointer_UTF8 other) const noexcept      { return data != other.data; }
+    bool operator<= (CharPointer_UTF8 other) const noexcept      { return data <= other.data; }
+    bool operator<  (CharPointer_UTF8 other) const noexcept      { return data <  other.data; }
+    bool operator>= (CharPointer_UTF8 other) const noexcept      { return data >= other.data; }
+    bool operator>  (CharPointer_UTF8 other) const noexcept      { return data >  other.data; }
 
     /** Returns the address that this pointer is pointing to. */
     CharType* getAddress() const noexcept        { return data; }
@@ -482,6 +482,9 @@ public:
 
     /** Returns the first non-whitespace character in the string. */
     CharPointer_UTF8 findEndOfWhitespace() const noexcept       { return CharacterFunctions::findEndOfWhitespace (*this); }
+
+    /** Move this pointer to the first non-whitespace character in the string. */
+    void incrementToEndOfWhitespace() noexcept                  { CharacterFunctions::incrementToEndOfWhitespace (*this); }
 
     /** Returns true if the given unicode character can be represented in this encoding. */
     static bool canRepresent (juce_wchar character) noexcept

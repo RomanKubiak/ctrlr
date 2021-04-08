@@ -38,7 +38,7 @@ namespace juce
     @tags{Core}
 */
 template <typename Type>
-struct Atomic  final
+struct Atomic  
 {
     using DiffType = typename AtomicHelpers::DiffTypeHelper<Type>::Type;
 

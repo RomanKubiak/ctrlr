@@ -90,7 +90,7 @@ public:
         This is useful if you have a file that you want to overwrite, but don't
         want to harm the original file if the write operation fails. You can
         use this to create a temporary file next to the target file, then
-        write to the temporary file, and finally use overwriteTargetFileWithTemporary()
+        write to the temporary file, and ly use overwriteTargetFileWithTemporary()
         to replace the target file with the one you've just written.
 
         This class won't create any files until you actually write to them. And remember

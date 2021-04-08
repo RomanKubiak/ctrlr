@@ -216,7 +216,7 @@ using ScopedLock = CriticalSection::ScopedLockType;
                 // ..and now locked again..
             }
 
-            // ..and finally unlocked.
+            // ..and ly unlocked.
         }
     };
     @endcode

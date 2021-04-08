@@ -73,7 +73,7 @@ private:
             parameterValueHasChanged = 1;
     }
 
-    void audioProcessorChanged (AudioProcessor*) override {}
+    void audioProcessorChanged (AudioProcessor*, const ChangeDetails&) override {}
 
     //==============================================================================
     void timerCallback() override
@@ -98,7 +98,7 @@ private:
 };
 
 //==============================================================================
-class BooleanParameterComponent    : public Component,
+class BooleanParameterComponent final   : public Component,
                                           private ParameterListener
 {
 public:
@@ -146,7 +146,7 @@ private:
 };
 
 //==============================================================================
-class SwitchParameterComponent    : public Component,
+class SwitchParameterComponent final   : public Component,
                                          private ParameterListener
 {
 public:
@@ -249,7 +249,7 @@ private:
 };
 
 //==============================================================================
-class ChoiceParameterComponent    : public Component,
+class ChoiceParameterComponent final   : public Component,
                                          private ParameterListener
 {
 public:
@@ -312,7 +312,7 @@ private:
 };
 
 //==============================================================================
-class SliderParameterComponent    : public Component,
+class SliderParameterComponent final   : public Component,
                                          private ParameterListener
 {
 public:

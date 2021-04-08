@@ -932,7 +932,7 @@ FLAC_API FLAC__bool FLAC__metadata_chain_check_if_tempfile_needed(FLAC__Metadata
  *
  *  If the current chain is longer than the existing metadata, and
  *  \a use_padding is \c true, and the last block is a PADDING block of
- *  sufficient length, the function will truncate the final padding block
+ *  sufficient length, the function will truncate the  padding block
  *  so that the overall size of the metadata is the same as the existing
  *  metadata, and then just rewrite the metadata.  Otherwise, if not all of
  *  the above conditions are met, the entire FLAC file must be rewritten.
@@ -942,7 +942,7 @@ FLAC_API FLAC__bool FLAC__metadata_chain_check_if_tempfile_needed(FLAC__Metadata
  *  of the PADDING blocks for some reason.
  *
  *  If the current chain is shorter than the existing metadata, and
- *  \a use_padding is \c true, and the final block is a PADDING block, the padding
+ *  \a use_padding is \c true, and the  block is a PADDING block, the padding
  *  is extended to make the overall size the same as the existing data.  If
  *  \a use_padding is \c true and the last block is not a PADDING block, a new
  *  PADDING block is added to the end of the new data to make it the same

@@ -70,9 +70,9 @@ public:
         movement.
 
         @param component            the component to move
-        @param finalBounds          the destination bounds to which the component should move. To leave the
+        @param Bounds          the destination bounds to which the component should move. To leave the
                                     component in the same place, just pass component->getBounds() for this value
-        @param finalAlpha           the alpha value that the component should have at the end of the animation
+        @param Alpha           the alpha value that the component should have at the end of the animation
         @param animationDurationMilliseconds    how long the animation should last, in milliseconds
         @param useProxyComponent    if true, this means the component should be replaced by an internally
                                     managed temporary component which is a snapshot of the original component.
@@ -90,13 +90,13 @@ public:
                                     will decelerate towards the middle of its journey. To move the component at a
                                     constant rate for its entire animation, set both the start and end speeds to 1.0
         @param endSpeed             a relative speed at which the component should be moving when the animation finishes.
-                                    If this is 0, the component will decelerate to a standstill at its final position;
+                                    If this is 0, the component will decelerate to a standstill at its  position;
                                     higher values mean the component will still be moving when it stops. To move the component
                                     at a constant rate for its entire animation, set both the start and end speeds to 1.0
     */
     void animateComponent (Component* component,
-                           const Rectangle<int>& finalBounds,
-                           float finalAlpha,
+                           const Rectangle<int>& Bounds,
+                           float Alpha,
                            int animationDurationMilliseconds,
                            bool useProxyComponent,
                            double startSpeed,
@@ -126,7 +126,7 @@ public:
     /** Clears all of the active animations.
 
         If moveComponentsToTheirFinalPositions is true, all the components will
-        be immediately set to their final positions. If false, they will be
+        be immediately set to their  positions. If false, they will be
         left in whatever locations they currently occupy.
     */
     void cancelAllAnimations (bool moveComponentsToTheirFinalPositions);

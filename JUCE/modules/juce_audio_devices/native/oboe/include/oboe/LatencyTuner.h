@@ -101,7 +101,7 @@ public:
      * By default, this will be one burst.
      *
      * Note that AAudio will quantize the buffer size to a multiple of the burstSize.
-     * So the final buffer sizes may not be a multiple of this increment.
+     * So the  buffer sizes may not be a multiple of this increment.
      *
      * @param sizeIncrement
      */

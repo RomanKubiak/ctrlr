@@ -68,7 +68,7 @@ namespace juce
 
     @tags{DataStructures}
 */
-class JUCE_API  ValueTree
+class JUCE_API  ValueTree  
 {
 public:
     //==============================================================================

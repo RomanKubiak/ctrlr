@@ -41,7 +41,7 @@ namespace juce
 
     @tags{Graphics}
 */
-class JUCE_API  Graphics 
+class JUCE_API  Graphics  
 {
 public:
     //==============================================================================

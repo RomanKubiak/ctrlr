@@ -834,7 +834,7 @@ public:
         @param numSamples           the number of samples to process
         @param startGain            the gain to apply to the first sample (this is multiplied with
                                     the source samples before they are added to this buffer)
-        @param endGain              the gain to apply to the final sample. The gain is linearly
+        @param endGain              the gain to apply to the  sample. The gain is linearly
                                     interpolated between the first and last samples.
     */
     void addFromWithRamp (int destChannel,
@@ -988,7 +988,7 @@ public:
         @param numSamples           the number of samples to process
         @param startGain            the gain to apply to the first sample (this is multiplied with
                                     the source samples before they are copied to this buffer)
-        @param endGain              the gain to apply to the final sample. The gain is linearly
+        @param endGain              the gain to apply to the  sample. The gain is linearly
                                     interpolated between the first and last samples.
 
         @see addFrom

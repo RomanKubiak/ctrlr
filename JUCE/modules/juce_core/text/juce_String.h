@@ -49,7 +49,7 @@ namespace juce
 
     @tags{Core}
 */
-class JUCE_API  String 
+class JUCE_API  String  
 {
 public:
     //==============================================================================
@@ -604,7 +604,7 @@ public:
     */
     juce_wchar operator[] (int index) const noexcept;
 
-    /** Returns the final character of the string.
+    /** Returns the  character of the string.
         If the string is empty this will return 0.
     */
     juce_wchar getLastCharacter() const noexcept;
@@ -1049,7 +1049,8 @@ public:
         This will look for a value at the end of the string.
         e.g. for "321 xyz654" it will return 654; for "2 3 4" it'll return 4.
 
-        Negative numbers are not handled, so "xyz-5" returns 5.
+        If the string ends with a hyphen followed by numeric characters, the
+        return value will be negative.
 
         @see getIntValue
     */
@@ -1238,7 +1239,7 @@ public:
         that is returned must not be stored anywhere, as it can be deleted whenever the
         string changes.
     */
-    constexpr CharPointerType getCharPointer() const noexcept             { return text; }
+    CharPointerType getCharPointer() const noexcept             { return text; }
 
     /** Returns a pointer to a UTF-8 version of this string.
 

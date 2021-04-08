@@ -112,8 +112,8 @@ extern "C" {
  *   to be written.
  * - The program finishes the encoding with FLAC__stream_encoder_finish(),
  *   which causes the encoder to encode any data still in its input pipe,
- *   update the metadata with the final encoding statistics if output
- *   seeking is possible, and finally reset the encoder to the
+ *   update the metadata with the  encoding statistics if output
+ *   seeking is possible, and ly reset the encoder to the
  *   uninitialized state.
  * - The instance may be used again or deleted with
  *   FLAC__stream_encoder_delete().
@@ -189,7 +189,7 @@ extern "C" {
  * When the client is finished encoding data, it calls
  * FLAC__stream_encoder_finish(), which causes the encoder to encode any
  * data still in its input pipe, and call the metadata callback with the
- * final encoding statistics.  Then the instance may be deleted with
+ *  encoding statistics.  Then the instance may be deleted with
  * FLAC__stream_encoder_delete() or initialized again to encode another
  * stream.
  *
@@ -647,7 +647,7 @@ typedef FLAC__StreamEncoderTellStatus (*FLAC__StreamEncoderTellCallback)(const F
  * state should not be called on the \a encoder while in the callback.
  *
  * \param  encoder      The encoder instance calling the callback.
- * \param  metadata     The final populated STREAMINFO block.
+ * \param  metadata     The  populated STREAMINFO block.
  * \param  client_data  The callee's client data set through
  *                      FLAC__stream_encoder_init_*().
  */

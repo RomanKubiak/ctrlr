@@ -87,7 +87,7 @@ public:
     /** Creates an output channel mapping.
 
         When the getNextAudioBlock() method is called, the data returned in channel sourceChannelIndex by
-        our input audio source will be copied to channel destChannelIndex of the final buffer.
+        our input audio source will be copied to channel destChannelIndex of the  buffer.
 
         @param sourceChannelIndex   the index of an output channel coming from our input audio source
                                     (i.e. the source specified when this object was created).

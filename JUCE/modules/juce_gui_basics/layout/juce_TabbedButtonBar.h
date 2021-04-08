@@ -260,7 +260,7 @@ public:
     /** Returns the index of a TabBarButton if it belongs to this bar. */
     int indexOfTabButton (const TabBarButton* button) const;
 
-    /** Returns the final bounds of this button if it is currently being animated. */
+    /** Returns the  bounds of this button if it is currently being animated. */
     Rectangle<int> getTargetBounds (TabBarButton* button) const;
 
     //==============================================================================

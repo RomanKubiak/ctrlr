@@ -62,7 +62,7 @@ public:
         This class is used in the AudioProcessorValueTreeState constructor to allow
         arbitrarily grouped RangedAudioParameters to be passed to an AudioProcessor.
     */
-    class JUCE_API ParameterLayout final
+    class JUCE_API ParameterLayout 
     {
     private:
         //==============================================================================
@@ -137,7 +137,7 @@ public:
             std::unique_ptr<Contents> contents;
         };
 
-        struct MakeContents final
+        struct MakeContents 
         {
             template <typename Item>
             std::unique_ptr<ParameterStorageBase> operator() (std::unique_ptr<Item> item) const
@@ -393,7 +393,7 @@ public:
                                                           ... })
         @endcode
     */
-    class Parameter final  : public AudioParameterFloat
+    class Parameter   : public AudioParameterFloat
     {
     public:
         Parameter (const String& parameterID,
@@ -543,7 +543,7 @@ private:
 
     const Identifier valueType { "PARAM" }, valuePropertyID { "value" }, idPropertyID { "id" };
 
-    struct StringRefLessThan final
+    struct StringRefLessThan 
     {
         bool operator() (StringRef a, StringRef b) const noexcept { return a.text.compare (b.text) < 0; }
     };

@@ -445,7 +445,7 @@ private:
     void sendColumnsChanged();
     void handleAsyncUpdate() override;
     void beginDrag (const MouseEvent&);
-    void endDrag (int finalIndex);
+    void endDrag (int Index);
     int getResizeDraggerAt (int mouseX) const;
     void updateColumnUnderMouse (const MouseEvent&);
     void setColumnUnderMouse (int columnId);

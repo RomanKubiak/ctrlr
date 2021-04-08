@@ -63,7 +63,6 @@ public:
     Identifier (const Identifier& other) noexcept;
 
     /** Creates a copy of another identifier. */
-
     Identifier& operator= (const Identifier& other) noexcept;
 
     /** Creates a copy of another identifier. */
@@ -76,10 +75,10 @@ public:
     ~Identifier() noexcept;
 
     /** Compares two identifiers. This is a very fast operation. */
-    constexpr inline bool operator== (const Identifier& other) const noexcept     { return name.getCharPointer() == other.name.getCharPointer(); }
+    inline bool operator== (const Identifier& other) const noexcept     { return name.getCharPointer() == other.name.getCharPointer(); }
 
     /** Compares two identifiers. This is a very fast operation. */
-    constexpr inline bool operator!= (const Identifier& other) const noexcept     { return name.getCharPointer() != other.name.getCharPointer(); }
+    inline bool operator!= (const Identifier& other) const noexcept     { return name.getCharPointer() != other.name.getCharPointer(); }
 
     /** Compares the identifier with a string. */
     inline bool operator== (StringRef other) const noexcept             { return name == other; }
@@ -100,13 +99,13 @@ public:
     inline bool operator>= (StringRef other) const noexcept             { return name >= other; }
 
     /** Returns this identifier as a string. */
-    constexpr const String& toString() const noexcept                             { return name; }
+    const String& toString() const noexcept                             { return name; }
 
     /** Returns this identifier's raw string pointer. */
-    constexpr operator String::CharPointerType() const noexcept                   { return name.getCharPointer(); }
+    operator String::CharPointerType() const noexcept                   { return name.getCharPointer(); }
 
     /** Returns this identifier's raw string pointer. */
-    constexpr String::CharPointerType getCharPointer() const noexcept             { return name.getCharPointer(); }
+    String::CharPointerType getCharPointer() const noexcept             { return name.getCharPointer(); }
 
     /** Returns this identifier as a StringRef. */
     operator StringRef() const noexcept                                 { return name; }
@@ -129,7 +128,5 @@ public:
 private:
     String name;
 };
-
-
 
 } // namespace juce
