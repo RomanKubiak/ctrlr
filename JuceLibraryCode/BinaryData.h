@@ -8,21 +8,6 @@
 
 namespace BinaryData
 {
-    extern const char*   build_information_hpp_cmake_in;
-    const int            build_information_hpp_cmake_inSize = 2032;
-
-    extern const char*   getdeps_sh;
-    const int            getdeps_shSize = 457;
-
-    extern const char*   INSTALL_txt;
-    const int            INSTALL_txtSize = 2054;
-
-    extern const char*   LICENSE_txt;
-    const int            LICENSE_txtSize = 1207;
-
-    extern const char*   README_md;
-    const int            README_mdSize = 7469;
-
     extern const char*   CtrlrRevision_template;
     const int            CtrlrRevision_templateSize = 199;
 
@@ -197,8 +182,8 @@ namespace BinaryData
     extern const char*   LICENSE;
     const int            LICENSESize = 1099;
 
-    extern const char*   README_md2;
-    const int            README_md2Size = 272;
+    extern const char*   README_md;
+    const int            README_mdSize = 272;
 
     extern const char*   test_lua;
     const int            test_luaSize = 77;
@@ -264,7 +249,7 @@ namespace BinaryData
     const int            CtrlrMIDIVendors_xmlSize = 15061;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 85;
+    const int namedResourceListSize = 80;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

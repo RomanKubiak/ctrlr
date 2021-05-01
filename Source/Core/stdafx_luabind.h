@@ -16,6 +16,14 @@ extern "C"
 #pragma warning(disable:4459)
 #pragma warning(disable:4297)
 
+#define  LUABIND_USE_CXX11
+
+#include <luabind/luabind.hpp>
+#include <luabind/operator.hpp>
+#include <luabind/adopt_policy.hpp>
+#include <luabind/version.hpp>
+
+#if 0
 #include <luabind/config.hpp>
 #include <luabind/class.hpp>
 #include <luabind/function.hpp>
@@ -50,6 +58,7 @@ extern "C"
 #include <luabind/discard_result_policy.hpp>
 #include <luabind/version.hpp>
 #include <luabind/shared_ptr_converter.hpp>
+#endif
 #include "JuceHeader.h"
 static const std::string obj_name(const luabind::object& o)
 {

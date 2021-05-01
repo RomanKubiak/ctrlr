@@ -16,6 +16,11 @@
   <MAINGROUP id="SRLsFb" name="Ctrlr">
     <GROUP id="{BE407432-92DD-AEAB-3C70-AAE03FCD0B1D}" name="Source">
       <GROUP id="{F4D7C0F1-7F03-CB3F-30C6-F728F0E39FE2}" name="Misc">
+        <GROUP id="{7F1E7F51-816F-EAE9-444C-21A244C029B6}" name="misc">
+          <FILE id="pU7K7f" name="keys.cpp" compile="1" resource="0" file="Source/Misc/misc/keys.cpp"/>
+          <FILE id="iouPKp" name="libr-bfd.c" compile="1" resource="0" file="Source/Misc/misc/libr-bfd.c"/>
+          <FILE id="R8quVP" name="libr.c" compile="1" resource="0" file="Source/Misc/misc/libr.c"/>
+        </GROUP>
         <GROUP id="{E0E4DD68-0D44-4709-7B14-B00F9E7420BF}" name="luabind">
           <GROUP id="{2091F07D-D8F8-5C6F-EEAF-33E046D84C00}" name="luabind">
             <GROUP id="{3D1DEE58-7341-D84F-43D9-D93F78FFDB5B}" name="detail">
@@ -144,49 +149,48 @@
                   file="Source/Misc/luabind/luabind/yield_policy.hpp"/>
           </GROUP>
           <GROUP id="{B2457A23-F1D1-76BC-CF64-37E7E9152169}" name="src">
-            <FILE id="sQLQ0c" name="class.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/class.cpp"/>
-            <FILE id="JrG8u0" name="class_info.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/class_info.cpp"/>
-            <FILE id="SloKao" name="class_registry.cpp" compile="1" resource="0"
+            <FILE id="sQLQ0c" name="class.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/class.cpp"/>
+            <FILE id="JrG8u0" name="class_info.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/class_info.cpp"/>
+            <FILE id="SloKao" name="class_registry.cpp" compile="0" resource="0"
                   file="Source/Misc/luabind/src/class_registry.cpp"/>
-            <FILE id="DQMIWf" name="class_rep.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/class_rep.cpp"/>
-            <FILE id="JDSRdY" name="create_class.cpp" compile="1" resource="0"
+            <FILE id="DQMIWf" name="class_rep.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/class_rep.cpp"/>
+            <FILE id="JDSRdY" name="create_class.cpp" compile="0" resource="0"
                   file="Source/Misc/luabind/src/create_class.cpp"/>
-            <FILE id="SvuqiV" name="error.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/error.cpp"/>
-            <FILE id="Sg3D2j" name="exception_handler.cpp" compile="1" resource="0"
+            <FILE id="SvuqiV" name="error.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/error.cpp"/>
+            <FILE id="Sg3D2j" name="exception_handler.cpp" compile="0" resource="0"
                   file="Source/Misc/luabind/src/exception_handler.cpp"/>
-            <FILE id="AsCozr" name="function.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/function.cpp"/>
-            <FILE id="J0Q7FZ" name="function_introspection.cpp" compile="1" resource="0"
+            <FILE id="AsCozr" name="function.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/function.cpp"/>
+            <FILE id="J0Q7FZ" name="function_introspection.cpp" compile="0" resource="0"
                   file="Source/Misc/luabind/src/function_introspection.cpp"/>
-            <FILE id="WQxulc" name="inheritance.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/inheritance.cpp"/>
-            <FILE id="FnrqGh" name="link_compatibility.cpp" compile="1" resource="0"
+            <FILE id="WQxulc" name="inheritance.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/inheritance.cpp"/>
+            <FILE id="FnrqGh" name="link_compatibility.cpp" compile="0" resource="0"
                   file="Source/Misc/luabind/src/link_compatibility.cpp"/>
-            <FILE id="N3prNn" name="lua51compat.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/lua51compat.cpp"/>
-            <FILE id="zIlhaQ" name="object_rep.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/object_rep.cpp"/>
-            <FILE id="BDqYQt" name="open.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/open.cpp"/>
-            <FILE id="J17XLa" name="operator.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/operator.cpp"/>
-            <FILE id="qTQyXb" name="pcall.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/pcall.cpp"/>
-            <FILE id="ODYTH2" name="scope.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/scope.cpp"/>
-            <FILE id="ybFajO" name="set_package_preload.cpp" compile="1" resource="0"
+            <FILE id="N3prNn" name="lua51compat.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/lua51compat.cpp"/>
+            <FILE id="zIlhaQ" name="object_rep.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/object_rep.cpp"/>
+            <FILE id="BDqYQt" name="open.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/open.cpp"/>
+            <FILE id="J17XLa" name="operator.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/operator.cpp"/>
+            <FILE id="qTQyXb" name="pcall.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/pcall.cpp"/>
+            <FILE id="ODYTH2" name="scope.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/scope.cpp"/>
+            <FILE id="ybFajO" name="set_package_preload.cpp" compile="0" resource="0"
                   file="Source/Misc/luabind/src/set_package_preload.cpp"/>
-            <FILE id="AP859C" name="shared_ptr_converter.cpp" compile="1" resource="0"
+            <FILE id="AP859C" name="shared_ptr_converter.cpp" compile="0" resource="0"
                   file="Source/Misc/luabind/src/shared_ptr_converter.cpp"/>
-            <FILE id="nqI6L7" name="stack_content_by_name.cpp" compile="1" resource="0"
+            <FILE id="nqI6L7" name="stack_content_by_name.cpp" compile="0" resource="0"
                   file="Source/Misc/luabind/src/stack_content_by_name.cpp"/>
-            <FILE id="wPEO50" name="weak_ref.cpp" compile="1" resource="0" file="Source/Misc/luabind/src/weak_ref.cpp"/>
-            <FILE id="Qt35Lt" name="wrapper_base.cpp" compile="1" resource="0"
+            <FILE id="wPEO50" name="weak_ref.cpp" compile="0" resource="0" file="Source/Misc/luabind/src/weak_ref.cpp"/>
+            <FILE id="Qt35Lt" name="wrapper_base.cpp" compile="0" resource="0"
                   file="Source/Misc/luabind/src/wrapper_base.cpp"/>
           </GROUP>
           <FILE id="vq3mB0" name="build_information.hpp" compile="0" resource="0"
                 file="Source/Misc/luabind/build_information.hpp"/>
           <FILE id="pEXR5d" name="build_information.hpp.cmake_in" compile="0"
-                resource="1" file="Source/Misc/luabind/build_information.hpp.cmake_in"/>
-          <FILE id="SdlZA4" name="get-deps.sh" compile="0" resource="1" file="Source/Misc/luabind/get-deps.sh"/>
-          <FILE id="t3iuRk" name="INSTALL.txt" compile="0" resource="1" file="Source/Misc/luabind/INSTALL.txt"/>
-          <FILE id="Lc6B3e" name="LICENSE.txt" compile="0" resource="1" file="Source/Misc/luabind/LICENSE.txt"/>
-          <FILE id="S3Qhqe" name="README.md" compile="0" resource="1" file="Source/Misc/luabind/README.md"/>
+                resource="0" file="Source/Misc/luabind/build_information.hpp.cmake_in"/>
+          <FILE id="SdlZA4" name="get-deps.sh" compile="0" resource="0" file="Source/Misc/luabind/get-deps.sh"/>
+          <FILE id="t3iuRk" name="INSTALL.txt" compile="0" resource="0" file="Source/Misc/luabind/INSTALL.txt"/>
+          <FILE id="Lc6B3e" name="LICENSE.txt" compile="0" resource="0" file="Source/Misc/luabind/LICENSE.txt"/>
+          <FILE id="S3Qhqe" name="README.md" compile="0" resource="0" file="Source/Misc/luabind/README.md"/>
         </GROUP>
         <GROUP id="{1C4788E8-DEC6-8DD4-1530-75A1A430E869}" name="include">
-          <FILE id="CkCjmf" name="inttypes.h" compile="0" resource="0" file="Source/Misc/include/inttypes.h"/>
           <FILE id="st1G2O" name="juce_PluginHostType.h" compile="0" resource="0"
                 file="Source/Misc/include/juce_PluginHostType.h"/>
           <FILE id="C78Zt7" name="keys.h" compile="0" resource="0" file="Source/Misc/include/keys.h"/>
@@ -218,25 +222,25 @@
             <FILE id="BRA7Fg" name="windows_usb.h" compile="0" resource="0" file="Source/Misc/libusb/include/windows_usb.h"/>
           </GROUP>
           <GROUP id="{E2D1D72B-95C0-318B-30B5-B170DDDB6E29}" name="src">
-            <FILE id="ke0ale" name="compat.c" compile="1" resource="0" file="Source/Misc/libusb/src/compat.c"/>
-            <FILE id="v7MJkn" name="core.c" compile="1" resource="0" file="Source/Misc/libusb/src/core.c"/>
-            <FILE id="mkxoa1" name="darwin_usb.c" compile="1" resource="0" file="Source/Misc/libusb/src/darwin_usb.c"/>
-            <FILE id="zZYqpX" name="descriptor.c" compile="1" resource="0" file="Source/Misc/libusb/src/descriptor.c"/>
-            <FILE id="gke0MG" name="enums.c" compile="1" resource="0" file="Source/Misc/libusb/src/enums.c"/>
-            <FILE id="UFgRTT" name="hotplug.c" compile="1" resource="0" file="Source/Misc/libusb/src/hotplug.c"/>
-            <FILE id="YPiWsY" name="io.c" compile="1" resource="0" file="Source/Misc/libusb/src/io.c"/>
-            <FILE id="zu8vJJ" name="linux_udev.c" compile="1" resource="0" file="Source/Misc/libusb/src/linux_udev.c"/>
-            <FILE id="GB97Nx" name="linux_usbfs.c" compile="1" resource="0" file="Source/Misc/libusb/src/linux_usbfs.c"/>
-            <FILE id="obhIjV" name="poll_posix.c" compile="1" resource="0" file="Source/Misc/libusb/src/poll_posix.c"/>
-            <FILE id="W64tbk" name="poll_windows.c" compile="1" resource="0" file="Source/Misc/libusb/src/poll_windows.c"/>
-            <FILE id="cXF9JW" name="strerror.c" compile="1" resource="0" file="Source/Misc/libusb/src/strerror.c"/>
-            <FILE id="WOReTt" name="structs.c" compile="1" resource="0" file="Source/Misc/libusb/src/structs.c"/>
-            <FILE id="RJ0rpQ" name="sync.c" compile="1" resource="0" file="Source/Misc/libusb/src/sync.c"/>
-            <FILE id="xEkmHy" name="threads_posix.c" compile="1" resource="0" file="Source/Misc/libusb/src/threads_posix.c"/>
-            <FILE id="L1fedu" name="threads_windows.c" compile="1" resource="0"
+            <FILE id="ke0ale" name="compat.c" compile="0" resource="0" file="Source/Misc/libusb/src/compat.c"/>
+            <FILE id="v7MJkn" name="core.c" compile="0" resource="0" file="Source/Misc/libusb/src/core.c"/>
+            <FILE id="mkxoa1" name="darwin_usb.c" compile="0" resource="0" file="Source/Misc/libusb/src/darwin_usb.c"/>
+            <FILE id="zZYqpX" name="descriptor.c" compile="0" resource="0" file="Source/Misc/libusb/src/descriptor.c"/>
+            <FILE id="gke0MG" name="enums.c" compile="0" resource="0" file="Source/Misc/libusb/src/enums.c"/>
+            <FILE id="UFgRTT" name="hotplug.c" compile="0" resource="0" file="Source/Misc/libusb/src/hotplug.c"/>
+            <FILE id="YPiWsY" name="io.c" compile="0" resource="0" file="Source/Misc/libusb/src/io.c"/>
+            <FILE id="zu8vJJ" name="linux_udev.c" compile="0" resource="0" file="Source/Misc/libusb/src/linux_udev.c"/>
+            <FILE id="GB97Nx" name="linux_usbfs.c" compile="0" resource="0" file="Source/Misc/libusb/src/linux_usbfs.c"/>
+            <FILE id="obhIjV" name="poll_posix.c" compile="0" resource="0" file="Source/Misc/libusb/src/poll_posix.c"/>
+            <FILE id="W64tbk" name="poll_windows.c" compile="0" resource="0" file="Source/Misc/libusb/src/poll_windows.c"/>
+            <FILE id="cXF9JW" name="strerror.c" compile="0" resource="0" file="Source/Misc/libusb/src/strerror.c"/>
+            <FILE id="WOReTt" name="structs.c" compile="0" resource="0" file="Source/Misc/libusb/src/structs.c"/>
+            <FILE id="RJ0rpQ" name="sync.c" compile="0" resource="0" file="Source/Misc/libusb/src/sync.c"/>
+            <FILE id="xEkmHy" name="threads_posix.c" compile="0" resource="0" file="Source/Misc/libusb/src/threads_posix.c"/>
+            <FILE id="L1fedu" name="threads_windows.c" compile="0" resource="0"
                   file="Source/Misc/libusb/src/threads_windows.c"/>
-            <FILE id="e7Uvip" name="usb.c" compile="1" resource="0" file="Source/Misc/libusb/src/usb.c"/>
-            <FILE id="LdgpS8" name="windows_usb.c" compile="1" resource="0" file="Source/Misc/libusb/src/windows_usb.c"/>
+            <FILE id="e7Uvip" name="usb.c" compile="0" resource="0" file="Source/Misc/libusb/src/usb.c"/>
+            <FILE id="LdgpS8" name="windows_usb.c" compile="0" resource="0" file="Source/Misc/libusb/src/windows_usb.c"/>
           </GROUP>
         </GROUP>
         <GROUP id="{0EDC82DF-8B3A-9B12-8565-995D75661268}" name="lua">
@@ -247,12 +251,9 @@
             <FILE id="ZEAjjg" name="lualib.h" compile="0" resource="0" file="Source/Misc/lua/include/lualib.h"/>
           </GROUP>
           <GROUP id="{9697EBDD-AD3B-A492-9E42-523E6103690D}" name="src">
-            <FILE id="DaE24i" name="lua.c" compile="1" resource="0" file="Source/Misc/lua/src/lua.c"/>
+            <FILE id="DaE24i" name="lua.c" compile="0" resource="0" file="Source/Misc/lua/src/lua.c"/>
           </GROUP>
         </GROUP>
-        <FILE id="ba8H2u" name="keys.cpp" compile="1" resource="0" file="Source/Misc/keys.cpp"/>
-        <FILE id="N35AKi" name="libr-bfd.c" compile="1" resource="0" file="Source/Misc/libr-bfd.c"/>
-        <FILE id="u4JZiN" name="libr.c" compile="1" resource="0" file="Source/Misc/libr.c"/>
       </GROUP>
       <GROUP id="{1F581EC7-DF90-90BB-9490-7707A3326EA3}" name="Core">
         <GROUP id="{D43D8BB9-ABDE-2422-2D6D-93DD2D24C15D}" name="CtrlrManager">
@@ -1081,14 +1082,16 @@
       </MODULEPATHS>
     </XCODE_MAC>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
-                enableGNUExtensions="1" externalLibraries="udev&#10;:libbfd.a&#10;iberty&#10;z&#10;X11&#10;"
-                vstLegacyFolder="Source/Misc/vst2sdk" extraCompilerFlags="-w">
+                enableGNUExtensions="1" externalLibraries=":libbfd.a&#10;iberty&#10;"
+                vstLegacyFolder="Source/Misc/vst2sdk" extraCompilerFlags="-w"
+                linuxExtraPkgConfig="luabind lua52  x11 zlib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
-                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
+                       headerPath="../../Source&#10;../../Source/Misc/misc&#10;../../Source/Misc/include&#10;dnl../../Source/Misc/lua/include&#10;dnl../../Source/Misc/luabind&#10;dnl../../Source/Misc/libusb/include&#10;dnl../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
                        recommendedWarnings="GCC"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr"
-                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
+                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;dnl../../Source/Misc/lua/include&#10;dnl../../Source/Misc/luabind&#10;dnl../../Source/Misc/libusb/include&#10;dnl../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
+                       linkTimeOptimisation="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
