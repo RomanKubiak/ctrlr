@@ -1,7 +1,7 @@
 #ifndef __CTRLR_REVISION__
 #define __CTRLR_REVISION__
 
-static const char *ctrlrRevision              	= "%REVISION%";
-static const char *ctrlrRevisionDate        	= "%REVISION_DATE%";
+static const char *ctrlrRevision              	= "${CMAKE_PROJECT_VERSION}";
+static const char *ctrlrRevisionDate        	= "${BUILD_TIME}";
 
 #endif
