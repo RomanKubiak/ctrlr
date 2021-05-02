@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="hrcYoO" name="Ctrlr" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Light" projectType="audioplug" version="5.5"
+              splashScreenColour="Light" projectType="audioplug" version="5.6"
               bundleIdentifier="com.instigator.Ctrlr" includeBinaryInAppConfig="1"
-              cppLanguageStandard="14" buildVST="1" buildVST3="1" buildAU="1"
+              cppLanguageStandard="11" buildVST="1" buildVST3="1" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
               enableIAA="0" pluginName="Ctrlr" pluginDesc="Ctrlr" pluginManufacturer="Instigator"
               pluginManufacturerCode="inSt" pluginCode="cTrl" pluginChannelConfigs=""
@@ -186,7 +186,6 @@
           <FILE id="S3Qhqe" name="README.md" compile="0" resource="1" file="Source/Misc/luabind/README.md"/>
         </GROUP>
         <GROUP id="{1C4788E8-DEC6-8DD4-1530-75A1A430E869}" name="include">
-          <FILE id="CkCjmf" name="inttypes.h" compile="0" resource="0" file="Source/Misc/include/inttypes.h"/>
           <FILE id="st1G2O" name="juce_PluginHostType.h" compile="0" resource="0"
                 file="Source/Misc/include/juce_PluginHostType.h"/>
           <FILE id="C78Zt7" name="keys.h" compile="0" resource="0" file="Source/Misc/include/keys.h"/>
@@ -1081,7 +1080,7 @@
       </MODULEPATHS>
     </XCODE_MAC>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
-                enableGNUExtensions="1" externalLibraries="udev&#10;:libbfd.a&#10;iberty&#10;z&#10;X11&#10;"
+                enableGNUExtensions="1" externalLibraries="udev&#10;bfd&#10;z&#10;X11"
                 vstLegacyFolder="Source/Misc/vst2sdk" extraCompilerFlags="-w">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
@@ -1153,6 +1152,22 @@
         <MODULEPATH id="juce_audio_basics" path="../../juce"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
+    <CLION targetFolder="Builds/CLion">
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../juce"/>
+        <MODULEPATH id="juce_gui_basics" path="../../juce"/>
+        <MODULEPATH id="juce_graphics" path="../../juce"/>
+        <MODULEPATH id="juce_events" path="../../juce"/>
+        <MODULEPATH id="juce_data_structures" path="../../juce"/>
+        <MODULEPATH id="juce_core" path="../../juce"/>
+        <MODULEPATH id="juce_audio_utils" path="../../juce"/>
+        <MODULEPATH id="juce_audio_processors" path="../../juce"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../juce"/>
+        <MODULEPATH id="juce_audio_formats" path="../../juce"/>
+        <MODULEPATH id="juce_audio_devices" path="../../juce"/>
+        <MODULEPATH id="juce_audio_basics" path="../../juce"/>
+      </MODULEPATHS>
+    </CLION>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
@@ -1169,7 +1184,10 @@
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
-  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_WEB_BROWSER="0" JUCE_ENABLE_LIVE_CONSTANT_EDITOR="0"/>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_WEB_BROWSER="0" JUCE_ENABLE_LIVE_CONSTANT_EDITOR="0"
+               JUCE_CATCH_UNHANDLED_EXCEPTIONS="1" JUCE_LOG_ASSERTIONS="1" JUCE_CHECK_MEMORY_LEAKS="1"
+               JUCE_USE_XRENDER="1" JUCE_USE_XCURSOR="1" JUCE_USE_XSHM="1" JUCE_USE_XINERAMA="1"
+               JUCE_USE_XRANDR="1"/>
   <LIVE_SETTINGS>
     <WINDOWS/>
     <OSX/>

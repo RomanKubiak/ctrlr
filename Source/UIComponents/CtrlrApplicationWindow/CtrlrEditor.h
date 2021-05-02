@@ -79,6 +79,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 			showComparatorTables		= 0x3018,
 			doRefreshPropertyLists		= 0x3019,
 			doViewPropertyDisplayIDs	= 0x3020,
+            doViewFullScreen            = 0x3021,
 			doExportFileText			= 0x4001,
 			doExportFileZText			= 0x4002,
 			doExportFileBin				= 0x4003,
@@ -152,6 +153,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		void performMidiHostOptionChange(const int menuItemID);
 		void performMidiThruChange(const int menuItemID);
 		void performRecentFileOpen(const int menuItemID);
+		void toggleFullscreen();
 		void performKeyGenerator();
 		void performMidiDeviceRefresh();
 		void setMenuBarVisible(const bool shouldBeVisible=true);

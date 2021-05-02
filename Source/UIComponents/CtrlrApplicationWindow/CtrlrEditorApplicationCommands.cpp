@@ -18,6 +18,7 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
 								doViewPropertyDisplayIDs,
 								doZoomIn,
 								doZoomOut,
+								doViewFullScreen,
 								doCopy,
 								doCut,
 								doPaste,
@@ -143,6 +144,12 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 			result.addDefaultKeypress ('-', ModifierKeys::commandModifier);
 			result.setActive (isPanelActive());
 			break;
+
+        case doViewFullScreen:
+            result.setInfo ("Full screen", "Switch Ctrlr window to full screen", globalCategory, 0);
+            result.addDefaultKeypress (KeyPress::F11Key, ModifierKeys::noModifiers);
+            result.setActive (true);
+            break;
 
 		case doCopy:
 			result.setInfo ("Copy", "Copy selected components to clipboard", panelCategory, 0);

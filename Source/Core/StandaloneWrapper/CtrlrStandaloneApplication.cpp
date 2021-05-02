@@ -67,8 +67,6 @@ class CtrlrApplication : public JUCEApplication
                 void initialise(const String& commandLineParameters)
                 {
 					Logger::writeToLog("CTRLR:initialise params \""+commandLineParameters+"\"");
-
-
 					{
 						bool setcrashhandler = true;
 						if (!commandLineParameters.isEmpty())
@@ -100,6 +98,8 @@ class CtrlrApplication : public JUCEApplication
 
 								JUCEApplication::quit();
 							}
+                            if (parameters.contains("kiosk"))
+                                isKiosk = true;
 						}
 						// Set the crash handler only, if no crash is reported.
 						if (setcrashhandler)
@@ -108,6 +108,11 @@ class CtrlrApplication : public JUCEApplication
 
 
 					filterWindow = new CtrlrStandaloneWindow (ProjectInfo::projectName + String("/") + ProjectInfo::versionString, Colours::lightgrey);
+
+                    if (isKiosk) {
+                        _TXT("start in kiosk mode");
+                        filterWindow->toggleFullscreen();
+                    }
 
 					if (File::isAbsolutePath(commandLineParameters.unquoted()))
 						filterWindow->openFileFromCli (File(commandLineParameters.unquoted()));
@@ -139,5 +144,7 @@ class CtrlrApplication : public JUCEApplication
                 }
         private:
                 CtrlrStandaloneWindow *filterWindow;
+                bool isFullScreen = false;
+                bool isKiosk = false;
 };
 START_JUCE_APPLICATION (CtrlrApplication)

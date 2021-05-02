@@ -20,8 +20,8 @@
           <Add option="-D_DEBUG=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
-          <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50500&quot;"/>
+          <Add option="-DJUCE_APP_VERSION=&quot;5.6&quot;"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50600&quot;"/>
           <Add option="-DJucePlugin_Build_VST=&quot;1&quot;"/>
           <Add option="-DJucePlugin_Build_VST3=&quot;0&quot;"/>
           <Add option="-DJucePlugin_Build_AU=&quot;0&quot;"/>
@@ -33,7 +33,7 @@
           <Add option="-DJUCE_SHARED_CODE=&quot;1&quot;"/>
           <Add option="-m64"/>
           <Add option="-O0"/>
-          <Add option="-std=c++14"/>
+          <Add option="-std=c++11"/>
           <Add option="-mstackrealign"/>
           <Add option="-g"/>
           <Add option="-w"/>
@@ -83,8 +83,8 @@
           <Add option="-D_DEBUG=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
-          <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50500&quot;"/>
+          <Add option="-DJUCE_APP_VERSION=&quot;5.6&quot;"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50600&quot;"/>
           <Add option="-DJucePlugin_Build_VST=&quot;1&quot;"/>
           <Add option="-DJucePlugin_Build_VST3=&quot;0&quot;"/>
           <Add option="-DJucePlugin_Build_AU=&quot;0&quot;"/>
@@ -95,7 +95,7 @@
           <Add option="-DJucePlugin_Build_Unity=&quot;0&quot;"/>
           <Add option="-m64"/>
           <Add option="-O0"/>
-          <Add option="-std=c++14"/>
+          <Add option="-std=c++11"/>
           <Add option="-mstackrealign"/>
           <Add option="-g"/>
           <Add option="-w"/>
@@ -148,8 +148,8 @@
           <Add option="-D_DEBUG=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
-          <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50500&quot;"/>
+          <Add option="-DJUCE_APP_VERSION=&quot;5.6&quot;"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50600&quot;"/>
           <Add option="-DJucePlugin_Build_VST=&quot;0&quot;"/>
           <Add option="-DJucePlugin_Build_VST3=&quot;0&quot;"/>
           <Add option="-DJucePlugin_Build_AU=&quot;0&quot;"/>
@@ -160,7 +160,7 @@
           <Add option="-DJucePlugin_Build_Unity=&quot;0&quot;"/>
           <Add option="-m64"/>
           <Add option="-O0"/>
-          <Add option="-std=c++14"/>
+          <Add option="-std=c++11"/>
           <Add option="-mstackrealign"/>
           <Add option="-g"/>
           <Add option="-w"/>
@@ -210,8 +210,8 @@
           <Add option="-DNDEBUG=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
-          <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50500&quot;"/>
+          <Add option="-DJUCE_APP_VERSION=&quot;5.6&quot;"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50600&quot;"/>
           <Add option="-DJucePlugin_Build_VST=&quot;1&quot;"/>
           <Add option="-DJucePlugin_Build_VST3=&quot;0&quot;"/>
           <Add option="-DJucePlugin_Build_AU=&quot;0&quot;"/>
@@ -223,7 +223,7 @@
           <Add option="-DJUCE_SHARED_CODE=&quot;1&quot;"/>
           <Add option="-m64"/>
           <Add option="-O3"/>
-          <Add option="-std=c++14"/>
+          <Add option="-std=c++11"/>
           <Add option="-mstackrealign"/>
           <Add option="-w"/>
           <Add option="-fPIC"/>
@@ -258,8 +258,8 @@
           <Add option="-DNDEBUG=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
-          <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50500&quot;"/>
+          <Add option="-DJUCE_APP_VERSION=&quot;5.6&quot;"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50600&quot;"/>
           <Add option="-DJucePlugin_Build_VST=&quot;1&quot;"/>
           <Add option="-DJucePlugin_Build_VST3=&quot;0&quot;"/>
           <Add option="-DJucePlugin_Build_AU=&quot;0&quot;"/>
@@ -270,7 +270,7 @@
           <Add option="-DJucePlugin_Build_Unity=&quot;0&quot;"/>
           <Add option="-m64"/>
           <Add option="-O3"/>
-          <Add option="-std=c++14"/>
+          <Add option="-std=c++11"/>
           <Add option="-mstackrealign"/>
           <Add option="-w"/>
           <Add option="-fPIC"/>
@@ -308,8 +308,8 @@
           <Add option="-DNDEBUG=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
-          <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
-          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50500&quot;"/>
+          <Add option="-DJUCE_APP_VERSION=&quot;5.6&quot;"/>
+          <Add option="-DJUCE_APP_VERSION_HEX=&quot;0x50600&quot;"/>
           <Add option="-DJucePlugin_Build_VST=&quot;0&quot;"/>
           <Add option="-DJucePlugin_Build_VST3=&quot;0&quot;"/>
           <Add option="-DJucePlugin_Build_AU=&quot;0&quot;"/>
@@ -320,7 +320,7 @@
           <Add option="-DJucePlugin_Build_Unity=&quot;0&quot;"/>
           <Add option="-m64"/>
           <Add option="-O3"/>
-          <Add option="-std=c++14"/>
+          <Add option="-std=c++11"/>
           <Add option="-mstackrealign"/>
           <Add option="-w"/>
           <Add option="-fPIC"/>
@@ -972,12 +972,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/luabind/README.md">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/include/inttypes.h">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
       <Option compile="0"/>

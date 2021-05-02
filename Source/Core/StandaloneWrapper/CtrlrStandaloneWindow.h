@@ -11,13 +11,15 @@ class CtrlrStandaloneWindow	: public DocumentWindow, public ActionListener, publ
 		~CtrlrStandaloneWindow();
 		AudioProcessor *getFilter();
 		virtual PropertySet* getGlobalSettings();
-		void closeButtonPressed();
+		void closeButtonPressed() override;
+        void maximiseButtonPressed() override;
 		void resized();
 		void moved();
 		void openFileFromCli(const File &file);
 		void saveStateNow();
 		void actionListenerCallback(const String &message);
 		void changeListenerCallback(ChangeBroadcaster* source);
+		void toggleFullscreen();
 		JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CtrlrStandaloneWindow);
 
 	private:

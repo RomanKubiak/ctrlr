@@ -40,7 +40,7 @@ void CtrlrPanelMIDIInputThread::run()
 
 		wait ((int) timeToWait);
 	}
-	_WRN("CtrlrPanelMIDIInputThread::run stopping");
+	_TXT("CtrlrPanelMIDIInputThread::run stopping");
 }
 
 void CtrlrPanelMIDIInputThread::process()

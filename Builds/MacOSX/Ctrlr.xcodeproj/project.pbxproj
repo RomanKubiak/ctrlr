@@ -387,7 +387,6 @@
 		25DA8074BD470C385E9F1E3C /* CtrlrPanelCanvasLayer.cpp */ /* CtrlrPanelCanvasLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrPanelCanvasLayer.cpp; path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.cpp; sourceTree = SOURCE_ROOT; };
 		26A74C89ED81C51334CEE2D3 /* CtrlrLuaBigInteger.cpp */ /* CtrlrLuaBigInteger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaBigInteger.cpp; path = ../../Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp; sourceTree = SOURCE_ROOT; };
 		270BF048B0BC6E58E4469468 /* set_package_preload.cpp */ /* set_package_preload.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = set_package_preload.cpp; path = ../../Source/Misc/luabind/src/set_package_preload.cpp; sourceTree = SOURCE_ROOT; };
-		273F36B9B29DCF24C195E2A8 /* inttypes.h */ /* inttypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = inttypes.h; path = ../../Source/Misc/include/inttypes.h; sourceTree = SOURCE_ROOT; };
 		2770B29603AA65760C71E92C /* CtrlrPanelViewport.h */ /* CtrlrPanelViewport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrPanelViewport.h; path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.h; sourceTree = SOURCE_ROOT; };
 		27C69DBD61287E2DD40DEC47 /* CtrlrLuaObjectWrapper.cpp */ /* CtrlrLuaObjectWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaObjectWrapper.cpp; path = ../../Source/Lua/CtrlrLuaObjectWrapper.cpp; sourceTree = SOURCE_ROOT; };
 		27CAE87289FD0E0336928C0E /* constructor.hpp */ /* constructor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = constructor.hpp; path = ../../Source/Misc/luabind/luabind/detail/constructor.hpp; sourceTree = SOURCE_ROOT; };
@@ -1392,7 +1391,6 @@
 		360F12C34F98388F10522CFA /* include */ = {
 			isa = PBXGroup;
 			children = (
-				273F36B9B29DCF24C195E2A8,
 				469452B9CBD5CECF2C40527A,
 				98291FFADA18C25ABE635931,
 				F299599DE4607201E82A83D2,
@@ -2819,7 +2817,7 @@
 		0EC8955D6F8297394810C8F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -2835,8 +2833,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -2888,7 +2886,7 @@
 		1E7313904E36E5EB693E7A3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -2904,8 +2902,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=1",
@@ -2958,7 +2956,7 @@
 		2CBEE81EA64E8106CDAE1A13 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -2972,8 +2970,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=0",
@@ -3023,7 +3021,7 @@
 		6595B7BBF7951A8271DAD849 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -3037,8 +3035,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=1",
@@ -3089,7 +3087,7 @@
 		66B80B04DD65924F5626E627 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -3103,8 +3101,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -3152,7 +3150,7 @@
 		70635220F439E060AE43258A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -3168,8 +3166,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=0",
@@ -3222,7 +3220,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_ENTITLEMENTS = "AUv3_AppExtension.entitlements";
@@ -3237,8 +3235,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -3286,7 +3284,7 @@
 		8A52C8B6E4D92344867DF395 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -3300,8 +3298,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -3398,7 +3396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_ENTITLEMENTS = "AUv3_AppExtension.entitlements";
@@ -3413,8 +3411,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -3461,7 +3459,7 @@
 		D32232F4D1708637923E8E93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -3475,8 +3473,8 @@
 					"NDEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=1",
@@ -3524,7 +3522,7 @@
 		E76D20C9D82E07AE3F982464 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -3538,8 +3536,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=1",
 					"JucePlugin_Build_AU=1",
@@ -3650,7 +3648,7 @@
 		FB6DA6C537F17CC2AC508F87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -3664,8 +3662,8 @@
 					"DEBUG=1",
 					"JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=5.5",
-					"JUCE_APP_VERSION_HEX=0x50500",
+					"JUCE_APP_VERSION=5.6",
+					"JUCE_APP_VERSION_HEX=0x50600",
 					"JucePlugin_Build_VST=1",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",

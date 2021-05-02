@@ -106,10 +106,9 @@ void CtrlrPanelEditor::visibilityChanged()
 
 void CtrlrPanelEditor::resized()
 {
-	ctrlrPanelViewport->setBounds(0, 0, getWidth() - 308, getHeight());
+	/*ctrlrPanelViewport->setBounds(0, 0, getWidth() - 308, getHeight());
 	ctrlrPanelProperties->setBounds(getWidth() - 300, 32, 300, getHeight() - 32);
-	spacerComponent->setBounds(getWidth(), 32, 8, getHeight() - 32);
-
+	spacerComponent->setBounds(getWidth(), 32, 8, getHeight() - 32);*/
 	layoutItems();
 
 	if (!getRestoreState())
@@ -330,6 +329,13 @@ void CtrlrPanelEditor::valueTreePropertyChanged(ValueTree &treeWhosePropertyHasC
 		{
 			setLookAndFeel(getLookAndFeelFromDescription(getProperty(Ids::uiPanelLookAndFeel)));
 		}
+		else if (property == Ids::uiPanelWidth || property == Ids::uiPanelHeight)
+        {
+		    if (getCanvas())
+            {
+		        getCanvas()->setSize(getProperty(Ids::uiPanelWidth), getProperty(Ids::uiPanelHeight));
+            }
+        }
 	}
 }
 

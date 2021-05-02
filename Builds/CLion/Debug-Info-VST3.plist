@@ -4,9 +4,9 @@
 <plist>
   <dict>
     <key>CFBundleExecutable</key>
-    <string>${EXECUTABLE_NAME}</string>
+    <string>Ctrlr</string>
     <key>CFBundleIconFile</key>
-    <string></string>
+    <string/>
     <key>CFBundleIdentifier</key>
     <string>com.instigator.Ctrlr</string>
     <key>CFBundleName</key>
@@ -22,7 +22,7 @@
     <key>CFBundleVersion</key>
     <string>5.6</string>
     <key>NSHumanReadableCopyright</key>
-    <string></string>
+    <string/>
     <key>NSHighResolutionCapable</key>
     <true/>
   </dict>

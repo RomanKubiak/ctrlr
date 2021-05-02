@@ -280,6 +280,7 @@ class CtrlrManager :    public ValueTree::Listener,
 		AudioThumbnailCache &getAudioThumbnailCache()															{ return (audioThumbnailCache); }
 		bool isRestoring()																				{ return (ctrlrManagerRestoring); }
 		void saveStateToDisk();
+        void sendActionMessageToWindow(const String &actionMessage);
 		void timerCallback (int timerId);
 		CtrlrIDManager &getIDManager()																			{ return (ctrlrIDManager); }
 		const File getCtrlrPropertiesDirectory();

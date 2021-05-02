@@ -3459,9 +3459,6 @@
     <ClInclude Include="..\..\Source\Misc\luabind\build_information.hpp">
       <Filter>Ctrlr\Source\Misc\luabind</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\include\inttypes.h">
-      <Filter>Ctrlr\Source\Misc\include</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Misc\include\juce_PluginHostType.h">
       <Filter>Ctrlr\Source\Misc\include</Filter>
     </ClInclude>
