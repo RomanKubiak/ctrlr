@@ -3,7 +3,7 @@ MAXJOBS=`nproc`
 echo "CTRLR[linux]: Building for $HOSTTYPE, JOBS $MAXJOBS"
 #make -j$JOBS CONFIG=Release ARCH=$HOSTTYPE BINDIR=$BUILDDIR LIBDIR=$BUILDDIR OBJDIR=$BUILDDIR
 #make CONFIG=Release -j $MAXJOBS -f pchbuild.mk "$@"
-make CONFIG=Release -j$MAXJOBS "$@"
+CC=clang CXX=clang++ make CONFIG=Release -j$MAXJOBS "$@"
 if [ $? -ne 0 ]; then
 	echo -e "CTRLR[linux]: build failed\n"
 	exit 1

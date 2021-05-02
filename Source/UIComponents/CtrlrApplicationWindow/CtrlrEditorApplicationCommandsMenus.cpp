@@ -158,6 +158,8 @@ PopupMenu CtrlrEditor::getMenuForIndex(int topLevelMenuIndex, const String &menu
 		menu.addSeparator();
 		if (!isRestricted()) menu.addCommandItem (commandManager, doRefreshPropertyLists);
 		if (!isRestricted()) menu.addCommandItem (commandManager, doViewPropertyDisplayIDs);
+        menu.addSeparator();
+        if (!isRestricted()) menu.addCommandItem (commandManager, doViewFullScreen);
 	}
 	else if (!isRestricted() && (topLevelMenuIndex == MenuPanel)) // Panel
 	{
