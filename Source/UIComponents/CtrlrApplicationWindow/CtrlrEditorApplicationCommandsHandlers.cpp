@@ -86,6 +86,8 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 				getActivePanelEditor()->setProperty(Ids::uiPanelZoom, newZoomFactor);
 			}
 			break;
+	    case doViewFullScreen:
+	        break;
 
 		case doCopy:
 			getActivePanel()->getCanvas()->copy();

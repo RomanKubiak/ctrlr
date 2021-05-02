@@ -144,6 +144,12 @@ void CtrlrEditor::getCommandInfo (CommandID commandID, ApplicationCommandInfo &r
 			result.setActive (isPanelActive());
 			break;
 
+        case doViewFullScreen:
+            result.setInfo ("Full screen", "Switch Ctrlr window to full screen", globalCategory, 0);
+            result.addDefaultKeypress ('F11', ModifierKeys::commandModifier);
+            result.setActive (isPanelActive());
+            break;
+
 		case doCopy:
 			result.setInfo ("Copy", "Copy selected components to clipboard", panelCategory, 0);
 			result.addDefaultKeypress ('c', ModifierKeys::commandModifier);
