@@ -89,6 +89,10 @@ bool CtrlrEditor::perform (const InvocationInfo &info)
 	    case doViewFullScreen:
 	        break;
 
+	    case doViewFullScreen:
+	        toggleFullscreen();
+	        break;
+
 		case doCopy:
 			getActivePanel()->getCanvas()->copy();
 			break;
@@ -398,4 +402,9 @@ void CtrlrEditor::sliderValueChanged (Slider* slider)
 void CtrlrEditor::performMidiDeviceRefresh()
 {
 	owner.getCtrlrMidiDeviceManager().refreshDevices();
+}
+
+void CtrlrEditor::toggleFullscreen()
+{
+    owner.sendActionMessageToWindow("fullscreen");
 }

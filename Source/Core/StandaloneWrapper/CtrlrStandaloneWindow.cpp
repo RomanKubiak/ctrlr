@@ -16,6 +16,7 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 	filter = createPluginFilter();
 	centreWithSize(800, 600);
 	setTitleBarButtonsRequired (DocumentWindow::allButtons, false);
+    // setTitleBarHeight(32);
 	setUsingNativeTitleBar (true);
 	setResizable(true, false);
 
@@ -57,7 +58,9 @@ CtrlrStandaloneWindow::CtrlrStandaloneWindow (const String& title, const Colour&
 
 				if (appProperties->getUserSettings()->getValue(CTRLR_PROPERTIES_WINDOW_STATE,"") != "")
 				{
+                    _TXT("restore window to bounds: %s", appProperties->getUserSettings()->getValue(CTRLR_PROPERTIES_WINDOW_STATE).toUTF8());
 					restoreWindowStateFromString (appProperties->getUserSettings()->getValue(CTRLR_PROPERTIES_WINDOW_STATE));
+
 				}
 				else
 				{
@@ -95,6 +98,26 @@ void CtrlrStandaloneWindow::actionListenerCallback(const String &message)
     {
         saveStateNow();
     }
+
+    if (message == "fullscreen")
+    {
+        toggleFullscreen();
+    }
+}
+
+void CtrlrStandaloneWindow::toggleFullscreen()
+{
+    if (Desktop::getInstance().getKioskModeComponent() == this) {
+        _TXT("exiting kiosk mode");
+        setUsingNativeTitleBar(true);
+        setResizable(true, false);
+        Desktop::getInstance().setKioskModeComponent(nullptr);
+    } else {
+        _TXT("entering kiosk mode");
+        setUsingNativeTitleBar(false);
+        setResizable(false, false);
+        Desktop::getInstance().setKioskModeComponent(this);
+    }
 }
 
 void CtrlrStandaloneWindow::changeListenerCallback(ChangeBroadcaster* source)
@@ -110,7 +133,7 @@ void CtrlrStandaloneWindow::changeListenerCallback(ChangeBroadcaster* source)
 
 void CtrlrStandaloneWindow::saveStateNow()
 {
-    _DBG("CtrlrStandaloneWindow::saveStateNow");
+    _TXT("CtrlrStandaloneWindow::saveStateNow bounds:%s", getWindowStateAsString().toUTF8());
 
     if (ctrlrProcessor != nullptr && appProperties != nullptr)
     {
@@ -186,4 +209,10 @@ void CtrlrStandaloneWindow::openFileFromCli(const File &file)
 	{
 		ctrlrProcessor->openFileFromCli (file);
 	}
+}
+
+void CtrlrStandaloneWindow::maximiseButtonPressed()
+{
+    _TXT("maximiseButtonPressed %s", getScreenBounds().toString().toUTF8());
+    DocumentWindow::maximiseButtonPressed();
 }

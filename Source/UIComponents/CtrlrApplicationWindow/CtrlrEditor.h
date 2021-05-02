@@ -153,6 +153,7 @@ class CtrlrEditor  : public AudioProcessorEditor,
 		void performMidiHostOptionChange(const int menuItemID);
 		void performMidiThruChange(const int menuItemID);
 		void performRecentFileOpen(const int menuItemID);
+		void toggleFullscreen();
 		void performKeyGenerator();
 		void performMidiDeviceRefresh();
 		void setMenuBarVisible(const bool shouldBeVisible=true);

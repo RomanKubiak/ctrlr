@@ -18,6 +18,7 @@ void CtrlrEditor::getAllCommands (Array< CommandID > &commands)
 								doViewPropertyDisplayIDs,
 								doZoomIn,
 								doZoomOut,
+								doViewFullScreen,
 								doCopy,
 								doCut,
 								doPaste,

@@ -56,14 +56,14 @@ void CtrlrLog::setLogToFile (const bool _logToFile)
 	}
 }
 
-void CtrlrLog::logMessage(CtrlrLog::LogLevel, char *format, ...)
+void CtrlrLog::logMessage(CtrlrLog::LogLevel, const String &file, const String &function, const int line, char *format, ...)
 {
     char buffer[512];
     va_list args;
     va_start (args, format);
     vsnprintf (buffer,512,format, args);
-    logMessage (buffer);
     va_end (args);
+    logMessage ("[" + File(file).getFileName() + ":" + function + ":" + String(line) + "]: " + String(buffer));
 }
 
 void CtrlrLog::logMessage (const String &message)

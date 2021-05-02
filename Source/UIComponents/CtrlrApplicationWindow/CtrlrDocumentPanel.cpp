@@ -14,7 +14,7 @@ CtrlrDocumentPanel::CtrlrDocumentPanel (CtrlrManager &_owner)
 	   we get some assertions when adding the first Tab to an invisble
 	   panel, as it wants to grep the focus, which is not possible at this stage.
 	*/
-	// useFullscreenWhenOneDocument (true);
+	useFullscreenWhenOneDocument (true);
     setSize (600, 400);
 }
 

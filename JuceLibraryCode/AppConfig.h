@@ -202,11 +202,11 @@
 #endif
 
 #ifndef    JUCE_LOG_ASSERTIONS
- //#define JUCE_LOG_ASSERTIONS 0
+ #define   JUCE_LOG_ASSERTIONS 1
 #endif
 
 #ifndef    JUCE_CHECK_MEMORY_LEAKS
- //#define JUCE_CHECK_MEMORY_LEAKS 1
+ #define   JUCE_CHECK_MEMORY_LEAKS 1
 #endif
 
 #ifndef    JUCE_DONT_AUTOLINK_TO_WIN32_LIBRARIES
@@ -226,7 +226,7 @@
 #endif
 
 #ifndef    JUCE_CATCH_UNHANDLED_EXCEPTIONS
- //#define JUCE_CATCH_UNHANDLED_EXCEPTIONS 0
+ #define   JUCE_CATCH_UNHANDLED_EXCEPTIONS 1
 #endif
 
 #ifndef    JUCE_ALLOW_STATIC_NULL_VARIABLES
@@ -271,23 +271,23 @@
 #endif
 
 #ifndef    JUCE_USE_XRANDR
- //#define JUCE_USE_XRANDR 1
+ #define   JUCE_USE_XRANDR 1
 #endif
 
 #ifndef    JUCE_USE_XINERAMA
- //#define JUCE_USE_XINERAMA 1
+ #define   JUCE_USE_XINERAMA 1
 #endif
 
 #ifndef    JUCE_USE_XSHM
- //#define JUCE_USE_XSHM 1
+ #define   JUCE_USE_XSHM 1
 #endif
 
 #ifndef    JUCE_USE_XRENDER
- //#define JUCE_USE_XRENDER 0
+ #define   JUCE_USE_XRENDER 1
 #endif
 
 #ifndef    JUCE_USE_XCURSOR
- //#define JUCE_USE_XCURSOR 1
+ #define   JUCE_USE_XCURSOR 1
 #endif
 
 #ifndef    JUCE_WIN_PER_MONITOR_DPI_AWARE

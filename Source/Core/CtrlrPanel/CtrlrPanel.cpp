@@ -216,7 +216,7 @@ void CtrlrPanel::setProgramState(const bool _programState)
 
 Result CtrlrPanel::restoreState (const ValueTree &savedState)
 {
-	_DBG("CtrlrPanel::restoreState");
+    _TXT("enter");
 
 	setRestoreState (true);
 
@@ -326,7 +326,7 @@ void CtrlrPanel::sendSnapshotOnLoad()
 
 void CtrlrPanel::bootstrapPanel(const bool setInitialProgram)
 {
-    _DBG("CtrlrPanel::bootstrapPanel");
+    _TXT("enter");
 	if (getRestoreState())
 		return;
 

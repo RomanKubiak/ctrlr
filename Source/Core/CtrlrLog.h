@@ -9,7 +9,7 @@
 #define _DBG(message)										do {} while (0)
 #endif
 
-#define _TXT(...)                                           if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(CtrlrLog::Info, __VA_ARGS__)
+#define _TXT(...)                                           if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(CtrlrLog::Info, __FILE__, __FUNCTION__, __LINE__, __VA_ARGS__)
 #define _WRN(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Warn)
 #define _ERR(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Error)
 #define _INF(message)										if (CtrlrLog::ctrlrLog != nullptr) CtrlrLog::ctrlrLog->logMessage(message, CtrlrLog::Info)
@@ -68,7 +68,7 @@ class CtrlrLog : public AsyncUpdater, public Logger, public DeletedAtShutdown
 		void logMessage (const String &device, const MidiBuffer &buffer, const LogLevel level);
 		void logMessage (const String &device, const MidiBuffer &buffer, const double time, const LogLevel level);
 		void logMessage (const String &message);
-		void logMessage(CtrlrLog::LogLevel, char *fmt, ...);
+        void logMessage(CtrlrLog::LogLevel, const String &file, const String &function, const int line, char *fmt, ...);
 
 		void setLogToFile (const bool _logToFile);
 		bool getLogMidiInput ();

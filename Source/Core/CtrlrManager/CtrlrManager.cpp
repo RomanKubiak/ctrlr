@@ -593,10 +593,15 @@ int CtrlrManager::getNumModulators(const bool onlyVstParameters)
 
 void CtrlrManager::saveStateToDisk()
 {
-	if (JUCEApplication::isStandaloneApp())
-	{
-		sendActionMessage ("save");
-	}
+    sendActionMessageToWindow("save");
+}
+
+void CtrlrManager::sendActionMessageToWindow(const String &actionMessage)
+{
+    if (JUCEApplication::isStandaloneApp())
+    {
+        sendActionMessage (actionMessage);
+    }
 }
 
 void CtrlrManager::timerCallback (int timerId)

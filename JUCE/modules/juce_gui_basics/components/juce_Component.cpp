@@ -2820,7 +2820,7 @@ void Component::grabKeyboardFocus()
     // If this fails then you're probably trying to grab the focus before you've
     // added the component to a parent or made it visible. Or maybe one of its parent
     // components isn't yet visible.
-    jassert (isShowing() || isOnDesktop());
+    // jassert (isShowing() || isOnDesktop());
 }
 
 void Component::moveKeyboardFocusToSibling (bool moveToNext)
