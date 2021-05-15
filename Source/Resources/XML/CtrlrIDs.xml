@@ -634,7 +634,7 @@
   <id name="midiMessageCtrlrNumber" text="MIDI Controller number" type="Numeric" max="65536"/>
   <id name="midiMessageChannel" text="MIDI Channel" type="Numeric" min="1" max="16"/>
   <id name="midiMessageCtrlrValue" text="MIDI Controller value" type="Numeric" min="-65536" max="65536"/>
-  <id name="midiMessageType" text="MIDI message type" type="VarNumeric"  defaults="CC=0,Aftertouch=1,ChannelPressure=2,NoteOn=3,NoteOff=4,SysEx=5,Multi=6,ProgramChange=7,PitchWheel=8,None=9"/>
+  <id name="midiMessageType" text="MIDI message type" type="VarNumeric"  defaults="CC=0,Aftertouch=1,ChannelPressure=2,NoteOn=3,NoteOff=4,SysEx=5,Multi=6,ProgramChange=7,PitchWheel=8,None=9,MidiClock=10,MidiClockContinue=11,MidiClockStop=12,MidiClockStart=13,ActiveSense=14"/>
   <id name="midiMessageSysExFormula" text="SysEx Formula" type="SysEx"/>
   <id name="midiMessageChannelOverride" text="Override panel MIDI channel" type="Bool" defaults="Yes/No"/>
   <id name="midiMessageMultiList" text="Multi Message list" type="MultiMidi"/>
