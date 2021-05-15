@@ -48,7 +48,7 @@ ifeq ($(CONFIG),Debug)
   JUCE_CFLAGS_VST3 := -fPIC -fvisibility=hidden
   JUCE_LDFLAGS_VST3 := -shared -Wl,--no-undefined
   JUCE_VST3DIR := Ctrlr-Debug.vst3
-  VST3_PLATFORM_ARCH := $(shell $(CXX) make_helpers/arch_detection.cpp 2>&1 | tr '\n' ' ' | sed "s/.*JUCE_ARCH \([a-zA-Z0-9_-]*\).*/\1/")
+  VST3_PLATFORM_ARCH := $(shell uname -m)
   JUCE_VST3SUBDIR := Contents/$(VST3_PLATFORM_ARCH)-linux
   JUCE_TARGET_VST3 := $(JUCE_VST3DIR)/$(JUCE_VST3SUBDIR)/Ctrlr-Debug.so
   JUCE_VST3DESTDIR := $(HOME)/.vst3
@@ -62,7 +62,7 @@ ifeq ($(CONFIG),Debug)
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -g -ggdb -O0 -Wall -Wextra -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wsign-compare -Woverloaded-virtual -Wreorder -Wsign-conversion -Wunreachable-code -Wzero-as-null-pointer-constant -Wcast-align -Wno-implicit-fallthrough -Wno-maybe-uninitialized -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wswitch-enum -Wredundant-decls -w $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=gnu++11 $(CXXFLAGS)
-  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl) -fvisibility=hidden -lrt -ldl -lpthread -ludev -lbfd -lz -lX11 $(LDFLAGS)
+  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl) -fvisibility=hidden -lrt -ldl -lpthread -ludev -lbfd -liberty -lz -lX11 $(LDFLAGS)
 
   CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
@@ -90,7 +90,7 @@ ifeq ($(CONFIG),Release)
   JUCE_CFLAGS_VST3 := -fPIC -fvisibility=hidden
   JUCE_LDFLAGS_VST3 := -shared -Wl,--no-undefined
   JUCE_VST3DIR := Ctrlr.vst3
-  VST3_PLATFORM_ARCH := $(shell $(CXX) make_helpers/arch_detection.cpp 2>&1 | tr '\n' ' ' | sed "s/.*JUCE_ARCH \([a-zA-Z0-9_-]*\).*/\1/")
+  VST3_PLATFORM_ARCH := $(shell uname -m)
   JUCE_VST3SUBDIR := Contents/$(VST3_PLATFORM_ARCH)-linux
   JUCE_TARGET_VST3 := $(JUCE_VST3DIR)/$(JUCE_VST3SUBDIR)/Ctrlr.so
   JUCE_VST3DESTDIR := $(HOME)/.vst3
@@ -104,7 +104,7 @@ ifeq ($(CONFIG),Release)
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -O3 -w $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=gnu++11 $(CXXFLAGS)
-  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl) -fvisibility=hidden -lrt -ldl -lpthread -ludev -lbfd -lz -lX11 $(LDFLAGS)
+  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl) -fvisibility=hidden -lrt -ldl -lpthread -ludev -lbfd -liberty -lz -lX11 $(LDFLAGS)
 
   CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
