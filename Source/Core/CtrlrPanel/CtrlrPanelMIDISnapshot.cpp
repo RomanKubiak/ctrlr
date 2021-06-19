@@ -89,7 +89,7 @@ void CtrlrPanelMIDISnapshot::gatherSnapshotData()
 
     if (luaPanelMidiSnapshotPreCbk && !luaPanelMidiSnapshotPreCbk.wasObjectDeleted())
 	{
-		if (luaPanelMidiSnapshotPreCbk->isValid())
+		if (luaPanelMidiSnapshotPreCbk->isCallable())
 		{
 			owner.getCtrlrLuaManager().getMethodManager().call (luaPanelMidiSnapshotPreCbk, &buffer);
 		}
@@ -141,7 +141,7 @@ void CtrlrPanelMIDISnapshot::timerCallback()
 
         if (luaPanelMidiSnapshotPostCbk && !luaPanelMidiSnapshotPostCbk.wasObjectDeleted())
         {
-            if (luaPanelMidiSnapshotPostCbk->isValid())
+            if (luaPanelMidiSnapshotPostCbk->isCallable())
             {
                 owner.getCtrlrLuaManager().getMethodManager().call (luaPanelMidiSnapshotPostCbk, &buffer);
             }

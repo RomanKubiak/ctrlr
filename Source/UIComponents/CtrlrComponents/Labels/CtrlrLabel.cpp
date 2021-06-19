@@ -263,7 +263,7 @@ void CtrlrLabel::labelTextChanged (Label* labelThatHasChanged)
 
 	if (labelChangedCbk && !labelChangedCbk.wasObjectDeleted())
 	{
-		if (labelChangedCbk->isValid())
+		if (labelChangedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (labelChangedCbk, dynamic_cast<CtrlrComponent*>(this), labelThatHasChanged->getText());
 		}

@@ -278,7 +278,7 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 
 	if (luaPanelBeforeLoadCbk && !luaPanelBeforeLoadCbk.wasObjectDeleted())
 	{
-		if (luaPanelBeforeLoadCbk->isValid())
+		if (luaPanelBeforeLoadCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelBeforeLoadCbk);
 		}
@@ -342,7 +342,7 @@ void CtrlrPanel::bootstrapPanel(const bool setInitialProgram)
 
 	if (luaPanelLoadedCbk.get())
 	{
-		if (luaPanelLoadedCbk->isValid())
+		if (luaPanelLoadedCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelLoadedCbk, (uint8)owner.getInstanceMode());
 		}
@@ -829,7 +829,7 @@ ValueTree CtrlrPanel::getCustomData()
 
 	if (luaPanelSaveStateCbk && !luaPanelSaveStateCbk.wasObjectDeleted())
 	{
-		if (luaPanelSaveStateCbk->isValid())
+		if (luaPanelSaveStateCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelSaveStateCbk, customData);
 		}
@@ -852,7 +852,7 @@ void CtrlrPanel::setCustomData (const ValueTree &customData)
 {
 	if (luaPanelRestoreStateCbk && !luaPanelRestoreStateCbk.wasObjectDeleted())
 	{
-		if (luaPanelRestoreStateCbk->isValid())
+		if (luaPanelRestoreStateCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelRestoreStateCbk, customData);
 		}
@@ -912,7 +912,7 @@ void CtrlrPanel::setProgram(ValueTree programTree, const bool sendSnapshotNow)
 
 		if (luaPanelProgramChangedCbk && !luaPanelProgramChangedCbk.wasObjectDeleted())
 		{
-			if (luaPanelProgramChangedCbk->isValid())
+			if (luaPanelProgramChangedCbk->isCallable())
 			{
 				getCtrlrLuaManager().getMethodManager().call (luaPanelProgramChangedCbk);
 			}
@@ -1088,7 +1088,7 @@ void CtrlrPanel::handleAsyncUpdate()
 	bool luaValid = false;
 
 	if (luaPanelMidiReceivedCbk)
-		luaValid  = luaPanelMidiReceivedCbk->isValid();
+		luaValid  = luaPanelMidiReceivedCbk->isCallable();
 
 	while (i.getNextEvent(m,time))
 	{
@@ -1181,7 +1181,7 @@ void CtrlrPanel::setMidiChannel(const CtrlrPanelMidiChannel optionToSet, const u
 
 	if (luaPanelMidiChannelChangedCbk && !luaPanelMidiChannelChangedCbk.wasObjectDeleted())
 	{
-		if (luaPanelMidiChannelChangedCbk->isValid())
+		if (luaPanelMidiChannelChangedCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelMidiChannelChangedCbk, (int)optionToSet, (int)value);
 		}
@@ -1275,7 +1275,7 @@ void CtrlrPanel::modulatorValueChanged(CtrlrModulator *m)
 
 	if (luaPanelModulatorValueChangedCbk && !luaPanelModulatorValueChangedCbk.wasObjectDeleted())
 	{
-		if (luaPanelModulatorValueChangedCbk->isValid())
+		if (luaPanelModulatorValueChangedCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelModulatorValueChangedCbk, m, m->getValueNonMapped());
 		}
@@ -1461,7 +1461,7 @@ void CtrlrPanel::luaSavePanel(const CtrlrPanelFileType fileType, const File &fil
 {
 	if (luaPanelSavedCbk && !luaPanelSavedCbk.wasObjectDeleted())
 	{
-		if (luaPanelSavedCbk->isValid())
+		if (luaPanelSavedCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelSavedCbk, (int)fileType, file);
 		}
@@ -1497,7 +1497,7 @@ void CtrlrPanel::sendMidiProgramChange()
 
 	if (luaPanelProgramChangedCbk && !luaPanelProgramChangedCbk.wasObjectDeleted())
 	{
-		if (luaPanelProgramChangedCbk->isValid())
+		if (luaPanelProgramChangedCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelProgramChangedCbk, program, bankLsb, bankMsb);
 		}
@@ -1665,7 +1665,7 @@ void CtrlrPanel::notify (const String &notification, CtrlrNotificationCallback *
 {
 	if (luaPanelMessageHandlerCbk && !luaPanelMessageHandlerCbk.wasObjectDeleted())
 	{
-		if (luaPanelMessageHandlerCbk->isValid())
+		if (luaPanelMessageHandlerCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelMessageHandlerCbk, notification, ctrlrNotificationType);
 		}
@@ -1765,7 +1765,7 @@ void CtrlrPanel::resourceImportFinished()
 
     if (luaPanelResourcesLoadedCbk && !luaPanelResourcesLoadedCbk.wasObjectDeleted())
 	{
-		if (luaPanelResourcesLoadedCbk->isValid())
+		if (luaPanelResourcesLoadedCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelResourcesLoadedCbk);
 		}
