@@ -230,6 +230,7 @@ Result CtrlrPanel::restoreState (const ValueTree &savedState)
 		File panelFile = userDocsDir.getNonexistentChildFile("CtrlrPanel", ".panel");
 		filePath = panelFile.getFullPathName();
 	}
+	_DBG(filePath);
 	panelTree.setProperty(Ids::panelFilePath, filePath, nullptr);
 
 	ctrlrLuaManager->restoreState(savedState.getChildWithName(Ids::luaManager));
