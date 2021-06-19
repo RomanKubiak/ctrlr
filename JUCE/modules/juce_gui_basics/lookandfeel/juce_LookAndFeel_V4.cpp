@@ -1246,7 +1246,7 @@ void LookAndFeel_V4::drawPropertyPanelSectionHeader (Graphics& g, const String& 
     g.setColour (findColour (PropertyComponent::labelTextColourId));
 
     g.setFont ({ (float) height * 0.7f, Font::bold });
-    g.drawText (name, textX, 0, width - textX - 4, height, Justification::centredLeft, true);
+    g.drawText (name, textX, 0, std::max(width - textX - 4,1), height, Justification::centredLeft, true);
 }
 
 void LookAndFeel_V4::drawPropertyComponentBackground (Graphics& g, int width, int height, PropertyComponent& component)
