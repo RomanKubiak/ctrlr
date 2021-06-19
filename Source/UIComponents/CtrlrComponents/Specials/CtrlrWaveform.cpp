@@ -247,7 +247,7 @@ void CtrlrWaveform::changeListenerCallback (ChangeBroadcaster* source)
 	{
 		if (thumbnailChangedCbk && !thumbnailChangedCbk.wasObjectDeleted())
 		{
-			if (thumbnailChangedCbk->isValid())
+			if (thumbnailChangedCbk->isCallable())
 			{
 				owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (thumbnailChangedCbk, this);
 			}
@@ -307,7 +307,7 @@ void CtrlrWaveform::reset (int numChannels, double sampleRate, double totalSampl
 
 	if (sourceChangedCbk && !sourceChangedCbk.wasObjectDeleted())
 	{
-		if (sourceChangedCbk->isValid())
+		if (sourceChangedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (sourceChangedCbk, this);
 		}
@@ -322,7 +322,7 @@ const bool CtrlrWaveform::loadFromFile (const File &fileToLoadFrom)
 
 	if (sourceChangedCbk && !sourceChangedCbk.wasObjectDeleted())
 	{
-		if (sourceChangedCbk->isValid())
+		if (sourceChangedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (sourceChangedCbk, this);
 		}
@@ -431,7 +431,7 @@ void CtrlrWaveform::filesDropped (const StringArray &files, int x, int y)
 {
 	if (fileDroppedCbk && !fileDroppedCbk.wasObjectDeleted())
 	{
-		if (fileDroppedCbk->isValid())
+		if (fileDroppedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (fileDroppedCbk, files, x, y);
 		}

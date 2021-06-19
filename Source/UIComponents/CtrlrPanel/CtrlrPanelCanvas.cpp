@@ -54,7 +54,7 @@ void CtrlrPanelCanvas::paint (Graphics& g)
 {
 	if (paintCbk && !paintCbk.wasObjectDeleted())
 	{
-		if (paintCbk->isValid())
+		if (paintCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (paintCbk, this, g);
 
@@ -130,7 +130,7 @@ void CtrlrPanelCanvas::resized()
 
 	if (resizedCbk && !resizedCbk.wasObjectDeleted())
 	{
-		if (resizedCbk->isValid())
+		if (resizedCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (resizedCbk, &owner.getOwner());
 		}
@@ -1030,7 +1030,7 @@ void CtrlrPanelCanvas::fileDragEnter (const StringArray &files, int x, int y)
 {
 	if (luaPanelFileDragEnterHandlerCbk && !luaPanelFileDragEnterHandlerCbk.wasObjectDeleted())
 	{
-		if (luaPanelFileDragEnterHandlerCbk->isValid())
+		if (luaPanelFileDragEnterHandlerCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (luaPanelFileDragEnterHandlerCbk, files, x, y);
 
@@ -1043,7 +1043,7 @@ void CtrlrPanelCanvas::fileDragExit (const StringArray &files)
 {
 	if (luaPanelFileDragExitHandlerCbk && !luaPanelFileDragExitHandlerCbk.wasObjectDeleted())
 	{
-		if (luaPanelFileDragExitHandlerCbk->isValid())
+		if (luaPanelFileDragExitHandlerCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (luaPanelFileDragExitHandlerCbk, files);
 
@@ -1080,7 +1080,7 @@ void CtrlrPanelCanvas::filesDropped (const StringArray &files, int x, int y)
 
 	if (luaPanelFileDragDropHandlerCbk && !luaPanelFileDragDropHandlerCbk.wasObjectDeleted())
 	{
-		if (luaPanelFileDragDropHandlerCbk->isValid())
+		if (luaPanelFileDragDropHandlerCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (luaPanelFileDragDropHandlerCbk, files, x, y);
 
