@@ -159,7 +159,7 @@ namespace luabind
 				String* wp = object_cast<String*>(obj);
 				return String(*wp);
 			}
-			return String(lua_tostring(L, index));
+			return String(CharPointer_UTF8 (lua_tostring(L, index)));
 		}
 
 		void to(lua_State* L, String const &value)
