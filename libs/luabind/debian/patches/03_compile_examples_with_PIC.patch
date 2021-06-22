@@ -1,0 +1,35 @@
+Author: Roberto C. Sanchez <roberto@connexer.com>
+Description: Use -fPIC in example Makefiles (Closes: #819454)
+--- luabind.git.orig/examples/glut/Makefile
++++ luabind.git/examples/glut/Makefile
+@@ -6,7 +6,7 @@
+ 
+ glutbind_test: glut_bind.cpp
+ 	$(CXX) glut_bind.cpp -o glut_bind $(CPPFLAGS) \
+-	-I/usr/include/lua5.2 -I/usr/include/boost \
++	-I/usr/include/lua5.2 -I/usr/include/boost -fPIC \
+ 	-llua5.2 -lluabind -lGL -lGLU -lglut
+ 
+ clean:
+--- luabind.git.orig/examples/hello_world/Makefile
++++ luabind.git/examples/hello_world/Makefile
+@@ -6,7 +6,7 @@
+ 
+ helloworld_test: hello_world.cpp
+ 	$(CXX) -shared hello_world.cpp -o hello_world.so $(CPPFLAGS) \
+-	-I/usr/include/lua5.2 -I/usr/include/boost \
++	-I/usr/include/lua5.2 -I/usr/include/boost -fPIC \
+ 	-llua5.2 -lluabind
+ 
+ clean:
+--- luabind.git.orig/examples/regexp/Makefile
++++ luabind.git/examples/regexp/Makefile
+@@ -6,7 +6,7 @@
+ 
+ regexp_test: regex_wrap.cpp
+ 	$(CXX) regex_wrap.cpp -o regex_wrap $(CPPFLAGS) \
+-	-I/usr/include/lua5.2 -I/usr/include/boost \
++	-I/usr/include/lua5.2 -I/usr/include/boost -fPIC \
+ 	-llua5.2 -lluabind -lboost_regex
+ 
+ clean:

@@ -1,0 +1,37 @@
+Author: Roberto C. Sanchez <roberto@connexer.com>
+Description: Use GNU install directory locations (e.g., /usr/lib<triplet>/)
+--- luabind.git.orig/CMakeLists.txt
++++ luabind.git/CMakeLists.txt
+@@ -9,6 +9,7 @@
+ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+ 
+ include(CheckCXXCompilerFlag)
++include (GNUInstallDirs)
+ 
+ if(NOT LUABIND_LIBRARY_VERSION)
+     set(LUABIND_LIBRARY_VERSION_MAJOR "0")
+@@ -258,8 +259,8 @@
+         set(INSTALL_CMAKE_DIR CMake)
+         set(INSTALL_CMAKE_DIR_LUA CMake)
+     else()
+-        set(INSTALL_CMAKE_DIR lib/CMake/Luabind)
+-        set(INSTALL_CMAKE_DIR_LUA lib/CMake/Lua52)
++        set(INSTALL_CMAKE_DIR "${CMAKE_INSTALL_LIBDIR}/cmake")
++        set(INSTALL_CMAKE_DIR_LUA "${CMAKE_INSTALL_LIBDIR}/cmake")
+     endif()
+     install(FILES "cmake/Modules/FindLuabind.cmake" DESTINATION ${INSTALL_CMAKE_DIR})
+     install(FILES "cmake/Modules/FindLua52.cmake" DESTINATION ${INSTALL_CMAKE_DIR_LUA})
+--- luabind.git.orig/src/CMakeLists.txt
++++ luabind.git/src/CMakeLists.txt
+@@ -181,7 +181,8 @@
+         COMPONENT sdk)
+     install(TARGETS luabind
+         EXPORT luabind
+-        RUNTIME DESTINATION ${BIN_DIR} COMPONENT runtime
+-        LIBRARY DESTINATION ${LIB_DIR} COMPONENT runtime
+-        ARCHIVE DESTINATION ${ARCH_DIR} COMPONENT sdk)
++        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT runtime
++        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT runtime
++        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT sdk)
++
+ endif()

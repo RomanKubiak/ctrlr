@@ -1,0 +1,76 @@
+Source: luabind
+Priority: optional
+Maintainer: Roberto C. Sanchez <roberto@connexer.com>
+Build-Depends: debhelper (>= 10),
+ cmake,
+ liblua5.2-dev,
+ libboost-all-dev,
+ python3-sphinx
+Standards-Version: 4.5.0
+Section: libs
+Homepage: https://github.com/ValyriaTear/luabind
+
+Package: libluabind0.9.1d1
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: luabind c++ binding for Lua: runtime library
+ Luabind is a library that helps you create bindings between C++ and Lua.
+ It has the ability to expose functions and classes, written in C++, to
+ Lua. It will also supply the functionality to define classes in Lua and
+ let them derive from other Lua classes or C++ classes. Lua classes can
+ override virtual functions from their C++ baseclasses. It is written
+ towards Lua 5.0, and does not work with other Lua versions.
+ .
+ This package contains the luabind runtime libraries, for applications that
+ have been built with luabind.
+
+Package: libluabind-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libluabind0.9.1d1  (= ${binary:Version}), ${shlibs:Depends}, liblua5.2-dev, libboost-dev, ${misc:Depends}
+Suggests: libluabind-doc, libluabind-examples
+Description: luabind c++ binding for Lua: static library and headers
+ Luabind is a library that helps you create bindings between C++ and Lua.
+ It has the ability to expose functions and classes, written in C++, to
+ Lua. It will also supply the functionality to define classes in Lua and
+ let them derive from other Lua classes or C++ classes. Lua classes can
+ override virtual functions from their C++ baseclasses. It is written
+ towards Lua 5.0, and does not work with other Lua versions.
+ .
+ This package contains all files necessary to develop applications which
+ use luabind.
+
+Package: libluabind-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Recommends: libluabind-dev
+Description: luabind c++ binding for Lua: documentation files
+ Luabind is a library that helps you create bindings between C++ and Lua.
+ It has the ability to expose functions and classes, written in C++, to
+ Lua. It will also supply the functionality to define classes in Lua and
+ let them derive from other Lua classes or C++ classes. Lua classes can
+ override virtual functions from their C++ baseclasses. It is written
+ towards Lua 5.0, and does not work with other Lua versions.
+ .
+ This package contains the luabind documentation.
+
+Package: libluabind-examples
+Section: libdevel
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Recommends: libluabind-dev
+Description: luabind c++ binding for Lua: example files
+ Luabind is a library that helps you create bindings between C++ and Lua.
+ It has the ability to expose functions and classes, written in C++, to
+ Lua. It will also supply the functionality to define classes in Lua and
+ let them derive from other Lua classes or C++ classes. Lua classes can
+ override virtual functions from their C++ baseclasses. It is written
+ towards Lua 5.0, and does not work with other Lua versions.
+ .
+ This package contains some luabind examples, including the basic "helloworld"
+ and some more advanced examples.

@@ -1,0 +1,34 @@
+language: cpp
+sudo: false
+addons:
+    apt:
+        packages:
+            - cmake
+            - libboost-dev
+env:
+    - C_CXX11=OFF C_LUAV=5.1.5 C_LXX=src
+    - C_CXX11=ON C_LUAV=5.2.4 C_LXX=src
+    - C_CXX11=ON C_LUAV=5.2.4 C_LXX=cxx C_EXTRA="-DLUABIND_CPLUSPLUS_LUA=ON"
+    - C_CXX11=ON C_LUAV=5.3.4 C_LXX=src
+compiler:
+    - gcc
+before_install:
+    - mkdir build; cd build
+    - $TRAVIS_BUILD_DIR/get-deps.sh $C_LUAV $C_LXX
+script:
+    - LUA_DIR=$PWD/lua-$C_LUAV/$C_LXX/ cmake
+      -DLUABIND_BUILD_HEADER_TESTS=ON
+      -DLUABIND_USE_CXX11=$C_CXX11
+      -DCMAKE_BUILD_TYPE=Debug
+      $C_EXTRA
+      ..
+    - make
+    - CTEST_OUTPUT_ON_FAILURE=1 make test
+matrix:
+    # clang can only be used in C++98 mode with Travis' old boost version.
+    include:
+        - compiler: clang
+          env: C_CXX11=OFF C_LUAV=5.1.5 C_LXX=src
+        - compiler: clang
+          env: C_CXX11=OFF C_LUAV=5.3.4 C_LXX=cxx C_EXTRA="-DLUABIND_CPLUSPLUS_LUA=ON"
+

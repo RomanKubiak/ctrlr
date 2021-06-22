@@ -1,0 +1,989 @@
+libusb-1.0 (2:1.0.24-3) unstable; urgency=medium
+
+  * Backport patch from upstream to gracefully handle buggy (but very common)
+    devices with a configuration 0 (closes: #985723).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 22 Mar 2021 22:41:50 +0100
+
+libusb-1.0 (2:1.0.24-2) unstable; urgency=medium
+
+  * Backport patch from upstream to fix parsing of descriptors for
+    multi-configuration devices (closes: #977231).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 14 Dec 2020 06:54:15 +0100
+
+libusb-1.0 (2:1.0.24-1) unstable; urgency=medium
+
+  * New upstream version:
+    - Drop 01-autotools-fix-out-of-tree-building-of-documentation.patch,
+      merged upstream.
+  * Upload to unstable.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 10 Dec 2020 21:05:18 +0100
+
+libusb-1.0 (2:1.0.24~rc1-1) experimental; urgency=medium
+
+  [ Aurelien Jarno ]
+  * New upstream release candidate:
+    - Drop 01-Add-Null-POSIX-backend.patch, merged upstream.
+    - Drop 02-core-include-sys-time.h-on-any-GNU-libc-OS.patch, merged
+      upstream.
+    - Drop 03-linux-Fix-libusb_get_device_speed-not-working-on-wra.patch,
+      merged upstream.
+    - Add a new patch submitted upstream to fix out-of-tree building of the
+      documentation.
+    - Adjust autopkgtests following upstream changes.
+  * Bump to debhelper compat to 13.
+  * Bump Standards-Version to 4.5.1 (no changes).
+
+  [ Sebastien Bacher ]
+  * debian/tests/stress:
+    - Use the correct compiler for proposed autopkgtest cross-testing
+      support (closes: #948342).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 02 Dec 2020 23:26:22 +0100
+
+libusb-1.0 (2:1.0.23-3) unstable; urgency=medium
+
+  * Backport patch from upstream to fix libusb_get_device_speed() with
+    wrapped devices (closes: #975914).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 02 Dec 2020 23:20:58 +0100
+
+libusb-1.0 (2:1.0.23-2) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.4.1 (no changes).
+  * Drop patches/gnu-hurd-stub.diff and replace it by two upstream patches
+    adding the Null POSIX backend (closes: #947619).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 30 Dec 2019 22:55:13 +0100
+
+libusb-1.0 (2:1.0.23-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/tests/stress: move $LDFLAGS at the end of the command.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 30 Aug 2019 22:18:57 +0200
+
+libusb-1.0 (2:1.0.23~rc3-1) experimental; urgency=medium
+
+  * New upstream release candidate.
+    - Update symbols file.
+  * Build-depends on debhelper (>= 12.4) to get automatic udeb support and
+    drop the override_dh_makeshlibs-arch stanza from debian/rules.
+  * Set Rules-Requires-Root to no.
+  * Push debhelper level to 12.
+  * Bump Standards-Version to 4.4.0 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 16 Aug 2019 13:47:13 +0200
+
+libusb-1.0 (2:1.0.22-2) unstable; urgency=medium
+
+  * debian/tests/control: add a depends on build-essential.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 05 May 2018 18:27:33 +0200
+
+libusb-1.0 (2:1.0.22-1) unstable; urgency=medium
+
+  * New upstream version:
+    - Refresh gnu-hurd-stub.diff.
+    - Drop fix-a-race-condition-with-libusb_interrupt_event_handler.diff:
+      upstreamed.
+    - Drop libusb.h-use-__linux__-instead-of-__linux.diff: upstreamed.
+    - Drop linux_udev-retry-poll-on-EINTR.diff: upstreamed.
+    - Update symbols file.
+  * Bump Standards-Version to 4.1.4 (no changes).
+  * Run the testsuite on linux.
+  * Added autopkgtest.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 05 May 2018 00:32:09 +0200
+
+libusb-1.0 (2:1.0.21-2) unstable; urgency=medium
+
+  * Backport to important fixes from upstream:
+    - linux_udev: Retry poll() on EINTR.
+    - Fix a race condition with libusb_interrupt_event_handler().
+    - Fix wrong __linux usage in libusb.h (closes: #865026).
+  * Switch to debhelper 10.
+  * Bump Standards-Version to 4.0.0 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 24 Jun 2017 23:12:56 +0200
+
+libusb-1.0 (2:1.0.21-1) unstable; urgency=medium
+
+  * New upstream release, upload to unstable.
+  * Mark libusb-1.0-doc Multi-Arch: foreign.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 26 Oct 2016 20:57:04 +0200
+
+libusb-1.0 (2:1.0.21~rc3-1) experimental; urgency=medium
+
+  * New upstream release candidate.
+  * Build-depends on dh-autoreconf and pass --with autoreconf to dh.
+  * Add a hurd stub backend, thanks to Petter Reinholdtsen for the patch
+    (closes: #835335).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 28 Aug 2016 23:55:19 +0200
+
+libusb-1.0 (2:1.0.21~rc1-1) experimental; urgency=medium
+
+  * New upstream release candidate (closes: #832097).
+  * Update symbols file with new symbols.
+  * Bump Standards-Version to 3.9.8 (no changes).
+  * Drop libusb-1.0-0-dbg and build an automatic dbgsym package instead.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 22 Jul 2016 22:20:40 +0200
+
+libusb-1.0 (2:1.0.20-1) unstable; urgency=medium
+
+  * New upstream release (closes: #799069).
+  * Bump Standards-Version to 3.9.6 (no changes).
+  * Update homepage.
+  * Rewrite debian/rules using dh.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 15 Sep 2015 20:03:53 +0200
+
+libusb-1.0 (2:1.0.19-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 16 Jun 2014 19:54:01 +0200
+
+libusb-1.0 (2:1.0.18-2) unstable; urgency=medium
+
+  * debian/copyright: mentions that ezusb and fxload examples are
+    released under GPL v2 instead of LGPL v2.1 (closes: #743637).
+  * Don't force xz compression when generating .deb now that it is the
+    default.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 06 Apr 2014 18:13:50 +0200
+
+libusb-1.0 (2:1.0.18-1) unstable; urgency=medium
+
+  * New upstream version called libusb, libusbx and libusb have been
+    merged in this version.
+  * Update debian/copyright.
+  * Bump Standards-Version to 3.9.5 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 31 Jan 2014 18:34:53 +0100
+
+libusbx (2:1.0.17-1) unstable; urgency=low
+
+  * New upstream version.
+    - Drop 0000-linux-Use-a-separate-lock-to-serialize-start-stop-vs.patch
+    - Drop 0001-hotplug-Remove-use-of-pthread_cancel-from-linux_udev.patch
+    - Drop 0002-linux_netlink-close-netlink-socket-on-init-error.patch
+    - Drop 0003-linux_netlink-Remove-use-of-pthread_cancel.patch
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 08 Sep 2013 23:02:48 +0200
+
+libusbx (2:1.0.16-3) unstable; urgency=medium
+
+  * Add 0000-linux-Use-a-separate-lock-to-serialize-start-stop-vs.patch
+    from ipstream to really fix the dead lock with upower
+    (closes: #717988).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 31 Jul 2013 20:46:44 +0200
+
+libusbx (2:1.0.16-2) unstable; urgency=medium
+
+  * Add patches from upstream to fix a dead lock (closes: #717988):
+    - 0001-hotplug-Remove-use-of-pthread_cancel-from-linux_udev.patch
+    - 0002-linux_netlink-close-netlink-socket-on-init-error.patch
+    - 0003-linux_netlink-Remove-use-of-pthread_cancel.patch
+  * Set urgency to medium as it fixes a nasty bug.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 30 Jul 2013 19:00:23 +0200
+
+libusbx (2:1.0.16-1) unstable; urgency=low
+
+  * New upstream version, last one from the libusbx, the next one will
+    be called libusb again.
+    - Build depends on libudev-dev.
+    - Update symbol files.
+  * Bump Standards-Version to 3.9.4 (no changes).
+  * Move documentation to a -doc package.
+  * Set the -dev package as Multiarch: same.
+  * Support parallel building.
+  * Compress the .deb files with xz.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 12 Jul 2013 19:49:06 +0200
+
+libusbx (2:1.0.15-1) unstable; urgency=low
+
+  * New upstream version.
+  * Fix cross-build (closes: #694912, #705658).
+  * Add a -dbg package.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 06 May 2013 17:31:43 +0200
+
+libusbx (2:1.0.12-2) unstable; urgency=low
+
+  * 01-log_level.diff: new patch from upstream to prefix LOG_LEVEL_*
+    enum values with LIBUSB_ (closes: #680865).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 09 Jul 2012 07:45:56 +0200
+
+libusbx (2:1.0.12-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 30 Jun 2012 01:14:07 +0200
+
+libusbx (2:1.0.11-1) unstable; urgency=low
+
+  * Switch to libusbx, a fork of libusb, as most distributions are doing.
+    It is API and ABI compatible, at least for now.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 03 Jun 2012 16:53:33 +0200
+
+libusb-1.0 (2:1.0.9-1) unstable; urgency=low
+
+  * New upstream version (closes: #669590):
+    - Work with CONFIG_TIMERFD is disabled in the kernel (closes: #627018).
+  * Update symbols file.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 24 Apr 2012 07:58:26 +0200
+
+libusb-1.0 (2:1.0.9~rc3-4) unstable; urgency=low
+
+  * Fix hardening build flags for udebs (closes: #665309).
+  * Bump Standards-Version to 3.9.3 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 03 Apr 2012 23:45:26 +0200
+
+libusb-1.0 (2:1.0.9~rc3-3) unstable; urgency=low
+
+  * Add symbols file.
+  * Enable hardened build flags.
+  * Remove the /usr/lib/libusb-1.0.so.0 -> /lib/libusb-1.0.so.0 symlink
+    as the dpkg-dev bug has been fixed.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 30 Dec 2011 17:56:10 +0100
+
+libusb-1.0 (2:1.0.9~rc3-2) unstable; urgency=low
+
+  * Fix .so link.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 11 Dec 2011 19:27:03 +0100
+
+libusb-1.0 (2:1.0.9~rc3-1) unstable; urgency=low
+
+  * New upstream release candidate (closes: #650823, #651294).
+    - Added a function to convert error codes into strings (closes:
+      #504781).
+    - Drop patches/01-configure-bashisms.diff (merged upstream).
+    - Drop patches/02-pedantic.diff (merged upstream).
+    - Drop patches/03-private-libs.diff (merged upstream).
+    - Drop patches/04-linux-3.0.diff (merged upstream).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 11 Dec 2011 19:02:43 +0100
+
+libusb-1.0 (2:1.0.8-6) unstable; urgency=high
+
+  * Set urgency to high, as it affects the version in wheezy.
+  * Add patches/04-linux-3.0.diff from upstream to fix bulk continuation
+    support detection with 3.x kernels.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 16 Oct 2011 20:49:38 +0200
+
+libusb-1.0 (2:1.0.8-5) unstable; urgency=low
+
+  * Add patches/03-private-libs.diff from upstream to fix static linking.
+    (closes: bug#638326).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 18 Aug 2011 19:22:47 +0200
+
+libusb-1.0 (2:1.0.8-4) unstable; urgency=low
+
+  * Add patches/02-pedantic.diff from upstream to fix compilation with
+    -pedantic flag (closes: #633805).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 19 Jul 2011 10:59:19 +0200
+
+libusb-1.0 (2:1.0.8-3) unstable; urgency=low
+
+  * Upgraded policy compliance to 3.9.2 (no changes).
+  * Convert to multiarch:
+    - Bump debhelper build-dep to >= 8.1.3 for multiarch.
+    - Add Pre-Depends: ${misc:Pre-Depends} to libusb-1.0-0 and set it
+      Multi-Arch: same.
+    - Install the library in the multiarch path.
+   * Dropped .la files from -dev packages are they are not used by any
+     depending package.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 20 Jun 2011 21:11:14 +0200
+
+libusb-1.0 (2:1.0.8-2) unstable; urgency=low
+
+  * Add 01-configure-bashisms.diff to fix bashisms (closes: bug#582992).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 25 May 2010 07:35:56 +0000
+
+libusb-1.0 (2:1.0.8-1) unstable; urgency=low
+
+  * New upstream version.
+  * Upgraded policy compliance to 3.8.4 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 07 May 2010 19:38:57 +0200
+
+libusb-1.0 (2:1.0.6-1) unstable; urgency=low
+
+  * New upstream version.
+  * Use 3.0 (quilt) format.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 26 Nov 2009 22:31:08 +0100
+
+libusb-1.0 (2:1.0.3-2) unstable; urgency=low
+
+  * Downgrade priority to optional to make deborphan happy (closes:
+    bug#549641).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 01 Nov 2009 21:08:33 +0100
+
+libusb-1.0 (2:1.0.3-1) unstable; urgency=low
+
+  * New upstream version (closes: bug#549466).
+  * Upgraded policy compliance to 3.8.3 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 03 Oct 2009 18:02:54 +0200
+
+libusb-1.0 (2:1.0.2-1) unstable; urgency=low
+
+  * New upstream version.
+  * Upgraded policy compliance to 3.8.2 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 07 Aug 2009 10:41:31 +0200
+
+libusb-1.0 (2:1.0.1-1) unstable; urgency=low
+
+  * New upstream version.
+  * Upgraded policy compliance to 3.8.1 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 13 May 2009 15:38:44 +0000
+
+libusb-1.0 (2:1.0.0-1) unstable; urgency=low
+
+  * New upstream final version (closes: bug#509082).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 20 Dec 2008 11:25:06 +0100
+
+libusb-1.0 (2:0.9.4-1) unstable; urgency=low
+
+  * New upstream beta version:
+    - 00_doxygen.diff: merged upstream.
+    - 50_autoreconf.diff: drop.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 27 Nov 2008 11:29:00 +0100
+
+libusb-1.0 (2:0.9.3-2) unstable; urgency=low
+
+  * debian/rules: fix cross build support.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 05 Sep 2008 12:49:20 +0200
+
+libusb-1.0 (2:0.9.3-1) unstable; urgency=low
+
+  * New upstream beta version, incompatible with libusb 0.1:
+    - Rename packages to libusb-1.0-0 and libusb-1.0-0-dev.
+    - Use quilt for the patch management system.
+    - 00_doxygen.diff: allow out-of-tree build of the documentation.
+    - 50_autoreconf.diff: regenerate auto* files.
+    - Add a README.source file.
+    - Update debian/copyright.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 24 Aug 2008 01:28:29 +0200
+
+libusb (2:0.1.12-12) unstable; urgency=low
+
+  * Fix infinite loop when device are unplugged during a transfer (closes:
+    bug#485778).
+  * Upgraded policy compliance to 3.8.0 (no changes).
+  * Don't build documentation in the udeb target.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 12 Jun 2008 00:15:30 +0200
+
+libusb (2:0.1.12-11) unstable; urgency=low
+
+  * Add a build-depends on docbook (closes: bug#479572).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 05 May 2008 17:02:01 +0200
+
+libusb (2:0.1.12-10) unstable; urgency=low
+
+  * Use const for buffers in write functions (closes: bug#473814).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 06 Apr 2008 01:46:09 +0200
+
+libusb (2:0.1.12-9) unstable; urgency=low
+
+  * Support dpkg-buildpackage -j.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 01 Jan 2008 23:47:22 +0100
+
+libusb (2:0.1.12-8) unstable; urgency=high
+
+  * Provide a symlink /usr/lib/libusb-0.1.so.4 -> /lib/libusb-0.1.so.4
+    to workaround dpkg-dev bugs.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 22 Nov 2007 11:27:16 +0100
+
+libusb (2:0.1.12-7) unstable; urgency=low
+
+  * Remove the Provides: line for the udeb (closes: bug#419607).
+  * Use the Homepage: tag in the description (closes: bug#416376).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 17 Apr 2007 00:25:30 +0200
+
+libusb (2:0.1.12-6) unstable; urgency=low
+
+  * Make the package binNMU safe.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon,  5 Mar 2007 21:25:54 +0100
+
+libusb (2:0.1.12-5) unstable; urgency=low
+
+  * Stop suggesting hotplug (closes: bug#409299).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 12 Feb 2007 23:10:33 +0100
+
+libusb (2:0.1.12-4) unstable; urgency=low
+
+  * Changed usb.h to make it ANSI compliant (closes: bug#315165).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 29 Jan 2007 01:07:07 +0100
+
+libusb (2:0.1.12-3) unstable; urgency=low
+
+  * Fixed the use of select for URB transfer. Thanks to Daniel
+    Jacobowitz for the patch (closes: bug#406644).
+  * Fixed usbpp.h (closes: bug#404901).
+  * Upgraded policy compliance to 3.7.2 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 18 Jan 2007 23:12:15 +0100
+
+libusb (2:0.1.12-2) unstable; urgency=low
+
+  * Fix /usr/lib/libusb.so symlink (closes: bug#360426).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun,  2 Apr 2006 12:05:46 +0200
+
+libusb (2:0.1.12-1) unstable; urgency=low
+
+  * New upstream release (closes: bug#360228).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 31 Mar 2006 15:52:12 +0200
+
+libusb (2:0.1.11-7) unstable; urgency=low
+
+  * Fixed a build failure with GCC 4.1 (Closes: bug#357995).
+  * Really ship the C++ library (Closes: bug#358854).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 24 Mar 2006 21:25:17 +0100
+
+libusb (2:0.1.11-6) unstable; urgency=low
+
+  * Added a patch by Frans Pop (Closes: bug#356747):
+    - Add --add-udeb option for dh_makeshlibs which autogenerates the
+      udeb: lines for the shlibs file
+    - Build-depends on debhelper (>= 5.0.22).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 14 Mar 2006 00:17:48 +0100
+
+libusb (2:0.1.11-5) unstable; urgency=low
+
+  * Don't use AM_MAINTAINER_MODE, just touch configure before running it.
+    Thanks to Steve Langasek for reporting the problem and the explanation on
+    how AM_MAINTAINER_MODE works.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu,  2 Mar 2006 11:45:33 +0100
+
+libusb (2:0.1.11-4) unstable; urgency=low
+
+  * Fixed a memory leak calling usb_find_devices() successively. Patch
+    backported from CVS.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 27 Jan 2006 08:24:03 +0100
+
+libusb (2:0.1.11-3) unstable; urgency=low
+
+  * Fix the /usr/lib/libusb.so link.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 22 Jan 2006 20:07:11 +0100
+
+libusb (2:0.1.11-2) unstable; urgency=low
+
+  * Use %zd to print size_t types. Thanks to Kurt Roeckx for the hint
+    (closes: bug#349355).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 22 Jan 2006 18:08:38 +0100
+
+libusb (2:0.1.11-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 20 Jan 2006 10:00:03 +0100
+
+libusb (2:0.1.10a-22) unstable; urgency=low
+
+  * Check /dev/bus/usb before /proc/bus/usb (closes: bug#336596).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 31 Oct 2005 18:05:39 +0100
+
+libusb (2:0.1.10a-21) unstable; urgency=low
+
+  * Changed the priority back to optional, except for libusb-0.1-4.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 21 Aug 2005 22:25:41 +0200
+
+libusb (2:0.1.10a-20) unstable; urgency=low
+
+  * Changed priority to important.
+  * Applied patch by Kay Sievers <kay.sievers@suse.de> to prepare for the
+    upcoming changes in the Linux USB core, which will create real device
+    nodes in /dev with udev.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 17 Aug 2005 20:07:58 +0200
+
+libusb (2:0.1.10a-19) unstable; urgency=low
+
+  * Removed debconf warning if USB is not functional as the information
+    is already in README.Debian (closes: bug#322937).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 17 Aug 2005 18:41:50 +0200
+
+libusb (2:0.1.10a-18) unstable; urgency=low
+
+  * Remove debian/tmp-udeb in the clean target (closes: bug#319378).
+  * Bumped Standards-Version to 3.6.2 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 21 Jul 2005 22:06:08 +0200
+
+libusb (2:0.1.10a-17) unstable; urgency=low
+
+  * Upload from Debconf 5.
+  * C++ ABI transition. Changed libusb++-0.1-4 into libusb++-0.1-4c2.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 11 Jul 2005 01:48:51 +0300
+
+libusb (2:0.1.10a-16) unstable; urgency=low
+
+  * Changed usb.h to make it ANSI compliant (closes: bug#315165).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue, 21 Jun 2005 07:27:15 +0200
+
+libusb (2:0.1.10a-15) unstable; urgency=low
+
+  * Fixed a typo in the German debconf translation (closes: bug#313779).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 15 Jun 2005 09:56:54 +0200
+
+libusb (2:0.1.10a-14) unstable; urgency=low
+
+  * Also produce an udeb library. Thanks to Colin Watson for the patch
+    (closes: bug#311477).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed,  1 Jun 2005 22:39:35 +0200
+
+libusb (2:0.1.10a-13) unstable; urgency=low
+
+  * Oops, this time really change the hotplug recommendation to a
+    suggestion (closes: bug#310909).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 29 May 2005 21:42:57 +0200
+
+libusb (2:0.1.10a-12) unstable; urgency=low
+
+  * Changed hotplug recommendation to a suggestion (closes: bug#310909).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 29 May 2005 16:37:57 +0200
+
+libusb (2:0.1.10a-11) unstable; urgency=low
+
+  * Updated German debconf translation. Thanks to Rene van Bevern (closes:
+    bug#310419).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 23 May 2005 19:23:07 +0200
+
+libusb (2:0.1.10a-10) unstable; urgency=low
+
+  * No changes. New version needed to be able to upload to
+    testing-proposed-updates.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 23 May 2005 01:43:16 +0200
+
+libusb (2:0.1.10a-9) unstable; urgency=low
+
+  * Added __attribute__ ((packed)) to USB descriptors structures.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 29 Apr 2005 01:30:54 +0200
+
+libusb (2:0.1.10a-8) unstable; urgency=high
+
+  * Conflicts with libccid (<< 0.9.2-3) as it seems to be buggy (closes:
+    bug#302492).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri,  1 Apr 2005 08:03:33 +0200
+
+libusb (2:0.1.10a-7) unstable; urgency=low
+
+  * Enable C++ libraries.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 20 Mar 2005 21:19:54 +0100
+
+libusb (2:0.1.10a-6) unstable; urgency=high
+
+  * Fix bashism in config script (closes: bug#298499, bug#298500).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Tue,  8 Mar 2005 00:07:53 +0100
+
+libusb (2:0.1.10a-5) unstable; urgency=high
+
+  * Disable debconf warning on GNU/kFreeBSD.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun,  6 Mar 2005 23:02:41 +0100
+
+libusb (2:0.1.10a-4) unstable; urgency=high
+
+  * Backported thread support from CVS. This was removed by the 0.1.9
+    version, thus the urgency high.
+  * Added support for kfreebsd-gnu. Patch by Robert Millan. Thanks (closes:
+    bug#297883).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sat,  5 Mar 2005 13:51:41 +0100
+
+libusb (2:0.1.10a-3) unstable; urgency=high
+
+  * Revert previous changes. That was only a workaround, the bug being in
+    libgphoto2.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 27 Feb 2005 12:58:11 +0100
+
+libusb (1:0.1.10a-fixes.1) unstable; urgency=medium
+
+  * Reduce requested block size to 4kB instead of 16kB (closes: bug#296708).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 26 Feb 2005 16:16:49 +0100
+
+libusb (1:0.1.10a-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 18 Feb 2005 01:15:14 +0100
+
+libusb (1:0.1.10-2) unstable; urgency=high
+
+  * Really includes documentation libusb-dev.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 11 Feb 2005 22:48:54 +0100
+
+libusb (1:0.1.10-1) unstable; urgency=high
+
+  * New upstream version, which is the answer of the upstream author to
+    bug#294368 and throughput problems of version 0.1.9.
+  * Prepared everything for the C++ library, but don't actually build the
+    packages, this would probably be for post-sarge.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 11 Feb 2005 19:00:06 +0100
+
+libusb (1:0.1.9-3) unstable; urgency=medium
+
+  * Urgency set to medium so that fix for bug #294139 propagates to
+    testing quickly.
+  * Patched the loop condition so that transfers bigger than 16Ko
+    work (closes: bug#294368).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed,  9 Feb 2005 21:09:55 +0100
+
+libusb (1:0.1.9-2) unstable; urgency=low
+
+  * Added a fix to fetch the descriptors from the device is they are
+    only partially provided by the kernel (closes: bug#294139).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed,  9 Feb 2005 16:05:15 +0100
+
+libusb (1:0.1.9-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun,  6 Feb 2005 14:11:05 +0100
+
+libusb (1:0.1.8-17) unstable; urgency=high
+
+  * Moved the library to /lib as it is need by some other tools during the
+    boot.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 26 Sep 2004 16:25:55 +0200
+
+libusb (1:0.1.8-16) unstable; urgency=low
+
+  * Fixed a typo in debian/config (closes: bug#259666).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 16 Jul 2004 09:15:25 +0200
+
+libusb (1:0.1.8-15) unstable; urgency=low
+
+  * Don't use XSI in debian/config (closes: bug#259449).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 14 Jul 2004 21:44:18 +0200
+
+libusb (1:0.1.8-14) unstable; urgency=low
+
+  * Fixed pkgconfig file.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 11 Jul 2004 16:08:54 +0200
+
+libusb (1:0.1.8-13) unstable; urgency=low
+
+  * Really include Italian debconf translation (closes: bug#251738).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 11 Jul 2004 02:57:37 +0200
+
+libusb (1:0.1.8-12) unstable; urgency=low
+
+  * Added support for pkgconfig (closes: bug#250925).
+  * Added Italian debconf translation. Thanks to Luca Monducci (closes:
+    bug#251738).
+  * Don't display debconf usbfs message if hotplug is installed (closes: #248847).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 11 Jul 2004 02:32:45 +0200
+
+libusb (1:0.1.8-11) unstable; urgency=low
+
+  * Added Catalan debconf translation. Thanks to Aleix Badia i Bosch
+    (closes: bug#248724).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 13 May 2004 00:55:33 +0200
+
+libusb (1:0.1.8-10) unstable; urgency=low
+
+  * Updated Dutch debconf translation. Thanks to Frans Pop (closes:
+    bug#244480).
+  * Added Czech debconf translation. Thanks to Miroslav Kure (closes:
+    bug#244420).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 18 Apr 2004 19:44:32 +0200
+
+libusb (1:0.1.8-9) unstable; urgency=low
+
+  * Don't use the -l option when calling mount (closes: bug#243603).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 14 Apr 2004 02:40:21 +0200
+
+libusb (1:0.1.8-8) unstable; urgency=low
+
+  * Added Dutch debconf translation (closes: bug#242035). Thanks to
+    Frans Pop.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 12 Apr 2004 22:03:03 +0200
+
+libusb (1:0.1.8-7) unstable; urgency=low
+
+  * Really include Japanese debconf translation.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 25 Mar 2004 01:17:32 +0100
+
+libusb (1:0.1.8-6) unstable; urgency=low
+
+  * Added Japanese debconf translation (closes: bug#239847). Thanks to
+    Hideki Yamane.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 24 Mar 2004 23:30:39 +0100
+
+libusb (1:0.1.8-5) unstable; urgency=low
+
+  * Added description of the mount options to README.Debian (closes:
+    bug#237280).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 21 Mar 2004 01:24:26 +0100
+
+libusb (1:0.1.8-4) unstable; urgency=medium
+
+  * Rewrote detection of usbfs (closes: bug#234327, bug#235101).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 29 Feb 2004 06:06:29 +0100
+
+libusb (1:0.1.8-3) unstable; urgency=low
+
+  * Added Danish debconf translation (closes: bug#233759).
+  * Don't display message about mounting usbfs twice (closes: bug#233820).
+  * On 2.6 kernels compiled with /sys, propose to mount /sys/bus/usb instead
+    of /proc/bus/usb (closes: bug#233936).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 20 Feb 2004 23:25:39 +0100
+
+libusb (1:0.1.8-2) unstable; urgency=medium
+
+  * Added French debconf translation (closes: bug#233256).
+  * Urgency set to medium to not lengthen the migration to testing as
+    some package such as kdegraphics are waiting for libusb.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 18 Feb 2004 11:08:14 +0100
+
+libusb (1:0.1.8-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 11 Feb 2004 18:09:31 +0100
+
+libusb (1:0.1.7-8) unstable; urgency=low
+
+  * Added support for sysfs (2.6 kernels). Thanks to Thom May for the patch
+    (closes: bug#232208).
+  * debian/config: check for usbcore.o/usbcore.ko before telling that the
+    kernel is compiled without usb support (closes: bug#232204).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 11 Feb 2004 12:59:22 +0100
+
+libusb (1:0.1.7-7) unstable; urgency=low
+
+  * Switch to po-debconf.
+  * Added German debconf translation. Thanks to Michael Ablassmeier.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon,  9 Feb 2004 23:52:54 +0100
+
+libusb (1:0.1.7-6) unstable; urgency=low
+
+  * Acknowledge previous NMU (closes: bug#217725).
+  * Fixed a typo in debian/libusb-0.1.4/templates (closes: bug#217742).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 27 Oct 2003 11:25:18 +0100
+
+libusb (1:0.1.7-5.1) unstable; urgency=low
+
+  * NMU.
+  * Added the remove usb.h fix back. (Closes: #217725)
+  * Corrected the modified 1:0.1.7-2 changelog entry.
+  * Various minor fixes.
+
+ -- Christopher L Cheney <ccheney@debian.org>  Mon, 27 Oct 2003 01:00:00 -0600
+
+libusb (1:0.1.7-5) unstable; urgency=low
+
+  * If kernel is compiled without USB support, display a message telling
+    that libusb will not be functionnal instead of displaying the message
+    'usbfs not mounted` (closes: bug#217432).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 24 Oct 2003 22:11:58 +0200
+
+libusb (1:0.1.7-4) unstable; urgency=low
+
+  * Changed section of libusb-dev from devel to libdevel to match override.
+  * Don't display 'usbfs not mounted` twice (closes: bug#217332).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 24 Oct 2003 05:01:45 +0200
+
+libusb (1:0.1.7-3) unstable; urgency=low
+
+  * New maintainer (closes: bug#217117).
+  * Moved documentation into /usr/share/doc/libusb-dev/html. Register it to
+    into dhelp database.
+  * Added manpage for libusb-config
+  * Warn the user if is not mounted. Thanks to Julien Blache for the patch.
+    (Closes: bug#185774).
+  * debian/control
+    + Depends on ${misc:Depends}
+  * Uses autotools-dev to update config.{guess,sub}.
+  * Uses debian/compat instead of DH_COMPAT.
+  * Upgraded policy compliance to 3.6.1 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Thu, 23 Oct 2003 11:29:26 +0200
+
+libusb (1:0.1.7-2) unstable; urgency=low
+
+  * Delete autogenerated usb.h file. (Closes: #161193)
+  * Install libusb documentation.
+  * GNU config automated update: config.sub (20030509 to 20030509),
+    config.guess (20030509 to 20030519)
+
+ -- Christopher L Cheney <ccheney@debian.org>  Wed,  4 Jun 2003 01:00:00 -0500
+
+libusb (1:0.1.7-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #161193, #171086)
+  * Added replaces for libusb-dev. (Closes: #144295)
+  * Recommend hotplug. (Closes: #168340)
+  * GNU config automated update: config.sub (20010907 to 20030509),
+    config.guess (20010904 to 20030509)
+
+ -- Christopher L Cheney <ccheney@debian.org>  Thu, 15 May 2003 17:00:00 -0500
+
+libusb (1:0.1.6a-2.1) unstable; urgency=low
+
+  * Non-Maintainer Upload without any change,
+    the powerpc arch needs a rebuild package.
+  * Fix PowerPC segfault (Closes: #149849, #157772).
+
+ -- christophe barbe <christophe@debian.org>  Mon, 26 Aug 2002 15:23:35 -0400
+
+libusb (1:0.1.6a-2) unstable; urgency=low
+
+  * Added docbook-dsssl to Build Depends.
+
+ -- Christopher L Cheney <ccheney@debian.org>  Mon, 22 Jul 2002 21:00:00 -0500
+
+libusb (1:0.1.6a-1) unstable; urgency=low
+
+  * New upstream. (Closes: #152408)
+
+ -- Christopher L Cheney <ccheney@debian.org>  Mon, 22 Jul 2002 18:00:00 -0500
+
+libusb (1:0.1.5-4) unstable; urgency=high
+
+  * New upload to fix segfault problems with programs using libusb. I am not
+    sure what caused the problem. :<
+  * GNU config automated update: config.sub (20020222 to 20020307),
+    config.guess (20020219 to 20020320)
+
+ -- Christopher L Cheney <ccheney@debian.org>  Mon, 15 Apr 2002 21:30:00 -0500
+
+libusb (1:0.1.5-3) unstable; urgency=high
+
+  * Added Conflicts/Replaces line. (Closes: #137595, #138138)
+
+ -- Christopher L Cheney <ccheney@debian.org>  Fri, 15 Mar 2002 11:30:00 -0600
+
+libusb (1:0.1.5-2) unstable; urgency=high
+
+  * fixed package name (Closes: #128914, #133389, #133731)
+  * GNU config automated update: config.sub (20010907 to 20020222),
+    config.guess (20010904 to 20020219)
+
+ -- Christopher L Cheney <ccheney@debian.org>  Wed, 27 Feb 2002 19:30:00 -0600
+
+libusb (1:0.1.5-1) unstable; urgency=high
+
+  * New Upstream.
+  * Made rules use a build directory so source directory is clean.
+  * GNU config automated update: config.sub (20010907 to 20020201),
+    config.guess (20010904 to 20020130)
+
+ -- Christopher L Cheney <ccheney@debian.org>  Sun, 10 Feb 2002 00:00:00 -0600
+
+libusb (1:0.1.4-2) unstable; urgency=high
+
+  * Updated config.guess config.sub (Closes: #120995)
+
+ -- Christopher L Cheney <ccheney@debian.org>  Sun, 25 Nov 2001 00:02:32 -0600
+
+libusb (1:0.1.4-1) unstable; urgency=high
+
+  * New Upstream.
+
+ -- Christopher L Cheney <ccheney@debian.org>  Fri, 23 Nov 2001 21:04:13 -0600
+
+libusb (1:0.1.3b-2) unstable; urgency=low
+
+  * Ran libtoolize --force -c to fix bug. (Closes: #103355)
+
+ -- Christopher L Cheney <ccheney@debian.org>  Tue,  3 Jul 2001 14:00:00 -0500
+
+libusb (1:0.1.3b-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Christopher L Cheney <ccheney@debian.org>  Wed, 13 Jun 2001 12:21:44 -0500
+
+Local variables:
+mode: debian-changelog
+End:

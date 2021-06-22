@@ -1,0 +1,119 @@
+Create Makefiles necessary for building examples with make.
+Also, patch examples so that . is not assumed to be in $PATH.
+--- /dev/null
++++ luabind/examples/hello_world/Makefile
+@@ -0,0 +1,13 @@
++all: helloworld_test
++
++# if using fink on darwin
++# you need these additional flags
++CPPFLAGS = -I/sw/include -L/sw/lib
++
++helloworld_test: hello_world.cpp
++	$(CXX) -shared hello_world.cpp -o hello_world.so $(CPPFLAGS) \
++	-I/usr/include/lua5.2 -I/usr/include/boost \
++	-llua5.2 -lluabind
++
++clean:
++	rm -f helloworld *.o *~
+--- luabind.orig/examples/hello_world/README
++++ luabind/examples/hello_world/README
+@@ -2,7 +2,7 @@
+ loadlib() from within the lua interpreter to load the library, it will
+ then export a function named greet() which you can call.
+ 
+-> loadlib('hello_world.dll', 'init')()
++> loadlib('./hello_world.dll', 'init')()
+ > greet()
+ Hello world!
+ >
+--- /dev/null
++++ luabind/examples/glut/Makefile
+@@ -0,0 +1,13 @@
++all: glutbind_test
++
++# if using fink on darwin
++# you need these additional flags
++CPPFLAGS = -I/sw/include -L/sw/lib
++
++glutbind_test: glut_bind.cpp
++	$(CXX) glut_bind.cpp -o glut_bind $(CPPFLAGS) \
++	-I/usr/include/lua5.2 -I/usr/include/boost \
++	-llua5.2 -lluabind -lGL -lGLU -lglut
++
++clean:
++	rm -f glut_bind *.o *~
+--- luabind.orig/examples/glut/glut_bind.cpp
++++ luabind/examples/glut/glut_bind.cpp
+@@ -174,7 +174,7 @@
+ 
+     glutInit (&argc, argv);
+ 
+-    lua_dofile(L, "glut_bindings.lua");
++    lua_dofile(L, "./glut_bindings.lua");
+ 
+     lua_close(L);
+     return 0;
+--- /dev/null
++++ luabind/examples/glut/README
+@@ -0,0 +1,4 @@
++this examples shows how to bind c/c++ functions to use them in lua.
++It builds the executable glut_bind, which should display an opengl
++window.
++Needed: libluabind-dev, freeglut3-dev
+--- /dev/null
++++ luabind/examples/regexp/Makefile
+@@ -0,0 +1,13 @@
++all: regexp_test
++
++# if using fink on darwin
++# you need these additional flags
++CPPFLAGS = -I/sw/include -L/sw/lib
++
++regexp_test: regex_wrap.cpp
++	$(CXX) regex_wrap.cpp -o regex_wrap $(CPPFLAGS) \
++	-I/usr/include/lua5.2 -I/usr/include/boost \
++	-llua5.2 -lluabind -lboost_regex
++
++clean:
++	rm -f regex_wrap *.o *~
+--- luabind.orig/examples/regexp/regex_wrap.cpp
++++ luabind/examples/regexp/regex_wrap.cpp
+@@ -51,7 +51,7 @@
+ 
+     wrap_regex(L);
+ 
+-    lua_dofile(L, "regex.lua");
++    lua_dofile(L, "./regex.lua");
+ 
+     lua_close(L);
+ }
+--- /dev/null
++++ luabind/examples/regexp/README
+@@ -0,0 +1,3 @@
++this example shows regex possibilities of luabind using boost_regex.
++It builds executable regex_wrap.
++Needed: libluabind-dev, libboost-regex-dev
+--- /dev/null
++++ luabind/examples/regexp/cln/Makefile
+@@ -0,0 +1,9 @@
++all: cln_test
++
++cln_test: cln_test.cpp
++	$(CXX) cln_test.cpp -o cln_test \
++	-I/usr/include/lua5.2 -I/usr/include/boost \ 
++	-lluabind -llua -llualib -lcln
++
++clean:
++	rm -f cln_test *.o *~
+--- luabind.orig/examples/cln/cln_test.cpp
++++ luabind/examples/cln/cln_test.cpp
+@@ -114,7 +114,7 @@
+ 
+     bind_cln(L);
+ 
+-    lua_dofile(L, "cln_test.lua");
++    lua_dofile(L, "./cln_test.lua");
+ 
+     lua_close(L);
+     return 0;

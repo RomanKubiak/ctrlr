@@ -1,0 +1,10 @@
+Document: libluabind-doc
+Title: Luabind
+Author: Daniel Wallin and Arvid Norberg
+Abstract: Documentation for developing against libluabind
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/libluabind-doc/html/index.html
+Files: /usr/share/doc/libluabind-doc/html/*.html
+

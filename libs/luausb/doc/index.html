@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+lang="en">
+<head>
+<title>luausb @ piratery.net</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="doc.css" type="text/css"/>
+</head>
+<body>
+
+<div class="chapter" id="header">
+<img width="128" height="128" alt="prtr-luausb" src="logo.png"/>
+<p>A low level Lua binding for the libusb1 library</p>
+<p class="bar">
+<a href="index.html">home</a> &middot;
+<a href="index.html#installation">installation</a> &middot;
+<a href="index.html#manual">manual</a>
+</p>
+</div>
+
+<div class="chapter">
+<a id="about"/><h1>1 - About</h1>
+
+<p>The prtr-luausb module is a simple, low-level binding of the libusb1 API for Lua.</p>
+
+<p>The name luausb is not original, but it reflects the purpose of the library. The prtr- prefix (a contraction for piratery.net, the website domain) is used because other libusb bindings may emerge with the same naming problems.</p>
+
+<h2>Support</h2>
+
+<p>All support is done through the <a href="http://www.lua.org/lua-l.html">Lua mailing list</a>.</p>
+
+<p>Feel free to ask for further developments. I can't guarantee that I'll develop everything you ask, but I want my code to be as useful as possible, so I'll do my best to help you. You can also send me request or bug reports (for code and documentation) directly at <a href="mailto:jerome.vuarand@gmail.com">jerome.vuarand@gmail.com</a>.</p>
+
+<h2>Credits</h2>
+
+<p>This module is written and maintained by <a href="mailto:jerome.vuarand@gmail.com">Jérôme Vuarand</a>.</p>
+
+<p>It is available under a <a href="LICENSE.txt">MIT-style license</a>.</p>
+
+
+</div>
+
+<div class="chapter">
+<a id="installation"/><h1>2 - Installation</h1>
+
+<p>prtr-luausb sources are available in its <a href="http://hg.piratery.net/luausb/">Mercurial repository</a>:</p>
+
+<pre><code>hg clone http://hg.piratery.net/luausb/
+</code></pre>
+
+<p>Tarballs of the latest code can be downloaded directly from there: as <a href="http://hg.piratery.net/luausb/get/tip.tar.gz">gz</a>, <a href="http://hg.piratery.net/luausb/get/tip.tar.bz2">bz2</a> or <a href="http://hg.piratery.net/luausb/get/tip.zip">zip</a>.</p>
+
+<p>Finally, I published some rockspecs:</p>
+
+<pre><code>luarocks install prtr-luausb
+</code></pre>
+
+</div>
+
+<div class="chapter">
+<a id="manual"/><h1>3 - Manual</h1>
+
+<p>This module is still a work in progress. As such no documentation is maintained. Look at the source for more information.</p>
+
+<p>To use it:</p>
+
+<pre><code>require 'usb'
+</code></pre>
+
+</div>
+
+<div class="chapter" id="footer">
+<small>Last update: 2012-12-12 00:01:04 GMT</small>
+</div>
+
+</body>
+</html>
+

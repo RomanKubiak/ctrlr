@@ -1,0 +1,58 @@
+Author: Roberto C. Sanchez <roberto@connexer.com>
+Description: Fix typos in documentation
+--- luabind.git.orig/doc/classes.rst
++++ luabind.git/doc/classes.rst
+@@ -261,7 +261,7 @@
+ 
+ For Luabind's default `==` operator, two objects are equal only if they are
+ both objects of Luabind-exported classes and have the same addresses, after
+-casting both to a common base if neccessary. If they do not have a common
++casting both to a common base if necessary. If they do not have a common
+ base (and are not of the same type), they compare unequal.
+ 
+ Lua does not support operators such as ``!=``, ``>`` or ``>=``. That's why you
+@@ -622,4 +622,4 @@
+ units.
+ 
+ To separate the module registration and the classes to be registered, see
+-:ref:`part-split-registration`.
+\ No newline at end of file
++:ref:`part-split-registration`.
+--- luabind.git.orig/doc/errors.rst
++++ luabind.git/doc/errors.rst
+@@ -23,7 +23,7 @@
+ For more information on how to retrieve debugging information from lua, see
+ `the debug section of the lua manual`_.
+ 
+-The message returned by the ``pcall_callback`` is accessable as the top lua
++The message returned by the ``pcall_callback`` is accessible as the top lua
+ value on the stack. For example, if you would like to access it as a luabind
+ object, you could do like this::
+ 
+@@ -106,7 +106,7 @@
+ In Visual Studio, ``catch (...)`` will not only catch C++ exceptions, it will
+ also catch structured exceptions, such as segmentation fault. This means that if
+ your function, that gets called from luabind, makes an invalid memory
+-adressing, you won't notice it. All that will happen is that lua will return
++addressing, you won't notice it. All that will happen is that lua will return
+ an error message saying "unknown exception".
+ 
+ To remedy this, you can create your own *exception translator*::
+--- luabind.git.orig/doc/faq.rst
++++ luabind.git/doc/faq.rst
+@@ -75,7 +75,7 @@
+ .. And again, the above is irrelevant to docs. This isn't a general C++ FAQ. But it saves us support questions.
+ 
+ Fatal Error C1063 compiler limit \: compiler stack overflow in VC
+-    VC6.5 chokes on warnings, if you are getting alot of warnings from your
++    VC6.5 chokes on warnings, if you are getting a lot of warnings from your
+     code try suppressing them with a pragma directive, this should solve the
+     problem.
+ 
+@@ -86,4 +86,4 @@
+ I cannot register a function with a non-const parameter
+     This is because there is no way to get a reference to a Lua value. Have
+     a look at :ref:`policy-out_value` and :ref:`policy-pure_out_value`
+-    policies.
+\ No newline at end of file
++    policies.

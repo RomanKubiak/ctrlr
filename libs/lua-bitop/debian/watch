@@ -1,0 +1,5 @@
+# test this watch file using:
+# uscan --watchfile debian/watch --upstream-version 0.0.1 --package lua-bitop
+#
+version=3
+http://bitop.luajit.org/download.html download/LuaBitOp-([\d\.]*).tar.gz
