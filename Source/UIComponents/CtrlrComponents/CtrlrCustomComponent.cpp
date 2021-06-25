@@ -147,7 +147,12 @@ void CtrlrCustomComponent::mouseDrag (const MouseEvent &e)
                 {
                     DragAndDropSourceDetails details = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().callWithRet (dadStartCbk, this, e);
                     Point<int> offset(details.getImageOffsetX(), details.getImageOffsetY());
-                    dragContainer->startDragging (details.getDescription(), this, details.getDragImage(), true, &offset);
+                    dragContainer->startDragging (details.getDescription(),
+						  this,
+						  details.getDragImage(),
+						  true,
+						  &offset,
+						  &e.source);
                 }
 			}
 		}
