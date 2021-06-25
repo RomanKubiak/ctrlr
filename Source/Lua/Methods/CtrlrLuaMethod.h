@@ -33,14 +33,37 @@ class CtrlrLuaMethod : public ValueTree::Listener
 			codeInFile
 		};
 
+	        enum Type
+		{
+			NONE = LUA_TNONE,
+			NIL = LUA_TNIL,
+			BOOLEAN = LUA_TBOOLEAN,
+			LIGHTUSERDATA = LUA_TLIGHTUSERDATA,
+			NUMBER = LUA_TNUMBER,
+			STRING = LUA_TSTRING,
+			TABLE = LUA_TTABLE,
+			FUNCTION = LUA_TFUNCTION,
+			USERDATA = LUA_TUSERDATA,
+			THREAD = LUA_TTHREAD,
+			NUMTAGS = LUA_NUMTAGS,
+			SCRIPT = LUA_NUMTAGS,
+			ERROR,
+			UNKNOWN,
+			DISABLED
+		};
+
+
 		void setCodeEditor (CtrlrLuaMethodCodeEditor *_methodCodeEditor);
 		CtrlrLuaMethodCodeEditor *getCodeEditor();
 		void setObject (CtrlrLuaObjectWrapper _luaObject);
 
 		const String getName() const;
 		CtrlrLuaObjectWrapper &getObject();
+		Type getType() const { return type ; }
+		void setType(Type t);
 		bool isValid() const;
-		void setValid (const bool _methodIsValid);
+		// void setValid (const bool _methodIsValid);
+		bool isCallable() const;
 		void remove();
 		ValueTree &getMethodTree()											{ return (methodTree); }
 		Uuid getUuid();
@@ -64,11 +87,11 @@ class CtrlrLuaMethod : public ValueTree::Listener
 
 	private:
 		Font out;
-		bool setCodeInternal (const String &newMethodCode);
+		Type setCodeInternal (const String &newMethodCode);
 		WeakReference<CtrlrLuaMethod>::Master masterReference;
 		friend class WeakReference<CtrlrLuaMethod>;
 		CtrlrLuaObjectWrapper *luaObject;
-		bool methodIsValid;
+		Type type;
 		ValueTree methodTree;
 		String methodName;
 		CtrlrLuaMethodManager &owner;
@@ -76,5 +99,50 @@ class CtrlrLuaMethod : public ValueTree::Listener
 		AttributedString errorString;
 		bool audioThreadMethod;
 };
+
+inline bool CtrlrLuaMethod::isValid() const {
+	switch (getType()) {
+	case BOOLEAN:
+	case LIGHTUSERDATA:
+	case NUMBER:
+	case STRING:
+	case TABLE:
+	case FUNCTION:
+	case USERDATA:
+	case THREAD:
+	case SCRIPT:
+		return true;
+	case NONE:
+	case NIL:
+	case ERROR:
+	case UNKNOWN:
+	case DISABLED:
+	default:
+		return false;
+	}
+}
+
+inline bool CtrlrLuaMethod::isCallable() const {
+	switch (getType()) {
+	case FUNCTION:
+		return true;
+	case NONE:
+	case NIL:
+	case BOOLEAN:
+	case LIGHTUSERDATA:
+	case USERDATA:
+	case THREAD:
+	case SCRIPT:
+	case NUMBER:
+	case STRING:
+	case TABLE:
+	case ERROR:
+	case UNKNOWN:
+	case DISABLED:
+	default:
+		return false;
+	}
+}
+
 
 #endif

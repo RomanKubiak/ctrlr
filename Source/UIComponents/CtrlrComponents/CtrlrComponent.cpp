@@ -177,7 +177,7 @@ void CtrlrComponent::mouseDoubleClick(const MouseEvent &e)
 {
     if (mouseDoubleClickCbk && !mouseDoubleClickCbk.wasObjectDeleted())
 	{
-		if (mouseDoubleClickCbk->isValid())
+		if (mouseDoubleClickCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDoubleClickCbk, this, e);
 		}
@@ -188,7 +188,7 @@ void CtrlrComponent::mouseDown(const MouseEvent &e)
 {
     if (mouseDownCbk && !mouseDownCbk.wasObjectDeleted())
 	{
-		if (mouseDownCbk->isValid())
+		if (mouseDownCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDownCbk, this, e);
 		}
@@ -216,7 +216,7 @@ void CtrlrComponent::mouseMove (const MouseEvent &e)
 {
 	if (mouseMoveCbk && !mouseMoveCbk.wasObjectDeleted())
 	{
-		if (mouseMoveCbk->isValid())
+		if (mouseMoveCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseMoveCbk, this, e);
 		}
@@ -227,7 +227,7 @@ void CtrlrComponent::mouseDrag (const MouseEvent &e)
 {
     if (mouseDragCbk && !mouseDragCbk.wasObjectDeleted())
 	{
-		if (mouseDragCbk->isValid())
+		if (mouseDragCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDragCbk, this, e);
 		}

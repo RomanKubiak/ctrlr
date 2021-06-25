@@ -322,7 +322,7 @@ void CtrlrTabsComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyH
 
 		if (tabChangedCbk && !tabChangedCbk.wasObjectDeleted())
 		{
-			if (tabChangedCbk->isValid())
+			if (tabChangedCbk->isCallable())
 			{
 				owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (tabChangedCbk, &owner, (int)getProperty(property));
 			}

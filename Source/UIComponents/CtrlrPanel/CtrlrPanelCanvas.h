@@ -119,9 +119,11 @@ public:
 	void copyWithChildren(CtrlrComponent *c);
 	void deleteWithChildren(CtrlrComponent *c);
 	int snapPosition (int pos, int snapSize, const bool allowSnap);
+#if 0
 	void moveSelectedComps (int dx, int dy, bool snap);
+#endif
 	void dragSelectedComps (int dx, int dy, const bool allowSnap);
-	void startDraggingSelection();
+	void startDraggingSelection(const MouseInputSource& inputSource);
 	void endDraggingSelection();
 	void restoreState (const ValueTree &savedState);
 	void canvasStateRestored();

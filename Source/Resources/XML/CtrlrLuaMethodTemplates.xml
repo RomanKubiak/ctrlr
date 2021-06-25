@@ -702,8 +702,8 @@ function how()
 end
   </utility>
 
-  <utility name="json4lua" description="JSON implementation" alwaysUpdate="1" uuid="00000000000000000000000000000004" resource="json_lua" />
-  <utility name="debugger.lua" description="clidebugger" alwaysUpdate="1" uuid="00000000000000000000000000000005" resource="debugger_lua" />
+  <utility name="json" description="JSON implementation" alwaysUpdate="1" uuid="00000000000000000000000000000004" resource="json_lua" />
+  <utility name="debug" description="clidebugger" alwaysUpdate="1" uuid="00000000000000000000000000000005" resource="debugger_lua" />
   <utility name="inspect" description="Lua table inspector" alwaysUpdate="1" uuid="00000000000000000000000000000006" resource="inspect_lua" />
   </utilityMethods>
 </methods>

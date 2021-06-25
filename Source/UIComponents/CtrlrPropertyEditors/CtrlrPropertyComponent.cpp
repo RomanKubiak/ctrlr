@@ -58,7 +58,7 @@ void CtrlrPropertyComponent::paint (Graphics &g)
 
 	g.setFont (currentFont);
 	g.setColour(findColour(PropertyComponent::labelTextColourId));
-	g.drawFittedText (visibleText, 3, 0, getLookAndFeel().getPropertyComponentContentPosition (*this).getX()-5, getHeight(), Justification::centredLeft, 2);
+	g.drawFittedText (visibleText, 3, 0, std::max( getLookAndFeel().getPropertyComponentContentPosition (*this).getX()-5,0), getHeight(), Justification::centredLeft, 2);
 }
 
 void CtrlrPropertyComponent::resized()

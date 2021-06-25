@@ -226,7 +226,7 @@ void CtrlrListBox::listBoxItemClicked (int value, const MouseEvent &e)
 {
 	if (itemClickedCbk && !itemClickedCbk.wasObjectDeleted())
 	{
-		if (itemClickedCbk->isValid())
+		if (itemClickedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemClickedCbk, &owner, value);
 		}
@@ -237,7 +237,7 @@ void CtrlrListBox::listBoxItemDoubleClicked (int value, const MouseEvent &e)
 {
 	if (itemDoubleClickedCbk && !itemDoubleClickedCbk.wasObjectDeleted())
 	{
-		if (itemDoubleClickedCbk->isValid())
+		if (itemDoubleClickedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemDoubleClickedCbk, &owner, value);
 		}
@@ -248,7 +248,7 @@ void CtrlrListBox::deleteKeyPressed (int value)
 {
 	if (itemDeleteKeyPressedCbk && !itemDeleteKeyPressedCbk.wasObjectDeleted())
 	{
-		if (itemDeleteKeyPressedCbk->isValid())
+		if (itemDeleteKeyPressedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemDeleteKeyPressedCbk, &owner, value);
 		}
@@ -259,7 +259,7 @@ void CtrlrListBox::returnKeyPressed (int value)
 {
 	if (itemReturnKeyPressedCbk && !itemReturnKeyPressedCbk.wasObjectDeleted())
 	{
-		if (itemReturnKeyPressedCbk->isValid())
+		if (itemReturnKeyPressedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemReturnKeyPressedCbk, &owner, value);
 		}

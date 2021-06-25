@@ -162,7 +162,18 @@ void CtrlrImageSlider::valueTreePropertyChanged (ValueTree &treeWhosePropertyHas
 	}
 	else if (property == Ids::uiSliderInterval || property == Ids::uiSliderMax || property == Ids::uiSliderMin)
 	{
-		ctrlrSlider->setRange ( getProperty (Ids::uiSliderMin), getProperty (Ids::uiSliderMax), getProperty (Ids::uiSliderInterval) );
+		double max       = getProperty (Ids::uiSliderMax);
+		const double min = getProperty (Ids::uiSliderMin);
+		double interval  = getProperty (Ids::uiSliderInterval);
+		if (interval == 0)
+			interval = std::abs(max-min) + 1;
+		// For JUCE MAX must be >= min
+		if (max <= min) {
+			// samething between 0.5 and 1 times the interval
+			// to avoid rounding errors
+			max = min + interval * 0.66;
+		}
+		ctrlrSlider->setRange ( min, max, interval  );
 		owner.setProperty (Ids::modulatorMax, ctrlrSlider->getMaximum());
 		owner.setProperty (Ids::modulatorMin, ctrlrSlider->getMinimum());
 	}
