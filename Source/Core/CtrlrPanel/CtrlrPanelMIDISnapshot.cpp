@@ -106,12 +106,15 @@ void CtrlrPanelMIDISnapshot::run()
 {
 	MidiBuffer::Iterator i(buffer);
 	MidiMessage m; int t; int k=0;
-	while (i.getNextEvent(m,t))
+	while (!threadShouldExit() && i.getNextEvent(m,t))
 	{
 	    progress = k / (double) buffer.getNumEvents();
 		owner.sendMidi(m);
 		k++;
 		wait(snapshotDelay);
+	}
+	while (!threadShouldExit()) {
+		wait(-1);
 	}
 }
 
@@ -127,7 +130,6 @@ void CtrlrPanelMIDISnapshot::timerCallback()
     if (! threadStillRunning)
     {
         stopTimer();
-        stopThread (500);
 
         if (alertWindow)
         {
