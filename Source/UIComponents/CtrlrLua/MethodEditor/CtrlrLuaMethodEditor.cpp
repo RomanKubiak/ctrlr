@@ -503,7 +503,7 @@ bool CtrlrLuaMethodEditor::canCloseWindow()
 		}
 		else if (ret == 1)
 		{	// Save all
-			saveAndCompilAllMethods();
+			saveAndCompileAllMethods();
 			return true;
 		}
 		else
@@ -1084,7 +1084,7 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 			if (getCurrentEditor())
 				getCurrentEditor()->saveAndCompileDocument();
 		case 4:
-			saveAndCompilAllMethods();
+			saveAndCompileAllMethods();
 		case 5:
 			closeCurrentTab();
 		case 6:
@@ -1115,7 +1115,7 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 	}
 }
 
-void CtrlrLuaMethodEditor::saveAndCompilAllMethods()
+void CtrlrLuaMethodEditor::saveAndCompileAllMethods()
 {
 	for (int i=0; i<getTabs()->getNumTabs(); i++)
 	{
