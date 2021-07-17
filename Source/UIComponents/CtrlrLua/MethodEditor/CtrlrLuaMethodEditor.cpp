@@ -1067,69 +1067,51 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 
 void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 {
-	if (menuItemID == 1 && topLevelMenuIndex == 0)
-	{
-		if (isCurrentlyModal())
-			exitModalState(-1);
+	switch (topLevelMenuIndex) {
+	case 0:
+		switch (menuItemId) {
+		case 1:
+			if (isCurrentlyModal())
+				exitModalState(-1);
 
-		if (canCloseWindow())
-		{
-			owner.getWindowManager().toggle(CtrlrPanelWindowManager::LuaMethodEditor, false);
-		}
-	}
-	if (menuItemID == 2 && topLevelMenuIndex == 0)
-	{
-		if (getCurrentEditor())
-		{
-			getCurrentEditor()->saveDocument();
-		}
-	}
-	else if (menuItemID == 3 && topLevelMenuIndex == 0)
-	{
-		if (getCurrentEditor())
-		{
-			getCurrentEditor()->saveAndCompileDocument();
-		}
-	}
-	else if (menuItemID == 4 && topLevelMenuIndex == 0)
-	{
-		saveAndCompilAllMethods();
-	}
-	else if (menuItemID == 5 && topLevelMenuIndex == 0)
-	{
-		closeCurrentTab();
-	}
-	else if (menuItemID == 6 && topLevelMenuIndex == 0)
-	{
-		closeAllTabs();
-	}
-	else if (menuItemID == 7 && topLevelMenuIndex == 0)
-	{
-		convertToFiles();
-	}
-	else if (menuItemID == 4 && topLevelMenuIndex == 1)
-	{
-		methodEditArea->showFindDialog();
-	}
-	else if (menuItemID == 5 && topLevelMenuIndex == 1)
-	{
-		methodEditArea->clearOutputText();
-	}
-	else if (menuItemID == 6 && topLevelMenuIndex == 1)
-	{
-		CtrlrLuaMethodCodeEditorSettings s(*this);
-		CtrlrDialogWindow::showModalDialog ("Code editor settings", &s, false, this);
+			if (canCloseWindow()) {
+				owner.getWindowManager().toggle(CtrlrPanelWindowManager::LuaMethodEditor, false);
+			}
+		case 2:
+			if (getCurrentEditor())
+				getCurrentEditor()->saveDocument();
+		case 3:
+			if (getCurrentEditor())
+				getCurrentEditor()->saveAndCompileDocument();
+		case 4:
+			saveAndCompilAllMethods();
+		case 5:
+			closeCurrentTab();
+		case 6:
+			closeAllTabs();
+		case 7:
+			convertToFiles();
+		};
+	case 1:
+		switch (menuItemId) {
+		case 4:
+			methodEditArea->showFindDialog();
+		case 5:
+			methodEditArea->clearOutputText();
+		case 6:
+			CtrlrLuaMethodCodeEditorSettings s(*this);
+			CtrlrDialogWindow::showModalDialog ("Code editor settings", &s, false, this);
 
-		componentTree.setProperty (Ids::luaMethodEditorFont, owner.getCtrlrManagerOwner().getFontManager().getStringFromFont (s.getFont()), nullptr);
-		componentTree.setProperty (Ids::luaMethodEditorBgColour, COLOUR2STR (s.getColour()), nullptr);
-	}
-	else if (menuItemID == 7 && topLevelMenuIndex == 1)
-	{
-		methodEditArea->showDebuggerTab();
-	}
-	else if (menuItemID == 8 && topLevelMenuIndex == 1)
-	{
-		methodEditArea->showConsoleTab();
+			componentTree.setProperty (Ids::luaMethodEditorFont,
+						   owner.getCtrlrManagerOwner().getFontManager().getStringFromFont (s.getFont()),
+						   nullptr);
+			componentTree.setProperty (Ids::luaMethodEditorBgColour,
+						   COLOUR2STR (s.getColour()), nullptr);
+		case 7:
+			methodEditArea->showDebuggerTab();
+		case 8:
+			methodEditArea->showConsoleTab();
+		}
 	}
 }
 
