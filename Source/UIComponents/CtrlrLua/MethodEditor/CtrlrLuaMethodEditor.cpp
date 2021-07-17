@@ -1069,7 +1069,7 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 {
 	switch (topLevelMenuIndex) {
 	case 0:
-		switch (menuItemId) {
+		switch (menuItemID) {
 		case 1:
 			if (isCurrentlyModal())
 				exitModalState(-1);
@@ -1077,27 +1077,37 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 			if (canCloseWindow()) {
 				owner.getWindowManager().toggle(CtrlrPanelWindowManager::LuaMethodEditor, false);
 			}
+			break;
 		case 2:
 			if (getCurrentEditor())
 				getCurrentEditor()->saveDocument();
+			break;
 		case 3:
 			if (getCurrentEditor())
 				getCurrentEditor()->saveAndCompileDocument();
+			break;
 		case 4:
 			saveAndCompileAllMethods();
+			break;
 		case 5:
 			closeCurrentTab();
+			break;
 		case 6:
 			closeAllTabs();
+			break;
 		case 7:
 			convertToFiles();
+			break;
 		};
+		break;
 	case 1:
-		switch (menuItemId) {
+		switch (menuItemID) {
 		case 4:
 			methodEditArea->showFindDialog();
+			break;
 		case 5:
 			methodEditArea->clearOutputText();
+			break;
 		case 6:
 			CtrlrLuaMethodCodeEditorSettings s(*this);
 			CtrlrDialogWindow::showModalDialog ("Code editor settings", &s, false, this);
@@ -1107,8 +1117,10 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 						   nullptr);
 			componentTree.setProperty (Ids::luaMethodEditorBgColour,
 						   COLOUR2STR (s.getColour()), nullptr);
+			break;
 		case 7:
 			methodEditArea->showDebuggerTab();
+			break;
 		case 8:
 			methodEditArea->showConsoleTab();
 		}
