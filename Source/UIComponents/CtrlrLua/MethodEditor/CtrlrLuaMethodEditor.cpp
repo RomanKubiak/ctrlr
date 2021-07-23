@@ -1042,100 +1042,123 @@ int ChildSorter::compareElements (ValueTree first, ValueTree second)
 	}
 }
 
+enum MainMenus {
+	MAIN_FILE,
+	MAIN_EDIT
+};
+
+enum SubMenuIds {
+	MENU_SAVE,
+	MENU_COMPILE,
+	MENU_COMPILE_ALL,
+	MENU_CLOSE,
+	MENU_CLOSE_TAB,
+	MENU_CLOSE_ALL_TABS,
+	MENU_CONVERT_TO_FILE,
+	MENU_CONVERT_TO_FILES,
+	MENU_FIND_REPLACE,
+	MENU_DEBUGGER,
+	MENU_CONSOLE,
+	MENU_CLEAR_OUTPUT,
+	MENU_SETTINGS
+};
+
+static const char* const menuNames[] = { "File", "Edit", nullptr };
+
+
+
 StringArray CtrlrLuaMethodEditor::getMenuBarNames()
 {
-	const char* const names[] = { "File", "Edit", nullptr };
-	return StringArray (names);
+	return StringArray (menuNames);
 }
 
 PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const String &menuName)
 {
 	PopupMenu menu;
-	if (topLevelMenuIndex == 0)
-	{
-		menu.addItem (2, "Save");
-		menu.addItem (3, "Save and compile");
-		menu.addItem (4, "Save and compile all");
+	switch (topLevelMenuIndex) {
+	case MAIN_FILE:
+		menu.addItem (MENU_SAVE            , "Save");
+		menu.addItem (MENU_COMPILE         , "Save and compile");
+		menu.addItem (MENU_cOMPILE_ALL     , "Save and compile all");
 		menu.addSeparator();
-		menu.addItem(5, "Close current tab");
-		menu.addItem(6, "Close all tabs");
+		menu.addItem (MENU_CLOSE_TAB       , "Close current tab");
+		menu.addItem (MENU_CLOSE_ALL_TABS  , "Close all tabs");
 		menu.addSeparator ();
-		menu.addItem(7, "Convert to files...");
+		menu.addItem (MENU_CONVERT_TO_FILE , "Convert to file...");
+		menu.addItem (MENU_CONVERT_TO_FILES, "Convert to files...");
 		menu.addSeparator();
-		menu.addItem (1, "Close");
-	}
-	else if (topLevelMenuIndex == 1)
-	{
-		menu.addItem (4, "Find and replace");
-		menu.addItem (7, "Debugger");
-		menu.addItem (8, "Console");
+		menu.addItem (MENU_CLOSE           , "Close");
+		break;
+	case MAIN_EDIT:
+		menu.addItem (MENU_FIND_REPLACE    , "Find and replace");
+		menu.addItem (MENU_DEBUGGER        , "Debugger");
+		menu.addItem (MENU_CONSOLE         , "Console");
 
-		menu.addItem (5, "Clear Output");
+		menu.addItem (MENU_CLEAR_OUTPUT    , "Clear Output");
 		menu.addSeparator();
-		menu.addItem (6, "Settings");
+		menu.addItem (MENU_SETTINGS        , "Settings");
+		break;
+	default:
+		jassert(topMenuIndex < MAIN_FILE || topMenuIndex > MAIN_EDIT);
 	}
 	return (menu);
 }
 
 void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 {
-	switch (topLevelMenuIndex) {
-	case 0:
-		switch (menuItemID) {
-		case 1:
-			if (isCurrentlyModal())
-				exitModalState(-1);
-
-			if (canCloseWindow()) {
-				owner.getWindowManager().toggle(CtrlrPanelWindowManager::LuaMethodEditor, false);
-			}
-			break;
-		case 2:
-			if (getCurrentEditor())
-				getCurrentEditor()->saveDocument();
-			break;
-		case 3:
-			if (getCurrentEditor())
-				getCurrentEditor()->saveAndCompileDocument();
-			break;
-		case 4:
-			saveAndCompileAllMethods();
-			break;
-		case 5:
-			closeCurrentTab();
-			break;
-		case 6:
-			closeAllTabs();
-			break;
-		case 7:
-			convertToFiles();
-			break;
-		};
-		break;
-	case 1:
-		switch (menuItemID) {
-		case 4:
-			methodEditArea->showFindDialog();
-			break;
-		case 5:
-			methodEditArea->clearOutputText();
-			break;
-		case 6:
-			CtrlrLuaMethodCodeEditorSettings s(*this);
-			CtrlrDialogWindow::showModalDialog ("Code editor settings", &s, false, this);
-
-			componentTree.setProperty (Ids::luaMethodEditorFont,
-						   owner.getCtrlrManagerOwner().getFontManager().getStringFromFont (s.getFont()),
-						   nullptr);
-			componentTree.setProperty (Ids::luaMethodEditorBgColour,
-						   COLOUR2STR (s.getColour()), nullptr);
-			break;
-		case 7:
-			methodEditArea->showDebuggerTab();
-			break;
-		case 8:
-			methodEditArea->showConsoleTab();
+	switch ((SubMenuIds)menuItemID) {
+	case MENU_CLOSE:
+		if (isCurrentlyModal())
+			exitModalState(-1);
+		if (canCloseWindow()) {
+			owner.getWindowManager().toggle(CtrlrPanelWindowManager::LuaMethodEditor, false);
 		}
+		break;
+	case MENU_SAVE:
+		if (getCurrentEditor())
+			getCurrentEditor()->saveDocument();
+		break;
+	case MENU_COMPILE:
+		if (getCurrentEditor())
+			getCurrentEditor()->saveAndCompileDocument();
+		break;
+	case MENU_COMPILE_ALL:
+		saveAndCompileAllMethods();
+		break;
+	case MENU_CLOSE_TAB:
+		closeCurrentTab();
+		break;
+	case MENU_CLOSE_ALL_TABS:
+		closeAllTabs();
+		break;
+	case MENU_CONVERT_TO_FILE:
+		convertToFile();
+		break;
+	case MENU_CONVERT_TO_FILES:
+		convertToFiles();
+		break;
+	case MENU_FIND_REPLACE:		
+		methodEditArea->showFindDialog();
+		break;
+	case MENU_DEBUGGER:
+		methodEditArea->showDebuggerTab();
+		break;
+	case MENU_CONSOLE:
+		methodEditArea->showConsoleTab();
+		break
+	case MENU_CLEAR_OUTPUT:
+		methodEditArea->clearOutputText();
+		break;
+	case MENU_SETTINGS: {
+		CtrlrLuaMethodCodeEditorSettings s(*this);
+		CtrlrDialogWindow::showModalDialog ("Code editor settings", &s, false, this);
+
+		componentTree.setProperty (Ids::luaMethodEditorFont,
+					   owner.getCtrlrManagerOwner().getFontManager().getStringFromFont (s.getFont()),
+					   nullptr);
+		componentTree.setProperty (Ids::luaMethodEditorBgColour,
+					   COLOUR2STR (s.getColour()), nullptr);
+		break;
 	}
 }
 
