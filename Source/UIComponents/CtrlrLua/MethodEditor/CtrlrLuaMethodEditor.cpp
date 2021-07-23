@@ -792,72 +792,47 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 {
 	if (e.mods.isPopupMenu())
 	{
+		enum popupItems {
+			NOP = 0,
+			ADD_METHOD,
+			ADD_FILES,
+			ADD_GROUP,
+			REMOVE_METHOD,
+			REMOVE_GROUP,
+			RENAME_GROUP,
+			CONVERT_TO_FILLES,
+			CONVERT_TO_FILE,
+			LOCATE_FILE,
+			SORT_BY_NAME,
+			SORT_BY_SIZE
+		} result;
 		if ( item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup) )
 		{
 			PopupMenu m;
+
 			m.addSectionHeader ("Group operations");
-			m.addItem (1, "Add method");
-			m.addItem (2, "Add files");
-			m.addItem (3, "Add group");
+			m.addItem (ADD_METHOD, "Add method");
+			m.addItem (ADD_FILES , "Add files");
+			m.addItem (ADD_GROUP , "Add group");
 			m.addSeparator();
 			bool isMethodGroup = item.hasType(Ids::luaMethodGroup);
 			if (isMethodGroup)
 			{
-				m.addItem (4, "Remove group");
-				m.addItem (5, "Rename group");
+				m.addItem (REMOVE_GROUP, "Remove group");
+				m.addItem (RENAME_GROUP, "Rename group");
 			}
 			else
 			{	// Root element => add a menu to convert method to filesto files
-				m.addItem(4, "Convert to files...");
+				m.addItem(CONVERT_TO_FILE , "Convert to file...");
+				m.addItem(CONVERT_TO_FILES, "Convert all to files...");
 			}
 
 			m.addSeparator();
-			m.addItem (6, "Sort by name");
-			m.addItem (7, "Sort by size");
+			m.addItem (SORT_BY_NAME, "Sort by name");
+			m.addItem (SORT_BY_SIZE, "Sort by size");
 
-			const int ret = m.show();
+			result = m.show();
 
-			if (ret == 1)
-			{
-				addNewMethod (item);
-			}
-			else if (ret == 2)
-			{
-				addMethodFromFile (item);
-			}
-			else if (ret == 3)
-			{
-				addNewGroup (item);
-			}
-			else if (ret == 4)
-			{
-				if (isMethodGroup)
-				{	// Case of a method group => remove group
-					removeGroup(item);
-				}
-				else
-				{	// Case of to root element => export to files
-					convertToFiles();
-				}
-			}
-			else if (ret == 5)
-			{
-				renameGroup (item);
-			}
-			else if (ret == 6)
-			{
-				ChildSorter sorter(true,*this);
-				getMethodManager().getManagerTree().sort (sorter, nullptr, false);
-
-				triggerAsyncUpdate();
-			}
-			else if (ret == 7)
-			{
-				ChildSorter sorter(false,*this);
-				getMethodManager().getManagerTree().sort (sorter, nullptr, false);
-
-				triggerAsyncUpdate();
-			}
 		}
 		else if (item.hasType(Ids::luaMethod))
 		{
@@ -867,40 +842,77 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			{
 				if (!owner.getLuaMethodSourceFile(&item).existsAsFile())
 				{
-					m.addItem (12, "Locate file on disk");
+					m.addItem (LOCATE_FILE, "Locate file on disk");
 				}
 			}
 
 			m.addSeparator();
-			m.addItem (2,"Remove method");
+			m.addItem (REMOVE_METHOD,"Remove method");
 
 			const int ret = m.show();
 
-			if (ret == 11)
-			{
-				/* convert a in-memory method to a file based one */
+		}
+		switch (ret) {
+		case ADD_METHOD:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			addNewMethod (item);
+			break;
+		case ADD_FILES:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			addMethodFromFile (item);
+			break;
+		case ADD_GROUP:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			addNewGroup (item);
+			break;
+		case REMOVE_GROUP:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			jassert(isMethodGroup);
+			removeGroup(item);
+			break;
+		case RENAME_GROUP:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			jassert(isMethodGroup);
+			renameGroup (item);
+			break;
+		case CONVERT_TO_FILE:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			jassert(!isMethodGroup);
+			break;
+		case CONVERT_TO_FILES:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			jassert(!isMethodGroup);
+			// Case of to root element => export to files
+			convertToFiles();
+			break;
+		case SORT_BY_NAME: {
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			ChildSorter sorter(true,*this);
+			getMethodManager().getManagerTree().sort (sorter, nullptr, false);
+			triggerAsyncUpdate();
+			break;
+		}
+		case SORT_BY_SIZE: {
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			ChildSorter sorter(false,*this);
+			getMethodManager().getManagerTree().sort (sorter, nullptr, false);
+			triggerAsyncUpdate();
+			break;
+		}
+		case LOCATE_FILE: {
+			jassert(item.hasType(Ids::luaMethod));
+			jassert((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile);
+			/* TODO: implement */
+			break;
+		}
+		case REMOVE_METHOD: {
+1			jassert(item.hasType(Ids::luaMethod));
+			/* remove a method */
+			if (SURE("Delete the selected method?", this)) {
+				methodEditArea->closeTabWithMethod (item);
+				getMethodManager().removeMethod (item.getProperty(Ids::uuid).toString());
 			}
-			else if (ret == 12)
-			{
-				/* locate a missing file on disk */
-			}
-			else if (ret == 10)
-			{
-				/* convert a method from a file to a in-memory property */
-			}
-			else if (ret == 2)
-			{
-				/* remove a method */
-				if (SURE("Delete the selected method?", this))
-				{
-					{
-						methodEditArea->closeTabWithMethod (item);
-						getMethodManager().removeMethod (item.getProperty(Ids::uuid).toString());
-					}
-
-					triggerAsyncUpdate();
-				}
-			}
+			triggerAsyncUpdate();
 		}
 	}
 }
