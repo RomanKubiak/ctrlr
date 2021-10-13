@@ -2,6 +2,7 @@
 #include "stdafx_luabind.h"
 static const int zero=0;
 #ifdef __APPLE__
+#include <memory>
 #include "CtrlrPanel/CtrlrPanel.h"
 #include "CtrlrMac.h"
 #include "CtrlrMacros.h"
@@ -126,7 +127,7 @@ const Result CtrlrMac::setBundleInfo (CtrlrPanel *sourceInfo, const File &bundle
 
 	if (plist.existsAsFile() && plist.hasWriteAccess())
 	{
-		ScopedPointer <XmlElement> plistXml (XmlDocument::parse(plist));
+		std::unique_ptr <XmlElement> plistXml (XmlDocument::parse(plist));
 		if (plistXml == nullptr)
 		{
 			return (Result::fail("MAC native, can't parse Info.plist as a XML document"));
