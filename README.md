@@ -6,10 +6,10 @@ Control any MIDI enabled hardware: synthesizers, drum machines, samplers, effect
 
 Cross Platform
 ==============
-Works on Windows (XP and up, both 64 and 32bit binaries are available), MAC OSX (10.5 and up), Linux (any modern distro should run it).
+Works on Windows (XP and up, both 64 and 32bit binaries are available), macOS (10.5 and up), Linux (any modern distro should run it).
 Host in your DAW
 
-Each platform has a VST build of Ctrlr so you can host your panels as normal VST plugins, for the OSX a special AU build is available.
+Each platform has a VST build of Ctrlr so you can host your panels as normal VST plugins, for macOS a special AU build is available.
 
 Customize
 =========
@@ -71,15 +71,17 @@ The post-commit script takes an argument "clean" if you wish to clean all the in
 files before building. If you want to ignore any package errors that it reports (i assume you
 know your system better then my script) then just add -f as an option when building.
 
-OSX
-===
-You need the CoreAudio developer files for the build to work.
+macOS
+=====
+Unzip boost or link your own boost library e.g. from [Homebrew](https://brew.sh):
 
-First you need to build the AU_wrapper library that simplifies the build a lot, it's located in
-Builds/Generated/Mac/AU_Wrapper, it will create a .a library and try to put it in /usr/local/lib
-if it fails, do that manualy (permission problems)
+```
+# use packaged boost library
+cd Source/Misc/boost && unzip boost.zip
+# alternatively, link your own
+ln -s /opt/homebrew/Cellar/boost/BOOST_VERSION/include/boost Source/Misc/boost/boost
+```
 
-Open the corresponding Xcode project in Builds/Generated/Mac, after that just build it, in case of
-errors you are on your own, the amount of changes between Xcode versions and OSX versions is impossible
-for me to track, you can post an issue and i'll try to solve it.
+Open the Xcode project `Builds/MacOSX/Ctrlr.xcodeproj` and build it.
 
+In case of errors it might help to refresh the project files using Projuicer.
