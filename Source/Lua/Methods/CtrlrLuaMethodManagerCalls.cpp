@@ -16,7 +16,7 @@
 #define CATCH_METHOD_EXCEPTION \
 catch (luabind::error &e)\
 {\
-	o->setValid(false);\
+	o->setType(CtrlrLuaMethod::ERROR);			      \
 	const char* a = lua_tostring(e.state(), -1);\
 	lastExecutionError = String(a);\
 	AlertWindow::showMessageBox (AlertWindow::WarningIcon,\
@@ -32,7 +32,7 @@ catch (luabind::error &e)\
 #define CATCH_METHOD_EXCEPTION_STR \
 catch (luabind::error &e)\
 {\
-	o->setValid(false);\
+	o->setType(CtrlrLuaMethod::ERROR);\
 	const char* a = lua_tostring(e.state(), -1);\
 	lastExecutionError = String(a);\
 	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1)))) + "\n\nMethod disabled");\
@@ -45,7 +45,7 @@ catch (luabind::error &e)\
 #define CATCH_METHOD_EXCEPTION_DAD \
 catch (luabind::error &e)\
 {\
-	o->setValid(false);\
+	o->setType(CtrlrLuaMethod::ERROR);\
 	const char* a = lua_tostring(e.state(), -1);\
 	lastExecutionError = String(a);\
 	AlertWindow::showMessageBox (AlertWindow::WarningIcon, "Callback error: " + o->getName(), String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1)))) + "\n\nMethod disabled");\
@@ -57,7 +57,7 @@ catch (luabind::error &e)\
 #define CATCH_METHOD_EXCEPTION_NO_DIALOG \
 catch (luabind::error &e)\
 {\
-	o->setValid(false);\
+	o->setType(CtrlrLuaMethod::ERROR);					\
 	lastExecutionError = String(luabind::object_cast <std::string> (luabind::object(luabind::from_stack(e.state(), -1))));\
 	_LERR("Callback error: [" + o->getName() + "]\n" + lastExecutionError.fromLastOccurrenceOf("Error message:\n",false,false) + ".\nMethod disabled");\
 	if (currentMethodEditor)\
@@ -78,7 +78,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o)
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject());
 	}
 	CATCH_METHOD_EXCEPTION
@@ -97,7 +97,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrModulator *param1
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 		}
@@ -118,7 +118,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrModulator *param1
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
 		}
@@ -139,7 +139,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrModulator *param1
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2.toUTF8().getAddress());
 		}
@@ -160,7 +160,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrComponent *param1
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2.toUTF8().getAddress());
 		}
@@ -182,7 +182,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrComponent *param1
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 		}
@@ -203,7 +203,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const MidiMessage &par
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			CtrlrMidiMessage mm(param1);
 			const luabind::object &obj = o->getObject().getLuabindObject();
@@ -231,7 +231,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const CtrlrMidiMessage
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			const luabind::object &obj = o->getObject().getLuabindObject();
 			if (obj.is_valid())
@@ -256,7 +256,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1);
 	}
 	CATCH_METHOD_EXCEPTION
@@ -275,7 +275,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1, boost::ref(param2));
 	}
 	CATCH_METHOD_EXCEPTION_NO_DIALOG
@@ -294,7 +294,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrPanelCanvas *para
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, boost::reference_wrapper<Graphics>(param2));
 		}
@@ -315,7 +315,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrPanel *param1)
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1);
 	}
 	CATCH_METHOD_EXCEPTION_NO_DIALOG
@@ -334,7 +334,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1, boost::ref(param2));
 	}
 	CATCH_METHOD_EXCEPTION
@@ -353,7 +353,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1, boost::ref(param2), param3, param4);
 	}
 	CATCH_METHOD_EXCEPTION
@@ -372,7 +372,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const int param1, cons
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
 	}
 	CATCH_METHOD_EXCEPTION
@@ -391,7 +391,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const int param1, cons
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 	}
 	CATCH_METHOD_EXCEPTION
@@ -410,7 +410,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const int param1, cons
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3, param4);
 	}
 	CATCH_METHOD_EXCEPTION
@@ -429,7 +429,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const int param1, cons
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 	}
 	CATCH_METHOD_EXCEPTION
@@ -448,7 +448,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrModulator *param1
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 	}
 	CATCH_METHOD_EXCEPTION
@@ -467,7 +467,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrWaveform *param1)
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 			luabind::call_function<void>(o->getObject().getObject(), param1);
 	}
 	CATCH_METHOD_EXCEPTION
@@ -488,7 +488,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const ValueTree &param
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 		}
@@ -509,7 +509,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const String &param1, 
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 		}
@@ -531,7 +531,7 @@ int CtrlrLuaMethodManager::callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			return (luabind::call_function<int>(o->getObject().getObject(), param1, param2));
 		}
@@ -552,7 +552,7 @@ int CtrlrLuaMethodManager::callWithRet(CtrlrLuaMethod *o, CtrlrModulator *param1
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			return (luabind::call_function<int>(o->getObject().getObject(), param1, param2, param3));
 		}
@@ -573,7 +573,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const StringArray &par
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
 		}
@@ -595,7 +595,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const StringArray &par
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1);
 		}
@@ -617,7 +617,7 @@ int CtrlrLuaMethodManager::callWithRet(CtrlrLuaMethod *o, ValueTree valueTree1, 
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			return (luabind::call_function<int>(o->getObject().getObject(), valueTree1, valueTree2));
 		}
@@ -638,7 +638,7 @@ String CtrlrLuaMethodManager::callWithRetString(CtrlrLuaMethod *o, CtrlrCustomCo
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			return (luabind::call_function<String>(o->getObject().getObject(), param1));
 		}
@@ -659,7 +659,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
 		}
@@ -681,7 +681,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
 		}
@@ -703,7 +703,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
 		}
@@ -725,7 +725,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 		}
@@ -747,7 +747,7 @@ int CtrlrLuaMethodManager::callWithRet(CtrlrLuaMethod *o, CtrlrCustomComponent *
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			return (luabind::call_function<int>(o->getObject().getObject(), param1, param2));
 		}
@@ -768,7 +768,7 @@ DragAndDropSourceDetails CtrlrLuaMethodManager::callWithRet (CtrlrLuaMethod *o, 
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			return (luabind::call_function<DragAndDropSourceDetails>(o->getObject().getObject(), param1, param2));
 		}
@@ -789,7 +789,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, LMemoryBlock *param1)
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1);
 		}
@@ -811,7 +811,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, ValueTree &param1)
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1);
 		}
@@ -833,7 +833,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, MidiBuffer *param1)
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1);
 		}
@@ -855,7 +855,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const ValueTree &param
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1);
 		}
@@ -877,7 +877,7 @@ const bool CtrlrLuaMethodManager::callAudio(CtrlrLuaMethod *o, MidiBuffer &param
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2);
 		}
@@ -899,7 +899,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const String &param1, 
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1, param2, param3);
 		}
@@ -921,7 +921,7 @@ const bool CtrlrLuaMethodManager::call(CtrlrLuaMethod *o, const uint8 param1)
 
 	try
 	{
-		if (o->isValid())
+		if (o->isCallable())
 		{
 			luabind::call_function<void>(o->getObject().getObject(), param1);
 		}

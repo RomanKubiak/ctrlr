@@ -503,7 +503,7 @@ bool CtrlrLuaMethodEditor::canCloseWindow()
 		}
 		else if (ret == 1)
 		{	// Save all
-			saveAndCompilAllMethods();
+			saveAndCompileAllMethods();
 			return true;
 		}
 		else
@@ -792,72 +792,47 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 {
 	if (e.mods.isPopupMenu())
 	{
+		enum popupItems {
+			NOP = 0,
+			ADD_METHOD,
+			ADD_FILES,
+			ADD_GROUP,
+			REMOVE_METHOD,
+			REMOVE_GROUP,
+			RENAME_GROUP,
+			CONVERT_TO_FILES,
+			CONVERT_TO_FILE,
+			LOCATE_FILE,
+			SORT_BY_NAME,
+			SORT_BY_SIZE
+		};
+		int result;
+		bool isMethodGroup = item.hasType(Ids::luaMethodGroup);
 		if ( item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup) )
 		{
 			PopupMenu m;
+
 			m.addSectionHeader ("Group operations");
-			m.addItem (1, "Add method");
-			m.addItem (2, "Add files");
-			m.addItem (3, "Add group");
+			m.addItem (ADD_METHOD, "Add method");
+			m.addItem (ADD_FILES , "Add files");
+			m.addItem (ADD_GROUP , "Add group");
 			m.addSeparator();
-			bool isMethodGroup = item.hasType(Ids::luaMethodGroup);
 			if (isMethodGroup)
 			{
-				m.addItem (4, "Remove group");
-				m.addItem (5, "Rename group");
+				m.addItem (REMOVE_GROUP, "Remove group");
+				m.addItem (RENAME_GROUP, "Rename group");
 			}
 			else
 			{	// Root element => add a menu to convert method to filesto files
-				m.addItem(4, "Convert to files...");
+				m.addItem(CONVERT_TO_FILES, "Convert all to files...");
 			}
 
 			m.addSeparator();
-			m.addItem (6, "Sort by name");
-			m.addItem (7, "Sort by size");
+			m.addItem (SORT_BY_NAME, "Sort by name");
+			m.addItem (SORT_BY_SIZE, "Sort by size");
 
-			const int ret = m.show();
+			result = m.show();
 
-			if (ret == 1)
-			{
-				addNewMethod (item);
-			}
-			else if (ret == 2)
-			{
-				addMethodFromFile (item);
-			}
-			else if (ret == 3)
-			{
-				addNewGroup (item);
-			}
-			else if (ret == 4)
-			{
-				if (isMethodGroup)
-				{	// Case of a method group => remove group
-					removeGroup(item);
-				}
-				else
-				{	// Case of to root element => export to files
-					convertToFiles();
-				}
-			}
-			else if (ret == 5)
-			{
-				renameGroup (item);
-			}
-			else if (ret == 6)
-			{
-				ChildSorter sorter(true,*this);
-				getMethodManager().getManagerTree().sort (sorter, nullptr, false);
-
-				triggerAsyncUpdate();
-			}
-			else if (ret == 7)
-			{
-				ChildSorter sorter(false,*this);
-				getMethodManager().getManagerTree().sort (sorter, nullptr, false);
-
-				triggerAsyncUpdate();
-			}
 		}
 		else if (item.hasType(Ids::luaMethod))
 		{
@@ -867,40 +842,80 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			{
 				if (!owner.getLuaMethodSourceFile(&item).existsAsFile())
 				{
-					m.addItem (12, "Locate file on disk");
+					m.addItem (LOCATE_FILE, "Locate file on disk");
 				}
+			} else {
+				m.addItem(CONVERT_TO_FILE , "Convert to file...");
 			}
 
 			m.addSeparator();
-			m.addItem (2,"Remove method");
+			m.addItem (REMOVE_METHOD,"Remove method");
 
-			const int ret = m.show();
+			result = m.show();
 
-			if (ret == 11)
-			{
-				/* convert a in-memory method to a file based one */
+		}
+		switch (result) {
+		case ADD_METHOD:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			addNewMethod (item);
+			break;
+		case ADD_FILES:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			addMethodFromFile (item);
+			break;
+		case ADD_GROUP:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			addNewGroup (item);
+			break;
+		case REMOVE_GROUP:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			jassert(isMethodGroup);
+			removeGroup(item);
+			break;
+		case RENAME_GROUP:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			jassert(isMethodGroup);
+			renameGroup (item);
+			break;
+		case CONVERT_TO_FILES:
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			jassert(!isMethodGroup);
+			// Case of to root element => export to files
+			convertToFiles();
+			break;
+		case SORT_BY_NAME: {
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			ChildSorter sorter(true,*this);
+			getMethodManager().getManagerTree().sort (sorter, nullptr, false);
+			triggerAsyncUpdate();
+			break;
+		}
+		case SORT_BY_SIZE: {
+			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
+			ChildSorter sorter(false,*this);
+			getMethodManager().getManagerTree().sort (sorter, nullptr, false);
+			triggerAsyncUpdate();
+			break;
+		}
+		case LOCATE_FILE: {
+			jassert(item.hasType(Ids::luaMethod));
+			jassert((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile);
+			/* TODO: implement */
+			break;
+		}
+		case CONVERT_TO_FILE:
+			jassert(item.hasType(Ids::luaMethod));
+			jassert((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile);
+			convertToFile(item);
+			break;
+		case REMOVE_METHOD: {
+			/* remove a method */
+			if (SURE("Delete the selected method?", this)) {
+				methodEditArea->closeTabWithMethod (item);
+				getMethodManager().removeMethod (item.getProperty(Ids::uuid).toString());
 			}
-			else if (ret == 12)
-			{
-				/* locate a missing file on disk */
-			}
-			else if (ret == 10)
-			{
-				/* convert a method from a file to a in-memory property */
-			}
-			else if (ret == 2)
-			{
-				/* remove a method */
-				if (SURE("Delete the selected method?", this))
-				{
-					{
-						methodEditArea->closeTabWithMethod (item);
-						getMethodManager().removeMethod (item.getProperty(Ids::uuid).toString());
-					}
-
-					triggerAsyncUpdate();
-				}
-			}
+			triggerAsyncUpdate();
+		}
 		}
 	}
 }
@@ -1030,110 +1045,133 @@ int ChildSorter::compareElements (ValueTree first, ValueTree second)
 	}
 }
 
+enum MainMenus {
+	MAIN_FILE,
+	MAIN_EDIT
+};
+
+enum SubMenuIds {
+	MENU_SAVE=1,
+	MENU_COMPILE,
+	MENU_COMPILE_ALL,
+
+	MENU_CLOSE,
+	MENU_CLOSE_TAB,
+	MENU_CLOSE_ALL_TABS,
+
+	MENU_CONVERT_TO_FILE,
+	MENU_CONVERT_TO_FILES,
+
+	MENU_FIND_REPLACE,
+	MENU_DEBUGGER,
+	MENU_CONSOLE,
+	MENU_CLEAR_OUTPUT,
+
+	MENU_SETTINGS
+};
+
+static const char* const menuNames[] = { "File", "Edit", nullptr };
+
+
+
 StringArray CtrlrLuaMethodEditor::getMenuBarNames()
 {
-	const char* const names[] = { "File", "Edit", nullptr };
-	return StringArray (names);
+	return StringArray (menuNames);
 }
 
 PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const String &menuName)
 {
 	PopupMenu menu;
-	if (topLevelMenuIndex == 0)
-	{
-		menu.addItem (2, "Save");
-		menu.addItem (3, "Save and compile");
-		menu.addItem (4, "Save and compile all");
+	switch (topLevelMenuIndex) {
+	case MAIN_FILE:
+		menu.addItem (MENU_SAVE            , "Save");
+		menu.addItem (MENU_COMPILE         , "Save and compile");
+		menu.addItem (MENU_COMPILE_ALL     , "Save and compile all");
 		menu.addSeparator();
-		menu.addItem(5, "Close current tab");
-		menu.addItem(6, "Close all tabs");
+		menu.addItem (MENU_CLOSE_TAB       , "Close current tab");
+		menu.addItem (MENU_CLOSE_ALL_TABS  , "Close all tabs");
 		menu.addSeparator ();
-		menu.addItem(7, "Convert to files...");
+		menu.addItem (MENU_CONVERT_TO_FILE , "Convert to file...");
+		menu.addItem (MENU_CONVERT_TO_FILES, "Convert to files...");
 		menu.addSeparator();
-		menu.addItem (1, "Close");
-	}
-	else if (topLevelMenuIndex == 1)
-	{
-		menu.addItem (4, "Find and replace");
-		menu.addItem (7, "Debugger");
-		menu.addItem (8, "Console");
+		menu.addItem (MENU_CLOSE           , "Close");
+		break;
+	case MAIN_EDIT:
+		menu.addItem (MENU_FIND_REPLACE    , "Find and replace");
+		menu.addItem (MENU_DEBUGGER        , "Debugger");
+		menu.addItem (MENU_CONSOLE         , "Console");
 
-		menu.addItem (5, "Clear Output");
+		menu.addItem (MENU_CLEAR_OUTPUT    , "Clear Output");
 		menu.addSeparator();
-		menu.addItem (6, "Settings");
+		menu.addItem (MENU_SETTINGS        , "Settings");
+		break;
+	default:
+		jassert(topLevelMenuIndex < MAIN_FILE || topLevelMenuIndex > MAIN_EDIT);
 	}
 	return (menu);
 }
 
 void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 {
-	if (menuItemID == 1 && topLevelMenuIndex == 0)
-	{
+	switch ((SubMenuIds)menuItemID) {
+	case MENU_CLOSE:
 		if (isCurrentlyModal())
 			exitModalState(-1);
 
-		if (canCloseWindow())
-		{
+		if (canCloseWindow()) {
 			owner.getWindowManager().toggle(CtrlrPanelWindowManager::LuaMethodEditor, false);
 		}
-	}
-	if (menuItemID == 2 && topLevelMenuIndex == 0)
-	{
+		break;
+	case MENU_SAVE:
 		if (getCurrentEditor())
-		{
 			getCurrentEditor()->saveDocument();
-		}
-	}
-	else if (menuItemID == 3 && topLevelMenuIndex == 0)
-	{
+		break;
+	case MENU_COMPILE:
 		if (getCurrentEditor())
-		{
 			getCurrentEditor()->saveAndCompileDocument();
-		}
-	}
-	else if (menuItemID == 4 && topLevelMenuIndex == 0)
-	{
-		saveAndCompilAllMethods();
-	}
-	else if (menuItemID == 5 && topLevelMenuIndex == 0)
-	{
+		break;
+	case MENU_COMPILE_ALL:
+		saveAndCompileAllMethods();
+		break;
+	case MENU_CLOSE_TAB:
 		closeCurrentTab();
-	}
-	else if (menuItemID == 6 && topLevelMenuIndex == 0)
-	{
+		break;
+	case MENU_CLOSE_ALL_TABS:
 		closeAllTabs();
-	}
-	else if (menuItemID == 7 && topLevelMenuIndex == 0)
-	{
+		break;
+	case MENU_CONVERT_TO_FILE:
+		convertToFile(getCurrentEditor());
+		break;
+	case MENU_CONVERT_TO_FILES:
 		convertToFiles();
-	}
-	else if (menuItemID == 4 && topLevelMenuIndex == 1)
-	{
+		break;
+	case MENU_FIND_REPLACE:
 		methodEditArea->showFindDialog();
-	}
-	else if (menuItemID == 5 && topLevelMenuIndex == 1)
-	{
+		break;
+	case MENU_DEBUGGER:
+		methodEditArea->showDebuggerTab();
+		break;
+	case MENU_CONSOLE:
+		methodEditArea->showConsoleTab();
+		break;
+	case MENU_CLEAR_OUTPUT:
 		methodEditArea->clearOutputText();
-	}
-	else if (menuItemID == 6 && topLevelMenuIndex == 1)
-	{
+		break;
+	case MENU_SETTINGS: {
 		CtrlrLuaMethodCodeEditorSettings s(*this);
 		CtrlrDialogWindow::showModalDialog ("Code editor settings", &s, false, this);
 
-		componentTree.setProperty (Ids::luaMethodEditorFont, owner.getCtrlrManagerOwner().getFontManager().getStringFromFont (s.getFont()), nullptr);
-		componentTree.setProperty (Ids::luaMethodEditorBgColour, COLOUR2STR (s.getColour()), nullptr);
+		componentTree.setProperty (Ids::luaMethodEditorFont,
+					   owner.getCtrlrManagerOwner().getFontManager().getStringFromFont (s.getFont()),
+					   nullptr);
+		componentTree.setProperty (Ids::luaMethodEditorBgColour,
+					   COLOUR2STR (s.getColour()), nullptr);
+		break;
 	}
-	else if (menuItemID == 7 && topLevelMenuIndex == 1)
-	{
-		methodEditArea->showDebuggerTab();
-	}
-	else if (menuItemID == 8 && topLevelMenuIndex == 1)
-	{
-		methodEditArea->showConsoleTab();
 	}
 }
 
-void CtrlrLuaMethodEditor::saveAndCompilAllMethods()
+void CtrlrLuaMethodEditor::saveAndCompileAllMethods()
 {
 	for (int i=0; i<getTabs()->getNumTabs(); i++)
 	{
@@ -1142,6 +1180,37 @@ void CtrlrLuaMethodEditor::saveAndCompilAllMethods()
 		if (ed)
 		{
 			ed->saveAndCompileDocument();
+		}
+	}
+}
+
+void CtrlrLuaMethodEditor::convertToFile(WeakReference<CtrlrLuaMethodCodeEditor> editor)
+{
+	if (!editor)
+		return;
+	auto method = editor -> getMethod();
+	if (method)
+		convertToFile(method->getMethodTree());
+}
+
+
+void CtrlrLuaMethodEditor::convertToFile(ValueTree &item)
+{
+	/* TODO: implement */
+	// Show confirmation dialog
+	const String base_path = owner.getPanelLuaDirPath();
+	const int confirm = AlertWindow::showOkCancelBox(AlertWindow::QuestionIcon, "Convert to files", "Do you want to convert the Lua method to file (base path=" + base_path + ")?", "Yes", "No");
+	if (confirm == 1)
+	{
+		Result res = owner.convertLuaMethodToFile(item);
+		if (res.wasOk())
+		{
+			owner.luaManagerChanged();
+			triggerAsyncUpdate();
+		}
+		else
+		{
+			AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Convert to file", "Failed to convert Lua method to file.\n" + res.getErrorMessage());
 		}
 	}
 }

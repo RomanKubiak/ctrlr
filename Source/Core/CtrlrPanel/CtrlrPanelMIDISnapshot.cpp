@@ -89,7 +89,7 @@ void CtrlrPanelMIDISnapshot::gatherSnapshotData()
 
     if (luaPanelMidiSnapshotPreCbk && !luaPanelMidiSnapshotPreCbk.wasObjectDeleted())
 	{
-		if (luaPanelMidiSnapshotPreCbk->isValid())
+		if (luaPanelMidiSnapshotPreCbk->isCallable())
 		{
 			owner.getCtrlrLuaManager().getMethodManager().call (luaPanelMidiSnapshotPreCbk, &buffer);
 		}
@@ -106,12 +106,15 @@ void CtrlrPanelMIDISnapshot::run()
 {
 	MidiBuffer::Iterator i(buffer);
 	MidiMessage m; int t; int k=0;
-	while (i.getNextEvent(m,t))
+	while (!threadShouldExit() && i.getNextEvent(m,t))
 	{
 	    progress = k / (double) buffer.getNumEvents();
 		owner.sendMidi(m);
 		k++;
 		wait(snapshotDelay);
+	}
+	while (!threadShouldExit()) {
+		wait(-1);
 	}
 }
 
@@ -127,7 +130,6 @@ void CtrlrPanelMIDISnapshot::timerCallback()
     if (! threadStillRunning)
     {
         stopTimer();
-        stopThread (500);
 
         if (alertWindow)
         {
@@ -141,7 +143,7 @@ void CtrlrPanelMIDISnapshot::timerCallback()
 
         if (luaPanelMidiSnapshotPostCbk && !luaPanelMidiSnapshotPostCbk.wasObjectDeleted())
         {
-            if (luaPanelMidiSnapshotPostCbk->isValid())
+            if (luaPanelMidiSnapshotPostCbk->isCallable())
             {
                 owner.getCtrlrLuaManager().getMethodManager().call (luaPanelMidiSnapshotPostCbk, &buffer);
             }

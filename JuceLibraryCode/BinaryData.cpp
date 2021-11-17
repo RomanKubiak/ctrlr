@@ -18778,8 +18778,8 @@ static const unsigned char temp_binary_data_81[] =
 "end\r\n"
 "  </utility>\r\n"
 "\r\n"
-"  <utility name=\"json4lua\" description=\"JSON implementation\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000004\" resource=\"json_lua\" />\r\n"
-"  <utility name=\"debugger.lua\" description=\"clidebugger\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000005\" resource=\"debugger_lua\" />\r\n"
+"  <utility name=\"json\" description=\"JSON implementation\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000004\" resource=\"json_lua\" />\r\n"
+"  <utility name=\"debugger\" description=\"clidebugger\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000005\" resource=\"debugger_lua\" />\r\n"
 "  <utility name=\"inspect\" description=\"Lua table inspector\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000006\" resource=\"inspect_lua\" />\r\n"
 "  </utilityMethods>\r\n"
 "</methods>\r\n";

@@ -54,7 +54,7 @@ void CtrlrPanelCanvas::paint (Graphics& g)
 {
 	if (paintCbk && !paintCbk.wasObjectDeleted())
 	{
-		if (paintCbk->isValid())
+		if (paintCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (paintCbk, this, g);
 
@@ -130,7 +130,7 @@ void CtrlrPanelCanvas::resized()
 
 	if (resizedCbk && !resizedCbk.wasObjectDeleted())
 	{
-		if (resizedCbk->isValid())
+		if (resizedCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (resizedCbk, &owner.getOwner());
 		}
@@ -217,7 +217,7 @@ void CtrlrPanelCanvas::mouseDown (const MouseEvent& e)
 			{
 				getOwner().getSelection()->selectOnly (c);
 				getOwner().getSelection()->dispatchPendingMessages();
-				startDraggingSelection();
+				startDraggingSelection(e.source);
 			}
 		}
 	}
@@ -228,7 +228,7 @@ void CtrlrPanelCanvas::mouseDown (const MouseEvent& e)
 	}
 	if (!isLayer(e.eventComponent) && editMode && e.mods.isShiftDown())
 	{
-		startDraggingSelection();
+		startDraggingSelection(e.source);
 	}
 }
 
@@ -503,6 +503,7 @@ int CtrlrPanelCanvas::snapPosition (int pos, int snapSize, const bool allowSnap)
     return pos;
 }
 
+#if 0
 void CtrlrPanelCanvas::moveSelectedComps (int dx, int dy, bool snap)
 {
 	if ((bool)owner.getProperty (Ids::uiPanelLock))
@@ -512,6 +513,7 @@ void CtrlrPanelCanvas::moveSelectedComps (int dx, int dy, bool snap)
     dragSelectedComps (dx, dy, snap);
     endDraggingSelection();
 }
+#endif
 
 void CtrlrPanelCanvas::dragSelectedComps (int dx, int dy, const bool allowSnap)
 {
@@ -562,7 +564,7 @@ void CtrlrPanelCanvas::endDraggingSelection()
     }
 }
 
-void CtrlrPanelCanvas::startDraggingSelection()
+void CtrlrPanelCanvas::startDraggingSelection(const MouseInputSource& inputSource)
 {
     if (getOwner().getSelection() == nullptr)
         return;
@@ -574,7 +576,12 @@ void CtrlrPanelCanvas::startDraggingSelection()
         c->getProperties().set ("yDragStart", c->getY());
 		c->toBack();
     }
-	startDragging ("__ctrlr_component_selection", this, Image (Image::ARGB,1,1,true));
+	startDragging ("__ctrlr_component_selection",
+		       this,
+		       Image (Image::ARGB,1,1,true),
+		       false,
+		       nullptr,
+		       &inputSource);
 
 	if (getOwner().getSelection()->getNumSelected() > 1)
 		getPanel().getUndoManager()->beginNewTransaction ("Move multiple");
@@ -1030,7 +1037,7 @@ void CtrlrPanelCanvas::fileDragEnter (const StringArray &files, int x, int y)
 {
 	if (luaPanelFileDragEnterHandlerCbk && !luaPanelFileDragEnterHandlerCbk.wasObjectDeleted())
 	{
-		if (luaPanelFileDragEnterHandlerCbk->isValid())
+		if (luaPanelFileDragEnterHandlerCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (luaPanelFileDragEnterHandlerCbk, files, x, y);
 
@@ -1043,7 +1050,7 @@ void CtrlrPanelCanvas::fileDragExit (const StringArray &files)
 {
 	if (luaPanelFileDragExitHandlerCbk && !luaPanelFileDragExitHandlerCbk.wasObjectDeleted())
 	{
-		if (luaPanelFileDragExitHandlerCbk->isValid())
+		if (luaPanelFileDragExitHandlerCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (luaPanelFileDragExitHandlerCbk, files);
 
@@ -1080,7 +1087,7 @@ void CtrlrPanelCanvas::filesDropped (const StringArray &files, int x, int y)
 
 	if (luaPanelFileDragDropHandlerCbk && !luaPanelFileDragDropHandlerCbk.wasObjectDeleted())
 	{
-		if (luaPanelFileDragDropHandlerCbk->isValid())
+		if (luaPanelFileDragDropHandlerCbk->isCallable())
 		{
 			owner.getOwner().getCtrlrLuaManager().getMethodManager().call (luaPanelFileDragDropHandlerCbk, files, x, y);
 

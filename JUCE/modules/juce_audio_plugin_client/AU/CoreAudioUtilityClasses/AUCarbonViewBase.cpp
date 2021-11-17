@@ -285,7 +285,7 @@ bool	AUCarbonViewBase::HandleEvent(EventHandlerCallRef inHandlerRef, EventRef ev
 
 					// [4/4]
 					/*	<-- kEventParamOrigin (out, typeHIPoint)
-					 *		On exit, contains the scrollable viewÕs current origin (the
+					 *		On exit, contains the scrollable view's current origin (the
 					 *		view-relative coordinate that is drawn at the top left
 					 *		corner of its frame). These coordinates should always be
 					 *		greater than or equal to zero. They should be less than or

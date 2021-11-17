@@ -203,6 +203,7 @@ void CtrlrLuaManager::wrapCore (lua_State* L)
 
 void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 {
+	_DBG("CtrlrLuaManager::wrapCtrlrClasses");
 	CtrlrValueMap::wrapForLua (L);
 	CtrlrModulator::wrapForLua (L);
 	CtrlrPanel::wrapForLua (L);
@@ -276,11 +277,47 @@ int func_panic(lua_State *L)
 	lua_getglobal(L, "ERROR");
 	return(0);
 }
+/*
+ * dump_stack(ls);
+ */
+static void dump_stack(lua_State *L)
+{
+	int i;
+	int top = lua_gettop(L);
+	printf("\n#### BOS ####\n");
+	for(i = top; i >= 1; i--)
+	{
+		int t = lua_type(L, i);
+		switch(t)
+		{
+		case LUA_TSTRING:
+			printf("%i (%i) = `%s'", i, i - (top + 1), lua_tostring(L, i));
+			break;
 
-bool CtrlrLuaManager::runCode (const String &code, const String name)
+		case LUA_TBOOLEAN:
+			printf("%i (%i) = %s", i, i - (top + 1), lua_toboolean(L, i) ? "true" : "false");
+			break;
+
+		case LUA_TNUMBER:
+			printf("%i (%i) = %g", i, i - (top + 1), lua_tonumber(L, i));
+			break;
+
+		default:
+			printf("%i (%i) = %s", i, i - (top + 1), lua_typename(L, t));
+			break;
+		}
+		printf("\n");
+	}
+	printf("#### EOS ####\n");
+	printf("\n");
+}
+
+CtrlrLuaMethod::Type CtrlrLuaManager::runCode (const String &code, const String name)
 {
 	if (luaState && !isLuaDisabled())
 	{
+		//std::clog << "Executing Lua code " << (const char *) name.toUTF8() << std::endl;
+
 		if (luaL_loadbuffer(luaState, code.toUTF8(), std::strlen(code.toUTF8()), name.isEmpty() ? "_runtime" : name.toUTF8())
 			|| lua_pcall(luaState, 0, 0, 0))
 		{
@@ -288,14 +325,43 @@ bool CtrlrLuaManager::runCode (const String &code, const String name)
 			_LERR("ERROR: " + String(a));
 			lastError = "ERROR: " + String(a);
 			lua_pop(luaState, 1);
-			return (false);
+			return (CtrlrLuaMethod::ERROR);
+		} else if (!name.isEmpty()) {
+			//std::clog << code << std::endl;
+			lua_getglobal(luaState,name.toUTF8());
+			//dump_stack(luaState);
+			int type = lua_type(luaState,1);
+			lua_pop(luaState,1);
+			switch (type) {
+			case CtrlrLuaMethod::NONE:
+			case CtrlrLuaMethod::NIL:
+				{
+					String errstring = "ERROR: The code for function or variable " + name
+						+ " does not define " + name + ".";
+					_LERR(errstring);
+					lastError = std::move(errstring);
+					break;
+				}
+			case  CtrlrLuaMethod::BOOLEAN:
+			case  CtrlrLuaMethod::LIGHTUSERDATA:
+			case  CtrlrLuaMethod::NUMBER:
+			case  CtrlrLuaMethod::STRING:
+			case  CtrlrLuaMethod::TABLE:
+			case  CtrlrLuaMethod::USERDATA:
+			case  CtrlrLuaMethod::THREAD:
+			case  CtrlrLuaMethod::FUNCTION:
+			break;
+			default:
+				type = CtrlrLuaMethod::UNKNOWN;
+			}
+			return ((CtrlrLuaMethod::Type)type);
 		}
 
-		return (true);
+		return (CtrlrLuaMethod::SCRIPT);
 	}
 	else
 	{
-		return (false);
+		return (CtrlrLuaMethod::DISABLED);
 	}
 }
 
@@ -388,7 +454,7 @@ void CtrlrPanel::setGlobalVariable(const int index, const int value)
 
 	if (luaPanelGlobalChangedCbk && !luaPanelGlobalChangedCbk.wasObjectDeleted())
 	{
-		if (luaPanelGlobalChangedCbk->isValid())
+		if (luaPanelGlobalChangedCbk->isCallable())
 		{
 			getCtrlrLuaManager().getMethodManager().call (luaPanelGlobalChangedCbk, index, value);
 		}

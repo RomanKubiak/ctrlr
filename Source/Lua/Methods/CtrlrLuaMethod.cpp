@@ -10,7 +10,7 @@
 #include "CtrlrLua/MethodEditor/CtrlrLuaMethodCodeEditor.h"
 
 CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner)
-	:	methodIsValid(false),
+	:	type(UNKNOWN),
 		methodTree(Ids::luaMethod),
 		owner(_owner),
 		methodCodeEditor(nullptr),
@@ -24,7 +24,7 @@ CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner)
 }
 
 CtrlrLuaMethod::CtrlrLuaMethod(CtrlrLuaMethodManager &_owner, ValueTree &_methodTree)
-	:	methodIsValid(false),
+	:	type(UNKNOWN),
 		methodTree(_methodTree),
 		owner(_owner),
 		methodCodeEditor(nullptr),
@@ -49,7 +49,7 @@ CtrlrLuaMethod::~CtrlrLuaMethod()
 
 void CtrlrLuaMethod::remove() // this is called by the manager to remove us permanently, cleanup and stuff
 {
-	setValid (false);
+	setType (DISABLED);
 
     if (luaObject && luaObject->getObject())
     {
@@ -93,6 +93,7 @@ Uuid CtrlrLuaMethod::getUuid()
 
 const File CtrlrLuaMethod::getSourceFile()
 {
+	// TODO: there should be a better way to get the owning panel
 	return (owner.getOwner().getOwner().getLuaMethodSourceFile(&methodTree));
 }
 
@@ -105,7 +106,9 @@ void CtrlrLuaMethod::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 {
 	if (property == Ids::luaMethodValid)
 	{
-		methodIsValid = (bool)treeWhosePropertyHasChanged.getProperty(property);
+		if (!(bool)treeWhosePropertyHasChanged.getProperty(property)) {
+			setType(DISABLED);
+		}
 	}
 	else if (property == Ids::luaMethodName)
 	{
@@ -150,7 +153,7 @@ const String CtrlrLuaMethod::getCode()
 	}
 }
 
-bool CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
+CtrlrLuaMethod::Type CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
 {
 	errorString.clear();
 	errorString.append ("Compile: "+getName()+" - ", out, Colours::black);
@@ -158,54 +161,56 @@ bool CtrlrLuaMethod::setCodeInternal(const String &newMethodCode)
 	if (owner.isLuaDisabled())
 	{
 		errorString.append("FAILED lua is disabled\n", out.withStyle(Font::bold), Colours::darkred);
-		return (false);
+		return (DISABLED);
 	}
 
-	bool compileRet = owner.getOwner().runCode(newMethodCode, getName());
+	Type compileRet = owner.getOwner().runCode(newMethodCode, getName());
 
 	String error;
 
-	if (compileRet && getName() != "")
-	{
-		try
-		{
-			setObject ( (luabind::object)luabind::globals (getLuaState()) [(const char *)getName().toUTF8()] );
-		}
-		catch (const luabind::error &e)
-		{
-			error = String(e.what());
-		}
-	}
-	else if (compileRet == false)
-	{
+	switch (compileRet) {
+	case ERROR:
 		error = owner.getOwner().getLastError();
-	}
-
-	if (compileRet)
-	{
-		errorString.append ("OK\n", out.withStyle(Font::bold), Colours::black);
-	}
-	else
-	{
 		errorString.append ("FAILED\n", out.withStyle(Font::bold), Colours::darkred);
 		errorString.append (error + "\n" , out, Colours::darkred);
+		break;
+	default:
+		if (getName() != "")
+		{
+			try
+			{
+				setObject ( (luabind::object)luabind::globals (getLuaState()) [(const char *)getName().toUTF8()] );
+			}
+			catch (const luabind::error &e)
+			{
+				error = String(e.what());
+			}
+			errorString.append ("OK\n", out.withStyle(Font::bold), Colours::black);
+		}
 	}
-
-	setValid(compileRet);
+	setType(compileRet);
 
 	return (compileRet);
 }
 
+void CtrlrLuaMethod::setType(Type t) {
+	type = t;
+	methodTree.setProperty (Ids::luaMethodValid,
+				isValid(),
+				nullptr);
+}
+#if 0
 void CtrlrLuaMethod::setValid (const bool _methodIsValid)
 {
 	methodIsValid = _methodIsValid;
 	methodTree.setProperty (Ids::luaMethodValid, methodIsValid, nullptr);
 }
 
-bool CtrlrLuaMethod::isValid () const
+Bool CtrlrLuaMethod::isValid () const
 {
 	return (methodIsValid);
 }
+#endif
 
 void CtrlrLuaMethod::setCodeEditor (CtrlrLuaMethodCodeEditor *_methodCodeEditor)
 {
