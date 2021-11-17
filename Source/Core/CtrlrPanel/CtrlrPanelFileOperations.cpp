@@ -92,6 +92,36 @@ File CtrlrPanel::getLuaMethodGroupDir(const ValueTree &methodGroup)
 	return result;
 }
 
+Result CtrlrPanel::convertLuaMethodToFile(ValueTree & item)
+{
+	Result res = Result::ok();
+	if (!item.isValid() || !item.hasType(Ids::luaMethod))
+	{
+		res = Result::fail("Internal error: Ony Lua methods can be converted to files.");
+	}
+	File methodLuaDirectory(getLuaMethodGroupDir(item.getParent()));
+	if (methodLuaDirectory.existsAsFile())
+	{	// A directory with that name already exists
+		res = Result::fail("Convert to file can't create directory (a file with that name already exists): " + methodLuaDirectory.getFullPathName());
+	}
+	else if (!methodLuaDirectory.exists())
+	{
+		res = methodLuaDirectory.createDirectory();
+	}
+	if (res.ok())
+	{
+		if (methodLuaDirectory.hasWriteAccess())
+		{	// Save lua code
+			res = writeLuaChild(methodLuaDirectory, &item);
+		}
+		else
+		{
+			res = Result::fail("Convert to XML can't write in panel directory: " + methodLuaDirectory.getFullPathName());
+		}
+	}
+	return res;
+}
+
 Result CtrlrPanel::convertLuaMethodsToFiles(const String dirPath)
 {
 	Result res = Result::ok();
@@ -680,6 +710,35 @@ Result CtrlrPanel::writeLuaMethodGroup(const File &parentDir, ValueTree *methodG
 	return res;
 }
 
+Result CtrlrPanel::writeLuaChild(const File &parentDir,  ValueTree *child)
+{
+	if (child == nullptr)
+		return Result::fail("Child element is missing");
+
+	Result res = Result::ok();
+	if (child->hasType(Ids::luaMethod))
+	{
+		if ((int)child->getProperty(Ids::luaMethodSource) != CtrlrLuaMethod::codeInFile)
+		{
+			// Only process methods that are not already saved in files
+			res = CtrlrPanel::writeLuaMethod(parentDir, child);
+			if (res.failed())
+			{	// Break on first error
+				return res;
+			}
+		}
+	}
+	else if (child->hasType(Ids::luaMethodGroup))
+	{
+		res = CtrlrPanel::writeLuaMethodGroup(parentDir, child);
+		if (res.failed())
+		{	// Break on first error
+			return res;
+		}
+	}
+	return res;
+}
+
 Result CtrlrPanel::writeLuaChildren(const File &parentDir, ValueTree *parentElement)
 {
 	if (parentElement == nullptr)
@@ -689,25 +748,7 @@ Result CtrlrPanel::writeLuaChildren(const File &parentDir, ValueTree *parentElem
 	for (int i = 0; i<parentElement->getNumChildren(); i++)
 	{
 		ValueTree child = parentElement->getChild(i);
-		if (child.hasType(Ids::luaMethod))
-		{
-			if ((int)child.getProperty(Ids::luaMethodSource) != CtrlrLuaMethod::codeInFile)
-			{	// Only process methods that are not already saved in files
-				res = CtrlrPanel::writeLuaMethod(parentDir, &child);
-				if (res.failed())
-				{	// Break on first error
-					return res;
-				}
-			}
-		}
-		else if (child.hasType(Ids::luaMethodGroup))
-		{
-			res = CtrlrPanel::writeLuaMethodGroup(parentDir, &child);
-			if (res.failed())
-			{	// Break on first error
-				return res;
-			}
-		}
+		writeLuaChild(parentDir, &child);
 	}
 	return res;
 }

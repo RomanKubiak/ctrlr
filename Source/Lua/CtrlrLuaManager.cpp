@@ -203,6 +203,7 @@ void CtrlrLuaManager::wrapCore (lua_State* L)
 
 void CtrlrLuaManager::wrapCtrlrClasses(lua_State* L)
 {
+	_DBG("CtrlrLuaManager::wrapCtrlrClasses");
 	CtrlrValueMap::wrapForLua (L);
 	CtrlrModulator::wrapForLua (L);
 	CtrlrPanel::wrapForLua (L);

@@ -93,6 +93,7 @@ Uuid CtrlrLuaMethod::getUuid()
 
 const File CtrlrLuaMethod::getSourceFile()
 {
+	// TODO: there should be a better way to get the owning panel
 	return (owner.getOwner().getOwner().getLuaMethodSourceFile(&methodTree));
 }
 

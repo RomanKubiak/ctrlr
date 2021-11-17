@@ -800,12 +800,14 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			REMOVE_METHOD,
 			REMOVE_GROUP,
 			RENAME_GROUP,
-			CONVERT_TO_FILLES,
+			CONVERT_TO_FILES,
 			CONVERT_TO_FILE,
 			LOCATE_FILE,
 			SORT_BY_NAME,
 			SORT_BY_SIZE
-		} result;
+		};
+		int result;
+		bool isMethodGroup = item.hasType(Ids::luaMethodGroup);
 		if ( item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup) )
 		{
 			PopupMenu m;
@@ -815,7 +817,6 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			m.addItem (ADD_FILES , "Add files");
 			m.addItem (ADD_GROUP , "Add group");
 			m.addSeparator();
-			bool isMethodGroup = item.hasType(Ids::luaMethodGroup);
 			if (isMethodGroup)
 			{
 				m.addItem (REMOVE_GROUP, "Remove group");
@@ -823,7 +824,6 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			}
 			else
 			{	// Root element => add a menu to convert method to filesto files
-				m.addItem(CONVERT_TO_FILE , "Convert to file...");
 				m.addItem(CONVERT_TO_FILES, "Convert all to files...");
 			}
 
@@ -844,15 +844,17 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 				{
 					m.addItem (LOCATE_FILE, "Locate file on disk");
 				}
+			} else {
+				m.addItem(CONVERT_TO_FILE , "Convert to file...");
 			}
 
 			m.addSeparator();
 			m.addItem (REMOVE_METHOD,"Remove method");
 
-			const int ret = m.show();
+			result = m.show();
 
 		}
-		switch (ret) {
+		switch (result) {
 		case ADD_METHOD:
 			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
 			addNewMethod (item);
@@ -874,10 +876,6 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
 			jassert(isMethodGroup);
 			renameGroup (item);
-			break;
-		case CONVERT_TO_FILE:
-			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
-			jassert(!isMethodGroup);
 			break;
 		case CONVERT_TO_FILES:
 			jassert(item.hasType (Ids::luaManagerMethods) || item.hasType (Ids::luaMethodGroup));
@@ -905,14 +903,19 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 			/* TODO: implement */
 			break;
 		}
+		case CONVERT_TO_FILE:
+			jassert(item.hasType(Ids::luaMethod));
+			jassert((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile);
+			convertToFile(item);
+			break;
 		case REMOVE_METHOD: {
-1			jassert(item.hasType(Ids::luaMethod));
 			/* remove a method */
 			if (SURE("Delete the selected method?", this)) {
 				methodEditArea->closeTabWithMethod (item);
 				getMethodManager().removeMethod (item.getProperty(Ids::uuid).toString());
 			}
 			triggerAsyncUpdate();
+		}
 		}
 	}
 }
@@ -1048,18 +1051,22 @@ enum MainMenus {
 };
 
 enum SubMenuIds {
-	MENU_SAVE,
+	MENU_SAVE=1,
 	MENU_COMPILE,
 	MENU_COMPILE_ALL,
+
 	MENU_CLOSE,
 	MENU_CLOSE_TAB,
 	MENU_CLOSE_ALL_TABS,
+
 	MENU_CONVERT_TO_FILE,
 	MENU_CONVERT_TO_FILES,
+
 	MENU_FIND_REPLACE,
 	MENU_DEBUGGER,
 	MENU_CONSOLE,
 	MENU_CLEAR_OUTPUT,
+
 	MENU_SETTINGS
 };
 
@@ -1079,7 +1086,7 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 	case MAIN_FILE:
 		menu.addItem (MENU_SAVE            , "Save");
 		menu.addItem (MENU_COMPILE         , "Save and compile");
-		menu.addItem (MENU_cOMPILE_ALL     , "Save and compile all");
+		menu.addItem (MENU_COMPILE_ALL     , "Save and compile all");
 		menu.addSeparator();
 		menu.addItem (MENU_CLOSE_TAB       , "Close current tab");
 		menu.addItem (MENU_CLOSE_ALL_TABS  , "Close all tabs");
@@ -1099,7 +1106,7 @@ PopupMenu CtrlrLuaMethodEditor::getMenuForIndex(int topLevelMenuIndex, const Str
 		menu.addItem (MENU_SETTINGS        , "Settings");
 		break;
 	default:
-		jassert(topMenuIndex < MAIN_FILE || topMenuIndex > MAIN_EDIT);
+		jassert(topLevelMenuIndex < MAIN_FILE || topLevelMenuIndex > MAIN_EDIT);
 	}
 	return (menu);
 }
@@ -1110,6 +1117,7 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 	case MENU_CLOSE:
 		if (isCurrentlyModal())
 			exitModalState(-1);
+
 		if (canCloseWindow()) {
 			owner.getWindowManager().toggle(CtrlrPanelWindowManager::LuaMethodEditor, false);
 		}
@@ -1132,12 +1140,12 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 		closeAllTabs();
 		break;
 	case MENU_CONVERT_TO_FILE:
-		convertToFile();
+		convertToFile(getCurrentEditor());
 		break;
 	case MENU_CONVERT_TO_FILES:
 		convertToFiles();
 		break;
-	case MENU_FIND_REPLACE:		
+	case MENU_FIND_REPLACE:
 		methodEditArea->showFindDialog();
 		break;
 	case MENU_DEBUGGER:
@@ -1145,7 +1153,7 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 		break;
 	case MENU_CONSOLE:
 		methodEditArea->showConsoleTab();
-		break
+		break;
 	case MENU_CLEAR_OUTPUT:
 		methodEditArea->clearOutputText();
 		break;
@@ -1160,6 +1168,7 @@ void CtrlrLuaMethodEditor::menuItemSelected(int menuItemID, int topLevelMenuInde
 					   COLOUR2STR (s.getColour()), nullptr);
 		break;
 	}
+	}
 }
 
 void CtrlrLuaMethodEditor::saveAndCompileAllMethods()
@@ -1171,6 +1180,37 @@ void CtrlrLuaMethodEditor::saveAndCompileAllMethods()
 		if (ed)
 		{
 			ed->saveAndCompileDocument();
+		}
+	}
+}
+
+void CtrlrLuaMethodEditor::convertToFile(WeakReference<CtrlrLuaMethodCodeEditor> editor)
+{
+	if (!editor)
+		return;
+	auto method = editor -> getMethod();
+	if (method)
+		convertToFile(method->getMethodTree());
+}
+
+
+void CtrlrLuaMethodEditor::convertToFile(ValueTree &item)
+{
+	/* TODO: implement */
+	// Show confirmation dialog
+	const String base_path = owner.getPanelLuaDirPath();
+	const int confirm = AlertWindow::showOkCancelBox(AlertWindow::QuestionIcon, "Convert to files", "Do you want to convert the Lua method to file (base path=" + base_path + ")?", "Yes", "No");
+	if (confirm == 1)
+	{
+		Result res = owner.convertLuaMethodToFile(item);
+		if (res.wasOk())
+		{
+			owner.luaManagerChanged();
+			triggerAsyncUpdate();
+		}
+		else
+		{
+			AlertWindow::showMessageBox(AlertWindow::WarningIcon, "Convert to file", "Failed to convert Lua method to file.\n" + res.getErrorMessage());
 		}
 	}
 }
