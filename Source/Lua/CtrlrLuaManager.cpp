@@ -109,6 +109,10 @@ CtrlrLuaManager::~CtrlrLuaManager()
 	}
 }
 
+#define LUA_USBLIBNAME "usb"
+LUALIB_API int luaopen_usb(lua_State *L);
+
+
 void CtrlrLuaManager::createLuaState()
 {
 	luaState 		= luaL_newstate();

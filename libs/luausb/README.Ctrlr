@@ -1,0 +1,6 @@
+Upgrade luausb
+==============
+
+after upgrading luausb the following steps must be performed:
+1. run gen.lua with a Lua 5.1 interpreter (or whatever is linked into Ctrlr)
+2. rename luaopen_module to luaopen_usb in usb.c
