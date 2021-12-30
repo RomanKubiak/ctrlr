@@ -45,8 +45,12 @@ class CtrlrLuaMethod : public ValueTree::Listener
 			FUNCTION = LUA_TFUNCTION,
 			USERDATA = LUA_TUSERDATA,
 			THREAD = LUA_TTHREAD,
-			NUMTAGS = LUA_NUMTAGS,
-			SCRIPT = LUA_NUMTAGS,
+			SCRIPT
+#if LUA_VERSION_NUM > 501
+			= LUA_NUMTAGS
+#endif
+			,
+			NUMTAGS = SCRIPT,
 			ERROR,
 			UNKNOWN,
 			DISABLED
@@ -110,7 +114,9 @@ inline bool CtrlrLuaMethod::isValid() const {
 	case FUNCTION:
 	case USERDATA:
 	case THREAD:
+#if LUA_VERSION_NUM > 501
 	case SCRIPT:
+#endif
 		return true;
 	case NONE:
 	case NIL:
