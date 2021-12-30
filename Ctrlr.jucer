@@ -1173,6 +1173,6 @@
   <LIVE_SETTINGS>
     <WINDOWS/>
     <OSX/>
-    <LINUX/>
+    <LINUX buildEnabled="1"/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>
