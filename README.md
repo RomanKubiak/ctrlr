@@ -2,7 +2,7 @@ CtrlrX
 =====
 
 CtlrX is an alternative fork of Roman Kubiak's Ctrlr.
-This project is ONLY aimed at delivering updates, a wiki, instruction and more that the community cannot share on the original Ctrlr github due to credential restrictions. 
+This project is ONLY aimed at delivering updates, a wiki, documentation, tutorials or anything that the community cannot share on the original Ctrlr github due to credential restrictions. 
 Let's keep the Ctrlr github alive and keep up with what we were all doing there. But for anything that deserves special credential unavailable there, just let's do it here on CtrlrX.
 
 
