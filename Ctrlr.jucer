@@ -14,6 +14,17 @@
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginProducesMidiOut,pluginIsMidiEffectPlugin,pluginEditorRequiresKeys"
               jucerFormatVersion="1">
   <MAINGROUP id="SRLsFb" name="Ctrlr">
+    <GROUP id="{AD1F00E9-96BC-9910-1A61-81A0E6046EE4}" name="libs">
+      <GROUP id="{7F1E7F51-816F-EAE9-444C-21A244C029B6}" name="luausb">
+        <FILE id="UTsfvD" name="compat.c" compile="1" resource="0" file="libs/luausb/compat.c"/>
+        <FILE id="FcJhcB" name="compat.h" compile="0" resource="0" file="libs/luausb/compat.h"/>
+        <FILE id="Ik5OND" name="enums.c" compile="1" resource="0" file="libs/luausb/enums.c"/>
+        <FILE id="Fjytxf" name="enums.h" compile="0" resource="0" file="libs/luausb/enums.h"/>
+        <FILE id="fALx76" name="structs.c" compile="1" resource="0" file="libs/luausb/structs.c"/>
+        <FILE id="bPYY15" name="structs.h" compile="0" resource="0" file="libs/luausb/structs.h"/>
+        <FILE id="VBHUhk" name="usb.c" compile="1" resource="0" file="libs/luausb/usb.c"/>
+      </GROUP>
+    </GROUP>
     <GROUP id="{BE407432-92DD-AEAB-3C70-AAE03FCD0B1D}" name="Source">
       <GROUP id="{F4D7C0F1-7F03-CB3F-30C6-F728F0E39FE2}" name="Misc">
         <GROUP id="{7F1E7F51-816F-EAE9-444C-21A244C029B6}" name="misc">
@@ -1084,7 +1095,7 @@
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
                 enableGNUExtensions="1" externalLibraries=":libbfd.a&#10;iberty&#10;"
                 vstLegacyFolder="Source/Misc/vst2sdk" extraCompilerFlags="-w"
-                linuxExtraPkgConfig="luabind lua52  x11 zlib">
+                linuxExtraPkgConfig="luabind lua51 libusb-1.0 x11 zlib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        headerPath="../../Source&#10;../../Source/Misc/misc&#10;../../Source/Misc/include&#10;dnl../../Source/Misc/lua/include&#10;dnl../../Source/Misc/luabind&#10;dnl../../Source/Misc/libusb/include&#10;dnl../../Source/Misc/boost&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"

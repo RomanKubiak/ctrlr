@@ -18449,7 +18449,7 @@ static const unsigned char temp_binary_data_76[] =
 "  </utility>\r\n"
 "\r\n"
 "  <utility name=\"json\" description=\"JSON implementation\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000004\" resource=\"json_lua\" />\r\n"
-"  <utility name=\"debugger\" description=\"clidebugger\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000005\" resource=\"debugger_lua\" />\r\n"
+"  <utility name=\"debug\" description=\"clidebugger\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000005\" resource=\"debugger_lua\" />\r\n"
 "  <utility name=\"inspect\" description=\"Lua table inspector\" alwaysUpdate=\"1\" uuid=\"00000000000000000000000000000006\" resource=\"inspect_lua\" />\r\n"
 "  </utilityMethods>\r\n"
 "</methods>\r\n";
@@ -18965,7 +18965,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
         case 0xfc902594:  numBytes = 49800; return RSRC_zip;
         case 0xa32a74e9:  numBytes = 84889; return CtrlrIDs_xml;
         case 0x4321d08a:  numBytes = 109; return CtrlrLuaClassTemplates_xml;
-        case 0x75a28bbf:  numBytes = 21578; return CtrlrLuaMethodTemplates_xml;
+        case 0x75a28bbf:  numBytes = 21567; return CtrlrLuaMethodTemplates_xml;
         case 0xcfea1483:  numBytes = 662; return CtrlrMidiMultiTemplate_xml;
         case 0xa5970535:  numBytes = 1963; return CtrlrMIDITransactions_xml;
         case 0x37e081fb:  numBytes = 15061; return CtrlrMIDIVendors_xml;

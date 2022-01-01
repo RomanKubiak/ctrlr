@@ -2,6 +2,12 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Ctrlr\libs\luausb">
+      <UniqueIdentifier>{9681085A-CCF9-7E05-8FA9-B9521B58D51D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr\libs">
+      <UniqueIdentifier>{2BA8F5D7-3ACC-8B00-F35C-15B9AE3670C5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Ctrlr\Source\Misc\luabind\luabind\detail">
       <UniqueIdentifier>{84894BA1-B5EE-5C33-5A32-4314D8F12282}</UniqueIdentifier>
     </Filter>
@@ -574,6 +580,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\libs\luausb\compat.c">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luausb\enums.c">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luausb\structs.c">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luausb\usb.c">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Misc\luabind\src\class.cpp">
       <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
     </ClCompile>
@@ -3210,6 +3228,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\libs\luausb\compat.h">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luausb\enums.h">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luausb\structs.h">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call.hpp">
       <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
     </ClInclude>
@@ -3458,9 +3485,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Misc\luabind\build_information.hpp">
       <Filter>Ctrlr\Source\Misc\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\include\inttypes.h">
-      <Filter>Ctrlr\Source\Misc\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Misc\include\juce_PluginHostType.h">
       <Filter>Ctrlr\Source\Misc\include</Filter>

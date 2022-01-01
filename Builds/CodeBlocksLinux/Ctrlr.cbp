@@ -361,6 +361,40 @@
       <Add library="udev"/>
       <Add library="bfd"/>
     </Linker>
+    <Unit filename="../../libs/luausb/compat.c">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/compat.h">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/enums.c">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/enums.h">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/structs.c">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/structs.h">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/usb.c">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
     <Unit filename="../../Source/Misc/luabind/luabind/detail/call.hpp">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
@@ -977,12 +1011,6 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
-    <Unit filename="../../Source/Misc/include/inttypes.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
     <Unit filename="../../Source/Misc/include/juce_PluginHostType.h">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
@@ -1118,74 +1146,110 @@
     <Unit filename="../../Source/Misc/libusb/src/compat.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/core.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/darwin_usb.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/descriptor.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/enums.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/hotplug.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/io.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/linux_udev.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/linux_usbfs.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/poll_posix.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/poll_windows.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/strerror.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/structs.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/sync.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/threads_posix.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/threads_windows.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/usb.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/libusb/src/windows_usb.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/lua/include/lauxlib.h">
       <Option target="Shared Code | Debug"/>

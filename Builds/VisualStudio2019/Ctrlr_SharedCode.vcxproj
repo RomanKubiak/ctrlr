@@ -265,6 +265,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\libs\luausb\compat.c"/>
+    <ClCompile Include="..\..\libs\luausb\enums.c"/>
+    <ClCompile Include="..\..\libs\luausb\structs.c"/>
+    <ClCompile Include="..\..\libs\luausb\usb.c"/>
     <ClCompile Include="..\..\Source\Misc\luabind\src\class.cpp"/>
     <ClCompile Include="..\..\Source\Misc\luabind\src\class_info.cpp"/>
     <ClCompile Include="..\..\Source\Misc\luabind\src\class_registry.cpp"/>
@@ -287,24 +291,60 @@
     <ClCompile Include="..\..\Source\Misc\luabind\src\stack_content_by_name.cpp"/>
     <ClCompile Include="..\..\Source\Misc\luabind\src\weak_ref.cpp"/>
     <ClCompile Include="..\..\Source\Misc\luabind\src\wrapper_base.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\compat.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\core.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\darwin_usb.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\descriptor.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\enums.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\hotplug.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\io.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\linux_udev.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\linux_usbfs.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\poll_posix.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\poll_windows.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\strerror.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\structs.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\sync.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\threads_posix.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\threads_windows.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\usb.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\windows_usb.c"/>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\compat.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\core.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\darwin_usb.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\descriptor.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\enums.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\hotplug.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\io.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\linux_udev.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\linux_usbfs.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\poll_posix.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\poll_windows.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\strerror.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\structs.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\sync.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\threads_posix.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\threads_windows.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\usb.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Misc\libusb\src\windows_usb.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Misc\lua\src\lua.c"/>
     <ClCompile Include="..\..\Source\Misc\keys.cpp"/>
     <ClCompile Include="..\..\Source\Misc\libr-bfd.c"/>
@@ -2372,6 +2412,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\libs\luausb\compat.h"/>
+    <ClInclude Include="..\..\libs\luausb\enums.h"/>
+    <ClInclude Include="..\..\libs\luausb\structs.h"/>
     <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call.hpp"/>
     <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call_function.hpp"/>
     <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call_member.hpp"/>
@@ -2455,7 +2498,6 @@
     <ClInclude Include="..\..\Source\Misc\luabind\luabind\wrapper_base.hpp"/>
     <ClInclude Include="..\..\Source\Misc\luabind\luabind\yield_policy.hpp"/>
     <ClInclude Include="..\..\Source\Misc\luabind\build_information.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\include\inttypes.h"/>
     <ClInclude Include="..\..\Source\Misc\include\juce_PluginHostType.h"/>
     <ClInclude Include="..\..\Source\Misc\include\keys.h"/>
     <ClInclude Include="..\..\Source\Misc\include\libr.h"/>

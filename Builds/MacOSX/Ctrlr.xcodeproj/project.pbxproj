@@ -28,7 +28,9 @@
 /* Begin PBXBuildFile section */
 		01537A5BF7E3EB4D960B4E98 /* CtrlrPanelCanvasHandlers.cpp */ = {isa = PBXBuildFile; fileRef = 999823AE3B2263235823375E; };
 		0292ED11D3E73A9830F29C70 /* shared_ptr_converter.cpp */ = {isa = PBXBuildFile; fileRef = ABD98E9A8D924584D3CC18F4; };
+		035F60E16C011DD484F7C0E9 /* compat.c */ = {isa = PBXBuildFile; fileRef = 481B9FA1C706C93141278914; };
 		03731AA3ADB665A9467007CF /* CtrlrMIDIDeviceManager.cpp */ = {isa = PBXBuildFile; fileRef = CA8274F000E932EA35A3F556; };
+		03AD1B09C2894B99CACCC318 /* structs.c */ = {isa = PBXBuildFile; fileRef = 85A1090EB91EF69F4547088C; };
 		03DBF39BABF6017F417D9C1E /* include_juce_audio_devices.mm */ = {isa = PBXBuildFile; fileRef = 9B735194E301AABE3BB9264C; };
 		041755B2B6348D54E6AF49BC /* CtrlrPanelUndoManager.cpp */ = {isa = PBXBuildFile; fileRef = 40A88138BF25BCB48FDF35E7; };
 		0463120343419B5F20C29428 /* CtrlrMIDISettingsDialog.cpp */ = {isa = PBXBuildFile; fileRef = F653F6EB304881DE57E0CB80; };
@@ -47,7 +49,6 @@
 		1823667626212E2AA677511E /* libr-bfd.c */ = {isa = PBXBuildFile; fileRef = CD1306996512A494035C90DF; };
 		18D977AAF8D3C5A8A5D43289 /* CtrlrDocumentPanel.cpp */ = {isa = PBXBuildFile; fileRef = 67F6E4993AD555303FA234D2; };
 		1C27E9263204CD6EA4709AE7 /* LJuce.cpp */ = {isa = PBXBuildFile; fileRef = 4AF81ACADA3736AF41DFEE34; };
-		1E39CDAF6B48FD6BBC99473D /* threads_windows.c */ = {isa = PBXBuildFile; fileRef = D4355B7EBCF4BEE21C2F3374; };
 		20966DFED6F515F0D85824BB /* include_juce_audio_plugin_client_Standalone.cpp */ = {isa = PBXBuildFile; fileRef = 89A3CF6F02D3A3BF2D2DCA37; };
 		20972EA8469A92454C352C51 /* CtrlrLuaPanelCanvasLayer.cpp */ = {isa = PBXBuildFile; fileRef = 50893BAA6A75C1BB54068890; };
 		210214F2F2EE40D73AF6FA5B /* CtrlrLuaManager.cpp */ = {isa = PBXBuildFile; fileRef = 6252E9E0F0C328E3DD2340A9; };
@@ -57,7 +58,6 @@
 		270D27903B9EE88454909712 /* IOKit.framework */ = {isa = PBXBuildFile; fileRef = FB1020E59256FCA5678E10C0; };
 		27C2973ADD37B7BB044B49FA /* CtrlrPanelCanvas.cpp */ = {isa = PBXBuildFile; fileRef = BE20E5EDD240944F2731C5B6; };
 		2828A22E215A8DE4463EF564 /* CtrlrPropertyComponent.cpp */ = {isa = PBXBuildFile; fileRef = C60D34CA69315C57E7623612; };
-		28DBC24171DB0BA4F4E05D85 /* threads_posix.c */ = {isa = PBXBuildFile; fileRef = A7050D4D35229D5E274BDCE3; };
 		29268E61B2983EB29C90EC94 /* include_juce_graphics.mm */ = {isa = PBXBuildFile; fileRef = B13B21B03D21AA2CB3109C2C; };
 		2A271EF14D74100A6BC09ABA /* CtrlrCustomComponent.cpp */ = {isa = PBXBuildFile; fileRef = 58AD9273120E1F3F80BD7A02; };
 		2ADDF9F7507373540F46EBBF /* CtrlrDialogWindow.cpp */ = {isa = PBXBuildFile; fileRef = B326A678CE2BBBFDBE722078; };
@@ -66,12 +66,9 @@
 		2E3A786008A91F2DC453A7C5 /* CtrlrComponent.cpp */ = {isa = PBXBuildFile; fileRef = EF39852FCADD658C65CF1CE6; };
 		2F385A4D2FDA79DA7ED19737 /* include_juce_core.mm */ = {isa = PBXBuildFile; fileRef = 7CBDFF9E1B2BA17DC8B5A0B4; };
 		3118E41297800A56D05B098A /* scope.cpp */ = {isa = PBXBuildFile; fileRef = BE28351BDE657B735B8BEBBD; };
-		32B37C56CD24284271628049 /* darwin_usb.c */ = {isa = PBXBuildFile; fileRef = BD273234F29DAB4984F03A19; };
 		336CE666536116E37E18E071 /* Shared Code */ = {isa = PBXBuildFile; fileRef = 75C913600A8B4A361ED6FABA; };
 		33B270B25FE3B508B5E303A3 /* CtrlrXYModulator.cpp */ = {isa = PBXBuildFile; fileRef = BB173D44637EC96BFC40804C; };
 		3643B1D8CE97C5E2ADF61487 /* CtrlrLuaMethodManagerCalls.cpp */ = {isa = PBXBuildFile; fileRef = D2322093D256369D02EBFA57; };
-		36B590AAA679A778657C42A8 /* usb.c */ = {isa = PBXBuildFile; fileRef = C94B9482DDBC07FB1B2AA293; };
-		37A3BC8FCFAA220A108852C7 /* strerror.c */ = {isa = PBXBuildFile; fileRef = B91E6C2B4E45307344899920; };
 		3826C45BD5C2869B7FA62651 /* CtrlrSettings.cpp */ = {isa = PBXBuildFile; fileRef = 72C10694B0567CA32B18E554; };
 		3ADB13894099A492A438938C /* CtrlrNative.cpp */ = {isa = PBXBuildFile; fileRef = DF9F0C668A3F12B1B80F9DF2; };
 		3D83529A260C7766608E767F /* CtrlrMidiInputComparatorMulti.cpp */ = {isa = PBXBuildFile; fileRef = 209AD43FE196CBCC9722DFB7; };
@@ -85,7 +82,6 @@
 		486270EC16BEDAF1B2817CFA /* CtrlrPanelProperties.cpp */ = {isa = PBXBuildFile; fileRef = 49CC10B1549F946C0C19507F; };
 		4A875D1A34781D0276A9501D /* CtrlrLuaConsole.cpp */ = {isa = PBXBuildFile; fileRef = 07058AFB9597851928CB22DC; };
 		4B0F1C40A9EDA61966FE65EB /* include_juce_audio_plugin_client_AU_1.mm */ = {isa = PBXBuildFile; fileRef = 3A4B4D0FA27B7B4F1ABCD2C6; };
-		4B36AF11AE1EB11947023986 /* structs.c */ = {isa = PBXBuildFile; fileRef = 185A99E339662A67EB028284; };
 		4D6D24160D269BC6105E97AA /* CoreAudioKit.framework */ = {isa = PBXBuildFile; fileRef = F85CFDF9218B29C4EB599A61; };
 		4E08CCE24227A3B8A13BD270 /* CtrlrMIDIDevice.cpp */ = {isa = PBXBuildFile; fileRef = E192B5A2D23F6ADC01724644; };
 		4FB8469490B9F2A75F709690 /* CtrlrMidiInputComparatorSingle.cpp */ = {isa = PBXBuildFile; fileRef = D3802907EB61FC407AD5BF6C; };
@@ -102,6 +98,7 @@
 		5CD4BBB5926478F3F728D298 /* LMemory.cpp */ = {isa = PBXBuildFile; fileRef = E1D7D54AA1884366EA7A3DC4; };
 		5D68ECA7FC99DA1C95FBEABD /* CtrlrLuaMethodEditor.cpp */ = {isa = PBXBuildFile; fileRef = 181F35806EBE0721FE0A6FA1; };
 		5DD8D0C06BA2FC010D13220F /* CtrlrComponentTypeManager.cpp */ = {isa = PBXBuildFile; fileRef = 32FDF036F718C55338A5E7BB; };
+		6014957D82FB1AC3A7D75615 /* usb.c */ = {isa = PBXBuildFile; fileRef = EF3B5520FEC76DF4A7AB0327; };
 		61890280C2289011B35A0DA9 /* lua51compat.cpp */ = {isa = PBXBuildFile; fileRef = B8AFDD29C107A759B9ECAB46; };
 		6242589F3E17894879A0C91C /* lua.c */ = {isa = PBXBuildFile; fileRef = D08CD5CC68C5EA7BBE1650F8; };
 		6295D31908D48C37464D1999 /* CoreAudio.framework */ = {isa = PBXBuildFile; fileRef = 593D7660193E39682A25569D; };
@@ -118,15 +115,12 @@
 		69BE59A7C352BE35E17EA6CC /* CtrlrLuaDebugger.cpp */ = {isa = PBXBuildFile; fileRef = 09A40761E2F8E7F822BF6F08; };
 		6A5E3423B67F5205308D4237 /* CtrlrEditorApplicationCommandsHandlers.cpp */ = {isa = PBXBuildFile; fileRef = E9FF546CBC0DCEFA30FB89F9; };
 		6ADD3336D286842DBA6CC3E0 /* include_juce_audio_plugin_client_AU_2.mm */ = {isa = PBXBuildFile; fileRef = AF17B083607B129AA2958B35; };
-		6D1A82DCBB00A25CCA9BEEA4 /* enums.c */ = {isa = PBXBuildFile; fileRef = 24906BD111F14AE0DAB8F52F; };
 		6E72844CBE0A68D7F4049CBE /* CtrlrTabsComponent.cpp */ = {isa = PBXBuildFile; fileRef = 75A69F42C76E845CA770AA6F; };
 		6EA5B81C5B3E7E72ED88D09F /* CtrlrEditorApplicationCommandsMenus.cpp */ = {isa = PBXBuildFile; fileRef = 4B8ECFC4500D1F940475D33D; };
 		702921C9870ADBEBFF7B2EBB /* CtrlrChildWindowContainer.cpp */ = {isa = PBXBuildFile; fileRef = 4C1AEDDFCFB8D98C02DC64D2; };
-		70CEDC04AED30F85E2E8A030 /* descriptor.c */ = {isa = PBXBuildFile; fileRef = C44ADBC0C6DA10D0436E00CD; };
 		723FA9CC3B56841D49EDBD63 /* QuartzCore.framework */ = {isa = PBXBuildFile; fileRef = 7CE5048906C588900968497C; };
 		726B7EF88E388838CDB6C33C /* CtrlrLuaMethodDebuggerInfo.cpp */ = {isa = PBXBuildFile; fileRef = DA6A368EACDFD93C93F4F488; };
 		729541049725A2F71F9F0632 /* class_info.cpp */ = {isa = PBXBuildFile; fileRef = 8216F6B1C0BAEF4C4E39DE50; };
-		72BEEBFA31BA21311D69E5B5 /* core.c */ = {isa = PBXBuildFile; fileRef = 9DA3C319781492A3ABA0E6E8; };
 		73C891A520C2EAF82E94B4F3 /* LComponents.cpp */ = {isa = PBXBuildFile; fileRef = 937FD0C3F539EE0A3826F487; };
 		7455B6EDB5666233591B235D /* CtrlrModulator.cpp */ = {isa = PBXBuildFile; fileRef = 38C21BA17D1250EB25BD3122; };
 		7612184F35F3845882E2E753 /* AVFoundation.framework */ = {isa = PBXBuildFile; fileRef = 6FCCE378C8BCCB24D7C319B4; };
@@ -141,7 +135,6 @@
 		7EAAA095F979CB59DC51A4E8 /* CtrlrMIDICalculator.cpp */ = {isa = PBXBuildFile; fileRef = E376EC92E643B3FC63AC79B6; };
 		7FD24E6C8459A60D0C2CCE7C /* include_juce_events.mm */ = {isa = PBXBuildFile; fileRef = ACFE138F6324F3110FCF9517; };
 		83EA12D8DEFFE1C9F83CA91D /* exception_handler.cpp */ = {isa = PBXBuildFile; fileRef = D2FA4EF0A09D0BD605FF0383; };
-		84706EFBCBCF9AEAC2F09677 /* windows_usb.c */ = {isa = PBXBuildFile; fileRef = 7931C92F3C2B3E66AAA3D97F; };
 		84E3CCD0A43090ECDDAB0635 /* CtrlrPanelResource.cpp */ = {isa = PBXBuildFile; fileRef = B78DF8DD848C1FB5951284E6; };
 		8616850E1A34A1D55AC161A7 /* include_juce_data_structures.mm */ = {isa = PBXBuildFile; fileRef = A50CC54909A4948E172790B6; };
 		8721C330CD1EF95438A7A7F0 /* CtrlrSlider.cpp */ = {isa = PBXBuildFile; fileRef = C085E2BECAA7EB82A03452C3; };
@@ -150,13 +143,11 @@
 		8896F9F4B342EA5A126EA0DA /* CtrlrLuaMethodEditArea.cpp */ = {isa = PBXBuildFile; fileRef = B84AAF260F550F97636440A1; };
 		8954E16B03FAA76D62EE3158 /* CtrlrLuaCodeTokeniser.cpp */ = {isa = PBXBuildFile; fileRef = F0B231FAB871110BAF83387B; };
 		8A64773A02ED90D611C39AED /* CtrlrPanelModulatorListTree.cpp */ = {isa = PBXBuildFile; fileRef = 333A99DA03736E2B0B858CA6; };
-		8AD7C3090952E4270E5A13E9 /* io.c */ = {isa = PBXBuildFile; fileRef = DCF0F6AFF5D48D1824376DBF; };
 		8CA3FCDBCB47BDB2BD781299 /* stack_content_by_name.cpp */ = {isa = PBXBuildFile; fileRef = 36BA7AC14909FA863329021A; };
 		8D75F02DC261EEC1F1B09050 /* CtrlrFilmStripPainter.cpp */ = {isa = PBXBuildFile; fileRef = 1B5EBEA0C6E225BF354E22CE; };
 		8DCBAE4D641C02C989AF45C4 /* CtrlrOwnedMidiMessage.cpp */ = {isa = PBXBuildFile; fileRef = 57EDF22F9D524B553E04681B; };
 		8F3C99466A71AD089E6EEEED /* CtrlrPanelCanvasLayer.cpp */ = {isa = PBXBuildFile; fileRef = 25DA8074BD470C385E9F1E3C; };
 		8FBA6E6BEF276F9D2BE74931 /* CtrlrGroup.cpp */ = {isa = PBXBuildFile; fileRef = 15DD9881CD03E6BE625AA250; };
-		8FD099358882F1DC7F7AF41B /* poll_windows.c */ = {isa = PBXBuildFile; fileRef = 2993452EE0E624FA60CA0BD2; };
 		90856D3FBC6E5DF2E6A7DD2F /* include_juce_audio_plugin_client_AU.r */ = {isa = PBXBuildFile; fileRef = E21D5F08F666793FCA646F34; };
 		91B0CCF559868F6620867367 /* error.cpp */ = {isa = PBXBuildFile; fileRef = DF0ECE0AE00BEE4A3BD75E07; };
 		95F872A6BC483F83DBFADE3A /* CtrlrPanelResourceManager.cpp */ = {isa = PBXBuildFile; fileRef = DC68E4C8F9D444E656E92A78; };
@@ -173,6 +164,7 @@
 		A2D803FEF38561690049C69D /* operator.cpp */ = {isa = PBXBuildFile; fileRef = 570172B266A3636C2F6805BF; };
 		A2D97E0A709FAA23101E1C5A /* CtrlrManagerInstance.cpp */ = {isa = PBXBuildFile; fileRef = D0C8E7234DFE3470BCA59314; };
 		A72CAA2144D6204835AE5EA2 /* pcall.cpp */ = {isa = PBXBuildFile; fileRef = 360904A251F89B5F46B227AB; };
+		A73D18536BD1182FF8D66923 /* enums.c */ = {isa = PBXBuildFile; fileRef = C40CBB4D2F666900F0D6E6F2; };
 		A983BD8FC3E91A01647E8C09 /* weak_ref.cpp */ = {isa = PBXBuildFile; fileRef = A27E0032E164381190E16C17; };
 		AD5F166D68B28CCC99A2F46B /* Cocoa.framework */ = {isa = PBXBuildFile; fileRef = 337D964741D139674F961A22; };
 		AEA98A58B96C35D0852AFB05 /* DiscRecording.framework */ = {isa = PBXBuildFile; fileRef = D93E69BEDA9388F3D0B0A272; };
@@ -184,12 +176,10 @@
 		B2E608A0E1DFA0F16D78323B /* CtrlrPanelCanvasLayers.cpp */ = {isa = PBXBuildFile; fileRef = 60079F9EA5FB601F22EDDDD5; };
 		B57CA9FD60AB95A2532E635D /* CtrlrMIDISettingsRouting.cpp */ = {isa = PBXBuildFile; fileRef = 56927D9546AD749540B086B5; };
 		B77A9926295F15A7AB55B006 /* CtrlrPanelLayerList.cpp */ = {isa = PBXBuildFile; fileRef = D0303AC8DCAF574EFFB40098; };
-		B8F417A65F552B086B64A82D /* linux_udev.c */ = {isa = PBXBuildFile; fileRef = 4D7B1509F94912B79DE29484; };
 		B9827771061A2343DCC3A322 /* CtrlrMethodEditorTabCloseButton.cpp */ = {isa = PBXBuildFile; fileRef = E1E0ED8B89E62933F8EB23AC; };
 		BA270228351CD249FFF67E0C /* CtrlrStandaloneWindow.cpp */ = {isa = PBXBuildFile; fileRef = AE4A7B6C5C59D70F11F076E3; };
 		BA7E7E79A81D8CD4B2706FBC /* wrapper_base.cpp */ = {isa = PBXBuildFile; fileRef = 24C200B0888933167CF79FF5; };
 		BB5FECD1529A249FE9FF0833 /* CtrlrComponentSelection.cpp */ = {isa = PBXBuildFile; fileRef = CA9DEEDADCB2C7A39E92EF86; };
-		BB9B5BA2D2BC483882146C73 /* compat.c */ = {isa = PBXBuildFile; fileRef = 9D26E90BA9CC5C4F847768D9; };
 		BD10950BB8EE4C3A7C43F566 /* LGraphics.cpp */ = {isa = PBXBuildFile; fileRef = 101F461C24698D720807FF44; };
 		BD821C4F742E0AC6503C0BC5 /* CtrlrMidiMessageEx.cpp */ = {isa = PBXBuildFile; fileRef = 330059CA536C3E6A859F4073; };
 		BE32DDC220AC5F5D22C358F0 /* CtrlrStandaloneApplication.cpp */ = {isa = PBXBuildFile; fileRef = 4E1A58DC3336FE4D629009CF; };
@@ -202,7 +192,6 @@
 		C68F81C138A41338DC7BF610 /* include_juce_audio_plugin_client_VST3.cpp */ = {isa = PBXBuildFile; fileRef = 76BCA983C0DF554780A5AA25; };
 		C794648005B60DC1D64BF63E /* link_compatibility.cpp */ = {isa = PBXBuildFile; fileRef = 8EFAAF77153A3176B7A8D2F2; };
 		C93902DB97F0EFB6EC8374A2 /* CtrlrFontManager.cpp */ = {isa = PBXBuildFile; fileRef = 64C4C2F02196A40EEF0D829E; };
-		CA30F86B59694DEC4045EDDC /* hotplug.c */ = {isa = PBXBuildFile; fileRef = 4355EFF6F6BB4F66DBEA5504; };
 		CB46E45328D3F094B21A72D8 /* CtrlrEditorApplicationCommands.cpp */ = {isa = PBXBuildFile; fileRef = ABCB5561CF889F8640B7FE66; };
 		CD4BF6BFD0FD960FA147072C /* class_rep.cpp */ = {isa = PBXBuildFile; fileRef = 1BA40EEED71E49303CA677FC; };
 		CE7B1DFE2743701162FDF56B /* keys.cpp */ = {isa = PBXBuildFile; fileRef = BCB4CC3578E6D34A889A3E85; };
@@ -210,7 +199,6 @@
 		D17195AFDE34D6296E1130C1 /* CtrlrValueTreeEditor.cpp */ = {isa = PBXBuildFile; fileRef = F11D202FCA2EEAF6C580CB8E; };
 		D1B7D5D5CA2C9767C5DDD99B /* CtrlrImageButton.cpp */ = {isa = PBXBuildFile; fileRef = 36DEF3C1EFAA9513B6C19886; };
 		D33398AF27EE7C7300175665 /* CtrlrMac.cpp */ = {isa = PBXBuildFile; fileRef = C39146732BAC126502DB50F3; };
-		D353DADC8711D39FEB228943 /* linux_usbfs.c */ = {isa = PBXBuildFile; fileRef = 24F784FABEB9402808B038EF; };
 		D3AF99B7D7E4AE31A602C466 /* CtrlrValueMap.cpp */ = {isa = PBXBuildFile; fileRef = 719C10F6CF942636B89EEDCB; };
 		D3F0FF55787E242D64DC8156 /* CtrlrXYSurface.cpp */ = {isa = PBXBuildFile; fileRef = D8028658582715EE580BF0F7; };
 		D4AD3DCD999CF5FD8E7A0FB4 /* CtrlrLuaObject.cpp */ = {isa = PBXBuildFile; fileRef = 0F4FFC8FA6F0787E2E3CE594; };
@@ -225,7 +213,6 @@
 		DC33D288EDC62951AEE63C93 /* CtrlrLinux.cpp */ = {isa = PBXBuildFile; fileRef = 4990686164A358741A334843; };
 		DCD233FA76E3EFAF2B15261F /* CtrlrEvaluationScopes.cpp */ = {isa = PBXBuildFile; fileRef = 60005658243801A3CDC76F96; };
 		DD2F1E96238D98022BB7863D /* BinaryData.cpp */ = {isa = PBXBuildFile; fileRef = DE0F2C692D7805D5676C419C; };
-		DE1421C63799555276C9809D /* sync.c */ = {isa = PBXBuildFile; fileRef = B4FBC58B684954F13EF955E6; };
 		DE56BE6EB8EC0552FB984599 /* CtrlrMidiKeyboard.cpp */ = {isa = PBXBuildFile; fileRef = D28CD13BA91539F021B708FA; };
 		DE90B2A785438E6659EA16CF /* CtrlrLuaMethodCodeEditor.cpp */ = {isa = PBXBuildFile; fileRef = 0E035C378F5533B238D6D9D0; };
 		DFCBC6338D04C672ED729CE8 /* Standalone Plugin */ = {isa = PBXBuildFile; fileRef = C8515F3F3AB5B7773D926D96; };
@@ -254,7 +241,6 @@
 		F7D833A1DBAF286D35533BD5 /* CtrlrMIDIFilter.cpp */ = {isa = PBXBuildFile; fileRef = F321210BC055AFED477AB53D; };
 		F7E697B5CA3B52065B134EFF /* CtrlrLuaMethodEditorTabs.cpp */ = {isa = PBXBuildFile; fileRef = 8FF2EAA892FB9A5AADDD3870; };
 		F80F33C2E34977C46EB7C641 /* include_juce_audio_utils.mm */ = {isa = PBXBuildFile; fileRef = 6B456D263B4BCDED0769CD25; };
-		F8336E4E62D7FA4EACB81A89 /* poll_posix.c */ = {isa = PBXBuildFile; fileRef = E3D4EE68B85AA3C3F741DA4C; };
 		F8A8A879FA62DBA456B0C300 /* create_class.cpp */ = {isa = PBXBuildFile; fileRef = 7B9BD09D1AF8A5B0C0569F61; };
 		FB5591398FE34A2F34E6F373 /* CtrlrPanelLayerListItem.cpp */ = {isa = PBXBuildFile; fileRef = 411B837E784F99F4C5BFB333; };
 		FC902DB43745961AFDB85846 /* CtrlrLuaObjectWrapper.cpp */ = {isa = PBXBuildFile; fileRef = 27C69DBD61287E2DD40DEC47; };
@@ -387,7 +373,6 @@
 		25DA8074BD470C385E9F1E3C /* CtrlrPanelCanvasLayer.cpp */ /* CtrlrPanelCanvasLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrPanelCanvasLayer.cpp; path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelCanvasLayer.cpp; sourceTree = SOURCE_ROOT; };
 		26A74C89ED81C51334CEE2D3 /* CtrlrLuaBigInteger.cpp */ /* CtrlrLuaBigInteger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaBigInteger.cpp; path = ../../Source/Lua/Deprecated/CtrlrLuaBigInteger.cpp; sourceTree = SOURCE_ROOT; };
 		270BF048B0BC6E58E4469468 /* set_package_preload.cpp */ /* set_package_preload.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = set_package_preload.cpp; path = ../../Source/Misc/luabind/src/set_package_preload.cpp; sourceTree = SOURCE_ROOT; };
-		273F36B9B29DCF24C195E2A8 /* inttypes.h */ /* inttypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = inttypes.h; path = ../../Source/Misc/include/inttypes.h; sourceTree = SOURCE_ROOT; };
 		2770B29603AA65760C71E92C /* CtrlrPanelViewport.h */ /* CtrlrPanelViewport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrPanelViewport.h; path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelViewport.h; sourceTree = SOURCE_ROOT; };
 		27C69DBD61287E2DD40DEC47 /* CtrlrLuaObjectWrapper.cpp */ /* CtrlrLuaObjectWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaObjectWrapper.cpp; path = ../../Source/Lua/CtrlrLuaObjectWrapper.cpp; sourceTree = SOURCE_ROOT; };
 		27CAE87289FD0E0336928C0E /* constructor.hpp */ /* constructor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = constructor.hpp; path = ../../Source/Misc/luabind/luabind/detail/constructor.hpp; sourceTree = SOURCE_ROOT; };
@@ -417,6 +402,7 @@
 		31642C90C38BC4EB066E4E69 /* LMemoryInputStream.h */ /* LMemoryInputStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LMemoryInputStream.h; path = ../../Source/Lua/JuceClasses/LMemoryInputStream.h; sourceTree = SOURCE_ROOT; };
 		317C0DFB7B352CD7748F1616 /* call_operator_iterate.hpp */ /* call_operator_iterate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = call_operator_iterate.hpp; path = ../../Source/Misc/luabind/luabind/detail/call_operator_iterate.hpp; sourceTree = SOURCE_ROOT; };
 		31BE8CB521AD82EA0898F23F /* CtrlrLuaMethodDebuggerVars.cpp */ /* CtrlrLuaMethodDebuggerVars.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaMethodDebuggerVars.cpp; path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerVars.cpp; sourceTree = SOURCE_ROOT; };
+		31E5EE3132AB308B30A3A55F /* structs.h */ /* structs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = structs.h; path = ../../libs/luausb/structs.h; sourceTree = SOURCE_ROOT; };
 		32D65CC8930D223076EC2BF2 /* CtrlrLuaMethodDebuggerControls.cpp */ /* CtrlrLuaMethodDebuggerControls.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLuaMethodDebuggerControls.cpp; path = ../../Source/UIComponents/CtrlrLua/MethodEditor/CtrlrLuaMethodDebuggerControls.cpp; sourceTree = SOURCE_ROOT; };
 		32FDF036F718C55338A5E7BB /* CtrlrComponentTypeManager.cpp */ /* CtrlrComponentTypeManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrComponentTypeManager.cpp; path = ../../Source/UIComponents/CtrlrComponents/CtrlrComponentTypeManager.cpp; sourceTree = SOURCE_ROOT; };
 		330059CA536C3E6A859F4073 /* CtrlrMidiMessageEx.cpp */ /* CtrlrMidiMessageEx.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrMidiMessageEx.cpp; path = ../../Source/MIDI/CtrlrMidiMessageEx.cpp; sourceTree = SOURCE_ROOT; };
@@ -470,6 +456,7 @@
 		468B73C2B074FB8CF3869DBD /* class.hpp */ /* class.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = class.hpp; path = ../../Source/Misc/luabind/luabind/class.hpp; sourceTree = SOURCE_ROOT; };
 		469452B9CBD5CECF2C40527A /* juce_PluginHostType.h */ /* juce_PluginHostType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_PluginHostType.h; path = ../../Source/Misc/include/juce_PluginHostType.h; sourceTree = SOURCE_ROOT; };
 		46B2CCA273966E0C097201EF /* CtrlrIDs.h */ /* CtrlrIDs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrIDs.h; path = ../../Source/Core/CtrlrIDs.h; sourceTree = SOURCE_ROOT; };
+		481B9FA1C706C93141278914 /* compat.c */ /* compat.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = compat.c; path = ../../libs/luausb/compat.c; sourceTree = SOURCE_ROOT; };
 		48BA08BCAE35A39CE50503FC /* CtrlrPropertyComponent.h */ /* CtrlrPropertyComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrPropertyComponent.h; path = ../../Source/UIComponents/CtrlrPropertyEditors/CtrlrPropertyComponent.h; sourceTree = SOURCE_ROOT; };
 		4990686164A358741A334843 /* CtrlrLinux.cpp */ /* CtrlrLinux.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLinux.cpp; path = ../../Source/Native/CtrlrLinux.cpp; sourceTree = SOURCE_ROOT; };
 		49CC10B1549F946C0C19507F /* CtrlrPanelProperties.cpp */ /* CtrlrPanelProperties.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrPanelProperties.cpp; path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelProperties.cpp; sourceTree = SOURCE_ROOT; };
@@ -545,6 +532,7 @@
 		68F0C9669EB7659241F2B83F /* lauxlib.h */ /* lauxlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = lauxlib.h; path = ../../Source/Misc/lua/include/lauxlib.h; sourceTree = SOURCE_ROOT; };
 		698C663F5516A8A5EABEA70A /* CtrlrEditor.h */ /* CtrlrEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrEditor.h; path = ../../Source/UIComponents/CtrlrApplicationWindow/CtrlrEditor.h; sourceTree = SOURCE_ROOT; };
 		69D16D4DAD97A1303490E94D /* CtrlrMIDISettingsDevices.cpp */ /* CtrlrMIDISettingsDevices.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrMIDISettingsDevices.cpp; path = ../../Source/UIComponents/CtrlrMIDI/CtrlrMIDISettingsDevices.cpp; sourceTree = SOURCE_ROOT; };
+		69EA7855F7364613D364CCA9 /* enums.h */ /* enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = enums.h; path = ../../libs/luausb/enums.h; sourceTree = SOURCE_ROOT; };
 		6A035C3CF21B1602F95AFFFA /* other.hpp */ /* other.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = other.hpp; path = ../../Source/Misc/luabind/luabind/detail/other.hpp; sourceTree = SOURCE_ROOT; };
 		6B26EF039BF0D99DEFA3A21A /* CtrlrLuaConverters.h */ /* CtrlrLuaConverters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrLuaConverters.h; path = ../../Source/Lua/CtrlrLuaConverters.h; sourceTree = SOURCE_ROOT; };
 		6B456D263B4BCDED0769CD25 /* include_juce_audio_utils.mm */ /* include_juce_audio_utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_utils.mm; path = ../../JuceLibraryCode/include_juce_audio_utils.mm; sourceTree = SOURCE_ROOT; };
@@ -614,6 +602,7 @@
 		846AE08C9904C669FFC65C94 /* LTimer.h */ /* LTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LTimer.h; path = ../../Source/Lua/JuceClasses/LTimer.h; sourceTree = SOURCE_ROOT; };
 		847EADA5B10E8E89A9BD7189 /* CtrlrLuaUtils.h */ /* CtrlrLuaUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrLuaUtils.h; path = ../../Source/Lua/CtrlrLuaUtils.h; sourceTree = SOURCE_ROOT; };
 		8493E6668F38FE93017FB412 /* function.hpp */ /* function.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = function.hpp; path = ../../Source/Misc/luabind/luabind/function.hpp; sourceTree = SOURCE_ROOT; };
+		85A1090EB91EF69F4547088C /* structs.c */ /* structs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = structs.c; path = ../../libs/luausb/structs.c; sourceTree = SOURCE_ROOT; };
 		85F1C3879B1B82D07708CAE9 /* CtrlrMidiInputComparatorMulti.h */ /* CtrlrMidiInputComparatorMulti.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrMidiInputComparatorMulti.h; path = ../../Source/MIDI/CtrlrMidiInputComparatorMulti.h; sourceTree = SOURCE_ROOT; };
 		866F198E6C9474074E22E8C5 /* FONT_Computerfont.ttf */ /* FONT_Computerfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; name = FONT_Computerfont.ttf; path = ../../Source/Resources/Fonts/FONT_Computerfont.ttf; sourceTree = SOURCE_ROOT; };
 		867BBECC7B1D8D377B005D67 /* LMidiMessage.h */ /* LMidiMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LMidiMessage.h; path = ../../Source/Lua/JuceClasses/LMidiMessage.h; sourceTree = SOURCE_ROOT; };
@@ -772,6 +761,7 @@
 		C2B8BCE7E7EEF6102642AB18 /* CtrlrListBox.h */ /* CtrlrListBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrListBox.h; path = ../../Source/UIComponents/CtrlrComponents/Specials/CtrlrListBox.h; sourceTree = SOURCE_ROOT; };
 		C31EC20F95074DD445F5D3A7 /* CtrlrLog.cpp */ /* CtrlrLog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLog.cpp; path = ../../Source/Core/CtrlrLog.cpp; sourceTree = SOURCE_ROOT; };
 		C39146732BAC126502DB50F3 /* CtrlrMac.cpp */ /* CtrlrMac.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrMac.cpp; path = ../../Source/Native/CtrlrMac.cpp; sourceTree = SOURCE_ROOT; };
+		C40CBB4D2F666900F0D6E6F2 /* enums.c */ /* enums.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = enums.c; path = ../../libs/luausb/enums.c; sourceTree = SOURCE_ROOT; };
 		C4131C7C5B0E9AA6718187C1 /* gen_LookAndFeelBase.cpp.sh */ /* gen_LookAndFeelBase.cpp.sh */ = {isa = PBXFileReference; lastKnownFileType = file.sh; name = gen_LookAndFeelBase.cpp.sh; path = ../../Source/Resources/Lua/gen_LookAndFeelBase.cpp.sh; sourceTree = SOURCE_ROOT; };
 		C44ADBC0C6DA10D0436E00CD /* descriptor.c */ /* descriptor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = descriptor.c; path = ../../Source/Misc/libusb/src/descriptor.c; sourceTree = SOURCE_ROOT; };
 		C4B7F59791333FA8F5349BF0 /* container_policy.hpp */ /* container_policy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = container_policy.hpp; path = ../../Source/Misc/luabind/luabind/container_policy.hpp; sourceTree = SOURCE_ROOT; };
@@ -784,6 +774,7 @@
 		C61519857998F17A3B0ABFE9 /* LGlobalFunctions.h */ /* LGlobalFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LGlobalFunctions.h; path = ../../Source/Lua/JuceClasses/LGlobalFunctions.h; sourceTree = SOURCE_ROOT; };
 		C688F5C3A3438CB89A1B8452 /* CtrlrLuaMethod.h */ /* CtrlrLuaMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrLuaMethod.h; path = ../../Source/Lua/Methods/CtrlrLuaMethod.h; sourceTree = SOURCE_ROOT; };
 		C6FFD19A15441991E9A53C01 /* gradient.svg */ /* gradient.svg */ = {isa = PBXFileReference; lastKnownFileType = file.svg; name = gradient.svg; path = ../../Source/Resources/Icons/gradient.svg; sourceTree = SOURCE_ROOT; };
+		C738053A5E6341F3311A3AEC /* compat.h */ /* compat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = compat.h; path = ../../libs/luausb/compat.h; sourceTree = SOURCE_ROOT; };
 		C73F1BB9399AC32F400FD9F2 /* CtrlrPanelComponentProperties.cpp */ /* CtrlrPanelComponentProperties.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrPanelComponentProperties.cpp; path = ../../Source/UIComponents/CtrlrPanel/CtrlrPanelComponentProperties.cpp; sourceTree = SOURCE_ROOT; };
 		C83EFA65C49C08A19915BB82 /* CtrlrHyperlink.h */ /* CtrlrHyperlink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrHyperlink.h; path = ../../Source/UIComponents/CtrlrComponents/Buttons/CtrlrHyperlink.h; sourceTree = SOURCE_ROOT; };
 		C8515F3F3AB5B7773D926D96 /* Standalone Plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ctrlr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -893,6 +884,7 @@
 		EDDB3BB866727E002077CACC /* get_pointer.hpp */ /* get_pointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = get_pointer.hpp; path = ../../Source/Misc/luabind/luabind/get_pointer.hpp; sourceTree = SOURCE_ROOT; };
 		EE946162F7EC9BCD5FE53F25 /* CtrlrLogViewer.cpp */ /* CtrlrLogViewer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrLogViewer.cpp; path = ../../Source/UIComponents/CtrlrLogViewer.cpp; sourceTree = SOURCE_ROOT; };
 		EF39852FCADD658C65CF1CE6 /* CtrlrComponent.cpp */ /* CtrlrComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CtrlrComponent.cpp; path = ../../Source/UIComponents/CtrlrComponents/CtrlrComponent.cpp; sourceTree = SOURCE_ROOT; };
+		EF3B5520FEC76DF4A7AB0327 /* usb.c */ /* usb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = usb.c; path = ../../libs/luausb/usb.c; sourceTree = SOURCE_ROOT; };
 		EF7D212089FCD7567EC4631D /* CtrlrManager.h */ /* CtrlrManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrManager.h; path = ../../Source/Core/CtrlrManager/CtrlrManager.h; sourceTree = SOURCE_ROOT; };
 		EF95FEFF52B25E51324EC7AB /* LTextEditor.h */ /* LTextEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LTextEditor.h; path = ../../Source/Lua/JuceClasses/LTextEditor.h; sourceTree = SOURCE_ROOT; };
 		EFCB90E7DE1CC51FA6A9F350 /* CtrlrWindows.h */ /* CtrlrWindows.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CtrlrWindows.h; path = ../../Source/Native/CtrlrWindows.h; sourceTree = SOURCE_ROOT; };
@@ -1392,7 +1384,6 @@
 		360F12C34F98388F10522CFA /* include */ = {
 			isa = PBXGroup;
 			children = (
-				273F36B9B29DCF24C195E2A8,
 				469452B9CBD5CECF2C40527A,
 				98291FFADA18C25ABE635931,
 				F299599DE4607201E82A83D2,
@@ -1464,6 +1455,7 @@
 		5CCB26571F5962886899F653 /* Ctrlr */ = {
 			isa = PBXGroup;
 			children = (
+				64B74C7EA6E91C73A51BF01B,
 				DAD7152268F4D0870C7A18F9,
 			);
 			name = Ctrlr;
@@ -1480,6 +1472,14 @@
 				AD641717FAB777BFB13EFE9F,
 			);
 			name = Source;
+			sourceTree = "<group>";
+		};
+		64B74C7EA6E91C73A51BF01B /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				939A42FC14EB0F53F00051B7,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 		6B7CD77E8C508F0DE2F39F73 /* Resources */ = {
@@ -1651,6 +1651,20 @@
 				EFCB90E7DE1CC51FA6A9F350,
 			);
 			name = Native;
+			sourceTree = "<group>";
+		};
+		939A42FC14EB0F53F00051B7 /* luausb */ = {
+			isa = PBXGroup;
+			children = (
+				481B9FA1C706C93141278914,
+				C738053A5E6341F3311A3AEC,
+				C40CBB4D2F666900F0D6E6F2,
+				69EA7855F7364613D364CCA9,
+				85A1090EB91EF69F4547088C,
+				31E5EE3132AB308B30A3A55F,
+				EF3B5520FEC76DF4A7AB0327,
+			);
+			name = luausb;
 			sourceTree = "<group>";
 		};
 		9DF5775D3E99EDB122DEECCB /* Plugin */ = {
@@ -2535,6 +2549,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				035F60E16C011DD484F7C0E9,
+				A73D18536BD1182FF8D66923,
+				03AD1B09C2894B99CACCC318,
+				6014957D82FB1AC3A7D75615,
 				780AAA7527BC489EAC9A3BFB,
 				729541049725A2F71F9F0632,
 				416B398718A231E18288B7A5,
@@ -2557,24 +2575,6 @@
 				8CA3FCDBCB47BDB2BD781299,
 				A983BD8FC3E91A01647E8C09,
 				BA7E7E79A81D8CD4B2706FBC,
-				BB9B5BA2D2BC483882146C73,
-				72BEEBFA31BA21311D69E5B5,
-				32B37C56CD24284271628049,
-				70CEDC04AED30F85E2E8A030,
-				6D1A82DCBB00A25CCA9BEEA4,
-				CA30F86B59694DEC4045EDDC,
-				8AD7C3090952E4270E5A13E9,
-				B8F417A65F552B086B64A82D,
-				D353DADC8711D39FEB228943,
-				F8336E4E62D7FA4EACB81A89,
-				8FD099358882F1DC7F7AF41B,
-				37A3BC8FCFAA220A108852C7,
-				4B36AF11AE1EB11947023986,
-				DE1421C63799555276C9809D,
-				28DBC24171DB0BA4F4E05D85,
-				1E39CDAF6B48FD6BBC99473D,
-				36B590AAA679A778657C42A8,
-				84706EFBCBCF9AEAC2F09677,
 				6242589F3E17894879A0C91C,
 				CE7B1DFE2743701162FDF56B,
 				1823667626212E2AA677511E,

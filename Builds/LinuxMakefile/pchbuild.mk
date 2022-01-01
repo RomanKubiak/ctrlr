@@ -1,7 +1,7 @@
 
 CFLAGS   = -g -pg    -fno-omit-frame-pointer -fno-common
 CXXFLAGS = $(CFLAGS)
-JUCE_LDFLAGS= 
+JUCE_LDFLAGS=
 
 
 include Makefile
@@ -9,32 +9,32 @@ include Makefile
 $(OBJECTS_STANDALONE_PLUGIN) $(RESOURCES) $(OBJECTS_SHARED_CODE): ../../Source/Core/stdafx.h.gch ../../Source/Core/stdafx_luabind.h.gch
 
 
-$(JUCE_OUTDIR)/stdafx.h.gch: ../../Source/Core/stdafx.h
-	@mkdir -p $(JUCE_OUTDIR)
+$(JUCE_OBJDIR)/stdafx.h.gch: ../../Source/Core/stdafx.h
+	@mkdir -p $(JUCE_OBJDIR)
 	@echo "CTRLR[linux]: Compile PCH"
 	@echo "stadfx.h"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) \
-		-MF "$(JUCE_OUTDIR)/stdafx.h.d" \
-		-o "$(JUCE_OUTDIR)/stdafx.h.gch" -c "../../Source/Core/stdafx.h"
+		-MF "$(JUCE_OBJDIR)/stdafx.h.d" \
+		-o "$(JUCE_OBJDIR)/stdafx.h.gch" -c "../../Source/Core/stdafx.h"
 
-../../Source/Core/stdafx.h.gch: clean.stamp $(JUCE_OUTDIR)/stdafx.h.gch
-	$(V_AT)if ! cmp "$(JUCE_OUTDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch"; \
+../../Source/Core/stdafx.h.gch: clean.stamp $(JUCE_OBJDIR)/stdafx.h.gch
+	$(V_AT)if ! cmp "$(JUCE_OBJDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch"; \
 	then  \
-		cp  "$(JUCE_OUTDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch" ; \
+		cp  "$(JUCE_OBJDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch" ; \
 	fi
 
-$(JUCE_OUTDIR)/stdafx_luabind.h.gch: ../../Source/Core/stdafx_luabind.h
-	@mkdir -p $(JUCE_OUTDIR)
+$(JUCE_OBJDIR)/stdafx_luabind.h.gch: ../../Source/Core/stdafx_luabind.h
+	@mkdir -p $(JUCE_OBJDIR)
 	@echo "CTRLR[linux]: Compile PCH"
 	@echo "stdafx_luabind.h"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) \
-		-MF "$(JUCE_OUTDIR)/stdafx_luabind.h.d" \
-		-o "$(JUCE_OUTDIR)/stdafx_luabind.h.gch" -c "../../Source/Core/stdafx_luabind.h"
+		-MF "$(JUCE_OBJDIR)/stdafx_luabind.h.d" \
+		-o "$(JUCE_OBJDIR)/stdafx_luabind.h.gch" -c "../../Source/Core/stdafx_luabind.h"
 
-../../Source/Core/stdafx_luabind.h.gch: clean.stamp $(JUCE_OUTDIR)/stdafx_luabind.h.gch
-	$(V_AT)if ! cmp "$(JUCE_OUTDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
+../../Source/Core/stdafx_luabind.h.gch: clean.stamp $(JUCE_OBJDIR)/stdafx_luabind.h.gch
+	$(V_AT)if ! cmp "$(JUCE_OBJDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
 	then  \
-		cp  "$(JUCE_OUTDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
+		cp  "$(JUCE_OBJDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
 	fi
 
 clean-$(CONFIG).stamp:
@@ -47,8 +47,8 @@ clean-$(CONFIG).stamp:
 clean.stamp: Makefile clean-$(CONFIG).stamp
 	touch clean.stamp
 
--include $(JUCE_OUTDIR)/stdafx_luabind.h.d
--include $(JUCE_OUTDIR)/stdafx.h.d
+-include $(JUCE_OBJDIR)/stdafx_luabind.h.d
+-include $(JUCE_OBJDIR)/stdafx.h.d
 
 test: $(JUCE_OUTDIR)/test
 
@@ -253,7 +253,7 @@ unloaded_objects = \
 	build/intermediate/Debug/include_juce_audio_formats_15f82001.o \
 	build/intermediate/Debug/include_juce_audio_plugin_client_utils_e32edaee.o \
 	build/intermediate/Debug/include_juce_audio_processors_10c03666.o \
-	build/intermediate/Debug/include_juce_audio_utils_9f9fb2d6.o 
+	build/intermediate/Debug/include_juce_audio_utils_9f9fb2d6.o
 TEST_LDFLAGS = \
 	build/intermediate/Debug/include_juce_core_f26d17db.o \
 	-Lbuild \
@@ -270,7 +270,7 @@ TEST_LDFLAGS = \
 	-l:libbfd.a \
 	-liberty \
 	-lz \
-	-lX11 
+	-lX11
 
 orig_TEST_LDFLAGS = \
 	build/intermediate/Debug/include_juce_core_f26d17db.o \
@@ -287,7 +287,7 @@ orig_TEST_LDFLAGS = \
 	-l:libbfd.a \
 	-liberty \
 	-lz \
-	-lX11 
+	-lX11
 
 others = \
 	build/intermediate/Debug/include_juce_data_structures_7471b1e3.o \
