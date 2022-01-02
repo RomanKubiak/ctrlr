@@ -38,6 +38,9 @@ jobs:
         # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
 
     steps:
+    - name: Install xmllint
+      run: sudo apt-get install -y libcurl4-gnutls-dev libasound2-dev binutils-dev libiberty-dev zlib1g-dev libx11-dev libusb-1.0-0-dev liblua5.1-dev liblua5.1-bitop-dev libboost-dev cmake
+
     - name: Checkout repository
       uses: actions/checkout@v2
 

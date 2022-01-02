@@ -24,6 +24,7 @@ done
 
 echo "CTRLR[linux]: Building for $HOSTTYPE, JOBS $MAXJOBS"
 #make -j$JOBS CONFIG=Release ARCH=$HOSTTYPE BINDIR=$BUILDDIR LIBDIR=$BUILDDIR OBJDIR=$BUILDDIR
+cmake ../../libs/luabind 
 make CONFIG=${CONFIG} -j${MAXJOBS} -f pchbuild.mk "$@"
 if [ $? -ne 0 ]; then
 	echo -e "CTRLR[linux]: build failed\n"

@@ -66,15 +66,18 @@ You need to install the following packages with your package
 manager. The package names are given for Debian based systems like
 Ubuntu. On other distributions the package names usually vary
 (e.g. “devel” instead of “dev”)
+- libasound2-dev
+- libcurl4-gnutls-dev
 - libudev-dev
 - binutils-dev
 - libiberty-dev
 - zlib1g-dev
 - libx11-dev
-- libusb-dev
+- libusb-dev or libusb-1.0-0-dev
 - liblua5.1-dev
 - liblua5.1-bitop-dev
 - libboost-dev
+- cmake
 
 A more complex solution exists in Scripts/post-commit, this script will build all solutions
 for the current architecture, it will also prepare the system for the build, unpack boost.zip
