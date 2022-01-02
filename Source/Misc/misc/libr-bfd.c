@@ -99,7 +99,7 @@ libr_intstatus open_handles(libr_file *file_handle, char *filename, libr_access_
 int keep_symbol(libr_section *sections, libr_section *chkscn)
 {
 	libr_section *scn;
-	
+
 	/* Check that the section is publicly exposed */
 	for(scn = sections; scn != NULL; scn = scn->next)
 	{
@@ -126,15 +126,15 @@ int keep_symbol(libr_section *sections, libr_section *chkscn)
  * Remove the symbol corresponding to a deleted section
  */
 void remove_sections(libr_section *sections, void *symtab_buffer, long *symtab_count)
-{ 
+{
 	asymbol **symtab = (asymbol **) symtab_buffer;
 	long i, cnt = *symtab_count;
-	
+
 	for(i=0;i<cnt;i++)
 	{
 		libr_section *chkscn = NULL;
 		asymbol *symbol = symtab[i];
-		
+
 		if(symbol != NULL)
 		{
 			#ifdef HAVE_BFD_2_34
@@ -160,7 +160,7 @@ int setup_sections(bfd *ihandle, bfd *ohandle)
 {
 	libr_section *iscn, *oscn;
 	bfd_vma vma;
-	
+
 	for(iscn = ihandle->sections; iscn != NULL; iscn = iscn->next)
 	{
 		if(
@@ -253,7 +253,7 @@ int build_output(libr_file *file_handle)
 	bfd *ihandle = file_handle->bfd_read;
 	long symtab_count, reloc_count;
 	libr_section *iscn, *oscn;
-	
+
 	if(!bfd_set_start_address(ohandle, bfd_get_start_address(ihandle)))
 	{
 		printf("failed to set start address: %s\n", bfd_errmsg(bfd_get_error()));
@@ -557,7 +557,7 @@ libr_intstatus set_data(libr_file *file_handle, libr_section *scn, libr_data *da
 libr_intstatus add_section(libr_file *file_handle, char *resource_name, libr_section **retscn)
 {
 	libr_section *scn = NULL;
-	
+
 	scn = bfd_make_section(file_handle->bfd_read, resource_name);
 	if(scn == NULL)
 		RETURN(LIBR_ERROR_NEWSECTION, "Failed to create new section");

@@ -905,7 +905,7 @@ void CtrlrLuaMethodEditor::itemClicked (const MouseEvent &e, ValueTree &item)
 		}
 		case CONVERT_TO_FILE:
 			jassert(item.hasType(Ids::luaMethod));
-			jassert((int)item.getProperty(Ids::luaMethodSource) == CtrlrLuaMethod::codeInFile);
+			jassert((int)item.getProperty(Ids::luaMethodSource) != CtrlrLuaMethod::codeInFile);
 			convertToFile(item);
 			break;
 		case REMOVE_METHOD: {

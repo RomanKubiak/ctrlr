@@ -35,7 +35,7 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := 
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DDEBUG=1" "-D_DEBUG=1" "-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=5.5" "-DJUCE_APP_VERSION_HEX=0x50500" $(shell pkg-config --cflags alsa freetype2 libcurl luabind lua52 x11 zlib) -pthread -I../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I../../Source/Misc/vst2sdk -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source -I../../Source/Misc/misc -I../../Source/Misc/include -Idnl../../Source/Misc/lua/include -Idnl../../Source/Misc/luabind -Idnl../../Source/Misc/libusb/include -Idnl../../Source/Misc/boost -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DDEBUG=1" "-D_DEBUG=1" "-DLUABIND_USE_CXX11=1" "-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1" "-DLUAUSB_API=__attribute__((visibility(\"default\")))" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=5.5" "-DJUCE_APP_VERSION_HEX=0x50500" $(shell pkg-config --cflags alsa freetype2 libcurl libusb-1.0 lua51 lua5.1-bitop x11 zlib) -pthread -I../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I../../Source/Misc/vst2sdk -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source -I../../Source/Misc/include -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua -I../../libs/luausb -I../../libs/luabind $(CPPFLAGS)
 
   JUCE_CPPFLAGS_VST :=  "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
@@ -62,7 +62,7 @@ ifeq ($(CONFIG),Debug)
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -g -ggdb -O0 -Wall -Wextra -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wsign-compare -Woverloaded-virtual -Wreorder -Wsign-conversion -Wunreachable-code -Wzero-as-null-pointer-constant -Wcast-align -Wno-implicit-fallthrough -Wno-maybe-uninitialized -Wno-missing-field-initializers -Wno-ignored-qualifiers -Wswitch-enum -Wredundant-decls -w $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=gnu++14 $(CXXFLAGS)
-  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl luabind lua52 x11 zlib) -fvisibility=hidden -lrt -ldl -lpthread -l:libbfd.a -liberty $(LDFLAGS)
+  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl libusb-1.0 lua51 lua5.1-bitop x11 zlib) -fvisibility=hidden -lrt -ldl -lpthread -l:libbfd.a -liberty $(LDFLAGS)
 
   CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
@@ -77,7 +77,7 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := 
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DNDEBUG=1" "-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=5.5" "-DJUCE_APP_VERSION_HEX=0x50500" $(shell pkg-config --cflags alsa freetype2 libcurl luabind lua52 x11 zlib) -pthread -I../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I../../Source/Misc/vst2sdk -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source -I../../Source/Misc -I../../Source/Misc/include -Idnl../../Source/Misc/lua/include -Idnl../../Source/Misc/luabind -Idnl../../Source/Misc/libusb/include -Idnl../../Source/Misc/boost -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DNDEBUG=1" "-DLUABIND_USE_CXX11=1" "-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1" "-DLUAUSB_API=__attribute__((visibility(\"default\")))" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=5.5" "-DJUCE_APP_VERSION_HEX=0x50500" $(shell pkg-config --cflags alsa freetype2 libcurl libusb-1.0 lua51 lua5.1-bitop x11 zlib) -pthread -I../../JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I../../Source/Misc/vst2sdk -I../../JuceLibraryCode -I../../JUCE/modules -I../../Source -I../../Source/Misc/include -I../../Source/MIDI -I../../Source/Core -I../../Source/Native -I../../Source/Plugin -I../../Source/UIComponents -I../../Source/Lua -I../../libs/luausb -I../../libs/luabind $(CPPFLAGS)
 
   JUCE_CPPFLAGS_VST :=  "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
@@ -102,9 +102,9 @@ ifeq ($(CONFIG),Release)
   JUCE_CPPFLAGS_SHARED_CODE :=  "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=1" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=1" "-DJucePlugin_Build_Unity=0" "-DJUCE_SHARED_CODE=1"
   JUCE_TARGET_SHARED_CODE := Ctrlr.a
 
-  JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -O3 -flto -w $(CFLAGS)
+  JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -O3 -w $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=gnu++14 $(CXXFLAGS)
-  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl luabind lua52 x11 zlib) -fvisibility=hidden -flto -lrt -ldl -lpthread -l:libbfd.a -liberty $(LDFLAGS)
+  JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl libusb-1.0 lua51 lua5.1-bitop x11 zlib) -fvisibility=hidden -lrt -ldl -lpthread -l:libbfd.a -liberty $(LDFLAGS)
 
   CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
@@ -273,6 +273,32 @@ OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/CtrlrTextEditor_e95be6c5.o \
   $(JUCE_OBJDIR)/CtrlrValueMap_3b250f6.o \
   $(JUCE_OBJDIR)/CtrlrValueTreeEditor_fdda055b.o \
+  $(JUCE_OBJDIR)/class_fed7fe47.o \
+  $(JUCE_OBJDIR)/class_info_f354d170.o \
+  $(JUCE_OBJDIR)/class_registry_bb8beeff.o \
+  $(JUCE_OBJDIR)/class_rep_a379ae25.o \
+  $(JUCE_OBJDIR)/create_class_eb3b9150.o \
+  $(JUCE_OBJDIR)/error_13105ed7.o \
+  $(JUCE_OBJDIR)/exception_handler_b8474c29.o \
+  $(JUCE_OBJDIR)/function_9524de33.o \
+  $(JUCE_OBJDIR)/function_introspection_f314ad6f.o \
+  $(JUCE_OBJDIR)/inheritance_14253d19.o \
+  $(JUCE_OBJDIR)/link_compatibility_252e1b46.o \
+  $(JUCE_OBJDIR)/lua51compat_3087db65.o \
+  $(JUCE_OBJDIR)/object_rep_18581f8.o \
+  $(JUCE_OBJDIR)/open_346acaa5.o \
+  $(JUCE_OBJDIR)/operator_9bc04cff.o \
+  $(JUCE_OBJDIR)/pcall_d3127c9d.o \
+  $(JUCE_OBJDIR)/scope_7ae7c523.o \
+  $(JUCE_OBJDIR)/set_package_preload_e8edfb02.o \
+  $(JUCE_OBJDIR)/shared_ptr_converter_ffd47a10.o \
+  $(JUCE_OBJDIR)/stack_content_by_name_2ec811c5.o \
+  $(JUCE_OBJDIR)/weak_ref_492c9ba7.o \
+  $(JUCE_OBJDIR)/wrapper_base_9ee12bd8.o \
+  $(JUCE_OBJDIR)/compat_a6901539.o \
+  $(JUCE_OBJDIR)/enums_2bd63085.o \
+  $(JUCE_OBJDIR)/structs_8843f1b1.o \
+  $(JUCE_OBJDIR)/usb_8e62fd77.o \
   $(JUCE_OBJDIR)/BinaryData_ce4232d4.o \
   $(JUCE_OBJDIR)/include_juce_audio_basics_8a4e984a.o \
   $(JUCE_OBJDIR)/include_juce_audio_devices_63111d02.o \
@@ -298,7 +324,7 @@ Standalone : $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)
 
 $(JUCE_OUTDIR)/$(JUCE_TARGET_VST) : $(OBJECTS_VST) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
-	@pkg-config --print-errors alsa freetype2 libcurl luabind lua52 x11 zlib
+	@pkg-config --print-errors alsa freetype2 libcurl libusb-1.0 lua51 lua5.1-bitop x11 zlib
 	@echo Linking "Ctrlr - VST"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
@@ -309,7 +335,7 @@ $(JUCE_OUTDIR)/$(JUCE_TARGET_VST) : $(OBJECTS_VST) $(RESOURCES) $(JUCE_OUTDIR)/$
 
 $(JUCE_OUTDIR)/$(JUCE_TARGET_VST3) : $(OBJECTS_VST3) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
-	@pkg-config --print-errors alsa freetype2 libcurl luabind lua52 x11 zlib
+	@pkg-config --print-errors alsa freetype2 libcurl libusb-1.0 lua51 lua5.1-bitop x11 zlib
 	@echo Linking "Ctrlr - VST3"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
@@ -321,7 +347,7 @@ $(JUCE_OUTDIR)/$(JUCE_TARGET_VST3) : $(OBJECTS_VST3) $(RESOURCES) $(JUCE_OUTDIR)
 
 $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) : $(OBJECTS_STANDALONE_PLUGIN) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
-	@pkg-config --print-errors alsa freetype2 libcurl luabind lua52 x11 zlib
+	@pkg-config --print-errors alsa freetype2 libcurl libusb-1.0 lua51 lua5.1-bitop x11 zlib
 	@echo Linking "Ctrlr - Standalone Plugin"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
@@ -330,7 +356,7 @@ $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) : $(OBJECTS_STANDALONE_PLUGIN) $
 
 $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) : $(OBJECTS_SHARED_CODE) $(RESOURCES)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
-	@pkg-config --print-errors alsa freetype2 libcurl luabind lua52 x11 zlib
+	@pkg-config --print-errors alsa freetype2 libcurl libusb-1.0 lua51 lua5.1-bitop x11 zlib
 	@echo Linking "Ctrlr - Shared Code"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
@@ -1111,6 +1137,136 @@ $(JUCE_OBJDIR)/CtrlrValueTreeEditor_fdda055b.o: ../../Source/UIComponents/CtrlrV
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling CtrlrValueTreeEditor.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/class_fed7fe47.o: ../../libs/luabind/src/class.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling class.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/class_info_f354d170.o: ../../libs/luabind/src/class_info.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling class_info.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/class_registry_bb8beeff.o: ../../libs/luabind/src/class_registry.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling class_registry.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/class_rep_a379ae25.o: ../../libs/luabind/src/class_rep.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling class_rep.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/create_class_eb3b9150.o: ../../libs/luabind/src/create_class.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling create_class.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/error_13105ed7.o: ../../libs/luabind/src/error.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling error.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/exception_handler_b8474c29.o: ../../libs/luabind/src/exception_handler.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling exception_handler.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/function_9524de33.o: ../../libs/luabind/src/function.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling function.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/function_introspection_f314ad6f.o: ../../libs/luabind/src/function_introspection.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling function_introspection.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/inheritance_14253d19.o: ../../libs/luabind/src/inheritance.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling inheritance.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/link_compatibility_252e1b46.o: ../../libs/luabind/src/link_compatibility.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling link_compatibility.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/lua51compat_3087db65.o: ../../libs/luabind/src/lua51compat.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling lua51compat.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/object_rep_18581f8.o: ../../libs/luabind/src/object_rep.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling object_rep.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/open_346acaa5.o: ../../libs/luabind/src/open.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling open.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/operator_9bc04cff.o: ../../libs/luabind/src/operator.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling operator.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/pcall_d3127c9d.o: ../../libs/luabind/src/pcall.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling pcall.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/scope_7ae7c523.o: ../../libs/luabind/src/scope.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling scope.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/set_package_preload_e8edfb02.o: ../../libs/luabind/src/set_package_preload.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling set_package_preload.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/shared_ptr_converter_ffd47a10.o: ../../libs/luabind/src/shared_ptr_converter.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling shared_ptr_converter.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/stack_content_by_name_2ec811c5.o: ../../libs/luabind/src/stack_content_by_name.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling stack_content_by_name.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/weak_ref_492c9ba7.o: ../../libs/luabind/src/weak_ref.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling weak_ref.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/wrapper_base_9ee12bd8.o: ../../libs/luabind/src/wrapper_base.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling wrapper_base.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/compat_a6901539.o: ../../libs/luausb/compat.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling compat.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/enums_2bd63085.o: ../../libs/luausb/enums.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling enums.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/structs_8843f1b1.o: ../../libs/luausb/structs.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling structs.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/usb_8e62fd77.o: ../../libs/luausb/usb.c
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling usb.c"
+	$(V_AT)$(CC) $(JUCE_CFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)

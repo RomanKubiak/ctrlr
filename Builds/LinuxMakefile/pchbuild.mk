@@ -1,6 +1,7 @@
 
-CFLAGS   = -g -pg    -fno-omit-frame-pointer -fno-common
+CFLAGS   = -g -pg -ggdb   -fno-omit-frame-pointer -fno-common -fsanitize=address -static-libasan
 CXXFLAGS = $(CFLAGS)
+LDFLAGS = -g -pg -ggdb   -fno-omit-frame-pointer -fno-common -fsanitize=address -static-libasan
 JUCE_LDFLAGS=
 
 
@@ -47,10 +48,23 @@ clean-$(CONFIG).stamp:
 clean.stamp: Makefile clean-$(CONFIG).stamp
 	touch clean.stamp
 
+$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN).dbg: $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)
+	@echo "Stripping Ctrlr (saving Debug information)"
+	-$(V_AT)objcopy --only-keep-debug "$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)" \
+			"$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN).dbg"
+	-$(V_AT)objcopy --strip-unneeded "$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)"
+	-$(V_AT)objcopy "--add-gnu-debuglink=$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN).dbg" \
+			"$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)"
+
+
 -include $(JUCE_OBJDIR)/stdafx_luabind.h.d
 -include $(JUCE_OBJDIR)/stdafx.h.d
 
 test: $(JUCE_OUTDIR)/test
+
+
+savedbg: $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN).dbg
+
 
 #TEST_LDFLAGS =  $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 unloaded_objects = \

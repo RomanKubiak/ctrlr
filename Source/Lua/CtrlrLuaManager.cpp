@@ -45,6 +45,9 @@
 #include "Deprecated/CtrlrLuaComponentAnimator.h"
 
 #include "luabind/class_info.hpp"
+extern "C" {
+#include "lua-bitop.h"
+}
 
 CtrlrLuaManager::CtrlrLuaManager(CtrlrPanel &_owner)
 	:	owner(_owner),
@@ -110,7 +113,7 @@ CtrlrLuaManager::~CtrlrLuaManager()
 }
 
 #define LUA_USBLIBNAME "usb"
-LUALIB_API int luaopen_usb(lua_State *L);
+extern "C" int luaopen_usb(lua_State *L);
 
 
 void CtrlrLuaManager::createLuaState()
