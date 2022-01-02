@@ -37,17 +37,21 @@ CtrlrEditor::CtrlrEditor (CtrlrProcessor *_ownerFilter, CtrlrManager &_owner)
 
 	addAndMakeVisible (&owner.getCtrlrDocumentPanel());
 
-	if (!JUCEApplication::isStandaloneApp())
+	if (!JUCEApplication::isStandaloneApp()) // If Ctrlr is !NOT run as a standalone app but as a plugin or shared lib
 	{
-	    if (owner.getInstanceMode() != InstanceSingleRestriced)
+	    if (owner.getInstanceMode() != InstanceSingleRestriced) // is !NOT restricted instance of the plugin
         {
-            /* Restricted instances don't get to be resizable */
-            addAndMakeVisible (&resizer);
-            resizer.setAlwaysOnTop (false);
+            addAndMakeVisible(&resizer);
+            resizer.setAlwaysOnTop(false);
             resizer.grabKeyboardFocus();
-            resizer.toFront (true);
+            resizer.toFront(true);
         }
-	}
+        else
+        {
+        	/* Restricted plugin instances don't get to be resizable */
+        	setResizable(false, false);
+        }
+    }
 
 	if (owner.getProperty (Ids::ctrlrEditorBounds).toString() != "")
 	{
@@ -111,7 +115,7 @@ void CtrlrEditor::resized()
 	}
 	else
 	{
-		owner.getCtrlrDocumentPanel().setBounds (0, 0, getWidth(), getHeight());
+		owner.getCtrlrDocumentPanel().setBounds (-1, 0, getWidth()+2, getHeight()+1); // Needs offsets -1 , 0 +2, +1 for Cubase to disable auto scrollbars and hide borders
 	}
 
 	resizer.setBounds (getWidth()-24, getHeight()-24, 24, 24);
