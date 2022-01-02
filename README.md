@@ -45,6 +45,8 @@ Configuration Properties - C/C++ - Command Line - "Inherit from parent or projec
 
 You need to set the creation of the precompiled header for the stdafx.cpp.
 
+Prior to building you must ensure that [libusb-1.0](https://github.com/libusb/libusb/wiki/Windows) is installed.
+
 If you don't have Introjucer/Projucer built, disable the "Pre-Build Event" for the
 Debug Configuration, or else it will fail. If you wish to re-create resources though
 point the correct path to Projucer.exe
@@ -59,6 +61,20 @@ A build.sh script is provided in Builds/Generated/Linux/Standalone, a symlink of
 script is location in Builds/Generated/Linux/VST and is used to create a precompiled header
 and then to trigger the build using make. You can do that manualy if you like just have
 a look at the script, it's really simple.
+
+You need to install the following packages with your package
+manager. The package names are given for Debian based systems like
+Ubuntu. On other distributions the package names usually vary
+(e.g. “devel” instead of “dev”)
+- libudev-dev
+- binutils-dev
+- libiberty-dev
+- zlib1g-dev
+- libx11-dev
+- libusb-dev
+- liblua5.1-dev
+- liblua5.1-bitop-dev
+- libboost-dev
 
 A more complex solution exists in Scripts/post-commit, this script will build all solutions
 for the current architecture, it will also prepare the system for the build, unpack boost.zip
