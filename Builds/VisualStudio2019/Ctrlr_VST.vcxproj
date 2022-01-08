@@ -106,7 +106,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Ctrlr.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -151,7 +151,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Ctrlr-x64.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -200,7 +200,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Ctrlr.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -246,7 +246,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Ctrlr-Win32.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>

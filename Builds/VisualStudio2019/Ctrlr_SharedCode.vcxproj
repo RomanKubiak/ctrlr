@@ -102,7 +102,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Ctrlr.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -143,7 +143,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Ctrlr-x64.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -188,7 +188,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Ctrlr.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -233,7 +233,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
-      <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)\Ctrlr-Win32.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -2368,7 +2368,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_data_structures.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_events.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_graphics.cpp"/>
-    <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp">
+      <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
