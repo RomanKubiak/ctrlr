@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="hrcYoO" name="CtrlrX" reportAppUsage="1" projectType="audioplug"
+<JUCERPROJECT id="hrcYoO" name="Ctrlr" reportAppUsage="1" projectType="audioplug"
               version="5.5" bundleIdentifier="com.instigator.Ctrlr" includeBinaryInAppConfig="1"
               cppLanguageStandard="14" buildVST="1" buildVST3="1" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
@@ -14,7 +14,7 @@
               jucerFormatVersion="1" pluginAUMainType="'aumu'" displaySplashScreen="1"
               pluginRTASDisableBypass="0" pluginRTASDisableMultiMono="0" pluginAAXDisableBypass="0"
               pluginAAXDisableMultiMono="0" pluginVST3Category="Tools">
-  <MAINGROUP id="SRLsFb" name="CtrlrX">
+  <MAINGROUP id="SRLsFb" name="Ctrlr">
     <GROUP id="{BE407432-92DD-AEAB-3C70-AAE03FCD0B1D}" name="Source">
       <GROUP id="{F4D7C0F1-7F03-CB3F-30C6-F728F0E39FE2}" name="Misc">
         <GROUP id="{E0E4DD68-0D44-4709-7B14-B00F9E7420BF}" name="luabind">
