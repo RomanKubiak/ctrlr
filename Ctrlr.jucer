@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="hrcYoO" name="Ctrlr" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Light" projectType="audioplug" version="5.5"
-              bundleIdentifier="com.instigator.Ctrlr" includeBinaryInAppConfig="1"
+<JUCERPROJECT id="hrcYoO" name="CtrlrX" reportAppUsage="1" projectType="audioplug"
+              version="5.5" bundleIdentifier="com.instigator.Ctrlr" includeBinaryInAppConfig="1"
               cppLanguageStandard="14" buildVST="1" buildVST3="1" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
               enableIAA="0" pluginName="Ctrlr" pluginDesc="Ctrlr" pluginManufacturer="Instigator"
@@ -10,10 +9,12 @@
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="1"
               pluginIsMidiEffectPlugin="1" pluginEditorRequiresKeys="1" pluginAUExportPrefix="CtrlrAU"
               pluginRTASCategory="" aaxIdentifier="com.instigator.Ctrlr" pluginAAXCategory="2"
-              companyName="Instigator" pluginFormats="buildVST,buildVST3,buildAU,buildAUv3,buildStandalone"
+              companyName="Instigator" pluginFormats="buildAU,buildAUv3,buildStandalone,buildVST,buildVST3"
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginProducesMidiOut,pluginIsMidiEffectPlugin,pluginEditorRequiresKeys"
-              jucerFormatVersion="1">
-  <MAINGROUP id="SRLsFb" name="Ctrlr">
+              jucerFormatVersion="1" pluginAUMainType="'aumu'" displaySplashScreen="1"
+              pluginRTASDisableBypass="0" pluginRTASDisableMultiMono="0" pluginAAXDisableBypass="0"
+              pluginAAXDisableMultiMono="0" pluginVST3Category="Tools">
+  <MAINGROUP id="SRLsFb" name="CtrlrX">
     <GROUP id="{BE407432-92DD-AEAB-3C70-AAE03FCD0B1D}" name="Source">
       <GROUP id="{F4D7C0F1-7F03-CB3F-30C6-F728F0E39FE2}" name="Misc">
         <GROUP id="{E0E4DD68-0D44-4709-7B14-B00F9E7420BF}" name="luabind">
@@ -1057,13 +1058,15 @@
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1"
-               enableGNUExtensions="0" extraCompilerFlags="-w">
+               enableGNUExtensions="0" extraCompilerFlags="-w" extraLinkerFlags="-Xlinker -headerpad -Xlinker 800"
+               xcodeValidArchs="x86_64" vstLegacyFolder="../../../../SDKs/VST_SDK/vst2sdk">
       <CONFIGURATIONS>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr"
-                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/Misc/vst2sdk&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"/>
+                       headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/Misc/vst2sdk&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
+                       osxArchitecture="64BitIntel"/>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr"
                        headerPath="../../Source&#10;../../Source/Misc&#10;../../Source/Misc/include&#10;../../Source/Misc/lua/include&#10;../../Source/Misc/luabind&#10;../../Source/Misc/libusb/include&#10;../../Source/Misc/boost&#10;../../Source/Misc/vst2sdk&#10;../../Source/MIDI&#10;../../Source/Core&#10;../../Source/Native&#10;../../Source/Plugin&#10;../../Source/UIComponents&#10;../../Source/Lua"
-                       enablePluginBinaryCopyStep="0"/>
+                       enablePluginBinaryCopyStep="0" osxArchitecture="64BitIntel"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="JUCE/modules"/>
@@ -1169,7 +1172,8 @@
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
-  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_WEB_BROWSER="0" JUCE_ENABLE_LIVE_CONSTANT_EDITOR="0"/>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_WEB_BROWSER="0" JUCE_ENABLE_LIVE_CONSTANT_EDITOR="0"
+               JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <LIVE_SETTINGS>
     <WINDOWS/>
     <OSX/>
