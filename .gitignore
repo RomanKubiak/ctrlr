@@ -10,4 +10,6 @@ Builds/*/*/*
 !Builds/LinuxMakefile/make_helpers/**
 
 Cmakefiles
+CMakeFiles
 CMakeCache.txt
+*.cmake
