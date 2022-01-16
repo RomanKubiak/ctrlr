@@ -613,8 +613,8 @@ void CtrlrPanel::removeModulator (CtrlrModulator *modulatorToDelete)
 
 		listeners.call (&CtrlrPanel::Listener::modulatorRemoved, modulatorToDelete);
 
-		ctrlrModulators.removeObject (modulatorToDelete);
 		panelTree.removeChild (modulatorToDelete->getModulatorTree(), 0);
+		ctrlrModulators.removeObject (modulatorToDelete);
 	}
 }
 
