@@ -6,7 +6,7 @@ This project is ONLY aimed at delivering updates, a wiki, documentation, tutoria
 Let's keep the Ctrlr github alive and keep up with what we were all doing there. But for anything that deserves special credentials unavailable there, just let's do it here on CtrlrX.
 
 
-TODO
+ToDo
 ----
 * Scalable UI upgrade (requires container callback on resize)
 * Implementation of the entire JUCE ValueTree Class
