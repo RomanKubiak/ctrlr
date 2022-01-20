@@ -50,29 +50,17 @@ Building
 
 Windows
 =======
-If you want to just build a specific version (Standalone/VST), you should open a project in
-Builds\Generated\Windows (Standalone is for VS2010, the rest of the folder are named based
-on the VS they correspond to). If you wish to use Codeblocks a project is there too.
 
-If the current commit does not because it complains about precompiled headers (you can easily
-see that the project is wrong if there is no x64 in the Configuration manager) you need
-to exclude some files from using precompiled headers, the files are:
+Summary will be added here in the future, links to pdf of build guides by @bijlevel can be found here
 
-*.c files in Misc
-*.cpp files in Juce Library Code
+# [Compiling on Windows 10](https://godlike.com.au/fileadmin/godlike/techtools/ctrlr/guides/Compiling_Ctrlr_for_Windows_10_v2.1.pdf)
 
-Also for those files you need to uncheck the option to inherit command line options
-Configuration Properties - C/C++ - Command Line - "Inherit from parent or project defaults"
 
-You need to set the creation of the precompiled header for the stdafx.cpp.
+macOS
+=====
 
-If you don't have Introjucer/Projucer built, disable the "Pre-Build Event" for the
-Debug Configuration, or else it will fail. If you wish to re-create resources though
-point the correct path to Projucer.exe
+# [Compiling on OSX](https://godlike.com.au/fileadmin/godlike/techtools/ctrlr/guides/My_guide_to_compiling_Ctrlr_for_macOS__Mojave__v2.pdf)
 
-In order to build all configurations and all platforms, you can open the
-Builds/Ctrlr_Release.sln solution, and build it, assuming that each individual solution
-builds (Standalone/VST x86/x64) all versions will be built in this solution.
 
 Linux
 =====
@@ -91,18 +79,3 @@ out the scp line in post-commit.
 The post-commit script takes an argument "clean" if you wish to clean all the intermididate
 files before building. If you want to ignore any package errors that it reports (i assume you
 know your system better then my script) then just add -f as an option when building.
-
-macOS
-=====
-Unzip boost or link your own boost library e.g. from [Homebrew](https://brew.sh):
-
-```
-# use packaged boost library
-cd Source/Misc/boost && unzip boost.zip
-# alternatively, link your own
-ln -s /opt/homebrew/Cellar/boost/BOOST_VERSION/include/boost Source/Misc/boost/boost
-```
-
-Open the Xcode project `Builds/MacOSX/Ctrlr.xcodeproj` and build it.
-
-In case of errors it might help to refresh the project files using Projuicer.
