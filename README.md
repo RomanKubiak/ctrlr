@@ -91,3 +91,7 @@ Tutorial coming soon
 
 ## AUv3 Support
 Tutorial coming soon
+
+# Credits
+* Thanks to @romankubiak for developing Ctrlr
+* Links to contributors coming soon
