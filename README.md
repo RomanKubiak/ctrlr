@@ -10,6 +10,11 @@ ToDo
 ----
 * Scalable UI upgrade (requires container callback on resize)
 * Implementation of the entire JUCE ValueTree Class
+* Implementation of the entire JUCE LookAndFeel class with all color schemes
+* File path needs to be updated on save while the panel ID is changed (Save vs. Save as...)
+* Modulators located within a tabs must have their properties updated while the tab properties are changed 
+* Allow earlier "Undo" after a modulator has been deleted
+* Export instance process must be improved (dialog alerts, overwriting existing file...)
 
 
 Changelog
