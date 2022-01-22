@@ -9,6 +9,7 @@ Let's keep the Ctrlr github alive and keep up with what we were all doing there.
 ToDo
 ----
 * Scalable UI upgrade (requires container callback on resize)
+* VST Host must get the panel name while exported as VST3 plugin (currently always named as Ctrlr | Instigator)
 * Implementation of the entire JUCE ValueTree Class
 * Implementation of the entire JUCE LookAndFeel class with all color schemes
 * Implementation of the entire JUCE ColourSelector class with built-in color picker popup for every color properties
