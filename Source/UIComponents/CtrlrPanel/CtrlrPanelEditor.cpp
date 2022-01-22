@@ -46,7 +46,7 @@ CtrlrPanelEditor::CtrlrPanelEditor(CtrlrPanel &_owner, CtrlrManager &_ctrlrManag
 	setProperty(Ids::uiPanelBackgroundColour, "0xffffffff");
 	setProperty(Ids::uiPanelBackgroundColour1, "0xffffffff");
 	setProperty(Ids::uiPanelBackgroundColour2, "0xffffffff");
-	setProperty(Ids::uiPanelBackgroundGradientType, 1);
+	setProperty(Ids::uiPanelBackgroundGradientType, 0); // Default set to none [No background gradient]
 	setProperty(Ids::uiPanelImageResource, COMBO_ITEM_NONE);
 	setProperty(Ids::uiPanelEditMode, true);
 	setProperty(Ids::uiPanelLock, false);

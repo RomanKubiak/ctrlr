@@ -34,7 +34,7 @@
   <id name="uiPanelImageResource" 			text="Panel background image" type="VarText"/>
   <id name="uiPanelBackgroundColour" 		text="Background colour" type="Colour"/>
   <id name="uiPanelBackgroundColour1" 		text="Background colour [1]" type="Colour" />
-  <id name="uiPanelBackgroundColour2" 		text="Background colour [1]" type="Colour" />
+  <id name="uiPanelBackgroundColour2" 		text="Background colour [2]" type="Colour" />
   <id name="uiPanelBackgroundGradientType" 	text="Background gradient type" type="VarNumeric" defaults="@gradient" />
   <id name="uiPanelSnapSize" 				text="Snap size" type="Text"/>
   <id name="uiPanelViewPortSize" 			text="Canvas size" type="Text"/>
@@ -507,7 +507,7 @@
   <!-- XY Surface -->
   <id name="uiXYSurfaceBgGradientType"                text="Background gradient type"           type="VarNumeric" defaults="@gradient"/>
   <id name="uiXYSurfaceBackgroundColour1"             text="Background colour1"                 type="Colour"/>
-  <id name="uiXYSurfaceBackgroundColour2"             text="Background colour1"                 type="Colour"/>
+  <id name="uiXYSurfaceBackgroundColour2"             text="Background colour2"                 type="Colour"/>
   <id name="uiXYSurfaceOutlineGradientType"           text="Outline gradient type"              type="VarNumeric" defaults="@gradient"/>
   <id name="uiXYSurfaceOutlineColour1"                text="Outline colour1"                    type="Colour"/>
   <id name="uiXYSurfaceOutlineColour2"                text="Outline colour2"                    type="Colour"/>
