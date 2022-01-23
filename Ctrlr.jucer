@@ -1041,12 +1041,13 @@
     </XCODE_MAC>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraDefs="JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1&#10;LUAUSB_API=__attribute__((visibility(&quot;default&quot;)))&#10;"
                 enableGNUExtensions="1" externalLibraries=":libbfd.a&#10;iberty&#10;&#10;&#10;"
-                vstLegacyFolder="Source/Misc/vst2sdk" extraCompilerFlags="-w"
+                vstLegacyFolder="Source/Misc/vst2sdk" extraCompilerFlags="-w -g -pg -ggdb "
                 linuxExtraPkgConfig="libusb-1.0 lua51 lua5.1-bitop x11 zlib"
-                smallIcon="mclA4s" bigIcon="mclA4s">
+                smallIcon="mclA4s" bigIcon="mclA4s" extraLinkerFlags="-g -pg -ggdb ">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Ctrlr-Debug"
                        recommendedWarnings="GCC"/>
+        <CONFIGURATION name="Release-sanitized" isDebug="0" optimisation="3" targetName="Ctrlr-Optimized"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Ctrlr"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

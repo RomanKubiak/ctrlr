@@ -9,7 +9,7 @@ else
     cat <<EOF
 usage $0 [Debug|Release]
 
-Please specify the configuration to be built. It should be either `Debug' or `Release'.
+Please specify the configuration to be built. It should be either `Debug', `Release-sanitized' or `Release'.
 EOF
 fi
 

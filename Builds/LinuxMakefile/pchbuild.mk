@@ -1,15 +1,17 @@
-
-CFLAGS   = -g -pg -ggdb   -fno-omit-frame-pointer -fno-common -fsanitize=address -static-libasan
-CXXFLAGS = $(CFLAGS)
-LDFLAGS = -g -pg -ggdb   -fno-omit-frame-pointer -fno-common -fsanitize=address -static-libasan
-JUCE_LDFLAGS=
+ifeq ($(CONFIG),Release)
+else
+  CFLAGS   = -fno-omit-frame-pointer -fno-common -fsanitize=address -static-libasan
+  CXXFLAGS = $(CFLAGS)
+  LDFLAGS = -fno-omit-frame-pointer -fno-common -fsanitize=address -static-libasan
+  JUCE_LDFLAGS=
+endif
 
 
 include Makefile
 
 $(OBJECTS_STANDALONE_PLUGIN) $(RESOURCES) $(OBJECTS_SHARED_CODE): ../../Source/Core/stdafx.h.gch ../../Source/Core/stdafx_luabind.h.gch
 
-
+$(JUCE_OBJDIR)/stdafx.h.d \
 $(JUCE_OBJDIR)/stdafx.h.gch: ../../Source/Core/stdafx.h
 	@mkdir -p $(JUCE_OBJDIR)
 	@echo "CTRLR[linux]: Compile PCH"
@@ -18,12 +20,13 @@ $(JUCE_OBJDIR)/stdafx.h.gch: ../../Source/Core/stdafx.h
 		-MF "$(JUCE_OBJDIR)/stdafx.h.d" \
 		-o "$(JUCE_OBJDIR)/stdafx.h.gch" -c "../../Source/Core/stdafx.h"
 
-../../Source/Core/stdafx.h.gch: clean.stamp $(JUCE_OBJDIR)/stdafx.h.gch
+../../Source/Core/stdafx.h.gch: $(JUCE_OBJDIR)/stdafx.h.gch
 	$(V_AT)if ! cmp "$(JUCE_OBJDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch"; \
 	then  \
 		cp  "$(JUCE_OBJDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch" ; \
 	fi
 
+$(JUCE_OBJDIR)/stdafx_luabind.h.d \
 $(JUCE_OBJDIR)/stdafx_luabind.h.gch: ../../Source/Core/stdafx_luabind.h
 	@mkdir -p $(JUCE_OBJDIR)
 	@echo "CTRLR[linux]: Compile PCH"
@@ -32,7 +35,7 @@ $(JUCE_OBJDIR)/stdafx_luabind.h.gch: ../../Source/Core/stdafx_luabind.h
 		-MF "$(JUCE_OBJDIR)/stdafx_luabind.h.d" \
 		-o "$(JUCE_OBJDIR)/stdafx_luabind.h.gch" -c "../../Source/Core/stdafx_luabind.h"
 
-../../Source/Core/stdafx_luabind.h.gch: clean.stamp $(JUCE_OBJDIR)/stdafx_luabind.h.gch
+../../Source/Core/stdafx_luabind.h.gch: $(JUCE_OBJDIR)/stdafx_luabind.h.gch
 	$(V_AT)if ! cmp "$(JUCE_OBJDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
 	then  \
 		cp  "$(JUCE_OBJDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
@@ -325,11 +328,12 @@ $(JUCE_OUTDIR)/test: test.cpp
 	$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/test $(JUCE_OUTDIR)/test.o $(TEST_LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
 
 printlinkcommand:
-	echo link command
-	echo "$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) $(OBJECTS_STANDALONE_PLUGIN) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) $(JUCE_LDFLAGS) $(JUCE_LDFLAGS_STANDALONE_PLUGIN) $(RESOURCES) $(TARGET_ARCH)"
-	echo VST2-depenency
-	echo "$(JUCE_OUTDIR)/$(JUCE_TARGET_VST)"
-	echo VST3-depenency
-	echo "$(JUCE_OUTDIR)/$(JUCE_TARGET_VST3)"
+	@echo "CONFIG=$(CONFIG)"
+	@echo link command
+	@echo "$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) $(OBJECTS_STANDALONE_PLUGIN) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) $(JUCE_LDFLAGS) $(JUCE_LDFLAGS_STANDALONE_PLUGIN) $(RESOURCES) $(TARGET_ARCH)"
+	@echo VST2 dependency
+	@echo "$(JUCE_OUTDIR)/$(JUCE_TARGET_VST)"
+	@echo VST3 dependency
+	@echo "$(JUCE_OUTDIR)/$(JUCE_TARGET_VST3)"
 
 
