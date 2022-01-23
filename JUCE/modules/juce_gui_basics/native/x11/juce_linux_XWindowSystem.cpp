@@ -1344,8 +1344,11 @@ namespace ClipboardHelpers
             {
                 // another application wants to know what we are able to send
                 numDataItems = 2;
-                propertyFormat = 32; // atoms are 32-bit
-                data.calloc (numDataItems * 4);
+                constexpr size_t atomSize = sizeof (Atom);
+                static_assert (atomSize == 8, "Atoms are 32-bit");
+                propertyFormat = atomSize * 4;
+                data.calloc (numDataItems * atomSize);
+
                 Atom* atoms = unalignedPointerCast<Atom*> (data.getData());
                 atoms[0] = XWindowSystem::getInstance()->getAtoms().utf8String;
                 atoms[1] = XA_STRING;
