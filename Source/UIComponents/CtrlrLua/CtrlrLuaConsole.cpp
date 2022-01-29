@@ -292,23 +292,24 @@ void CtrlrLuaConsole::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 	{
 		owner.getWindowManager().toggle (CtrlrPanelWindowManager::LuaConsole, false);
 	}
-	if (menuItemID == 2)
+	else if (menuItemID == 2)
 	{
 		snips.add (inputDocument.getAllContent());
+		owner.setProperty (Ids::uiLuaConsoleSnips, snips.joinIntoString("$"));
 	}
-	if (menuItemID >= 1024 && menuItemID < 4096)
+	else if (menuItemID >= 1024 && menuItemID < 4096)
 	{
 		runCode (snips[menuItemID-1024]);
 	}
-	if (menuItemID >= 4096)
+	else if (menuItemID >= 4096)
 	{
 		snips.remove (menuItemID-4096);
+		owner.setProperty (Ids::uiLuaConsoleSnips, snips.joinIntoString("$"));
 	}
-	if (menuItemID == 3)
+	else if (menuItemID == 3)
 	{
 		owner.setProperty (Ids::uiLuaConsoleInputRemoveAfterRun, !owner.getProperty(Ids::uiLuaConsoleInputRemoveAfterRun));
 	}
-	owner.setProperty (Ids::uiLuaConsoleSnips, snips.joinIntoString("$"));
 }
 
 void CtrlrLuaConsole::focusGained(FocusChangeType cause)
