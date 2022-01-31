@@ -17,7 +17,7 @@ ToDo
 * Modulators located within a tabs must have their properties updated while the tab properties are changed 
 * Allow earlier "Undo" after a modulator has been deleted
 * Export instance process must be improved (dialog alerts, overwriting existing file...)
-* VST Index Parameter must start at 0 not 1 in Hosts (now VST Index 0 in Ctrlr is Param 1 in Cubase)
+* VST Parameter Index must start at 0 not 1 in Hosts (now VST Index 0 in Ctrlr is Param 1 in Cubase)
 
 
 Changelog
