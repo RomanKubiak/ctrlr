@@ -52,7 +52,7 @@ Extend
 With the scripting possibilities inside Ctrlr you can extend you panels in various ways. The LUA scripting language gives you access to all panels elements and hooks to various events.
 
 
-# How to build CtrlrX
+# How to build Ctrlr
 
 
 ## Windows
