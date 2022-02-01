@@ -89,7 +89,7 @@ know your system better then my script) then just add -f as an option when build
 
 ## VST2 Support
 Since Steinberg has discontinued the VST2 API we no longer distribute a VST2. If you are a licensee to the VST2SDK, though, you can still build it. 
-The first thing is to be sure to check the path to the VST2 sdk (available in the VST3 sdk) in Projucer before calling any script builds.
+The first thing is to be sure to check the path to the VST2 sdk (only available from Steinberg's VST3 directory sdk) in Projucer before calling any script builds.
 
 ## VST3 Support
 Tutorial coming soon
