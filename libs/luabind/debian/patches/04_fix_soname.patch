@@ -1,0 +1,69 @@
+Author: Roberto C. Sanchez <roberto@connexer.com>
+Description: Allow better control over SONAME and specifying version on the command-line
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6810c19..bb309d6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -10,11 +10,22 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+ 
+ include(CheckCXXCompilerFlag)
+ 
+-set(CPACK_PACKAGE_VERSION_MAJOR "0")
+-set(CPACK_PACKAGE_VERSION_MINOR "9")
+-set(CPACK_PACKAGE_VERSION_PATCH "1")
+-set(CPACK_PACKAGE_VERSION
+-    "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
++if(NOT LUABIND_LIBRARY_VERSION)
++    set(LUABIND_LIBRARY_VERSION_MAJOR "0")
++    set(LUABIND_LIBRARY_VERSION_MINOR "9")
++    set(LUABIND_LIBRARY_VERSION_PATCH "1")
++    set(LUABIND_LIBRARY_VERSION
++        "${LUABIND_LIBRARY_VERSION_MAJOR}.${LUABIND_LIBRARY_VERSION_MINOR}.${LUABIND_LIBRARY_VERSION_PATCH}")
++else()
++    string(REGEX MATCHALL "[^.]+" VERSION ${LUABIND_LIBRARY_VERSION})
++    list (GET VERSION 0 LUABIND_LIBRARY_VERSION_MAJOR)
++    list (GET VERSION 1 LUABIND_LIBRARY_VERSION_MINOR)
++    list (GET VERSION 2 LUABIND_LIBRARY_VERSION_PATCH)
++endif()
++set(CPACK_PACKAGE_VERSION_MAJOR "${LUABIND_LIBRARY_VERSION_MAJOR}")
++set(CPACK_PACKAGE_VERSION_MINOR "${LUABIND_LIBRARY_VERSION_MINOR}")
++set(CPACK_PACKAGE_VERSION_PATCH "${LUABIND_LIBRARY_VERSION_PATCH}")
++set(CPACK_PACKAGE_VERSION "${LUABIND_LIBRARY_VERSION}")
+ 
+ list(APPEND CMAKE_MODULE_PATH
+     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
+diff --git a/doc/build-options.rst b/doc/build-options.rst
+index edee8e2..48b1e59 100644
+--- a/doc/build-options.rst
++++ b/doc/build-options.rst
+@@ -84,6 +84,9 @@ use the CMake equivalent of these options. Then, when building with CMake the
+    throws (e.g. the destructor of the proxy returned by ``call_function`` or
+    ``object::operator()``).
+ 
++``LUABIND_LIBRARY_VERSION``
++   Specify the version of luabind being built, in x.y.z form.
++
+ CMake options
+ ~~~~~~~~~~~~~
+ 
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 77c22b3..3bdff05 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -141,11 +141,12 @@ set_property(TARGET
+     "LuaBind Library")
+ 
+ if (LUABIND_APPEND_VERSION_SUFFIX)
+-    set_property(TARGET
++    set_target_properties(
+         luabind
+-        PROPERTY
+-        OUTPUT_NAME
+-        "luabind09")
++        PROPERTIES
++        SOVERSION ${LUABIND_LIBRARY_VERSION}
++        VERSION ${LUABIND_LIBRARY_VERSION}
++        OUTPUT_NAME "luabind")
+ else()
+     # This is neccesary when the LUABIND_APPEND_VERSION_SUFFIX variable is
+     # changed from ON to OFF.

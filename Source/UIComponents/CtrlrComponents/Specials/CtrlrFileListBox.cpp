@@ -324,7 +324,7 @@ void CtrlrFileListBox::fileClicked (const File &file, const MouseEvent &e)
 {
 	if (fileClickedCbk && !fileClickedCbk.wasObjectDeleted())
 	{
-		if (fileClickedCbk->isValid())
+		if (fileClickedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (fileClickedCbk, &owner, file);
 		}
@@ -335,7 +335,7 @@ void CtrlrFileListBox::fileDoubleClicked (const File &file)
 {
 	if (fileDoubleClickedCbk && !fileDoubleClickedCbk.wasObjectDeleted())
 	{
-		if (fileDoubleClickedCbk->isValid())
+		if (fileDoubleClickedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (fileDoubleClickedCbk, &owner, file);
 		}
@@ -347,7 +347,7 @@ void CtrlrFileListBox::deleteKeyPressed (const int value)
 {
 	if (itemDeleteKeyPressedCbk && !itemDeleteKeyPressedCbk.wasObjectDeleted())
 	{
-		if (itemDeleteKeyPressedCbk->isValid())
+		if (itemDeleteKeyPressedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemDeleteKeyPressedCbk, &owner, value);
 		}
@@ -358,7 +358,7 @@ void CtrlrFileListBox::returnKeyPressed (const int value)
 {
 	if (itemReturnKeyPressedCbk && !itemReturnKeyPressedCbk.wasObjectDeleted())
 	{
-		if (itemReturnKeyPressedCbk->isValid())
+		if (itemReturnKeyPressedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (itemReturnKeyPressedCbk, &owner, value);
 		}

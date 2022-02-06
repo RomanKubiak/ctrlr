@@ -1,0 +1,13 @@
+Author: Roberto C. Sanchez <roberto@connexer.com>
+Description: Place man pages in section 3
+--- luabind.git.orig/doc/conf.py
++++ luabind.git/doc/conf.py
+@@ -232,7 +232,7 @@
+ # (source start file, name, description, authors, manual section).
+ man_pages = [
+     ('index', 'luabind', u'Luabind Documentation',
+-     [u'Daniel Wallin, Arvid Norberg'], 1)
++     [u'Daniel Wallin, Arvid Norberg'], 3)
+ ]
+ 
+ # If true, show URL addresses after external links.

@@ -121,11 +121,18 @@ void CtrlrLuaDebugger::setBreakpoint(const int line, const String &fileName, con
 void CtrlrLuaDebugger::toggleBreakpoint(luabind::object &breakpoints, luabind::object &lineBreakpoints, int line, const String fileName, bool shouldBeSet)
 {
 }
+
+static void luaCtrlrCBreak()
+{
+	_WRN("Set a breakpoint on luaCtrlrCBreak in order to start debugging in ctrlrCBreak()");
+	do { JUCE_BREAK_IN_DEBUGGER } while (0);
+}
 void CtrlrLuaDebugger::wrapForLua(lua_State *L)
 {
     using namespace luabind;
     module(L)
     [
+        def("CBreak", &luaCtrlrCBreak),
         class_<CtrlrLuaDebugger>("CtrlrLuaDebugger")
             .def("write", &CtrlrLuaDebugger::dbgWrite)
             .def("read", (std::string (CtrlrLuaDebugger::*)(std::string)) &CtrlrLuaDebugger::dbgRead)

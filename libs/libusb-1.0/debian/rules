@@ -1,0 +1,50 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+override_dh_auto_clean:
+	dh_auto_clean --builddirectory build-deb
+	rm -fr $(CURDIR)/debian/tmp-deb
+	dh_auto_clean --builddirectory build-udeb
+	rm -fr $(CURDIR)/debian/tmp-udeb
+	dh_auto_clean --builddirectory build-doc
+	rm -fr $(CURDIR)/debian/tmp-doc
+
+
+#
+# Architecture targets
+#
+override_dh_auto_configure-arch:
+	dh_auto_configure --builddirectory build-deb -- --enable-tests-build
+	CFLAGS="$(CFLAGS) -Os" dh_auto_configure --builddirectory build-udeb -- --libdir=\$${prefix}/lib/
+
+override_dh_auto_build-arch:
+	dh_auto_build --builddirectory build-deb
+	dh_auto_build --builddirectory build-udeb
+
+override_dh_auto_install-arch:
+	dh_auto_install --builddirectory build-deb --destdir=$(CURDIR)/debian/tmp-deb
+	dh_auto_install --builddirectory build-udeb --destdir=$(CURDIR)/debian/tmp-udeb
+
+override_dh_install-arch:
+	dh_install -Nlibusb-1.0-0-udeb --sourcedir=debian/tmp-deb
+	dh_install -plibusb-1.0-0-udeb --sourcedir=debian/tmp-udeb
+
+override_dh_strip-arch:
+	dh_strip -plibusb-1.0-0
+	dh_strip -a --remaining-packages
+
+override_dh_auto_test-arch:
+ifneq (nocheck,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
+	$(CURDIR)/build-deb/tests/stress
+endif
+
+
+#
+# Architecture independent targets
+#
+override_dh_auto_configure-indep:
+	dh_auto_configure --builddirectory build-doc
+
+override_dh_auto_build-indep:
+	$(MAKE) -C $(CURDIR)/build-doc/doc docs

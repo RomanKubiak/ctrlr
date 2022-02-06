@@ -1,0 +1,9 @@
+Author: Enrico Tassi <gareuselesinge@debian.org>
+Description: No description.
+--- /dev/null
++++ lua-bitop-1.0.1/runall.lua
+@@ -0,0 +1,4 @@
++dofile'bittest.lua'
++dofile'bitbench.lua'
++dofile'md5test.lua'
++dofile'nsievebits.lua'

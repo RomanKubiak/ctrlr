@@ -1,0 +1,8 @@
+bin.v2
+bin
+doc/*.html
+doc/version.rst
+nppBackup/
+build/
+_build/
+*.kdev4

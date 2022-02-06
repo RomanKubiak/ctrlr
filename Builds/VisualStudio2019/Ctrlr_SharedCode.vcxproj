@@ -95,8 +95,8 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=5.5;JUCE_APP_VERSION_HEX=0x50500;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source/Misc/lua/include;../../Source;../../Source/Misc/include;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;../../libs/luausb;../../libs/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;LUABIND_USE_CXX11=1;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=5.5;JUCE_APP_VERSION_HEX=0x50500;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -136,8 +136,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=5.5;JUCE_APP_VERSION_HEX=0x50500;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source/Misc/lua/include;../../Source;../../Source/Misc/include;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;../../libs/luausb;../../libs/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;LUABIND_USE_CXX11=1;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=5.5;JUCE_APP_VERSION_HEX=0x50500;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -181,8 +181,8 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=5.5;JUCE_APP_VERSION_HEX=0x50500;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source/Misc/lua/include;../../Source;../../Source/Misc/include;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;../../libs/luausb;../../libs/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;LUABIND_USE_CXX11=1;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=5.5;JUCE_APP_VERSION_HEX=0x50500;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -226,8 +226,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source;../../Source/Misc;../../Source/Misc/include;../../Source/Misc/lua/include;../../Source/Misc/luabind;../../Source/Misc/boost;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=5.5;JUCE_APP_VERSION_HEX=0x50500;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\Source\Misc\vst2sdk;..\..\JuceLibraryCode;C:\JUCE\modules;../../Source/Misc/lua/include;../../Source;../../Source/Misc/include;../../Source/MIDI;../../Source/Core;../../Source/Native;../../Source/Plugin;../../Source/UIComponents;../../Source/Lua;../../libs/luausb;../../libs/luabind;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;LUABIND_USE_CXX11=1;JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=5.5;JUCE_APP_VERSION_HEX=0x50500;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -265,50 +265,12 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\class.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\class_info.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\class_registry.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\class_rep.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\create_class.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\error.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\exception_handler.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\function.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\function_introspection.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\inheritance.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\link_compatibility.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\lua51compat.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\object_rep.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\open.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\operator.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\pcall.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\scope.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\set_package_preload.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\shared_ptr_converter.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\stack_content_by_name.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\weak_ref.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\wrapper_base.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\compat.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\core.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\darwin_usb.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\descriptor.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\enums.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\hotplug.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\io.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\linux_udev.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\linux_usbfs.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\poll_posix.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\poll_windows.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\strerror.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\structs.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\sync.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\threads_posix.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\threads_windows.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\usb.c"/>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\windows_usb.c"/>
-    <ClCompile Include="..\..\Source\Misc\lua\src\lua.c"/>
-    <ClCompile Include="..\..\Source\Misc\keys.cpp"/>
-    <ClCompile Include="..\..\Source\Misc\libr-bfd.c"/>
-    <ClCompile Include="..\..\Source\Misc\libr.c"/>
+    <ClCompile Include="..\..\Source\Misc\misc\keys.cpp"/>
+    <ClCompile Include="..\..\Source\Misc\misc\libr-bfd.c"/>
+    <ClCompile Include="..\..\Source\Misc\misc\libr.c"/>
+    <ClCompile Include="..\..\Source\Misc\lua\src\lua.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Core\CtrlrManager\CtrlrManager.cpp"/>
     <ClCompile Include="..\..\Source\Core\CtrlrManager\CtrlrManagerInstance.cpp"/>
     <ClCompile Include="..\..\Source\Core\CtrlrManager\CtrlrManagerVst.cpp"/>
@@ -458,6 +420,32 @@
     <ClCompile Include="..\..\Source\UIComponents\CtrlrTextEditor.cpp"/>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrValueMap.cpp"/>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrValueTreeEditor.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\class.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\class_info.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\class_registry.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\class_rep.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\create_class.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\error.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\exception_handler.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\function.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\function_introspection.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\inheritance.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\link_compatibility.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\lua51compat.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\object_rep.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\open.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\operator.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\pcall.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\scope.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\set_package_preload.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\shared_ptr_converter.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\stack_content_by_name.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\weak_ref.cpp"/>
+    <ClCompile Include="..\..\libs\luabind\src\wrapper_base.cpp"/>
+    <ClCompile Include="..\..\libs\luausb\compat.c"/>
+    <ClCompile Include="..\..\libs\luausb\enums.c"/>
+    <ClCompile Include="..\..\libs\luausb\structs.c"/>
+    <ClCompile Include="..\..\libs\luausb\usb.c"/>
     <ClCompile Include="C:\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2372,112 +2360,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call_function.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call_member.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call_operator_iterate.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\class_registry.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\class_rep.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\constructor.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\convert_to_lua.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\debug.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\decorate_type.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\deduce_signature.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\enum_maker.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\format_signature.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\garbage_collector.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\has_get_pointer.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\inheritance.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\instance_holder.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\link_compatibility.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\make_instance.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\most_derived.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\object.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\object_call.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\object_rep.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\operator_id.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\other.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\pcall.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\pointee_sizeof.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\primitives.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\property.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\signature_match.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\stack_utils.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\typetraits.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\yes_no.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\adopt_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\back_reference.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\back_reference_fwd.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\class.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\class_info.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\config.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\container_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\copy_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\dependency_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\discard_result_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\error.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\error_callback_fun.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\exception_handler.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\from_stack.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\function.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\function_converter.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\function_introspection.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\get_main_thread.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\get_pointer.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\handle.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\intrusive_ptr_converter.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\iterator_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\lua_include.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\lua_state_fwd.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\luabind.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\make_function.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\nil.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\no_dependency.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\object.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\object_fwd.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\open.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\operator.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\out_value_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\prefix.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\raw_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\return_reference_to_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\scope.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\set_package_preload.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\shared_ptr_converter.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\stack.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\std_shared_ptr_converter.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\tag_function.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\typeid.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\value_wrapper.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\version.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\weak_ref.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\wrapper_base.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\yield_policy.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\luabind\build_information.hpp"/>
-    <ClInclude Include="..\..\Source\Misc\include\inttypes.h"/>
     <ClInclude Include="..\..\Source\Misc\include\juce_PluginHostType.h"/>
     <ClInclude Include="..\..\Source\Misc\include\keys.h"/>
     <ClInclude Include="..\..\Source\Misc\include\libr.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\compat.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\darwin_usb.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\enums.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\hotplug.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusb.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusb_linux.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusb_osx.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusb_windows.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusbi.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\linux_usbfs.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\poll_posix.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\poll_windows.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\structs.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\threads_posix.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\threads_windows.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\version.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\version_nano.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\windows_common.h"/>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\windows_usb.h"/>
     <ClInclude Include="..\..\Source\Misc\lua\include\lauxlib.h"/>
     <ClInclude Include="..\..\Source\Misc\lua\include\lua.h"/>
     <ClInclude Include="..\..\Source\Misc\lua\include\luaconf.h"/>
@@ -2693,6 +2578,91 @@
     <ClInclude Include="..\..\Source\UIComponents\CtrlrTextEditor.h"/>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrValueMap.h"/>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrValueTreeEditor.h"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\call.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\call_function.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\call_member.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\call_operator_iterate.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\class_registry.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\class_rep.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\constructor.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\convert_to_lua.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\debug.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\decorate_type.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\deduce_signature.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\enum_maker.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\format_signature.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\garbage_collector.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\has_get_pointer.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\inheritance.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\instance_holder.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\link_compatibility.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\make_instance.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\most_derived.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\object.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\object_call.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\object_rep.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\operator_id.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\other.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\pcall.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\pointee_sizeof.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\primitives.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\property.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\signature_match.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\stack_utils.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\typetraits.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\yes_no.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\adopt_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\back_reference.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\back_reference_fwd.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\class.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\class_info.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\config.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\container_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\copy_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\dependency_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\discard_result_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\error.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\error_callback_fun.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\exception_handler.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\from_stack.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\function.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\function_converter.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\function_introspection.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\get_main_thread.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\get_pointer.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\handle.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\intrusive_ptr_converter.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\iterator_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\lua_include.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\lua_state_fwd.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\luabind.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\make_function.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\nil.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\no_dependency.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\object.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\object_fwd.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\open.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\operator.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\out_value_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\prefix.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\raw_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\return_reference_to_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\scope.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\set_package_preload.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\shared_ptr_converter.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\stack.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\std_shared_ptr_converter.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\tag_function.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\typeid.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\value_wrapper.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\version.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\weak_ref.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\wrapper_base.hpp"/>
+    <ClInclude Include="..\..\libs\luabind\luabind\yield_policy.hpp"/>
+    <ClInclude Include="..\..\libs\luausb\compat.h"/>
+    <ClInclude Include="..\..\libs\luausb\enums.h"/>
+    <ClInclude Include="..\..\libs\luausb\structs.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -3451,11 +3421,6 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Source\Misc\luabind\build_information.hpp.cmake_in"/>
-    <None Include="..\..\Source\Misc\luabind\get-deps.sh"/>
-    <None Include="..\..\Source\Misc\luabind\INSTALL.txt"/>
-    <None Include="..\..\Source\Misc\luabind\LICENSE.txt"/>
-    <None Include="..\..\Source\Misc\luabind\README.md"/>
     <None Include="..\..\Source\Core\CtrlrRevision.template"/>
     <None Include="..\..\Source\Resources\Fonts\FONT_60sekuntia.ttf"/>
     <None Include="..\..\Source\Resources\Fonts\FONT_Computerfont.ttf"/>
@@ -3536,6 +3501,7 @@
     <None Include="..\..\Source\Resources\XML\CtrlrMidiMultiTemplate.xml"/>
     <None Include="..\..\Source\Resources\XML\CtrlrMIDITransactions.xml"/>
     <None Include="..\..\Source\Resources\XML\CtrlrMIDIVendors.xml"/>
+    <None Include="..\..\libs\luabind\src\CMakeLists.txt"/>
     <None Include="C:\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="C:\JUCE\modules\juce_audio_devices\native\oboe\readme.md"/>
     <None Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

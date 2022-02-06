@@ -2,29 +2,11 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Ctrlr\Source\Misc\luabind\luabind\detail">
-      <UniqueIdentifier>{84894BA1-B5EE-5C33-5A32-4314D8F12282}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr\Source\Misc\luabind\luabind">
-      <UniqueIdentifier>{AAAE515B-F358-BE48-012F-2C7074C3D6D0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr\Source\Misc\luabind\src">
-      <UniqueIdentifier>{FD0232C5-B86F-A39F-91E6-1FB9B7CEDA7F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr\Source\Misc\luabind">
-      <UniqueIdentifier>{7E6B1BE9-A6F4-83EE-3B40-EB1FAE4D6C72}</UniqueIdentifier>
+    <Filter Include="Ctrlr\Source\Misc\misc">
+      <UniqueIdentifier>{97C5EB2E-7301-DCBF-1D64-F3A27A5A4A9D}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr\Source\Misc\include">
       <UniqueIdentifier>{699F1F2C-B001-F34C-DC9E-C3D987ADC3B7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr\Source\Misc\libusb\include">
-      <UniqueIdentifier>{8288C076-1360-8891-DE0D-124284ADD798}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr\Source\Misc\libusb\src">
-      <UniqueIdentifier>{03EEB81D-189E-6425-D2DD-16BC3093497C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ctrlr\Source\Misc\libusb">
-      <UniqueIdentifier>{193E0FFD-31C5-C134-9F09-980B6F2EEB48}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr\Source\Misc\lua\include">
       <UniqueIdentifier>{9E833C57-9814-55C4-DD48-59CCD0464358}</UniqueIdentifier>
@@ -148,6 +130,24 @@
     </Filter>
     <Filter Include="Ctrlr\Source">
       <UniqueIdentifier>{5A4004B5-F730-F4D4-F816-938BE428F110}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr\libs\luabind\src">
+      <UniqueIdentifier>{84821CA1-4FEF-9E8F-5B2B-FB96099E9EC9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr\libs\luabind\luabind\detail">
+      <UniqueIdentifier>{C135793C-BF72-C721-5913-0B1730264183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr\libs\luabind\luabind">
+      <UniqueIdentifier>{064F4082-3DD8-492D-4604-E8BDDC5D6988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr\libs\luabind">
+      <UniqueIdentifier>{33940E39-B1F5-A72A-510A-217812E004CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr\libs\luausb">
+      <UniqueIdentifier>{9681085A-CCF9-7E05-8FA9-B9521B58D51D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ctrlr\libs">
+      <UniqueIdentifier>{2BA8F5D7-3ACC-8B00-F35C-15B9AE3670C5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ctrlr">
       <UniqueIdentifier>{90B37BCE-DCB9-508C-90DB-93CFA9081F9C}</UniqueIdentifier>
@@ -574,137 +574,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\class.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
+    <ClCompile Include="..\..\Source\Misc\misc\keys.cpp">
+      <Filter>Ctrlr\Source\Misc\misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\class_info.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
+    <ClCompile Include="..\..\Source\Misc\misc\libr-bfd.c">
+      <Filter>Ctrlr\Source\Misc\misc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\class_registry.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\class_rep.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\create_class.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\error.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\exception_handler.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\function.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\function_introspection.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\inheritance.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\link_compatibility.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\lua51compat.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\object_rep.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\open.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\operator.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\pcall.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\scope.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\set_package_preload.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\shared_ptr_converter.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\stack_content_by_name.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\weak_ref.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\luabind\src\wrapper_base.cpp">
-      <Filter>Ctrlr\Source\Misc\luabind\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\compat.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\core.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\darwin_usb.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\descriptor.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\enums.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\hotplug.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\io.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\linux_udev.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\linux_usbfs.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\poll_posix.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\poll_windows.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\strerror.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\structs.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\sync.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\threads_posix.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\threads_windows.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\usb.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libusb\src\windows_usb.c">
-      <Filter>Ctrlr\Source\Misc\libusb\src</Filter>
+    <ClCompile Include="..\..\Source\Misc\misc\libr.c">
+      <Filter>Ctrlr\Source\Misc\misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Misc\lua\src\lua.c">
       <Filter>Ctrlr\Source\Misc\lua\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\keys.cpp">
-      <Filter>Ctrlr\Source\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libr-bfd.c">
-      <Filter>Ctrlr\Source\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Misc\libr.c">
-      <Filter>Ctrlr\Source\Misc</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Core\CtrlrManager\CtrlrManager.cpp">
       <Filter>Ctrlr\Source\Core\CtrlrManager</Filter>
@@ -1152,6 +1032,84 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\UIComponents\CtrlrValueTreeEditor.cpp">
       <Filter>Ctrlr\Source\UIComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\class.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\class_info.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\class_registry.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\class_rep.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\create_class.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\error.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\exception_handler.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\function.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\function_introspection.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\inheritance.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\link_compatibility.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\lua51compat.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\object_rep.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\open.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\operator.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\pcall.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\scope.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\set_package_preload.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\shared_ptr_converter.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\stack_content_by_name.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\weak_ref.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luabind\src\wrapper_base.cpp">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luausb\compat.c">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luausb\enums.c">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luausb\structs.c">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\luausb\usb.c">
+      <Filter>Ctrlr\libs\luausb</Filter>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -3210,258 +3168,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call_function.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call_member.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\call_operator_iterate.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\class_registry.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\class_rep.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\constructor.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\convert_to_lua.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\debug.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\decorate_type.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\deduce_signature.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\enum_maker.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\format_signature.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\garbage_collector.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\has_get_pointer.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\inheritance.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\instance_holder.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\link_compatibility.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\make_instance.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\most_derived.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\object.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\object_call.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\object_rep.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\operator_id.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\other.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\pcall.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\pointee_sizeof.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\primitives.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\property.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\signature_match.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\stack_utils.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\typetraits.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\detail\yes_no.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\adopt_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\back_reference.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\back_reference_fwd.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\class.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\class_info.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\config.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\container_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\copy_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\dependency_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\discard_result_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\error.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\error_callback_fun.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\exception_handler.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\from_stack.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\function.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\function_converter.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\function_introspection.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\get_main_thread.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\get_pointer.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\handle.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\intrusive_ptr_converter.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\iterator_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\lua_include.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\lua_state_fwd.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\luabind.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\make_function.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\nil.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\no_dependency.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\object.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\object_fwd.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\open.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\operator.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\out_value_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\prefix.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\raw_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\return_reference_to_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\scope.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\set_package_preload.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\shared_ptr_converter.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\stack.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\std_shared_ptr_converter.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\tag_function.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\typeid.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\value_wrapper.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\version.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\weak_ref.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\wrapper_base.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\luabind\yield_policy.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\luabind\build_information.hpp">
-      <Filter>Ctrlr\Source\Misc\luabind</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\include\inttypes.h">
-      <Filter>Ctrlr\Source\Misc\include</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Misc\include\juce_PluginHostType.h">
       <Filter>Ctrlr\Source\Misc\include</Filter>
     </ClInclude>
@@ -3470,63 +3176,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Misc\include\libr.h">
       <Filter>Ctrlr\Source\Misc\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\compat.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\darwin_usb.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\enums.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\hotplug.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusb.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusb_linux.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusb_osx.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusb_windows.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\libusbi.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\linux_usbfs.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\poll_posix.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\poll_windows.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\structs.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\threads_posix.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\threads_windows.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\version.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\version_nano.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\windows_common.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Misc\libusb\include\windows_usb.h">
-      <Filter>Ctrlr\Source\Misc\libusb\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Misc\lua\include\lauxlib.h">
       <Filter>Ctrlr\Source\Misc\lua\include</Filter>
@@ -4172,6 +3821,261 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\UIComponents\CtrlrValueTreeEditor.h">
       <Filter>Ctrlr\Source\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\call.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\call_function.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\call_member.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\call_operator_iterate.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\class_registry.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\class_rep.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\constructor.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\convert_to_lua.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\debug.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\decorate_type.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\deduce_signature.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\enum_maker.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\format_signature.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\garbage_collector.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\has_get_pointer.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\inheritance.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\instance_holder.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\link_compatibility.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\make_instance.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\most_derived.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\object.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\object_call.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\object_rep.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\operator_id.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\other.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\pcall.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\pointee_sizeof.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\primitives.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\property.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\signature_match.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\stack_utils.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\typetraits.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\detail\yes_no.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\adopt_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\back_reference.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\back_reference_fwd.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\class.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\class_info.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\config.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\container_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\copy_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\dependency_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\discard_result_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\error.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\error_callback_fun.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\exception_handler.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\from_stack.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\function.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\function_converter.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\function_introspection.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\get_main_thread.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\get_pointer.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\handle.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\intrusive_ptr_converter.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\iterator_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\lua_include.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\lua_state_fwd.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\luabind.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\make_function.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\nil.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\no_dependency.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\object.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\object_fwd.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\open.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\operator.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\out_value_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\prefix.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\raw_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\return_reference_to_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\scope.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\set_package_preload.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\shared_ptr_converter.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\stack.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\std_shared_ptr_converter.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\tag_function.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\typeid.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\value_wrapper.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\version.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\weak_ref.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\wrapper_base.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luabind\luabind\yield_policy.hpp">
+      <Filter>Ctrlr\libs\luabind\luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luausb\compat.h">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luausb\enums.h">
+      <Filter>Ctrlr\libs\luausb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\luausb\structs.h">
+      <Filter>Ctrlr\libs\luausb</Filter>
     </ClInclude>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -6443,21 +6347,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Source\Misc\luabind\build_information.hpp.cmake_in">
-      <Filter>Ctrlr\Source\Misc\luabind</Filter>
-    </None>
-    <None Include="..\..\Source\Misc\luabind\get-deps.sh">
-      <Filter>Ctrlr\Source\Misc\luabind</Filter>
-    </None>
-    <None Include="..\..\Source\Misc\luabind\INSTALL.txt">
-      <Filter>Ctrlr\Source\Misc\luabind</Filter>
-    </None>
-    <None Include="..\..\Source\Misc\luabind\LICENSE.txt">
-      <Filter>Ctrlr\Source\Misc\luabind</Filter>
-    </None>
-    <None Include="..\..\Source\Misc\luabind\README.md">
-      <Filter>Ctrlr\Source\Misc\luabind</Filter>
-    </None>
     <None Include="..\..\Source\Core\CtrlrRevision.template">
       <Filter>Ctrlr\Source\Core</Filter>
     </None>
@@ -6697,6 +6586,9 @@
     </None>
     <None Include="..\..\Source\Resources\XML\CtrlrMIDIVendors.xml">
       <Filter>Ctrlr\Source\Resources\XML</Filter>
+    </None>
+    <None Include="..\..\libs\luabind\src\CMakeLists.txt">
+      <Filter>Ctrlr\libs\luabind\src</Filter>
     </None>
     <None Include="C:\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\oboe</Filter>

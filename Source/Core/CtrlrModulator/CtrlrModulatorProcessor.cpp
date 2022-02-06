@@ -49,7 +49,7 @@ void CtrlrModulatorProcessor::handleAsyncUpdate()
 	if (valueChangedCbk.get() && !owner.getRestoreState())
 	{
 		CtrlrPanel &ownerPanel = owner.getOwnerPanel();
-		if (!ownerPanel.getRestoreState() && !ownerPanel.getBootstrapState() && valueChangedCbk->isValid())
+		if (!ownerPanel.getRestoreState() && !ownerPanel.getBootstrapState() && valueChangedCbk->isCallable())
 		{
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (valueChangedCbk,
 																				&owner,
@@ -324,7 +324,7 @@ int CtrlrModulatorProcessor::getValueFromMidiMessage(const CtrlrMIDIDeviceType s
 
 	if (getValueFromMidiCbk)
 	{
-		if (!getValueFromMidiCbk.wasObjectDeleted() && getValueForMidiCbk->isValid())
+		if (!getValueFromMidiCbk.wasObjectDeleted() && getValueForMidiCbk->isCallable())
 		{
 			evaluationResult = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().callWithRet (getValueFromMidiCbk, &owner, getMidiMessage(source), evaluationResult);
 		}
@@ -477,7 +477,7 @@ int CtrlrModulatorProcessor::getValueForMidiMessage(const int value)
 
 	if (getValueForMidiCbk)
 	{
-		if (!getValueForMidiCbk.wasObjectDeleted() && getValueForMidiCbk->isValid())
+		if (!getValueForMidiCbk.wasObjectDeleted() && getValueForMidiCbk->isCallable())
 		{
 			evaluationResult = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().callWithRet (getValueForMidiCbk, &owner, evaluationResult);
 		}

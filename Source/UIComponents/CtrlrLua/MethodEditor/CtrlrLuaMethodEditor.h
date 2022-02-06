@@ -108,7 +108,9 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		PopupMenu getMenuForIndex(int topLevelMenuIndex, const String &menuName);
 		void menuItemSelected(int menuItemID, int topLevelMenuIndex);
 		void searchResultClicked (const String &methodName, const int lineNumber, const int resultPositionStart, const int resultPositionEnd);
-		void saveAndCompilAllMethods();
+		void saveAndCompileAllMethods();
+	        void convertToFile(WeakReference<CtrlrLuaMethodCodeEditor> codeEditor);
+		void convertToFile(ValueTree &item);
 		void convertToFiles();
 		/* Debugger stuff
 		*/
@@ -123,7 +125,7 @@ class CtrlrLuaMethodEditor  : public CtrlrChildWindowContent,
 		bool caseCansitive, findDialogActive;
 		String lookInString, searchInString, currentSearchString;
 
-	private:
+private:
 		WeakReference<CtrlrLuaMethodEditor>::Master masterReference;
 		friend class WeakReference<CtrlrLuaMethodEditor>;
 		File lastBrowsedSourceDir;

@@ -8,7 +8,7 @@
     <Option compiler="gcc"/>
     <Build>
       <Target title="Shared Code | Debug">
-        <Option output="bin/Debug/Ctrlr.a"
+        <Option output="bin/Debug/Ctrlr-Debug.a"
                 prefix_auto="1"
                 extension_auto="0"/>
         <Option object_output="obj/Debug"/>
@@ -18,6 +18,7 @@
           <Add option="-DLINUX=&quot;1&quot;"/>
           <Add option="-DDEBUG=&quot;1&quot;"/>
           <Add option="-D_DEBUG=&quot;1&quot;"/>
+          <Add option="-DLUABIND_USE_CXX11=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
           <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
@@ -46,19 +47,15 @@
           <Add directory="../../JuceLibraryCode"/>
           <Add directory="../../../../juce"/>
           <Add directory="../../Source"/>
-          <Add directory="../../Source/Misc"/>
           <Add directory="../../Source/Misc/include"/>
-          <Add directory="../../Source/Misc/lua/include"/>
-          <Add directory="../../Source/Misc/luabind"/>
-          <Add directory="../../Source/Misc/libusb/include"/>
-          <Add directory="../../Source/Misc/boost"/>
           <Add directory="../../Source/MIDI"/>
           <Add directory="../../Source/Core"/>
           <Add directory="../../Source/Native"/>
           <Add directory="../../Source/Plugin"/>
           <Add directory="../../Source/UIComponents"/>
           <Add directory="../../Source/Lua"/>
-          <Add directory="../../JUCE/modules"/>
+          <Add directory="../../libs/luausb"/>
+          <Add directory="../../libs/luabind"/>
           <Add directory="/usr/include/freetype2"/>
         </Compiler>
         <Linker>
@@ -70,17 +67,18 @@
         </Linker>
       </Target>
       <Target title="VST | Debug">
-        <Option output="bin/Debug/Ctrlr.so"
+        <Option output="bin/Debug/Ctrlr-Debug.so"
                 prefix_auto="0"
                 extension_auto="0"/>
         <Option object_output="obj/Debug"/>
         <Option type="3"/>
         <Option compiler="gcc"/>
-        <Option external_deps="bin/Debug/libCtrlr.a"/>
+        <Option external_deps="bin/Debug/libCtrlr-Debug.a"/>
         <Compiler>
           <Add option="-DLINUX=&quot;1&quot;"/>
           <Add option="-DDEBUG=&quot;1&quot;"/>
           <Add option="-D_DEBUG=&quot;1&quot;"/>
+          <Add option="-DLUABIND_USE_CXX11=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
           <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
@@ -108,23 +106,19 @@
           <Add directory="../../JuceLibraryCode"/>
           <Add directory="../../../../juce"/>
           <Add directory="../../Source"/>
-          <Add directory="../../Source/Misc"/>
           <Add directory="../../Source/Misc/include"/>
-          <Add directory="../../Source/Misc/lua/include"/>
-          <Add directory="../../Source/Misc/luabind"/>
-          <Add directory="../../Source/Misc/libusb/include"/>
-          <Add directory="../../Source/Misc/boost"/>
           <Add directory="../../Source/MIDI"/>
           <Add directory="../../Source/Core"/>
           <Add directory="../../Source/Native"/>
           <Add directory="../../Source/Plugin"/>
           <Add directory="../../Source/UIComponents"/>
           <Add directory="../../Source/Lua"/>
-          <Add directory="../../JUCE/modules"/>
+          <Add directory="../../libs/luausb"/>
+          <Add directory="../../libs/luabind"/>
           <Add directory="/usr/include/freetype2"/>
         </Compiler>
         <Linker>
-          <Add option="&quot;bin/Debug/libCtrlr.a&quot;"/>
+          <Add option="&quot;bin/Debug/libCtrlr-Debug.a&quot;"/>
           <Add option="-m64"/>
           <Add option="-shared"/>
           <Add option="&#96;pkg-config --libs alsa freetype2 libcurl&#96;"/>
@@ -135,17 +129,18 @@
         </Linker>
       </Target>
       <Target title="Standalone Plugin | Debug">
-        <Option output="bin/Debug/Ctrlr"
+        <Option output="bin/Debug/Ctrlr-Debug"
                 prefix_auto="1"
                 extension_auto="0"/>
         <Option object_output="obj/Debug"/>
         <Option type="0"/>
         <Option compiler="gcc"/>
-        <Option external_deps="bin/Debug/libCtrlr.a"/>
+        <Option external_deps="bin/Debug/libCtrlr-Debug.a"/>
         <Compiler>
           <Add option="-DLINUX=&quot;1&quot;"/>
           <Add option="-DDEBUG=&quot;1&quot;"/>
           <Add option="-D_DEBUG=&quot;1&quot;"/>
+          <Add option="-DLUABIND_USE_CXX11=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
           <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
@@ -173,23 +168,19 @@
           <Add directory="../../JuceLibraryCode"/>
           <Add directory="../../../../juce"/>
           <Add directory="../../Source"/>
-          <Add directory="../../Source/Misc"/>
           <Add directory="../../Source/Misc/include"/>
-          <Add directory="../../Source/Misc/lua/include"/>
-          <Add directory="../../Source/Misc/luabind"/>
-          <Add directory="../../Source/Misc/libusb/include"/>
-          <Add directory="../../Source/Misc/boost"/>
           <Add directory="../../Source/MIDI"/>
           <Add directory="../../Source/Core"/>
           <Add directory="../../Source/Native"/>
           <Add directory="../../Source/Plugin"/>
           <Add directory="../../Source/UIComponents"/>
           <Add directory="../../Source/Lua"/>
-          <Add directory="../../JUCE/modules"/>
+          <Add directory="../../libs/luausb"/>
+          <Add directory="../../libs/luabind"/>
           <Add directory="/usr/include/freetype2"/>
         </Compiler>
         <Linker>
-          <Add option="&quot;bin/Debug/libCtrlr.a&quot;"/>
+          <Add option="&quot;bin/Debug/libCtrlr-Debug.a&quot;"/>
           <Add option="-m64"/>
           <Add option="&#96;pkg-config --libs alsa freetype2 libcurl&#96;"/>
           <Add library="rt"/>
@@ -208,6 +199,7 @@
         <Compiler>
           <Add option="-DLINUX=&quot;1&quot;"/>
           <Add option="-DNDEBUG=&quot;1&quot;"/>
+          <Add option="-DLUABIND_USE_CXX11=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
           <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
@@ -234,6 +226,16 @@
           <Add directory="../../Source/Misc/vst2sdk"/>
           <Add directory="../../JuceLibraryCode"/>
           <Add directory="../../../../juce"/>
+          <Add directory="../../Source"/>
+          <Add directory="../../Source/Misc/include"/>
+          <Add directory="../../Source/MIDI"/>
+          <Add directory="../../Source/Core"/>
+          <Add directory="../../Source/Native"/>
+          <Add directory="../../Source/Plugin"/>
+          <Add directory="../../Source/UIComponents"/>
+          <Add directory="../../Source/Lua"/>
+          <Add directory="../../libs/luausb"/>
+          <Add directory="../../libs/luabind"/>
           <Add directory="/usr/include/freetype2"/>
         </Compiler>
         <Linker>
@@ -256,6 +258,7 @@
         <Compiler>
           <Add option="-DLINUX=&quot;1&quot;"/>
           <Add option="-DNDEBUG=&quot;1&quot;"/>
+          <Add option="-DLUABIND_USE_CXX11=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
           <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
@@ -281,6 +284,16 @@
           <Add directory="../../Source/Misc/vst2sdk"/>
           <Add directory="../../JuceLibraryCode"/>
           <Add directory="../../../../juce"/>
+          <Add directory="../../Source"/>
+          <Add directory="../../Source/Misc/include"/>
+          <Add directory="../../Source/MIDI"/>
+          <Add directory="../../Source/Core"/>
+          <Add directory="../../Source/Native"/>
+          <Add directory="../../Source/Plugin"/>
+          <Add directory="../../Source/UIComponents"/>
+          <Add directory="../../Source/Lua"/>
+          <Add directory="../../libs/luausb"/>
+          <Add directory="../../libs/luabind"/>
           <Add directory="/usr/include/freetype2"/>
         </Compiler>
         <Linker>
@@ -306,6 +319,7 @@
         <Compiler>
           <Add option="-DLINUX=&quot;1&quot;"/>
           <Add option="-DNDEBUG=&quot;1&quot;"/>
+          <Add option="-DLUABIND_USE_CXX11=&quot;1&quot;"/>
           <Add option="-DJUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=&quot;1&quot;"/>
           <Add option="-DJUCER_CODEBLOCKS_LINUX_191E0897=&quot;1&quot;"/>
           <Add option="-DJUCE_APP_VERSION=&quot;5.5&quot;"/>
@@ -331,6 +345,16 @@
           <Add directory="../../Source/Misc/vst2sdk"/>
           <Add directory="../../JuceLibraryCode"/>
           <Add directory="../../../../juce"/>
+          <Add directory="../../Source"/>
+          <Add directory="../../Source/Misc/include"/>
+          <Add directory="../../Source/MIDI"/>
+          <Add directory="../../Source/Core"/>
+          <Add directory="../../Source/Native"/>
+          <Add directory="../../Source/Plugin"/>
+          <Add directory="../../Source/UIComponents"/>
+          <Add directory="../../Source/Lua"/>
+          <Add directory="../../libs/luausb"/>
+          <Add directory="../../libs/luabind"/>
           <Add directory="/usr/include/freetype2"/>
         </Compiler>
         <Linker>
@@ -361,627 +385,17 @@
       <Add library="udev"/>
       <Add library="bfd"/>
     </Linker>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/call.hpp">
+    <Unit filename="../../Source/Misc/misc/keys.cpp">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
     </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/call_function.hpp">
+    <Unit filename="../../Source/Misc/misc/libr-bfd.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
     </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/call_member.hpp">
+    <Unit filename="../../Source/Misc/misc/libr.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/call_operator_iterate.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/class_registry.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/class_rep.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/constructor.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/convert_to_lua.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/debug.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/decorate_type.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/deduce_signature.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/enum_maker.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/format_signature.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/garbage_collector.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/has_get_pointer.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/inheritance.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/instance_holder.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/link_compatibility.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/make_instance.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/most_derived.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/object.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/object_call.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/object_rep.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/operator_id.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/other.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/pcall.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/pointee_sizeof.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/primitives.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/property.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/signature_match.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/stack_utils.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/typetraits.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/detail/yes_no.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/adopt_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/back_reference.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/back_reference_fwd.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/class.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/class_info.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/config.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/container_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/copy_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/dependency_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/discard_result_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/error.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/error_callback_fun.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/exception_handler.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/from_stack.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/function.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/function_converter.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/function_introspection.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/get_main_thread.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/get_pointer.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/handle.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/intrusive_ptr_converter.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/iterator_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/lua_include.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/lua_state_fwd.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/luabind.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/make_function.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/nil.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/no_dependency.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/object.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/object_fwd.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/open.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/operator.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/out_value_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/prefix.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/raw_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/return_reference_to_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/scope.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/set_package_preload.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/shared_ptr_converter.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/stack.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/std_shared_ptr_converter.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/tag_function.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/typeid.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/value_wrapper.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/version.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/weak_ref.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/wrapper_base.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/luabind/yield_policy.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/class.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/class_info.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/class_registry.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/class_rep.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/create_class.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/error.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/exception_handler.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/function.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/function_introspection.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/inheritance.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/link_compatibility.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/lua51compat.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/object_rep.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/open.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/operator.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/pcall.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/scope.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/set_package_preload.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/shared_ptr_converter.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/stack_content_by_name.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/weak_ref.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/src/wrapper_base.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/build_information.hpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/build_information.hpp.cmake_in">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/get-deps.sh">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/INSTALL.txt">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/LICENSE.txt">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/luabind/README.md">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/include/inttypes.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Misc/include/juce_PluginHostType.h">
       <Option target="Shared Code | Debug"/>
@@ -1000,192 +414,6 @@
       <Option target="Shared Code | Release"/>
       <Option compile="0"/>
       <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/compat.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/darwin_usb.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/enums.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/hotplug.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/libusb.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/libusb_linux.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/libusb_osx.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/libusb_windows.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/libusbi.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/linux_usbfs.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/poll_posix.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/poll_windows.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/structs.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/threads_posix.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/threads_windows.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/version.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/version_nano.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/windows_common.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/include/windows_usb.h">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/compat.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/core.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/darwin_usb.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/descriptor.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/enums.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/hotplug.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/io.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/linux_udev.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/linux_usbfs.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/poll_posix.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/poll_windows.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/strerror.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/structs.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/sync.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/threads_posix.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/threads_windows.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/usb.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libusb/src/windows_usb.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
     </Unit>
     <Unit filename="../../Source/Misc/lua/include/lauxlib.h">
       <Option target="Shared Code | Debug"/>
@@ -1214,18 +442,8 @@
     <Unit filename="../../Source/Misc/lua/src/lua.c">
       <Option target="Shared Code | Debug"/>
       <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/keys.cpp">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libr-bfd.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
-    </Unit>
-    <Unit filename="../../Source/Misc/libr.c">
-      <Option target="Shared Code | Debug"/>
-      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Core/CtrlrManager/CtrlrManager.cpp">
       <Option target="Shared Code | Debug"/>
@@ -3568,6 +2786,626 @@
       <Option target="Shared Code | Release"/>
       <Option compile="0"/>
       <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/class.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/class_info.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/class_registry.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/class_rep.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/CMakeLists.txt">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/create_class.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/error.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/exception_handler.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/function.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/function_introspection.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/inheritance.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/link_compatibility.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/lua51compat.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/object_rep.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/open.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/operator.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/pcall.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/scope.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/set_package_preload.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/shared_ptr_converter.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/stack_content_by_name.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/weak_ref.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/src/wrapper_base.cpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/call.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/call_function.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/call_member.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/call_operator_iterate.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/class_registry.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/class_rep.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/constructor.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/convert_to_lua.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/debug.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/decorate_type.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/deduce_signature.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/enum_maker.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/format_signature.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/garbage_collector.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/has_get_pointer.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/inheritance.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/instance_holder.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/link_compatibility.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/make_instance.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/most_derived.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/object.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/object_call.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/object_rep.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/operator_id.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/other.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/pcall.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/pointee_sizeof.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/primitives.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/property.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/signature_match.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/stack_utils.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/typetraits.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/detail/yes_no.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/adopt_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/back_reference.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/back_reference_fwd.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/class.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/class_info.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/config.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/container_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/copy_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/dependency_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/discard_result_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/error.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/error_callback_fun.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/exception_handler.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/from_stack.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/function.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/function_converter.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/function_introspection.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/get_main_thread.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/get_pointer.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/handle.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/intrusive_ptr_converter.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/iterator_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/lua_include.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/lua_state_fwd.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/luabind.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/make_function.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/nil.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/no_dependency.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/object.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/object_fwd.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/open.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/operator.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/out_value_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/prefix.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/raw_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/return_reference_to_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/scope.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/set_package_preload.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/shared_ptr_converter.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/stack.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/std_shared_ptr_converter.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/tag_function.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/typeid.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/value_wrapper.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/version.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/weak_ref.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/wrapper_base.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luabind/luabind/yield_policy.hpp">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/compat.c">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/compat.h">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/enums.c">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/enums.h">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/structs.c">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/structs.h">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../libs/luausb/usb.c">
+      <Option target="Shared Code | Debug"/>
+      <Option target="Shared Code | Release"/>
     </Unit>
     <Unit filename="../../../../juce/juce_audio_basics/audio_play_head/juce_AudioPlayHead.h">
       <Option target="Shared Code | Debug"/>

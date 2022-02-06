@@ -128,7 +128,11 @@ const Result CtrlrLinux::getDefaultPanel(MemoryBlock& dataToWrite)
 	temp.loadFileAsData (dataToWrite);
 	return (Result::ok());
 #endif
-	libr_file *handle = libr_open ( File::getSpecialLocation(File::hostApplicationPath).getFullPathName().toUTF8().getAddress(),
+	// keep the string until the end of the function
+	// libr just copys the address not the string
+	String path = File::getSpecialLocation(File::hostApplicationPath).getFullPathName();
+	CharPointer_UTF8 pathutf8 = path.toUTF8();
+	libr_file *handle = libr_open ( pathutf8.getAddress(),
 					LIBR_READ);
 
 	if (handle == nullptr)

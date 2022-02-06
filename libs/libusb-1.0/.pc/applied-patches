@@ -1,0 +1,2 @@
+01-linux_usbfs-Fix-parsing-of-descriptors-for-multi-con.patch
+02-linux_usbfs-Gracefully-handle-buggy-devices-with-a-c.patch

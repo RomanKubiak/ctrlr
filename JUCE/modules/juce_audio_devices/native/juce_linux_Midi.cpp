@@ -33,11 +33,10 @@ public:
     {
         jassert (instance == nullptr);
 
-        snd_seq_open (&handle, "default", SND_SEQ_OPEN_DUPLEX, 0);
+        snd_seq_open (&handle, "default", SND_SEQ_OPEN_DUPLEX, SND_SEQ_NONBLOCK);
 
         if (handle != nullptr)
         {
-            snd_seq_nonblock (handle, SND_SEQ_NONBLOCK);
             snd_seq_set_client_name (handle, getAlsaMidiName().toRawUTF8());
             clientId = snd_seq_client_id (handle);
 

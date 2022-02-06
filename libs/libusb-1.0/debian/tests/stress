@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -e
+
+WORKDIR=$(mktemp -d)
+trap "rm -rf $WORKDIR" 0 INT QUIT ABRT PIPE TERM
+
+if [ -n "${DEB_HOST_GNU_TYPE:-}" ]; then
+    CROSS_COMPILE="$DEB_HOST_GNU_TYPE-"
+else
+    CROSS_COMPILE=
+fi
+
+cat << EOF > $WORKDIR/config.h
+/* Define to 1 if compiling for a POSIX platform. */
+#define PLATFORM_POSIX 1
+
+/* Define to the attribute for enabling parameter checks on printf-like
+   functions. */
+#define PRINTF_FORMAT(a, b) __attribute__ ((__format__ (__printf__, a, b)))
+EOF
+
+CFLAGS="-O2 -Wall -I$WORKDIR -Itests $(${CROSS_COMPILE}pkg-config --cflags libusb-1.0)"
+LDFLAGS=$(${CROSS_COMPILE}pkg-config --libs libusb-1.0)
+
+${CROSS_COMPILE}gcc $CFLAGS -o $WORKDIR/stress.o -c tests/stress.c
+${CROSS_COMPILE}gcc $CFLAGS -o $WORKDIR/testlib.o -c tests/testlib.c
+${CROSS_COMPILE}gcc -o $WORKDIR/stress $WORKDIR/stress.o $WORKDIR/testlib.o $LDFLAGS
+
+echo "build: OK"
+[ -x $WORKDIR/stress ]
+$WORKDIR/stress
+echo "run: OK"
+

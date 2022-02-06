@@ -3,6 +3,13 @@ Source/Misc/boost/**
 !Source/Misc/boost/boost.zip
 
 Builds/*/*/*
+!Builds/LinuxMakefile/Makefile
+!Builds/LinuxMakefile/build.sh
+!Builds/LinuxMakefile/pchbuild.mk
+!Builds/LinuxMakefile/make_helpers/*
+!Builds/LinuxMakefile/make_helpers/**
 
+Cmakefiles
 CMakeFiles
 CMakeCache.txt
+*.cmake
