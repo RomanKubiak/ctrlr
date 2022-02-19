@@ -220,7 +220,7 @@ Component* CtrlrPanelModulatorList::refreshComponentForCell (int rowNumber, int 
 		return (nullptr);
 	}
 
-	Label *label = (Label*)existingComponentToUpdate;
+	Label *label = dynamic_cast<Label*>(existingComponentToUpdate);
 
 	if (label == 0)
 	{

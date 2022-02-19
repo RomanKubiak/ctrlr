@@ -480,18 +480,18 @@ SelectedItemSet <CtrlrComponent*>& CtrlrPanelCanvas::getLassoSelection()
 
 CtrlrComponent *CtrlrPanelCanvas::findEventComponent (const MouseEvent &e)
 {
-	CtrlrComponent *c = 0;
+	CtrlrComponent *c = dynamic_cast<CtrlrComponent *>(e.eventComponent);
 
-	if (getOwner().getOwner().containsCtrlrComponent ((CtrlrComponent *)e.eventComponent))
-	{
-		c = (CtrlrComponent *)e.eventComponent;
-	}
-	else if (getOwner().getOwner().containsCtrlrComponent ((CtrlrComponent *)e.eventComponent->findParentComponentOfClass<CtrlrComponent>()))
-	{
-		c = (CtrlrComponent *)e.eventComponent->findParentComponentOfClass<CtrlrComponent>();
+	auto &ownerowner = getOwner().getOwner();
+
+	if (!c ||  !ownerowner.containsCtrlrComponent (c)) {
+		c = e.eventComponent->findParentComponentOfClass<CtrlrComponent>();
+		if (!ownerowner.containsCtrlrComponent (c)) {
+			c = 0;
+		}
 	}
 
-	return (c);
+	return c;
 }
 
 int CtrlrPanelCanvas::snapPosition (int pos, int snapSize, const bool allowSnap)

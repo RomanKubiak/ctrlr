@@ -149,8 +149,8 @@ void CtrlrMIDIBufferEditor::compareBuffers()
 	bufferLeft->setSizeMatch(left.getSize() == right.getSize());
 	bufferRight->setSizeMatch(left.getSize() == right.getSize());
 
-    uint8 *ref = (uint8*)left.getData();
-	uint8 *cmp  = (uint8*)right.getData();
+	uint8 *ref = static_cast<uint8*>(left.getData());
+	uint8 *cmp  = static_cast<uint8*>(right.getData());
 
     for (size_t i=0; i<left.getSize(); i++)
 	{

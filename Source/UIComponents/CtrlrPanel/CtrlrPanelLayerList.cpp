@@ -102,7 +102,7 @@ void CtrlrPanelLayerList::paintListBoxItem (int rowNumber, Graphics& g, int widt
 
 Component* CtrlrPanelLayerList::refreshComponentForRow (int rowNumber, bool isRowSelected, Component* existingComponentToUpdate)
 {
-	CtrlrPanelLayerListItem* itemInfo = (CtrlrPanelLayerListItem*) existingComponentToUpdate;
+	CtrlrPanelLayerListItem* itemInfo = dynamic_cast<CtrlrPanelLayerListItem*>(existingComponentToUpdate);
 
 	if (itemInfo == 0)
 		itemInfo = new CtrlrPanelLayerListItem (*this);

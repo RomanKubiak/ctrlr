@@ -1192,7 +1192,7 @@ void CtrlrMultiMidiPropertyComponent::paintListBoxItem(int rowNumber, Graphics &
 
 Component *CtrlrMultiMidiPropertyComponent::refreshComponentForRow (int rowNumber, bool isRowSelected, Component *existingComponentToUpdate)
 {
-	Label *l = (Label*) existingComponentToUpdate;
+	Label *l = dynamic_cast<Label*>(existingComponentToUpdate);
 
 	if (l == 0)
 	{

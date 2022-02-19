@@ -81,7 +81,9 @@ void CtrlrPanelCanvas::assignToLayer(CtrlrComponent *c, CtrlrPanelCanvasLayer *l
 
 bool CtrlrPanelCanvas::isLayer(Component *componentToCheck)
 {
-	return (layers.contains((CtrlrPanelCanvasLayer*)componentToCheck));
+	CtrlrPanelCanvasLayer* layer = dynamic_cast<CtrlrPanelCanvasLayer*> (componentToCheck);
+	if (!layer) return false;
+	return layers.contains(layer);
 }
 
 /** @brief Gets a layer by it's name, if the layer is not found 0 is returned
