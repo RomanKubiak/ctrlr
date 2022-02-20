@@ -1,0 +1,106 @@
+lua-bitop (1.0.2-5) unstable; urgency=medium
+
+  * Team upload.
+  * Drop luasandbox support as the package is going away (see #891191).
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Fri, 23 Feb 2018 12:29:27 +0100
+
+lua-bitop (1.0.2-4) unstable; urgency=medium
+
+  * Team upload.
+  * Add luasandbox support.
+  * Replace multiarch-support by ${misc:Pre-Depends}.
+    This requires debhelper >= 9.
+
+ -- Mathieu Parent <sathieu@debian.org>  Sun, 18 Dec 2016 22:52:32 +0100
+
+lua-bitop (1.0.2-3) unstable; urgency=medium
+
+  * Rebuild against Lua 5.1.5-7 (Closes: #723484)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Sat, 30 Aug 2014 21:54:49 +0200
+
+lua-bitop (1.0.2-2) unstable; urgency=low
+
+  * Packaging moved to git
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Tue, 08 May 2012 22:54:03 +0200
+
+lua-bitop (1.0.2-1) unstable; urgency=low
+
+  * New upstream release supporting Lua 5.2
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Tue, 01 May 2012 10:57:47 +0200
+
+lua-bitop (1.0.1-6) unstable; urgency=low
+
+  * Switch to dh-lua
+  * Packages renamed according to the new Lua policy 
+  * copyright format 1.0
+  * debian/compat set to 8
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Tue, 01 May 2012 10:47:37 +0200
+
+lua-bitop (1.0.1-5) unstable; urgency=low
+
+  * multi-arch compliant (dh >= 3.1.8, lua5.1-policy >= 32)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Wed, 20 Jul 2011 22:19:15 +0200
+
+lua-bitop (1.0.1-4) unstable; urgency=low
+
+  * Rebuild against lua5.1-policy-dev >= 27 to get rid of .la (Closes: #622529) 
+  * Update Standards-version to 3.9.2, no changes
+  * Version 3.0 (quilt)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Sat, 23 Apr 2011 21:06:56 +0200
+
+lua-bitop (1.0.1-3) unstable; urgency=low
+
+  * build depend lua5.1-policy-dev >= 25 (Closes: #545815)
+  * updated Standards-Version to 3.8.3, added README.source pointing
+    to the standard dpatch README
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Wed, 09 Sep 2009 17:01:45 +0200
+
+lua-bitop (1.0.1-2) unstable; urgency=low
+
+  * changed lua to Lua in the package description
+  * build depend on lua5.1-policy-dev >= 22 
+  * bumped standards version to 3.8.2, no changes needed 
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Tue, 21 Jul 2009 13:33:28 +0200
+
+lua-bitop (1.0.1-1) unstable; urgency=low
+
+  * new upstream release solving the string.format issue
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Tue, 06 Jan 2009 22:09:27 +0100
+
+lua-bitop (1.0.0-4) unstable; urgency=low
+
+  * removed garbage after else Makefile directive (avoids make warning)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Tue, 06 Jan 2009 11:49:36 +0100
+
+lua-bitop (1.0.0-3) unstable; urgency=low
+
+  * conditionally run the md5 and sieve test, since they may pass only if
+    the string.format lua function is OK (not OK on ia64 and armel)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Tue, 06 Jan 2009 11:15:04 +0100
+
+lua-bitop (1.0.0-2) unstable; urgency=low
+
+  * the flag SWAPPED_DOUBLE was not properly passed to make
+  * commented out tests for lua's printf, they fail on armel and ia64 but
+    are really tests about lua and not bitop
+  * run md5 and sieve tests too
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Tue, 06 Jan 2009 10:51:15 +0100
+
+lua-bitop (1.0.0-1) unstable; urgency=low
+
+  * Initial release. (Closes: #509227)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Fri, 19 Dec 2008 23:27:12 +0100

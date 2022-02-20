@@ -95,7 +95,7 @@ public:
     void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int);
 	void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int, int){}
 	void modulatorChanged (CtrlrModulator *modulatorThatChanged);
-	TabbedComponent *getTabs() { return ((TabbedComponent *)ctrlrTabs); }
+	TabbedComponent *getTabs() { return static_cast<TabbedComponent *>(ctrlrTabs); }
 	void setOwned (CtrlrComponent *componentToOwn, const int subIndexInGroup = 0, const bool shouldOwnThisComponent = true);
 	void canvasStateRestored();
 	void addTab(const ValueTree tabToAdd);

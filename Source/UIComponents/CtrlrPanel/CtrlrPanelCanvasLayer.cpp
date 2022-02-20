@@ -12,9 +12,8 @@ CtrlrPanelCanvasLayer::CtrlrPanelCanvasLayer(CtrlrPanelCanvas &_owner)
 	: layerTree(Ids::uiPanelCanvasLayer), owner(_owner), mousePass(false)
 {
 	layerTree.addListener (this);
-	int64 data = Time::getCurrentTime().getHighResolutionTicks();
 	setProperty (Ids::uiPanelCanvasLayerName, "New layer");
-	setProperty (Ids::uiPanelCanvasLayerUid, Uuid ((const uint8 *)&data).toString());
+	setProperty (Ids::uiPanelCanvasLayerUid, Uuid ().toString());
 	setProperty (Ids::uiPanelCanvasLayerColour, "0x000000");
 	setProperty (Ids::uiPanelCanvasLayerVisibility, true);
 	setProperty (Ids::uiPanelCanvasLayerIndex, 0);

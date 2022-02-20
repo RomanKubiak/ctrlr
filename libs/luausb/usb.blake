@@ -1,0 +1,13 @@
+return {
+	type = 'lua_binary_module',
+	files = {
+		"usb.c",
+		"enums.c",
+		"structs.c",
+		"compat.c",
+	},
+	dependencies = {'usb'},
+	define = { LUAUSB_API='LUAMOD_API' },
+}
+
+-- vi: ft=lua

@@ -1,0 +1,16 @@
+luabind for Debian
+------------------
+
+The orig tarball has been repacked to remove the non-free logo
+
+ $ rm doc/luabind-logo-label.ps
+
+New tarball name is luabind-0.7.dfsg.orig.tar.gz
+
+ -- Arthur Loiret <arthur.loiret@gmail.com>, Mon,  9 Apr 2007 17:53:40 +0200
+
+Following the transition to new upstream, the orig tarball is created like this:
+
+ $ git archive --format=tar --prefix=luabind-0.9.1+git20150823+dfsg/ HEAD | tar -f - --delete luabind-0.9.1+git20150823+dfsg/doc/luabind-logo-label.ps | xz >../luabind_0.9.1+git20150823+dfsg.orig.tar.xz
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Fri, 16 Aug 2019 17:00:18 -0400

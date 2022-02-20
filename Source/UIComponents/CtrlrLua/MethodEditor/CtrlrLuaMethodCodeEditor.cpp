@@ -154,7 +154,7 @@ bool CtrlrLuaMethodCodeEditor::keyPressed (const KeyPress &key, Component *origi
 
 	if (key.getKeyCode() == KeyPress::F8Key)
 	{
-		owner.saveAndCompilAllMethods();
+		owner.saveAndCompileAllMethods();
 		return (true);
 	}
 

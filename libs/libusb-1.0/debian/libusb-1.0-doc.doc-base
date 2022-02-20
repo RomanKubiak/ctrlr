@@ -1,0 +1,16 @@
+Document: libusb-1.0-doc
+Title: libusb-1.0 API Reference
+Author: Johannes Erdfelt
+Abstract:
+ libusb is an open source library that allows you to communicate with USB devices
+ from userspace
+ .
+ This documentation is aimed at application developers wishing to communicate 
+ with USB peripherals from their own software. It assumes knowledge of how to 
+ operate USB devices from a software standpoint (descriptors, configurations, 
+ interfaces, endpoints, control/bulk/interrupt/isochronous transfers, etc).
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/libusb-1.0-doc/api-1.0/index.html
+Files: /usr/share/doc/libusb-1.0-doc/api-1.0/*

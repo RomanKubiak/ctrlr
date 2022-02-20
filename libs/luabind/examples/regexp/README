@@ -1,0 +1,3 @@
+this example shows regex possibilities of luabind using boost_regex.
+It builds executable regex_wrap.
+Needed: libluabind-dev, libboost-regex-dev

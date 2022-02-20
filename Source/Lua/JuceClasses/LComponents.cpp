@@ -1596,9 +1596,16 @@ void LSlider::wrapForLua (lua_State *L)
 
 	module(L)
     [
-        class_<NotificationType>("NotificationType")
-        ,
-		class_<Slider, bases<Component> >("Slider")
+     class_<NotificationType>("NotificationType")
+     .enum_("NotificationType")
+     [
+      value("dontSendNotification",dontSendNotification),
+      value("sendNotification",sendNotification),
+      value("sendNotificationSync",sendNotificationSync),
+      value("sendNotificationAsync",sendNotificationAsync)
+      ]
+     ,
+     class_<Slider, bases<Component> >("Slider")
 			.def("setSliderStyle", &Slider::setSliderStyle)
 			.def("getSliderStyle", &Slider::getSliderStyle)
 			.def("setRotaryParameters", (void(Slider::*)(float, float, bool))&Slider::setRotaryParameters)

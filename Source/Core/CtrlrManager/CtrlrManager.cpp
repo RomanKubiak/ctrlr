@@ -189,7 +189,7 @@ CtrlrPanel *CtrlrManager::addPanel(const ValueTree &savedState, const bool showU
 
 void CtrlrManager::addPanel (CtrlrPanelEditor *panelToAdd)
 {
-	ctrlrDocumentPanel->addDocument ((Component *)panelToAdd, Colours::lightgrey, true);
+	ctrlrDocumentPanel->addDocument (static_cast<Component *>(panelToAdd), Colours::lightgrey, true);
 }
 
 void CtrlrManager::restoreState (const ValueTree &savedTree)

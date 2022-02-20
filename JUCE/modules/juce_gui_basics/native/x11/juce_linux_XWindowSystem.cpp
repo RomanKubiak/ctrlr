@@ -1335,17 +1335,21 @@ namespace ClipboardHelpers
                 auto localContent = XWindowSystem::getInstance()->getLocalClipboardContent();
 
                 // translate to utf8
-                numDataItems = localContent.getNumBytesAsUTF8() + 1;
-                data.calloc (numDataItems);
-                localContent.copyToUTF8 (data, numDataItems);
-                propertyFormat = 8; // bits/item
+		numDataItems = localContent.getNumBytesAsUTF8();
+                auto numBytesRequiredToStore = numDataItems + 1;
+                data.calloc (numBytesRequiredToStore);
+                localContent.copyToUTF8 (data, numBytesRequiredToStore);
+                propertyFormat = 8;   // bits per item
             }
             else if (evt.target == XWindowSystem::getInstance()->getAtoms().targets)
             {
                 // another application wants to know what we are able to send
                 numDataItems = 2;
-                propertyFormat = 32; // atoms are 32-bit
-                data.calloc (numDataItems * 4);
+                data.calloc (numDataItems * sizeof (Atom));
+
+                // Atoms are flagged as 32-bit irrespective of sizeof (Atom)
+                propertyFormat = 32;
+
                 Atom* atoms = unalignedPointerCast<Atom*> (data.getData());
                 atoms[0] = XWindowSystem::getInstance()->getAtoms().utf8String;
                 atoms[1] = XA_STRING;

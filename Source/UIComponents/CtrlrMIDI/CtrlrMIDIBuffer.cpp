@@ -188,7 +188,7 @@ const String CtrlrMidiBufferStatus::hexString(const String &hex)
 	String ret;
 	MemoryBlock mb;
 	mb.loadFromHexString (hex);
-	uint8 *ptr = (uint8*)mb.getData();
+	uint8 *ptr = static_cast<uint8*>(mb.getData());
 	for (size_t i=0; i<mb.getSize(); i++)
 	{
 		const String bis = BigInteger (*(ptr+i)).toString(2, 8);

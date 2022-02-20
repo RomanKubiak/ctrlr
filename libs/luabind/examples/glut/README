@@ -1,0 +1,4 @@
+this examples shows how to bind c/c++ functions to use them in lua.
+It builds the executable glut_bind, which should display an opengl
+window.
+Needed: libluabind-dev, freeglut3-dev

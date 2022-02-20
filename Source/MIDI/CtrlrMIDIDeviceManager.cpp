@@ -9,6 +9,7 @@
 #include "CtrlrUtilities.h"
 #include "CtrlrPanel/CtrlrPanel.h"
 
+
 CtrlrMIDIDeviceManager::CtrlrMIDIDeviceManager(CtrlrManager &_owner)
 	:	managerTree(Ids::midiDeviceManager),
 		owner(_owner)

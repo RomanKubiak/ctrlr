@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+export DH_VERBOSE=1
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+%:
+	dh $@ -Scmake
+
+override_dh_auto_configure:
+	dh_auto_configure -Bbuild-static -- -DBUILD_TESTING=ON -DLUABIND_BUILD_HEADER_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DLUABIND_DYNAMIC_LINK=OFF -DLUABIND_LIBRARY_VERSION=0.9.1d1 -DCMAKE_LIBRARY_ARCHITECTURE="$(DEB_TARGET_MULTIARCH)"
+	dh_auto_configure -Bbuild-shared -- -DBUILD_TESTING=ON -DLUABIND_BUILD_HEADER_TESTS=ON -DBUILD_SHARED_LIBS=ON -DLUABIND_DYNAMIC_LINK=ON -DLUABIND_LIBRARY_VERSION=0.9.1d1 -DCMAKE_LIBRARY_ARCHITECTURE="$(DEB_TARGET_MULTIARCH)"
+
+override_dh_auto_build:
+	dh_auto_build -Bbuild-static
+	dh_auto_build -Bbuild-shared
+ifneq (,$(findstring nodoc,$(DEB_BUILD_OPTIONS)))
+	echo "Found 'nodoc' in 'DEB_BUILD_OPTIONS'; not building documentation"
+else
+	# Upstream's documentation build is broken, so perform the steps manually
+	cd build-shared/doc && \
+	       cp -rf ../../doc/policies ../../doc/*.rst ../../doc/*.py . && \
+	       $(MAKE) -f ../../doc/Makefile man && \
+	       $(MAKE) -f ../../doc/Makefile html
+endif
+
+override_dh_auto_test:
+	dh_auto_test -Bbuild-static
+	dh_auto_test -Bbuild-shared
+
+override_dh_auto_install:
+	dh_auto_install -Bbuild-static
+	dh_auto_install -Bbuild-shared
+	install -d $(CURDIR)/debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/pkgconfig
+	install -p -m0644 debian/luabind.pc $(CURDIR)/debian/tmp/usr/lib/$(DEB_TARGET_MULTIARCH)/pkgconfig
+	install -d $(CURDIR)/debian/tmp/examples
+	cp -rf $(CURDIR)/examples/* $(CURDIR)/debian/tmp/examples/
+	find $(CURDIR)/debian/tmp/examples -type f -name "*.cpp" -or -name "*.hpp" -or -name "*.lua" | xargs chmod 644
+	find $(CURDIR)/debian/tmp/examples -type f -name "Jamfile" -or -name "*.jam" -or -name "makefile" | xargs rm -f

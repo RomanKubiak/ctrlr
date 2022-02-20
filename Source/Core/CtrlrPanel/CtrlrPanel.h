@@ -145,6 +145,7 @@ class CtrlrPanel:	public ValueTree::Listener,
 		File getPanelContentDir();
 		File getPanelLuaDir();
 		File getPanelResourcesDir();
+	        Result convertLuaMethodToFile(ValueTree & item);
 		Result convertLuaMethodsToFiles(const String dirPath);
 		File getLuaMethodGroupDir(const ValueTree &methodGroup);
 
@@ -183,7 +184,8 @@ class CtrlrPanel:	public ValueTree::Listener,
 		static void writePanelXml(OutputStream &outputStream, CtrlrPanel *panel, const bool compressPanel);
 		Result writeLuaMethod(const File &parentDir, ValueTree *method);
 		Result writeLuaMethodGroup(const File &parentDir, ValueTree *methodGroup);
-		Result writeLuaChildren(const File &parentDir, ValueTree *parentElement);
+	        Result writeLuaChild(const File &parentDir,  ValueTree *child);
+	        Result writeLuaChildren(const File &parentDir, ValueTree *parentElement);
 		File getLuaMethodSourceFile(const ValueTree *method);
 		static void convertLuaMethodsToPropeties(const File &panelLuaDir, ValueTree &panelTree);
 		static void convertLuaMethodToProperty(const File &panelLuaDir, ValueTree *method);

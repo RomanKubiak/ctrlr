@@ -5,6 +5,7 @@
 
 #include "CtrlrManager/CtrlrManager.h"
 #include "CtrlrProcessorEditorForLive.h"
+#include "CtrlrProcessor.h"
 
 CtrlrEditorWrapper::CtrlrEditorWrapper(CtrlrProcessorEditorForLive &_liveEditorOwner, CtrlrProcessor *ownerFilter, CtrlrManager &ctrlrManager) 
 	: DocumentWindow("Ctrlr", Colours::lightgrey, 0, true), liveEditorOwner(_liveEditorOwner)
@@ -28,7 +29,7 @@ void CtrlrEditorWrapper::resized()
 }
 
 CtrlrProcessorEditorForLive::CtrlrProcessorEditorForLive(CtrlrProcessor *_filterOwner, CtrlrManager &_owner)
-	: owner(_owner), filterOwner(_filterOwner), AudioProcessorEditor((AudioProcessor *)_filterOwner),
+	: owner(_owner), filterOwner(_filterOwner), AudioProcessorEditor(static_cast<AudioProcessor *>(_filterOwner)),
 		wrapper(*this, filterOwner, owner)
 {
 	wrapper.setVisible (true);

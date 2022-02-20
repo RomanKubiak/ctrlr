@@ -1,0 +1,55 @@
+Source: lua-bitop
+Section: interpreters
+Priority: optional
+Maintainer: Enrico Tassi <gareuselesinge@debian.org>
+Build-Depends: debhelper (>= 9), dh-lua
+Standards-Version: 3.9.3
+Vcs-Git: git://git.debian.org/git/pkg-lua/lua-bitop.git
+Vcs-Browser: http://git.debian.org/?p=pkg-lua/lua-bitop.git
+Homepage: http://bitop.luajit.org
+
+Package: lua-bitop
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: liblua5.1-bitop0 (<< 1.0.1-6~)
+Breaks: liblua5.1-bitop0 (<< 1.0.1-6~)
+Provides: liblua5.1-bitop0, ${lua:Provides}
+XB-Lua-Versions: ${lua:Versions}
+Description: fast bit manipulation library for the Lua language
+ This package contains the Lua bitop fast bit manipulation library.
+
+Package: lua-bitop-dev
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Section: libdevel
+Depends: lua-bitop (= ${binary:Version}), ${misc:Depends}
+Replaces: liblua5.1-bitop-dev (<< 1.0.1-6~)
+Breaks: liblua5.1-bitop-dev (<< 1.0.1-6~)
+Provides: liblua5.1-bitop-dev, ${lua:Provides}
+XB-Lua-Versions: ${lua:Versions}
+Description: fast bit manipulation library devel files for the Lua language
+ This package contains the development files of the Lua bitop fast bit
+ manipulation library, useful to create a statically linked binary (like a C
+ application or a standalone Lua interpreter).  Documentation is also shipped
+ within this package.
+
+Package: liblua5.1-bitop0
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, lua-bitop
+Description: Transitional package for lua-bitop
+ This is a transitional package to ease upgrades to the lua-bitop
+ package. It can safely be removed.
+
+Package: liblua5.1-bitop-dev
+Section: oldlibs
+Priority: extra
+Architecture: all
+Depends: ${misc:Depends}, lua-bitop-dev
+Description: Transitional package for lua-bitop-dev
+ This is a transitional package to ease upgrades to the lua-bitop-dev
+ package. It can safely be removed.

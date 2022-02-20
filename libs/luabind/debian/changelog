@@ -1,0 +1,259 @@
+luabind (0.9.1+git20150823+dfsg-3) unstable; urgency=medium
+
+  * Add appropriate multi-arch hints in debian/control
+  * Update to Standards-Version 4.5.0 (no changes)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Wed, 22 Apr 2020 21:19:27 -0400
+
+luabind (0.9.1+git20150823+dfsg-2) unstable; urgency=medium
+
+  * README.Debian-source: Document creation of new upstream tarball
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Tue, 03 Sep 2019 15:29:21 -0400
+
+luabind (0.9.1+git20150823+dfsg-1) unstable; urgency=medium
+
+  * New upstream snapshot (76d4061) (Closes: #901296)
+    + https://github.com/ValyriaTear/luabind
+    + Drop obsolete patches
+    + Update to use new CMake-based build system
+    + Adjust SONAME, as new upstream has made ABI-incompatible changes
+    + Install library and related files in multiarch directories
+  * Update to debhelper compatibility level 10
+  * Update to Standards-Version 4.4.0 (no changes)
+  * Enable hardening flags when building
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Thu, 22 Aug 2019 16:13:01 -0400
+
+luabind (0.9.1+dfsg-11) unstable; urgency=medium
+
+  * Use -fPIC in example Makefiles (Closes: #819454)
+  * Use secure URIs for Vcs-* fields in debian/control
+  * Switch 'dh_clean -k' to 'dh_prep' in debian/rules
+  * Add get-orig-source target in debian/rules
+  * Add hardening flags to DEB_BUILD_MAINT_OPTIONS in debian/rules
+  * Update to Standards-Version 3.9.8 (no changes)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 07 May 2016 13:14:39 -0400
+
+luabind (0.9.1+dfsg-10) unstable; urgency=low
+
+  * Refer to Lua 5.2 in pkg-config file (Closes: #799661)
+  * Update to Standards-Version 3.9.6 (no changes)
+  * Fix possible null pointer dereference in luabind::adopt; thanks to
+    Andreas Grob for the patch (Closes: #758580)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Wed, 14 Oct 2015 00:22:44 -0400
+
+luabind (0.9.1+dfsg-9.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Update copyright file using copyright-format 1.0,
+    document BSL-1.0 licensed files. (closes: #795235)
+
+ -- Bas Couwenberg <sebastic@debian.org>  Fri, 11 Sep 2015 20:25:21 +0200
+
+luabind (0.9.1+dfsg-9.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add 00git_fix_build_with_boost1.57.patch: Fix FTBFS with current boost.
+    (Closes: #795154)
+  * Rename library packages for g++5 ABI transition. (Closes: #791196)
+
+ -- Martin Pitt <mpitt@debian.org>  Tue, 11 Aug 2015 09:29:35 +0200
+
+luabind (0.9.1+dfsg-9) unstable; urgency=low
+
+  * Change Build-Depends from "libboost1.54-all-dev | libboost1.55-all-dev |
+    libboost1.53-dev | libboost1.49-dev" to libboost-all-dev (Closes: #757542)
+  * libluabind-dev: Change Depends from "libboost1.53-dev | libboost-dev
+    (>= 1.46.1-3~)" to libboost-dev (Closes: #754425)
+  * debian/rules: Add build-arch and build-indep targets to the .PHONY target
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 09 Aug 2014 18:58:32 -0400
+
+luabind (0.9.1+dfsg-8) unstable; urgency=low
+
+  * Drop Build-Depends on libboost1.53-dev (Closes: #731066)
+  * Update to Standards-Version 3.9.5 (no changes)
+  * Fix lintian errors (privacy-breach-w3c-valid-html & privacy-breach-logo)
+    by removing remote image references in doc/index.html
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sun, 09 Mar 2014 21:26:27 -0400
+
+luabind (0.9.1+dfsg-7) unstable; urgency=low
+
+  * Tweak bjam invocation to account for instances where dpkg-buildflags
+    returns an empty string; corrects FTBFS on ia64
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 13 Jul 2013 23:02:30 -0400
+
+luabind (0.9.1+dfsg-6) unstable; urgency=low
+
+  * Add Vcs-Git and Vcs-Browser fields in debian/control
+  * Remove Arthur Loiret as maintainer (he has retired from the project)
+    and move /me from uploaders to maintainer
+  * Build with hardening options
+  * Fix architecture independent and architecture dependent build targets
+  * Update to Standards-Version 3.9.4 (no changes)
+  * Support building with clang, cherry pick patch from upstream commit
+    3044a90 (Closes: #660375) (LP: #1055374)
+  * Add patch to fix bug in cast graph cache, thanks to Peter Colberg
+    (Closes: #660380)
+  * Adjust build dependencies to prefer building against Boost 1.53
+    (Closes: #705182)
+  * Add patch to support Lua 5.2, thanks to Peter Colberg (Closes: 660384)
+  * Adjust build dependencies to build against Lua 5.2 instead of 5.1
+  * Drop unnecessary dependency on libboost-python-dev  (LP: #568444)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 13 Jul 2013 13:46:43 -0400
+
+luabind (0.9.1+dfsg-5) unstable; urgency=low
+
+  * Fix FTBFS (Closes: #667833)
+  * Bump standards version to 3.9.3 (no changes required)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Mon, 23 Apr 2012 19:26:09 -0400
+
+luabind (0.9.1+dfsg-4) unstable; urgency=low
+
+  * Support new multi-arch library locations (Closes: #642728, #641502)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 01 Oct 2011 18:31:05 -0400
+
+luabind (0.9.1+dfsg-3) unstable; urgency=low
+
+  * Adjust Build-Depends for removal of boost-built (Closes: #629771)
+  * Bump standards version to 3.9.2 (no changes required)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Tue, 14 Jun 2011 16:01:04 -0400
+
+luabind (0.9.1+dfsg-2) unstable; urgency=low
+
+  * New binary package libluabind0.9.1 replaces libluabind0.9.0 (Thanks
+    to Roman Shtylman for catching the ommission in the previous upload)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Thu, 14 Oct 2010 18:58:44 -0400
+
+luabind (0.9.1+dfsg-1) unstable; urgency=low
+
+  * New Upstream Version
+  * Refresh patches and remove 04_defer_longjmp.diff (now included upstream)
+  * Fix watch file to properly mangle +dfsg suffix on upstream version
+  * Update repack.sh script to deal with .tar.gz instead of .zip
+  * Bump standards version to 3.9.1 (no changes required)
+  * Specify source format as 3.0
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Mon, 11 Oct 2010 14:21:48 -0400
+
+luabind (0.9+dfsg-3) unstable; urgency=low
+
+  * New patch (Thanks to Andrew Morrow):
+    + Move lua_error out of catch handler to defer longjmp 
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 19 Jun 2010 16:31:48 -0400
+
+luabind (0.9+dfsg-2) unstable; urgency=low
+
+  * Adjust Build-Depends on boost-build to not confuse dpkg
+  * Recognize kFreeBSD in the build system (Closes: #561057)
+  * Remove XS-DM-Upload-Allowed, as Arthur is now a Debian Developer
+  * Update Standards-Version to 3.8.4 (no changes)
+  * More permissive dependencies for libluabind-dev (Closes: #559497)
+  * Install debug symbol files in correct location (Closes: #564872)
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 20 Feb 2010 15:52:44 -0500
+
+luabind (0.9+dfsg-1) unstable; urgency=low
+
+  * New Upstream Version
+  * New binary package libluabind0.9.0 replaces libluabind0.8.1
+  * Update watch file to not be confused by release candidates.
+  * Add repack.sh script to automate repackaging of new upstream releases.
+  * Update debian/copyright with new copyright information.
+  * Refresh debian/patches/02_example_cleaning.diff
+  * Update Standards-Version to 3.8.3
+  * Register documentation with doc-base.
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Wed, 20 Jan 2010 21:55:01 -0500
+
+luabind (0.8.1+dfsg-2) unstable; urgency=low
+
+  * debian/rules:
+    - Remove LDFLAGS.
+    - Remove configure target.
+    - Make the testsuite more readable.
+
+ -- Arthur Loiret <aloiret@debian.org>  Sat, 04 Apr 2009 10:04:04 +0000
+
+luabind (0.8.1+dfsg-1) unstable; urgency=low
+
+  * New Upstream Version (Closes: #516836)
+    + Tighten build dependency on boost-build to >= 2.0-m12
+  * New binary package libluabind0.8.1 replaces libluabind0
+  * Add myself to uploaders (thanks to Arthur for letting me co-maintain)
+  * Update Standards-Version to 3.8.1
+    + Include new debian/README.source for compliance
+  * debian/rules: clean up and transition to building with bjam
+  * debian/patches/01_new_build_system.diff: eliminate for transition to bjam
+  * Transition to build against lua5.1 instead of lua50
+  * debian/copyright: Update holders and years
+  * Make lintian happy:
+    + debian/control: move -dbg into libdevel section
+    + debian/control: libluabind0.8.1 inherits section from source package
+    + debian/patches/02_example_cleaning.diff: add description
+  * Add .pc file to help when building against the library
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Sat, 28 Mar 2009 17:58:00 -0400
+
+luabind (0.7.dfsg-5) unstable; urgency=low
+
+  * debian/rules: Fix bashism. Closes: #478611
+  * debian/control:
+    - Bump Standards-Version to 3.7.3.
+    - Set dbg package priority to extra.
+
+ -- Arthur Loiret <arthur.loiret@gmail.com>  Mon, 05 May 2008 10:45:13 +0000
+
+luabind (0.7.dfsg-4) unstable; urgency=low
+
+  * debian/watch: Update. (Closes: #453606)
+  * debian/rules: Some cleanup, now run all tests.
+
+ -- Arthur Loiret <arthur.loiret@gmail.com>  Sat, 01 Dec 2007 17:09:30 +0100
+
+luabind (0.7.dfsg-3) unstable; urgency=low
+
+  [ Arthur Loiret ]
+  * 01_new_build_system.diff: Update: (Closes: #442090)
+    - Use --tag=CXX
+    - Don't link with -lstdc++
+    - Thanks to Cyril Brulebois for his help on this.
+  * debian/control:
+    - Fix typo in package description. (Closes: #446512)
+    - Use new Homepage field.
+  * debian/rules: Some cleanup, don't install libluabind.la anymore.
+
+  [ Pierre Habouzit ]
+  * debian/control: Add XS-DM-Upload-Allowed for this package.
+
+ -- Arthur Loiret <arthur.loiret@gmail.com>  Fri, 23 Nov 2007 10:44:30 +0100
+
+luabind (0.7.dfsg-2) unstable; urgency=low
+
+  * Build a dbg package, modify debian/control and debian/rules accordingly
+  * debian/rules: fix debian-rules-ignores-make-clean-error
+  * debian/control: make package binNMU safe
+  * Update new Maintainer's address in concerned debian/ files
+
+ -- Arthur Loiret <arthur.loiret@gmail.com>  Tue,  7 Aug 2007 10:28:15 +0200
+
+luabind (0.7.dfsg-1) unstable; urgency=low
+
+  * Initial release (Closes: #394337)
+  * Add new libtool/auto-tools based build system
+  * Some example cleaning
+  * Repack to remove the non-free luabind-logo-label.ps file
+  * Enable tests which don't fail to build
+
+ -- Arthur Loiret <freacky22527@free.fr>  Mon,  2 Apr 2007 16:46:04 +0200

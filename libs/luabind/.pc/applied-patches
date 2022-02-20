@@ -1,0 +1,8 @@
+00_example_cleaning.patch
+01_remove_refs_to_remote_images.patch
+02_fix_potential_null_ptr_dereference_in_adopt_policy.patch
+03_compile_examples_with_PIC.patch
+04_fix_soname.patch
+05_use_gnu_install_dirs.patch
+06_man_pages_in_section_3.patch
+07_fix_doc_typos.patch

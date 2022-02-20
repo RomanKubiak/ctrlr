@@ -1,0 +1,33 @@
+package = 'prtr-luausb'
+version = '${version}'
+source = {
+	url = '${url}',
+	dir = '${dir}',
+}
+description = {
+	summary = "A low level Lua binding for the libusb1 library.",
+	homepage = 'http://piratery.net/luausb/',
+	license = 'MIT',
+}
+dependencies = {
+	'lua ~> 5.1',
+}
+build = {
+	type = 'builtin',
+	modules = {
+		['usb'] = {
+			sources = {
+				'usb.c',
+				'structs.c',
+				'enums.c',
+			},
+			defines = {
+				'LUAUSB_API=LUALIB_API',
+				'luaopen_module=luaopen_usb',
+			},
+			libraries = { 'usb-1.0' },
+		},
+	},
+}
+
+-- vi: ft=lua

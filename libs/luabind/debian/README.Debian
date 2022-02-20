@@ -1,0 +1,13 @@
+luabind for Debian
+------------------
+
+ * Added a pkg-config file
+ Here is an example of how it is used:
+
+ gcc -o test test.c `pkg-config --libs --cflags luabind`
+
+ * Some example cleaning
+ Examples needed new Makefiles and some README fixes, and all is applied
+ by patch (02_example_cleaning.diff) too.
+
+ -- Arthur Loiret <arthur.loiret@gmail.com>, Mon,  9 Apr 2007 17:53:40 +0200

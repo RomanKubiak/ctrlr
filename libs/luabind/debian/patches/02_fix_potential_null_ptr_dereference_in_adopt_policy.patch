@@ -1,0 +1,18 @@
+Author: Andreas Grob <vilarion@illarion.org>
+Description: Fixes possible null pointer dereference in luabind::adopt (Closes: #758580)
+diff --git a/luabind/adopt_policy.hpp b/luabind/adopt_policy.hpp
+index 5e81b94..59558e1 100644
+--- a/luabind/adopt_policy.hpp
++++ b/luabind/adopt_policy.hpp
+@@ -65,7 +65,11 @@ namespace luabind { namespace detail
+
+             object_rep* obj = static_cast<object_rep*>(
+                 lua_touserdata(L, index));
+-            obj->release();
++
++            if (obj)
++            {
++                obj->release();
++            }
+
+             adjust_backref_ownership(ptr, boost::is_polymorphic<T>());

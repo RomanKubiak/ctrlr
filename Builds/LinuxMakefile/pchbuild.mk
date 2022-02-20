@@ -1,40 +1,44 @@
-
-CFLAGS   = -g -pg    -fno-omit-frame-pointer -fno-common
-CXXFLAGS = $(CFLAGS)
-JUCE_LDFLAGS= 
+ifeq ($(CONFIG),Release)
+else
+  CFLAGS   = -fno-omit-frame-pointer -fno-common -fsanitize=address -static-libasan
+  CXXFLAGS = $(CFLAGS)
+  LDFLAGS = -fno-omit-frame-pointer -fno-common -fsanitize=address -static-libasan
+  JUCE_LDFLAGS=
+endif
 
 
 include Makefile
 
 $(OBJECTS_STANDALONE_PLUGIN) $(RESOURCES) $(OBJECTS_SHARED_CODE): ../../Source/Core/stdafx.h.gch ../../Source/Core/stdafx_luabind.h.gch
 
-
-$(JUCE_OUTDIR)/stdafx.h.gch: ../../Source/Core/stdafx.h
-	@mkdir -p $(JUCE_OUTDIR)
+$(JUCE_OBJDIR)/stdafx.h.d \
+$(JUCE_OBJDIR)/stdafx.h.gch: ../../Source/Core/stdafx.h
+	@mkdir -p $(JUCE_OBJDIR)
 	@echo "CTRLR[linux]: Compile PCH"
 	@echo "stadfx.h"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) \
-		-MF "$(JUCE_OUTDIR)/stdafx.h.d" \
-		-o "$(JUCE_OUTDIR)/stdafx.h.gch" -c "../../Source/Core/stdafx.h"
+		-MF "$(JUCE_OBJDIR)/stdafx.h.d" \
+		-o "$(JUCE_OBJDIR)/stdafx.h.gch" -c "../../Source/Core/stdafx.h"
 
-../../Source/Core/stdafx.h.gch: clean.stamp $(JUCE_OUTDIR)/stdafx.h.gch
-	$(V_AT)if ! cmp "$(JUCE_OUTDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch"; \
+../../Source/Core/stdafx.h.gch: $(JUCE_OBJDIR)/stdafx.h.gch
+	$(V_AT)if ! cmp "$(JUCE_OBJDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch"; \
 	then  \
-		cp  "$(JUCE_OUTDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch" ; \
+		cp  "$(JUCE_OBJDIR)/stdafx.h.gch" "../../Source/Core/stdafx.h.gch" ; \
 	fi
 
-$(JUCE_OUTDIR)/stdafx_luabind.h.gch: ../../Source/Core/stdafx_luabind.h
-	@mkdir -p $(JUCE_OUTDIR)
+$(JUCE_OBJDIR)/stdafx_luabind.h.d \
+$(JUCE_OBJDIR)/stdafx_luabind.h.gch: ../../Source/Core/stdafx_luabind.h
+	@mkdir -p $(JUCE_OBJDIR)
 	@echo "CTRLR[linux]: Compile PCH"
 	@echo "stdafx_luabind.h"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) \
-		-MF "$(JUCE_OUTDIR)/stdafx_luabind.h.d" \
-		-o "$(JUCE_OUTDIR)/stdafx_luabind.h.gch" -c "../../Source/Core/stdafx_luabind.h"
+		-MF "$(JUCE_OBJDIR)/stdafx_luabind.h.d" \
+		-o "$(JUCE_OBJDIR)/stdafx_luabind.h.gch" -c "../../Source/Core/stdafx_luabind.h"
 
-../../Source/Core/stdafx_luabind.h.gch: clean.stamp $(JUCE_OUTDIR)/stdafx_luabind.h.gch
-	$(V_AT)if ! cmp "$(JUCE_OUTDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
+../../Source/Core/stdafx_luabind.h.gch: $(JUCE_OBJDIR)/stdafx_luabind.h.gch
+	$(V_AT)if ! cmp "$(JUCE_OBJDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
 	then  \
-		cp  "$(JUCE_OUTDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
+		cp  "$(JUCE_OBJDIR)/stdafx_luabind.h.gch" "../../Source/Core/stdafx_luabind.h.gch" ; \
 	fi
 
 clean-$(CONFIG).stamp:
@@ -47,10 +51,23 @@ clean-$(CONFIG).stamp:
 clean.stamp: Makefile clean-$(CONFIG).stamp
 	touch clean.stamp
 
--include $(JUCE_OUTDIR)/stdafx_luabind.h.d
--include $(JUCE_OUTDIR)/stdafx.h.d
+$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN).dbg: $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)
+	@echo "Stripping Ctrlr (saving Debug information)"
+	-$(V_AT)objcopy --only-keep-debug "$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)" \
+			"$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN).dbg"
+	-$(V_AT)objcopy --strip-unneeded "$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)"
+	-$(V_AT)objcopy "--add-gnu-debuglink=$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN).dbg" \
+			"$(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)"
+
+
+-include $(JUCE_OBJDIR)/stdafx_luabind.h.d
+-include $(JUCE_OBJDIR)/stdafx.h.d
 
 test: $(JUCE_OUTDIR)/test
+
+
+savedbg: $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN).dbg
+
 
 #TEST_LDFLAGS =  $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 unloaded_objects = \
@@ -253,7 +270,7 @@ unloaded_objects = \
 	build/intermediate/Debug/include_juce_audio_formats_15f82001.o \
 	build/intermediate/Debug/include_juce_audio_plugin_client_utils_e32edaee.o \
 	build/intermediate/Debug/include_juce_audio_processors_10c03666.o \
-	build/intermediate/Debug/include_juce_audio_utils_9f9fb2d6.o 
+	build/intermediate/Debug/include_juce_audio_utils_9f9fb2d6.o
 TEST_LDFLAGS = \
 	build/intermediate/Debug/include_juce_core_f26d17db.o \
 	-Lbuild \
@@ -270,7 +287,7 @@ TEST_LDFLAGS = \
 	-l:libbfd.a \
 	-liberty \
 	-lz \
-	-lX11 
+	-lX11
 
 orig_TEST_LDFLAGS = \
 	build/intermediate/Debug/include_juce_core_f26d17db.o \
@@ -287,7 +304,7 @@ orig_TEST_LDFLAGS = \
 	-l:libbfd.a \
 	-liberty \
 	-lz \
-	-lX11 
+	-lX11
 
 others = \
 	build/intermediate/Debug/include_juce_data_structures_7471b1e3.o \
@@ -311,5 +328,12 @@ $(JUCE_OUTDIR)/test: test.cpp
 	$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/test $(JUCE_OUTDIR)/test.o $(TEST_LDFLAGS) $(RESOURCES) $(TARGET_ARCH)
 
 printlinkcommand:
-	echo "$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) $(OBJECTS_STANDALONE_PLUGIN) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) $(JUCE_LDFLAGS) $(JUCE_LDFLAGS_STANDALONE_PLUGIN) $(RESOURCES) $(TARGET_ARCH)"
+	@echo "CONFIG=$(CONFIG)"
+	@echo link command
+	@echo "$(V_AT)$(CXX) -o $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) $(OBJECTS_STANDALONE_PLUGIN) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) $(JUCE_LDFLAGS) $(JUCE_LDFLAGS_STANDALONE_PLUGIN) $(RESOURCES) $(TARGET_ARCH)"
+	@echo VST2 dependency
+	@echo "$(JUCE_OUTDIR)/$(JUCE_TARGET_VST)"
+	@echo VST3 dependency
+	@echo "$(JUCE_OUTDIR)/$(JUCE_TARGET_VST3)"
+
 

@@ -59,8 +59,8 @@ public:
     String() noexcept;
 
     /** Creates a copy of another string. */
-    String (const String&) noexcept;
-
+    String (const String& other) noexcept;
+    
     /** Move constructor */
     String (String&&) noexcept;
 

@@ -413,8 +413,8 @@ class MultiMidiAlert : public AlertWindow
 			ret << getComboBoxComponent("messageType")->getText() + ",";
 			ret << getComboBoxComponent("number")->getText() + ",";
 			ret << getComboBoxComponent("value")->getText() + ",";
-			ret << String (((Slider*)getCustomComponent(0))->getValue()) + ",";
-			ret << String (((Slider*)getCustomComponent(1))->getValue()) + ",";
+			ret << String (static_cast<Slider*>(getCustomComponent(0))->getValue()) + ",";
+			ret << String (static_cast<Slider*>(getCustomComponent(1))->getValue()) + ",";
 			ret << getTextEditor ("sysexFormula")->getText();
 			return (ret);
 		}

@@ -1,0 +1,60 @@
+Source: libusb-1.0
+Section: libs
+Priority: optional
+Maintainer: Aurelien Jarno <aurel32@debian.org>
+Build-Depends: debhelper-compat (= 13), libudev-dev [linux-any], pkg-config
+Build-Depends-Indep: doxygen
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Homepage: http://www.libusb.info
+XS-Testsuite: autopkgtest
+
+Package: libusb-1.0-0
+Section: libs
+Architecture: linux-any hurd-any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: userspace USB programming library
+ Library for programming USB applications without the knowledge
+ of Linux kernel internals.
+ .
+ This package contains what you need to run programs that use this
+ library.
+
+Package: libusb-1.0-0-dev
+Section: libdevel
+Architecture: linux-any hurd-any
+Multi-Arch: same
+Depends: libusb-1.0-0 (= ${binary:Version}), ${misc:Depends}
+Recommends: libusb-1.0-doc
+Description: userspace USB programming library development files
+ Library for programming USB applications without the knowledge
+ of Linux kernel internals.
+ .
+ This package contains what you need for compiling sources that
+ use this library in your own code.
+
+Package: libusb-1.0-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Replaces: libusb-1.0-0-dev (<< 1.0.16)
+Conflicts: libusb-1.0-0-dev (<< 1.0.16)
+Description: documentation for userspace USB programming
+ Library for programming USB applications without the knowledge
+ of Linux kernel internals.
+ .
+ This package contains the libusb 1.0 API reference manual in HTML format.
+
+Package: libusb-1.0-0-udeb
+Package-Type: udeb
+Section: debian-installer
+Architecture: linux-any hurd-any
+Depends: ${shlibs:Depends}
+Description: userspace USB programming library
+ Library for programming USB applications without the knowledge
+ of Linux kernel internals.
+ .
+ This is a minimal package for use in debian-installer.

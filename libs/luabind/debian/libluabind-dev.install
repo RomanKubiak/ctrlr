@@ -1,0 +1,5 @@
+usr/include/luabind
+usr/lib/*/libluabind.a
+usr/lib/*/libluabind.so
+usr/lib/*/cmake/FindLuabind.cmake
+usr/lib/*/pkgconfig/luabind.pc
