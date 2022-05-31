@@ -21,7 +21,7 @@ juce_set_vst2_sdk_path(/home/kbar/devel/vst2sdk)
 juce_add_plugin(ctrlr
 	PLUGIN_MANUFACTURER_CODE Juce               # A four-character manufacturer id with at least one upp
 	PLUGIN_CODE Dem0                            # A unique four-character plugin id with exactly one upp                                               # GarageBand 10.3 requires the first letter to be upper-
-	FORMATS Standalone                  # The formats to build. Other valid formats are: AAX Uni
+	FORMATS VST AU Standalone                  # The formats to build. Other valid formats are: AAX Uni
 	PRODUCT_NAME "ctrlr")        # The name of the final executable, which can differ fro
 
 target_precompile_headers(ctrlr
@@ -284,6 +284,9 @@ set_source_files_properties(
 	JUCE/modules/juce_audio_formats/juce_audio_formats.cpp
 	JUCE/modules/juce_audio_processors/juce_audio_processors.cpp
 	JUCE/modules/juce_audio_utils/juce_audio_utils.cpp
+	JUCE/modules/juce_audio_plugin_client/VST/juce_VST_Wrapper.cpp
+	JUCE/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST2.cpp
+	JUCE/modules/juce_audio_plugin_client/VST3/juce_VST3_Wrapper.cpp
 	Source/Misc/lua/src/lua.c
 	Source/Misc/luabind/src/class.cpp
 	Source/Misc/luabind/src/class_info.cpp
