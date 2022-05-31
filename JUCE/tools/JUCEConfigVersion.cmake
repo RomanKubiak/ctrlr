@@ -9,16 +9,52 @@
 # The variable CVF_VERSION must be set before calling configure_file().
 
 
-set(PACKAGE_VERSION "6.0.7")
-
-if("6.0.7" MATCHES "^([0-9]+\\.[0-9]+\\.[0-9]+)\\.") # strip the tweak version
-  set(CVF_VERSION_NO_TWEAK "${CMAKE_MATCH_1}")
-else()
-  set(CVF_VERSION_NO_TWEAK "6.0.7")
+if (PACKAGE_FIND_VERSION_RANGE)
+  message(AUTHOR_WARNING
+    "`find_package()` specify a version range but the version strategy "
+    "(ExactVersion) of the module `${PACKAGE_FIND_NAME}` is incompatible "
+    "with this request. Only the lower endpoint of the range will be used.")
 endif()
 
-if(PACKAGE_FIND_VERSION MATCHES "^([0-9]+\\.[0-9]+\\.[0-9]+)\\.") # strip the tweak version
-  set(REQUESTED_VERSION_NO_TWEAK "${CMAKE_MATCH_1}")
+set(PACKAGE_VERSION "6.0.8")
+
+if("6.0.8" MATCHES "^([0-9]+)\\.([0-9]+)\\.([0-9]+)") # strip the tweak version
+  set(CVF_VERSION_MAJOR "${CMAKE_MATCH_1}")
+  set(CVF_VERSION_MINOR "${CMAKE_MATCH_2}")
+  set(CVF_VERSION_PATCH "${CMAKE_MATCH_3}")
+
+  if(NOT CVF_VERSION_MAJOR VERSION_EQUAL 0)
+    string(REGEX REPLACE "^0+" "" CVF_VERSION_MAJOR "${CVF_VERSION_MAJOR}")
+  endif()
+  if(NOT CVF_VERSION_MINOR VERSION_EQUAL 0)
+    string(REGEX REPLACE "^0+" "" CVF_VERSION_MINOR "${CVF_VERSION_MINOR}")
+  endif()
+  if(NOT CVF_VERSION_PATCH VERSION_EQUAL 0)
+    string(REGEX REPLACE "^0+" "" CVF_VERSION_PATCH "${CVF_VERSION_PATCH}")
+  endif()
+
+  set(CVF_VERSION_NO_TWEAK "${CVF_VERSION_MAJOR}.${CVF_VERSION_MINOR}.${CVF_VERSION_PATCH}")
+else()
+  set(CVF_VERSION_NO_TWEAK "6.0.8")
+endif()
+
+if(PACKAGE_FIND_VERSION MATCHES "^([0-9]+)\\.([0-9]+)\\.([0-9]+)") # strip the tweak version
+  set(REQUESTED_VERSION_MAJOR "${CMAKE_MATCH_1}")
+  set(REQUESTED_VERSION_MINOR "${CMAKE_MATCH_2}")
+  set(REQUESTED_VERSION_PATCH "${CMAKE_MATCH_3}")
+
+  if(NOT REQUESTED_VERSION_MAJOR VERSION_EQUAL 0)
+    string(REGEX REPLACE "^0+" "" REQUESTED_VERSION_MAJOR "${REQUESTED_VERSION_MAJOR}")
+  endif()
+  if(NOT REQUESTED_VERSION_MINOR VERSION_EQUAL 0)
+    string(REGEX REPLACE "^0+" "" REQUESTED_VERSION_MINOR "${REQUESTED_VERSION_MINOR}")
+  endif()
+  if(NOT REQUESTED_VERSION_PATCH VERSION_EQUAL 0)
+    string(REGEX REPLACE "^0+" "" REQUESTED_VERSION_PATCH "${REQUESTED_VERSION_PATCH}")
+  endif()
+
+  set(REQUESTED_VERSION_NO_TWEAK
+      "${REQUESTED_VERSION_MAJOR}.${REQUESTED_VERSION_MINOR}.${REQUESTED_VERSION_PATCH}")
 else()
   set(REQUESTED_VERSION_NO_TWEAK "${PACKAGE_FIND_VERSION}")
 endif()
