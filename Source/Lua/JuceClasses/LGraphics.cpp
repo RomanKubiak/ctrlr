@@ -214,15 +214,15 @@ void LDrawable::wrapForLua (lua_State *L)
 			.def("getParent", &Drawable::getParent)
 			// .def("createFromImageFile", &Drawable::createFromValueTree) removed from JUCE
 			.def("getDrawableBounds", &Drawable::getDrawableBounds)
-			/*.scope
+			.scope
 			[
-				def("createFromImageData", &Drawable::createFromImageData, adopt(result)),
-				def("createFromImageDataStream", &Drawable::createFromImageDataStream, adopt(result)),
-				def("createFromImageFile", &Drawable::createFromImageFile, adopt(result)),
-				def("createFromSVG", &Drawable::createFromSVG, adopt(result)),
-				def("createFromValueTree", &Drawable::createFromValueTree, adopt(result)), removed from JUCE
-				def("toDrawableComposite", &LDrawable::toDrawableComposite)
-			]*/
+				def("createFromImageData", &Drawable::createFromImageData, return_reference_to(_1)),
+				def("createFromImageDataStream", &Drawable::createFromImageDataStream, return_reference_to(_1)),
+				def("createFromImageFile", &Drawable::createFromImageFile, return_reference_to(result)),
+				def("createFromSVG", &Drawable::createFromSVG, return_reference_to(result))
+				//def("createFromValueTree", &Drawable::createFromValueTree, adopt(result)), removed from JUCE
+				//def("toDrawableComposite", &LDrawable::toDrawableComposite)
+			]
 		,
 		class_<DrawableComposite, bases<Drawable> >("DrawableComposite")
 			.def(constructor<>())
