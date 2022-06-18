@@ -33,7 +33,9 @@ juce_add_plugin(ctrlr
 	PLUGIN_MANUFACTURER_CODE Atom
 	PLUGIN_CODE Ctrl
 	FORMATS VST3 VST AU Standalone
-	PRODUCT_NAME "ctrlr")
+	PRODUCT_NAME "ctrlr"
+	ICON_BIG "Source/Resources/Icons/ctrlr_logo.svg"
+	ICON_SMALL "Source/Resources/Icons/ctrlr_logo.svg")
 
 target_precompile_headers(ctrlr
 	PUBLIC
@@ -269,16 +271,12 @@ target_include_directories(ctrlr
 	include
 	JuceLibraryCode)
 
-if(WIN32)
-	list(APPEND ctrlrLibs ${WINDOWS_LIBRARIES})
-elseif(UNIX)
+if(UNIX AND NOT APPLE)
 	list(APPEND ctrlrLibs "X11")
 	list(APPEND ctrlrLibs "z")
 	list(APPEND ctrlrLibs "udev")
 	list(APPEND ctrlrLibs "bfd")
-elseif(APPLE)
-	list(APPEND ctrlrLibs ${APPLE_LIBRARIES})
-endif(WIN32)
+endif()
 
 target_link_libraries(ctrlr
 		PRIVATE
