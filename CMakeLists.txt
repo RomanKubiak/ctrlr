@@ -24,14 +24,16 @@ if (APPLE)
 	juce_set_vst2_sdk_path(/Users/atom/devel/vst2sdk)
 elseif(UNIX)
 	juce_set_vst2_sdk_path(/home/kbar/devel/vst2sdk)
+elseif(WIN32)
+	juce_set_vst2_sdk_path(c:/Users/atom/devel/vst2sdk)
 endif(APPLE)
 >>>>>>> e5cc5c5c (cmake update for MAC)
 
 juce_add_plugin(ctrlr
-	PLUGIN_MANUFACTURER_CODE Juce # A four-character manufacturer id with at least one upp
-	PLUGIN_CODE Dem0 # A unique four-character plugin id with exactly one upp                                               # GarageBand 10.3 requires the first letter to be upper-
-	FORMATS VST AU Standalone # The formats to build. Other valid formats are: AAX Uni
-	PRODUCT_NAME "ctrlr") # The name of the final executable, which can differ fro
+	PLUGIN_MANUFACTURER_CODE Atom
+	PLUGIN_CODE Ctrl
+	FORMATS VST3 VST AU Standalone
+	PRODUCT_NAME "ctrlr")
 
 target_precompile_headers(ctrlr
 	PUBLIC
@@ -51,6 +53,7 @@ target_sources(ctrlr
 	Source/Core/CtrlrUtilities.cpp
 	Source/Core/CtrlrUtilitiesGUI.cpp
 	Source/Core/StandaloneWrapper/CtrlrStandaloneWindow.cpp
+	Source/Core/StandaloneWrapper/CtrlrStandaloneApplication.cpp
 	Source/Plugin/CtrlrProcessor.cpp
 	Source/Plugin/CtrlrProcessorEditorForLive.cpp
 	Source/Lua/CtrlrLuaAudioConverter.cpp
@@ -240,12 +243,13 @@ target_compile_options(ctrlr PUBLIC "-w")
 
 target_compile_definitions(ctrlr
 	PRIVATE
-	JUCE_WEB_BROWSER=0 # If you remove this, add `NEEDS_WEB_BROWSER TRUE` to the `juce_add_gui_app` call
-	JUCE_USE_CURL=0 # If you remove this, add `NEEDS_CURL TRUE` to the `juce_add_gui_app` call
+	JUCE_WEB_BROWSER=0
+	JUCE_USE_CURL=0
 	JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:ctrlr,JUCE_PRODUCT_NAME>"
 	JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:ctrlr,JUCE_VERSION>"
 	JUCE_VST3_CAN_REPLACE_VST2=0
 	JUCE_DEBUG=1
+	JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1
 )
 
 target_include_directories(ctrlr
