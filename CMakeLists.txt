@@ -5,7 +5,7 @@ if(APPLE)
 	set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
 endif(APPLE)
 
-project(ctrlr VERSION 6.0.0)
+project(ctrlr VERSION 5.7.1)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -17,9 +17,6 @@ SET(CMAKE_MODULE_PATH
 
 add_subdirectory(JUCE)
 
-<<<<<<< HEAD
-juce_set_vst2_sdk_path(/Users/atom/devel/vst2sdk)
-=======
 if (APPLE)
 	juce_set_vst2_sdk_path(/Users/atom/devel/vst2sdk)
 elseif(UNIX)
@@ -27,7 +24,6 @@ elseif(UNIX)
 elseif(WIN32)
 	juce_set_vst2_sdk_path(c:/Users/atom/devel/vst2sdk)
 endif(APPLE)
->>>>>>> e5cc5c5c (cmake update for MAC)
 
 juce_add_plugin(ctrlr
 	PLUGIN_MANUFACTURER_CODE Atom
@@ -254,6 +250,11 @@ target_compile_definitions(ctrlr
 	JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1
 )
 
+string(TIMESTAMP BUILD_TIME)
+configure_file(	"Source/Core/CtrlrRevision.template" 
+		"Source/Core/CtrlrRevision.h")
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
 target_include_directories(ctrlr
 	PUBLIC
 	Source/Misc/lua/include
@@ -269,7 +270,8 @@ target_include_directories(ctrlr
 	Source/Plugin
 	Source/
 	include
-	JuceLibraryCode)
+	JuceLibraryCode
+	${CMAKE_CURRENT_BINARY_DIR})
 
 if(UNIX AND NOT APPLE)
 	list(APPEND ctrlrLibs "X11")

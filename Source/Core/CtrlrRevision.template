@@ -1,7 +1,4 @@
-#ifndef __CTRLR_REVISION__
-#define __CTRLR_REVISION__
+#pragma once
 
-static const char *ctrlrRevision              	= "%REVISION%";
-static const char *ctrlrRevisionDate        	= "%REVISION_DATE%";
-
-#endif
+static const auto ctrlrRevisionDate = "@BUILD_TIME@";
+static const auto ctrlrRevision     = "@PROJECT_VERSION@";

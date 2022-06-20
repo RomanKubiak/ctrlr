@@ -1,7 +1,4 @@
-#ifndef __CTRLR_REVISION__
-#define __CTRLR_REVISION__
+#pragma once
 
-static const char *ctrlrRevision              	= "5.6.23";
-static const char *ctrlrRevisionDate        	= "czw, 8 kwi 2021, 14:37:02 CEST";
-
-#endif
+static const auto ctrlrRevisionDate = "2022-06-20T17:55:44";
+static const auto ctrlrRevision     = "5.7.1";
