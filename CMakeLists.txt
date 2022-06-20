@@ -17,7 +17,15 @@ SET(CMAKE_MODULE_PATH
 
 add_subdirectory(JUCE)
 
+<<<<<<< HEAD
 juce_set_vst2_sdk_path(/Users/atom/devel/vst2sdk)
+=======
+if (APPLE)
+	juce_set_vst2_sdk_path(/Users/atom/devel/vst2sdk)
+elseif(UNIX)
+	juce_set_vst2_sdk_path(/home/kbar/devel/vst2sdk)
+endif(APPLE)
+>>>>>>> e5cc5c5c (cmake update for MAC)
 
 juce_add_plugin(ctrlr
 	PLUGIN_MANUFACTURER_CODE Juce # A four-character manufacturer id with at least one upp
@@ -257,15 +265,15 @@ target_include_directories(ctrlr
 	include
 	JuceLibraryCode)
 
-set(LINUX_LIBRARIES "X11 udev z bfd")
-set(WINDOWS_LUBRARIES "")
-
 if(WIN32)
-	set(CTRLR_LIBRARIES, ${WINDOWS_LIBRARIES})
+	list(APPEND ctrlrLibs ${WINDOWS_LIBRARIES})
 elseif(UNIX)
-	set(CTRLR_LIBRARIES, ${LINUX_LIBRARIES})
+	list(APPEND ctrlrLibs "X11")
+	list(APPEND ctrlrLibs "z")
+	list(APPEND ctrlrLibs "udev")
+	list(APPEND ctrlrLibs "bfd")
 elseif(APPLE)
-	set(CTRLR_LIBRARIES, ${LINUX_LIBRARIES})
+	list(APPEND ctrlrLibs ${APPLE_LIBRARIES})
 endif(WIN32)
 
 target_link_libraries(ctrlr
@@ -276,7 +284,7 @@ target_link_libraries(ctrlr
 			juce::juce_audio_formats
 			juce::juce_audio_processors
 			juce::juce_audio_utils
-			${CTRLR_LIBRARIES}
+			${ctrlrLibs}
 		PUBLIC
 			juce::juce_recommended_config_flags
 			juce::juce_recommended_lto_flags
