@@ -8,6 +8,7 @@ endif(APPLE)
 SET(CMAKE_C_LINK_EXECUTABLE ${CMAKE_CXX_LINK_EXECUTABLE})
 
 project(ctrlr VERSION 5.7.1)
+set(LUA_VERSION "lua-5.1.5")
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -17,7 +18,25 @@ SET(CMAKE_MODULE_PATH
 	${CMAKE_SOURCE_DIR}/config/platform
 )
 
+include(ExternalProject)
+
+ExternalProject_Add(lua
+   URL https://www.lua.org/ftp/${LUA_VERSION}.tar.gz
+   CONFIGURE_COMMAND ""
+   BUILD_COMMAND make generic
+   BUILD_ALWAYS true
+   BUILD_IN_SOURCE true
+   INSTALL_COMMAND ""
+)
+add_library(liblua STATIC IMPORTED)
+ExternalProject_Get_property(lua SOURCE_DIR)
+message("liblua will be found at \'${SOURCE_DIR}/src\'")
+
 add_subdirectory(JUCE EXCLUDE_FROM_ALL)
+    
+find_package(PkgConfig REQUIRED)
+#find_package(lua5.1-bitop REQUIRED)
+pkg_check_modules(LUABITOP REQUIRED IMPORTED_TARGET lua5.1-bitop)
 
 if (APPLE)
 	juce_set_vst2_sdk_path(/Users/atom/devel/vst2sdk)
