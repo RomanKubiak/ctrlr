@@ -5,6 +5,8 @@ if(APPLE)
 	set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
 endif(APPLE)
 
+SET(CMAKE_C_LINK_EXECUTABLE ${CMAKE_CXX_LINK_EXECUTABLE})
+
 project(ctrlr VERSION 5.7.1)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -15,23 +17,41 @@ SET(CMAKE_MODULE_PATH
 	${CMAKE_SOURCE_DIR}/config/platform
 )
 
-add_subdirectory(JUCE)
+add_subdirectory(JUCE EXCLUDE_FROM_ALL)
 
 if (APPLE)
 	juce_set_vst2_sdk_path(/Users/atom/devel/vst2sdk)
 elseif(UNIX)
-	juce_set_vst2_sdk_path(/home/kbar/devel/vst2sdk)
+	juce_set_vst2_sdk_path(Source/Misc/vst2sdk)
 elseif(WIN32)
 	juce_set_vst2_sdk_path(c:/Users/atom/devel/vst2sdk)
 endif(APPLE)
 
+set(CMAKE_DEBUG_TARGET_PROPERTIES COMPILE_DEFINITIONS)
+
 juce_add_plugin(ctrlr
-	PLUGIN_MANUFACTURER_CODE Atom
-	PLUGIN_CODE Ctrl
+	COMPANY_NAME "Instigator"
+	PLUGIN_MANUFACTURER_CODE inSt
+	PLUGIN_CODE cTrl
+	PLUGIN_NAME Ctrlr
 	FORMATS VST3 VST AU Standalone
 	PRODUCT_NAME "ctrlr"
 	ICON_BIG "Source/Resources/Icons/ctrlr_logo.svg"
-	ICON_SMALL "Source/Resources/Icons/ctrlr_logo.svg")
+	ICON_SMALL "Source/Resources/Icons/ctrlr_logo.svg"
+	BUNDLE_ID "com.instigator.Ctrlr"
+	COMPANY_WEBSITE https://github.com/RomanKubiak/ctrlr
+	DOCUMENT_EXTENSIONS panel
+	DESCRIPTION "Control any MIDI enabled hardware: synthesizers,\
+ drum machines, samplers, effects. Create custom User\
+ interfaces. Host them as VST or AU plugins in your favorite DAWs."
+	NEEDS_MIDI_INPUT true
+	NEEDS_MIDI_OUTPUT true
+	VST_NUM_MIDI_INS 2
+	VST_NUM_MIDI_OUTS 2
+	VST2_CATEGORY kPlugCategUnknown
+	VST3_CATEGORIES NoOfflineProcess Tools
+	AU_MAIN_TYPE kAudioUnitType_MIDIProcessor
+)
 
 target_precompile_headers(ctrlr
 	PUBLIC
@@ -39,8 +59,10 @@ target_precompile_headers(ctrlr
 	Source/Core/stdafx_luabind.h
 )
 
+
+
 target_sources(ctrlr
-	PRIVATE
+        PRIVATE
 	Source/Core/CtrlrFontManager.cpp
 	Source/Core/CtrlrIDManager.cpp
 	Source/Core/CtrlrLog.cpp
@@ -232,31 +254,42 @@ target_sources(ctrlr
 	Source/Misc/libusb/src/threads_windows.c
 	Source/Misc/libusb/src/usb.c
 	Source/Misc/libusb/src/windows_usb.c
-	Source/Misc/libr.c
-	Source/Misc/libr-bfd.c
-	Source/Misc/keys.cpp
 )
+#add_library(ctrlr-misc OBJECT
+#)
+add_library(ctrlr-misc STATIC
+	Source/Misc/misc/libr-bfd.c
+	Source/Misc/misc/libr.c
+)
+set_property(TARGET ctrlr-misc PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+
 
 target_compile_options(ctrlr PUBLIC "-w")
+target_compile_options(ctrlr-misc PUBLIC "-w")
 
 target_compile_definitions(ctrlr
 	PRIVATE
+	# JUCE_WEB_BROWSER and JUCE_USE_CURL should be handled automatically
 	JUCE_WEB_BROWSER=0
 	JUCE_USE_CURL=0
-	JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:ctrlr,JUCE_PRODUCT_NAME>"
-	JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:ctrlr,JUCE_VERSION>"
-	JUCE_VST3_CAN_REPLACE_VST2=0
-	JUCE_DEBUG=1
+#	JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:ctrlr,JUCE_PRODUCT_NAME>"
+#	JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:ctrlr,JUCE_VERSION>"
+#	JUCE_VST3_CAN_REPLACE_VST2=0
+#	JUCE_DEBUG=1
 	JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1
 )
 
+
+
 string(TIMESTAMP BUILD_TIME)
 configure_file(	"Source/Core/CtrlrRevision.template" 
-		"CtrlrRevision.h")
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+  "CtrlrRevision.h")
+include_directories(${CMAKE_CURRENT_BINARY_DIR}
+	      )
 
 target_include_directories(ctrlr
-	PUBLIC
+  PUBLIC
 	Source/Misc/lua/include
 	Source/Misc/luabind
 	Source/Misc/boost
@@ -271,14 +304,19 @@ target_include_directories(ctrlr
 	Source/
 	include
 	JuceLibraryCode
-	${CMAKE_CURRENT_BINARY_DIR})
-
-if(UNIX AND NOT APPLE)
-	list(APPEND ctrlrLibs "X11")
-	list(APPEND ctrlrLibs "z")
-	list(APPEND ctrlrLibs "udev")
-	list(APPEND ctrlrLibs "bfd")
-endif()
+	${CMAKE_CURRENT_BINARY_DIR}
+        ${LUABITOP_INCLUDE_DIRS}
+)
+target_include_directories(ctrlr-misc
+  PUBLIC
+	Source/Misc/include
+	include
+	JuceLibraryCode
+	JUCE/modules
+	${CMAKE_CURRENT_BINARY_DIR}
+        ${LUABITOP_INCLUDE_DIRS}
+	
+)
 
 target_link_libraries(ctrlr
 		PRIVATE
@@ -288,12 +326,36 @@ target_link_libraries(ctrlr
 			juce::juce_audio_formats
 			juce::juce_audio_processors
 			juce::juce_audio_utils
-			${ctrlrLibs}
 		PUBLIC
 			juce::juce_recommended_config_flags
 			juce::juce_recommended_lto_flags
 			juce::juce_recommended_warning_flags
 	)
+if(UNIX AND NOT APPLE)
+	target_sources(ctrlr-misc
+		PRIVATE
+		Source/Misc/misc/keys.cpp
+	)
+
+
+	find_package(X11 REQUIRED)
+	find_package(ZLIB REQUIRED)
+	find_library(LIB_UDEV udev REQUIRED)
+	find_library(LIB_BFD libbfd.a REQUIRED)
+	find_library(LIB_SFRAME sframe REQUIRED)
+	find_library(LIB_IBERTY iberty REQUIRED)
+
+	target_link_libraries(ctrlr
+		PRIVATE
+		ctrlr-misc
+		X11::X11
+		ZLIB::ZLIB
+		${LIB_UDEV}
+		${LIB_BFD}
+		${LIB_SFRAME}
+		${LIB_IBERTY}
+	)
+endif()
 
 set_source_files_properties(
 	JUCE/modules/juce_gui_extra/juce_gui_extra.cpp
@@ -382,3 +444,52 @@ set_source_files_properties(
 	JuceLibraryCode/BinaryData.cpp
 	PROPERTIES SKIP_PRECOMPILE_HEADERS ON
 )
+
+# Copy properties from ctrlr to ctrlr-misc
+get_target_property(MAIN_COMPILE_DEFINITIONS ctrlr COMPILE_DEFINITIONS)
+target_compile_definitions(ctrlr-misc
+	PRIVATE
+	${MAIN_COMPILE_DEFINITIONS}
+)
+get_target_property(MAIN_COMPILE_OPTIONS ctrlr COMPILE_OPTIONS)
+target_compile_options(ctrlr-misc
+	PRIVATE
+	${MAIN_COMPILE_OPTIONS}
+)
+#get_target_property(MAIN_COMPILE_FLAGS ctrlr COMPILE_FLAGS)
+##get_target_property(MAIN_STATIC_LIBRARY_FLAGS ctrlr STATIC_LIBRLRY_FLAGS)
+target_compile_options(ctrlr-misc
+	PRIVATE
+#	${MAIN_COMPILE_FLAGS}
+#	${MAIN_STATIC_LIBRARY_FLAGS}
+)
+# get_target_property(MAIN_COMPILE_FEATURES ctrlr COMPILE_FEATURES)
+# target_compile_features(ctrlr-misc
+# 	PRIVATE
+# 	${MAIN_COMPILE_FEATURES}
+# )
+#
+
+#set_target_properties(ctrlr_VST
+#	PROPERTIES
+#         LIBRARY_OUTPUT_DIRECTORY ${PROJECT_LIBRARY_DIR}/vst)
+#set_target_properties(ctrlr_VST3
+#	PROPERTIES
+#         LIBRARY_OUTPUT_DIRECTORY ${PROJECT_LIBRARY_DIR}/vst3)
+	 
+if (APPLE)
+   set(CTRLR_INSTALL_EXTRA_OPTIONS MACOSX_BUNDLE)
+else(APPLE)
+   set(CTRLR_INSTALL_EXTRA_OPTIONS )
+endif(APPLE)
+
+install(TARGETS ctrlr_Standalone
+	RUNTIME
+	${CTRLR_INSTALL_EXTRA_OPTIONS}
+	DESTINATION bin)
+install(TARGETS ctrlr_VST
+	${CTRLR_INSTALL_EXTRA_OPTIONS}
+	DESTINATION lib/vst)
+install(TARGETS ctrlr_VST3
+	${CTRLR_INSTALL_EXTRA_OPTIONS}
+	DESTINATION lib/vst3)

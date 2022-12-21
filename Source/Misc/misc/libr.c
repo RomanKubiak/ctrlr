@@ -22,7 +22,6 @@
  * ehoover at mines dot edu
  *
  */
-#ifdef LINUX
 #include "libr.h"
 
 /* Obtain file information */
@@ -751,4 +750,3 @@ failed:
 	return temp_folder;
 }
 
-#endif

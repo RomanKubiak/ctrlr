@@ -1,4 +1,3 @@
-#ifdef LINUX
 #include <float.h>
 #include <sys/time.h>
 #include <X11/Xlib.h>
@@ -72,4 +71,3 @@ const Result ctrlr_sendKeyPressEvent (const KeyPress &keyPress)
    XCloseDisplay(display);
    return (Result::ok());
 }
-#endif
