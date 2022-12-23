@@ -1,3 +1,31 @@
+libusb-1.0 (2:1.0.26-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 10 Apr 2022 21:47:30 +0200
+
+libusb-1.0 (2:1.0.26~rc1-1) experimental; urgency=medium
+
+  * New upstream release candidate.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 27 Mar 2022 22:53:21 +0200
+
+libusb-1.0 (2:1.0.25-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Upload to unstable.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 06 Feb 2022 21:21:29 +0100
+
+libusb-1.0 (2:1.0.25~rc1-1) experimental; urgency=medium
+
+  * New upstream release candidate:
+    - Drop 01-linux_usbfs-Fix-parsing-of-descriptors-for-multi-con.patch.
+    - Drop 02-linux_usbfs-Gracefully-handle-buggy-devices-with-a-c.patch. 
+  * Bump Standards-Version to 4.6.0 (no changes).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 23 Jan 2022 14:59:29 +0100
+
 libusb-1.0 (2:1.0.24-3) unstable; urgency=medium
 
   * Backport patch from upstream to gracefully handle buggy (but very common)

@@ -83,6 +83,34 @@
 #define PTR_ALIGN(v) \
 	(((v) + (sizeof(void *) - 1)) & ~(sizeof(void *) - 1))
 
+/* Atomic operations
+ *
+ * Useful for reference counting or when accessing a value without a lock
+ *
+ * The following atomic operations are defined:
+ *   usbi_atomic_load() - Atomically read a variable's value
+ *   usbi_atomic_store() - Atomically write a new value value to a variable
+ *   usbi_atomic_inc() - Atomically increment a variable's value and return the new value
+ *   usbi_atomic_dec() - Atomically decrement a variable's value and return the new value
+ *
+ * All of these operations are ordered with each other, thus the effects of
+ * any one operation is guaranteed to be seen by any other operation.
+ */
+#ifdef _MSC_VER
+typedef volatile LONG usbi_atomic_t;
+#define usbi_atomic_load(a)	(*(a))
+#define usbi_atomic_store(a, v)	(*(a)) = (v)
+#define usbi_atomic_inc(a)	InterlockedIncrement((a))
+#define usbi_atomic_dec(a)	InterlockedDecrement((a))
+#else
+#include <stdatomic.h>
+typedef atomic_long usbi_atomic_t;
+#define usbi_atomic_load(a)	atomic_load((a))
+#define usbi_atomic_store(a, v)	atomic_store((a), (v))
+#define usbi_atomic_inc(a)	(atomic_fetch_add((a), 1) + 1)
+#define usbi_atomic_dec(a)	(atomic_fetch_add((a), -1) - 1)
+#endif
+
 /* Internal abstractions for event handling and thread synchronization */
 #if defined(PLATFORM_POSIX)
 #include "os/events_posix.h"
@@ -289,22 +317,23 @@ void usbi_log(struct libusb_context *ctx, enum libusb_log_level level,
 #define usbi_err(ctx, ...)	_usbi_log(ctx, LIBUSB_LOG_LEVEL_ERROR, __VA_ARGS__)
 #define usbi_warn(ctx, ...)	_usbi_log(ctx, LIBUSB_LOG_LEVEL_WARNING, __VA_ARGS__)
 #define usbi_info(ctx, ...)	_usbi_log(ctx, LIBUSB_LOG_LEVEL_INFO, __VA_ARGS__)
-#define usbi_dbg(...)		_usbi_log(NULL, LIBUSB_LOG_LEVEL_DEBUG, __VA_ARGS__)
+#define usbi_dbg(ctx ,...)      	_usbi_log(ctx, LIBUSB_LOG_LEVEL_DEBUG, __VA_ARGS__)
 
 #else /* ENABLE_LOGGING */
 
 #define usbi_err(ctx, ...)	UNUSED(ctx)
 #define usbi_warn(ctx, ...)	UNUSED(ctx)
 #define usbi_info(ctx, ...)	UNUSED(ctx)
-#define usbi_dbg(...)		do {} while (0)
+#define usbi_dbg(ctx, ...)	do {} while (0)
 
 #endif /* ENABLE_LOGGING */
 
 #define DEVICE_CTX(dev)		((dev)->ctx)
-#define HANDLE_CTX(handle)	(DEVICE_CTX((handle)->dev))
-#define TRANSFER_CTX(transfer)	(HANDLE_CTX((transfer)->dev_handle))
+#define HANDLE_CTX(handle)	((handle) ? DEVICE_CTX((handle)->dev) : NULL)
 #define ITRANSFER_CTX(itransfer) \
-	(TRANSFER_CTX(USBI_TRANSFER_TO_LIBUSB_TRANSFER(itransfer)))
+	((itransfer)->dev ? DEVICE_CTX((itransfer)->dev) : NULL)
+#define TRANSFER_CTX(transfer) \
+	(ITRANSFER_CTX(LIBUSB_TRANSFER_TO_USBI_TRANSFER(transfer)))
 
 #define IS_EPIN(ep)		(0 != ((ep) & LIBUSB_ENDPOINT_IN))
 #define IS_EPOUT(ep)		(!IS_EPIN(ep))
@@ -339,6 +368,9 @@ struct libusb_context {
 	struct list_head hotplug_cbs;
 	libusb_hotplug_callback_handle next_hotplug_cb_handle;
 	usbi_mutex_t hotplug_cbs_lock;
+
+	/* A flag to indicate that the context is ready for hotplug notifications */
+	usbi_atomic_t hotplug_ready;
 
 	/* this is a list of in-flight transfer handles, sorted by timeout
 	 * expiration. URBs to timeout the soonest are placed at the beginning of
@@ -404,13 +436,26 @@ struct libusb_context {
 };
 
 extern struct libusb_context *usbi_default_context;
+extern struct libusb_context *usbi_fallback_context;
 
 extern struct list_head active_contexts_list;
 extern usbi_mutex_static_t active_contexts_lock;
 
 static inline struct libusb_context *usbi_get_context(struct libusb_context *ctx)
 {
-	return ctx ? ctx : usbi_default_context;
+	static int warned = 0;
+
+	if (!ctx) {
+		ctx = usbi_default_context;
+	}
+	if (!ctx) {
+		ctx = usbi_fallback_context;
+		if (ctx && warned == 0) {
+			usbi_err(ctx, "API misuse! Using non-default context as implicit default.");
+			warned = 1;
+		}
+	}
+	return ctx;
 }
 
 enum usbi_event_flags {
@@ -450,10 +495,7 @@ static inline void usbi_end_event_handling(struct libusb_context *ctx)
 }
 
 struct libusb_device {
-	/* lock protects refcnt, everything else is finalized at initialization
-	 * time */
-	usbi_mutex_t lock;
-	int refcnt;
+	usbi_atomic_t refcnt;
 
 	struct libusb_context *ctx;
 	struct libusb_device *parent_dev;
@@ -467,7 +509,7 @@ struct libusb_device {
 	unsigned long session_data;
 
 	struct libusb_device_descriptor device_descriptor;
-	int attached;
+	usbi_atomic_t attached;
 };
 
 struct libusb_device_handle {
@@ -533,6 +575,10 @@ struct usbi_transfer {
 	uint32_t stream_id;
 	uint32_t state_flags;   /* Protected by usbi_transfer->lock */
 	uint32_t timeout_flags; /* Protected by the flying_stransfers_lock */
+
+	/* The device reference is held until destruction for logging
+	 * even after dev_handle is set to NULL.  */
+	struct libusb_device *dev;
 
 	/* this lock is held during libusb_submit_transfer() and
 	 * libusb_cancel_transfer() (allowing the OS backend to prevent duplicate
@@ -664,7 +710,74 @@ union usbi_bos_desc_buf {
         uint16_t align;         /* Force 2-byte alignment */
 };
 
+enum usbi_hotplug_flags {
+	/* This callback is interested in device arrivals */
+	USBI_HOTPLUG_DEVICE_ARRIVED = LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED,
+
+	/* This callback is interested in device removals */
+	USBI_HOTPLUG_DEVICE_LEFT = LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT,
+
+	/* IMPORTANT: The values for the below entries must start *after*
+	 * the highest value of the above entries!!!
+	 */
+
+	/* The vendor_id field is valid for matching */
+	USBI_HOTPLUG_VENDOR_ID_VALID = (1U << 3),
+
+	/* The product_id field is valid for matching */
+	USBI_HOTPLUG_PRODUCT_ID_VALID = (1U << 4),
+
+	/* The dev_class field is valid for matching */
+	USBI_HOTPLUG_DEV_CLASS_VALID = (1U << 5),
+
+	/* This callback has been unregistered and needs to be freed */
+	USBI_HOTPLUG_NEEDS_FREE = (1U << 6),
+};
+
+struct usbi_hotplug_callback {
+	/* Flags that control how this callback behaves */
+	uint8_t flags;
+
+	/* Vendor ID to match (if flags says this is valid) */
+	uint16_t vendor_id;
+
+	/* Product ID to match (if flags says this is valid) */
+	uint16_t product_id;
+
+	/* Device class to match (if flags says this is valid) */
+	uint8_t dev_class;
+
+	/* Callback function to invoke for matching event/device */
+	libusb_hotplug_callback_fn cb;
+
+	/* Handle for this callback (used to match on deregister) */
+	libusb_hotplug_callback_handle handle;
+
+	/* User data that will be passed to the callback function */
+	void *user_data;
+
+	/* List this callback is registered in (ctx->hotplug_cbs) */
+	struct list_head list;
+};
+
+struct usbi_hotplug_message {
+	/* The hotplug event that occurred */
+	libusb_hotplug_event event;
+
+	/* The device for which this hotplug event occurred */
+	struct libusb_device *device;
+
+	/* List this message is contained in (ctx->hotplug_msgs) */
+	struct list_head list;
+};
+
 /* shared data and functions */
+
+void usbi_hotplug_init(struct libusb_context *ctx);
+void usbi_hotplug_exit(struct libusb_context *ctx);
+void usbi_hotplug_notification(struct libusb_context *ctx, struct libusb_device *dev,
+	libusb_hotplug_event event);
+void usbi_hotplug_process(struct libusb_context *ctx, struct list_head *hotplug_msgs);
 
 int usbi_io_init(struct libusb_context *ctx);
 void usbi_io_exit(struct libusb_context *ctx);
@@ -695,6 +808,13 @@ struct usbi_event_source {
 int usbi_add_event_source(struct libusb_context *ctx, usbi_os_handle_t os_handle,
 	short poll_events);
 void usbi_remove_event_source(struct libusb_context *ctx, usbi_os_handle_t os_handle);
+
+struct usbi_option {
+  int is_set;
+  union {
+    int ival;
+  } arg;
+};
 
 /* OS event abstraction */
 
@@ -793,7 +913,8 @@ struct usbi_os_backend {
 	 * data structures for later, etc.
 	 *
 	 * This function is called when a libusb user initializes the library
-	 * prior to use.
+	 * prior to use. Mutual exclusion with other init and exit calls is
+	 * guaranteed when this function is called.
 	 *
 	 * Return 0 on success, or a LIBUSB_ERROR code on failure.
 	 */
@@ -803,6 +924,8 @@ struct usbi_os_backend {
 	 * that was set up by init.
 	 *
 	 * This function is called when the user deinitializes the library.
+	 * Mutual exclusion with other init and exit calls is guaranteed when
+	 * this function is called.
 	 */
 	void (*exit)(struct libusb_context *ctx);
 
@@ -1364,6 +1487,12 @@ extern const struct usbi_os_backend usbi_backend;
 
 #define for_each_removed_event_source_safe(ctx, e, n) \
 	for_each_safe_helper(e, n, &(ctx)->removed_event_sources, struct usbi_event_source)
+
+#define for_each_hotplug_cb(ctx, c) \
+	for_each_helper(c, &(ctx)->hotplug_cbs, struct usbi_hotplug_callback)
+
+#define for_each_hotplug_cb_safe(ctx, c, n) \
+	for_each_safe_helper(c, n, &(ctx)->hotplug_cbs, struct usbi_hotplug_callback)
 
 #ifdef __cplusplus
 }

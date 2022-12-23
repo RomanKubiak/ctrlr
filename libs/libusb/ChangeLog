@@ -1,6 +1,33 @@
 For detailed information about the changes below, please see the git log or
 visit: http://log.libusb.info
 
+2022-04-10: v1.0.26
+* Fix regression with transfer free's after closing device
+* Fix regression with destroyed context if API is misused
+* Workaround for applications using missing default context
+* Fix hotplog enumeration regression
+* Fix Windows isochronous transfer regression since 1.0.24
+* Fix macOS exit crash in some multi-context cases
+* Build fixes for various platforms and configurations
+* Fix Windows HID multi-interface product string retrieval
+* Update isochronous OUT packet actual lengths on Windows
+* Add interface bound checking for broken devices
+* Add umockdev tests on Linux
+
+2022-01-31: v1.0.25
+* Linux: Fix regression with some particular devices
+* Linux: Fix regression with libusb_handle_events_timeout_completed()
+* Linux: Fix regression with cpu usage in libusb_bulk_transfer
+* Darwin (macOS): Add support for detaching kernel drivers with authorization.
+* Darwin (macOS): Do not drop partial data on timeout.
+* Darwin (macOS): Silence pipe error in set_interface_alt_setting().
+* Windows: Fix HID backend missing byte
+* Windows: Fix segfault with libusbk driver
+* Windows: Fix regression when using libusb0 driver
+* Windows: Support LIBUSB_TRANSFER_ADD_ZERO_PACKET on winusb
+* New NO_DEVICE_DISCOVERY option replaces WEAK_AUTHORITY option
+* Various other bug fixes and improvements
+
 2020-12-09: v1.0.24
 * Add new platform abstraction (#252)
 * Add Null POSIX backend
@@ -12,7 +39,7 @@ visit: http://log.libusb.info
 * Darwin (macOS): use IOUSBDevice as darwin_device_class explicitly (#693)
 * Linux: Drop support for kernel older than 2.6.32
 * Linux: Provide an event thread name (#689)
-* Linux: Wait until all USBs have been reaped before freeing them (#607)
+* Linux: Wait until all URBs have been reaped before freeing them (#607)
 * NetBSD: Recognize device timeouts (#710)
 * OpenBSD: Allow opening ugen devices multiple times (#763)
 * OpenBSD: Support libusb_get_port_number() (#764)
@@ -61,7 +88,7 @@ visit: http://log.libusb.info
 * Windows: Fix enumeration problems on Windows 8 and later
 * Windows: Major rework of poll() emulation
 * Windows: Numerous HID API fixes
-* Windows: Support cancelation of individual transfers (Vista and later)
+* Windows: Support cancellation of individual transfers (Vista and later)
 * Various other bug fixes and improvements
 
 2016-10-01: v1.0.21

@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Aurelien Jarno <aurel32@debian.org>
 Build-Depends: debhelper-compat (= 13), libudev-dev [linux-any], pkg-config
 Build-Depends-Indep: doxygen
-Standards-Version: 4.5.1
+Standards-Version: 4.6.0
 Rules-Requires-Root: no
 Homepage: http://www.libusb.info
 XS-Testsuite: autopkgtest
