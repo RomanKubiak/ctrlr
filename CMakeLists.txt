@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.23)
 
+# debug options
+#set(CMAKE_DEBUG_TARGET_PROPERTIES COMPILE_DEFINITIONS)
+
+
 if(APPLE)
 	set(CMAKE_OSX_DEPLOYMENT_TARGET 10.15 CACHE STRING "")
 	set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for Mac OS X" FORCE)
@@ -190,7 +194,7 @@ elseif(WIN32)
 	juce_set_vst2_sdk_path(c:/Users/atom/devel/vst2sdk)
 endif(APPLE)
 
-set(CMAKE_DEBUG_TARGET_PROPERTIES COMPILE_DEFINITIONS)
+# configure the targets
 
 juce_add_plugin(ctrlr
 	COMPANY_NAME "Instigator"
