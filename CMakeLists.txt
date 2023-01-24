@@ -126,6 +126,59 @@ else (luabindlink)
    add_library(Ctrlr::luabind ALIAS luabind)
 endif(luabindlink)
 
+pkg_check_modules(USB IMPORTED_TARGET libusb-1.0)
+if (NOT USB_FOUND)
+	set(LIBUSB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libs/libusb)
+	set(LIBUSB_BIN ${CMAKE_CURRENT_BINARY_DIR}/libusb)
+	set(LIBUSB_STATIC_LIB ${LIBUSB_BIN}/lib/libusb.a)
+	set(LIBUSB_INCLUDES ${LIBUSB_BIN}/include)
+	
+	file(MAKE_DIRECTORY ${LIBUSB_INCLUDES})
+	ExternalProject_Add(
+	  libusb
+	  SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}
+	  CONFIGURE_COMMAND ${LIBUSB_DIR}/configure 
+	    --disable-shared 
+	    --enable-static=yes 
+	    --srcdir=${LIBUSB_DIR}
+	    --prefix=${LIBUSB_BIN}
+	  BUILD_COMMAND make
+	  INSTALL_COMMAND make install
+	)
+	list(PREPEND CMAKE_PREFIX_PATH ${LIBUSB_BIN})
+	message(variable CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH})
+	pkg_check_modules(USB
+		REQUIRED
+		IMPORTED_TARGET
+		libusb-1.0)
+endif()
+
+
+# build luausb
+
+add_library(luausb STATIC
+	libs/luausb/enums.c
+	libs/luausb/structs.c
+	libs/luausb/compat.c
+	libs/luausb/usb.c
+	libs/luausb/enums.h
+	libs/luausb/structs.h
+	libs/luausb/compat.h
+)
+set_property(TARGET luausb PROPERTY POSITION_INDEPENDENT_CODE ON)
+target_compile_definitions(luausb
+	PRIVATE
+	
+	"LUAUSB_API=__attribute__((visibility(\"default\")))"
+	luaopen_module=luaopen_usb
+)
+
+target_link_libraries(luausb
+	PUBLIC
+		PkgConfig::USB
+		PkgConfig::LUA
+	)	
+# include JUCE
 
 add_subdirectory(JUCE EXCLUDE_FROM_ALL)
 
@@ -346,24 +399,24 @@ target_sources(ctrlr
 	Source/Native/CtrlrMac.cpp
 	Source/Native/CtrlrWindows.cpp
 	Source/Native/CtrlrNative.cpp
-	Source/Misc/libusb/src/compat.c
-	Source/Misc/libusb/src/core.c
-	Source/Misc/libusb/src/darwin_usb.c
-	Source/Misc/libusb/src/descriptor.c
-	Source/Misc/libusb/src/enums.c
-	Source/Misc/libusb/src/hotplug.c
-	Source/Misc/libusb/src/io.c
-	Source/Misc/libusb/src/linux_udev.c
-	Source/Misc/libusb/src/linux_usbfs.c
-	Source/Misc/libusb/src/poll_posix.c
-	Source/Misc/libusb/src/poll_windows.c
-	Source/Misc/libusb/src/strerror.c
-	Source/Misc/libusb/src/structs.c
-	Source/Misc/libusb/src/sync.c
-	Source/Misc/libusb/src/threads_posix.c
-	Source/Misc/libusb/src/threads_windows.c
-	Source/Misc/libusb/src/usb.c
-	Source/Misc/libusb/src/windows_usb.c
+# 	Source/Misc/libusb/src/compat.c
+# 	Source/Misc/libusb/src/core.c
+# 	Source/Misc/libusb/src/darwin_usb.c
+# 	Source/Misc/libusb/src/descriptor.c
+# 	Source/Misc/libusb/src/enums.c
+# 	Source/Misc/libusb/src/hotplug.c
+# 	Source/Misc/libusb/src/io.c
+# 	Source/Misc/libusb/src/linux_udev.c
+# 	Source/Misc/libusb/src/linux_usbfs.c
+# 	Source/Misc/libusb/src/poll_posix.c
+# 	Source/Misc/libusb/src/poll_windows.c
+# 	Source/Misc/libusb/src/strerror.c
+# 	Source/Misc/libusb/src/structs.c
+# 	Source/Misc/libusb/src/sync.c
+# 	Source/Misc/libusb/src/threads_posix.c
+# 	Source/Misc/libusb/src/threads_windows.c
+# 	Source/Misc/libusb/src/usb.c
+# 	Source/Misc/libusb/src/windows_usb.c
 )
 #add_library(ctrlr-misc OBJECT
 #)
@@ -405,7 +458,7 @@ target_include_directories(ctrlr
 #	Source/Misc/boost
 	Source/Misc
 	Source/Misc/include
-	Source/Misc/libusb/include
+#	Source/Misc/libusb/include
 	Source/Core
 	Source/MIDI
 	Source/Lua
@@ -535,24 +588,24 @@ set_source_files_properties(
 	Source/Misc/luabind/src/stack_content_by_name.cpp
 	Source/Misc/luabind/src/weak_ref.cpp
 	Source/Misc/luabind/src/wrapper_base.cpp
-	Source/Misc/libusb/src/compat.c
-	Source/Misc/libusb/src/core.c
-	Source/Misc/libusb/src/darwin_usb.c
-	Source/Misc/libusb/src/descriptor.c
-	Source/Misc/libusb/src/enums.c
-	Source/Misc/libusb/src/hotplug.c
-	Source/Misc/libusb/src/io.c
-	Source/Misc/libusb/src/linux_udev.c
-	Source/Misc/libusb/src/linux_usbfs.c
-	Source/Misc/libusb/src/poll_posix.c
-	Source/Misc/libusb/src/poll_windows.c
-	Source/Misc/libusb/src/strerror.c
-	Source/Misc/libusb/src/structs.c
-	Source/Misc/libusb/src/sync.c
-	Source/Misc/libusb/src/threads_posix.c
-	Source/Misc/libusb/src/threads_windows.c
-	Source/Misc/libusb/src/usb.c
-	Source/Misc/libusb/src/windows_usb.c
+# 	Source/Misc/libusb/src/compat.c
+# 	Source/Misc/libusb/src/core.c
+# 	Source/Misc/libusb/src/darwin_usb.c
+# 	Source/Misc/libusb/src/descriptor.c
+# 	Source/Misc/libusb/src/enums.c
+# 	Source/Misc/libusb/src/hotplug.c
+# 	Source/Misc/libusb/src/io.c
+# 	Source/Misc/libusb/src/linux_udev.c
+# 	Source/Misc/libusb/src/linux_usbfs.c
+# 	Source/Misc/libusb/src/poll_posix.c
+# 	Source/Misc/libusb/src/poll_windows.c
+# 	Source/Misc/libusb/src/strerror.c
+# 	Source/Misc/libusb/src/structs.c
+# 	Source/Misc/libusb/src/sync.c
+# 	Source/Misc/libusb/src/threads_posix.c
+# 	Source/Misc/libusb/src/threads_windows.c
+# 	Source/Misc/libusb/src/usb.c
+# 	Source/Misc/libusb/src/windows_usb.c
 	Source/Misc/keys.cpp
 	JuceLibraryCode/BinaryData.cpp
 	PROPERTIES SKIP_PRECOMPILE_HEADERS ON
