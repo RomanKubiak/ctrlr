@@ -8,25 +8,39 @@ endif(APPLE)
 SET(CMAKE_C_LINK_EXECUTABLE ${CMAKE_CXX_LINK_EXECUTABLE})
 
 project(ctrlr VERSION 5.7.1)
-set(LUA_VERSION "lua-5.1.5")
+set(CTRLR_LUA_VERSION "5.1")
 
 set(CMAKE_CXX_STANDARD 14)
 
-SET(CMAKE_MODULE_PATH
+list(APPEND CMAKE_MODULE_PATH
 	${CMAKE_SOURCE_DIR}/cmake
 	${CMAKE_SOURCE_DIR}/config
 	${CMAKE_SOURCE_DIR}/config/platform
 )
 
-include(ExternalProject)
 
-ExternalProject_Add(lua
-   URL https://www.lua.org/ftp/${LUA_VERSION}.tar.gz
-   CONFIGURE_COMMAND ""
-   BUILD_COMMAND make generic
-   BUILD_ALWAYS true
-   BUILD_IN_SOURCE true
-   INSTALL_COMMAND ""
+find_package(PkgConfig REQUIRED)
+include(ExternalProject)
+include(CheckCXXSourceCompiles)
+
+#find_package(lua5.1 REQUIRED)
+pkg_check_modules(LUA REQUIRED IMPORTED_TARGET lua${CTRLR_LUA_VERSION})
+if (LUA_FOUND)
+else(LUA_FOUND)
+	ExternalProject_Add(lua
+		URL https://www.lua.org/ftp/lua-5.1.5.tar.gz
+		CONFIGURE_COMMAND ""
+		BUILD_COMMAND make generic
+		BUILD_ALWAYS true
+		BUILD_IN_SOURCE true
+		INSTALL_COMMAND ""
+	)
+	add_library(liblua STATIC IMPORTED)
+	add_library(PkgConfig::LUA ALIAS lua)
+	ExternalProject_Get_property(lua SOURCE_DIR)
+	message("liblua will be found at \'${SOURCE_DIR}/src\'")
+endif(LUA_FOUND)
+
 )
 add_library(liblua STATIC IMPORTED)
 ExternalProject_Get_property(lua SOURCE_DIR)
@@ -117,7 +131,7 @@ target_sources(ctrlr
 	Source/UIComponents/CtrlrTextEditor.cpp
 	Source/UIComponents/CtrlrValueMap.cpp
 	Source/UIComponents/CtrlrValueTreeEditor.cpp
-	Source/Misc/lua/src/lua.c
+#	Source/Misc/lua/src/lua.c
 	Source/Misc/luabind/src/class.cpp
 	Source/Misc/luabind/src/class_info.cpp
 	Source/Misc/luabind/src/class_registry.cpp
@@ -309,7 +323,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}
 
 target_include_directories(ctrlr
   PUBLIC
-	Source/Misc/lua/include
+#	Source/Misc/lua/include
 	Source/Misc/luabind
 	Source/Misc/boost
 	Source/Misc
