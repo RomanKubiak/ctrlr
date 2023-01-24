@@ -46,9 +46,86 @@ pkg_check_modules(LUABITOP
 		 REQUIRED
 		 IMPORTED_TARGET lua${CTRLR_LUA_VERSION}-bitop
 )
-add_library(liblua STATIC IMPORTED)
-ExternalProject_Get_property(lua SOURCE_DIR)
-message("liblua will be found at \'${SOURCE_DIR}/src\'")
+message("searching for luabind in  \'${CMAKE_MODULE_PATH}/src\'")
+
+find_package(Luabind REQUIRED)
+list(APPEND CMAKE_REQUIRED_INCLUDES
+	    ${LUA_INCLUDE_DIRS}
+	     ${LUABIND_INCLUDE_DIRS}
+)
+list(APPEND CMAKE_REQUIRED_LIBRARIES ${LUABIND_LIBRARIES} PkgConfig::LUA)
+
+check_cxx_source_compiles("extern \"C\"
+{
+    #include \"lua.h\"
+    #include \"lualib.h\"
+    #include \"lauxlib.h\"
+}
+
+#include <iostream>
+#include <luabind/luabind.hpp>
+
+void greet()
+{
+    std::cout << \"hello world!\" << std::endl;
+}
+
+class cl {
+public:
+      void memberGreet() {
+          std::cout << \"hello member!\" << std::endl;
+      }
+      static void staticGreet() {
+          std::cout << \"hello static!\" << std::endl;
+      }
+};
+
+int init(lua_State* L)
+{
+    using namespace luabind;
+
+    open(L);
+
+    module(L)
+    [
+        def(\"greet\", &greet),
+	class_<cl>(\"cl\")
+	.def(\"memberGreet\",&cl::memberGreet)
+	.scope[
+		def(\"staticGreet\",&cl::staticGreet)
+	]
+    ];
+
+    return 0;
+}
+int main() {
+    lua_State* L = luaL_newstate();
+#if LUA_VERSION_NUM >= 501
+    luaL_openlibs(L);
+#else
+    lua_baselibopen(L);
+#endif
+
+    using namespace luabind;
+
+    open(L);
+    init(L);
+    luabind::call_function<void>(L, \"greet\");
+    lua_close(L);
+}"
+luabindlink)
+unset(CMAKE_REQUIRED_INCLUDES)
+unset(CMAKE_REQUIRED_LIBRARIES)
+
+if (luabindlink)
+   add_library(Ctrlr::luabind ALIAS luabind)
+else (luabindlink)
+   message("Configuring included luabind library")
+   set(LUABIND_USE_CXX11 ON)
+   add_subdirectory(libs/luabind EXCLUDE_FROM_ALL)
+   add_library(Ctrlr::luabind ALIAS luabind)
+endif(luabindlink)
+
 
 add_subdirectory(JUCE EXCLUDE_FROM_ALL)
 
@@ -132,28 +209,28 @@ target_sources(ctrlr
 	Source/UIComponents/CtrlrValueMap.cpp
 	Source/UIComponents/CtrlrValueTreeEditor.cpp
 #	Source/Misc/lua/src/lua.c
-	Source/Misc/luabind/src/class.cpp
-	Source/Misc/luabind/src/class_info.cpp
-	Source/Misc/luabind/src/class_registry.cpp
-	Source/Misc/luabind/src/class_rep.cpp
-	Source/Misc/luabind/src/create_class.cpp
-	Source/Misc/luabind/src/error.cpp
-	Source/Misc/luabind/src/exception_handler.cpp
-	Source/Misc/luabind/src/function.cpp
-	Source/Misc/luabind/src/function_introspection.cpp
-	Source/Misc/luabind/src/inheritance.cpp
-	Source/Misc/luabind/src/link_compatibility.cpp
-	Source/Misc/luabind/src/lua51compat.cpp
-	Source/Misc/luabind/src/object_rep.cpp
-	Source/Misc/luabind/src/open.cpp
-	Source/Misc/luabind/src/operator.cpp
-	Source/Misc/luabind/src/pcall.cpp
-	Source/Misc/luabind/src/scope.cpp
-	Source/Misc/luabind/src/set_package_preload.cpp
-	Source/Misc/luabind/src/shared_ptr_converter.cpp
-	Source/Misc/luabind/src/stack_content_by_name.cpp
-	Source/Misc/luabind/src/weak_ref.cpp
-	Source/Misc/luabind/src/wrapper_base.cpp
+# 	Source/Misc/luabind/src/class.cpp
+# 	Source/Misc/luabind/src/class_info.cpp
+# 	Source/Misc/luabind/src/class_registry.cpp
+# 	Source/Misc/luabind/src/class_rep.cpp
+# 	Source/Misc/luabind/src/create_class.cpp
+# 	Source/Misc/luabind/src/error.cpp
+# 	Source/Misc/luabind/src/exception_handler.cpp
+# 	Source/Misc/luabind/src/function.cpp
+# 	Source/Misc/luabind/src/function_introspection.cpp
+# 	Source/Misc/luabind/src/inheritance.cpp
+# 	Source/Misc/luabind/src/link_compatibility.cpp
+# 	Source/Misc/luabind/src/lua51compat.cpp
+# 	Source/Misc/luabind/src/object_rep.cpp
+# 	Source/Misc/luabind/src/open.cpp
+# 	Source/Misc/luabind/src/operator.cpp
+# 	Source/Misc/luabind/src/pcall.cpp
+# 	Source/Misc/luabind/src/scope.cpp
+# 	Source/Misc/luabind/src/set_package_preload.cpp
+# 	Source/Misc/luabind/src/shared_ptr_converter.cpp
+# 	Source/Misc/luabind/src/stack_content_by_name.cpp
+# 	Source/Misc/luabind/src/weak_ref.cpp
+# 	Source/Misc/luabind/src/wrapper_base.cpp
 	Source/Core/CtrlrModulator/CtrlrModulator.cpp
 	Source/Core/CtrlrModulator/CtrlrModulatorProcessor.cpp
 	Source/Lua/Methods/CtrlrLuaMethod.cpp
@@ -324,8 +401,8 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}
 target_include_directories(ctrlr
   PUBLIC
 #	Source/Misc/lua/include
-	Source/Misc/luabind
-	Source/Misc/boost
+#	Source/Misc/luabind
+#	Source/Misc/boost
 	Source/Misc
 	Source/Misc/include
 	Source/Misc/libusb/include
