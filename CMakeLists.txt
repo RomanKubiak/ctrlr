@@ -41,16 +41,16 @@ else(LUA_FOUND)
 	message("liblua will be found at \'${SOURCE_DIR}/src\'")
 endif(LUA_FOUND)
 
+#find_package(lua5.1-bitop REQUIRED)
+pkg_check_modules(LUABITOP
+		 REQUIRED
+		 IMPORTED_TARGET lua${CTRLR_LUA_VERSION}-bitop
 )
 add_library(liblua STATIC IMPORTED)
 ExternalProject_Get_property(lua SOURCE_DIR)
 message("liblua will be found at \'${SOURCE_DIR}/src\'")
 
 add_subdirectory(JUCE EXCLUDE_FROM_ALL)
-    
-find_package(PkgConfig REQUIRED)
-#find_package(lua5.1-bitop REQUIRED)
-pkg_check_modules(LUABITOP REQUIRED IMPORTED_TARGET lua5.1-bitop)
 
 if (APPLE)
 	juce_set_vst2_sdk_path(/Users/atom/devel/vst2sdk)
@@ -359,6 +359,9 @@ target_link_libraries(ctrlr
 			juce::juce_audio_formats
 			juce::juce_audio_processors
 			juce::juce_audio_utils
+			PkgConfig::LUABITOP
+			Ctrlr::luabind
+			luausb
 		PUBLIC
 			juce::juce_recommended_config_flags
 			juce::juce_recommended_lto_flags
