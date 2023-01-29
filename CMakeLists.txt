@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.20)
 
 # debug options
 #set(CMAKE_DEBUG_TARGET_PROPERTIES COMPILE_DEFINITIONS)
