@@ -32,6 +32,6 @@ jobs:
 
     - name: Save debian packages
       uses: actions/upload-artifact@v3
-        with:
-          name: ctrlr-ubuntu
-          path: ../ctrlr*.*
+      with:
+        name: ctrlr-ubuntu
+        path: ../ctrlr*.*
