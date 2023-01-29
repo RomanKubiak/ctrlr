@@ -18,6 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: inspect
+      run: |
+        pwd
+        ls -l
+        find . -type d
     - name: install build-essential
       run: |
         sudo apt-get update
