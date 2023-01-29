@@ -30,3 +30,8 @@ jobs:
     - name: Build Debian Package
       run: debuild
 
+    - name: Save debian packages
+      uses: actions/upload-artifact@v3
+        with:
+          name: ctrlr-ubuntu
+          path: ../ctrlr*.*
