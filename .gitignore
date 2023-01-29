@@ -13,3 +13,4 @@ Cmakefiles
 CMakeFiles
 CMakeCache.txt
 *.cmake
+!cmake/*
