@@ -512,7 +512,7 @@ if(UNIX AND NOT APPLE)
 	find_package(ZLIB REQUIRED)
 	find_library(LIB_UDEV udev REQUIRED)
 	find_library(LIB_BFD libbfd.a REQUIRED)
-	find_library(LIB_SFRAME sframe REQUIRED)
+	find_library(LIB_SFRAME sframe)
 	find_library(LIB_IBERTY iberty REQUIRED)
 
 	target_link_libraries(ctrlr
