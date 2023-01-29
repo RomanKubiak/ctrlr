@@ -1,0 +1,3 @@
+shlibs:Depends=libasound2 (>= 1.0.16), libbinutils (>= 2.39.50), libc6 (>= 2.35), libfreetype6 (>= 2.2.1), libgcc-s1 (>= 3.0), liblua5.1-0, libstdc++6 (>= 12), libusb-1.0-0 (>= 2:1.0.12), libx11-6, lua-bitop, zlib1g (>= 1:1.2.0)
+misc:Depends=
+misc:Pre-Depends=
