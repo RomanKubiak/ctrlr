@@ -515,6 +515,10 @@ if(UNIX AND NOT APPLE)
 	find_library(LIB_SFRAME sframe)
 	find_library(LIB_IBERTY iberty REQUIRED)
 
+	if (NOT LIB_SFRAME)
+		set(LIB_SFRAME "")
+	endif()
+
 	target_link_libraries(ctrlr
 		PRIVATE
 		ctrlr-misc
