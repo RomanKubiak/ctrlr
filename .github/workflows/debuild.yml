@@ -26,7 +26,7 @@ jobs:
     - name: install build-essential
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential devscripts debhelper-compat cmake liblua5.1-bitop-dev libluabind-dev liblua5.1-dev libusb-1.0-0-dev
+        sudo apt-get install -y build-essential devscripts debhelper-compat cmake liblua5.1-bitop-dev libluabind-dev liblua5.1-dev libusb-1.0-0-dev libxrandr-dev
 
 
     - name: Build Debian Package

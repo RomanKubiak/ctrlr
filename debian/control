@@ -2,7 +2,7 @@ Source: ctrlr
 Section: unknown
 Priority: optional
 Maintainer: Tobias Schlemmer <tobias@tobias4.schlemmersoft.de>
-Build-Depends: debhelper-compat (= 13), cmake, liblua5.1-bitop-dev, libluabind-dev, liblua5.1-dev, libusb-1.0-0-dev
+Build-Depends: debhelper-compat (= 13), cmake, liblua5.1-bitop-dev, libluabind-dev, liblua5.1-dev, libusb-1.0-0-dev, libxrandr-dev
 Standards-Version: 4.6.0
 Homepage: <insert the upstream URL, if relevant>
 #Vcs-Browser: https://salsa.debian.org/debian/ctrlr
