@@ -20,9 +20,7 @@ jobs:
     
     - name: inspect
       run: |
-        pwd
-        ls -l
-        find . -type d
+        dpkg -L binutils-dev
     - name: install build-essential
       run: |
         sudo apt-get update
