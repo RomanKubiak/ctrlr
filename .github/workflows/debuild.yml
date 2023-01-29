@@ -26,7 +26,7 @@ jobs:
     - name: install build-essential
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential devscripts
+        sudo apt-get install -y build-essential devscripts debhelper-compat
 
     - name: Build Debian Package
       run: debuild
