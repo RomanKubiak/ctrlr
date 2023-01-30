@@ -1,0 +1,148 @@
+name: Direct Build
+
+on:
+  push:
+  pull_request:
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
+    # You can convert this to a matrix build if you need cross-platform coverage.
+    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    name: ${ { matrix.config.name } }
+    runs-on: ${ { matrix.config.os } }
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - {
+            name: "Windows Latest MSVC", artifact: "Windows-MSVC.tar.xz",
+            os: windows-latest,
+            build_type: "Release", cc: "cl", cxx: "cl",
+            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+          }
+        - {
+            name: "Windows Latest MinGW", artifact: "Windows-MinGW.tar.xz",
+            os: windows-latest,
+            build_type: "Release", cc: "gcc", cxx: "g++"
+          }
+        - {
+            name: "Ubuntu Latest GCC", artifact: "Linux.tar.xz",
+            os: ubuntu-latest,
+            build_type: "Release", cc: "gcc", cxx: "g++"
+          }
+        - {
+            name: "macOS Latest Clang", artifact: "macOS.tar.xz",
+            os: macos-latest,
+            build_type: "Release", cc: "clang", cxx: "clang++"
+          }
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+          #-uses: actions/cache@v3   <===== YOU DO NOT NEED THIS!
+
+      # Install latest CMake and Ninja.
+      - uses: lukka/get-cmake@latest
+      # Or pin to a specific CMake version:
+      # lukka/get-cmake@v3.21.2
+
+      # Restore from cache the previously built ports. If a "cache miss" occurs,
+      # then vcpkg is bootstrapped. Since a the vcpkg.json is being used later on
+      # to install the packages when `run-cmake` runs, no packages are installed at
+      # this time.
+      - name: Restore artifacts, or setup vcpkg (do not install any package)
+        uses: lukka/run-vcpkg@v10 # Always specify the specific _version_ of the 
+                                  # action you need, `v10` in this case to stay up
+                                  # to date with fixes on the v10 branch.
+        #with:
+          # This is the default location of the directory containing vcpkg sources.
+          # Change it to the right location if needed.
+          # vcpkgDirectory: '${{ github.workspace }}/vcpkg'
+
+          # If not using a submodule for vcpkg sources, this specifies which commit
+          # id must be checkout from a Git repo. It must not set if using a submodule
+          # for vcpkg.
+          # vcpkgGitCommitId: '${{ matrix.vcpkgCommitId }}'
+
+          # This is the glob expression used to locate the vpkg.json and add its
+          # hash to the cache key. Change it to match a single manifest file you want
+          # to use.
+          # vcpkgJsonGlob: '**/vcpkg.json'
+
+          # This is needed to run `vcpkg install` command (after vcpkg is built) in
+          # the directory where vcpkg.json has been located. Default is false,
+          # It is highly suggested to let `run-cmake` to run vcpkg (i.e. `false`)
+          # (i.e. let CMake run `vcpkg install`) using the vcpkg.cmake toolchain.
+          # runVcpkgInstall: true
+
+      - name: Run CMake consuming CMakePresets.json and vcpkg.json by mean of vcpkg.
+        uses: lukka/run-cmake@v10
+        with:
+          # This is the default path to the CMakeLists.txt along side the
+          # CMakePresets.json. Change if you need have CMakeLists.txt and CMakePresets.json
+          # located elsewhere.
+          # cmakeListsTxtPath: '${{ github.workspace }}/CMakeLists.txt'
+
+          # This is the name of the CMakePresets.json's configuration to use to generate
+          # the project files. This configuration leverages the vcpkg.cmake toolchain file to
+          # run vcpkg and install all dependencies specified in vcpkg.json.
+          configurePreset: 'ninja-multi-vcpkg'
+          # Additional arguments can be appended to the cmake command.
+          # This is useful to reduce the number of CMake's Presets since you can reuse
+          # an existing preset with different variables.
+          configurePresetAdditionalArgs: ['-DENABLE_YOUR_FEATURE=1']
+
+          # This is the name of the CMakePresets.json's configuration to build the project.
+          buildPreset: 'ninja-multi-vcpkg'
+          # Additional arguments can be appended when building, for example to specify the
+          # configuration to build.
+          # This is useful to reduce the number of CMake's Presets you need in CMakePresets.json.
+          buildPresetAdditionalArgs: ['--config Release']
+    
+          # This is the name of the CMakePresets.json's configuration to test the project with.
+          testPreset: 'ninja-multi-vcpkg'
+          # Additional arguments can be appended when testing, for example to specify the config
+          # to test.
+          # This is useful to reduce the number of CMake's Presets you need in CMakePresets.json.
+          testPresetAdditionalArgs: ['--config Release']
+
+    #env:
+    #  VCPKG_DEFAULT_TRIPLET: ${{ matrix.triplet }} # [OPTIONAL] Define the vcpkg's triplet 
+    # you want to enforce, otherwise the default one for the hosting system will be 
+    # automatically choosen (x64 is the default on all platforms,  e.g. x64-osx).
+#    - name: install build-essential
+#      run: |
+#        sudo apt-get update
+#        sudo apt-get install -y build-essential devscripts debhelper-compat cmake liblua5.1-bitop-dev libluabind-dev liblua5.1-dev libusb-1.0-0-dev libxrandr-dev libxinerama-dev libxcursor-dev libudev-dev libcurlpp-dev libasound2-dev libwebkit2gtk-4.0-dev libgtk-3-dev binutils-dev libiberty-dev
+
+#    - name: inspect
+#      run: |
+#        dpkg -L binutils-dev
+
+#    - name: Build Debian Package
+#      run: debuild
+      
+#    - name: move artifacts
+#      run: |
+#        mkdir -p artifacts
+#        mv ../ctrlr*.* artifacts
+
+#    - name: Save debian packages
+#      uses: actions/upload-artifact@v3
+#      with:
+#        name: ctrlr-ubuntu
+#        path: artifacts/*
+        
+#    - name: Update latest release
+#      uses: pyTooling/Actions/releaser@main
+#      with:
+#        tag: ${{ github.ref_name }}-snapshot
+#        rm: true
+#       token: ${{ secrets.GITHUB_TOKEN }}
+#        files: artifacts/*
+
