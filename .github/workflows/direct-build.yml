@@ -100,24 +100,27 @@ jobs:
           # the project files. This configuration leverages the vcpkg.cmake toolchain file to
           # run vcpkg and install all dependencies specified in vcpkg.json.
           configurePreset: 'ninja-multi-vcpkg'
+          
           # Additional arguments can be appended to the cmake command.
           # This is useful to reduce the number of CMake's Presets since you can reuse
           # an existing preset with different variables.
-          configurePresetAdditionalArgs: ['-DENABLE_YOUR_FEATURE=1']
+          #configurePresetAdditionalArgs: ['-DENABLE_YOUR_FEATURE=1']
 
           # This is the name of the CMakePresets.json's configuration to build the project.
           buildPreset: 'ninja-multi-vcpkg'
+          
           # Additional arguments can be appended when building, for example to specify the
           # configuration to build.
           # This is useful to reduce the number of CMake's Presets you need in CMakePresets.json.
-          buildPresetAdditionalArgs: ['--config Release']
+          #buildPresetAdditionalArgs: ['--config Release']
     
           # This is the name of the CMakePresets.json's configuration to test the project with.
           testPreset: 'ninja-multi-vcpkg'
+          
           # Additional arguments can be appended when testing, for example to specify the config
           # to test.
           # This is useful to reduce the number of CMake's Presets you need in CMakePresets.json.
-          testPresetAdditionalArgs: ['--config Release']
+          #testPresetAdditionalArgs: ['--config Release']
 
     #env:
     #  VCPKG_DEFAULT_TRIPLET: ${{ matrix.triplet }} # [OPTIONAL] Define the vcpkg's triplet 
