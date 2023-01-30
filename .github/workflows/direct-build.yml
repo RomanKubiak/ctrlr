@@ -18,6 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        os: []
         include:
         - name: "Windows Latest MSVC"
           artifact: "Windows-MSVC.tar.xz"
