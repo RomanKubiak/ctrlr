@@ -39,4 +39,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ctrlr-ubuntu
-        path: artifacts/ctrlr*.*
+        path: artifacts/*
+        
+    - name: Update latest release
+      uses: pyTooling/Actions/releaser@main
+      with:
+        tag: ${{ github.ref_name }}-snapshot
+        rm: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: artifacts/*
+
