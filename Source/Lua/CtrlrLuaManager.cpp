@@ -1067,7 +1067,7 @@ void CtrlrModulator::setValueNonMapped (const int newValue, const bool force, co
 
 void CtrlrModulator::setModulatorValue(const int newValue, bool vst, bool midi, bool ui)
 {
-	processor.setValueGeneric (CtrlrModulatorValue (newValue, CtrlrModulatorValue::changedByLua), true, !midi);
+  processor.setValueGeneric (CtrlrModulatorValue (newValue, ui ? CtrlrModulatorValue::changedByProgram : CtrlrModulatorValue::changedByLua), true, !midi);
 }
 
 int CtrlrModulator::getValueMapped() const
