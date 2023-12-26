@@ -37,7 +37,7 @@
   <id name="uiPanelBackgroundColour2" 		text="Background colour [2]" type="Colour" />
   <id name="uiPanelBackgroundGradientType" 	text="Background gradient type" type="VarNumeric" defaults="@gradient" />
   <id name="uiPanelSnapSize" 				text="Snap size" type="Text"/>
-  <id name="uiPanelViewPortSize" 			text="Canvas size" type="Text"/>
+  <id name="uiPanelViewPortSize" 			text="Viewport size" type="Text"/>
   <id name="uiPanelPropertiesSize" 			text="Properties panel size" type="Text"/>
   <id name="uiPanelEditMode" 				text="Edit Mode" type="Bool"/>
   <id name="uiPanelLock" 					text="Panel Lock" type="Bool"/>
@@ -192,6 +192,7 @@
   <id name="componentValueDecimalPlaces"          text="Decimal places to print if using floating point numbers" type="Numeric" min="0" max="10" int="1" />
   <id name="componentLuaMouseMoved"               text="Called when a mouse is moved over this component" type="LuaMethod" />
   <id name="componentLuaMouseDown"                text="Called when a mouse is down on this component" type="LuaMethod" />
+  <id name="componentLuaMouseUp"                text="Called when a mouse is up on this component" type="LuaMethod" />
   <id name="componentLuaMouseDrag"                text="Called when a mouse is dragged (down + left click) over this component" type="LuaMethod" />
   <id name="componentLuaMouseDoubleClick"         text="Called when a double-click event occurs on this component" type="LuaMethod" />
   <id name="componentInternalFunction"            text="Internal function this component should execute" type="VarNumeric" defaults="@internalFunctions" />
@@ -774,7 +775,8 @@
   <id name="luaPanelOSCReceived"              text="Called when a panel receives a OSC message"           type="LuaMethod" />
   <id name="luaPanelPaintBackground"          text="Called to paint a custom panel background"            type="LuaMethod" />
   <id name="luaPanelSaved"                    text="Called before a panel is saved"                       type="LuaMethod" />
-  <id name="luaPanelResized"                  text="Called when a panel is resized"                       type="LuaMethod" />
+  <id name="luaPanelEditorResized"            text="Called when the Ctrlr Window is resized"              type="LuaMethod" />
+  <id name="luaPanelResized"                  text="Called when a panel canvas is resized"                type="LuaMethod" />
   <id name="luaPanelProgramChanged"           text="Called after a program change"                        type="LuaMethod" />
   <id name="luaPanelGlobalChanged"            text="Called when a global variable is changed"             type="LuaMethod" />
   <id name="luaPanelMenubarCustom"            text="Called to get the menubar items for this panel"       type="LuaMethod" />

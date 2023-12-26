@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "CtrlrFixedSlider.h"
+#include "CtrlrLuaManager.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
 
 CtrlrFixedSlider::CtrlrFixedSlider (CtrlrModulator &owner)
@@ -89,6 +90,13 @@ void CtrlrFixedSlider::resized()
 void CtrlrFixedSlider::mouseUp (const MouseEvent& e)
 {
     //[UserCode_mouseUp] -- Add your code here...
+    if (mouseUpCbk && !mouseUpCbk.wasObjectDeleted())
+	{
+		if (mouseUpCbk->isValid())
+		{
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseUpCbk, this, e);
+		}
+	}
 	if ((bool)getProperty(Ids::uiSliderSpringMode) == true)
 	{
 		ctrlrSlider->setValue ((double)getProperty(Ids::uiSliderSpringValue), sendNotificationSync);

@@ -91,6 +91,7 @@ class CtrlrComponent :	public Component,
 		const WeakReference<CtrlrComponent>::SharedRef& getWeakReference();
 		const String getComponentGroup();
         virtual void mouseDoubleClick(const MouseEvent &e);
+        virtual void mouseUp(const MouseEvent &e);
         virtual void mouseDown(const MouseEvent &e);
         virtual void mouseMove (const MouseEvent &e);
 		virtual void mouseDrag (const MouseEvent &e);
@@ -129,6 +130,7 @@ class CtrlrComponent :	public Component,
 		friend class WeakReference<CtrlrComponent>;
 		ScopedPointer <GlowEffect> glowEffect;
 		ScopedPointer <DropShadowEffect> shadowEffect;
-		WeakReference <CtrlrLuaMethod> mouseMoveCbk, mouseDownCbk, mouseDragCbk, mouseDoubleClickCbk;
+		WeakReference <CtrlrLuaMethod> mouseMoveCbk, mouseDownCbk, mouseUpCbk, mouseDragCbk, mouseDoubleClickCbk;
+
 };
 #endif

@@ -72,6 +72,8 @@ namespace Ids
 	DECLARE_ID (uiPanelBackgroundColour2);
 	DECLARE_ID (uiPanelBackgroundGradientType);
 	DECLARE_ID (uiPanelSnapSize);
+	DECLARE_ID (uiPanelEditorWidth);
+	DECLARE_ID (uiPanelEditorHeight);
 	DECLARE_ID (uiPanelViewPortSize);
 	DECLARE_ID (uiPanelPropertiesSize);
 	DECLARE_ID (uiPanelEditMode);
@@ -245,6 +247,7 @@ namespace Ids
 	DECLARE_ID (componentValueDecimalPlaces);
 	DECLARE_ID (componentLuaMouseMoved);
 	DECLARE_ID (componentLuaMouseDown);
+	DECLARE_ID (componentLuaMouseUp);
 	DECLARE_ID (componentLuaMouseDrag);
 	DECLARE_ID (componentLuaMouseDoubleClick);
 	DECLARE_ID (componentInternalFunction);
@@ -799,6 +802,8 @@ namespace Ids
 	DECLARE_ID (luaPanelMidiChannelChanged);
 	DECLARE_ID (luaPanelPaintBackground);
 	DECLARE_ID (luaPanelSaved);
+	DECLARE_ID (luaLayoutResized);
+	DECLARE_ID (luaPanelEditorResized);
 	DECLARE_ID (luaPanelResized);
 	DECLARE_ID (luaPanelOSCReceived);
 	DECLARE_ID (luaPanelProgramChanged);

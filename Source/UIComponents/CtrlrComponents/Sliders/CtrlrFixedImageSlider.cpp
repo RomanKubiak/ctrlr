@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "CtrlrFixedImageSlider.h"
+#include "CtrlrLuaManager.h"
 #include "CtrlrComponents/CtrlrFilmStripPainter.h"
 #include "CtrlrSliderInternal.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
@@ -98,6 +99,13 @@ void CtrlrFixedImageSlider::resized()
 void CtrlrFixedImageSlider::mouseUp (const MouseEvent& e)
 {
     //[UserCode_mouseUp] -- Add your code here...
+    if (mouseUpCbk && !mouseUpCbk.wasObjectDeleted())
+	{
+		if (mouseUpCbk->isValid())
+		{
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseUpCbk, this, e);
+		}
+	}
 	if ((bool)getProperty(Ids::uiSliderSpringMode) == true)
 	{
 		ctrlrSlider->setValue ((double)getProperty(Ids::uiSliderSpringValue), sendNotificationSync);

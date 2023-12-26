@@ -99,6 +99,7 @@ CtrlrComponent::CtrlrComponent(CtrlrModulator &_owner)
 	setProperty (Ids::componentValueDecimalPlaces, 0);
 	setProperty (Ids::componentLuaMouseMoved, COMBO_ITEM_NONE);
 	setProperty (Ids::componentLuaMouseDown, COMBO_ITEM_NONE);
+    setProperty (Ids::componentLuaMouseUp, COMBO_ITEM_NONE);
 	setProperty (Ids::componentLuaMouseDrag, COMBO_ITEM_NONE);
 	setProperty (Ids::componentLuaMouseDoubleClick, COMBO_ITEM_NONE);
 }
@@ -193,6 +194,17 @@ void CtrlrComponent::mouseDown(const MouseEvent &e)
 			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseDownCbk, this, e);
 		}
 	}
+}
+
+void CtrlrComponent::mouseUp(const MouseEvent &e)
+{
+    if (mouseUpCbk && !mouseUpCbk.wasObjectDeleted())
+    {
+        if (mouseUpCbk->isValid())
+        {
+            owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseUpCbk, this, e);
+        }
+    }
 }
 
 int CtrlrComponent::snapDim(int dim)
@@ -431,6 +443,13 @@ void CtrlrComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 
 		mouseDownCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
 	}
+    else if (property == Ids::componentLuaMouseUp)
+    {
+        if (isInvalidMethodName (getProperty(property)))
+            return;
+
+        mouseUpCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
+    }
 	else if (property == Ids::componentLuaMouseDrag)
 	{
 		if (isInvalidMethodName (getProperty(property)))
@@ -444,7 +463,8 @@ void CtrlrComponent::valueTreePropertyChanged (ValueTree &treeWhosePropertyHasCh
 			return;
 
 		mouseDoubleClickCbk = owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().getMethod(getProperty(property));
-	}
+	}	
+	
 	if (restoreStateInProgress == false)
 	{
 		repaint();
@@ -721,6 +741,7 @@ void CtrlrComponent::wrapForLua (lua_State *L)
 			.def("getY", &Component::getY)
 			.def("isVisible", &Component::isVisible)
 			.def("setVisible", &Component::setVisible)
+			.def("mouseUp", &Component::mouseUp)
 			.def("isMouseButtonDown", &Component::isMouseButtonDown)
 			.def("isMouseOver", &Component::isMouseOver)
 			.def("isMouseOverOrDragging", &Component::isMouseOverOrDragging)

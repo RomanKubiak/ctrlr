@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "CtrlrSlider.h"
+#include "CtrlrLuaManager.h"
 #include "CtrlrProcessor.h"
 #include "../CtrlrComponentTypeManager.h"
 #include "CtrlrPanel/CtrlrPanelEditor.h"
@@ -89,6 +90,13 @@ void CtrlrSlider::sliderValueChanged (Slider* sliderThatWasMoved)
 
 void CtrlrSlider::mouseUp (const MouseEvent& e)
 {
+	if (mouseUpCbk && !mouseUpCbk.wasObjectDeleted())
+	{
+		if (mouseUpCbk->isValid())
+		{
+			owner.getOwnerPanel().getCtrlrLuaManager().getMethodManager().call (mouseUpCbk, this, e);
+		}
+	}
 	if ((bool)getProperty(Ids::uiSliderSpringMode) == true)
 	{
 		ctrlrSlider.setValue ((double)getProperty(Ids::uiSliderSpringValue), sendNotificationSync);
